@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialGraphInteropFrameOfReferencePreviewImpl: Sized {
     fn CoordinateSystem(&self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn NodeId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CoordinateSystemToNodeTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix4x4>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const OFFSET: isize>() -> ISpatialGraphInteropFrameOfReferencePreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropFrameOfReferencePreviewVtbl {
         unsafe extern "system" fn CoordinateSystem<Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
@@ -44,23 +44,26 @@ impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropFrameOfReferencePreview>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>, NodeId::<Impl, OFFSET>, CoordinateSystemToNodeTransform::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropFrameOfReferencePreview>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>, NodeId::<Impl, IMPL_OFFSET>, CoordinateSystemToNodeTransform::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialGraphInteropFrameOfReferencePreview as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialGraphInteropPreviewStaticsImpl: Sized {
     fn CreateCoordinateSystemForNode(&self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn CreateCoordinateSystemForNodeWithPosition(&self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn CreateCoordinateSystemForNodeWithPositionAndOrientation(&self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn CreateLocatorForNode(&self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialLocator>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGraphInteropPreviewStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.ISpatialGraphInteropPreviewStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialGraphInteropPreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStaticsImpl, const OFFSET: isize>() -> ISpatialGraphInteropPreviewStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropPreviewStaticsVtbl {
         unsafe extern "system" fn CreateCoordinateSystemForNode<Impl: ISpatialGraphInteropPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCoordinateSystemForNode(&*(&nodeid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
@@ -110,32 +113,35 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropPreviewStatics>,
             ::windows::core::GetTrustLevel,
-            CreateCoordinateSystemForNode::<Impl, OFFSET>,
-            CreateCoordinateSystemForNodeWithPosition::<Impl, OFFSET>,
-            CreateCoordinateSystemForNodeWithPositionAndOrientation::<Impl, OFFSET>,
-            CreateLocatorForNode::<Impl, OFFSET>,
+            CreateCoordinateSystemForNode::<Impl, IMPL_OFFSET>,
+            CreateCoordinateSystemForNodeWithPosition::<Impl, IMPL_OFFSET>,
+            CreateCoordinateSystemForNodeWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+            CreateLocatorForNode::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialGraphInteropPreviewStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialGraphInteropPreviewStatics2Impl: Sized {
     fn TryCreateFrameOfReference(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
     fn TryCreateFrameOfReferenceWithPosition(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
     fn TryCreateFrameOfReferenceWithPositionAndOrientation(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGraphInteropPreviewStatics2 {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.ISpatialGraphInteropPreviewStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialGraphInteropPreviewStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStatics2Impl, const OFFSET: isize>() -> ISpatialGraphInteropPreviewStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropPreviewStatics2Vtbl {
         unsafe extern "system" fn TryCreateFrameOfReference<Impl: ISpatialGraphInteropPreviewStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFrameOfReference(&*(&coordinatesystem as *const <super::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
@@ -173,6 +179,9 @@ impl ISpatialGraphInteropPreviewStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropPreviewStatics2>, ::windows::core::GetTrustLevel, TryCreateFrameOfReference::<Impl, OFFSET>, TryCreateFrameOfReferenceWithPosition::<Impl, OFFSET>, TryCreateFrameOfReferenceWithPositionAndOrientation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialGraphInteropPreviewStatics2>, ::windows::core::GetTrustLevel, TryCreateFrameOfReference::<Impl, IMPL_OFFSET>, TryCreateFrameOfReferenceWithPosition::<Impl, IMPL_OFFSET>, TryCreateFrameOfReferenceWithPositionAndOrientation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialGraphInteropPreviewStatics2 as ::windows::core::Interface>::IID
     }
 }

@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IJumpListImpl: Sized {
     fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<JumpListItem>>;
     fn SystemGroupKind(&self) -> ::windows::core::Result<JumpListSystemGroupKind>;
     fn SetSystemGroupKind(&self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()>;
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpList";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IJumpListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListImpl, const OFFSET: isize>() -> IJumpListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListVtbl {
         unsafe extern "system" fn Items<Impl: IJumpListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
@@ -49,10 +49,13 @@ impl IJumpListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpList>, ::windows::core::GetTrustLevel, Items::<Impl, OFFSET>, SystemGroupKind::<Impl, OFFSET>, SetSystemGroupKind::<Impl, OFFSET>, SaveAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpList>, ::windows::core::GetTrustLevel, Items::<Impl, IMPL_OFFSET>, SystemGroupKind::<Impl, IMPL_OFFSET>, SetSystemGroupKind::<Impl, IMPL_OFFSET>, SaveAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJumpList as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IJumpListItemImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<JumpListItemKind>;
     fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -66,13 +69,13 @@ pub trait IJumpListItemImpl: Sized {
     fn Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetLogo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpListItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IJumpListItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemImpl, const OFFSET: isize>() -> IJumpListItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListItemVtbl {
         unsafe extern "system" fn Kind<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JumpListItemKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -167,24 +170,27 @@ impl IJumpListItemVtbl {
             (*this).SetLogo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IJumpListItem>,
             ::windows::core::GetTrustLevel,
-            Kind::<Impl, OFFSET>,
-            Arguments::<Impl, OFFSET>,
-            RemovedByUser::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            GroupName::<Impl, OFFSET>,
-            SetGroupName::<Impl, OFFSET>,
-            Logo::<Impl, OFFSET>,
-            SetLogo::<Impl, OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            Arguments::<Impl, IMPL_OFFSET>,
+            RemovedByUser::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            GroupName::<Impl, IMPL_OFFSET>,
+            SetGroupName::<Impl, IMPL_OFFSET>,
+            Logo::<Impl, IMPL_OFFSET>,
+            SetLogo::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJumpListItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -198,7 +204,7 @@ impl ::windows::core::RuntimeName for IJumpListItemStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJumpListItemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemStaticsImpl, const OFFSET: isize>() -> IJumpListItemStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListItemStaticsVtbl {
         unsafe extern "system" fn CreateWithArguments<Impl: IJumpListItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithArguments(&*(&arguments as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -221,21 +227,24 @@ impl IJumpListItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListItemStatics>, ::windows::core::GetTrustLevel, CreateWithArguments::<Impl, OFFSET>, CreateSeparator::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListItemStatics>, ::windows::core::GetTrustLevel, CreateWithArguments::<Impl, IMPL_OFFSET>, CreateSeparator::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJumpListItemStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IJumpListStaticsImpl: Sized {
     fn LoadCurrentAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<JumpList>>;
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpListStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpListStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IJumpListStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListStaticsImpl, const OFFSET: isize>() -> IJumpListStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListStaticsVtbl {
         unsafe extern "system" fn LoadCurrentAsync<Impl: IJumpListStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadCurrentAsync() {
@@ -258,10 +267,13 @@ impl IJumpListStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListStatics>, ::windows::core::GetTrustLevel, LoadCurrentAsync::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJumpListStatics>, ::windows::core::GetTrustLevel, LoadCurrentAsync::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJumpListStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ISecondaryTileImpl: Sized {
     fn SetTileId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -297,13 +309,13 @@ pub trait ISecondaryTileImpl: Sized {
     fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTile";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ISecondaryTileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileImpl, const OFFSET: isize>() -> ISecondaryTileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVtbl {
         unsafe extern "system" fn SetTileId<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTileId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -584,49 +596,52 @@ impl ISecondaryTileVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryTile>,
             ::windows::core::GetTrustLevel,
-            SetTileId::<Impl, OFFSET>,
-            TileId::<Impl, OFFSET>,
-            SetArguments::<Impl, OFFSET>,
-            Arguments::<Impl, OFFSET>,
-            SetShortName::<Impl, OFFSET>,
-            ShortName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetLogo::<Impl, OFFSET>,
-            Logo::<Impl, OFFSET>,
-            SetSmallLogo::<Impl, OFFSET>,
-            SmallLogo::<Impl, OFFSET>,
-            SetWideLogo::<Impl, OFFSET>,
-            WideLogo::<Impl, OFFSET>,
-            SetLockScreenBadgeLogo::<Impl, OFFSET>,
-            LockScreenBadgeLogo::<Impl, OFFSET>,
-            SetLockScreenDisplayBadgeAndTileText::<Impl, OFFSET>,
-            LockScreenDisplayBadgeAndTileText::<Impl, OFFSET>,
-            SetTileOptions::<Impl, OFFSET>,
-            TileOptions::<Impl, OFFSET>,
-            SetForegroundText::<Impl, OFFSET>,
-            ForegroundText::<Impl, OFFSET>,
-            SetBackgroundColor::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            RequestCreateAsync::<Impl, OFFSET>,
-            RequestCreateAsyncWithPoint::<Impl, OFFSET>,
-            RequestCreateAsyncWithRect::<Impl, OFFSET>,
-            RequestCreateAsyncWithRectAndPlacement::<Impl, OFFSET>,
-            RequestDeleteAsync::<Impl, OFFSET>,
-            RequestDeleteAsyncWithPoint::<Impl, OFFSET>,
-            RequestDeleteAsyncWithRect::<Impl, OFFSET>,
-            RequestDeleteAsyncWithRectAndPlacement::<Impl, OFFSET>,
-            UpdateAsync::<Impl, OFFSET>,
+            SetTileId::<Impl, IMPL_OFFSET>,
+            TileId::<Impl, IMPL_OFFSET>,
+            SetArguments::<Impl, IMPL_OFFSET>,
+            Arguments::<Impl, IMPL_OFFSET>,
+            SetShortName::<Impl, IMPL_OFFSET>,
+            ShortName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetLogo::<Impl, IMPL_OFFSET>,
+            Logo::<Impl, IMPL_OFFSET>,
+            SetSmallLogo::<Impl, IMPL_OFFSET>,
+            SmallLogo::<Impl, IMPL_OFFSET>,
+            SetWideLogo::<Impl, IMPL_OFFSET>,
+            WideLogo::<Impl, IMPL_OFFSET>,
+            SetLockScreenBadgeLogo::<Impl, IMPL_OFFSET>,
+            LockScreenBadgeLogo::<Impl, IMPL_OFFSET>,
+            SetLockScreenDisplayBadgeAndTileText::<Impl, IMPL_OFFSET>,
+            LockScreenDisplayBadgeAndTileText::<Impl, IMPL_OFFSET>,
+            SetTileOptions::<Impl, IMPL_OFFSET>,
+            TileOptions::<Impl, IMPL_OFFSET>,
+            SetForegroundText::<Impl, IMPL_OFFSET>,
+            ForegroundText::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            RequestCreateAsync::<Impl, IMPL_OFFSET>,
+            RequestCreateAsyncWithPoint::<Impl, IMPL_OFFSET>,
+            RequestCreateAsyncWithRect::<Impl, IMPL_OFFSET>,
+            RequestCreateAsyncWithRectAndPlacement::<Impl, IMPL_OFFSET>,
+            RequestDeleteAsync::<Impl, IMPL_OFFSET>,
+            RequestDeleteAsyncWithPoint::<Impl, IMPL_OFFSET>,
+            RequestDeleteAsyncWithRect::<Impl, IMPL_OFFSET>,
+            RequestDeleteAsyncWithRectAndPlacement::<Impl, IMPL_OFFSET>,
+            UpdateAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTile as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ISecondaryTile2Impl: Sized + ISecondaryTileImpl {
     fn SetPhoneticName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PhoneticName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -636,13 +651,13 @@ pub trait ISecondaryTile2Impl: Sized + ISecondaryTileImpl {
     fn VisualElementsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveVisualElementsRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTile2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTile2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ISecondaryTile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTile2Impl, const OFFSET: isize>() -> ISecondaryTile2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTile2Vtbl {
         unsafe extern "system" fn SetPhoneticName<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhoneticName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -700,35 +715,38 @@ impl ISecondaryTile2Vtbl {
             (*this).RemoveVisualElementsRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryTile2>,
             ::windows::core::GetTrustLevel,
-            SetPhoneticName::<Impl, OFFSET>,
-            PhoneticName::<Impl, OFFSET>,
-            VisualElements::<Impl, OFFSET>,
-            SetRoamingEnabled::<Impl, OFFSET>,
-            RoamingEnabled::<Impl, OFFSET>,
-            VisualElementsRequested::<Impl, OFFSET>,
-            RemoveVisualElementsRequested::<Impl, OFFSET>,
+            SetPhoneticName::<Impl, IMPL_OFFSET>,
+            PhoneticName::<Impl, IMPL_OFFSET>,
+            VisualElements::<Impl, IMPL_OFFSET>,
+            SetRoamingEnabled::<Impl, IMPL_OFFSET>,
+            RoamingEnabled::<Impl, IMPL_OFFSET>,
+            VisualElementsRequested::<Impl, IMPL_OFFSET>,
+            RemoveVisualElementsRequested::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTile2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileFactoryImpl: Sized {
     fn CreateTile(&self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
     fn CreateWideTile(&self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>, widelogoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
     fn CreateWithId(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<SecondaryTile>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileFactory {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISecondaryTileFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactoryImpl, const OFFSET: isize>() -> ISecondaryTileFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileFactoryVtbl {
         unsafe extern "system" fn CreateTile<Impl: ISecondaryTileFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, shortname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tileoptions: TileOptions, logoreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTile(
@@ -777,20 +795,23 @@ impl ISecondaryTileFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileFactory>, ::windows::core::GetTrustLevel, CreateTile::<Impl, OFFSET>, CreateWideTile::<Impl, OFFSET>, CreateWithId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileFactory>, ::windows::core::GetTrustLevel, CreateTile::<Impl, IMPL_OFFSET>, CreateWideTile::<Impl, IMPL_OFFSET>, CreateWithId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileFactory2Impl: Sized + ISecondaryTileFactoryImpl {
     fn CreateMinimalTile(&self, tileid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, square150x150logo: &::core::option::Option<super::super::Foundation::Uri>, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileFactory2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileFactory2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISecondaryTileFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactory2Impl, const OFFSET: isize>() -> ISecondaryTileFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileFactory2Vtbl {
         unsafe extern "system" fn CreateMinimalTile<Impl: ISecondaryTileFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, square150x150logo: ::windows::core::RawPtr, desiredsize: TileSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMinimalTile(
@@ -808,23 +829,26 @@ impl ISecondaryTileFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileFactory2>, ::windows::core::GetTrustLevel, CreateMinimalTile::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileFactory2>, ::windows::core::GetTrustLevel, CreateMinimalTile::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileFactory2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISecondaryTileStaticsImpl: Sized {
     fn Exists(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
     fn FindAllForApplicationAsync(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
     fn FindAllForPackageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISecondaryTileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileStaticsImpl, const OFFSET: isize>() -> ISecondaryTileStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileStaticsVtbl {
         unsafe extern "system" fn Exists<Impl: ISecondaryTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exists(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -869,10 +893,13 @@ impl ISecondaryTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileStatics>, ::windows::core::GetTrustLevel, Exists::<Impl, OFFSET>, FindAllAsync::<Impl, OFFSET>, FindAllForApplicationAsync::<Impl, OFFSET>, FindAllForPackageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileStatics>, ::windows::core::GetTrustLevel, Exists::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FindAllForApplicationAsync::<Impl, IMPL_OFFSET>, FindAllForPackageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileVisualElementsImpl: Sized {
     fn SetSquare30x30Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Square30x30Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -895,13 +922,13 @@ pub trait ISecondaryTileVisualElementsImpl: Sized {
     fn SetShowNameOnSquare310x310Logo(&self, value: bool) -> ::windows::core::Result<()>;
     fn ShowNameOnSquare310x310Logo(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISecondaryTileVisualElementsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>() -> ISecondaryTileVisualElementsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElementsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElementsVtbl {
         unsafe extern "system" fn SetSquare30x30Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare30x30Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1053,47 +1080,50 @@ impl ISecondaryTileVisualElementsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements>,
             ::windows::core::GetTrustLevel,
-            SetSquare30x30Logo::<Impl, OFFSET>,
-            Square30x30Logo::<Impl, OFFSET>,
-            SetSquare70x70Logo::<Impl, OFFSET>,
-            Square70x70Logo::<Impl, OFFSET>,
-            SetSquare150x150Logo::<Impl, OFFSET>,
-            Square150x150Logo::<Impl, OFFSET>,
-            SetWide310x150Logo::<Impl, OFFSET>,
-            Wide310x150Logo::<Impl, OFFSET>,
-            SetSquare310x310Logo::<Impl, OFFSET>,
-            Square310x310Logo::<Impl, OFFSET>,
-            SetForegroundText::<Impl, OFFSET>,
-            ForegroundText::<Impl, OFFSET>,
-            SetBackgroundColor::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            SetShowNameOnSquare150x150Logo::<Impl, OFFSET>,
-            ShowNameOnSquare150x150Logo::<Impl, OFFSET>,
-            SetShowNameOnWide310x150Logo::<Impl, OFFSET>,
-            ShowNameOnWide310x150Logo::<Impl, OFFSET>,
-            SetShowNameOnSquare310x310Logo::<Impl, OFFSET>,
-            ShowNameOnSquare310x310Logo::<Impl, OFFSET>,
+            SetSquare30x30Logo::<Impl, IMPL_OFFSET>,
+            Square30x30Logo::<Impl, IMPL_OFFSET>,
+            SetSquare70x70Logo::<Impl, IMPL_OFFSET>,
+            Square70x70Logo::<Impl, IMPL_OFFSET>,
+            SetSquare150x150Logo::<Impl, IMPL_OFFSET>,
+            Square150x150Logo::<Impl, IMPL_OFFSET>,
+            SetWide310x150Logo::<Impl, IMPL_OFFSET>,
+            Wide310x150Logo::<Impl, IMPL_OFFSET>,
+            SetSquare310x310Logo::<Impl, IMPL_OFFSET>,
+            Square310x310Logo::<Impl, IMPL_OFFSET>,
+            SetForegroundText::<Impl, IMPL_OFFSET>,
+            ForegroundText::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetShowNameOnSquare150x150Logo::<Impl, IMPL_OFFSET>,
+            ShowNameOnSquare150x150Logo::<Impl, IMPL_OFFSET>,
+            SetShowNameOnWide310x150Logo::<Impl, IMPL_OFFSET>,
+            ShowNameOnWide310x150Logo::<Impl, IMPL_OFFSET>,
+            SetShowNameOnSquare310x310Logo::<Impl, IMPL_OFFSET>,
+            ShowNameOnSquare310x310Logo::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileVisualElements as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileVisualElements2Impl: Sized {
     fn SetSquare71x71Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Square71x71Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISecondaryTileVisualElements2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements2Impl, const OFFSET: isize>() -> ISecondaryTileVisualElements2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements2Vtbl {
         unsafe extern "system" fn SetSquare71x71Logo<Impl: ISecondaryTileVisualElements2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare71x71Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1109,21 +1139,24 @@ impl ISecondaryTileVisualElements2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements2>, ::windows::core::GetTrustLevel, SetSquare71x71Logo::<Impl, OFFSET>, Square71x71Logo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements2>, ::windows::core::GetTrustLevel, SetSquare71x71Logo::<Impl, IMPL_OFFSET>, Square71x71Logo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileVisualElements2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileVisualElements3Impl: Sized {
     fn SetSquare44x44Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Square44x44Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements3 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISecondaryTileVisualElements3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements3Impl, const OFFSET: isize>() -> ISecondaryTileVisualElements3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements3Vtbl {
         unsafe extern "system" fn SetSquare44x44Logo<Impl: ISecondaryTileVisualElements3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare44x44Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1139,7 +1172,10 @@ impl ISecondaryTileVisualElements3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements3>, ::windows::core::GetTrustLevel, SetSquare44x44Logo::<Impl, OFFSET>, Square44x44Logo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements3>, ::windows::core::GetTrustLevel, SetSquare44x44Logo::<Impl, IMPL_OFFSET>, Square44x44Logo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileVisualElements3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1152,7 +1188,7 @@ impl ::windows::core::RuntimeName for ISecondaryTileVisualElements4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISecondaryTileVisualElements4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements4Impl, const OFFSET: isize>() -> ISecondaryTileVisualElements4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements4Vtbl {
         unsafe extern "system" fn MixedRealityModel<Impl: ISecondaryTileVisualElements4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MixedRealityModel() {
@@ -1164,23 +1200,26 @@ impl ISecondaryTileVisualElements4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements4>, ::windows::core::GetTrustLevel, MixedRealityModel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryTileVisualElements4>, ::windows::core::GetTrustLevel, MixedRealityModel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryTileVisualElements4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStartScreenManagerImpl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
     fn SupportsAppListEntry(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<bool>;
     fn ContainsAppListEntryAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RequestAddAppListEntryAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.IStartScreenManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IStartScreenManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerImpl, const OFFSET: isize>() -> IStartScreenManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManagerVtbl {
         unsafe extern "system" fn User<Impl: IStartScreenManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -1225,21 +1264,24 @@ impl IStartScreenManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartScreenManager>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>, SupportsAppListEntry::<Impl, OFFSET>, ContainsAppListEntryAsync::<Impl, OFFSET>, RequestAddAppListEntryAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartScreenManager>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, SupportsAppListEntry::<Impl, IMPL_OFFSET>, ContainsAppListEntryAsync::<Impl, IMPL_OFFSET>, RequestAddAppListEntryAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStartScreenManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStartScreenManager2Impl: Sized + IStartScreenManagerImpl {
     fn ContainsSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryRemoveSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartScreenManager2 {
     const NAME: &'static str = "Windows.UI.StartScreen.IStartScreenManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IStartScreenManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManager2Impl, const OFFSET: isize>() -> IStartScreenManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManager2Vtbl {
         unsafe extern "system" fn ContainsSecondaryTileAsync<Impl: IStartScreenManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainsSecondaryTileAsync(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1262,21 +1304,24 @@ impl IStartScreenManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartScreenManager2>, ::windows::core::GetTrustLevel, ContainsSecondaryTileAsync::<Impl, OFFSET>, TryRemoveSecondaryTileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartScreenManager2>, ::windows::core::GetTrustLevel, ContainsSecondaryTileAsync::<Impl, IMPL_OFFSET>, TryRemoveSecondaryTileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStartScreenManager2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStartScreenManagerStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<StartScreenManager>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StartScreenManager>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartScreenManagerStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.IStartScreenManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IStartScreenManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerStaticsImpl, const OFFSET: isize>() -> IStartScreenManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManagerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IStartScreenManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -1299,23 +1344,26 @@ impl IStartScreenManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartScreenManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartScreenManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStartScreenManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ITileMixedRealityModelImpl: Sized {
     fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetBoundingBox(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>) -> ::windows::core::Result<()>;
     fn BoundingBox(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.ITileMixedRealityModel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ITileMixedRealityModelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModelImpl, const OFFSET: isize>() -> ITileMixedRealityModelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileMixedRealityModelVtbl {
         unsafe extern "system" fn SetUri<Impl: ITileMixedRealityModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1346,7 +1394,10 @@ impl ITileMixedRealityModelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileMixedRealityModel>, ::windows::core::GetTrustLevel, SetUri::<Impl, OFFSET>, Uri::<Impl, OFFSET>, SetBoundingBox::<Impl, OFFSET>, BoundingBox::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileMixedRealityModel>, ::windows::core::GetTrustLevel, SetUri::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, SetBoundingBox::<Impl, IMPL_OFFSET>, BoundingBox::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileMixedRealityModel as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1360,7 +1411,7 @@ impl ::windows::core::RuntimeName for ITileMixedRealityModel2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITileMixedRealityModel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModel2Impl, const OFFSET: isize>() -> ITileMixedRealityModel2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileMixedRealityModel2Vtbl {
         unsafe extern "system" fn SetActivationBehavior<Impl: ITileMixedRealityModel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActivationBehavior(value).into()
@@ -1376,23 +1427,26 @@ impl ITileMixedRealityModel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileMixedRealityModel2>, ::windows::core::GetTrustLevel, SetActivationBehavior::<Impl, OFFSET>, ActivationBehavior::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileMixedRealityModel2>, ::windows::core::GetTrustLevel, SetActivationBehavior::<Impl, IMPL_OFFSET>, ActivationBehavior::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileMixedRealityModel2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVisualElementsRequestImpl: Sized {
     fn VisualElements(&self) -> ::windows::core::Result<SecondaryTileVisualElements>;
     fn AlternateVisualElements(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn GetDeferral(&self) -> ::windows::core::Result<VisualElementsRequestDeferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.IVisualElementsRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVisualElementsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestImpl, const OFFSET: isize>() -> IVisualElementsRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestVtbl {
         unsafe extern "system" fn VisualElements<Impl: IVisualElementsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisualElements() {
@@ -1437,7 +1491,10 @@ impl IVisualElementsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualElementsRequest>, ::windows::core::GetTrustLevel, VisualElements::<Impl, OFFSET>, AlternateVisualElements::<Impl, OFFSET>, Deadline::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualElementsRequest>, ::windows::core::GetTrustLevel, VisualElements::<Impl, IMPL_OFFSET>, AlternateVisualElements::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualElementsRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1450,12 +1507,15 @@ impl ::windows::core::RuntimeName for IVisualElementsRequestDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVisualElementsRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestDeferralImpl, const OFFSET: isize>() -> IVisualElementsRequestDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IVisualElementsRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualElementsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualElementsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualElementsRequestDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1468,7 +1528,7 @@ impl ::windows::core::RuntimeName for IVisualElementsRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVisualElementsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestedEventArgsImpl, const OFFSET: isize>() -> IVisualElementsRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IVisualElementsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -1480,6 +1540,9 @@ impl IVisualElementsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualElementsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualElementsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualElementsRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

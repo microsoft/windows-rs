@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowBackgroundSessionImpl: Sized {
     fn SetupRequested(&self, setupeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSetupRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -7,13 +7,13 @@ pub trait IPrintWorkflowBackgroundSessionImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
     fn Start(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowBackgroundSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowBackgroundSessionImpl, const OFFSET: isize>() -> IPrintWorkflowBackgroundSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowBackgroundSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowBackgroundSessionVtbl {
         unsafe extern "system" fn SetupRequested<Impl: IPrintWorkflowBackgroundSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setupeventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetupRequested(&*(&setupeventhandler as *const <super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -59,23 +59,39 @@ impl IPrintWorkflowBackgroundSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowBackgroundSession>, ::windows::core::GetTrustLevel, SetupRequested::<Impl, OFFSET>, RemoveSetupRequested::<Impl, OFFSET>, Submitted::<Impl, OFFSET>, RemoveSubmitted::<Impl, OFFSET>, Status::<Impl, OFFSET>, Start::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintWorkflowBackgroundSession>,
+            ::windows::core::GetTrustLevel,
+            SetupRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetupRequested::<Impl, IMPL_OFFSET>,
+            Submitted::<Impl, IMPL_OFFSET>,
+            RemoveSubmitted::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowBackgroundSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowBackgroundSetupRequestedEventArgsImpl: Sized {
     fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
     fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
     fn SetRequiresUI(&self) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowBackgroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowBackgroundSetupRequestedEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowBackgroundSetupRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
         unsafe extern "system" fn GetUserPrintTicketAsync<Impl: IPrintWorkflowBackgroundSetupRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUserPrintTicketAsync() {
@@ -113,7 +129,10 @@ impl IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowBackgroundSetupRequestedEventArgs>, ::windows::core::GetTrustLevel, GetUserPrintTicketAsync::<Impl, OFFSET>, Configuration::<Impl, OFFSET>, SetRequiresUI::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowBackgroundSetupRequestedEventArgs>, ::windows::core::GetTrustLevel, GetUserPrintTicketAsync::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>, SetRequiresUI::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowBackgroundSetupRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -128,7 +147,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfigurationImpl, const OFFSET: isize>() -> IPrintWorkflowConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowConfigurationVtbl {
         unsafe extern "system" fn SourceAppDisplayName<Impl: IPrintWorkflowConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAppDisplayName() {
@@ -162,7 +181,10 @@ impl IPrintWorkflowConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowConfiguration>, ::windows::core::GetTrustLevel, SourceAppDisplayName::<Impl, OFFSET>, JobTitle::<Impl, OFFSET>, SessionId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowConfiguration>, ::windows::core::GetTrustLevel, SourceAppDisplayName::<Impl, IMPL_OFFSET>, JobTitle::<Impl, IMPL_OFFSET>, SessionId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -175,15 +197,18 @@ impl ::windows::core::RuntimeName for IPrintWorkflowConfiguration2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfiguration2Impl, const OFFSET: isize>() -> IPrintWorkflowConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowConfiguration2Vtbl {
         unsafe extern "system" fn AbortPrintFlow<Impl: IPrintWorkflowConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: PrintWorkflowJobAbortReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AbortPrintFlow(reason).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowConfiguration2>, ::windows::core::GetTrustLevel, AbortPrintFlow::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowConfiguration2>, ::windows::core::GetTrustLevel, AbortPrintFlow::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowConfiguration2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowForegroundSessionImpl: Sized {
     fn SetupRequested(&self, setupeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSetupRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -192,13 +217,13 @@ pub trait IPrintWorkflowForegroundSessionImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
     fn Start(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowForegroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowForegroundSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowForegroundSessionImpl, const OFFSET: isize>() -> IPrintWorkflowForegroundSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowForegroundSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowForegroundSessionVtbl {
         unsafe extern "system" fn SetupRequested<Impl: IPrintWorkflowForegroundSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setupeventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetupRequested(&*(&setupeventhandler as *const <super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -244,22 +269,38 @@ impl IPrintWorkflowForegroundSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowForegroundSession>, ::windows::core::GetTrustLevel, SetupRequested::<Impl, OFFSET>, RemoveSetupRequested::<Impl, OFFSET>, XpsDataAvailable::<Impl, OFFSET>, RemoveXpsDataAvailable::<Impl, OFFSET>, Status::<Impl, OFFSET>, Start::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintWorkflowForegroundSession>,
+            ::windows::core::GetTrustLevel,
+            SetupRequested::<Impl, IMPL_OFFSET>,
+            RemoveSetupRequested::<Impl, IMPL_OFFSET>,
+            XpsDataAvailable::<Impl, IMPL_OFFSET>,
+            RemoveXpsDataAvailable::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowForegroundSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowForegroundSetupRequestedEventArgsImpl: Sized {
     fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
     fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowForegroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowForegroundSetupRequestedEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowForegroundSetupRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
         unsafe extern "system" fn GetUserPrintTicketAsync<Impl: IPrintWorkflowForegroundSetupRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUserPrintTicketAsync() {
@@ -293,7 +334,10 @@ impl IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowForegroundSetupRequestedEventArgs>, ::windows::core::GetTrustLevel, GetUserPrintTicketAsync::<Impl, OFFSET>, Configuration::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowForegroundSetupRequestedEventArgs>, ::windows::core::GetTrustLevel, GetUserPrintTicketAsync::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowForegroundSetupRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -306,7 +350,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowJobActivatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowJobActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobActivatedEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowJobActivatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowJobActivatedEventArgsVtbl {
         unsafe extern "system" fn Session<Impl: IPrintWorkflowJobActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -318,10 +362,13 @@ impl IPrintWorkflowJobActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobActivatedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobActivatedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowJobActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobBackgroundSessionImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
     fn JobStarting(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -330,13 +377,13 @@ pub trait IPrintWorkflowJobBackgroundSessionImpl: Sized {
     fn RemovePdlModificationRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Start(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowJobBackgroundSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowJobBackgroundSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobBackgroundSessionImpl, const OFFSET: isize>() -> IPrintWorkflowJobBackgroundSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobBackgroundSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowJobBackgroundSessionVtbl {
         unsafe extern "system" fn Status<Impl: IPrintWorkflowJobBackgroundSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintWorkflowSessionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -382,22 +429,38 @@ impl IPrintWorkflowJobBackgroundSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobBackgroundSession>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, JobStarting::<Impl, OFFSET>, RemoveJobStarting::<Impl, OFFSET>, PdlModificationRequested::<Impl, OFFSET>, RemovePdlModificationRequested::<Impl, OFFSET>, Start::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobBackgroundSession>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, IMPL_OFFSET>,
+            JobStarting::<Impl, IMPL_OFFSET>,
+            RemoveJobStarting::<Impl, IMPL_OFFSET>,
+            PdlModificationRequested::<Impl, IMPL_OFFSET>,
+            RemovePdlModificationRequested::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowJobBackgroundSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobNotificationEventArgsImpl: Sized {
     fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
     fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobNotificationEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowJobNotificationEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowJobNotificationEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobNotificationEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowJobNotificationEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobNotificationEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowJobNotificationEventArgsVtbl {
         unsafe extern "system" fn Configuration<Impl: IPrintWorkflowJobNotificationEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -431,23 +494,26 @@ impl IPrintWorkflowJobNotificationEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobNotificationEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, OFFSET>, PrinterJob::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobNotificationEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, PrinterJob::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowJobNotificationEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobStartingEventArgsImpl: Sized {
     fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
     fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice>;
     fn SetSkipSystemRendering(&self) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobStartingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowJobStartingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowJobStartingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobStartingEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowJobStartingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobStartingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowJobStartingEventArgsVtbl {
         unsafe extern "system" fn Configuration<Impl: IPrintWorkflowJobStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -485,7 +551,10 @@ impl IPrintWorkflowJobStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobStartingEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, OFFSET>, Printer::<Impl, OFFSET>, SetSkipSystemRendering::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobStartingEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, Printer::<Impl, IMPL_OFFSET>, SetSkipSystemRendering::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowJobStartingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -498,7 +567,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowJobTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowJobTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobTriggerDetailsImpl, const OFFSET: isize>() -> IPrintWorkflowJobTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowJobTriggerDetailsVtbl {
         unsafe extern "system" fn PrintWorkflowJobSession<Impl: IPrintWorkflowJobTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintWorkflowJobSession() {
@@ -510,10 +579,13 @@ impl IPrintWorkflowJobTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobTriggerDetails>, ::windows::core::GetTrustLevel, PrintWorkflowJobSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobTriggerDetails>, ::windows::core::GetTrustLevel, PrintWorkflowJobSession::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowJobTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobUISessionImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
     fn PdlDataAvailable(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -522,13 +594,13 @@ pub trait IPrintWorkflowJobUISessionImpl: Sized {
     fn RemoveJobNotification(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Start(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowJobUISession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowJobUISessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobUISessionImpl, const OFFSET: isize>() -> IPrintWorkflowJobUISessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowJobUISessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowJobUISessionVtbl {
         unsafe extern "system" fn Status<Impl: IPrintWorkflowJobUISessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintWorkflowSessionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -574,7 +646,23 @@ impl IPrintWorkflowJobUISessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobUISession>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, PdlDataAvailable::<Impl, OFFSET>, RemovePdlDataAvailable::<Impl, OFFSET>, JobNotification::<Impl, OFFSET>, RemoveJobNotification::<Impl, OFFSET>, Start::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintWorkflowJobUISession>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, IMPL_OFFSET>,
+            PdlDataAvailable::<Impl, IMPL_OFFSET>,
+            RemovePdlDataAvailable::<Impl, IMPL_OFFSET>,
+            JobNotification::<Impl, IMPL_OFFSET>,
+            RemoveJobNotification::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowJobUISession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -585,21 +673,24 @@ impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelSourceFileContent
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowObjectModelSourceFileContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentImpl, const OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelSourceFileContent>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelSourceFileContent>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowObjectModelSourceFileContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowObjectModelSourceFileContentFactoryImpl: Sized {
     fn CreateInstance(&self, xpsstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelSourceFileContentFactory {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentFactoryImpl, const OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IPrintWorkflowObjectModelSourceFileContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpsstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&xpsstream as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -611,7 +702,10 @@ impl IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelSourceFileContentFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelSourceFileContentFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowObjectModelSourceFileContentFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -622,21 +716,24 @@ impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelTargetPackage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowObjectModelTargetPackageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelTargetPackageImpl, const OFFSET: isize>() -> IPrintWorkflowObjectModelTargetPackageVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelTargetPackage>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelTargetPackageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelTargetPackageVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowObjectModelTargetPackage>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowObjectModelTargetPackage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlConverterImpl: Sized {
     fn ConvertPdlAsync(&self, printticket: &::core::option::Option<super::PrintTicket::WorkflowPrintTicket>, inputstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>, outputstream: &::core::option::Option<super::super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlConverter {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowPdlConverter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowPdlConverterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlConverterImpl, const OFFSET: isize>() -> IPrintWorkflowPdlConverterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlConverterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowPdlConverterVtbl {
         unsafe extern "system" fn ConvertPdlAsync<Impl: IPrintWorkflowPdlConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printticket: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertPdlAsync(
@@ -652,23 +749,26 @@ impl IPrintWorkflowPdlConverterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlConverter>, ::windows::core::GetTrustLevel, ConvertPdlAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlConverter>, ::windows::core::GetTrustLevel, ConvertPdlAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowPdlConverter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlDataAvailableEventArgsImpl: Sized {
     fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
     fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
     fn SourceContent(&self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowPdlDataAvailableEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowPdlDataAvailableEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlDataAvailableEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowPdlDataAvailableEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlDataAvailableEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowPdlDataAvailableEventArgsVtbl {
         unsafe extern "system" fn Configuration<Impl: IPrintWorkflowPdlDataAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -713,10 +813,13 @@ impl IPrintWorkflowPdlDataAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlDataAvailableEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, OFFSET>, PrinterJob::<Impl, OFFSET>, SourceContent::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlDataAvailableEventArgs>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, PrinterJob::<Impl, IMPL_OFFSET>, SourceContent::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowPdlDataAvailableEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlModificationRequestedEventArgsImpl: Sized {
     fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
     fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
@@ -728,13 +831,13 @@ pub trait IPrintWorkflowPdlModificationRequestedEventArgsImpl: Sized {
     fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> ::windows::core::Result<PrintWorkflowPdlConverter>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlModificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowPdlModificationRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlModificationRequestedEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlModificationRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
         unsafe extern "system" fn Configuration<Impl: IPrintWorkflowPdlModificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -838,37 +941,40 @@ impl IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlModificationRequestedEventArgs>,
             ::windows::core::GetTrustLevel,
-            Configuration::<Impl, OFFSET>,
-            PrinterJob::<Impl, OFFSET>,
-            SourceContent::<Impl, OFFSET>,
-            UILauncher::<Impl, OFFSET>,
-            CreateJobOnPrinter::<Impl, OFFSET>,
-            CreateJobOnPrinterWithAttributes::<Impl, OFFSET>,
-            CreateJobOnPrinterWithAttributesBuffer::<Impl, OFFSET>,
-            GetPdlConverter::<Impl, OFFSET>,
-            GetDeferral::<Impl, OFFSET>,
+            Configuration::<Impl, IMPL_OFFSET>,
+            PrinterJob::<Impl, IMPL_OFFSET>,
+            SourceContent::<Impl, IMPL_OFFSET>,
+            UILauncher::<Impl, IMPL_OFFSET>,
+            CreateJobOnPrinter::<Impl, IMPL_OFFSET>,
+            CreateJobOnPrinterWithAttributes::<Impl, IMPL_OFFSET>,
+            CreateJobOnPrinterWithAttributesBuffer::<Impl, IMPL_OFFSET>,
+            GetPdlConverter::<Impl, IMPL_OFFSET>,
+            GetDeferral::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowPdlModificationRequestedEventArgs as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlSourceContentImpl: Sized {
     fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
     fn GetContentFileAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowPdlSourceContent";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowPdlSourceContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlSourceContentImpl, const OFFSET: isize>() -> IPrintWorkflowPdlSourceContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlSourceContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowPdlSourceContentVtbl {
         unsafe extern "system" fn ContentType<Impl: IPrintWorkflowPdlSourceContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentType() {
@@ -902,21 +1008,24 @@ impl IPrintWorkflowPdlSourceContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlSourceContent>, ::windows::core::GetTrustLevel, ContentType::<Impl, OFFSET>, GetInputStream::<Impl, OFFSET>, GetContentFileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlSourceContent>, ::windows::core::GetTrustLevel, ContentType::<Impl, IMPL_OFFSET>, GetInputStream::<Impl, IMPL_OFFSET>, GetContentFileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowPdlSourceContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlTargetStreamImpl: Sized {
     fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream>;
     fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlTargetStream {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowPdlTargetStream";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowPdlTargetStreamVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlTargetStreamImpl, const OFFSET: isize>() -> IPrintWorkflowPdlTargetStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPdlTargetStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowPdlTargetStreamVtbl {
         unsafe extern "system" fn GetOutputStream<Impl: IPrintWorkflowPdlTargetStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOutputStream() {
@@ -932,10 +1041,13 @@ impl IPrintWorkflowPdlTargetStreamVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CompleteStreamSubmission(status).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlTargetStream>, ::windows::core::GetTrustLevel, GetOutputStream::<Impl, OFFSET>, CompleteStreamSubmission::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowPdlTargetStream>, ::windows::core::GetTrustLevel, GetOutputStream::<Impl, IMPL_OFFSET>, CompleteStreamSubmission::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowPdlTargetStream as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPrinterJobImpl: Sized {
     fn JobId(&self) -> ::windows::core::Result<i32>;
     fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice>;
@@ -946,13 +1058,13 @@ pub trait IPrintWorkflowPrinterJobImpl: Sized {
     fn SetJobAttributesFromBuffer(&self, jobattributesbuffer: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>;
     fn SetJobAttributes(&self, jobattributes: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPrinterJob {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowPrinterJob";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowPrinterJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPrinterJobImpl, const OFFSET: isize>() -> IPrintWorkflowPrinterJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowPrinterJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowPrinterJobVtbl {
         unsafe extern "system" fn JobId<Impl: IPrintWorkflowPrinterJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JobId() {
@@ -1042,36 +1154,39 @@ impl IPrintWorkflowPrinterJobVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintWorkflowPrinterJob>,
             ::windows::core::GetTrustLevel,
-            JobId::<Impl, OFFSET>,
-            Printer::<Impl, OFFSET>,
-            GetJobStatus::<Impl, OFFSET>,
-            GetJobPrintTicket::<Impl, OFFSET>,
-            GetJobAttributesAsBuffer::<Impl, OFFSET>,
-            GetJobAttributes::<Impl, OFFSET>,
-            SetJobAttributesFromBuffer::<Impl, OFFSET>,
-            SetJobAttributes::<Impl, OFFSET>,
+            JobId::<Impl, IMPL_OFFSET>,
+            Printer::<Impl, IMPL_OFFSET>,
+            GetJobStatus::<Impl, IMPL_OFFSET>,
+            GetJobPrintTicket::<Impl, IMPL_OFFSET>,
+            GetJobAttributesAsBuffer::<Impl, IMPL_OFFSET>,
+            GetJobAttributes::<Impl, IMPL_OFFSET>,
+            SetJobAttributesFromBuffer::<Impl, IMPL_OFFSET>,
+            SetJobAttributes::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowPrinterJob as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowSourceContentImpl: Sized {
     fn GetJobPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
     fn GetSourceSpoolDataAsStreamContent(&self) -> ::windows::core::Result<PrintWorkflowSpoolStreamContent>;
     fn GetSourceSpoolDataAsXpsObjectModel(&self) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl IPrintWorkflowSourceContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSourceContentImpl, const OFFSET: isize>() -> IPrintWorkflowSourceContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSourceContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowSourceContentVtbl {
         unsafe extern "system" fn GetJobPrintTicketAsync<Impl: IPrintWorkflowSourceContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetJobPrintTicketAsync() {
@@ -1105,20 +1220,23 @@ impl IPrintWorkflowSourceContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSourceContent>, ::windows::core::GetTrustLevel, GetJobPrintTicketAsync::<Impl, OFFSET>, GetSourceSpoolDataAsStreamContent::<Impl, OFFSET>, GetSourceSpoolDataAsXpsObjectModel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSourceContent>, ::windows::core::GetTrustLevel, GetJobPrintTicketAsync::<Impl, IMPL_OFFSET>, GetSourceSpoolDataAsStreamContent::<Impl, IMPL_OFFSET>, GetSourceSpoolDataAsXpsObjectModel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowSourceContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowSpoolStreamContentImpl: Sized {
     fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowSpoolStreamContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowSpoolStreamContent";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowSpoolStreamContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSpoolStreamContentImpl, const OFFSET: isize>() -> IPrintWorkflowSpoolStreamContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSpoolStreamContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowSpoolStreamContentVtbl {
         unsafe extern "system" fn GetInputStream<Impl: IPrintWorkflowSpoolStreamContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetInputStream() {
@@ -1130,20 +1248,23 @@ impl IPrintWorkflowSpoolStreamContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSpoolStreamContent>, ::windows::core::GetTrustLevel, GetInputStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSpoolStreamContent>, ::windows::core::GetTrustLevel, GetInputStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowSpoolStreamContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowStreamTargetImpl: Sized {
     fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowStreamTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintWorkflowStreamTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowStreamTargetImpl, const OFFSET: isize>() -> IPrintWorkflowStreamTargetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowStreamTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowStreamTargetVtbl {
         unsafe extern "system" fn GetOutputStream<Impl: IPrintWorkflowStreamTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOutputStream() {
@@ -1155,22 +1276,25 @@ impl IPrintWorkflowStreamTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowStreamTarget>, ::windows::core::GetTrustLevel, GetOutputStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowStreamTarget>, ::windows::core::GetTrustLevel, GetOutputStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowStreamTarget as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowSubmittedEventArgsImpl: Sized {
     fn Operation(&self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation>;
     fn GetTarget(&self, jobprintticket: &::core::option::Option<super::PrintTicket::WorkflowPrintTicket>) -> ::windows::core::Result<PrintWorkflowTarget>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowSubmittedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl IPrintWorkflowSubmittedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSubmittedEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowSubmittedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSubmittedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowSubmittedEventArgsVtbl {
         unsafe extern "system" fn Operation<Impl: IPrintWorkflowSubmittedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Operation() {
@@ -1204,7 +1328,10 @@ impl IPrintWorkflowSubmittedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSubmittedEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, OFFSET>, GetTarget::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSubmittedEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>, GetTarget::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowSubmittedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1219,7 +1346,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowSubmittedOperation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowSubmittedOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSubmittedOperationImpl, const OFFSET: isize>() -> IPrintWorkflowSubmittedOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowSubmittedOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowSubmittedOperationVtbl {
         unsafe extern "system" fn Complete<Impl: IPrintWorkflowSubmittedOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: PrintWorkflowSubmittedStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(status).into()
@@ -1246,7 +1373,10 @@ impl IPrintWorkflowSubmittedOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSubmittedOperation>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>, Configuration::<Impl, OFFSET>, XpsContent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowSubmittedOperation>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>, XpsContent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowSubmittedOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1260,7 +1390,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowTarget {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowTargetImpl, const OFFSET: isize>() -> IPrintWorkflowTargetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowTargetVtbl {
         unsafe extern "system" fn TargetAsStream<Impl: IPrintWorkflowTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetAsStream() {
@@ -1283,7 +1413,10 @@ impl IPrintWorkflowTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowTarget>, ::windows::core::GetTrustLevel, TargetAsStream::<Impl, OFFSET>, TargetAsXpsObjectModelPackage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowTarget>, ::windows::core::GetTrustLevel, TargetAsStream::<Impl, IMPL_OFFSET>, TargetAsXpsObjectModelPackage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowTarget as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1296,7 +1429,7 @@ impl ::windows::core::RuntimeName for IPrintWorkflowTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintWorkflowTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowTriggerDetailsImpl, const OFFSET: isize>() -> IPrintWorkflowTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowTriggerDetailsVtbl {
         unsafe extern "system" fn PrintWorkflowSession<Impl: IPrintWorkflowTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintWorkflowSession() {
@@ -1308,20 +1441,23 @@ impl IPrintWorkflowTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowTriggerDetails>, ::windows::core::GetTrustLevel, PrintWorkflowSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowTriggerDetails>, ::windows::core::GetTrustLevel, PrintWorkflowSession::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowUIActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IActivatedEventArgsWithUserImpl {
     fn PrintWorkflowSession(&self) -> ::windows::core::Result<PrintWorkflowForegroundSession>;
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowUIActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowUIActivatedEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "System", feature = "implement_exclusive"))]
 impl IPrintWorkflowUIActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowUIActivatedEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowUIActivatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowUIActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowUIActivatedEventArgsVtbl {
         unsafe extern "system" fn PrintWorkflowSession<Impl: IPrintWorkflowUIActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintWorkflowSession() {
@@ -1333,21 +1469,24 @@ impl IPrintWorkflowUIActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowUIActivatedEventArgs>, ::windows::core::GetTrustLevel, PrintWorkflowSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowUIActivatedEventArgs>, ::windows::core::GetTrustLevel, PrintWorkflowSession::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowUIActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowUILauncherImpl: Sized {
     fn IsUILaunchEnabled(&self) -> ::windows::core::Result<bool>;
     fn LaunchAndCompleteUIAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PrintWorkflowUICompletionStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowUILauncher {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowUILauncher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowUILauncherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowUILauncherImpl, const OFFSET: isize>() -> IPrintWorkflowUILauncherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowUILauncherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowUILauncherVtbl {
         unsafe extern "system" fn IsUILaunchEnabled<Impl: IPrintWorkflowUILauncherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUILaunchEnabled() {
@@ -1370,21 +1509,24 @@ impl IPrintWorkflowUILauncherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowUILauncher>, ::windows::core::GetTrustLevel, IsUILaunchEnabled::<Impl, OFFSET>, LaunchAndCompleteUIAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowUILauncher>, ::windows::core::GetTrustLevel, IsUILaunchEnabled::<Impl, IMPL_OFFSET>, LaunchAndCompleteUIAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowUILauncher as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowXpsDataAvailableEventArgsImpl: Sized {
     fn Operation(&self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowXpsDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintWorkflowXpsDataAvailableEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsDataAvailableEventArgsImpl, const OFFSET: isize>() -> IPrintWorkflowXpsDataAvailableEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsDataAvailableEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsDataAvailableEventArgsVtbl {
         unsafe extern "system" fn Operation<Impl: IPrintWorkflowXpsDataAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Operation() {
@@ -1407,6 +1549,9 @@ impl IPrintWorkflowXpsDataAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowXpsDataAvailableEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintWorkflowXpsDataAvailableEventArgs>, ::windows::core::GetTrustLevel, Operation::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintWorkflowXpsDataAvailableEventArgs as ::windows::core::Interface>::IID
     }
 }

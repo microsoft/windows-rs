@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Media3D", feature = "implement_exclusive"))]
 pub trait IXamlDirectImpl: Sized {
     fn GetObject(&self, xamldirectobject: &::core::option::Option<IXamlDirectObject>) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetXamlDirectObject(&self, object: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IXamlDirectObject>;
@@ -53,13 +53,13 @@ pub trait IXamlDirectImpl: Sized {
     fn AddEventHandler_HandledEventsToo(&self, xamldirectobject: &::core::option::Option<IXamlDirectObject>, eventindex: XamlEventIndex, handler: &::core::option::Option<::windows::core::IInspectable>, handledeventstoo: bool) -> ::windows::core::Result<()>;
     fn RemoveEventHandler(&self, xamldirectobject: &::core::option::Option<IXamlDirectObject>, eventindex: XamlEventIndex, handler: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Media3D", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXamlDirect {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.IXamlDirect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Media3D", feature = "implement_exclusive"))]
 impl IXamlDirectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectImpl, const OFFSET: isize>() -> IXamlDirectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectVtbl {
         unsafe extern "system" fn GetObject<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)) {
@@ -444,65 +444,68 @@ impl IXamlDirectVtbl {
             (*this).RemoveEventHandler(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), eventindex, &*(&handler as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IXamlDirect>,
             ::windows::core::GetTrustLevel,
-            GetObject::<Impl, OFFSET>,
-            GetXamlDirectObject::<Impl, OFFSET>,
-            CreateInstance::<Impl, OFFSET>,
-            SetObjectProperty::<Impl, OFFSET>,
-            SetXamlDirectObjectProperty::<Impl, OFFSET>,
-            SetBooleanProperty::<Impl, OFFSET>,
-            SetDoubleProperty::<Impl, OFFSET>,
-            SetInt32Property::<Impl, OFFSET>,
-            SetStringProperty::<Impl, OFFSET>,
-            SetDateTimeProperty::<Impl, OFFSET>,
-            SetPointProperty::<Impl, OFFSET>,
-            SetRectProperty::<Impl, OFFSET>,
-            SetSizeProperty::<Impl, OFFSET>,
-            SetTimeSpanProperty::<Impl, OFFSET>,
-            SetColorProperty::<Impl, OFFSET>,
-            SetCornerRadiusProperty::<Impl, OFFSET>,
-            SetDurationProperty::<Impl, OFFSET>,
-            SetGridLengthProperty::<Impl, OFFSET>,
-            SetThicknessProperty::<Impl, OFFSET>,
-            SetMatrixProperty::<Impl, OFFSET>,
-            SetMatrix3DProperty::<Impl, OFFSET>,
-            SetEnumProperty::<Impl, OFFSET>,
-            GetObjectProperty::<Impl, OFFSET>,
-            GetXamlDirectObjectProperty::<Impl, OFFSET>,
-            GetBooleanProperty::<Impl, OFFSET>,
-            GetDoubleProperty::<Impl, OFFSET>,
-            GetInt32Property::<Impl, OFFSET>,
-            GetStringProperty::<Impl, OFFSET>,
-            GetDateTimeProperty::<Impl, OFFSET>,
-            GetPointProperty::<Impl, OFFSET>,
-            GetRectProperty::<Impl, OFFSET>,
-            GetSizeProperty::<Impl, OFFSET>,
-            GetTimeSpanProperty::<Impl, OFFSET>,
-            GetColorProperty::<Impl, OFFSET>,
-            GetCornerRadiusProperty::<Impl, OFFSET>,
-            GetDurationProperty::<Impl, OFFSET>,
-            GetGridLengthProperty::<Impl, OFFSET>,
-            GetThicknessProperty::<Impl, OFFSET>,
-            GetMatrixProperty::<Impl, OFFSET>,
-            GetMatrix3DProperty::<Impl, OFFSET>,
-            GetEnumProperty::<Impl, OFFSET>,
-            ClearProperty::<Impl, OFFSET>,
-            GetCollectionCount::<Impl, OFFSET>,
-            GetXamlDirectObjectFromCollectionAt::<Impl, OFFSET>,
-            AddToCollection::<Impl, OFFSET>,
-            InsertIntoCollectionAt::<Impl, OFFSET>,
-            RemoveFromCollection::<Impl, OFFSET>,
-            RemoveFromCollectionAt::<Impl, OFFSET>,
-            ClearCollection::<Impl, OFFSET>,
-            AddEventHandler::<Impl, OFFSET>,
-            AddEventHandler_HandledEventsToo::<Impl, OFFSET>,
-            RemoveEventHandler::<Impl, OFFSET>,
+            GetObject::<Impl, IMPL_OFFSET>,
+            GetXamlDirectObject::<Impl, IMPL_OFFSET>,
+            CreateInstance::<Impl, IMPL_OFFSET>,
+            SetObjectProperty::<Impl, IMPL_OFFSET>,
+            SetXamlDirectObjectProperty::<Impl, IMPL_OFFSET>,
+            SetBooleanProperty::<Impl, IMPL_OFFSET>,
+            SetDoubleProperty::<Impl, IMPL_OFFSET>,
+            SetInt32Property::<Impl, IMPL_OFFSET>,
+            SetStringProperty::<Impl, IMPL_OFFSET>,
+            SetDateTimeProperty::<Impl, IMPL_OFFSET>,
+            SetPointProperty::<Impl, IMPL_OFFSET>,
+            SetRectProperty::<Impl, IMPL_OFFSET>,
+            SetSizeProperty::<Impl, IMPL_OFFSET>,
+            SetTimeSpanProperty::<Impl, IMPL_OFFSET>,
+            SetColorProperty::<Impl, IMPL_OFFSET>,
+            SetCornerRadiusProperty::<Impl, IMPL_OFFSET>,
+            SetDurationProperty::<Impl, IMPL_OFFSET>,
+            SetGridLengthProperty::<Impl, IMPL_OFFSET>,
+            SetThicknessProperty::<Impl, IMPL_OFFSET>,
+            SetMatrixProperty::<Impl, IMPL_OFFSET>,
+            SetMatrix3DProperty::<Impl, IMPL_OFFSET>,
+            SetEnumProperty::<Impl, IMPL_OFFSET>,
+            GetObjectProperty::<Impl, IMPL_OFFSET>,
+            GetXamlDirectObjectProperty::<Impl, IMPL_OFFSET>,
+            GetBooleanProperty::<Impl, IMPL_OFFSET>,
+            GetDoubleProperty::<Impl, IMPL_OFFSET>,
+            GetInt32Property::<Impl, IMPL_OFFSET>,
+            GetStringProperty::<Impl, IMPL_OFFSET>,
+            GetDateTimeProperty::<Impl, IMPL_OFFSET>,
+            GetPointProperty::<Impl, IMPL_OFFSET>,
+            GetRectProperty::<Impl, IMPL_OFFSET>,
+            GetSizeProperty::<Impl, IMPL_OFFSET>,
+            GetTimeSpanProperty::<Impl, IMPL_OFFSET>,
+            GetColorProperty::<Impl, IMPL_OFFSET>,
+            GetCornerRadiusProperty::<Impl, IMPL_OFFSET>,
+            GetDurationProperty::<Impl, IMPL_OFFSET>,
+            GetGridLengthProperty::<Impl, IMPL_OFFSET>,
+            GetThicknessProperty::<Impl, IMPL_OFFSET>,
+            GetMatrixProperty::<Impl, IMPL_OFFSET>,
+            GetMatrix3DProperty::<Impl, IMPL_OFFSET>,
+            GetEnumProperty::<Impl, IMPL_OFFSET>,
+            ClearProperty::<Impl, IMPL_OFFSET>,
+            GetCollectionCount::<Impl, IMPL_OFFSET>,
+            GetXamlDirectObjectFromCollectionAt::<Impl, IMPL_OFFSET>,
+            AddToCollection::<Impl, IMPL_OFFSET>,
+            InsertIntoCollectionAt::<Impl, IMPL_OFFSET>,
+            RemoveFromCollection::<Impl, IMPL_OFFSET>,
+            RemoveFromCollectionAt::<Impl, IMPL_OFFSET>,
+            ClearCollection::<Impl, IMPL_OFFSET>,
+            AddEventHandler::<Impl, IMPL_OFFSET>,
+            AddEventHandler_HandledEventsToo::<Impl, IMPL_OFFSET>,
+            RemoveEventHandler::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXamlDirect as ::windows::core::Interface>::IID
     }
 }
 pub trait IXamlDirectObjectImpl: Sized {}
@@ -510,8 +513,11 @@ impl ::windows::core::RuntimeName for IXamlDirectObject {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.IXamlDirectObject";
 }
 impl IXamlDirectObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectObjectImpl, const OFFSET: isize>() -> IXamlDirectObjectVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlDirectObject>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectObjectVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlDirectObject>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXamlDirectObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -524,7 +530,7 @@ impl ::windows::core::RuntimeName for IXamlDirectStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXamlDirectStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectStaticsImpl, const OFFSET: isize>() -> IXamlDirectStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IXamlDirectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -536,6 +542,9 @@ impl IXamlDirectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlDirectStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXamlDirectStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXamlDirectStatics as ::windows::core::Interface>::IID
     }
 }

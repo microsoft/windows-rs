@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_SpeechRecognition", feature = "implement_exclusive"))]
 pub trait IVoiceCommandImpl: Sized {
     fn CommandName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn SpeechRecognitionResult(&self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_SpeechRecognition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommand {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommand";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_SpeechRecognition", feature = "implement_exclusive"))]
 impl IVoiceCommandVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandImpl, const OFFSET: isize>() -> IVoiceCommandVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandVtbl {
         unsafe extern "system" fn CommandName<Impl: IVoiceCommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandName() {
@@ -44,7 +44,10 @@ impl IVoiceCommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommand>, ::windows::core::GetTrustLevel, CommandName::<Impl, OFFSET>, Properties::<Impl, OFFSET>, SpeechRecognitionResult::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommand>, ::windows::core::GetTrustLevel, CommandName::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, SpeechRecognitionResult::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommand as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -57,7 +60,7 @@ impl ::windows::core::RuntimeName for IVoiceCommandCompletedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoiceCommandCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandCompletedEventArgsImpl, const OFFSET: isize>() -> IVoiceCommandCompletedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandCompletedEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IVoiceCommandCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VoiceCommandCompletionReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -69,7 +72,10 @@ impl IVoiceCommandCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandCompletedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandCompletedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -82,7 +88,7 @@ impl ::windows::core::RuntimeName for IVoiceCommandConfirmationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoiceCommandConfirmationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandConfirmationResultImpl, const OFFSET: isize>() -> IVoiceCommandConfirmationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandConfirmationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandConfirmationResultVtbl {
         unsafe extern "system" fn Confirmed<Impl: IVoiceCommandConfirmationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Confirmed() {
@@ -94,10 +100,13 @@ impl IVoiceCommandConfirmationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandConfirmationResult>, ::windows::core::GetTrustLevel, Confirmed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandConfirmationResult>, ::windows::core::GetTrustLevel, Confirmed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandConfirmationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IVoiceCommandContentTileImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -116,13 +125,13 @@ pub trait IVoiceCommandContentTileImpl: Sized {
     fn ContentTileType(&self) -> ::windows::core::Result<VoiceCommandContentTileType>;
     fn SetContentTileType(&self, value: VoiceCommandContentTileType) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandContentTile {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl IVoiceCommandContentTileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandContentTileImpl, const OFFSET: isize>() -> IVoiceCommandContentTileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandContentTileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandContentTileVtbl {
         unsafe extern "system" fn Title<Impl: IVoiceCommandContentTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -244,44 +253,47 @@ impl IVoiceCommandContentTileVtbl {
             (*this).SetContentTileType(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVoiceCommandContentTile>,
             ::windows::core::GetTrustLevel,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            TextLine1::<Impl, OFFSET>,
-            SetTextLine1::<Impl, OFFSET>,
-            TextLine2::<Impl, OFFSET>,
-            SetTextLine2::<Impl, OFFSET>,
-            TextLine3::<Impl, OFFSET>,
-            SetTextLine3::<Impl, OFFSET>,
-            Image::<Impl, OFFSET>,
-            SetImage::<Impl, OFFSET>,
-            AppContext::<Impl, OFFSET>,
-            SetAppContext::<Impl, OFFSET>,
-            AppLaunchArgument::<Impl, OFFSET>,
-            SetAppLaunchArgument::<Impl, OFFSET>,
-            ContentTileType::<Impl, OFFSET>,
-            SetContentTileType::<Impl, OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            TextLine1::<Impl, IMPL_OFFSET>,
+            SetTextLine1::<Impl, IMPL_OFFSET>,
+            TextLine2::<Impl, IMPL_OFFSET>,
+            SetTextLine2::<Impl, IMPL_OFFSET>,
+            TextLine3::<Impl, IMPL_OFFSET>,
+            SetTextLine3::<Impl, IMPL_OFFSET>,
+            Image::<Impl, IMPL_OFFSET>,
+            SetImage::<Impl, IMPL_OFFSET>,
+            AppContext::<Impl, IMPL_OFFSET>,
+            SetAppContext::<Impl, IMPL_OFFSET>,
+            AppLaunchArgument::<Impl, IMPL_OFFSET>,
+            SetAppLaunchArgument::<Impl, IMPL_OFFSET>,
+            ContentTileType::<Impl, IMPL_OFFSET>,
+            SetContentTileType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandContentTile as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandDefinitionImpl: Sized {
     fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPhraseListAsync(&self, phraselistname: &::windows::core::HSTRING, phraselist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandDefinition {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandDefinition";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVoiceCommandDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandDefinitionImpl, const OFFSET: isize>() -> IVoiceCommandDefinitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandDefinitionVtbl {
         unsafe extern "system" fn Language<Impl: IVoiceCommandDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
@@ -315,21 +327,24 @@ impl IVoiceCommandDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDefinition>, ::windows::core::GetTrustLevel, Language::<Impl, OFFSET>, Name::<Impl, OFFSET>, SetPhraseListAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDefinition>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetPhraseListAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandDefinition as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IVoiceCommandDefinitionManagerStaticsImpl: Sized {
     fn InstallCommandDefinitionsFromStorageFileAsync(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn InstalledCommandDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, VoiceCommandDefinition>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandDefinitionManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandDefinitionManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IVoiceCommandDefinitionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandDefinitionManagerStaticsImpl, const OFFSET: isize>() -> IVoiceCommandDefinitionManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandDefinitionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandDefinitionManagerStaticsVtbl {
         unsafe extern "system" fn InstallCommandDefinitionsFromStorageFileAsync<Impl: IVoiceCommandDefinitionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstallCommandDefinitionsFromStorageFileAsync(&*(&file as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -352,7 +367,10 @@ impl IVoiceCommandDefinitionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDefinitionManagerStatics>, ::windows::core::GetTrustLevel, InstallCommandDefinitionsFromStorageFileAsync::<Impl, OFFSET>, InstalledCommandDefinitions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDefinitionManagerStatics>, ::windows::core::GetTrustLevel, InstallCommandDefinitionsFromStorageFileAsync::<Impl, IMPL_OFFSET>, InstalledCommandDefinitions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandDefinitionManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -365,7 +383,7 @@ impl ::windows::core::RuntimeName for IVoiceCommandDisambiguationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoiceCommandDisambiguationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandDisambiguationResultImpl, const OFFSET: isize>() -> IVoiceCommandDisambiguationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandDisambiguationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandDisambiguationResultVtbl {
         unsafe extern "system" fn SelectedItem<Impl: IVoiceCommandDisambiguationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedItem() {
@@ -377,10 +395,13 @@ impl IVoiceCommandDisambiguationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDisambiguationResult>, ::windows::core::GetTrustLevel, SelectedItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandDisambiguationResult>, ::windows::core::GetTrustLevel, SelectedItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandDisambiguationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandResponseImpl: Sized {
     fn Message(&self) -> ::windows::core::Result<VoiceCommandUserMessage>;
     fn SetMessage(&self, value: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<()>;
@@ -390,13 +411,13 @@ pub trait IVoiceCommandResponseImpl: Sized {
     fn SetAppLaunchArgument(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn VoiceCommandContentTiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VoiceCommandContentTile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandResponse {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVoiceCommandResponseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandResponseImpl, const OFFSET: isize>() -> IVoiceCommandResponseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandResponseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandResponseVtbl {
         unsafe extern "system" fn Message<Impl: IVoiceCommandResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
@@ -454,23 +475,26 @@ impl IVoiceCommandResponseVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVoiceCommandResponse>,
             ::windows::core::GetTrustLevel,
-            Message::<Impl, OFFSET>,
-            SetMessage::<Impl, OFFSET>,
-            RepeatMessage::<Impl, OFFSET>,
-            SetRepeatMessage::<Impl, OFFSET>,
-            AppLaunchArgument::<Impl, OFFSET>,
-            SetAppLaunchArgument::<Impl, OFFSET>,
-            VoiceCommandContentTiles::<Impl, OFFSET>,
+            Message::<Impl, IMPL_OFFSET>,
+            SetMessage::<Impl, IMPL_OFFSET>,
+            RepeatMessage::<Impl, IMPL_OFFSET>,
+            SetRepeatMessage::<Impl, IMPL_OFFSET>,
+            AppLaunchArgument::<Impl, IMPL_OFFSET>,
+            SetAppLaunchArgument::<Impl, IMPL_OFFSET>,
+            VoiceCommandContentTiles::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandResponse as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandResponseStaticsImpl: Sized {
     fn MaxSupportedVoiceCommandContentTiles(&self) -> ::windows::core::Result<u32>;
     fn CreateResponse(&self, usermessage: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<VoiceCommandResponse>;
@@ -478,13 +502,13 @@ pub trait IVoiceCommandResponseStaticsImpl: Sized {
     fn CreateResponseForPrompt(&self, message: &::core::option::Option<VoiceCommandUserMessage>, repeatmessage: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<VoiceCommandResponse>;
     fn CreateResponseForPromptWithTiles(&self, message: &::core::option::Option<VoiceCommandUserMessage>, repeatmessage: &::core::option::Option<VoiceCommandUserMessage>, contenttiles: &::core::option::Option<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>) -> ::windows::core::Result<VoiceCommandResponse>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandResponseStatics {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponseStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVoiceCommandResponseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandResponseStaticsImpl, const OFFSET: isize>() -> IVoiceCommandResponseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandResponseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandResponseStaticsVtbl {
         unsafe extern "system" fn MaxSupportedVoiceCommandContentTiles<Impl: IVoiceCommandResponseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSupportedVoiceCommandContentTiles() {
@@ -545,21 +569,24 @@ impl IVoiceCommandResponseStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVoiceCommandResponseStatics>,
             ::windows::core::GetTrustLevel,
-            MaxSupportedVoiceCommandContentTiles::<Impl, OFFSET>,
-            CreateResponse::<Impl, OFFSET>,
-            CreateResponseWithTiles::<Impl, OFFSET>,
-            CreateResponseForPrompt::<Impl, OFFSET>,
-            CreateResponseForPromptWithTiles::<Impl, OFFSET>,
+            MaxSupportedVoiceCommandContentTiles::<Impl, IMPL_OFFSET>,
+            CreateResponse::<Impl, IMPL_OFFSET>,
+            CreateResponseWithTiles::<Impl, IMPL_OFFSET>,
+            CreateResponseForPrompt::<Impl, IMPL_OFFSET>,
+            CreateResponseForPromptWithTiles::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandResponseStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait IVoiceCommandServiceConnectionImpl: Sized {
     fn GetVoiceCommandAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommand>>;
     fn RequestConfirmationAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>>;
@@ -572,13 +599,13 @@ pub trait IVoiceCommandServiceConnectionImpl: Sized {
     fn VoiceCommandCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveVoiceCommandCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl IVoiceCommandServiceConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandServiceConnectionImpl, const OFFSET: isize>() -> IVoiceCommandServiceConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandServiceConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandServiceConnectionVtbl {
         unsafe extern "system" fn GetVoiceCommandAsync<Impl: IVoiceCommandServiceConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVoiceCommandAsync() {
@@ -683,36 +710,39 @@ impl IVoiceCommandServiceConnectionVtbl {
             (*this).RemoveVoiceCommandCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVoiceCommandServiceConnection>,
             ::windows::core::GetTrustLevel,
-            GetVoiceCommandAsync::<Impl, OFFSET>,
-            RequestConfirmationAsync::<Impl, OFFSET>,
-            RequestDisambiguationAsync::<Impl, OFFSET>,
-            ReportProgressAsync::<Impl, OFFSET>,
-            ReportSuccessAsync::<Impl, OFFSET>,
-            ReportFailureAsync::<Impl, OFFSET>,
-            RequestAppLaunchAsync::<Impl, OFFSET>,
-            Language::<Impl, OFFSET>,
-            VoiceCommandCompleted::<Impl, OFFSET>,
-            RemoveVoiceCommandCompleted::<Impl, OFFSET>,
+            GetVoiceCommandAsync::<Impl, IMPL_OFFSET>,
+            RequestConfirmationAsync::<Impl, IMPL_OFFSET>,
+            RequestDisambiguationAsync::<Impl, IMPL_OFFSET>,
+            ReportProgressAsync::<Impl, IMPL_OFFSET>,
+            ReportSuccessAsync::<Impl, IMPL_OFFSET>,
+            ReportFailureAsync::<Impl, IMPL_OFFSET>,
+            RequestAppLaunchAsync::<Impl, IMPL_OFFSET>,
+            Language::<Impl, IMPL_OFFSET>,
+            VoiceCommandCompleted::<Impl, IMPL_OFFSET>,
+            RemoveVoiceCommandCompleted::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandServiceConnection as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IVoiceCommandServiceConnectionStaticsImpl: Sized {
     fn FromAppServiceTriggerDetails(&self, triggerdetails: &::core::option::Option<super::AppService::AppServiceTriggerDetails>) -> ::windows::core::Result<VoiceCommandServiceConnection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandServiceConnectionStatics {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnectionStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl IVoiceCommandServiceConnectionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandServiceConnectionStaticsImpl, const OFFSET: isize>() -> IVoiceCommandServiceConnectionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandServiceConnectionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandServiceConnectionStaticsVtbl {
         unsafe extern "system" fn FromAppServiceTriggerDetails<Impl: IVoiceCommandServiceConnectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggerdetails: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromAppServiceTriggerDetails(&*(&triggerdetails as *const <super::AppService::AppServiceTriggerDetails as ::windows::core::Abi>::Abi as *const <super::AppService::AppServiceTriggerDetails as ::windows::core::DefaultType>::DefaultType)) {
@@ -724,7 +754,10 @@ impl IVoiceCommandServiceConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandServiceConnectionStatics>, ::windows::core::GetTrustLevel, FromAppServiceTriggerDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandServiceConnectionStatics>, ::windows::core::GetTrustLevel, FromAppServiceTriggerDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandServiceConnectionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -740,7 +773,7 @@ impl ::windows::core::RuntimeName for IVoiceCommandUserMessage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoiceCommandUserMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandUserMessageImpl, const OFFSET: isize>() -> IVoiceCommandUserMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceCommandUserMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceCommandUserMessageVtbl {
         unsafe extern "system" fn DisplayMessage<Impl: IVoiceCommandUserMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayMessage() {
@@ -771,6 +804,9 @@ impl IVoiceCommandUserMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpokenMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandUserMessage>, ::windows::core::GetTrustLevel, DisplayMessage::<Impl, OFFSET>, SetDisplayMessage::<Impl, OFFSET>, SpokenMessage::<Impl, OFFSET>, SetSpokenMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceCommandUserMessage>, ::windows::core::GetTrustLevel, DisplayMessage::<Impl, IMPL_OFFSET>, SetDisplayMessage::<Impl, IMPL_OFFSET>, SpokenMessage::<Impl, IMPL_OFFSET>, SetSpokenMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceCommandUserMessage as ::windows::core::Interface>::IID
     }
 }

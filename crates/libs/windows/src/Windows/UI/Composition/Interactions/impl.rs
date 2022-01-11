@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for ICompositionConditionalValue {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICompositionConditionalValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueImpl, const OFFSET: isize>() -> ICompositionConditionalValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionConditionalValueVtbl {
         unsafe extern "system" fn Condition<Impl: ICompositionConditionalValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
@@ -42,7 +42,10 @@ impl ICompositionConditionalValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionConditionalValue>, ::windows::core::GetTrustLevel, Condition::<Impl, OFFSET>, SetCondition::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionConditionalValue>, ::windows::core::GetTrustLevel, Condition::<Impl, IMPL_OFFSET>, SetCondition::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositionConditionalValue as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -55,7 +58,7 @@ impl ::windows::core::RuntimeName for ICompositionConditionalValueStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICompositionConditionalValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueStaticsImpl, const OFFSET: isize>() -> ICompositionConditionalValueStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionConditionalValueStaticsVtbl {
         unsafe extern "system" fn Create<Impl: ICompositionConditionalValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
@@ -67,7 +70,10 @@ impl ICompositionConditionalValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionConditionalValueStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionConditionalValueStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositionConditionalValueStatics as ::windows::core::Interface>::IID
     }
 }
 pub trait ICompositionInteractionSourceImpl: Sized {}
@@ -75,8 +81,11 @@ impl ::windows::core::RuntimeName for ICompositionInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionInteractionSource";
 }
 impl ICompositionInteractionSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceImpl, const OFFSET: isize>() -> ICompositionInteractionSourceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionInteractionSource>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionInteractionSourceVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionInteractionSource>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositionInteractionSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -92,7 +101,7 @@ impl ::windows::core::RuntimeName for ICompositionInteractionSourceCollection {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICompositionInteractionSourceCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceCollectionImpl, const OFFSET: isize>() -> ICompositionInteractionSourceCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionInteractionSourceCollectionVtbl {
         unsafe extern "system" fn Count<Impl: ICompositionInteractionSourceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
@@ -116,7 +125,10 @@ impl ICompositionInteractionSourceCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionInteractionSourceCollection>, ::windows::core::GetTrustLevel, Count::<Impl, OFFSET>, Add::<Impl, OFFSET>, Remove::<Impl, OFFSET>, RemoveAll::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositionInteractionSourceCollection>, ::windows::core::GetTrustLevel, Count::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, RemoveAll::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositionInteractionSourceCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -134,7 +146,7 @@ impl ::windows::core::RuntimeName for IInteractionSourceConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionSourceConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>() -> IInteractionSourceConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionSourceConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionSourceConfigurationVtbl {
         unsafe extern "system" fn PositionXSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionXSourceMode() {
@@ -181,22 +193,25 @@ impl IInteractionSourceConfigurationVtbl {
             (*this).SetScaleSourceMode(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInteractionSourceConfiguration>,
             ::windows::core::GetTrustLevel,
-            PositionXSourceMode::<Impl, OFFSET>,
-            SetPositionXSourceMode::<Impl, OFFSET>,
-            PositionYSourceMode::<Impl, OFFSET>,
-            SetPositionYSourceMode::<Impl, OFFSET>,
-            ScaleSourceMode::<Impl, OFFSET>,
-            SetScaleSourceMode::<Impl, OFFSET>,
+            PositionXSourceMode::<Impl, IMPL_OFFSET>,
+            SetPositionXSourceMode::<Impl, IMPL_OFFSET>,
+            PositionYSourceMode::<Impl, IMPL_OFFSET>,
+            SetPositionYSourceMode::<Impl, IMPL_OFFSET>,
+            ScaleSourceMode::<Impl, IMPL_OFFSET>,
+            SetScaleSourceMode::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionSourceConfiguration as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTrackerImpl: Sized {
     fn InteractionSources(&self) -> ::windows::core::Result<CompositionInteractionSourceCollection>;
     fn IsPositionRoundingSuggested(&self) -> ::windows::core::Result<bool>;
@@ -232,13 +247,13 @@ pub trait IInteractionTrackerImpl: Sized {
     fn TryUpdateScaleWithAnimation(&self, animation: &::core::option::Option<super::CompositionAnimation>, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
     fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IInteractionTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerImpl, const OFFSET: isize>() -> IInteractionTrackerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVtbl {
         unsafe extern "system" fn InteractionSources<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InteractionSources() {
@@ -526,60 +541,63 @@ impl IInteractionTrackerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInteractionTracker>,
             ::windows::core::GetTrustLevel,
-            InteractionSources::<Impl, OFFSET>,
-            IsPositionRoundingSuggested::<Impl, OFFSET>,
-            MaxPosition::<Impl, OFFSET>,
-            SetMaxPosition::<Impl, OFFSET>,
-            MaxScale::<Impl, OFFSET>,
-            SetMaxScale::<Impl, OFFSET>,
-            MinPosition::<Impl, OFFSET>,
-            SetMinPosition::<Impl, OFFSET>,
-            MinScale::<Impl, OFFSET>,
-            SetMinScale::<Impl, OFFSET>,
-            NaturalRestingPosition::<Impl, OFFSET>,
-            NaturalRestingScale::<Impl, OFFSET>,
-            Owner::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            PositionInertiaDecayRate::<Impl, OFFSET>,
-            SetPositionInertiaDecayRate::<Impl, OFFSET>,
-            PositionVelocityInPixelsPerSecond::<Impl, OFFSET>,
-            Scale::<Impl, OFFSET>,
-            ScaleInertiaDecayRate::<Impl, OFFSET>,
-            SetScaleInertiaDecayRate::<Impl, OFFSET>,
-            ScaleVelocityInPercentPerSecond::<Impl, OFFSET>,
-            AdjustPositionXIfGreaterThanThreshold::<Impl, OFFSET>,
-            AdjustPositionYIfGreaterThanThreshold::<Impl, OFFSET>,
-            ConfigurePositionXInertiaModifiers::<Impl, OFFSET>,
-            ConfigurePositionYInertiaModifiers::<Impl, OFFSET>,
-            ConfigureScaleInertiaModifiers::<Impl, OFFSET>,
-            TryUpdatePosition::<Impl, OFFSET>,
-            TryUpdatePositionBy::<Impl, OFFSET>,
-            TryUpdatePositionWithAnimation::<Impl, OFFSET>,
-            TryUpdatePositionWithAdditionalVelocity::<Impl, OFFSET>,
-            TryUpdateScale::<Impl, OFFSET>,
-            TryUpdateScaleWithAnimation::<Impl, OFFSET>,
-            TryUpdateScaleWithAdditionalVelocity::<Impl, OFFSET>,
+            InteractionSources::<Impl, IMPL_OFFSET>,
+            IsPositionRoundingSuggested::<Impl, IMPL_OFFSET>,
+            MaxPosition::<Impl, IMPL_OFFSET>,
+            SetMaxPosition::<Impl, IMPL_OFFSET>,
+            MaxScale::<Impl, IMPL_OFFSET>,
+            SetMaxScale::<Impl, IMPL_OFFSET>,
+            MinPosition::<Impl, IMPL_OFFSET>,
+            SetMinPosition::<Impl, IMPL_OFFSET>,
+            MinScale::<Impl, IMPL_OFFSET>,
+            SetMinScale::<Impl, IMPL_OFFSET>,
+            NaturalRestingPosition::<Impl, IMPL_OFFSET>,
+            NaturalRestingScale::<Impl, IMPL_OFFSET>,
+            Owner::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            PositionInertiaDecayRate::<Impl, IMPL_OFFSET>,
+            SetPositionInertiaDecayRate::<Impl, IMPL_OFFSET>,
+            PositionVelocityInPixelsPerSecond::<Impl, IMPL_OFFSET>,
+            Scale::<Impl, IMPL_OFFSET>,
+            ScaleInertiaDecayRate::<Impl, IMPL_OFFSET>,
+            SetScaleInertiaDecayRate::<Impl, IMPL_OFFSET>,
+            ScaleVelocityInPercentPerSecond::<Impl, IMPL_OFFSET>,
+            AdjustPositionXIfGreaterThanThreshold::<Impl, IMPL_OFFSET>,
+            AdjustPositionYIfGreaterThanThreshold::<Impl, IMPL_OFFSET>,
+            ConfigurePositionXInertiaModifiers::<Impl, IMPL_OFFSET>,
+            ConfigurePositionYInertiaModifiers::<Impl, IMPL_OFFSET>,
+            ConfigureScaleInertiaModifiers::<Impl, IMPL_OFFSET>,
+            TryUpdatePosition::<Impl, IMPL_OFFSET>,
+            TryUpdatePositionBy::<Impl, IMPL_OFFSET>,
+            TryUpdatePositionWithAnimation::<Impl, IMPL_OFFSET>,
+            TryUpdatePositionWithAdditionalVelocity::<Impl, IMPL_OFFSET>,
+            TryUpdateScale::<Impl, IMPL_OFFSET>,
+            TryUpdateScaleWithAnimation::<Impl, IMPL_OFFSET>,
+            TryUpdateScaleWithAdditionalVelocity::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTracker as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInteractionTracker2Impl: Sized {
     fn ConfigureCenterPointXInertiaModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
     fn ConfigureCenterPointYInertiaModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IInteractionTracker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker2Impl, const OFFSET: isize>() -> IInteractionTracker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker2Vtbl {
         unsafe extern "system" fn ConfigureCenterPointXInertiaModifiers<Impl: IInteractionTracker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureCenterPointXInertiaModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -588,40 +606,46 @@ impl IInteractionTracker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureCenterPointYInertiaModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker2>, ::windows::core::GetTrustLevel, ConfigureCenterPointXInertiaModifiers::<Impl, OFFSET>, ConfigureCenterPointYInertiaModifiers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker2>, ::windows::core::GetTrustLevel, ConfigureCenterPointXInertiaModifiers::<Impl, IMPL_OFFSET>, ConfigureCenterPointYInertiaModifiers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTracker2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInteractionTracker3Impl: Sized {
     fn ConfigureVector2PositionInertiaModifiers(&self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker3 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IInteractionTracker3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker3Impl, const OFFSET: isize>() -> IInteractionTracker3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker3Vtbl {
         unsafe extern "system" fn ConfigureVector2PositionInertiaModifiers<Impl: IInteractionTracker3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureVector2PositionInertiaModifiers(&*(&modifiers as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker3>, ::windows::core::GetTrustLevel, ConfigureVector2PositionInertiaModifiers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker3>, ::windows::core::GetTrustLevel, ConfigureVector2PositionInertiaModifiers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTracker3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTracker4Impl: Sized {
     fn TryUpdatePositionWithOption(&self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
     fn TryUpdatePositionByWithOption(&self, amount: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
     fn IsInertiaFromImpulse(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker4 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IInteractionTracker4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker4Impl, const OFFSET: isize>() -> IInteractionTracker4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker4Vtbl {
         unsafe extern "system" fn TryUpdatePositionWithOption<Impl: IInteractionTracker4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionWithOption(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), option) {
@@ -655,20 +679,23 @@ impl IInteractionTracker4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker4>, ::windows::core::GetTrustLevel, TryUpdatePositionWithOption::<Impl, OFFSET>, TryUpdatePositionByWithOption::<Impl, OFFSET>, IsInertiaFromImpulse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker4>, ::windows::core::GetTrustLevel, TryUpdatePositionWithOption::<Impl, IMPL_OFFSET>, TryUpdatePositionByWithOption::<Impl, IMPL_OFFSET>, IsInertiaFromImpulse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTracker4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTracker5Impl: Sized {
     fn TryUpdatePositionWithOption(&self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker5 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IInteractionTracker5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker5Impl, const OFFSET: isize>() -> IInteractionTracker5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker5Vtbl {
         unsafe extern "system" fn TryUpdatePositionWithOption<Impl: IInteractionTracker5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionWithOption(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), option, posupdateoption) {
@@ -680,7 +707,10 @@ impl IInteractionTracker5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker5>, ::windows::core::GetTrustLevel, TryUpdatePositionWithOption::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTracker5>, ::windows::core::GetTrustLevel, TryUpdatePositionWithOption::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTracker5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -693,7 +723,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerCustomAnimationStateEnt
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgsImpl, const OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
         unsafe extern "system" fn RequestId<Impl: IInteractionTrackerCustomAnimationStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
@@ -705,7 +735,10 @@ impl IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerCustomAnimationStateEnteredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerCustomAnimationStateEnteredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerCustomAnimationStateEnteredArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -718,7 +751,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerCustomAnimationStateEnt
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2Impl, const OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
         unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
@@ -730,7 +763,10 @@ impl IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerCustomAnimationStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerCustomAnimationStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerCustomAnimationStateEnteredArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -743,7 +779,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerIdleStateEnteredArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerIdleStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgsImpl, const OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgsVtbl {
         unsafe extern "system" fn RequestId<Impl: IInteractionTrackerIdleStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
@@ -755,7 +791,10 @@ impl IInteractionTrackerIdleStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerIdleStateEnteredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerIdleStateEnteredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerIdleStateEnteredArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -768,7 +807,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerIdleStateEnteredArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerIdleStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgs2Impl, const OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgs2Vtbl {
         unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerIdleStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
@@ -780,7 +819,10 @@ impl IInteractionTrackerIdleStateEnteredArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerIdleStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerIdleStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerIdleStateEnteredArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -791,8 +833,11 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaModifier {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaModifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaModifierVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaModifier>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaModifierVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaModifier>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaModifier as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -803,8 +848,11 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaModifierFactory 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaModifierFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierFactoryImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaModifierFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaModifierFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaModifierFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaModifierFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaModifierFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -820,7 +868,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaMotion {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaMotionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaMotionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaMotionVtbl {
         unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
@@ -851,7 +899,10 @@ impl IInteractionTrackerInertiaMotionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMotion(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaMotion>, ::windows::core::GetTrustLevel, Condition::<Impl, OFFSET>, SetCondition::<Impl, OFFSET>, Motion::<Impl, OFFSET>, SetMotion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaMotion>, ::windows::core::GetTrustLevel, Condition::<Impl, IMPL_OFFSET>, SetCondition::<Impl, IMPL_OFFSET>, Motion::<Impl, IMPL_OFFSET>, SetMotion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaMotion as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -864,7 +915,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaMotionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaMotionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionStaticsImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaMotionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaMotionStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaMotionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
@@ -876,7 +927,10 @@ impl IInteractionTrackerInertiaMotionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaMotionStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaMotionStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaMotionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -892,7 +946,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaNaturalMotion {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaNaturalMotionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionVtbl {
         unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
@@ -923,7 +977,10 @@ impl IInteractionTrackerInertiaNaturalMotionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNaturalMotion(&*(&value as *const <super::ScalarNaturalMotionAnimation as ::windows::core::Abi>::Abi as *const <super::ScalarNaturalMotionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaNaturalMotion>, ::windows::core::GetTrustLevel, Condition::<Impl, OFFSET>, SetCondition::<Impl, OFFSET>, NaturalMotion::<Impl, OFFSET>, SetNaturalMotion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaNaturalMotion>, ::windows::core::GetTrustLevel, Condition::<Impl, IMPL_OFFSET>, SetCondition::<Impl, IMPL_OFFSET>, NaturalMotion::<Impl, IMPL_OFFSET>, SetNaturalMotion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaNaturalMotion as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -936,7 +993,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaNaturalMotionSta
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionStaticsImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaNaturalMotionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
@@ -948,7 +1005,10 @@ impl IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaNaturalMotionStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaNaturalMotionStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaNaturalMotionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -964,7 +1024,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaRestingValue {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaRestingValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueVtbl {
         unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaRestingValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
@@ -995,7 +1055,10 @@ impl IInteractionTrackerInertiaRestingValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestingValue(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaRestingValue>, ::windows::core::GetTrustLevel, Condition::<Impl, OFFSET>, SetCondition::<Impl, OFFSET>, RestingValue::<Impl, OFFSET>, SetRestingValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaRestingValue>, ::windows::core::GetTrustLevel, Condition::<Impl, IMPL_OFFSET>, SetCondition::<Impl, IMPL_OFFSET>, RestingValue::<Impl, IMPL_OFFSET>, SetRestingValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaRestingValue as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1008,7 +1071,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaRestingValueStat
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaRestingValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueStaticsImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaRestingValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
@@ -1020,10 +1083,13 @@ impl IInteractionTrackerInertiaRestingValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaRestingValueStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaRestingValueStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaRestingValueStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTrackerInertiaStateEnteredArgsImpl: Sized {
     fn ModifiedRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
     fn ModifiedRestingScale(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
@@ -1033,13 +1099,13 @@ pub trait IInteractionTrackerInertiaStateEnteredArgsImpl: Sized {
     fn RequestId(&self) -> ::windows::core::Result<i32>;
     fn ScaleVelocityInPercentPerSecond(&self) -> ::windows::core::Result<f32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgsVtbl {
         unsafe extern "system" fn ModifiedRestingPosition<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModifiedRestingPosition() {
@@ -1118,20 +1184,23 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaStateEnteredArgs>,
             ::windows::core::GetTrustLevel,
-            ModifiedRestingPosition::<Impl, OFFSET>,
-            ModifiedRestingScale::<Impl, OFFSET>,
-            NaturalRestingPosition::<Impl, OFFSET>,
-            NaturalRestingScale::<Impl, OFFSET>,
-            PositionVelocityInPixelsPerSecond::<Impl, OFFSET>,
-            RequestId::<Impl, OFFSET>,
-            ScaleVelocityInPercentPerSecond::<Impl, OFFSET>,
+            ModifiedRestingPosition::<Impl, IMPL_OFFSET>,
+            ModifiedRestingScale::<Impl, IMPL_OFFSET>,
+            NaturalRestingPosition::<Impl, IMPL_OFFSET>,
+            NaturalRestingScale::<Impl, IMPL_OFFSET>,
+            PositionVelocityInPixelsPerSecond::<Impl, IMPL_OFFSET>,
+            RequestId::<Impl, IMPL_OFFSET>,
+            ScaleVelocityInPercentPerSecond::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaStateEnteredArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1144,7 +1213,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs2Impl, const OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
         unsafe extern "system" fn IsInertiaFromImpulse<Impl: IInteractionTrackerInertiaStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInertiaFromImpulse() {
@@ -1156,7 +1225,10 @@ impl IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsInertiaFromImpulse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsInertiaFromImpulse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaStateEnteredArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1169,7 +1241,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs3Impl, const OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
         unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerInertiaStateEnteredArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
@@ -1181,7 +1253,10 @@ impl IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaStateEnteredArgs3>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInertiaStateEnteredArgs3>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInertiaStateEnteredArgs3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1194,7 +1269,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInteractingStateEntered
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInteractingStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgsImpl, const OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgsVtbl {
         unsafe extern "system" fn RequestId<Impl: IInteractionTrackerInteractingStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
@@ -1206,7 +1281,10 @@ impl IInteractionTrackerInteractingStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInteractingStateEnteredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInteractingStateEnteredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInteractingStateEnteredArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1219,7 +1297,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInteractingStateEntered
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgs2Impl, const OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
         unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerInteractingStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
@@ -1231,7 +1309,10 @@ impl IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInteractingStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerInteractingStateEnteredArgs2>, ::windows::core::GetTrustLevel, IsFromBinding::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerInteractingStateEnteredArgs2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IInteractionTrackerOwnerImpl: Sized {
@@ -1246,7 +1327,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
 }
 impl IInteractionTrackerOwnerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>() -> IInteractionTrackerOwnerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerOwnerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerOwnerVtbl {
         unsafe extern "system" fn CustomAnimationStateEntered<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CustomAnimationStateEntered(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerCustomAnimationStateEnteredArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerCustomAnimationStateEnteredArgs as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1272,19 +1353,22 @@ impl IInteractionTrackerOwnerVtbl {
             (*this).ValuesChanged(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerValuesChangedArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerValuesChangedArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInteractionTrackerOwner>,
             ::windows::core::GetTrustLevel,
-            CustomAnimationStateEntered::<Impl, OFFSET>,
-            IdleStateEntered::<Impl, OFFSET>,
-            InertiaStateEntered::<Impl, OFFSET>,
-            InteractingStateEntered::<Impl, OFFSET>,
-            RequestIgnored::<Impl, OFFSET>,
-            ValuesChanged::<Impl, OFFSET>,
+            CustomAnimationStateEntered::<Impl, IMPL_OFFSET>,
+            IdleStateEntered::<Impl, IMPL_OFFSET>,
+            InertiaStateEntered::<Impl, IMPL_OFFSET>,
+            InteractingStateEntered::<Impl, IMPL_OFFSET>,
+            RequestIgnored::<Impl, IMPL_OFFSET>,
+            ValuesChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerOwner as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1297,7 +1381,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerRequestIgnoredArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerRequestIgnoredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerRequestIgnoredArgsImpl, const OFFSET: isize>() -> IInteractionTrackerRequestIgnoredArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerRequestIgnoredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerRequestIgnoredArgsVtbl {
         unsafe extern "system" fn RequestId<Impl: IInteractionTrackerRequestIgnoredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
@@ -1309,7 +1393,10 @@ impl IInteractionTrackerRequestIgnoredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerRequestIgnoredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerRequestIgnoredArgs>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerRequestIgnoredArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1323,7 +1410,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStaticsImpl, const OFFSET: isize>() -> IInteractionTrackerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IInteractionTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
@@ -1346,7 +1433,10 @@ impl IInteractionTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithOwner::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithOwner::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1360,7 +1450,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStatics2Impl, const OFFSET: isize>() -> IInteractionTrackerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerStatics2Vtbl {
         unsafe extern "system" fn SetBindingMode<Impl: IInteractionTrackerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, axismode: InteractionBindingAxisModes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBindingMode(&*(&boundtracker1 as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&boundtracker2 as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), axismode).into()
@@ -1376,22 +1466,25 @@ impl IInteractionTrackerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerStatics2>, ::windows::core::GetTrustLevel, SetBindingMode::<Impl, OFFSET>, GetBindingMode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerStatics2>, ::windows::core::GetTrustLevel, SetBindingMode::<Impl, IMPL_OFFSET>, GetBindingMode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTrackerValuesChangedArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn RequestId(&self) -> ::windows::core::Result<i32>;
     fn Scale(&self) -> ::windows::core::Result<f32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IInteractionTrackerValuesChangedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerValuesChangedArgsImpl, const OFFSET: isize>() -> IInteractionTrackerValuesChangedArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerValuesChangedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerValuesChangedArgsVtbl {
         unsafe extern "system" fn Position<Impl: IInteractionTrackerValuesChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -1425,7 +1518,10 @@ impl IInteractionTrackerValuesChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerValuesChangedArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, RequestId::<Impl, OFFSET>, Scale::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerValuesChangedArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, RequestId::<Impl, IMPL_OFFSET>, Scale::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerValuesChangedArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1436,8 +1532,11 @@ impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaModifier 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerVector2InertiaModifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierImpl, const OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaModifier>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaModifier>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerVector2InertiaModifier as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1448,8 +1547,11 @@ impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaModifierF
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerVector2InertiaModifierFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierFactoryImpl, const OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaModifierFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaModifierFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerVector2InertiaModifierFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1465,7 +1567,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaNaturalMo
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionVtbl {
         unsafe extern "system" fn Condition<Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
@@ -1496,7 +1598,10 @@ impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNaturalMotion(&*(&value as *const <super::Vector2NaturalMotionAnimation as ::windows::core::Abi>::Abi as *const <super::Vector2NaturalMotionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaNaturalMotion>, ::windows::core::GetTrustLevel, Condition::<Impl, OFFSET>, SetCondition::<Impl, OFFSET>, NaturalMotion::<Impl, OFFSET>, SetNaturalMotion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaNaturalMotion>, ::windows::core::GetTrustLevel, Condition::<Impl, IMPL_OFFSET>, SetCondition::<Impl, IMPL_OFFSET>, NaturalMotion::<Impl, IMPL_OFFSET>, SetNaturalMotion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerVector2InertiaNaturalMotion as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1509,7 +1614,7 @@ impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaNaturalMo
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl, const OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
@@ -1521,10 +1626,13 @@ impl IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaNaturalMotionStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInteractionTrackerVector2InertiaNaturalMotionStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInteractionTrackerVector2InertiaNaturalMotionStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IVisualInteractionSourceImpl: Sized {
     fn IsPositionXRailsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsPositionXRailsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -1547,13 +1655,13 @@ pub trait IVisualInteractionSourceImpl: Sized {
     fn Source(&self) -> ::windows::core::Result<super::Visual>;
     fn TryRedirectForManipulation(&self, pointerpoint: &::core::option::Option<super::super::Input::PointerPoint>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
 impl IVisualInteractionSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceImpl, const OFFSET: isize>() -> IVisualInteractionSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceVtbl {
         unsafe extern "system" fn IsPositionXRailsEnabled<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPositionXRailsEnabled() {
@@ -1705,36 +1813,39 @@ impl IVisualInteractionSourceVtbl {
             (*this).TryRedirectForManipulation(&*(&pointerpoint as *const <super::super::Input::PointerPoint as ::windows::core::Abi>::Abi as *const <super::super::Input::PointerPoint as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVisualInteractionSource>,
             ::windows::core::GetTrustLevel,
-            IsPositionXRailsEnabled::<Impl, OFFSET>,
-            SetIsPositionXRailsEnabled::<Impl, OFFSET>,
-            IsPositionYRailsEnabled::<Impl, OFFSET>,
-            SetIsPositionYRailsEnabled::<Impl, OFFSET>,
-            ManipulationRedirectionMode::<Impl, OFFSET>,
-            SetManipulationRedirectionMode::<Impl, OFFSET>,
-            PositionXChainingMode::<Impl, OFFSET>,
-            SetPositionXChainingMode::<Impl, OFFSET>,
-            PositionXSourceMode::<Impl, OFFSET>,
-            SetPositionXSourceMode::<Impl, OFFSET>,
-            PositionYChainingMode::<Impl, OFFSET>,
-            SetPositionYChainingMode::<Impl, OFFSET>,
-            PositionYSourceMode::<Impl, OFFSET>,
-            SetPositionYSourceMode::<Impl, OFFSET>,
-            ScaleChainingMode::<Impl, OFFSET>,
-            SetScaleChainingMode::<Impl, OFFSET>,
-            ScaleSourceMode::<Impl, OFFSET>,
-            SetScaleSourceMode::<Impl, OFFSET>,
-            Source::<Impl, OFFSET>,
-            TryRedirectForManipulation::<Impl, OFFSET>,
+            IsPositionXRailsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPositionXRailsEnabled::<Impl, IMPL_OFFSET>,
+            IsPositionYRailsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPositionYRailsEnabled::<Impl, IMPL_OFFSET>,
+            ManipulationRedirectionMode::<Impl, IMPL_OFFSET>,
+            SetManipulationRedirectionMode::<Impl, IMPL_OFFSET>,
+            PositionXChainingMode::<Impl, IMPL_OFFSET>,
+            SetPositionXChainingMode::<Impl, IMPL_OFFSET>,
+            PositionXSourceMode::<Impl, IMPL_OFFSET>,
+            SetPositionXSourceMode::<Impl, IMPL_OFFSET>,
+            PositionYChainingMode::<Impl, IMPL_OFFSET>,
+            SetPositionYChainingMode::<Impl, IMPL_OFFSET>,
+            PositionYSourceMode::<Impl, IMPL_OFFSET>,
+            SetPositionYSourceMode::<Impl, IMPL_OFFSET>,
+            ScaleChainingMode::<Impl, IMPL_OFFSET>,
+            SetScaleChainingMode::<Impl, IMPL_OFFSET>,
+            ScaleSourceMode::<Impl, IMPL_OFFSET>,
+            SetScaleSourceMode::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            TryRedirectForManipulation::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualInteractionSource as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVisualInteractionSource2Impl: Sized {
     fn DeltaPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn DeltaScale(&self) -> ::windows::core::Result<f32>;
@@ -1748,13 +1859,13 @@ pub trait IVisualInteractionSource2Impl: Sized {
     fn ConfigureDeltaPositionYModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
     fn ConfigureDeltaScaleModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisualInteractionSource2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSource2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IVisualInteractionSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource2Impl, const OFFSET: isize>() -> IVisualInteractionSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource2Vtbl {
         unsafe extern "system" fn DeltaPosition<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaPosition() {
@@ -1842,24 +1953,27 @@ impl IVisualInteractionSource2Vtbl {
             (*this).ConfigureDeltaScaleModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVisualInteractionSource2>,
             ::windows::core::GetTrustLevel,
-            DeltaPosition::<Impl, OFFSET>,
-            DeltaScale::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            PositionVelocity::<Impl, OFFSET>,
-            Scale::<Impl, OFFSET>,
-            ScaleVelocity::<Impl, OFFSET>,
-            ConfigureCenterPointXModifiers::<Impl, OFFSET>,
-            ConfigureCenterPointYModifiers::<Impl, OFFSET>,
-            ConfigureDeltaPositionXModifiers::<Impl, OFFSET>,
-            ConfigureDeltaPositionYModifiers::<Impl, OFFSET>,
-            ConfigureDeltaScaleModifiers::<Impl, OFFSET>,
+            DeltaPosition::<Impl, IMPL_OFFSET>,
+            DeltaScale::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            PositionVelocity::<Impl, IMPL_OFFSET>,
+            Scale::<Impl, IMPL_OFFSET>,
+            ScaleVelocity::<Impl, IMPL_OFFSET>,
+            ConfigureCenterPointXModifiers::<Impl, IMPL_OFFSET>,
+            ConfigureCenterPointYModifiers::<Impl, IMPL_OFFSET>,
+            ConfigureDeltaPositionXModifiers::<Impl, IMPL_OFFSET>,
+            ConfigureDeltaPositionYModifiers::<Impl, IMPL_OFFSET>,
+            ConfigureDeltaScaleModifiers::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualInteractionSource2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1872,7 +1986,7 @@ impl ::windows::core::RuntimeName for IVisualInteractionSource3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVisualInteractionSource3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource3Impl, const OFFSET: isize>() -> IVisualInteractionSource3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource3Vtbl {
         unsafe extern "system" fn PointerWheelConfig<Impl: IVisualInteractionSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerWheelConfig() {
@@ -1884,7 +1998,10 @@ impl IVisualInteractionSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSource3>, ::windows::core::GetTrustLevel, PointerWheelConfig::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSource3>, ::windows::core::GetTrustLevel, PointerWheelConfig::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualInteractionSource3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1895,8 +2012,11 @@ impl ::windows::core::RuntimeName for IVisualInteractionSourceObjectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVisualInteractionSourceObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceObjectFactoryImpl, const OFFSET: isize>() -> IVisualInteractionSourceObjectFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSourceObjectFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceObjectFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSourceObjectFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualInteractionSourceObjectFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1909,7 +2029,7 @@ impl ::windows::core::RuntimeName for IVisualInteractionSourceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVisualInteractionSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStaticsImpl, const OFFSET: isize>() -> IVisualInteractionSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IVisualInteractionSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&source as *const <super::Visual as ::windows::core::Abi>::Abi as *const <super::Visual as ::windows::core::DefaultType>::DefaultType)) {
@@ -1921,7 +2041,10 @@ impl IVisualInteractionSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualInteractionSourceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1934,7 +2057,7 @@ impl ::windows::core::RuntimeName for IVisualInteractionSourceStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVisualInteractionSourceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStatics2Impl, const OFFSET: isize>() -> IVisualInteractionSourceStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceStatics2Vtbl {
         unsafe extern "system" fn CreateFromIVisualElement<Impl: IVisualInteractionSourceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIVisualElement(&*(&source as *const <super::IVisualElement as ::windows::core::Abi>::Abi as *const <super::IVisualElement as ::windows::core::DefaultType>::DefaultType)) {
@@ -1946,6 +2069,9 @@ impl IVisualInteractionSourceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSourceStatics2>, ::windows::core::GetTrustLevel, CreateFromIVisualElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVisualInteractionSourceStatics2>, ::windows::core::GetTrustLevel, CreateFromIVisualElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVisualInteractionSourceStatics2 as ::windows::core::Interface>::IID
     }
 }

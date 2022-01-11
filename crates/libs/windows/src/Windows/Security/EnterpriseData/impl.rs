@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBufferProtectUnprotectResultImpl: Sized {
     fn Buffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ProtectionInfo(&self) -> ::windows::core::Result<DataProtectionInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IBufferProtectUnprotectResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBufferProtectUnprotectResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferProtectUnprotectResultImpl, const OFFSET: isize>() -> IBufferProtectUnprotectResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferProtectUnprotectResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBufferProtectUnprotectResultVtbl {
         unsafe extern "system" fn Buffer<Impl: IBufferProtectUnprotectResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Buffer() {
@@ -32,7 +32,10 @@ impl IBufferProtectUnprotectResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferProtectUnprotectResult>, ::windows::core::GetTrustLevel, Buffer::<Impl, OFFSET>, ProtectionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferProtectUnprotectResult>, ::windows::core::GetTrustLevel, Buffer::<Impl, IMPL_OFFSET>, ProtectionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBufferProtectUnprotectResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -46,7 +49,7 @@ impl ::windows::core::RuntimeName for IDataProtectionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDataProtectionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProtectionInfoImpl, const OFFSET: isize>() -> IDataProtectionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProtectionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataProtectionInfoVtbl {
         unsafe extern "system" fn Status<Impl: IDataProtectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataProtectionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -69,10 +72,13 @@ impl IDataProtectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataProtectionInfo>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Identity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataProtectionInfo>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Identity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataProtectionInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDataProtectionManagerStaticsImpl: Sized {
     fn ProtectAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>;
     fn UnprotectAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>;
@@ -81,13 +87,13 @@ pub trait IDataProtectionManagerStaticsImpl: Sized {
     fn GetProtectionInfoAsync(&self, protecteddata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
     fn GetStreamProtectionInfoAsync(&self, protectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDataProtectionManagerStatics {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IDataProtectionManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IDataProtectionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProtectionManagerStaticsImpl, const OFFSET: isize>() -> IDataProtectionManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProtectionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataProtectionManagerStaticsVtbl {
         unsafe extern "system" fn ProtectAsync<Impl: IDataProtectionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectAsync(&*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -159,19 +165,22 @@ impl IDataProtectionManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDataProtectionManagerStatics>,
             ::windows::core::GetTrustLevel,
-            ProtectAsync::<Impl, OFFSET>,
-            UnprotectAsync::<Impl, OFFSET>,
-            ProtectStreamAsync::<Impl, OFFSET>,
-            UnprotectStreamAsync::<Impl, OFFSET>,
-            GetProtectionInfoAsync::<Impl, OFFSET>,
-            GetStreamProtectionInfoAsync::<Impl, OFFSET>,
+            ProtectAsync::<Impl, IMPL_OFFSET>,
+            UnprotectAsync::<Impl, IMPL_OFFSET>,
+            ProtectStreamAsync::<Impl, IMPL_OFFSET>,
+            UnprotectStreamAsync::<Impl, IMPL_OFFSET>,
+            GetProtectionInfoAsync::<Impl, IMPL_OFFSET>,
+            GetStreamProtectionInfoAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataProtectionManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -186,7 +195,7 @@ impl ::windows::core::RuntimeName for IFileProtectionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFileProtectionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionInfoImpl, const OFFSET: isize>() -> IFileProtectionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileProtectionInfoVtbl {
         unsafe extern "system" fn Status<Impl: IFileProtectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FileProtectionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -220,7 +229,10 @@ impl IFileProtectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionInfo>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, IsRoamable::<Impl, OFFSET>, Identity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionInfo>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, IsRoamable::<Impl, IMPL_OFFSET>, Identity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileProtectionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -233,7 +245,7 @@ impl ::windows::core::RuntimeName for IFileProtectionInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFileProtectionInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionInfo2Impl, const OFFSET: isize>() -> IFileProtectionInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileProtectionInfo2Vtbl {
         unsafe extern "system" fn IsProtectWhileOpenSupported<Impl: IFileProtectionInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsProtectWhileOpenSupported() {
@@ -245,10 +257,13 @@ impl IFileProtectionInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionInfo2>, ::windows::core::GetTrustLevel, IsProtectWhileOpenSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionInfo2>, ::windows::core::GetTrustLevel, IsProtectWhileOpenSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileProtectionInfo2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFileProtectionManagerStaticsImpl: Sized {
     fn ProtectAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
     fn CopyProtectionAsync(&self, source: &::core::option::Option<super::super::Storage::IStorageItem>, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -258,13 +273,13 @@ pub trait IFileProtectionManagerStaticsImpl: Sized {
     fn LoadFileFromContainerWithTargetAsync(&self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
     fn CreateProtectedAndOpenAsync(&self, parentfolder: &::core::option::Option<super::super::Storage::IStorageFolder>, desiredname: &::windows::core::HSTRING, identity: &::windows::core::HSTRING, collisionoption: super::super::Storage::CreationCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileProtectionManagerStatics {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IFileProtectionManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IFileProtectionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionManagerStaticsImpl, const OFFSET: isize>() -> IFileProtectionManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileProtectionManagerStaticsVtbl {
         unsafe extern "system" fn ProtectAsync<Impl: IFileProtectionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectAsync(&*(&target as *const <super::super::Storage::IStorageItem as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -348,35 +363,38 @@ impl IFileProtectionManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics>,
             ::windows::core::GetTrustLevel,
-            ProtectAsync::<Impl, OFFSET>,
-            CopyProtectionAsync::<Impl, OFFSET>,
-            GetProtectionInfoAsync::<Impl, OFFSET>,
-            SaveFileAsContainerAsync::<Impl, OFFSET>,
-            LoadFileFromContainerAsync::<Impl, OFFSET>,
-            LoadFileFromContainerWithTargetAsync::<Impl, OFFSET>,
-            CreateProtectedAndOpenAsync::<Impl, OFFSET>,
+            ProtectAsync::<Impl, IMPL_OFFSET>,
+            CopyProtectionAsync::<Impl, IMPL_OFFSET>,
+            GetProtectionInfoAsync::<Impl, IMPL_OFFSET>,
+            SaveFileAsContainerAsync::<Impl, IMPL_OFFSET>,
+            LoadFileFromContainerAsync::<Impl, IMPL_OFFSET>,
+            LoadFileFromContainerWithTargetAsync::<Impl, IMPL_OFFSET>,
+            CreateProtectedAndOpenAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileProtectionManagerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFileProtectionManagerStatics2Impl: Sized {
     fn IsContainerAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(&self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>, target: &::core::option::Option<super::super::Storage::IStorageItem>, collisionoption: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
     fn SaveFileAsContainerWithSharingAsync(&self, protectedfile: &::core::option::Option<super::super::Storage::IStorageFile>, sharedwithidentities: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileProtectionManagerStatics2 {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IFileProtectionManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IFileProtectionManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionManagerStatics2Impl, const OFFSET: isize>() -> IFileProtectionManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileProtectionManagerStatics2Vtbl {
         unsafe extern "system" fn IsContainerAsync<Impl: IFileProtectionManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContainerAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -410,21 +428,24 @@ impl IFileProtectionManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics2>, ::windows::core::GetTrustLevel, IsContainerAsync::<Impl, OFFSET>, LoadFileFromContainerWithTargetAndNameCollisionOptionAsync::<Impl, OFFSET>, SaveFileAsContainerWithSharingAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics2>, ::windows::core::GetTrustLevel, IsContainerAsync::<Impl, IMPL_OFFSET>, LoadFileFromContainerWithTargetAndNameCollisionOptionAsync::<Impl, IMPL_OFFSET>, SaveFileAsContainerWithSharingAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileProtectionManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFileProtectionManagerStatics3Impl: Sized {
     fn UnprotectAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
     fn UnprotectWithOptionsAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>, options: &::core::option::Option<FileUnprotectOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileProtectionManagerStatics3 {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IFileProtectionManagerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IFileProtectionManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionManagerStatics3Impl, const OFFSET: isize>() -> IFileProtectionManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileProtectionManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileProtectionManagerStatics3Vtbl {
         unsafe extern "system" fn UnprotectAsync<Impl: IFileProtectionManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnprotectAsync(&*(&target as *const <super::super::Storage::IStorageItem as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageItem as ::windows::core::DefaultType>::DefaultType)) {
@@ -447,23 +468,26 @@ impl IFileProtectionManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics3>, ::windows::core::GetTrustLevel, UnprotectAsync::<Impl, OFFSET>, UnprotectWithOptionsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileProtectionManagerStatics3>, ::windows::core::GetTrustLevel, UnprotectAsync::<Impl, IMPL_OFFSET>, UnprotectWithOptionsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileProtectionManagerStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IFileRevocationManagerStaticsImpl: Sized {
     fn ProtectAsync(&self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>, enterpriseidentity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>;
     fn CopyProtectionAsync(&self, sourcestorageitem: &::core::option::Option<super::super::Storage::IStorageItem>, targetstorageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn Revoke(&self, enterpriseidentity: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn GetStatusAsync(&self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileRevocationManagerStatics {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IFileRevocationManagerStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated", feature = "implement_exclusive"))]
 impl IFileRevocationManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRevocationManagerStaticsImpl, const OFFSET: isize>() -> IFileRevocationManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRevocationManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileRevocationManagerStaticsVtbl {
         unsafe extern "system" fn ProtectAsync<Impl: IFileRevocationManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, enterpriseidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectAsync(&*(&storageitem as *const <super::super::Storage::IStorageItem as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&enterpriseidentity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -501,7 +525,10 @@ impl IFileRevocationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileRevocationManagerStatics>, ::windows::core::GetTrustLevel, ProtectAsync::<Impl, OFFSET>, CopyProtectionAsync::<Impl, OFFSET>, Revoke::<Impl, OFFSET>, GetStatusAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileRevocationManagerStatics>, ::windows::core::GetTrustLevel, ProtectAsync::<Impl, IMPL_OFFSET>, CopyProtectionAsync::<Impl, IMPL_OFFSET>, Revoke::<Impl, IMPL_OFFSET>, GetStatusAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileRevocationManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -515,7 +542,7 @@ impl ::windows::core::RuntimeName for IFileUnprotectOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFileUnprotectOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileUnprotectOptionsImpl, const OFFSET: isize>() -> IFileUnprotectOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileUnprotectOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileUnprotectOptionsVtbl {
         unsafe extern "system" fn SetAudit<Impl: IFileUnprotectOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudit(value).into()
@@ -531,7 +558,10 @@ impl IFileUnprotectOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUnprotectOptions>, ::windows::core::GetTrustLevel, SetAudit::<Impl, OFFSET>, Audit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUnprotectOptions>, ::windows::core::GetTrustLevel, SetAudit::<Impl, IMPL_OFFSET>, Audit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileUnprotectOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -544,7 +574,7 @@ impl ::windows::core::RuntimeName for IFileUnprotectOptionsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFileUnprotectOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileUnprotectOptionsFactoryImpl, const OFFSET: isize>() -> IFileUnprotectOptionsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileUnprotectOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileUnprotectOptionsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IFileUnprotectOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audit: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(audit) {
@@ -556,20 +586,23 @@ impl IFileUnprotectOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUnprotectOptionsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileUnprotectOptionsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileUnprotectOptionsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtectedAccessResumedEventArgsImpl: Sized {
     fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IProtectedAccessResumedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedAccessResumedEventArgsImpl, const OFFSET: isize>() -> IProtectedAccessResumedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedAccessResumedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectedAccessResumedEventArgsVtbl {
         unsafe extern "system" fn Identities<Impl: IProtectedAccessResumedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Identities() {
@@ -581,22 +614,25 @@ impl IProtectedAccessResumedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedAccessResumedEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedAccessResumedEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectedAccessResumedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtectedAccessSuspendingEventArgsImpl: Sized {
     fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IProtectedAccessSuspendingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedAccessSuspendingEventArgsImpl, const OFFSET: isize>() -> IProtectedAccessSuspendingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedAccessSuspendingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectedAccessSuspendingEventArgsVtbl {
         unsafe extern "system" fn Identities<Impl: IProtectedAccessSuspendingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Identities() {
@@ -630,21 +666,24 @@ impl IProtectedAccessSuspendingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedAccessSuspendingEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, OFFSET>, Deadline::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedAccessSuspendingEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectedAccessSuspendingEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IProtectedContainerExportResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<ProtectedImportExportStatus>;
     fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectedContainerExportResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl IProtectedContainerExportResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedContainerExportResultImpl, const OFFSET: isize>() -> IProtectedContainerExportResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedContainerExportResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectedContainerExportResultVtbl {
         unsafe extern "system" fn Status<Impl: IProtectedContainerExportResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProtectedImportExportStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -667,21 +706,24 @@ impl IProtectedContainerExportResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContainerExportResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, File::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContainerExportResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectedContainerExportResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IProtectedContainerImportResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<ProtectedImportExportStatus>;
     fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectedContainerImportResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl IProtectedContainerImportResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedContainerImportResultImpl, const OFFSET: isize>() -> IProtectedContainerImportResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedContainerImportResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectedContainerImportResultVtbl {
         unsafe extern "system" fn Status<Impl: IProtectedContainerImportResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProtectedImportExportStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -704,20 +746,23 @@ impl IProtectedContainerImportResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContainerImportResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, File::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContainerImportResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectedContainerImportResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtectedContentRevokedEventArgsImpl: Sized {
     fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectedContentRevokedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IProtectedContentRevokedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedContentRevokedEventArgsImpl, const OFFSET: isize>() -> IProtectedContentRevokedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedContentRevokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectedContentRevokedEventArgsVtbl {
         unsafe extern "system" fn Identities<Impl: IProtectedContentRevokedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Identities() {
@@ -729,22 +774,25 @@ impl IProtectedContentRevokedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContentRevokedEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedContentRevokedEventArgs>, ::windows::core::GetTrustLevel, Identities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectedContentRevokedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IProtectedFileCreateResultImpl: Sized {
     fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
     fn Stream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
     fn ProtectionInfo(&self) -> ::windows::core::Result<FileProtectionInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectedFileCreateResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IProtectedFileCreateResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedFileCreateResultImpl, const OFFSET: isize>() -> IProtectedFileCreateResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectedFileCreateResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectedFileCreateResultVtbl {
         unsafe extern "system" fn File<Impl: IProtectedFileCreateResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).File() {
@@ -778,7 +826,10 @@ impl IProtectedFileCreateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedFileCreateResult>, ::windows::core::GetTrustLevel, File::<Impl, OFFSET>, Stream::<Impl, OFFSET>, ProtectionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectedFileCreateResult>, ::windows::core::GetTrustLevel, File::<Impl, IMPL_OFFSET>, Stream::<Impl, IMPL_OFFSET>, ProtectionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectedFileCreateResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -798,7 +849,7 @@ impl ::windows::core::RuntimeName for IProtectionPolicyAuditInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProtectionPolicyAuditInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyAuditInfoImpl, const OFFSET: isize>() -> IProtectionPolicyAuditInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyAuditInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyAuditInfoVtbl {
         unsafe extern "system" fn SetAction<Impl: IProtectionPolicyAuditInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProtectionPolicyAuditAction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAction(value).into()
@@ -860,21 +911,24 @@ impl IProtectionPolicyAuditInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProtectionPolicyAuditInfo>,
             ::windows::core::GetTrustLevel,
-            SetAction::<Impl, OFFSET>,
-            Action::<Impl, OFFSET>,
-            SetDataDescription::<Impl, OFFSET>,
-            DataDescription::<Impl, OFFSET>,
-            SetSourceDescription::<Impl, OFFSET>,
-            SourceDescription::<Impl, OFFSET>,
-            SetTargetDescription::<Impl, OFFSET>,
-            TargetDescription::<Impl, OFFSET>,
+            SetAction::<Impl, IMPL_OFFSET>,
+            Action::<Impl, IMPL_OFFSET>,
+            SetDataDescription::<Impl, IMPL_OFFSET>,
+            DataDescription::<Impl, IMPL_OFFSET>,
+            SetSourceDescription::<Impl, IMPL_OFFSET>,
+            SourceDescription::<Impl, IMPL_OFFSET>,
+            SetTargetDescription::<Impl, IMPL_OFFSET>,
+            TargetDescription::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyAuditInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -888,7 +942,7 @@ impl ::windows::core::RuntimeName for IProtectionPolicyAuditInfoFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProtectionPolicyAuditInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyAuditInfoFactoryImpl, const OFFSET: isize>() -> IProtectionPolicyAuditInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyAuditInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyAuditInfoFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IProtectionPolicyAuditInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, action: ProtectionPolicyAuditAction, datadescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sourcedescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetdescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
@@ -916,7 +970,10 @@ impl IProtectionPolicyAuditInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyAuditInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithActionAndDataDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyAuditInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithActionAndDataDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyAuditInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -930,7 +987,7 @@ impl ::windows::core::RuntimeName for IProtectionPolicyManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProtectionPolicyManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerImpl, const OFFSET: isize>() -> IProtectionPolicyManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyManagerVtbl {
         unsafe extern "system" fn SetIdentity<Impl: IProtectionPolicyManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIdentity(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -946,7 +1003,10 @@ impl IProtectionPolicyManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManager>, ::windows::core::GetTrustLevel, SetIdentity::<Impl, OFFSET>, Identity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManager>, ::windows::core::GetTrustLevel, SetIdentity::<Impl, IMPL_OFFSET>, Identity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -960,7 +1020,7 @@ impl ::windows::core::RuntimeName for IProtectionPolicyManager2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProtectionPolicyManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManager2Impl, const OFFSET: isize>() -> IProtectionPolicyManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyManager2Vtbl {
         unsafe extern "system" fn SetShowEnterpriseIndicator<Impl: IProtectionPolicyManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowEnterpriseIndicator(value).into()
@@ -976,10 +1036,13 @@ impl IProtectionPolicyManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManager2>, ::windows::core::GetTrustLevel, SetShowEnterpriseIndicator::<Impl, OFFSET>, ShowEnterpriseIndicator::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionPolicyManager2>, ::windows::core::GetTrustLevel, SetShowEnterpriseIndicator::<Impl, IMPL_OFFSET>, ShowEnterpriseIndicator::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyManager2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStaticsImpl: Sized {
     fn IsIdentityManaged(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
     fn TryApplyProcessUIPolicy(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
@@ -997,13 +1060,13 @@ pub trait IProtectionPolicyManagerStaticsImpl: Sized {
     fn CheckAccess(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyEvaluationResult>;
     fn RequestAccessAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 impl IProtectionPolicyManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStaticsImpl, const OFFSET: isize>() -> IProtectionPolicyManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyManagerStaticsVtbl {
         unsafe extern "system" fn IsIdentityManaged<Impl: IProtectionPolicyManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIdentityManaged(&*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1135,31 +1198,34 @@ impl IProtectionPolicyManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics>,
             ::windows::core::GetTrustLevel,
-            IsIdentityManaged::<Impl, OFFSET>,
-            TryApplyProcessUIPolicy::<Impl, OFFSET>,
-            ClearProcessUIPolicy::<Impl, OFFSET>,
-            CreateCurrentThreadNetworkContext::<Impl, OFFSET>,
-            GetPrimaryManagedIdentityForNetworkEndpointAsync::<Impl, OFFSET>,
-            RevokeContent::<Impl, OFFSET>,
-            GetForCurrentView::<Impl, OFFSET>,
-            ProtectedAccessSuspending::<Impl, OFFSET>,
-            RemoveProtectedAccessSuspending::<Impl, OFFSET>,
-            ProtectedAccessResumed::<Impl, OFFSET>,
-            RemoveProtectedAccessResumed::<Impl, OFFSET>,
-            ProtectedContentRevoked::<Impl, OFFSET>,
-            RemoveProtectedContentRevoked::<Impl, OFFSET>,
-            CheckAccess::<Impl, OFFSET>,
-            RequestAccessAsync::<Impl, OFFSET>,
+            IsIdentityManaged::<Impl, IMPL_OFFSET>,
+            TryApplyProcessUIPolicy::<Impl, IMPL_OFFSET>,
+            ClearProcessUIPolicy::<Impl, IMPL_OFFSET>,
+            CreateCurrentThreadNetworkContext::<Impl, IMPL_OFFSET>,
+            GetPrimaryManagedIdentityForNetworkEndpointAsync::<Impl, IMPL_OFFSET>,
+            RevokeContent::<Impl, IMPL_OFFSET>,
+            GetForCurrentView::<Impl, IMPL_OFFSET>,
+            ProtectedAccessSuspending::<Impl, IMPL_OFFSET>,
+            RemoveProtectedAccessSuspending::<Impl, IMPL_OFFSET>,
+            ProtectedAccessResumed::<Impl, IMPL_OFFSET>,
+            RemoveProtectedAccessResumed::<Impl, IMPL_OFFSET>,
+            ProtectedContentRevoked::<Impl, IMPL_OFFSET>,
+            RemoveProtectedContentRevoked::<Impl, IMPL_OFFSET>,
+            CheckAccess::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStatics2Impl: Sized {
     fn HasContentBeenRevokedSince(&self, identity: &::windows::core::HSTRING, since: &super::super::Foundation::DateTime) -> ::windows::core::Result<bool>;
     fn CheckAccessForApp(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyEvaluationResult>;
@@ -1171,13 +1237,13 @@ pub trait IProtectionPolicyManagerStatics2Impl: Sized {
     fn RemovePolicyChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn IsProtectionEnabled(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics2 {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IProtectionPolicyManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStatics2Impl, const OFFSET: isize>() -> IProtectionPolicyManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyManagerStatics2Vtbl {
         unsafe extern "system" fn HasContentBeenRevokedSince<Impl: IProtectionPolicyManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, since: super::super::Foundation::DateTime, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasContentBeenRevokedSince(&*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&since as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)) {
@@ -1271,25 +1337,28 @@ impl IProtectionPolicyManagerStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics2>,
             ::windows::core::GetTrustLevel,
-            HasContentBeenRevokedSince::<Impl, OFFSET>,
-            CheckAccessForApp::<Impl, OFFSET>,
-            RequestAccessForAppAsync::<Impl, OFFSET>,
-            GetEnforcementLevel::<Impl, OFFSET>,
-            IsUserDecryptionAllowed::<Impl, OFFSET>,
-            IsProtectionUnderLockRequired::<Impl, OFFSET>,
-            PolicyChanged::<Impl, OFFSET>,
-            RemovePolicyChanged::<Impl, OFFSET>,
-            IsProtectionEnabled::<Impl, OFFSET>,
+            HasContentBeenRevokedSince::<Impl, IMPL_OFFSET>,
+            CheckAccessForApp::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppAsync::<Impl, IMPL_OFFSET>,
+            GetEnforcementLevel::<Impl, IMPL_OFFSET>,
+            IsUserDecryptionAllowed::<Impl, IMPL_OFFSET>,
+            IsProtectionUnderLockRequired::<Impl, IMPL_OFFSET>,
+            PolicyChanged::<Impl, IMPL_OFFSET>,
+            RemovePolicyChanged::<Impl, IMPL_OFFSET>,
+            IsProtectionEnabled::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerStatics2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStatics3Impl: Sized {
     fn RequestAccessWithAuditingInfoAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
     fn RequestAccessWithMessageAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
@@ -1297,13 +1366,13 @@ pub trait IProtectionPolicyManagerStatics3Impl: Sized {
     fn RequestAccessForAppWithMessageAsync(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
     fn LogAuditEvent(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics3 {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IProtectionPolicyManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStatics3Impl, const OFFSET: isize>() -> IProtectionPolicyManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyManagerStatics3Vtbl {
         unsafe extern "system" fn RequestAccessWithAuditingInfoAsync<Impl: IProtectionPolicyManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, auditinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessWithAuditingInfoAsync(
@@ -1377,21 +1446,24 @@ impl IProtectionPolicyManagerStatics3Vtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics3>,
             ::windows::core::GetTrustLevel,
-            RequestAccessWithAuditingInfoAsync::<Impl, OFFSET>,
-            RequestAccessWithMessageAsync::<Impl, OFFSET>,
-            RequestAccessForAppWithAuditingInfoAsync::<Impl, OFFSET>,
-            RequestAccessForAppWithMessageAsync::<Impl, OFFSET>,
-            LogAuditEvent::<Impl, OFFSET>,
+            RequestAccessWithAuditingInfoAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessWithMessageAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithAuditingInfoAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithMessageAsync::<Impl, IMPL_OFFSET>,
+            LogAuditEvent::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerStatics3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStatics4Impl: Sized {
     fn IsRoamableProtectionEnabled(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
     fn RequestAccessWithBehaviorAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
@@ -1405,13 +1477,13 @@ pub trait IProtectionPolicyManagerStatics4Impl: Sized {
     fn PrimaryManagedIdentity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetPrimaryManagedIdentityForIdentity(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics4 {
     const NAME: &'static str = "Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IProtectionPolicyManagerStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStatics4Impl, const OFFSET: isize>() -> IProtectionPolicyManagerStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionPolicyManagerStatics4Vtbl {
         unsafe extern "system" fn IsRoamableProtectionEnabled<Impl: IProtectionPolicyManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRoamableProtectionEnabled(&*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1566,24 +1638,27 @@ impl IProtectionPolicyManagerStatics4Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProtectionPolicyManagerStatics4>,
             ::windows::core::GetTrustLevel,
-            IsRoamableProtectionEnabled::<Impl, OFFSET>,
-            RequestAccessWithBehaviorAsync::<Impl, OFFSET>,
-            RequestAccessForAppWithBehaviorAsync::<Impl, OFFSET>,
-            RequestAccessToFilesForAppAsync::<Impl, OFFSET>,
-            RequestAccessToFilesForAppWithMessageAndBehaviorAsync::<Impl, OFFSET>,
-            RequestAccessToFilesForProcessAsync::<Impl, OFFSET>,
-            RequestAccessToFilesForProcessWithMessageAndBehaviorAsync::<Impl, OFFSET>,
-            IsFileProtectionRequiredAsync::<Impl, OFFSET>,
-            IsFileProtectionRequiredForNewFileAsync::<Impl, OFFSET>,
-            PrimaryManagedIdentity::<Impl, OFFSET>,
-            GetPrimaryManagedIdentityForIdentity::<Impl, OFFSET>,
+            IsRoamableProtectionEnabled::<Impl, IMPL_OFFSET>,
+            RequestAccessWithBehaviorAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForAppWithBehaviorAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForAppAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForAppWithMessageAndBehaviorAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForProcessAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessToFilesForProcessWithMessageAndBehaviorAsync::<Impl, IMPL_OFFSET>,
+            IsFileProtectionRequiredAsync::<Impl, IMPL_OFFSET>,
+            IsFileProtectionRequiredForNewFileAsync::<Impl, IMPL_OFFSET>,
+            PrimaryManagedIdentity::<Impl, IMPL_OFFSET>,
+            GetPrimaryManagedIdentityForIdentity::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerStatics4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1594,7 +1669,10 @@ impl ::windows::core::RuntimeName for IThreadNetworkContext {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IThreadNetworkContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadNetworkContextImpl, const OFFSET: isize>() -> IThreadNetworkContextVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadNetworkContext>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadNetworkContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThreadNetworkContextVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadNetworkContext>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IThreadNetworkContext as ::windows::core::Interface>::IID
     }
 }

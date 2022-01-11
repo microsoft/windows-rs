@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBarcodeScannerImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&self) -> ::windows::core::Result<BarcodeScannerCapabilities>;
@@ -12,13 +12,13 @@ pub trait IBarcodeScannerImpl: Sized {
     fn StatusUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScanner";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBarcodeScannerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImpl, const OFFSET: isize>() -> IBarcodeScannerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerVtbl {
         unsafe extern "system" fn DeviceId<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -134,24 +134,27 @@ impl IBarcodeScannerVtbl {
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBarcodeScanner>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
-            ClaimScannerAsync::<Impl, OFFSET>,
-            CheckHealthAsync::<Impl, OFFSET>,
-            GetSupportedSymbologiesAsync::<Impl, OFFSET>,
-            IsSymbologySupportedAsync::<Impl, OFFSET>,
-            RetrieveStatisticsAsync::<Impl, OFFSET>,
-            GetSupportedProfiles::<Impl, OFFSET>,
-            IsProfileSupported::<Impl, OFFSET>,
-            StatusUpdated::<Impl, OFFSET>,
-            RemoveStatusUpdated::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            ClaimScannerAsync::<Impl, IMPL_OFFSET>,
+            CheckHealthAsync::<Impl, IMPL_OFFSET>,
+            GetSupportedSymbologiesAsync::<Impl, IMPL_OFFSET>,
+            IsSymbologySupportedAsync::<Impl, IMPL_OFFSET>,
+            RetrieveStatisticsAsync::<Impl, IMPL_OFFSET>,
+            GetSupportedProfiles::<Impl, IMPL_OFFSET>,
+            IsProfileSupported::<Impl, IMPL_OFFSET>,
+            StatusUpdated::<Impl, IMPL_OFFSET>,
+            RemoveStatusUpdated::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScanner as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -164,7 +167,7 @@ impl ::windows::core::RuntimeName for IBarcodeScanner2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScanner2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScanner2Impl, const OFFSET: isize>() -> IBarcodeScanner2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScanner2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScanner2Vtbl {
         unsafe extern "system" fn VideoDeviceId<Impl: IBarcodeScanner2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceId() {
@@ -176,7 +179,10 @@ impl IBarcodeScanner2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScanner2>, ::windows::core::GetTrustLevel, VideoDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScanner2>, ::windows::core::GetTrustLevel, VideoDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScanner2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -192,7 +198,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilitiesImpl, const OFFSET: isize>() -> IBarcodeScannerCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilitiesVtbl {
         unsafe extern "system" fn PowerReportingType<Impl: IBarcodeScannerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
@@ -237,7 +243,10 @@ impl IBarcodeScannerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerCapabilities>, ::windows::core::GetTrustLevel, PowerReportingType::<Impl, OFFSET>, IsStatisticsReportingSupported::<Impl, OFFSET>, IsStatisticsUpdatingSupported::<Impl, OFFSET>, IsImagePreviewSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerCapabilities>, ::windows::core::GetTrustLevel, PowerReportingType::<Impl, IMPL_OFFSET>, IsStatisticsReportingSupported::<Impl, IMPL_OFFSET>, IsStatisticsUpdatingSupported::<Impl, IMPL_OFFSET>, IsImagePreviewSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -250,7 +259,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerCapabilities1 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerCapabilities1Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities1Impl, const OFFSET: isize>() -> IBarcodeScannerCapabilities1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities1Vtbl {
         unsafe extern "system" fn IsSoftwareTriggerSupported<Impl: IBarcodeScannerCapabilities1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSoftwareTriggerSupported() {
@@ -262,7 +271,10 @@ impl IBarcodeScannerCapabilities1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerCapabilities1>, ::windows::core::GetTrustLevel, IsSoftwareTriggerSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerCapabilities1>, ::windows::core::GetTrustLevel, IsSoftwareTriggerSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerCapabilities1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -275,7 +287,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerCapabilities2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities2Impl, const OFFSET: isize>() -> IBarcodeScannerCapabilities2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities2Vtbl {
         unsafe extern "system" fn IsVideoPreviewSupported<Impl: IBarcodeScannerCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoPreviewSupported() {
@@ -287,7 +299,10 @@ impl IBarcodeScannerCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerCapabilities2>, ::windows::core::GetTrustLevel, IsVideoPreviewSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerCapabilities2>, ::windows::core::GetTrustLevel, IsVideoPreviewSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerCapabilities2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -300,7 +315,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerDataReceivedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerDataReceivedEventArgsImpl, const OFFSET: isize>() -> IBarcodeScannerDataReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerDataReceivedEventArgsVtbl {
         unsafe extern "system" fn Report<Impl: IBarcodeScannerDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
@@ -312,7 +327,10 @@ impl IBarcodeScannerDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDataReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDataReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerDataReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -327,7 +345,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerErrorOccurredEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerErrorOccurredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const OFFSET: isize>() -> IBarcodeScannerErrorOccurredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerErrorOccurredEventArgsVtbl {
         unsafe extern "system" fn PartialInputData<Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PartialInputData() {
@@ -361,20 +379,23 @@ impl IBarcodeScannerErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, PartialInputData::<Impl, OFFSET>, IsRetriable::<Impl, OFFSET>, ErrorData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, PartialInputData::<Impl, IMPL_OFFSET>, IsRetriable::<Impl, IMPL_OFFSET>, ErrorData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerErrorOccurredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBarcodeScannerImagePreviewReceivedEventArgsImpl: Sized {
     fn Preview(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarcodeScannerImagePreviewReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImagePreviewReceivedEventArgsImpl, const OFFSET: isize>() -> IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImagePreviewReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
         unsafe extern "system" fn Preview<Impl: IBarcodeScannerImagePreviewReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Preview() {
@@ -386,22 +407,25 @@ impl IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerImagePreviewReceivedEventArgs>, ::windows::core::GetTrustLevel, Preview::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerImagePreviewReceivedEventArgs>, ::windows::core::GetTrustLevel, Preview::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerImagePreviewReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBarcodeScannerReportImpl: Sized {
     fn ScanDataType(&self) -> ::windows::core::Result<u32>;
     fn ScanData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ScanDataLabel(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBarcodeScannerReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportImpl, const OFFSET: isize>() -> IBarcodeScannerReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerReportVtbl {
         unsafe extern "system" fn ScanDataType<Impl: IBarcodeScannerReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanDataType() {
@@ -435,20 +459,23 @@ impl IBarcodeScannerReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerReport>, ::windows::core::GetTrustLevel, ScanDataType::<Impl, OFFSET>, ScanData::<Impl, OFFSET>, ScanDataLabel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerReport>, ::windows::core::GetTrustLevel, ScanDataType::<Impl, IMPL_OFFSET>, ScanData::<Impl, IMPL_OFFSET>, ScanDataLabel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerReport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBarcodeScannerReportFactoryImpl: Sized {
     fn CreateInstance(&self, scandatatype: u32, scandata: &::core::option::Option<super::super::Storage::Streams::IBuffer>, scandatalabel: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BarcodeScannerReport>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarcodeScannerReportFactory {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerReportFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBarcodeScannerReportFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportFactoryImpl, const OFFSET: isize>() -> IBarcodeScannerReportFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerReportFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IBarcodeScannerReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scandatatype: u32, scandata: ::windows::core::RawPtr, scandatalabel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(scandatatype, &*(&scandata as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&scandatalabel as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -460,22 +487,25 @@ impl IBarcodeScannerReportFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerReportFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerReportFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerReportFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBarcodeScannerStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarcodeScannerStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBarcodeScannerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStaticsImpl, const OFFSET: isize>() -> IBarcodeScannerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStaticsVtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: IBarcodeScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -509,7 +539,10 @@ impl IBarcodeScannerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -522,7 +555,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatics2Impl, const OFFSET: isize>() -> IBarcodeScannerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatics2Vtbl {
         unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IBarcodeScannerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
@@ -534,7 +567,10 @@ impl IBarcodeScannerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -548,7 +584,7 @@ impl ::windows::core::RuntimeName for IBarcodeScannerStatusUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeScannerStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatusUpdatedEventArgsImpl, const OFFSET: isize>() -> IBarcodeScannerStatusUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatusUpdatedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IBarcodeScannerStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BarcodeScannerStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -571,7 +607,10 @@ impl IBarcodeScannerStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeScannerStatusUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -677,7 +716,7 @@ impl ::windows::core::RuntimeName for IBarcodeSymbologiesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeSymbologiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>() -> IBarcodeSymbologiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologiesStaticsVtbl {
         unsafe extern "system" fn Unknown<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unknown() {
@@ -1713,107 +1752,110 @@ impl IBarcodeSymbologiesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBarcodeSymbologiesStatics>,
             ::windows::core::GetTrustLevel,
-            Unknown::<Impl, OFFSET>,
-            Ean8::<Impl, OFFSET>,
-            Ean8Add2::<Impl, OFFSET>,
-            Ean8Add5::<Impl, OFFSET>,
-            Eanv::<Impl, OFFSET>,
-            EanvAdd2::<Impl, OFFSET>,
-            EanvAdd5::<Impl, OFFSET>,
-            Ean13::<Impl, OFFSET>,
-            Ean13Add2::<Impl, OFFSET>,
-            Ean13Add5::<Impl, OFFSET>,
-            Isbn::<Impl, OFFSET>,
-            IsbnAdd5::<Impl, OFFSET>,
-            Ismn::<Impl, OFFSET>,
-            IsmnAdd2::<Impl, OFFSET>,
-            IsmnAdd5::<Impl, OFFSET>,
-            Issn::<Impl, OFFSET>,
-            IssnAdd2::<Impl, OFFSET>,
-            IssnAdd5::<Impl, OFFSET>,
-            Ean99::<Impl, OFFSET>,
-            Ean99Add2::<Impl, OFFSET>,
-            Ean99Add5::<Impl, OFFSET>,
-            Upca::<Impl, OFFSET>,
-            UpcaAdd2::<Impl, OFFSET>,
-            UpcaAdd5::<Impl, OFFSET>,
-            Upce::<Impl, OFFSET>,
-            UpceAdd2::<Impl, OFFSET>,
-            UpceAdd5::<Impl, OFFSET>,
-            UpcCoupon::<Impl, OFFSET>,
-            TfStd::<Impl, OFFSET>,
-            TfDis::<Impl, OFFSET>,
-            TfInt::<Impl, OFFSET>,
-            TfInd::<Impl, OFFSET>,
-            TfMat::<Impl, OFFSET>,
-            TfIata::<Impl, OFFSET>,
-            Gs1DatabarType1::<Impl, OFFSET>,
-            Gs1DatabarType2::<Impl, OFFSET>,
-            Gs1DatabarType3::<Impl, OFFSET>,
-            Code39::<Impl, OFFSET>,
-            Code39Ex::<Impl, OFFSET>,
-            Trioptic39::<Impl, OFFSET>,
-            Code32::<Impl, OFFSET>,
-            Pzn::<Impl, OFFSET>,
-            Code93::<Impl, OFFSET>,
-            Code93Ex::<Impl, OFFSET>,
-            Code128::<Impl, OFFSET>,
-            Gs1128::<Impl, OFFSET>,
-            Gs1128Coupon::<Impl, OFFSET>,
-            UccEan128::<Impl, OFFSET>,
-            Sisac::<Impl, OFFSET>,
-            Isbt::<Impl, OFFSET>,
-            Codabar::<Impl, OFFSET>,
-            Code11::<Impl, OFFSET>,
-            Msi::<Impl, OFFSET>,
-            Plessey::<Impl, OFFSET>,
-            Telepen::<Impl, OFFSET>,
-            Code16k::<Impl, OFFSET>,
-            CodablockA::<Impl, OFFSET>,
-            CodablockF::<Impl, OFFSET>,
-            Codablock128::<Impl, OFFSET>,
-            Code49::<Impl, OFFSET>,
-            Aztec::<Impl, OFFSET>,
-            DataCode::<Impl, OFFSET>,
-            DataMatrix::<Impl, OFFSET>,
-            HanXin::<Impl, OFFSET>,
-            Maxicode::<Impl, OFFSET>,
-            MicroPdf417::<Impl, OFFSET>,
-            MicroQr::<Impl, OFFSET>,
-            Pdf417::<Impl, OFFSET>,
-            Qr::<Impl, OFFSET>,
-            MsTag::<Impl, OFFSET>,
-            Ccab::<Impl, OFFSET>,
-            Ccc::<Impl, OFFSET>,
-            Tlc39::<Impl, OFFSET>,
-            AusPost::<Impl, OFFSET>,
-            CanPost::<Impl, OFFSET>,
-            ChinaPost::<Impl, OFFSET>,
-            DutchKix::<Impl, OFFSET>,
-            InfoMail::<Impl, OFFSET>,
-            ItalianPost25::<Impl, OFFSET>,
-            ItalianPost39::<Impl, OFFSET>,
-            JapanPost::<Impl, OFFSET>,
-            KoreanPost::<Impl, OFFSET>,
-            SwedenPost::<Impl, OFFSET>,
-            UkPost::<Impl, OFFSET>,
-            UsIntelligent::<Impl, OFFSET>,
-            UsIntelligentPkg::<Impl, OFFSET>,
-            UsPlanet::<Impl, OFFSET>,
-            UsPostNet::<Impl, OFFSET>,
-            Us4StateFics::<Impl, OFFSET>,
-            OcrA::<Impl, OFFSET>,
-            OcrB::<Impl, OFFSET>,
-            Micr::<Impl, OFFSET>,
-            ExtendedBase::<Impl, OFFSET>,
-            GetName::<Impl, OFFSET>,
+            Unknown::<Impl, IMPL_OFFSET>,
+            Ean8::<Impl, IMPL_OFFSET>,
+            Ean8Add2::<Impl, IMPL_OFFSET>,
+            Ean8Add5::<Impl, IMPL_OFFSET>,
+            Eanv::<Impl, IMPL_OFFSET>,
+            EanvAdd2::<Impl, IMPL_OFFSET>,
+            EanvAdd5::<Impl, IMPL_OFFSET>,
+            Ean13::<Impl, IMPL_OFFSET>,
+            Ean13Add2::<Impl, IMPL_OFFSET>,
+            Ean13Add5::<Impl, IMPL_OFFSET>,
+            Isbn::<Impl, IMPL_OFFSET>,
+            IsbnAdd5::<Impl, IMPL_OFFSET>,
+            Ismn::<Impl, IMPL_OFFSET>,
+            IsmnAdd2::<Impl, IMPL_OFFSET>,
+            IsmnAdd5::<Impl, IMPL_OFFSET>,
+            Issn::<Impl, IMPL_OFFSET>,
+            IssnAdd2::<Impl, IMPL_OFFSET>,
+            IssnAdd5::<Impl, IMPL_OFFSET>,
+            Ean99::<Impl, IMPL_OFFSET>,
+            Ean99Add2::<Impl, IMPL_OFFSET>,
+            Ean99Add5::<Impl, IMPL_OFFSET>,
+            Upca::<Impl, IMPL_OFFSET>,
+            UpcaAdd2::<Impl, IMPL_OFFSET>,
+            UpcaAdd5::<Impl, IMPL_OFFSET>,
+            Upce::<Impl, IMPL_OFFSET>,
+            UpceAdd2::<Impl, IMPL_OFFSET>,
+            UpceAdd5::<Impl, IMPL_OFFSET>,
+            UpcCoupon::<Impl, IMPL_OFFSET>,
+            TfStd::<Impl, IMPL_OFFSET>,
+            TfDis::<Impl, IMPL_OFFSET>,
+            TfInt::<Impl, IMPL_OFFSET>,
+            TfInd::<Impl, IMPL_OFFSET>,
+            TfMat::<Impl, IMPL_OFFSET>,
+            TfIata::<Impl, IMPL_OFFSET>,
+            Gs1DatabarType1::<Impl, IMPL_OFFSET>,
+            Gs1DatabarType2::<Impl, IMPL_OFFSET>,
+            Gs1DatabarType3::<Impl, IMPL_OFFSET>,
+            Code39::<Impl, IMPL_OFFSET>,
+            Code39Ex::<Impl, IMPL_OFFSET>,
+            Trioptic39::<Impl, IMPL_OFFSET>,
+            Code32::<Impl, IMPL_OFFSET>,
+            Pzn::<Impl, IMPL_OFFSET>,
+            Code93::<Impl, IMPL_OFFSET>,
+            Code93Ex::<Impl, IMPL_OFFSET>,
+            Code128::<Impl, IMPL_OFFSET>,
+            Gs1128::<Impl, IMPL_OFFSET>,
+            Gs1128Coupon::<Impl, IMPL_OFFSET>,
+            UccEan128::<Impl, IMPL_OFFSET>,
+            Sisac::<Impl, IMPL_OFFSET>,
+            Isbt::<Impl, IMPL_OFFSET>,
+            Codabar::<Impl, IMPL_OFFSET>,
+            Code11::<Impl, IMPL_OFFSET>,
+            Msi::<Impl, IMPL_OFFSET>,
+            Plessey::<Impl, IMPL_OFFSET>,
+            Telepen::<Impl, IMPL_OFFSET>,
+            Code16k::<Impl, IMPL_OFFSET>,
+            CodablockA::<Impl, IMPL_OFFSET>,
+            CodablockF::<Impl, IMPL_OFFSET>,
+            Codablock128::<Impl, IMPL_OFFSET>,
+            Code49::<Impl, IMPL_OFFSET>,
+            Aztec::<Impl, IMPL_OFFSET>,
+            DataCode::<Impl, IMPL_OFFSET>,
+            DataMatrix::<Impl, IMPL_OFFSET>,
+            HanXin::<Impl, IMPL_OFFSET>,
+            Maxicode::<Impl, IMPL_OFFSET>,
+            MicroPdf417::<Impl, IMPL_OFFSET>,
+            MicroQr::<Impl, IMPL_OFFSET>,
+            Pdf417::<Impl, IMPL_OFFSET>,
+            Qr::<Impl, IMPL_OFFSET>,
+            MsTag::<Impl, IMPL_OFFSET>,
+            Ccab::<Impl, IMPL_OFFSET>,
+            Ccc::<Impl, IMPL_OFFSET>,
+            Tlc39::<Impl, IMPL_OFFSET>,
+            AusPost::<Impl, IMPL_OFFSET>,
+            CanPost::<Impl, IMPL_OFFSET>,
+            ChinaPost::<Impl, IMPL_OFFSET>,
+            DutchKix::<Impl, IMPL_OFFSET>,
+            InfoMail::<Impl, IMPL_OFFSET>,
+            ItalianPost25::<Impl, IMPL_OFFSET>,
+            ItalianPost39::<Impl, IMPL_OFFSET>,
+            JapanPost::<Impl, IMPL_OFFSET>,
+            KoreanPost::<Impl, IMPL_OFFSET>,
+            SwedenPost::<Impl, IMPL_OFFSET>,
+            UkPost::<Impl, IMPL_OFFSET>,
+            UsIntelligent::<Impl, IMPL_OFFSET>,
+            UsIntelligentPkg::<Impl, IMPL_OFFSET>,
+            UsPlanet::<Impl, IMPL_OFFSET>,
+            UsPostNet::<Impl, IMPL_OFFSET>,
+            Us4StateFics::<Impl, IMPL_OFFSET>,
+            OcrA::<Impl, IMPL_OFFSET>,
+            OcrB::<Impl, IMPL_OFFSET>,
+            Micr::<Impl, IMPL_OFFSET>,
+            ExtendedBase::<Impl, IMPL_OFFSET>,
+            GetName::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeSymbologiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1826,7 +1868,7 @@ impl ::windows::core::RuntimeName for IBarcodeSymbologiesStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeSymbologiesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStatics2Impl, const OFFSET: isize>() -> IBarcodeSymbologiesStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologiesStatics2Vtbl {
         unsafe extern "system" fn Gs1DWCode<Impl: IBarcodeSymbologiesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1DWCode() {
@@ -1838,7 +1880,10 @@ impl IBarcodeSymbologiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeSymbologiesStatics2>, ::windows::core::GetTrustLevel, Gs1DWCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBarcodeSymbologiesStatics2>, ::windows::core::GetTrustLevel, Gs1DWCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeSymbologiesStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1863,7 +1908,7 @@ impl ::windows::core::RuntimeName for IBarcodeSymbologyAttributes {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBarcodeSymbologyAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>() -> IBarcodeSymbologyAttributesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologyAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologyAttributesVtbl {
         unsafe extern "system" fn IsCheckDigitValidationEnabled<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCheckDigitValidationEnabled() {
@@ -1973,29 +2018,32 @@ impl IBarcodeSymbologyAttributesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBarcodeSymbologyAttributes>,
             ::windows::core::GetTrustLevel,
-            IsCheckDigitValidationEnabled::<Impl, OFFSET>,
-            SetIsCheckDigitValidationEnabled::<Impl, OFFSET>,
-            IsCheckDigitValidationSupported::<Impl, OFFSET>,
-            IsCheckDigitTransmissionEnabled::<Impl, OFFSET>,
-            SetIsCheckDigitTransmissionEnabled::<Impl, OFFSET>,
-            IsCheckDigitTransmissionSupported::<Impl, OFFSET>,
-            DecodeLength1::<Impl, OFFSET>,
-            SetDecodeLength1::<Impl, OFFSET>,
-            DecodeLength2::<Impl, OFFSET>,
-            SetDecodeLength2::<Impl, OFFSET>,
-            DecodeLengthKind::<Impl, OFFSET>,
-            SetDecodeLengthKind::<Impl, OFFSET>,
-            IsDecodeLengthSupported::<Impl, OFFSET>,
+            IsCheckDigitValidationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsCheckDigitValidationEnabled::<Impl, IMPL_OFFSET>,
+            IsCheckDigitValidationSupported::<Impl, IMPL_OFFSET>,
+            IsCheckDigitTransmissionEnabled::<Impl, IMPL_OFFSET>,
+            SetIsCheckDigitTransmissionEnabled::<Impl, IMPL_OFFSET>,
+            IsCheckDigitTransmissionSupported::<Impl, IMPL_OFFSET>,
+            DecodeLength1::<Impl, IMPL_OFFSET>,
+            SetDecodeLength1::<Impl, IMPL_OFFSET>,
+            DecodeLength2::<Impl, IMPL_OFFSET>,
+            SetDecodeLength2::<Impl, IMPL_OFFSET>,
+            DecodeLengthKind::<Impl, IMPL_OFFSET>,
+            SetDecodeLengthKind::<Impl, IMPL_OFFSET>,
+            IsDecodeLengthSupported::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBarcodeSymbologyAttributes as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICashDrawerImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&self) -> ::windows::core::Result<CashDrawerCapabilities>;
@@ -2008,13 +2056,13 @@ pub trait ICashDrawerImpl: Sized {
     fn StatusUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICashDrawerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerImpl, const OFFSET: isize>() -> ICashDrawerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerVtbl {
         unsafe extern "system" fn DeviceId<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -2119,23 +2167,26 @@ impl ICashDrawerVtbl {
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICashDrawer>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            IsDrawerOpen::<Impl, OFFSET>,
-            DrawerEventSource::<Impl, OFFSET>,
-            ClaimDrawerAsync::<Impl, OFFSET>,
-            CheckHealthAsync::<Impl, OFFSET>,
-            GetStatisticsAsync::<Impl, OFFSET>,
-            StatusUpdated::<Impl, OFFSET>,
-            RemoveStatusUpdated::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            IsDrawerOpen::<Impl, IMPL_OFFSET>,
+            DrawerEventSource::<Impl, IMPL_OFFSET>,
+            ClaimDrawerAsync::<Impl, IMPL_OFFSET>,
+            CheckHealthAsync::<Impl, IMPL_OFFSET>,
+            GetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            StatusUpdated::<Impl, IMPL_OFFSET>,
+            RemoveStatusUpdated::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2153,7 +2204,7 @@ impl ::windows::core::RuntimeName for ICashDrawerCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICashDrawerCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>() -> ICashDrawerCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerCapabilitiesVtbl {
         unsafe extern "system" fn PowerReportingType<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
@@ -2221,22 +2272,25 @@ impl ICashDrawerCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICashDrawerCapabilities>,
             ::windows::core::GetTrustLevel,
-            PowerReportingType::<Impl, OFFSET>,
-            IsStatisticsReportingSupported::<Impl, OFFSET>,
-            IsStatisticsUpdatingSupported::<Impl, OFFSET>,
-            IsStatusReportingSupported::<Impl, OFFSET>,
-            IsStatusMultiDrawerDetectSupported::<Impl, OFFSET>,
-            IsDrawerOpenSensorAvailable::<Impl, OFFSET>,
+            PowerReportingType::<Impl, IMPL_OFFSET>,
+            IsStatisticsReportingSupported::<Impl, IMPL_OFFSET>,
+            IsStatisticsUpdatingSupported::<Impl, IMPL_OFFSET>,
+            IsStatusReportingSupported::<Impl, IMPL_OFFSET>,
+            IsStatusMultiDrawerDetectSupported::<Impl, IMPL_OFFSET>,
+            IsDrawerOpenSensorAvailable::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerCapabilities as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICashDrawerCloseAlarmImpl: Sized {
     fn SetAlarmTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn AlarmTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -2250,13 +2304,13 @@ pub trait ICashDrawerCloseAlarmImpl: Sized {
     fn RemoveAlarmTimeoutExpired(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerCloseAlarm";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICashDrawerCloseAlarmVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>() -> ICashDrawerCloseAlarmVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCloseAlarmImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerCloseAlarmVtbl {
         unsafe extern "system" fn SetAlarmTimeout<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlarmTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2344,40 +2398,43 @@ impl ICashDrawerCloseAlarmVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICashDrawerCloseAlarm>,
             ::windows::core::GetTrustLevel,
-            SetAlarmTimeout::<Impl, OFFSET>,
-            AlarmTimeout::<Impl, OFFSET>,
-            SetBeepFrequency::<Impl, OFFSET>,
-            BeepFrequency::<Impl, OFFSET>,
-            SetBeepDuration::<Impl, OFFSET>,
-            BeepDuration::<Impl, OFFSET>,
-            SetBeepDelay::<Impl, OFFSET>,
-            BeepDelay::<Impl, OFFSET>,
-            AlarmTimeoutExpired::<Impl, OFFSET>,
-            RemoveAlarmTimeoutExpired::<Impl, OFFSET>,
-            StartAsync::<Impl, OFFSET>,
+            SetAlarmTimeout::<Impl, IMPL_OFFSET>,
+            AlarmTimeout::<Impl, IMPL_OFFSET>,
+            SetBeepFrequency::<Impl, IMPL_OFFSET>,
+            BeepFrequency::<Impl, IMPL_OFFSET>,
+            SetBeepDuration::<Impl, IMPL_OFFSET>,
+            BeepDuration::<Impl, IMPL_OFFSET>,
+            SetBeepDelay::<Impl, IMPL_OFFSET>,
+            BeepDelay::<Impl, IMPL_OFFSET>,
+            AlarmTimeoutExpired::<Impl, IMPL_OFFSET>,
+            RemoveAlarmTimeoutExpired::<Impl, IMPL_OFFSET>,
+            StartAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerCloseAlarm as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICashDrawerEventSourceImpl: Sized {
     fn DrawerClosed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDrawerClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn DrawerOpened(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDrawerOpened(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICashDrawerEventSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceImpl, const OFFSET: isize>() -> ICashDrawerEventSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerEventSourceVtbl {
         unsafe extern "system" fn DrawerClosed<Impl: ICashDrawerEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DrawerClosed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2408,7 +2465,10 @@ impl ICashDrawerEventSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDrawerOpened(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerEventSource>, ::windows::core::GetTrustLevel, DrawerClosed::<Impl, OFFSET>, RemoveDrawerClosed::<Impl, OFFSET>, DrawerOpened::<Impl, OFFSET>, RemoveDrawerOpened::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerEventSource>, ::windows::core::GetTrustLevel, DrawerClosed::<Impl, IMPL_OFFSET>, RemoveDrawerClosed::<Impl, IMPL_OFFSET>, DrawerOpened::<Impl, IMPL_OFFSET>, RemoveDrawerOpened::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerEventSource as ::windows::core::Interface>::IID
     }
 }
 pub trait ICashDrawerEventSourceEventArgsImpl: Sized {
@@ -2418,7 +2478,7 @@ impl ::windows::core::RuntimeName for ICashDrawerEventSourceEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs";
 }
 impl ICashDrawerEventSourceEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceEventArgsImpl, const OFFSET: isize>() -> ICashDrawerEventSourceEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerEventSourceEventArgsVtbl {
         unsafe extern "system" fn CashDrawer<Impl: ICashDrawerEventSourceEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CashDrawer() {
@@ -2430,22 +2490,25 @@ impl ICashDrawerEventSourceEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerEventSourceEventArgs>, ::windows::core::GetTrustLevel, CashDrawer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerEventSourceEventArgs>, ::windows::core::GetTrustLevel, CashDrawer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerEventSourceEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICashDrawerStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICashDrawerStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICashDrawerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStaticsImpl, const OFFSET: isize>() -> ICashDrawerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStaticsVtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: ICashDrawerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -2479,7 +2542,10 @@ impl ICashDrawerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2492,7 +2558,7 @@ impl ::windows::core::RuntimeName for ICashDrawerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICashDrawerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatics2Impl, const OFFSET: isize>() -> ICashDrawerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatics2Vtbl {
         unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: ICashDrawerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
@@ -2504,7 +2570,10 @@ impl ICashDrawerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2518,7 +2587,7 @@ impl ::windows::core::RuntimeName for ICashDrawerStatus {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICashDrawerStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusImpl, const OFFSET: isize>() -> ICashDrawerStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatusVtbl {
         unsafe extern "system" fn StatusKind<Impl: ICashDrawerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CashDrawerStatusKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusKind() {
@@ -2541,7 +2610,10 @@ impl ICashDrawerStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatus>, ::windows::core::GetTrustLevel, StatusKind::<Impl, OFFSET>, ExtendedStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatus>, ::windows::core::GetTrustLevel, StatusKind::<Impl, IMPL_OFFSET>, ExtendedStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerStatus as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2554,7 +2626,7 @@ impl ::windows::core::RuntimeName for ICashDrawerStatusUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICashDrawerStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusUpdatedEventArgsImpl, const OFFSET: isize>() -> ICashDrawerStatusUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatusUpdatedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: ICashDrawerStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2566,10 +2638,13 @@ impl ICashDrawerStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICashDrawerStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICashDrawerStatusUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IClaimedBarcodeScannerImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
@@ -2597,13 +2672,13 @@ pub trait IClaimedBarcodeScannerImpl: Sized {
     fn ErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IClaimedBarcodeScannerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>() -> IClaimedBarcodeScannerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScannerVtbl {
         unsafe extern "system" fn DeviceId<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -2817,52 +2892,55 @@ impl IClaimedBarcodeScannerVtbl {
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsDisabledOnDataReceived::<Impl, OFFSET>,
-            IsDisabledOnDataReceived::<Impl, OFFSET>,
-            SetIsDecodeDataEnabled::<Impl, OFFSET>,
-            IsDecodeDataEnabled::<Impl, OFFSET>,
-            EnableAsync::<Impl, OFFSET>,
-            DisableAsync::<Impl, OFFSET>,
-            RetainDevice::<Impl, OFFSET>,
-            SetActiveSymbologiesAsync::<Impl, OFFSET>,
-            ResetStatisticsAsync::<Impl, OFFSET>,
-            UpdateStatisticsAsync::<Impl, OFFSET>,
-            SetActiveProfileAsync::<Impl, OFFSET>,
-            DataReceived::<Impl, OFFSET>,
-            RemoveDataReceived::<Impl, OFFSET>,
-            TriggerPressed::<Impl, OFFSET>,
-            RemoveTriggerPressed::<Impl, OFFSET>,
-            TriggerReleased::<Impl, OFFSET>,
-            RemoveTriggerReleased::<Impl, OFFSET>,
-            ReleaseDeviceRequested::<Impl, OFFSET>,
-            RemoveReleaseDeviceRequested::<Impl, OFFSET>,
-            ImagePreviewReceived::<Impl, OFFSET>,
-            RemoveImagePreviewReceived::<Impl, OFFSET>,
-            ErrorOccurred::<Impl, OFFSET>,
-            RemoveErrorOccurred::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDisabledOnDataReceived::<Impl, IMPL_OFFSET>,
+            IsDisabledOnDataReceived::<Impl, IMPL_OFFSET>,
+            SetIsDecodeDataEnabled::<Impl, IMPL_OFFSET>,
+            IsDecodeDataEnabled::<Impl, IMPL_OFFSET>,
+            EnableAsync::<Impl, IMPL_OFFSET>,
+            DisableAsync::<Impl, IMPL_OFFSET>,
+            RetainDevice::<Impl, IMPL_OFFSET>,
+            SetActiveSymbologiesAsync::<Impl, IMPL_OFFSET>,
+            ResetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            UpdateStatisticsAsync::<Impl, IMPL_OFFSET>,
+            SetActiveProfileAsync::<Impl, IMPL_OFFSET>,
+            DataReceived::<Impl, IMPL_OFFSET>,
+            RemoveDataReceived::<Impl, IMPL_OFFSET>,
+            TriggerPressed::<Impl, IMPL_OFFSET>,
+            RemoveTriggerPressed::<Impl, IMPL_OFFSET>,
+            TriggerReleased::<Impl, IMPL_OFFSET>,
+            RemoveTriggerReleased::<Impl, IMPL_OFFSET>,
+            ReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            RemoveReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            ImagePreviewReceived::<Impl, IMPL_OFFSET>,
+            RemoveImagePreviewReceived::<Impl, IMPL_OFFSET>,
+            ErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedBarcodeScanner as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedBarcodeScanner1Impl: Sized {
     fn StartSoftwareTriggerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StopSoftwareTriggerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedBarcodeScanner1 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner1";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedBarcodeScanner1Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner1Impl, const OFFSET: isize>() -> IClaimedBarcodeScanner1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner1Vtbl {
         unsafe extern "system" fn StartSoftwareTriggerAsync<Impl: IClaimedBarcodeScanner1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartSoftwareTriggerAsync() {
@@ -2885,21 +2963,24 @@ impl IClaimedBarcodeScanner1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner1>, ::windows::core::GetTrustLevel, StartSoftwareTriggerAsync::<Impl, OFFSET>, StopSoftwareTriggerAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner1>, ::windows::core::GetTrustLevel, StartSoftwareTriggerAsync::<Impl, IMPL_OFFSET>, StopSoftwareTriggerAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedBarcodeScanner1 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedBarcodeScanner2Impl: Sized {
     fn GetSymbologyAttributesAsync(&self, barcodesymbology: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>>;
     fn SetSymbologyAttributesAsync(&self, barcodesymbology: u32, attributes: &::core::option::Option<BarcodeSymbologyAttributes>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedBarcodeScanner2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedBarcodeScanner2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner2Impl, const OFFSET: isize>() -> IClaimedBarcodeScanner2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner2Vtbl {
         unsafe extern "system" fn GetSymbologyAttributesAsync<Impl: IClaimedBarcodeScanner2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSymbologyAttributesAsync(barcodesymbology) {
@@ -2922,23 +3003,26 @@ impl IClaimedBarcodeScanner2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner2>, ::windows::core::GetTrustLevel, GetSymbologyAttributesAsync::<Impl, OFFSET>, SetSymbologyAttributesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner2>, ::windows::core::GetTrustLevel, GetSymbologyAttributesAsync::<Impl, IMPL_OFFSET>, SetSymbologyAttributesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedBarcodeScanner2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedBarcodeScanner3Impl: Sized {
     fn ShowVideoPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn HideVideoPreview(&self) -> ::windows::core::Result<()>;
     fn SetIsVideoPreviewShownOnEnable(&self, value: bool) -> ::windows::core::Result<()>;
     fn IsVideoPreviewShownOnEnable(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedBarcodeScanner3 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedBarcodeScanner3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner3Impl, const OFFSET: isize>() -> IClaimedBarcodeScanner3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner3Vtbl {
         unsafe extern "system" fn ShowVideoPreviewAsync<Impl: IClaimedBarcodeScanner3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowVideoPreviewAsync() {
@@ -2969,21 +3053,24 @@ impl IClaimedBarcodeScanner3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner3>, ::windows::core::GetTrustLevel, ShowVideoPreviewAsync::<Impl, OFFSET>, HideVideoPreview::<Impl, OFFSET>, SetIsVideoPreviewShownOnEnable::<Impl, OFFSET>, IsVideoPreviewShownOnEnable::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner3>, ::windows::core::GetTrustLevel, ShowVideoPreviewAsync::<Impl, IMPL_OFFSET>, HideVideoPreview::<Impl, IMPL_OFFSET>, SetIsVideoPreviewShownOnEnable::<Impl, IMPL_OFFSET>, IsVideoPreviewShownOnEnable::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedBarcodeScanner3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedBarcodeScanner4Impl: Sized {
     fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedBarcodeScanner4 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedBarcodeScanner4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner4Impl, const OFFSET: isize>() -> IClaimedBarcodeScanner4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner4Vtbl {
         unsafe extern "system" fn Closed<Impl: IClaimedBarcodeScanner4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2999,7 +3086,10 @@ impl IClaimedBarcodeScanner4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner4>, ::windows::core::GetTrustLevel, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScanner4>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedBarcodeScanner4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3010,11 +3100,14 @@ impl ::windows::core::RuntimeName for IClaimedBarcodeScannerClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClaimedBarcodeScannerClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerClosedEventArgsImpl, const OFFSET: isize>() -> IClaimedBarcodeScannerClosedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScannerClosedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScannerClosedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedBarcodeScannerClosedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedBarcodeScannerClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IClaimedCashDrawerImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
@@ -3029,13 +3122,13 @@ pub trait IClaimedCashDrawerImpl: Sized {
     fn ReleaseDeviceRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveReleaseDeviceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedCashDrawer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IClaimedCashDrawerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerImpl, const OFFSET: isize>() -> IClaimedCashDrawerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawerVtbl {
         unsafe extern "system" fn DeviceId<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -3162,39 +3255,42 @@ impl IClaimedCashDrawerVtbl {
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedCashDrawer>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            IsDrawerOpen::<Impl, OFFSET>,
-            CloseAlarm::<Impl, OFFSET>,
-            OpenDrawerAsync::<Impl, OFFSET>,
-            EnableAsync::<Impl, OFFSET>,
-            DisableAsync::<Impl, OFFSET>,
-            RetainDeviceAsync::<Impl, OFFSET>,
-            ResetStatisticsAsync::<Impl, OFFSET>,
-            UpdateStatisticsAsync::<Impl, OFFSET>,
-            ReleaseDeviceRequested::<Impl, OFFSET>,
-            RemoveReleaseDeviceRequested::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            IsDrawerOpen::<Impl, IMPL_OFFSET>,
+            CloseAlarm::<Impl, IMPL_OFFSET>,
+            OpenDrawerAsync::<Impl, IMPL_OFFSET>,
+            EnableAsync::<Impl, IMPL_OFFSET>,
+            DisableAsync::<Impl, IMPL_OFFSET>,
+            RetainDeviceAsync::<Impl, IMPL_OFFSET>,
+            ResetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            UpdateStatisticsAsync::<Impl, IMPL_OFFSET>,
+            ReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            RemoveReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedCashDrawer as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedCashDrawer2Impl: Sized {
     fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedCashDrawer2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedCashDrawer2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedCashDrawer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawer2Impl, const OFFSET: isize>() -> IClaimedCashDrawer2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawer2Vtbl {
         unsafe extern "system" fn Closed<Impl: IClaimedCashDrawer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3210,7 +3306,10 @@ impl IClaimedCashDrawer2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedCashDrawer2>, ::windows::core::GetTrustLevel, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedCashDrawer2>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedCashDrawer2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3221,8 +3320,11 @@ impl ::windows::core::RuntimeName for IClaimedCashDrawerClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClaimedCashDrawerClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerClosedEventArgsImpl, const OFFSET: isize>() -> IClaimedCashDrawerClosedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedCashDrawerClosedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawerClosedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedCashDrawerClosedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedCashDrawerClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3235,7 +3337,7 @@ impl ::windows::core::RuntimeName for IClaimedJournalPrinter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClaimedJournalPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedJournalPrinterImpl, const OFFSET: isize>() -> IClaimedJournalPrinterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedJournalPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedJournalPrinterVtbl {
         unsafe extern "system" fn CreateJob<Impl: IClaimedJournalPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateJob() {
@@ -3247,10 +3349,13 @@ impl IClaimedJournalPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedJournalPrinter>, ::windows::core::GetTrustLevel, CreateJob::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedJournalPrinter>, ::windows::core::GetTrustLevel, CreateJob::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedJournalPrinter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedLineDisplayImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&self) -> ::windows::core::Result<LineDisplayCapabilities>;
@@ -3264,13 +3369,13 @@ pub trait IClaimedLineDisplayImpl: Sized {
     fn ReleaseDeviceRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveReleaseDeviceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplay";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedLineDisplayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayImpl, const OFFSET: isize>() -> IClaimedLineDisplayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayVtbl {
         unsafe extern "system" fn DeviceId<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -3379,27 +3484,30 @@ impl IClaimedLineDisplayVtbl {
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedLineDisplay>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
-            PhysicalDeviceName::<Impl, OFFSET>,
-            PhysicalDeviceDescription::<Impl, OFFSET>,
-            DeviceControlDescription::<Impl, OFFSET>,
-            DeviceControlVersion::<Impl, OFFSET>,
-            DeviceServiceVersion::<Impl, OFFSET>,
-            DefaultWindow::<Impl, OFFSET>,
-            RetainDevice::<Impl, OFFSET>,
-            ReleaseDeviceRequested::<Impl, OFFSET>,
-            RemoveReleaseDeviceRequested::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            PhysicalDeviceName::<Impl, IMPL_OFFSET>,
+            PhysicalDeviceDescription::<Impl, IMPL_OFFSET>,
+            DeviceControlDescription::<Impl, IMPL_OFFSET>,
+            DeviceControlVersion::<Impl, IMPL_OFFSET>,
+            DeviceServiceVersion::<Impl, IMPL_OFFSET>,
+            DefaultWindow::<Impl, IMPL_OFFSET>,
+            RetainDevice::<Impl, IMPL_OFFSET>,
+            ReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            RemoveReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedLineDisplay as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IClaimedLineDisplay2Impl: Sized {
     fn GetStatisticsAsync(&self, statisticscategories: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
@@ -3419,13 +3527,13 @@ pub trait IClaimedLineDisplay2Impl: Sized {
     fn TryStoreStorageFileBitmapWithAlignmentAsync(&self, bitmap: &::core::option::Option<super::super::Storage::StorageFile>, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>;
     fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync(&self, bitmap: &::core::option::Option<super::super::Storage::StorageFile>, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedLineDisplay2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplay2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IClaimedLineDisplay2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>() -> IClaimedLineDisplay2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay2Vtbl {
         unsafe extern "system" fn GetStatisticsAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3607,44 +3715,47 @@ impl IClaimedLineDisplay2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedLineDisplay2>,
             ::windows::core::GetTrustLevel,
-            GetStatisticsAsync::<Impl, OFFSET>,
-            CheckHealthAsync::<Impl, OFFSET>,
-            CheckPowerStatusAsync::<Impl, OFFSET>,
-            StatusUpdated::<Impl, OFFSET>,
-            RemoveStatusUpdated::<Impl, OFFSET>,
-            SupportedScreenSizesInCharacters::<Impl, OFFSET>,
-            MaxBitmapSizeInPixels::<Impl, OFFSET>,
-            SupportedCharacterSets::<Impl, OFFSET>,
-            CustomGlyphs::<Impl, OFFSET>,
-            GetAttributes::<Impl, OFFSET>,
-            TryUpdateAttributesAsync::<Impl, OFFSET>,
-            TrySetDescriptorAsync::<Impl, OFFSET>,
-            TryClearDescriptorsAsync::<Impl, OFFSET>,
-            TryCreateWindowAsync::<Impl, OFFSET>,
-            TryStoreStorageFileBitmapAsync::<Impl, OFFSET>,
-            TryStoreStorageFileBitmapWithAlignmentAsync::<Impl, OFFSET>,
-            TryStoreStorageFileBitmapWithAlignmentAndWidthAsync::<Impl, OFFSET>,
+            GetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            CheckHealthAsync::<Impl, IMPL_OFFSET>,
+            CheckPowerStatusAsync::<Impl, IMPL_OFFSET>,
+            StatusUpdated::<Impl, IMPL_OFFSET>,
+            RemoveStatusUpdated::<Impl, IMPL_OFFSET>,
+            SupportedScreenSizesInCharacters::<Impl, IMPL_OFFSET>,
+            MaxBitmapSizeInPixels::<Impl, IMPL_OFFSET>,
+            SupportedCharacterSets::<Impl, IMPL_OFFSET>,
+            CustomGlyphs::<Impl, IMPL_OFFSET>,
+            GetAttributes::<Impl, IMPL_OFFSET>,
+            TryUpdateAttributesAsync::<Impl, IMPL_OFFSET>,
+            TrySetDescriptorAsync::<Impl, IMPL_OFFSET>,
+            TryClearDescriptorsAsync::<Impl, IMPL_OFFSET>,
+            TryCreateWindowAsync::<Impl, IMPL_OFFSET>,
+            TryStoreStorageFileBitmapAsync::<Impl, IMPL_OFFSET>,
+            TryStoreStorageFileBitmapWithAlignmentAsync::<Impl, IMPL_OFFSET>,
+            TryStoreStorageFileBitmapWithAlignmentAndWidthAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedLineDisplay2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedLineDisplay3Impl: Sized {
     fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedLineDisplay3 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplay3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedLineDisplay3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay3Impl, const OFFSET: isize>() -> IClaimedLineDisplay3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay3Vtbl {
         unsafe extern "system" fn Closed<Impl: IClaimedLineDisplay3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3660,7 +3771,10 @@ impl IClaimedLineDisplay3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedLineDisplay3>, ::windows::core::GetTrustLevel, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedLineDisplay3>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedLineDisplay3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3671,23 +3785,26 @@ impl ::windows::core::RuntimeName for IClaimedLineDisplayClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClaimedLineDisplayClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayClosedEventArgsImpl, const OFFSET: isize>() -> IClaimedLineDisplayClosedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedLineDisplayClosedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayClosedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedLineDisplayClosedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedLineDisplayClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedLineDisplayStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorWithConnectionTypes(&self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedLineDisplayStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplayStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedLineDisplayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayStaticsImpl, const OFFSET: isize>() -> IClaimedLineDisplayStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IClaimedLineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3721,10 +3838,13 @@ impl IClaimedLineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedLineDisplayStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorWithConnectionTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedLineDisplayStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorWithConnectionTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedLineDisplayStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IClaimedMagneticStripeReaderImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
@@ -3760,13 +3880,13 @@ pub trait IClaimedMagneticStripeReaderImpl: Sized {
     fn ErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedMagneticStripeReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IClaimedMagneticStripeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>() -> IClaimedMagneticStripeReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReaderVtbl {
         unsafe extern "system" fn DeviceId<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -4047,60 +4167,63 @@ impl IClaimedMagneticStripeReaderVtbl {
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedMagneticStripeReader>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsDisabledOnDataReceived::<Impl, OFFSET>,
-            IsDisabledOnDataReceived::<Impl, OFFSET>,
-            SetIsDecodeDataEnabled::<Impl, OFFSET>,
-            IsDecodeDataEnabled::<Impl, OFFSET>,
-            IsDeviceAuthenticated::<Impl, OFFSET>,
-            SetDataEncryptionAlgorithm::<Impl, OFFSET>,
-            DataEncryptionAlgorithm::<Impl, OFFSET>,
-            SetTracksToRead::<Impl, OFFSET>,
-            TracksToRead::<Impl, OFFSET>,
-            SetIsTransmitSentinelsEnabled::<Impl, OFFSET>,
-            IsTransmitSentinelsEnabled::<Impl, OFFSET>,
-            EnableAsync::<Impl, OFFSET>,
-            DisableAsync::<Impl, OFFSET>,
-            RetainDevice::<Impl, OFFSET>,
-            SetErrorReportingType::<Impl, OFFSET>,
-            RetrieveDeviceAuthenticationDataAsync::<Impl, OFFSET>,
-            AuthenticateDeviceAsync::<Impl, OFFSET>,
-            DeAuthenticateDeviceAsync::<Impl, OFFSET>,
-            UpdateKeyAsync::<Impl, OFFSET>,
-            ResetStatisticsAsync::<Impl, OFFSET>,
-            UpdateStatisticsAsync::<Impl, OFFSET>,
-            BankCardDataReceived::<Impl, OFFSET>,
-            RemoveBankCardDataReceived::<Impl, OFFSET>,
-            AamvaCardDataReceived::<Impl, OFFSET>,
-            RemoveAamvaCardDataReceived::<Impl, OFFSET>,
-            VendorSpecificDataReceived::<Impl, OFFSET>,
-            RemoveVendorSpecificDataReceived::<Impl, OFFSET>,
-            ReleaseDeviceRequested::<Impl, OFFSET>,
-            RemoveReleaseDeviceRequested::<Impl, OFFSET>,
-            ErrorOccurred::<Impl, OFFSET>,
-            RemoveErrorOccurred::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDisabledOnDataReceived::<Impl, IMPL_OFFSET>,
+            IsDisabledOnDataReceived::<Impl, IMPL_OFFSET>,
+            SetIsDecodeDataEnabled::<Impl, IMPL_OFFSET>,
+            IsDecodeDataEnabled::<Impl, IMPL_OFFSET>,
+            IsDeviceAuthenticated::<Impl, IMPL_OFFSET>,
+            SetDataEncryptionAlgorithm::<Impl, IMPL_OFFSET>,
+            DataEncryptionAlgorithm::<Impl, IMPL_OFFSET>,
+            SetTracksToRead::<Impl, IMPL_OFFSET>,
+            TracksToRead::<Impl, IMPL_OFFSET>,
+            SetIsTransmitSentinelsEnabled::<Impl, IMPL_OFFSET>,
+            IsTransmitSentinelsEnabled::<Impl, IMPL_OFFSET>,
+            EnableAsync::<Impl, IMPL_OFFSET>,
+            DisableAsync::<Impl, IMPL_OFFSET>,
+            RetainDevice::<Impl, IMPL_OFFSET>,
+            SetErrorReportingType::<Impl, IMPL_OFFSET>,
+            RetrieveDeviceAuthenticationDataAsync::<Impl, IMPL_OFFSET>,
+            AuthenticateDeviceAsync::<Impl, IMPL_OFFSET>,
+            DeAuthenticateDeviceAsync::<Impl, IMPL_OFFSET>,
+            UpdateKeyAsync::<Impl, IMPL_OFFSET>,
+            ResetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            UpdateStatisticsAsync::<Impl, IMPL_OFFSET>,
+            BankCardDataReceived::<Impl, IMPL_OFFSET>,
+            RemoveBankCardDataReceived::<Impl, IMPL_OFFSET>,
+            AamvaCardDataReceived::<Impl, IMPL_OFFSET>,
+            RemoveAamvaCardDataReceived::<Impl, IMPL_OFFSET>,
+            VendorSpecificDataReceived::<Impl, IMPL_OFFSET>,
+            RemoveVendorSpecificDataReceived::<Impl, IMPL_OFFSET>,
+            ReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            RemoveReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            ErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedMagneticStripeReader as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedMagneticStripeReader2Impl: Sized {
     fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedMagneticStripeReader2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedMagneticStripeReader2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedMagneticStripeReader2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReader2Impl, const OFFSET: isize>() -> IClaimedMagneticStripeReader2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReader2Vtbl {
         unsafe extern "system" fn Closed<Impl: IClaimedMagneticStripeReader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -4116,7 +4239,10 @@ impl IClaimedMagneticStripeReader2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedMagneticStripeReader2>, ::windows::core::GetTrustLevel, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedMagneticStripeReader2>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedMagneticStripeReader2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4127,11 +4253,14 @@ impl ::windows::core::RuntimeName for IClaimedMagneticStripeReaderClosedEventArg
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClaimedMagneticStripeReaderClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderClosedEventArgsImpl, const OFFSET: isize>() -> IClaimedMagneticStripeReaderClosedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedMagneticStripeReaderClosedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReaderClosedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedMagneticStripeReaderClosedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedMagneticStripeReaderClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IClaimedPosPrinterImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
@@ -4153,13 +4282,13 @@ pub trait IClaimedPosPrinterImpl: Sized {
     fn ReleaseDeviceRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveReleaseDeviceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedPosPrinter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IClaimedPosPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterImpl, const OFFSET: isize>() -> IClaimedPosPrinterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinterVtbl {
         unsafe extern "system" fn DeviceId<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -4342,46 +4471,49 @@ impl IClaimedPosPrinterVtbl {
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedPosPrinter>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetCharacterSet::<Impl, OFFSET>,
-            CharacterSet::<Impl, OFFSET>,
-            IsCoverOpen::<Impl, OFFSET>,
-            SetIsCharacterSetMappingEnabled::<Impl, OFFSET>,
-            IsCharacterSetMappingEnabled::<Impl, OFFSET>,
-            SetMapMode::<Impl, OFFSET>,
-            MapMode::<Impl, OFFSET>,
-            Receipt::<Impl, OFFSET>,
-            Slip::<Impl, OFFSET>,
-            Journal::<Impl, OFFSET>,
-            EnableAsync::<Impl, OFFSET>,
-            DisableAsync::<Impl, OFFSET>,
-            RetainDeviceAsync::<Impl, OFFSET>,
-            ResetStatisticsAsync::<Impl, OFFSET>,
-            UpdateStatisticsAsync::<Impl, OFFSET>,
-            ReleaseDeviceRequested::<Impl, OFFSET>,
-            RemoveReleaseDeviceRequested::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetCharacterSet::<Impl, IMPL_OFFSET>,
+            CharacterSet::<Impl, IMPL_OFFSET>,
+            IsCoverOpen::<Impl, IMPL_OFFSET>,
+            SetIsCharacterSetMappingEnabled::<Impl, IMPL_OFFSET>,
+            IsCharacterSetMappingEnabled::<Impl, IMPL_OFFSET>,
+            SetMapMode::<Impl, IMPL_OFFSET>,
+            MapMode::<Impl, IMPL_OFFSET>,
+            Receipt::<Impl, IMPL_OFFSET>,
+            Slip::<Impl, IMPL_OFFSET>,
+            Journal::<Impl, IMPL_OFFSET>,
+            EnableAsync::<Impl, IMPL_OFFSET>,
+            DisableAsync::<Impl, IMPL_OFFSET>,
+            RetainDeviceAsync::<Impl, IMPL_OFFSET>,
+            ResetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            UpdateStatisticsAsync::<Impl, IMPL_OFFSET>,
+            ReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
+            RemoveReleaseDeviceRequested::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedPosPrinter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedPosPrinter2Impl: Sized {
     fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedPosPrinter2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedPosPrinter2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedPosPrinter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinter2Impl, const OFFSET: isize>() -> IClaimedPosPrinter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinter2Vtbl {
         unsafe extern "system" fn Closed<Impl: IClaimedPosPrinter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -4397,7 +4529,10 @@ impl IClaimedPosPrinter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedPosPrinter2>, ::windows::core::GetTrustLevel, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedPosPrinter2>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedPosPrinter2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4408,11 +4543,14 @@ impl ::windows::core::RuntimeName for IClaimedPosPrinterClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClaimedPosPrinterClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterClosedEventArgsImpl, const OFFSET: isize>() -> IClaimedPosPrinterClosedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedPosPrinterClosedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinterClosedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedPosPrinterClosedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedPosPrinterClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedReceiptPrinterImpl: Sized {
     fn SidewaysMaxLines(&self) -> ::windows::core::Result<u32>;
     fn SidewaysMaxChars(&self) -> ::windows::core::Result<u32>;
@@ -4421,13 +4559,13 @@ pub trait IClaimedReceiptPrinterImpl: Sized {
     fn PrintArea(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn CreateJob(&self) -> ::windows::core::Result<ReceiptPrintJob>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedReceiptPrinter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedReceiptPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>() -> IClaimedReceiptPrinterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedReceiptPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedReceiptPrinterVtbl {
         unsafe extern "system" fn SidewaysMaxLines<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidewaysMaxLines() {
@@ -4494,10 +4632,26 @@ impl IClaimedReceiptPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClaimedReceiptPrinter>, ::windows::core::GetTrustLevel, SidewaysMaxLines::<Impl, OFFSET>, SidewaysMaxChars::<Impl, OFFSET>, LinesToPaperCut::<Impl, OFFSET>, PageSize::<Impl, OFFSET>, PrintArea::<Impl, OFFSET>, CreateJob::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IClaimedReceiptPrinter>,
+            ::windows::core::GetTrustLevel,
+            SidewaysMaxLines::<Impl, IMPL_OFFSET>,
+            SidewaysMaxChars::<Impl, IMPL_OFFSET>,
+            LinesToPaperCut::<Impl, IMPL_OFFSET>,
+            PageSize::<Impl, IMPL_OFFSET>,
+            PrintArea::<Impl, IMPL_OFFSET>,
+            CreateJob::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedReceiptPrinter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClaimedSlipPrinterImpl: Sized {
     fn SidewaysMaxLines(&self) -> ::windows::core::Result<u32>;
     fn SidewaysMaxChars(&self) -> ::windows::core::Result<u32>;
@@ -4513,13 +4667,13 @@ pub trait IClaimedSlipPrinterImpl: Sized {
     fn ChangePrintSide(&self, printside: PosPrinterPrintSide) -> ::windows::core::Result<()>;
     fn CreateJob(&self) -> ::windows::core::Result<SlipPrintJob>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedSlipPrinter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IClaimedSlipPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>() -> IClaimedSlipPrinterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedSlipPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedSlipPrinterVtbl {
         unsafe extern "system" fn SidewaysMaxLines<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidewaysMaxLines() {
@@ -4643,26 +4797,29 @@ impl IClaimedSlipPrinterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClaimedSlipPrinter>,
             ::windows::core::GetTrustLevel,
-            SidewaysMaxLines::<Impl, OFFSET>,
-            SidewaysMaxChars::<Impl, OFFSET>,
-            MaxLines::<Impl, OFFSET>,
-            LinesNearEndToEnd::<Impl, OFFSET>,
-            PrintSide::<Impl, OFFSET>,
-            PageSize::<Impl, OFFSET>,
-            PrintArea::<Impl, OFFSET>,
-            OpenJaws::<Impl, OFFSET>,
-            CloseJaws::<Impl, OFFSET>,
-            InsertSlipAsync::<Impl, OFFSET>,
-            RemoveSlipAsync::<Impl, OFFSET>,
-            ChangePrintSide::<Impl, OFFSET>,
-            CreateJob::<Impl, OFFSET>,
+            SidewaysMaxLines::<Impl, IMPL_OFFSET>,
+            SidewaysMaxChars::<Impl, IMPL_OFFSET>,
+            MaxLines::<Impl, IMPL_OFFSET>,
+            LinesNearEndToEnd::<Impl, IMPL_OFFSET>,
+            PrintSide::<Impl, IMPL_OFFSET>,
+            PageSize::<Impl, IMPL_OFFSET>,
+            PrintArea::<Impl, IMPL_OFFSET>,
+            OpenJaws::<Impl, IMPL_OFFSET>,
+            CloseJaws::<Impl, IMPL_OFFSET>,
+            InsertSlipAsync::<Impl, IMPL_OFFSET>,
+            RemoveSlipAsync::<Impl, IMPL_OFFSET>,
+            ChangePrintSide::<Impl, IMPL_OFFSET>,
+            CreateJob::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClaimedSlipPrinter as ::windows::core::Interface>::IID
     }
 }
 pub trait ICommonClaimedPosPrinterStationImpl: Sized {
@@ -4690,7 +4847,7 @@ impl ::windows::core::RuntimeName for ICommonClaimedPosPrinterStation {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation";
 }
 impl ICommonClaimedPosPrinterStationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>() -> ICommonClaimedPosPrinterStationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonClaimedPosPrinterStationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonClaimedPosPrinterStationVtbl {
         unsafe extern "system" fn SetCharactersPerLine<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharactersPerLine(value).into()
@@ -4866,34 +5023,38 @@ impl ICommonClaimedPosPrinterStationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICommonClaimedPosPrinterStation>,
             ::windows::core::GetTrustLevel,
-            SetCharactersPerLine::<Impl, OFFSET>,
-            CharactersPerLine::<Impl, OFFSET>,
-            SetLineHeight::<Impl, OFFSET>,
-            LineHeight::<Impl, OFFSET>,
-            SetLineSpacing::<Impl, OFFSET>,
-            LineSpacing::<Impl, OFFSET>,
-            LineWidth::<Impl, OFFSET>,
-            SetIsLetterQuality::<Impl, OFFSET>,
-            IsLetterQuality::<Impl, OFFSET>,
-            IsPaperNearEnd::<Impl, OFFSET>,
-            SetColorCartridge::<Impl, OFFSET>,
-            ColorCartridge::<Impl, OFFSET>,
-            IsCoverOpen::<Impl, OFFSET>,
-            IsCartridgeRemoved::<Impl, OFFSET>,
-            IsCartridgeEmpty::<Impl, OFFSET>,
-            IsHeadCleaning::<Impl, OFFSET>,
-            IsPaperEmpty::<Impl, OFFSET>,
-            IsReadyToPrint::<Impl, OFFSET>,
-            ValidateData::<Impl, OFFSET>,
+            SetCharactersPerLine::<Impl, IMPL_OFFSET>,
+            CharactersPerLine::<Impl, IMPL_OFFSET>,
+            SetLineHeight::<Impl, IMPL_OFFSET>,
+            LineHeight::<Impl, IMPL_OFFSET>,
+            SetLineSpacing::<Impl, IMPL_OFFSET>,
+            LineSpacing::<Impl, IMPL_OFFSET>,
+            LineWidth::<Impl, IMPL_OFFSET>,
+            SetIsLetterQuality::<Impl, IMPL_OFFSET>,
+            IsLetterQuality::<Impl, IMPL_OFFSET>,
+            IsPaperNearEnd::<Impl, IMPL_OFFSET>,
+            SetColorCartridge::<Impl, IMPL_OFFSET>,
+            ColorCartridge::<Impl, IMPL_OFFSET>,
+            IsCoverOpen::<Impl, IMPL_OFFSET>,
+            IsCartridgeRemoved::<Impl, IMPL_OFFSET>,
+            IsCartridgeEmpty::<Impl, IMPL_OFFSET>,
+            IsHeadCleaning::<Impl, IMPL_OFFSET>,
+            IsPaperEmpty::<Impl, IMPL_OFFSET>,
+            IsReadyToPrint::<Impl, IMPL_OFFSET>,
+            ValidateData::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommonClaimedPosPrinterStation as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait ICommonPosPrintStationCapabilitiesImpl: Sized {
     fn IsPrinterPresent(&self) -> ::windows::core::Result<bool>;
     fn IsDualColorSupported(&self) -> ::windows::core::Result<bool>;
@@ -4909,11 +5070,13 @@ pub trait ICommonPosPrintStationCapabilitiesImpl: Sized {
     fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool>;
     fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICommonPosPrintStationCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ICommonPosPrintStationCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>() -> ICommonPosPrintStationCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonPosPrintStationCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonPosPrintStationCapabilitiesVtbl {
         unsafe extern "system" fn IsPrinterPresent<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrinterPresent() {
@@ -5058,28 +5221,32 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICommonPosPrintStationCapabilities>,
             ::windows::core::GetTrustLevel,
-            IsPrinterPresent::<Impl, OFFSET>,
-            IsDualColorSupported::<Impl, OFFSET>,
-            ColorCartridgeCapabilities::<Impl, OFFSET>,
-            CartridgeSensors::<Impl, OFFSET>,
-            IsBoldSupported::<Impl, OFFSET>,
-            IsItalicSupported::<Impl, OFFSET>,
-            IsUnderlineSupported::<Impl, OFFSET>,
-            IsDoubleHighPrintSupported::<Impl, OFFSET>,
-            IsDoubleWidePrintSupported::<Impl, OFFSET>,
-            IsDoubleHighDoubleWidePrintSupported::<Impl, OFFSET>,
-            IsPaperEmptySensorSupported::<Impl, OFFSET>,
-            IsPaperNearEndSensorSupported::<Impl, OFFSET>,
-            SupportedCharactersPerLine::<Impl, OFFSET>,
+            IsPrinterPresent::<Impl, IMPL_OFFSET>,
+            IsDualColorSupported::<Impl, IMPL_OFFSET>,
+            ColorCartridgeCapabilities::<Impl, IMPL_OFFSET>,
+            CartridgeSensors::<Impl, IMPL_OFFSET>,
+            IsBoldSupported::<Impl, IMPL_OFFSET>,
+            IsItalicSupported::<Impl, IMPL_OFFSET>,
+            IsUnderlineSupported::<Impl, IMPL_OFFSET>,
+            IsDoubleHighPrintSupported::<Impl, IMPL_OFFSET>,
+            IsDoubleWidePrintSupported::<Impl, IMPL_OFFSET>,
+            IsDoubleHighDoubleWidePrintSupported::<Impl, IMPL_OFFSET>,
+            IsPaperEmptySensorSupported::<Impl, IMPL_OFFSET>,
+            IsPaperNearEndSensorSupported::<Impl, IMPL_OFFSET>,
+            SupportedCharactersPerLine::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommonPosPrintStationCapabilities as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait ICommonReceiptSlipCapabilitiesImpl: Sized + ICommonPosPrintStationCapabilitiesImpl {
     fn IsBarcodeSupported(&self) -> ::windows::core::Result<bool>;
     fn IsBitmapSupported(&self) -> ::windows::core::Result<bool>;
@@ -5091,11 +5258,13 @@ pub trait ICommonReceiptSlipCapabilitiesImpl: Sized + ICommonPosPrintStationCapa
     fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
     fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICommonReceiptSlipCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ICommonReceiptSlipCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>() -> ICommonReceiptSlipCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonReceiptSlipCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonReceiptSlipCapabilitiesVtbl {
         unsafe extern "system" fn IsBarcodeSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBarcodeSupported() {
@@ -5196,22 +5365,25 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICommonReceiptSlipCapabilities>,
             ::windows::core::GetTrustLevel,
-            IsBarcodeSupported::<Impl, OFFSET>,
-            IsBitmapSupported::<Impl, OFFSET>,
-            IsLeft90RotationSupported::<Impl, OFFSET>,
-            IsRight90RotationSupported::<Impl, OFFSET>,
-            Is180RotationSupported::<Impl, OFFSET>,
-            IsPrintAreaSupported::<Impl, OFFSET>,
-            RuledLineCapabilities::<Impl, OFFSET>,
-            SupportedBarcodeRotations::<Impl, OFFSET>,
-            SupportedBitmapRotations::<Impl, OFFSET>,
+            IsBarcodeSupported::<Impl, IMPL_OFFSET>,
+            IsBitmapSupported::<Impl, IMPL_OFFSET>,
+            IsLeft90RotationSupported::<Impl, IMPL_OFFSET>,
+            IsRight90RotationSupported::<Impl, IMPL_OFFSET>,
+            Is180RotationSupported::<Impl, IMPL_OFFSET>,
+            IsPrintAreaSupported::<Impl, IMPL_OFFSET>,
+            RuledLineCapabilities::<Impl, IMPL_OFFSET>,
+            SupportedBarcodeRotations::<Impl, IMPL_OFFSET>,
+            SupportedBitmapRotations::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommonReceiptSlipCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5226,7 +5398,7 @@ impl ::windows::core::RuntimeName for IJournalPrintJob {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJournalPrintJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrintJobImpl, const OFFSET: isize>() -> IJournalPrintJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrintJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrintJobVtbl {
         unsafe extern "system" fn Print<Impl: IJournalPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&printoptions as *const <PosPrinterPrintOptions as ::windows::core::Abi>::Abi as *const <PosPrinterPrintOptions as ::windows::core::DefaultType>::DefaultType)).into()
@@ -5239,7 +5411,10 @@ impl IJournalPrintJobVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByMapModeUnit(distance).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJournalPrintJob>, ::windows::core::GetTrustLevel, Print::<Impl, OFFSET>, FeedPaperByLine::<Impl, OFFSET>, FeedPaperByMapModeUnit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJournalPrintJob>, ::windows::core::GetTrustLevel, Print::<Impl, IMPL_OFFSET>, FeedPaperByLine::<Impl, IMPL_OFFSET>, FeedPaperByMapModeUnit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJournalPrintJob as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5250,8 +5425,11 @@ impl ::windows::core::RuntimeName for IJournalPrinterCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJournalPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilitiesImpl, const OFFSET: isize>() -> IJournalPrinterCapabilitiesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJournalPrinterCapabilities>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrinterCapabilitiesVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJournalPrinterCapabilities>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJournalPrinterCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5269,7 +5447,7 @@ impl ::windows::core::RuntimeName for IJournalPrinterCapabilities2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJournalPrinterCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>() -> IJournalPrinterCapabilities2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrinterCapabilities2Vtbl {
         unsafe extern "system" fn IsReverseVideoSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseVideoSupported() {
@@ -5337,22 +5515,25 @@ impl IJournalPrinterCapabilities2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IJournalPrinterCapabilities2>,
             ::windows::core::GetTrustLevel,
-            IsReverseVideoSupported::<Impl, OFFSET>,
-            IsStrikethroughSupported::<Impl, OFFSET>,
-            IsSuperscriptSupported::<Impl, OFFSET>,
-            IsSubscriptSupported::<Impl, OFFSET>,
-            IsReversePaperFeedByLineSupported::<Impl, OFFSET>,
-            IsReversePaperFeedByMapModeUnitSupported::<Impl, OFFSET>,
+            IsReverseVideoSupported::<Impl, IMPL_OFFSET>,
+            IsStrikethroughSupported::<Impl, IMPL_OFFSET>,
+            IsSuperscriptSupported::<Impl, IMPL_OFFSET>,
+            IsSubscriptSupported::<Impl, IMPL_OFFSET>,
+            IsReversePaperFeedByLineSupported::<Impl, IMPL_OFFSET>,
+            IsReversePaperFeedByMapModeUnitSupported::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJournalPrinterCapabilities2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&self) -> ::windows::core::Result<LineDisplayCapabilities>;
@@ -5363,13 +5544,13 @@ pub trait ILineDisplayImpl: Sized {
     fn DeviceServiceVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ClaimAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplay";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayImpl, const OFFSET: isize>() -> ILineDisplayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayVtbl {
         unsafe extern "system" fn DeviceId<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -5459,34 +5640,37 @@ impl ILineDisplayVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplay>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
-            PhysicalDeviceName::<Impl, OFFSET>,
-            PhysicalDeviceDescription::<Impl, OFFSET>,
-            DeviceControlDescription::<Impl, OFFSET>,
-            DeviceControlVersion::<Impl, OFFSET>,
-            DeviceServiceVersion::<Impl, OFFSET>,
-            ClaimAsync::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            PhysicalDeviceName::<Impl, IMPL_OFFSET>,
+            PhysicalDeviceDescription::<Impl, IMPL_OFFSET>,
+            DeviceControlDescription::<Impl, IMPL_OFFSET>,
+            DeviceControlVersion::<Impl, IMPL_OFFSET>,
+            DeviceServiceVersion::<Impl, IMPL_OFFSET>,
+            ClaimAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplay as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplay2Impl: Sized {
     fn CheckPowerStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplay2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplay2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplay2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplay2Impl, const OFFSET: isize>() -> ILineDisplay2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplay2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplay2Vtbl {
         unsafe extern "system" fn CheckPowerStatusAsync<Impl: ILineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckPowerStatusAsync() {
@@ -5498,10 +5682,13 @@ impl ILineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplay2>, ::windows::core::GetTrustLevel, CheckPowerStatusAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplay2>, ::windows::core::GetTrustLevel, CheckPowerStatusAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplay2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayAttributesImpl: Sized {
     fn IsPowerNotifyEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsPowerNotifyEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -5518,13 +5705,13 @@ pub trait ILineDisplayAttributesImpl: Sized {
     fn CurrentWindow(&self) -> ::windows::core::Result<LineDisplayWindow>;
     fn SetCurrentWindow(&self, value: &::core::option::Option<LineDisplayWindow>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayAttributes";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayAttributesImpl, const OFFSET: isize>() -> ILineDisplayAttributesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayAttributesVtbl {
         unsafe extern "system" fn IsPowerNotifyEnabled<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPowerNotifyEnabled() {
@@ -5631,27 +5818,30 @@ impl ILineDisplayAttributesVtbl {
             (*this).SetCurrentWindow(&*(&value as *const <LineDisplayWindow as ::windows::core::Abi>::Abi as *const <LineDisplayWindow as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayAttributes>,
             ::windows::core::GetTrustLevel,
-            IsPowerNotifyEnabled::<Impl, OFFSET>,
-            SetIsPowerNotifyEnabled::<Impl, OFFSET>,
-            Brightness::<Impl, OFFSET>,
-            SetBrightness::<Impl, OFFSET>,
-            BlinkRate::<Impl, OFFSET>,
-            SetBlinkRate::<Impl, OFFSET>,
-            ScreenSizeInCharacters::<Impl, OFFSET>,
-            SetScreenSizeInCharacters::<Impl, OFFSET>,
-            CharacterSet::<Impl, OFFSET>,
-            SetCharacterSet::<Impl, OFFSET>,
-            IsCharacterSetMappingEnabled::<Impl, OFFSET>,
-            SetIsCharacterSetMappingEnabled::<Impl, OFFSET>,
-            CurrentWindow::<Impl, OFFSET>,
-            SetCurrentWindow::<Impl, OFFSET>,
+            IsPowerNotifyEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPowerNotifyEnabled::<Impl, IMPL_OFFSET>,
+            Brightness::<Impl, IMPL_OFFSET>,
+            SetBrightness::<Impl, IMPL_OFFSET>,
+            BlinkRate::<Impl, IMPL_OFFSET>,
+            SetBlinkRate::<Impl, IMPL_OFFSET>,
+            ScreenSizeInCharacters::<Impl, IMPL_OFFSET>,
+            SetScreenSizeInCharacters::<Impl, IMPL_OFFSET>,
+            CharacterSet::<Impl, IMPL_OFFSET>,
+            SetCharacterSet::<Impl, IMPL_OFFSET>,
+            IsCharacterSetMappingEnabled::<Impl, IMPL_OFFSET>,
+            SetIsCharacterSetMappingEnabled::<Impl, IMPL_OFFSET>,
+            CurrentWindow::<Impl, IMPL_OFFSET>,
+            SetCurrentWindow::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayAttributes as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5681,7 +5871,7 @@ impl ::windows::core::RuntimeName for ILineDisplayCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILineDisplayCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>() -> ILineDisplayCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCapabilitiesVtbl {
         unsafe extern "system" fn IsStatisticsReportingSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsReportingSupported() {
@@ -5881,34 +6071,37 @@ impl ILineDisplayCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayCapabilities>,
             ::windows::core::GetTrustLevel,
-            IsStatisticsReportingSupported::<Impl, OFFSET>,
-            IsStatisticsUpdatingSupported::<Impl, OFFSET>,
-            PowerReportingType::<Impl, OFFSET>,
-            CanChangeScreenSize::<Impl, OFFSET>,
-            CanDisplayBitmaps::<Impl, OFFSET>,
-            CanReadCharacterAtCursor::<Impl, OFFSET>,
-            CanMapCharacterSets::<Impl, OFFSET>,
-            CanDisplayCustomGlyphs::<Impl, OFFSET>,
-            CanReverse::<Impl, OFFSET>,
-            CanBlink::<Impl, OFFSET>,
-            CanChangeBlinkRate::<Impl, OFFSET>,
-            IsBrightnessSupported::<Impl, OFFSET>,
-            IsCursorSupported::<Impl, OFFSET>,
-            IsHorizontalMarqueeSupported::<Impl, OFFSET>,
-            IsVerticalMarqueeSupported::<Impl, OFFSET>,
-            IsInterCharacterWaitSupported::<Impl, OFFSET>,
-            SupportedDescriptors::<Impl, OFFSET>,
-            SupportedWindows::<Impl, OFFSET>,
+            IsStatisticsReportingSupported::<Impl, IMPL_OFFSET>,
+            IsStatisticsUpdatingSupported::<Impl, IMPL_OFFSET>,
+            PowerReportingType::<Impl, IMPL_OFFSET>,
+            CanChangeScreenSize::<Impl, IMPL_OFFSET>,
+            CanDisplayBitmaps::<Impl, IMPL_OFFSET>,
+            CanReadCharacterAtCursor::<Impl, IMPL_OFFSET>,
+            CanMapCharacterSets::<Impl, IMPL_OFFSET>,
+            CanDisplayCustomGlyphs::<Impl, IMPL_OFFSET>,
+            CanReverse::<Impl, IMPL_OFFSET>,
+            CanBlink::<Impl, IMPL_OFFSET>,
+            CanChangeBlinkRate::<Impl, IMPL_OFFSET>,
+            IsBrightnessSupported::<Impl, IMPL_OFFSET>,
+            IsCursorSupported::<Impl, IMPL_OFFSET>,
+            IsHorizontalMarqueeSupported::<Impl, IMPL_OFFSET>,
+            IsVerticalMarqueeSupported::<Impl, IMPL_OFFSET>,
+            IsInterCharacterWaitSupported::<Impl, IMPL_OFFSET>,
+            SupportedDescriptors::<Impl, IMPL_OFFSET>,
+            SupportedWindows::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayCapabilities as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayCursorImpl: Sized {
     fn CanCustomize(&self) -> ::windows::core::Result<bool>;
     fn IsBlinkSupported(&self) -> ::windows::core::Result<bool>;
@@ -5920,13 +6113,13 @@ pub trait ILineDisplayCursorImpl: Sized {
     fn GetAttributes(&self) -> ::windows::core::Result<LineDisplayCursorAttributes>;
     fn TryUpdateAttributesAsync(&self, attributes: &::core::option::Option<LineDisplayCursorAttributes>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCursor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayCursorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorImpl, const OFFSET: isize>() -> ILineDisplayCursorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCursorVtbl {
         unsafe extern "system" fn CanCustomize<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCustomize() {
@@ -6027,25 +6220,28 @@ impl ILineDisplayCursorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayCursor>,
             ::windows::core::GetTrustLevel,
-            CanCustomize::<Impl, OFFSET>,
-            IsBlinkSupported::<Impl, OFFSET>,
-            IsBlockSupported::<Impl, OFFSET>,
-            IsHalfBlockSupported::<Impl, OFFSET>,
-            IsUnderlineSupported::<Impl, OFFSET>,
-            IsReverseSupported::<Impl, OFFSET>,
-            IsOtherSupported::<Impl, OFFSET>,
-            GetAttributes::<Impl, OFFSET>,
-            TryUpdateAttributesAsync::<Impl, OFFSET>,
+            CanCustomize::<Impl, IMPL_OFFSET>,
+            IsBlinkSupported::<Impl, IMPL_OFFSET>,
+            IsBlockSupported::<Impl, IMPL_OFFSET>,
+            IsHalfBlockSupported::<Impl, IMPL_OFFSET>,
+            IsUnderlineSupported::<Impl, IMPL_OFFSET>,
+            IsReverseSupported::<Impl, IMPL_OFFSET>,
+            IsOtherSupported::<Impl, IMPL_OFFSET>,
+            GetAttributes::<Impl, IMPL_OFFSET>,
+            TryUpdateAttributesAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayCursor as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayCursorAttributesImpl: Sized {
     fn IsBlinkEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsBlinkEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -6056,13 +6252,13 @@ pub trait ILineDisplayCursorAttributesImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn SetPosition(&self, value: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCursorAttributes";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayCursorAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>() -> ILineDisplayCursorAttributesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCursorAttributesVtbl {
         unsafe extern "system" fn IsBlinkEnabled<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBlinkEnabled() {
@@ -6124,36 +6320,39 @@ impl ILineDisplayCursorAttributesVtbl {
             (*this).SetPosition(&*(&value as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayCursorAttributes>,
             ::windows::core::GetTrustLevel,
-            IsBlinkEnabled::<Impl, OFFSET>,
-            SetIsBlinkEnabled::<Impl, OFFSET>,
-            CursorType::<Impl, OFFSET>,
-            SetCursorType::<Impl, OFFSET>,
-            IsAutoAdvanceEnabled::<Impl, OFFSET>,
-            SetIsAutoAdvanceEnabled::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            SetPosition::<Impl, OFFSET>,
+            IsBlinkEnabled::<Impl, IMPL_OFFSET>,
+            SetIsBlinkEnabled::<Impl, IMPL_OFFSET>,
+            CursorType::<Impl, IMPL_OFFSET>,
+            SetCursorType::<Impl, IMPL_OFFSET>,
+            IsAutoAdvanceEnabled::<Impl, IMPL_OFFSET>,
+            SetIsAutoAdvanceEnabled::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            SetPosition::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayCursorAttributes as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILineDisplayCustomGlyphsImpl: Sized {
     fn SizeInPixels(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn SupportedGlyphCodes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
     fn TryRedefineAsync(&self, glyphcode: u32, glyphdata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCustomGlyphs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ILineDisplayCustomGlyphsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCustomGlyphsImpl, const OFFSET: isize>() -> ILineDisplayCustomGlyphsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCustomGlyphsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCustomGlyphsVtbl {
         unsafe extern "system" fn SizeInPixels<Impl: ILineDisplayCustomGlyphsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInPixels() {
@@ -6187,10 +6386,13 @@ impl ILineDisplayCustomGlyphsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayCustomGlyphs>, ::windows::core::GetTrustLevel, SizeInPixels::<Impl, OFFSET>, SupportedGlyphCodes::<Impl, OFFSET>, TryRedefineAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayCustomGlyphs>, ::windows::core::GetTrustLevel, SizeInPixels::<Impl, IMPL_OFFSET>, SupportedGlyphCodes::<Impl, IMPL_OFFSET>, TryRedefineAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayCustomGlyphs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayMarqueeImpl: Sized {
     fn Format(&self) -> ::windows::core::Result<LineDisplayMarqueeFormat>;
     fn SetFormat(&self, value: LineDisplayMarqueeFormat) -> ::windows::core::Result<()>;
@@ -6201,13 +6403,13 @@ pub trait ILineDisplayMarqueeImpl: Sized {
     fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryStopScrollingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayMarquee";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayMarqueeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>() -> ILineDisplayMarqueeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayMarqueeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayMarqueeVtbl {
         unsafe extern "system" fn Format<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayMarqueeFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
@@ -6276,37 +6478,40 @@ impl ILineDisplayMarqueeVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayMarquee>,
             ::windows::core::GetTrustLevel,
-            Format::<Impl, OFFSET>,
-            SetFormat::<Impl, OFFSET>,
-            RepeatWaitInterval::<Impl, OFFSET>,
-            SetRepeatWaitInterval::<Impl, OFFSET>,
-            ScrollWaitInterval::<Impl, OFFSET>,
-            SetScrollWaitInterval::<Impl, OFFSET>,
-            TryStartScrollingAsync::<Impl, OFFSET>,
-            TryStopScrollingAsync::<Impl, OFFSET>,
+            Format::<Impl, IMPL_OFFSET>,
+            SetFormat::<Impl, IMPL_OFFSET>,
+            RepeatWaitInterval::<Impl, IMPL_OFFSET>,
+            SetRepeatWaitInterval::<Impl, IMPL_OFFSET>,
+            ScrollWaitInterval::<Impl, IMPL_OFFSET>,
+            SetScrollWaitInterval::<Impl, IMPL_OFFSET>,
+            TryStartScrollingAsync::<Impl, IMPL_OFFSET>,
+            TryStopScrollingAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayMarquee as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>>;
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorWithConnectionTypes(&self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStaticsImpl, const OFFSET: isize>() -> ILineDisplayStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: ILineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -6351,7 +6556,10 @@ impl ILineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorWithConnectionTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorWithConnectionTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6364,7 +6572,7 @@ impl ::windows::core::RuntimeName for ILineDisplayStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILineDisplayStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatics2Impl, const OFFSET: isize>() -> ILineDisplayStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatics2Vtbl {
         unsafe extern "system" fn StatisticsCategorySelector<Impl: ILineDisplayStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatisticsCategorySelector() {
@@ -6376,7 +6584,10 @@ impl ILineDisplayStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatics2>, ::windows::core::GetTrustLevel, StatisticsCategorySelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatics2>, ::windows::core::GetTrustLevel, StatisticsCategorySelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6391,7 +6602,7 @@ impl ::windows::core::RuntimeName for ILineDisplayStatisticsCategorySelector {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILineDisplayStatisticsCategorySelectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatisticsCategorySelectorImpl, const OFFSET: isize>() -> ILineDisplayStatisticsCategorySelectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatisticsCategorySelectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatisticsCategorySelectorVtbl {
         unsafe extern "system" fn AllStatistics<Impl: ILineDisplayStatisticsCategorySelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllStatistics() {
@@ -6425,7 +6636,10 @@ impl ILineDisplayStatisticsCategorySelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatisticsCategorySelector>, ::windows::core::GetTrustLevel, AllStatistics::<Impl, OFFSET>, UnifiedPosStatistics::<Impl, OFFSET>, ManufacturerStatistics::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatisticsCategorySelector>, ::windows::core::GetTrustLevel, AllStatistics::<Impl, IMPL_OFFSET>, UnifiedPosStatistics::<Impl, IMPL_OFFSET>, ManufacturerStatistics::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayStatisticsCategorySelector as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6438,7 +6652,7 @@ impl ::windows::core::RuntimeName for ILineDisplayStatusUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILineDisplayStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatusUpdatedEventArgsImpl, const OFFSET: isize>() -> ILineDisplayStatusUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatusUpdatedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: ILineDisplayStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayPowerStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -6450,21 +6664,24 @@ impl ILineDisplayStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayStatusUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayStoredBitmapImpl: Sized {
     fn EscapeSequence(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TryDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStoredBitmap";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayStoredBitmapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStoredBitmapImpl, const OFFSET: isize>() -> ILineDisplayStoredBitmapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStoredBitmapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStoredBitmapVtbl {
         unsafe extern "system" fn EscapeSequence<Impl: ILineDisplayStoredBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EscapeSequence() {
@@ -6487,10 +6704,13 @@ impl ILineDisplayStoredBitmapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStoredBitmap>, ::windows::core::GetTrustLevel, EscapeSequence::<Impl, OFFSET>, TryDeleteAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineDisplayStoredBitmap>, ::windows::core::GetTrustLevel, EscapeSequence::<Impl, IMPL_OFFSET>, TryDeleteAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayStoredBitmap as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILineDisplayWindowImpl: Sized {
     fn SizeInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn InterCharacterWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -6502,13 +6722,13 @@ pub trait ILineDisplayWindowImpl: Sized {
     fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryClearTextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayWindow";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILineDisplayWindowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindowImpl, const OFFSET: isize>() -> ILineDisplayWindowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayWindowVtbl {
         unsafe extern "system" fn SizeInCharacters<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInCharacters() {
@@ -6602,25 +6822,28 @@ impl ILineDisplayWindowVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayWindow>,
             ::windows::core::GetTrustLevel,
-            SizeInCharacters::<Impl, OFFSET>,
-            InterCharacterWaitInterval::<Impl, OFFSET>,
-            SetInterCharacterWaitInterval::<Impl, OFFSET>,
-            TryRefreshAsync::<Impl, OFFSET>,
-            TryDisplayTextAsync::<Impl, OFFSET>,
-            TryDisplayTextAtPositionAsync::<Impl, OFFSET>,
-            TryDisplayTextNormalAsync::<Impl, OFFSET>,
-            TryScrollTextAsync::<Impl, OFFSET>,
-            TryClearTextAsync::<Impl, OFFSET>,
+            SizeInCharacters::<Impl, IMPL_OFFSET>,
+            InterCharacterWaitInterval::<Impl, IMPL_OFFSET>,
+            SetInterCharacterWaitInterval::<Impl, IMPL_OFFSET>,
+            TryRefreshAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayTextAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayTextAtPositionAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayTextNormalAsync::<Impl, IMPL_OFFSET>,
+            TryScrollTextAsync::<Impl, IMPL_OFFSET>,
+            TryClearTextAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayWindow as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ILineDisplayWindow2Impl: Sized {
     fn Cursor(&self) -> ::windows::core::Result<LineDisplayCursor>;
     fn Marquee(&self) -> ::windows::core::Result<LineDisplayMarquee>;
@@ -6632,13 +6855,13 @@ pub trait ILineDisplayWindow2Impl: Sized {
     fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: &::core::option::Option<super::super::Storage::StorageFile>, offsetinpixels: &super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryDisplayStorageFileBitmapAtPointWithWidthAsync(&self, bitmap: &::core::option::Option<super::super::Storage::StorageFile>, offsetinpixels: &super::super::Foundation::Point, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILineDisplayWindow2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayWindow2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ILineDisplayWindow2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindow2Impl, const OFFSET: isize>() -> ILineDisplayWindow2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindow2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayWindow2Vtbl {
         unsafe extern "system" fn Cursor<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cursor() {
@@ -6739,25 +6962,28 @@ impl ILineDisplayWindow2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILineDisplayWindow2>,
             ::windows::core::GetTrustLevel,
-            Cursor::<Impl, OFFSET>,
-            Marquee::<Impl, OFFSET>,
-            ReadCharacterAtCursorAsync::<Impl, OFFSET>,
-            TryDisplayStoredBitmapAtCursorAsync::<Impl, OFFSET>,
-            TryDisplayStorageFileBitmapAtCursorAsync::<Impl, OFFSET>,
-            TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync::<Impl, OFFSET>,
-            TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync::<Impl, OFFSET>,
-            TryDisplayStorageFileBitmapAtPointAsync::<Impl, OFFSET>,
-            TryDisplayStorageFileBitmapAtPointWithWidthAsync::<Impl, OFFSET>,
+            Cursor::<Impl, IMPL_OFFSET>,
+            Marquee::<Impl, IMPL_OFFSET>,
+            ReadCharacterAtCursorAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayStoredBitmapAtCursorAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayStorageFileBitmapAtCursorAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayStorageFileBitmapAtPointAsync::<Impl, IMPL_OFFSET>,
+            TryDisplayStorageFileBitmapAtPointWithWidthAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineDisplayWindow2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMagneticStripeReaderImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&self) -> ::windows::core::Result<MagneticStripeReaderCapabilities>;
@@ -6770,13 +6996,13 @@ pub trait IMagneticStripeReaderImpl: Sized {
     fn StatusUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMagneticStripeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderImpl, const OFFSET: isize>() -> IMagneticStripeReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderVtbl {
         unsafe extern "system" fn DeviceId<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -6882,23 +7108,26 @@ impl IMagneticStripeReaderVtbl {
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMagneticStripeReader>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
-            SupportedCardTypes::<Impl, OFFSET>,
-            DeviceAuthenticationProtocol::<Impl, OFFSET>,
-            CheckHealthAsync::<Impl, OFFSET>,
-            ClaimReaderAsync::<Impl, OFFSET>,
-            RetrieveStatisticsAsync::<Impl, OFFSET>,
-            GetErrorReportingType::<Impl, OFFSET>,
-            StatusUpdated::<Impl, OFFSET>,
-            RemoveStatusUpdated::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            SupportedCardTypes::<Impl, IMPL_OFFSET>,
+            DeviceAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            CheckHealthAsync::<Impl, IMPL_OFFSET>,
+            ClaimReaderAsync::<Impl, IMPL_OFFSET>,
+            RetrieveStatisticsAsync::<Impl, IMPL_OFFSET>,
+            GetErrorReportingType::<Impl, IMPL_OFFSET>,
+            StatusUpdated::<Impl, IMPL_OFFSET>,
+            RemoveStatusUpdated::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6929,7 +7158,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderAamvaCardDataReceived
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>() -> IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
         unsafe extern "system" fn Report<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
@@ -7140,32 +7369,35 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderAamvaCardDataReceivedEventArgs>,
             ::windows::core::GetTrustLevel,
-            Report::<Impl, OFFSET>,
-            LicenseNumber::<Impl, OFFSET>,
-            ExpirationDate::<Impl, OFFSET>,
-            Restrictions::<Impl, OFFSET>,
-            Class::<Impl, OFFSET>,
-            Endorsements::<Impl, OFFSET>,
-            BirthDate::<Impl, OFFSET>,
-            FirstName::<Impl, OFFSET>,
-            Surname::<Impl, OFFSET>,
-            Suffix::<Impl, OFFSET>,
-            Gender::<Impl, OFFSET>,
-            HairColor::<Impl, OFFSET>,
-            EyeColor::<Impl, OFFSET>,
-            Height::<Impl, OFFSET>,
-            Weight::<Impl, OFFSET>,
-            Address::<Impl, OFFSET>,
-            City::<Impl, OFFSET>,
-            State::<Impl, OFFSET>,
-            PostalCode::<Impl, OFFSET>,
+            Report::<Impl, IMPL_OFFSET>,
+            LicenseNumber::<Impl, IMPL_OFFSET>,
+            ExpirationDate::<Impl, IMPL_OFFSET>,
+            Restrictions::<Impl, IMPL_OFFSET>,
+            Class::<Impl, IMPL_OFFSET>,
+            Endorsements::<Impl, IMPL_OFFSET>,
+            BirthDate::<Impl, IMPL_OFFSET>,
+            FirstName::<Impl, IMPL_OFFSET>,
+            Surname::<Impl, IMPL_OFFSET>,
+            Suffix::<Impl, IMPL_OFFSET>,
+            Gender::<Impl, IMPL_OFFSET>,
+            HairColor::<Impl, IMPL_OFFSET>,
+            EyeColor::<Impl, IMPL_OFFSET>,
+            Height::<Impl, IMPL_OFFSET>,
+            Weight::<Impl, IMPL_OFFSET>,
+            Address::<Impl, IMPL_OFFSET>,
+            City::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            PostalCode::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderAamvaCardDataReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7186,7 +7418,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderBankCardDataReceivedE
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>() -> IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
         unsafe extern "system" fn Report<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
@@ -7287,22 +7519,25 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderBankCardDataReceivedEventArgs>,
             ::windows::core::GetTrustLevel,
-            Report::<Impl, OFFSET>,
-            AccountNumber::<Impl, OFFSET>,
-            ExpirationDate::<Impl, OFFSET>,
-            ServiceCode::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            FirstName::<Impl, OFFSET>,
-            MiddleInitial::<Impl, OFFSET>,
-            Surname::<Impl, OFFSET>,
-            Suffix::<Impl, OFFSET>,
+            Report::<Impl, IMPL_OFFSET>,
+            AccountNumber::<Impl, IMPL_OFFSET>,
+            ExpirationDate::<Impl, IMPL_OFFSET>,
+            ServiceCode::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            FirstName::<Impl, IMPL_OFFSET>,
+            MiddleInitial::<Impl, IMPL_OFFSET>,
+            Surname::<Impl, IMPL_OFFSET>,
+            Suffix::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderBankCardDataReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7325,7 +7560,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>() -> IMagneticStripeReaderCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderCapabilitiesVtbl {
         unsafe extern "system" fn CardAuthentication<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardAuthentication() {
@@ -7448,24 +7683,27 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderCapabilities>,
             ::windows::core::GetTrustLevel,
-            CardAuthentication::<Impl, OFFSET>,
-            SupportedEncryptionAlgorithms::<Impl, OFFSET>,
-            AuthenticationLevel::<Impl, OFFSET>,
-            IsIsoSupported::<Impl, OFFSET>,
-            IsJisOneSupported::<Impl, OFFSET>,
-            IsJisTwoSupported::<Impl, OFFSET>,
-            PowerReportingType::<Impl, OFFSET>,
-            IsStatisticsReportingSupported::<Impl, OFFSET>,
-            IsStatisticsUpdatingSupported::<Impl, OFFSET>,
-            IsTrackDataMaskingSupported::<Impl, OFFSET>,
-            IsTransmitSentinelsSupported::<Impl, OFFSET>,
+            CardAuthentication::<Impl, IMPL_OFFSET>,
+            SupportedEncryptionAlgorithms::<Impl, IMPL_OFFSET>,
+            AuthenticationLevel::<Impl, IMPL_OFFSET>,
+            IsIsoSupported::<Impl, IMPL_OFFSET>,
+            IsJisOneSupported::<Impl, IMPL_OFFSET>,
+            IsJisTwoSupported::<Impl, IMPL_OFFSET>,
+            PowerReportingType::<Impl, IMPL_OFFSET>,
+            IsStatisticsReportingSupported::<Impl, IMPL_OFFSET>,
+            IsStatisticsUpdatingSupported::<Impl, IMPL_OFFSET>,
+            IsTrackDataMaskingSupported::<Impl, IMPL_OFFSET>,
+            IsTransmitSentinelsSupported::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7481,7 +7719,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderCardTypesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderCardTypesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCardTypesStaticsImpl, const OFFSET: isize>() -> IMagneticStripeReaderCardTypesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCardTypesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderCardTypesStaticsVtbl {
         unsafe extern "system" fn Unknown<Impl: IMagneticStripeReaderCardTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unknown() {
@@ -7526,7 +7764,10 @@ impl IMagneticStripeReaderCardTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderCardTypesStatics>, ::windows::core::GetTrustLevel, Unknown::<Impl, OFFSET>, Bank::<Impl, OFFSET>, Aamva::<Impl, OFFSET>, ExtendedBase::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderCardTypesStatics>, ::windows::core::GetTrustLevel, Unknown::<Impl, IMPL_OFFSET>, Bank::<Impl, IMPL_OFFSET>, Aamva::<Impl, IMPL_OFFSET>, ExtendedBase::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderCardTypesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7541,7 +7782,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderEncryptionAlgorithmsS
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const OFFSET: isize>() -> IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
         unsafe extern "system" fn None<Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).None() {
@@ -7575,7 +7816,10 @@ impl IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderEncryptionAlgorithmsStatics>, ::windows::core::GetTrustLevel, None::<Impl, OFFSET>, TripleDesDukpt::<Impl, OFFSET>, ExtendedBase::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderEncryptionAlgorithmsStatics>, ::windows::core::GetTrustLevel, None::<Impl, IMPL_OFFSET>, TripleDesDukpt::<Impl, IMPL_OFFSET>, ExtendedBase::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderEncryptionAlgorithmsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7593,7 +7837,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderErrorOccurredEventArg
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>() -> IMagneticStripeReaderErrorOccurredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderErrorOccurredEventArgsVtbl {
         unsafe extern "system" fn Track1Status<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track1Status() {
@@ -7660,10 +7904,26 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, Track1Status::<Impl, OFFSET>, Track2Status::<Impl, OFFSET>, Track3Status::<Impl, OFFSET>, Track4Status::<Impl, OFFSET>, ErrorData::<Impl, OFFSET>, PartialInputData::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderErrorOccurredEventArgs>,
+            ::windows::core::GetTrustLevel,
+            Track1Status::<Impl, IMPL_OFFSET>,
+            Track2Status::<Impl, IMPL_OFFSET>,
+            Track3Status::<Impl, IMPL_OFFSET>,
+            Track4Status::<Impl, IMPL_OFFSET>,
+            ErrorData::<Impl, IMPL_OFFSET>,
+            PartialInputData::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderErrorOccurredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMagneticStripeReaderReportImpl: Sized {
     fn CardType(&self) -> ::windows::core::Result<u32>;
     fn Track1(&self) -> ::windows::core::Result<MagneticStripeReaderTrackData>;
@@ -7675,13 +7935,13 @@ pub trait IMagneticStripeReaderReportImpl: Sized {
     fn CardAuthenticationDataLength(&self) -> ::windows::core::Result<u32>;
     fn AdditionalSecurityInformation(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMagneticStripeReaderReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>() -> IMagneticStripeReaderReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderReportVtbl {
         unsafe extern "system" fn CardType<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardType() {
@@ -7782,37 +8042,40 @@ impl IMagneticStripeReaderReportVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderReport>,
             ::windows::core::GetTrustLevel,
-            CardType::<Impl, OFFSET>,
-            Track1::<Impl, OFFSET>,
-            Track2::<Impl, OFFSET>,
-            Track3::<Impl, OFFSET>,
-            Track4::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            CardAuthenticationData::<Impl, OFFSET>,
-            CardAuthenticationDataLength::<Impl, OFFSET>,
-            AdditionalSecurityInformation::<Impl, OFFSET>,
+            CardType::<Impl, IMPL_OFFSET>,
+            Track1::<Impl, IMPL_OFFSET>,
+            Track2::<Impl, IMPL_OFFSET>,
+            Track3::<Impl, IMPL_OFFSET>,
+            Track4::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            CardAuthenticationData::<Impl, IMPL_OFFSET>,
+            CardAuthenticationDataLength::<Impl, IMPL_OFFSET>,
+            AdditionalSecurityInformation::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderReport as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMagneticStripeReaderStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagneticStripeReaderStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMagneticStripeReaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStaticsImpl, const OFFSET: isize>() -> IMagneticStripeReaderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStaticsVtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: IMagneticStripeReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -7846,7 +8109,10 @@ impl IMagneticStripeReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7859,7 +8125,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatics2Impl, const OFFSET: isize>() -> IMagneticStripeReaderStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatics2Vtbl {
         unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IMagneticStripeReaderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
@@ -7871,7 +8137,10 @@ impl IMagneticStripeReaderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7885,7 +8154,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderStatusUpdatedEventArg
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatusUpdatedEventArgsImpl, const OFFSET: isize>() -> IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IMagneticStripeReaderStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -7908,22 +8177,25 @@ impl IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderStatusUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMagneticStripeReaderTrackDataImpl: Sized {
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn DiscretionaryData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn EncryptedData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderTrackData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMagneticStripeReaderTrackDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderTrackDataImpl, const OFFSET: isize>() -> IMagneticStripeReaderTrackDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderTrackDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderTrackDataVtbl {
         unsafe extern "system" fn Data<Impl: IMagneticStripeReaderTrackDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -7957,7 +8229,10 @@ impl IMagneticStripeReaderTrackDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderTrackData>, ::windows::core::GetTrustLevel, Data::<Impl, OFFSET>, DiscretionaryData::<Impl, OFFSET>, EncryptedData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderTrackData>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, DiscretionaryData::<Impl, IMPL_OFFSET>, EncryptedData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderTrackData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7970,7 +8245,7 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderVendorSpecificCardDat
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl, const OFFSET: isize>() -> IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
         unsafe extern "system" fn Report<Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
@@ -7982,10 +8257,13 @@ impl IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPosPrinterImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&self) -> ::windows::core::Result<PosPrinterCapabilities>;
@@ -7998,13 +8276,13 @@ pub trait IPosPrinterImpl: Sized {
     fn StatusUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPosPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterImpl, const OFFSET: isize>() -> IPosPrinterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterVtbl {
         unsafe extern "system" fn DeviceId<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -8109,37 +8387,40 @@ impl IPosPrinterVtbl {
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPosPrinter>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
-            SupportedCharacterSets::<Impl, OFFSET>,
-            SupportedTypeFaces::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            ClaimPrinterAsync::<Impl, OFFSET>,
-            CheckHealthAsync::<Impl, OFFSET>,
-            GetStatisticsAsync::<Impl, OFFSET>,
-            StatusUpdated::<Impl, OFFSET>,
-            RemoveStatusUpdated::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            SupportedCharacterSets::<Impl, IMPL_OFFSET>,
+            SupportedTypeFaces::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            ClaimPrinterAsync::<Impl, IMPL_OFFSET>,
+            CheckHealthAsync::<Impl, IMPL_OFFSET>,
+            GetStatisticsAsync::<Impl, IMPL_OFFSET>,
+            StatusUpdated::<Impl, IMPL_OFFSET>,
+            RemoveStatusUpdated::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPosPrinter2Impl: Sized {
     fn SupportedBarcodeSymbologies(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
     fn GetFontProperty(&self, typeface: &::windows::core::HSTRING) -> ::windows::core::Result<PosPrinterFontProperty>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPosPrinter2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinter2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPosPrinter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinter2Impl, const OFFSET: isize>() -> IPosPrinter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinter2Vtbl {
         unsafe extern "system" fn SupportedBarcodeSymbologies<Impl: IPosPrinter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedBarcodeSymbologies() {
@@ -8162,7 +8443,10 @@ impl IPosPrinter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinter2>, ::windows::core::GetTrustLevel, SupportedBarcodeSymbologies::<Impl, OFFSET>, GetFontProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinter2>, ::windows::core::GetTrustLevel, SupportedBarcodeSymbologies::<Impl, IMPL_OFFSET>, GetFontProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinter2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8184,7 +8468,7 @@ impl ::windows::core::RuntimeName for IPosPrinterCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>() -> IPosPrinterCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterCapabilitiesVtbl {
         unsafe extern "system" fn PowerReportingType<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
@@ -8296,23 +8580,26 @@ impl IPosPrinterCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPosPrinterCapabilities>,
             ::windows::core::GetTrustLevel,
-            PowerReportingType::<Impl, OFFSET>,
-            IsStatisticsReportingSupported::<Impl, OFFSET>,
-            IsStatisticsUpdatingSupported::<Impl, OFFSET>,
-            DefaultCharacterSet::<Impl, OFFSET>,
-            HasCoverSensor::<Impl, OFFSET>,
-            CanMapCharacterSet::<Impl, OFFSET>,
-            IsTransactionSupported::<Impl, OFFSET>,
-            Receipt::<Impl, OFFSET>,
-            Slip::<Impl, OFFSET>,
-            Journal::<Impl, OFFSET>,
+            PowerReportingType::<Impl, IMPL_OFFSET>,
+            IsStatisticsReportingSupported::<Impl, IMPL_OFFSET>,
+            IsStatisticsUpdatingSupported::<Impl, IMPL_OFFSET>,
+            DefaultCharacterSet::<Impl, IMPL_OFFSET>,
+            HasCoverSensor::<Impl, IMPL_OFFSET>,
+            CanMapCharacterSet::<Impl, IMPL_OFFSET>,
+            IsTransactionSupported::<Impl, IMPL_OFFSET>,
+            Receipt::<Impl, IMPL_OFFSET>,
+            Slip::<Impl, IMPL_OFFSET>,
+            Journal::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8327,7 +8614,7 @@ impl ::windows::core::RuntimeName for IPosPrinterCharacterSetIdsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterCharacterSetIdsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCharacterSetIdsStaticsImpl, const OFFSET: isize>() -> IPosPrinterCharacterSetIdsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCharacterSetIdsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterCharacterSetIdsStaticsVtbl {
         unsafe extern "system" fn Utf16LE<Impl: IPosPrinterCharacterSetIdsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Utf16LE() {
@@ -8361,22 +8648,25 @@ impl IPosPrinterCharacterSetIdsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterCharacterSetIdsStatics>, ::windows::core::GetTrustLevel, Utf16LE::<Impl, OFFSET>, Ascii::<Impl, OFFSET>, Ansi::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterCharacterSetIdsStatics>, ::windows::core::GetTrustLevel, Utf16LE::<Impl, IMPL_OFFSET>, Ascii::<Impl, IMPL_OFFSET>, Ansi::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterCharacterSetIdsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPosPrinterFontPropertyImpl: Sized {
     fn TypeFace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsScalableToAnySize(&self) -> ::windows::core::Result<bool>;
     fn CharacterSizes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SizeUInt32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterFontProperty";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPosPrinterFontPropertyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterFontPropertyImpl, const OFFSET: isize>() -> IPosPrinterFontPropertyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterFontPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterFontPropertyVtbl {
         unsafe extern "system" fn TypeFace<Impl: IPosPrinterFontPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TypeFace() {
@@ -8410,20 +8700,26 @@ impl IPosPrinterFontPropertyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterFontProperty>, ::windows::core::GetTrustLevel, TypeFace::<Impl, OFFSET>, IsScalableToAnySize::<Impl, OFFSET>, CharacterSizes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterFontProperty>, ::windows::core::GetTrustLevel, TypeFace::<Impl, IMPL_OFFSET>, IsScalableToAnySize::<Impl, IMPL_OFFSET>, CharacterSizes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterFontProperty as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IPosPrinterJobImpl: Sized {
     fn Print(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PrintNewline(&self) -> ::windows::core::Result<()>;
     fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPosPrinterJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterJob";
 }
+#[cfg(feature = "Foundation")]
 impl IPosPrinterJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterJobImpl, const OFFSET: isize>() -> IPosPrinterJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterJobVtbl {
         unsafe extern "system" fn Print<Impl: IPosPrinterJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -8447,7 +8743,10 @@ impl IPosPrinterJobVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterJob>, ::windows::core::GetTrustLevel, Print::<Impl, OFFSET>, PrintLine::<Impl, OFFSET>, PrintNewline::<Impl, OFFSET>, ExecuteAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterJob>, ::windows::core::GetTrustLevel, Print::<Impl, IMPL_OFFSET>, PrintLine::<Impl, IMPL_OFFSET>, PrintNewline::<Impl, IMPL_OFFSET>, ExecuteAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterJob as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8485,7 +8784,7 @@ impl ::windows::core::RuntimeName for IPosPrinterPrintOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterPrintOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>() -> IPosPrinterPrintOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterPrintOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterPrintOptionsVtbl {
         unsafe extern "system" fn TypeFace<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TypeFace() {
@@ -8682,39 +8981,42 @@ impl IPosPrinterPrintOptionsVtbl {
             (*this).SetCharacterSet(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPosPrinterPrintOptions>,
             ::windows::core::GetTrustLevel,
-            TypeFace::<Impl, OFFSET>,
-            SetTypeFace::<Impl, OFFSET>,
-            CharacterHeight::<Impl, OFFSET>,
-            SetCharacterHeight::<Impl, OFFSET>,
-            Bold::<Impl, OFFSET>,
-            SetBold::<Impl, OFFSET>,
-            Italic::<Impl, OFFSET>,
-            SetItalic::<Impl, OFFSET>,
-            Underline::<Impl, OFFSET>,
-            SetUnderline::<Impl, OFFSET>,
-            ReverseVideo::<Impl, OFFSET>,
-            SetReverseVideo::<Impl, OFFSET>,
-            Strikethrough::<Impl, OFFSET>,
-            SetStrikethrough::<Impl, OFFSET>,
-            Superscript::<Impl, OFFSET>,
-            SetSuperscript::<Impl, OFFSET>,
-            Subscript::<Impl, OFFSET>,
-            SetSubscript::<Impl, OFFSET>,
-            DoubleWide::<Impl, OFFSET>,
-            SetDoubleWide::<Impl, OFFSET>,
-            DoubleHigh::<Impl, OFFSET>,
-            SetDoubleHigh::<Impl, OFFSET>,
-            Alignment::<Impl, OFFSET>,
-            SetAlignment::<Impl, OFFSET>,
-            CharacterSet::<Impl, OFFSET>,
-            SetCharacterSet::<Impl, OFFSET>,
+            TypeFace::<Impl, IMPL_OFFSET>,
+            SetTypeFace::<Impl, IMPL_OFFSET>,
+            CharacterHeight::<Impl, IMPL_OFFSET>,
+            SetCharacterHeight::<Impl, IMPL_OFFSET>,
+            Bold::<Impl, IMPL_OFFSET>,
+            SetBold::<Impl, IMPL_OFFSET>,
+            Italic::<Impl, IMPL_OFFSET>,
+            SetItalic::<Impl, IMPL_OFFSET>,
+            Underline::<Impl, IMPL_OFFSET>,
+            SetUnderline::<Impl, IMPL_OFFSET>,
+            ReverseVideo::<Impl, IMPL_OFFSET>,
+            SetReverseVideo::<Impl, IMPL_OFFSET>,
+            Strikethrough::<Impl, IMPL_OFFSET>,
+            SetStrikethrough::<Impl, IMPL_OFFSET>,
+            Superscript::<Impl, IMPL_OFFSET>,
+            SetSuperscript::<Impl, IMPL_OFFSET>,
+            Subscript::<Impl, IMPL_OFFSET>,
+            SetSubscript::<Impl, IMPL_OFFSET>,
+            DoubleWide::<Impl, IMPL_OFFSET>,
+            SetDoubleWide::<Impl, IMPL_OFFSET>,
+            DoubleHigh::<Impl, IMPL_OFFSET>,
+            SetDoubleHigh::<Impl, IMPL_OFFSET>,
+            Alignment::<Impl, IMPL_OFFSET>,
+            SetAlignment::<Impl, IMPL_OFFSET>,
+            CharacterSet::<Impl, IMPL_OFFSET>,
+            SetCharacterSet::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterPrintOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8725,23 +9027,26 @@ impl ::windows::core::RuntimeName for IPosPrinterReleaseDeviceRequestedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterReleaseDeviceRequestedEventArgsImpl, const OFFSET: isize>() -> IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterReleaseDeviceRequestedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterReleaseDeviceRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterReleaseDeviceRequestedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterReleaseDeviceRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPosPrinterStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPosPrinterStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPosPrinterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStaticsImpl, const OFFSET: isize>() -> IPosPrinterStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStaticsVtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: IPosPrinterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -8775,7 +9080,10 @@ impl IPosPrinterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8788,7 +9096,7 @@ impl ::windows::core::RuntimeName for IPosPrinterStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatics2Impl, const OFFSET: isize>() -> IPosPrinterStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatics2Vtbl {
         unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IPosPrinterStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
@@ -8800,7 +9108,10 @@ impl IPosPrinterStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatics2>, ::windows::core::GetTrustLevel, GetDeviceSelectorWithConnectionTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8814,7 +9125,7 @@ impl ::windows::core::RuntimeName for IPosPrinterStatus {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusImpl, const OFFSET: isize>() -> IPosPrinterStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatusVtbl {
         unsafe extern "system" fn StatusKind<Impl: IPosPrinterStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterStatusKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusKind() {
@@ -8837,7 +9148,10 @@ impl IPosPrinterStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatus>, ::windows::core::GetTrustLevel, StatusKind::<Impl, OFFSET>, ExtendedStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatus>, ::windows::core::GetTrustLevel, StatusKind::<Impl, IMPL_OFFSET>, ExtendedStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterStatus as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8850,7 +9164,7 @@ impl ::windows::core::RuntimeName for IPosPrinterStatusUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPosPrinterStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusUpdatedEventArgsImpl, const OFFSET: isize>() -> IPosPrinterStatusUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatusUpdatedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IPosPrinterStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -8862,9 +9176,13 @@ impl IPosPrinterStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPosPrinterStatusUpdatedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPosPrinterStatusUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 pub trait IReceiptOrSlipJobImpl: Sized + IPosPrinterJobImpl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()>;
     fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()>;
@@ -8882,11 +9200,13 @@ pub trait IReceiptOrSlipJobImpl: Sized + IPosPrinterJobImpl {
     fn PrintCustomAlignedBitmap(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
     fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 impl ::windows::core::RuntimeName for IReceiptOrSlipJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptOrSlipJob";
 }
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 impl IReceiptOrSlipJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>() -> IReceiptOrSlipJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptOrSlipJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptOrSlipJobVtbl {
         unsafe extern "system" fn SetBarcodeRotation<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBarcodeRotation(value).into()
@@ -8948,28 +9268,31 @@ impl IReceiptOrSlipJobVtbl {
             (*this).PrintBitmapCustomWidthCustomAlign(&*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignmentdistance, width).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IReceiptOrSlipJob>,
             ::windows::core::GetTrustLevel,
-            SetBarcodeRotation::<Impl, OFFSET>,
-            SetPrintRotation::<Impl, OFFSET>,
-            SetPrintArea::<Impl, OFFSET>,
-            SetBitmap::<Impl, OFFSET>,
-            SetBitmapCustomWidthStandardAlign::<Impl, OFFSET>,
-            SetCustomAlignedBitmap::<Impl, OFFSET>,
-            SetBitmapCustomWidthCustomAlign::<Impl, OFFSET>,
-            PrintSavedBitmap::<Impl, OFFSET>,
-            DrawRuledLine::<Impl, OFFSET>,
-            PrintBarcode::<Impl, OFFSET>,
-            PrintBarcodeCustomAlign::<Impl, OFFSET>,
-            PrintBitmap::<Impl, OFFSET>,
-            PrintBitmapCustomWidthStandardAlign::<Impl, OFFSET>,
-            PrintCustomAlignedBitmap::<Impl, OFFSET>,
-            PrintBitmapCustomWidthCustomAlign::<Impl, OFFSET>,
+            SetBarcodeRotation::<Impl, IMPL_OFFSET>,
+            SetPrintRotation::<Impl, IMPL_OFFSET>,
+            SetPrintArea::<Impl, IMPL_OFFSET>,
+            SetBitmap::<Impl, IMPL_OFFSET>,
+            SetBitmapCustomWidthStandardAlign::<Impl, IMPL_OFFSET>,
+            SetCustomAlignedBitmap::<Impl, IMPL_OFFSET>,
+            SetBitmapCustomWidthCustomAlign::<Impl, IMPL_OFFSET>,
+            PrintSavedBitmap::<Impl, IMPL_OFFSET>,
+            DrawRuledLine::<Impl, IMPL_OFFSET>,
+            PrintBarcode::<Impl, IMPL_OFFSET>,
+            PrintBarcodeCustomAlign::<Impl, IMPL_OFFSET>,
+            PrintBitmap::<Impl, IMPL_OFFSET>,
+            PrintBitmapCustomWidthStandardAlign::<Impl, IMPL_OFFSET>,
+            PrintCustomAlignedBitmap::<Impl, IMPL_OFFSET>,
+            PrintBitmapCustomWidthCustomAlign::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReceiptOrSlipJob as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8984,7 +9307,7 @@ impl ::windows::core::RuntimeName for IReceiptPrintJob {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReceiptPrintJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJobImpl, const OFFSET: isize>() -> IReceiptPrintJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrintJobVtbl {
         unsafe extern "system" fn MarkFeed<Impl: IReceiptPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: PosPrinterMarkFeedKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MarkFeed(kind).into()
@@ -8997,7 +9320,10 @@ impl IReceiptPrintJobVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CutPaperDefault().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReceiptPrintJob>, ::windows::core::GetTrustLevel, MarkFeed::<Impl, OFFSET>, CutPaper::<Impl, OFFSET>, CutPaperDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReceiptPrintJob>, ::windows::core::GetTrustLevel, MarkFeed::<Impl, IMPL_OFFSET>, CutPaper::<Impl, IMPL_OFFSET>, CutPaperDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReceiptPrintJob as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9013,7 +9339,7 @@ impl ::windows::core::RuntimeName for IReceiptPrintJob2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReceiptPrintJob2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJob2Impl, const OFFSET: isize>() -> IReceiptPrintJob2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJob2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrintJob2Vtbl {
         unsafe extern "system" fn StampPaper<Impl: IReceiptPrintJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StampPaper().into()
@@ -9030,7 +9356,10 @@ impl IReceiptPrintJob2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByMapModeUnit(distance).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReceiptPrintJob2>, ::windows::core::GetTrustLevel, StampPaper::<Impl, OFFSET>, Print::<Impl, OFFSET>, FeedPaperByLine::<Impl, OFFSET>, FeedPaperByMapModeUnit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReceiptPrintJob2>, ::windows::core::GetTrustLevel, StampPaper::<Impl, IMPL_OFFSET>, Print::<Impl, IMPL_OFFSET>, FeedPaperByLine::<Impl, IMPL_OFFSET>, FeedPaperByMapModeUnit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReceiptPrintJob2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9045,7 +9374,7 @@ impl ::windows::core::RuntimeName for IReceiptPrinterCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReceiptPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilitiesImpl, const OFFSET: isize>() -> IReceiptPrinterCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrinterCapabilitiesVtbl {
         unsafe extern "system" fn CanCutPaper<Impl: IReceiptPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCutPaper() {
@@ -9079,7 +9408,10 @@ impl IReceiptPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReceiptPrinterCapabilities>, ::windows::core::GetTrustLevel, CanCutPaper::<Impl, OFFSET>, IsStampSupported::<Impl, OFFSET>, MarkFeedCapabilities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReceiptPrinterCapabilities>, ::windows::core::GetTrustLevel, CanCutPaper::<Impl, IMPL_OFFSET>, IsStampSupported::<Impl, IMPL_OFFSET>, MarkFeedCapabilities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReceiptPrinterCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9097,7 +9429,7 @@ impl ::windows::core::RuntimeName for IReceiptPrinterCapabilities2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReceiptPrinterCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>() -> IReceiptPrinterCapabilities2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrinterCapabilities2Vtbl {
         unsafe extern "system" fn IsReverseVideoSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseVideoSupported() {
@@ -9165,19 +9497,22 @@ impl IReceiptPrinterCapabilities2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IReceiptPrinterCapabilities2>,
             ::windows::core::GetTrustLevel,
-            IsReverseVideoSupported::<Impl, OFFSET>,
-            IsStrikethroughSupported::<Impl, OFFSET>,
-            IsSuperscriptSupported::<Impl, OFFSET>,
-            IsSubscriptSupported::<Impl, OFFSET>,
-            IsReversePaperFeedByLineSupported::<Impl, OFFSET>,
-            IsReversePaperFeedByMapModeUnitSupported::<Impl, OFFSET>,
+            IsReverseVideoSupported::<Impl, IMPL_OFFSET>,
+            IsStrikethroughSupported::<Impl, IMPL_OFFSET>,
+            IsSuperscriptSupported::<Impl, IMPL_OFFSET>,
+            IsSubscriptSupported::<Impl, IMPL_OFFSET>,
+            IsReversePaperFeedByLineSupported::<Impl, IMPL_OFFSET>,
+            IsReversePaperFeedByMapModeUnitSupported::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReceiptPrinterCapabilities2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9192,7 +9527,7 @@ impl ::windows::core::RuntimeName for ISlipPrintJob {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISlipPrintJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrintJobImpl, const OFFSET: isize>() -> ISlipPrintJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrintJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrintJobVtbl {
         unsafe extern "system" fn Print<Impl: ISlipPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&printoptions as *const <PosPrinterPrintOptions as ::windows::core::Abi>::Abi as *const <PosPrinterPrintOptions as ::windows::core::DefaultType>::DefaultType)).into()
@@ -9205,7 +9540,10 @@ impl ISlipPrintJobVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByMapModeUnit(distance).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlipPrintJob>, ::windows::core::GetTrustLevel, Print::<Impl, OFFSET>, FeedPaperByLine::<Impl, OFFSET>, FeedPaperByMapModeUnit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlipPrintJob>, ::windows::core::GetTrustLevel, Print::<Impl, IMPL_OFFSET>, FeedPaperByLine::<Impl, IMPL_OFFSET>, FeedPaperByMapModeUnit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISlipPrintJob as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9219,7 +9557,7 @@ impl ::windows::core::RuntimeName for ISlipPrinterCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISlipPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilitiesImpl, const OFFSET: isize>() -> ISlipPrinterCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrinterCapabilitiesVtbl {
         unsafe extern "system" fn IsFullLengthSupported<Impl: ISlipPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFullLengthSupported() {
@@ -9242,7 +9580,10 @@ impl ISlipPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlipPrinterCapabilities>, ::windows::core::GetTrustLevel, IsFullLengthSupported::<Impl, OFFSET>, IsBothSidesPrintingSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlipPrinterCapabilities>, ::windows::core::GetTrustLevel, IsFullLengthSupported::<Impl, IMPL_OFFSET>, IsBothSidesPrintingSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISlipPrinterCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9260,7 +9601,7 @@ impl ::windows::core::RuntimeName for ISlipPrinterCapabilities2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISlipPrinterCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>() -> ISlipPrinterCapabilities2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrinterCapabilities2Vtbl {
         unsafe extern "system" fn IsReverseVideoSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseVideoSupported() {
@@ -9328,19 +9669,22 @@ impl ISlipPrinterCapabilities2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISlipPrinterCapabilities2>,
             ::windows::core::GetTrustLevel,
-            IsReverseVideoSupported::<Impl, OFFSET>,
-            IsStrikethroughSupported::<Impl, OFFSET>,
-            IsSuperscriptSupported::<Impl, OFFSET>,
-            IsSubscriptSupported::<Impl, OFFSET>,
-            IsReversePaperFeedByLineSupported::<Impl, OFFSET>,
-            IsReversePaperFeedByMapModeUnitSupported::<Impl, OFFSET>,
+            IsReverseVideoSupported::<Impl, IMPL_OFFSET>,
+            IsStrikethroughSupported::<Impl, IMPL_OFFSET>,
+            IsSuperscriptSupported::<Impl, IMPL_OFFSET>,
+            IsSubscriptSupported::<Impl, IMPL_OFFSET>,
+            IsReversePaperFeedByLineSupported::<Impl, IMPL_OFFSET>,
+            IsReversePaperFeedByMapModeUnitSupported::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISlipPrinterCapabilities2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9356,7 +9700,7 @@ impl ::windows::core::RuntimeName for IUnifiedPosErrorData {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUnifiedPosErrorDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataImpl, const OFFSET: isize>() -> IUnifiedPosErrorDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnifiedPosErrorDataVtbl {
         unsafe extern "system" fn Message<Impl: IUnifiedPosErrorDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
@@ -9401,7 +9745,10 @@ impl IUnifiedPosErrorDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnifiedPosErrorData>, ::windows::core::GetTrustLevel, Message::<Impl, OFFSET>, Severity::<Impl, OFFSET>, Reason::<Impl, OFFSET>, ExtendedReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnifiedPosErrorData>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, Severity::<Impl, IMPL_OFFSET>, Reason::<Impl, IMPL_OFFSET>, ExtendedReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUnifiedPosErrorData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9414,7 +9761,7 @@ impl ::windows::core::RuntimeName for IUnifiedPosErrorDataFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUnifiedPosErrorDataFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataFactoryImpl, const OFFSET: isize>() -> IUnifiedPosErrorDataFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnifiedPosErrorDataFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IUnifiedPosErrorDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), severity, reason, extendedreason) {
@@ -9426,6 +9773,9 @@ impl IUnifiedPosErrorDataFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnifiedPosErrorDataFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUnifiedPosErrorDataFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUnifiedPosErrorDataFactory as ::windows::core::Interface>::IID
     }
 }

@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IComponentLoadFailedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IComponentLoadFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>() -> IComponentLoadFailedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentLoadFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentLoadFailedEventArgsVtbl {
         unsafe extern "system" fn Information<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
@@ -32,20 +32,23 @@ impl IComponentLoadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentLoadFailedEventArgs>, ::windows::core::GetTrustLevel, Information::<Impl, OFFSET>, Completion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentLoadFailedEventArgs>, ::windows::core::GetTrustLevel, Information::<Impl, IMPL_OFFSET>, Completion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IComponentLoadFailedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IComponentRenewalStaticsImpl: Sized {
     fn RenewSystemComponentsAsync(&self, information: &::core::option::Option<RevocationAndRenewalInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IComponentRenewalStatics {
     const NAME: &'static str = "Windows.Media.Protection.IComponentRenewalStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IComponentRenewalStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentRenewalStaticsImpl, const OFFSET: isize>() -> IComponentRenewalStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentRenewalStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentRenewalStaticsVtbl {
         unsafe extern "system" fn RenewSystemComponentsAsync<Impl: IComponentRenewalStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, information: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenewSystemComponentsAsync(&*(&information as *const <RevocationAndRenewalInformation as ::windows::core::Abi>::Abi as *const <RevocationAndRenewalInformation as ::windows::core::DefaultType>::DefaultType)) {
@@ -57,7 +60,10 @@ impl IComponentRenewalStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentRenewalStatics>, ::windows::core::GetTrustLevel, RenewSystemComponentsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentRenewalStatics>, ::windows::core::GetTrustLevel, RenewSystemComponentsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IComponentRenewalStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -74,7 +80,7 @@ impl ::windows::core::RuntimeName for IHdcpSession {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHdcpSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdcpSessionImpl, const OFFSET: isize>() -> IHdcpSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdcpSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdcpSessionVtbl {
         unsafe extern "system" fn IsEffectiveProtectionAtLeast<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEffectiveProtectionAtLeast(protection) {
@@ -123,10 +129,25 @@ impl IHdcpSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProtectionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdcpSession>, ::windows::core::GetTrustLevel, IsEffectiveProtectionAtLeast::<Impl, OFFSET>, GetEffectiveProtection::<Impl, OFFSET>, SetDesiredMinProtectionAsync::<Impl, OFFSET>, ProtectionChanged::<Impl, OFFSET>, RemoveProtectionChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHdcpSession>,
+            ::windows::core::GetTrustLevel,
+            IsEffectiveProtectionAtLeast::<Impl, IMPL_OFFSET>,
+            GetEffectiveProtection::<Impl, IMPL_OFFSET>,
+            SetDesiredMinProtectionAsync::<Impl, IMPL_OFFSET>,
+            ProtectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveProtectionChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHdcpSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProtectionManagerImpl: Sized {
     fn ServiceRequested(&self, handler: &::core::option::Option<ServiceRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServiceRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -136,13 +157,13 @@ pub trait IMediaProtectionManagerImpl: Sized {
     fn RemoveComponentLoadFailed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaProtectionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionManagerImpl, const OFFSET: isize>() -> IMediaProtectionManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionManagerVtbl {
         unsafe extern "system" fn ServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceRequested(&*(&handler as *const <ServiceRequestedEventHandler as ::windows::core::Abi>::Abi as *const <ServiceRequestedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -200,33 +221,36 @@ impl IMediaProtectionManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaProtectionManager>,
             ::windows::core::GetTrustLevel,
-            ServiceRequested::<Impl, OFFSET>,
-            RemoveServiceRequested::<Impl, OFFSET>,
-            RebootNeeded::<Impl, OFFSET>,
-            RemoveRebootNeeded::<Impl, OFFSET>,
-            ComponentLoadFailed::<Impl, OFFSET>,
-            RemoveComponentLoadFailed::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
+            ServiceRequested::<Impl, IMPL_OFFSET>,
+            RemoveServiceRequested::<Impl, IMPL_OFFSET>,
+            RebootNeeded::<Impl, IMPL_OFFSET>,
+            RemoveRebootNeeded::<Impl, IMPL_OFFSET>,
+            ComponentLoadFailed::<Impl, IMPL_OFFSET>,
+            RemoveComponentLoadFailed::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProtectionManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProtectionPMPServerImpl: Sized {
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionPMPServer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaProtectionPMPServerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerImpl, const OFFSET: isize>() -> IMediaProtectionPMPServerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionPMPServerVtbl {
         unsafe extern "system" fn Properties<Impl: IMediaProtectionPMPServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
@@ -238,20 +262,23 @@ impl IMediaProtectionPMPServerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServer>, ::windows::core::GetTrustLevel, Properties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServer>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProtectionPMPServer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProtectionPMPServerFactoryImpl: Sized {
     fn CreatePMPServer(&self, pproperties: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<MediaProtectionPMPServer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProtectionPMPServerFactory {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionPMPServerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaProtectionPMPServerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: isize>() -> IMediaProtectionPMPServerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionPMPServerFactoryVtbl {
         unsafe extern "system" fn CreatePMPServer<Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePMPServer(&*(&pproperties as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
@@ -263,7 +290,10 @@ impl IMediaProtectionPMPServerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServerFactory>, ::windows::core::GetTrustLevel, CreatePMPServer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServerFactory>, ::windows::core::GetTrustLevel, CreatePMPServer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProtectionPMPServerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -276,12 +306,15 @@ impl ::windows::core::RuntimeName for IMediaProtectionServiceCompletion {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaProtectionServiceCompletionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: isize>() -> IMediaProtectionServiceCompletionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceCompletionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionServiceCompletionVtbl {
         unsafe extern "system" fn Complete<Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(success).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceCompletion>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceCompletion>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProtectionServiceCompletion as ::windows::core::Interface>::IID
     }
 }
 pub trait IMediaProtectionServiceRequestImpl: Sized {
@@ -292,7 +325,7 @@ impl ::windows::core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
 }
 impl IMediaProtectionServiceRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>() -> IMediaProtectionServiceRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionServiceRequestVtbl {
         unsafe extern "system" fn ProtectionSystem<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionSystem() {
@@ -315,7 +348,10 @@ impl IMediaProtectionServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceRequest>, ::windows::core::GetTrustLevel, ProtectionSystem::<Impl, OFFSET>, Type::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceRequest>, ::windows::core::GetTrustLevel, ProtectionSystem::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProtectionServiceRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -328,7 +364,7 @@ impl ::windows::core::RuntimeName for IProtectionCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProtectionCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionCapabilitiesImpl, const OFFSET: isize>() -> IProtectionCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionCapabilitiesVtbl {
         unsafe extern "system" fn IsTypeSupported<Impl: IProtectionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTypeSupported(&*(&r#type as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&keysystem as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -340,20 +376,23 @@ impl IProtectionCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionCapabilities>, ::windows::core::GetTrustLevel, IsTypeSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionCapabilities>, ::windows::core::GetTrustLevel, IsTypeSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtectionCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRevocationAndRenewalInformationImpl: Sized {
     fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.IRevocationAndRenewalInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRevocationAndRenewalInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalInformationImpl, const OFFSET: isize>() -> IRevocationAndRenewalInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRevocationAndRenewalInformationVtbl {
         unsafe extern "system" fn Items<Impl: IRevocationAndRenewalInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
@@ -365,7 +404,10 @@ impl IRevocationAndRenewalInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalInformation>, ::windows::core::GetTrustLevel, Items::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalInformation>, ::windows::core::GetTrustLevel, Items::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRevocationAndRenewalInformation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -382,7 +424,7 @@ impl ::windows::core::RuntimeName for IRevocationAndRenewalItem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRevocationAndRenewalItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>() -> IRevocationAndRenewalItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRevocationAndRenewalItemVtbl {
         unsafe extern "system" fn Reasons<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RevocationAndRenewalReasons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reasons() {
@@ -438,7 +480,10 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalItem>, ::windows::core::GetTrustLevel, Reasons::<Impl, OFFSET>, HeaderHash::<Impl, OFFSET>, PublicKeyHash::<Impl, OFFSET>, Name::<Impl, OFFSET>, RenewalId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalItem>, ::windows::core::GetTrustLevel, Reasons::<Impl, IMPL_OFFSET>, HeaderHash::<Impl, IMPL_OFFSET>, PublicKeyHash::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, RenewalId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRevocationAndRenewalItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -452,7 +497,7 @@ impl ::windows::core::RuntimeName for IServiceRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IServiceRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>() -> IServiceRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -475,20 +520,23 @@ impl IServiceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, Completion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, Completion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServiceRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IServiceRequestedEventArgs2Impl: Sized {
     fn MediaPlaybackItem(&self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServiceRequestedEventArgs2 {
     const NAME: &'static str = "Windows.Media.Protection.IServiceRequestedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
 impl IServiceRequestedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgs2Impl, const OFFSET: isize>() -> IServiceRequestedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceRequestedEventArgs2Vtbl {
         unsafe extern "system" fn MediaPlaybackItem<Impl: IServiceRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlaybackItem() {
@@ -500,6 +548,9 @@ impl IServiceRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs2>, ::windows::core::GetTrustLevel, MediaPlaybackItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs2>, ::windows::core::GetTrustLevel, MediaPlaybackItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServiceRequestedEventArgs2 as ::windows::core::Interface>::IID
     }
 }

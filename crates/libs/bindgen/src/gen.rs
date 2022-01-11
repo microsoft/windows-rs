@@ -64,6 +64,34 @@ impl Gen<'_> {
         Cfg { arch: arch(def.attributes()), features }
     }
 
+    pub(crate) fn type_impl_cfg(&self, def: &TypeDef) -> Cfg {
+        let mut features = BTreeSet::new();
+        let mut keys = HashSet::new();
+        self.type_and_method_requirements(def, &mut features, &mut keys);
+
+        if def.is_exclusive() {
+            features.insert("implement_exclusive");
+        }
+
+        for def in def.vtable_types().iter().rev().skip(1) {
+            if let ElementType::TypeDef(def) = def {
+                self.type_and_method_requirements(def, &mut features, &mut keys);
+            }
+        }
+
+        if def.is_winrt() {
+            for def in def.required_interfaces() {
+                self.type_and_method_requirements(&def, &mut features, &mut keys);
+            }
+        }
+
+        if def.is_deprecated() {
+            features.insert("deprecated");
+        }
+
+        Cfg { arch: arch(def.attributes()), features }
+    }
+
     pub(crate) fn field_cfg(&self, def: &Field) -> Cfg {
         let mut features = BTreeSet::new();
         let mut keys = HashSet::new();
@@ -151,6 +179,14 @@ impl Gen<'_> {
     fn method_requirements(&self, def: &MethodSignature, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         def.return_sig.iter().for_each(|def| self.element_requirements(&def.kind, namespaces, keys));
         def.params.iter().for_each(|def| self.element_requirements(&def.signature.kind, namespaces, keys));
+    }
+
+    fn type_and_method_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
+        self.type_requirements(def, namespaces, keys);
+    
+        for method in def.methods() {
+            self.method_requirements(&method.signature(&[]), namespaces, keys);
+        }
     }
 
     fn field_requirements(&self, def: &Field, enclosing: Option<&TypeDef>, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {

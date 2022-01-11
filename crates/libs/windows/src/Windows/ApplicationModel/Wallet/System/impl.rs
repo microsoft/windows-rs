@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWalletItemSystemStoreImpl: Sized {
     fn GetItemsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>>;
     fn DeleteAsync(&self, item: &::core::option::Option<super::WalletItem>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -6,13 +6,13 @@ pub trait IWalletItemSystemStoreImpl: Sized {
     fn GetAppStatusForItem(&self, item: &::core::option::Option<super::WalletItem>) -> ::windows::core::Result<WalletItemAppAssociation>;
     fn LaunchAppForItemAsync(&self, item: &::core::option::Option<super::WalletItem>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWalletItemSystemStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemSystemStoreImpl, const OFFSET: isize>() -> IWalletItemSystemStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemSystemStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemSystemStoreVtbl {
         unsafe extern "system" fn GetItemsAsync<Impl: IWalletItemSystemStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsync() {
@@ -68,21 +68,24 @@ impl IWalletItemSystemStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemSystemStore>, ::windows::core::GetTrustLevel, GetItemsAsync::<Impl, OFFSET>, DeleteAsync::<Impl, OFFSET>, ImportItemAsync::<Impl, OFFSET>, GetAppStatusForItem::<Impl, OFFSET>, LaunchAppForItemAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemSystemStore>, ::windows::core::GetTrustLevel, GetItemsAsync::<Impl, IMPL_OFFSET>, DeleteAsync::<Impl, IMPL_OFFSET>, ImportItemAsync::<Impl, IMPL_OFFSET>, GetAppStatusForItem::<Impl, IMPL_OFFSET>, LaunchAppForItemAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemSystemStore as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWalletItemSystemStore2Impl: Sized {
     fn ItemsChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemsChanged(&self, cookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletItemSystemStore2 {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWalletItemSystemStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemSystemStore2Impl, const OFFSET: isize>() -> IWalletItemSystemStore2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemSystemStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemSystemStore2Vtbl {
         unsafe extern "system" fn ItemsChanged<Impl: IWalletItemSystemStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemsChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -98,20 +101,23 @@ impl IWalletItemSystemStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemsChanged(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemSystemStore2>, ::windows::core::GetTrustLevel, ItemsChanged::<Impl, OFFSET>, RemoveItemsChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemSystemStore2>, ::windows::core::GetTrustLevel, ItemsChanged::<Impl, IMPL_OFFSET>, RemoveItemsChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemSystemStore2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWalletManagerSystemStaticsImpl: Sized {
     fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletManagerSystemStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.IWalletManagerSystemStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWalletManagerSystemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletManagerSystemStaticsImpl, const OFFSET: isize>() -> IWalletManagerSystemStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletManagerSystemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletManagerSystemStaticsVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IWalletManagerSystemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync() {
@@ -123,6 +129,9 @@ impl IWalletManagerSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletManagerSystemStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletManagerSystemStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletManagerSystemStatics as ::windows::core::Interface>::IID
     }
 }

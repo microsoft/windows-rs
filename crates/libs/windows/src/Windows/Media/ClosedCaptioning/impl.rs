@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IClosedCaptionPropertiesStaticsImpl: Sized {
     fn FontColor(&self) -> ::windows::core::Result<ClosedCaptionColor>;
     fn ComputedFontColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
@@ -13,13 +13,13 @@ pub trait IClosedCaptionPropertiesStaticsImpl: Sized {
     fn ComputedRegionColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
     fn RegionOpacity(&self) -> ::windows::core::Result<ClosedCaptionOpacity>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClosedCaptionPropertiesStatics {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl IClosedCaptionPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>() -> IClosedCaptionPropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClosedCaptionPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClosedCaptionPropertiesStaticsVtbl {
         unsafe extern "system" fn FontColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontColor() {
@@ -153,24 +153,27 @@ impl IClosedCaptionPropertiesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IClosedCaptionPropertiesStatics>,
             ::windows::core::GetTrustLevel,
-            FontColor::<Impl, OFFSET>,
-            ComputedFontColor::<Impl, OFFSET>,
-            FontOpacity::<Impl, OFFSET>,
-            FontSize::<Impl, OFFSET>,
-            FontStyle::<Impl, OFFSET>,
-            FontEffect::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            ComputedBackgroundColor::<Impl, OFFSET>,
-            BackgroundOpacity::<Impl, OFFSET>,
-            RegionColor::<Impl, OFFSET>,
-            ComputedRegionColor::<Impl, OFFSET>,
-            RegionOpacity::<Impl, OFFSET>,
+            FontColor::<Impl, IMPL_OFFSET>,
+            ComputedFontColor::<Impl, IMPL_OFFSET>,
+            FontOpacity::<Impl, IMPL_OFFSET>,
+            FontSize::<Impl, IMPL_OFFSET>,
+            FontStyle::<Impl, IMPL_OFFSET>,
+            FontEffect::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            ComputedBackgroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundOpacity::<Impl, IMPL_OFFSET>,
+            RegionColor::<Impl, IMPL_OFFSET>,
+            ComputedRegionColor::<Impl, IMPL_OFFSET>,
+            RegionOpacity::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClosedCaptionPropertiesStatics as ::windows::core::Interface>::IID
     }
 }

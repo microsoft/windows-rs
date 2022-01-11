@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWalletBarcodeImpl: Sized {
     fn Symbology(&self) -> ::windows::core::Result<WalletBarcodeSymbology>;
     fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetImageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletBarcode";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWalletBarcodeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletBarcodeImpl, const OFFSET: isize>() -> IWalletBarcodeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletBarcodeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletBarcodeVtbl {
         unsafe extern "system" fn Symbology<Impl: IWalletBarcodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WalletBarcodeSymbology) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Symbology() {
@@ -44,21 +44,24 @@ impl IWalletBarcodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletBarcode>, ::windows::core::GetTrustLevel, Symbology::<Impl, OFFSET>, Value::<Impl, OFFSET>, GetImageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletBarcode>, ::windows::core::GetTrustLevel, Symbology::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, GetImageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletBarcode as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWalletBarcodeFactoryImpl: Sized {
     fn CreateWalletBarcode(&self, symbology: WalletBarcodeSymbology, value: &::windows::core::HSTRING) -> ::windows::core::Result<WalletBarcode>;
     fn CreateCustomWalletBarcode(&self, streamtobarcodeimage: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<WalletBarcode>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletBarcodeFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletBarcodeFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWalletBarcodeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletBarcodeFactoryImpl, const OFFSET: isize>() -> IWalletBarcodeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletBarcodeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletBarcodeFactoryVtbl {
         unsafe extern "system" fn CreateWalletBarcode<Impl: IWalletBarcodeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbology: WalletBarcodeSymbology, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWalletBarcode(symbology, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -81,10 +84,13 @@ impl IWalletBarcodeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletBarcodeFactory>, ::windows::core::GetTrustLevel, CreateWalletBarcode::<Impl, OFFSET>, CreateCustomWalletBarcode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletBarcodeFactory>, ::windows::core::GetTrustLevel, CreateWalletBarcode::<Impl, IMPL_OFFSET>, CreateCustomWalletBarcode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletBarcodeFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
 pub trait IWalletItemImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -139,13 +145,13 @@ pub trait IWalletItemImpl: Sized {
     fn DisplayProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletItemCustomProperty>>;
     fn Verbs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletVerb>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
 impl IWalletItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemImpl, const OFFSET: isize>() -> IWalletItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemVtbl {
         unsafe extern "system" fn DisplayName<Impl: IWalletItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -558,65 +564,68 @@ impl IWalletItemVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWalletItem>,
             ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            IsAcknowledged::<Impl, OFFSET>,
-            SetIsAcknowledged::<Impl, OFFSET>,
-            IssuerDisplayName::<Impl, OFFSET>,
-            SetIssuerDisplayName::<Impl, OFFSET>,
-            LastUpdated::<Impl, OFFSET>,
-            SetLastUpdated::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            Barcode::<Impl, OFFSET>,
-            SetBarcode::<Impl, OFFSET>,
-            ExpirationDate::<Impl, OFFSET>,
-            SetExpirationDate::<Impl, OFFSET>,
-            Logo159x159::<Impl, OFFSET>,
-            SetLogo159x159::<Impl, OFFSET>,
-            Logo336x336::<Impl, OFFSET>,
-            SetLogo336x336::<Impl, OFFSET>,
-            Logo99x99::<Impl, OFFSET>,
-            SetLogo99x99::<Impl, OFFSET>,
-            DisplayMessage::<Impl, OFFSET>,
-            SetDisplayMessage::<Impl, OFFSET>,
-            IsDisplayMessageLaunchable::<Impl, OFFSET>,
-            SetIsDisplayMessageLaunchable::<Impl, OFFSET>,
-            LogoText::<Impl, OFFSET>,
-            SetLogoText::<Impl, OFFSET>,
-            HeaderColor::<Impl, OFFSET>,
-            SetHeaderColor::<Impl, OFFSET>,
-            BodyColor::<Impl, OFFSET>,
-            SetBodyColor::<Impl, OFFSET>,
-            HeaderFontColor::<Impl, OFFSET>,
-            SetHeaderFontColor::<Impl, OFFSET>,
-            BodyFontColor::<Impl, OFFSET>,
-            SetBodyFontColor::<Impl, OFFSET>,
-            HeaderBackgroundImage::<Impl, OFFSET>,
-            SetHeaderBackgroundImage::<Impl, OFFSET>,
-            BodyBackgroundImage::<Impl, OFFSET>,
-            SetBodyBackgroundImage::<Impl, OFFSET>,
-            LogoImage::<Impl, OFFSET>,
-            SetLogoImage::<Impl, OFFSET>,
-            PromotionalImage::<Impl, OFFSET>,
-            SetPromotionalImage::<Impl, OFFSET>,
-            RelevantDate::<Impl, OFFSET>,
-            SetRelevantDate::<Impl, OFFSET>,
-            RelevantDateDisplayMessage::<Impl, OFFSET>,
-            SetRelevantDateDisplayMessage::<Impl, OFFSET>,
-            TransactionHistory::<Impl, OFFSET>,
-            RelevantLocations::<Impl, OFFSET>,
-            IsMoreTransactionHistoryLaunchable::<Impl, OFFSET>,
-            SetIsMoreTransactionHistoryLaunchable::<Impl, OFFSET>,
-            DisplayProperties::<Impl, OFFSET>,
-            Verbs::<Impl, OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            IsAcknowledged::<Impl, IMPL_OFFSET>,
+            SetIsAcknowledged::<Impl, IMPL_OFFSET>,
+            IssuerDisplayName::<Impl, IMPL_OFFSET>,
+            SetIssuerDisplayName::<Impl, IMPL_OFFSET>,
+            LastUpdated::<Impl, IMPL_OFFSET>,
+            SetLastUpdated::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            Barcode::<Impl, IMPL_OFFSET>,
+            SetBarcode::<Impl, IMPL_OFFSET>,
+            ExpirationDate::<Impl, IMPL_OFFSET>,
+            SetExpirationDate::<Impl, IMPL_OFFSET>,
+            Logo159x159::<Impl, IMPL_OFFSET>,
+            SetLogo159x159::<Impl, IMPL_OFFSET>,
+            Logo336x336::<Impl, IMPL_OFFSET>,
+            SetLogo336x336::<Impl, IMPL_OFFSET>,
+            Logo99x99::<Impl, IMPL_OFFSET>,
+            SetLogo99x99::<Impl, IMPL_OFFSET>,
+            DisplayMessage::<Impl, IMPL_OFFSET>,
+            SetDisplayMessage::<Impl, IMPL_OFFSET>,
+            IsDisplayMessageLaunchable::<Impl, IMPL_OFFSET>,
+            SetIsDisplayMessageLaunchable::<Impl, IMPL_OFFSET>,
+            LogoText::<Impl, IMPL_OFFSET>,
+            SetLogoText::<Impl, IMPL_OFFSET>,
+            HeaderColor::<Impl, IMPL_OFFSET>,
+            SetHeaderColor::<Impl, IMPL_OFFSET>,
+            BodyColor::<Impl, IMPL_OFFSET>,
+            SetBodyColor::<Impl, IMPL_OFFSET>,
+            HeaderFontColor::<Impl, IMPL_OFFSET>,
+            SetHeaderFontColor::<Impl, IMPL_OFFSET>,
+            BodyFontColor::<Impl, IMPL_OFFSET>,
+            SetBodyFontColor::<Impl, IMPL_OFFSET>,
+            HeaderBackgroundImage::<Impl, IMPL_OFFSET>,
+            SetHeaderBackgroundImage::<Impl, IMPL_OFFSET>,
+            BodyBackgroundImage::<Impl, IMPL_OFFSET>,
+            SetBodyBackgroundImage::<Impl, IMPL_OFFSET>,
+            LogoImage::<Impl, IMPL_OFFSET>,
+            SetLogoImage::<Impl, IMPL_OFFSET>,
+            PromotionalImage::<Impl, IMPL_OFFSET>,
+            SetPromotionalImage::<Impl, IMPL_OFFSET>,
+            RelevantDate::<Impl, IMPL_OFFSET>,
+            SetRelevantDate::<Impl, IMPL_OFFSET>,
+            RelevantDateDisplayMessage::<Impl, IMPL_OFFSET>,
+            SetRelevantDateDisplayMessage::<Impl, IMPL_OFFSET>,
+            TransactionHistory::<Impl, IMPL_OFFSET>,
+            RelevantLocations::<Impl, IMPL_OFFSET>,
+            IsMoreTransactionHistoryLaunchable::<Impl, IMPL_OFFSET>,
+            SetIsMoreTransactionHistoryLaunchable::<Impl, IMPL_OFFSET>,
+            DisplayProperties::<Impl, IMPL_OFFSET>,
+            Verbs::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -638,7 +647,7 @@ impl ::windows::core::RuntimeName for IWalletItemCustomProperty {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWalletItemCustomPropertyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemCustomPropertyImpl, const OFFSET: isize>() -> IWalletItemCustomPropertyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemCustomPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemCustomPropertyVtbl {
         unsafe extern "system" fn Name<Impl: IWalletItemCustomPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -715,23 +724,26 @@ impl IWalletItemCustomPropertyVtbl {
             (*this).SetSummaryViewPosition(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWalletItemCustomProperty>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            SetName::<Impl, OFFSET>,
-            Value::<Impl, OFFSET>,
-            SetValue::<Impl, OFFSET>,
-            AutoDetectLinks::<Impl, OFFSET>,
-            SetAutoDetectLinks::<Impl, OFFSET>,
-            DetailViewPosition::<Impl, OFFSET>,
-            SetDetailViewPosition::<Impl, OFFSET>,
-            SummaryViewPosition::<Impl, OFFSET>,
-            SetSummaryViewPosition::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+            AutoDetectLinks::<Impl, IMPL_OFFSET>,
+            SetAutoDetectLinks::<Impl, IMPL_OFFSET>,
+            DetailViewPosition::<Impl, IMPL_OFFSET>,
+            SetDetailViewPosition::<Impl, IMPL_OFFSET>,
+            SummaryViewPosition::<Impl, IMPL_OFFSET>,
+            SetSummaryViewPosition::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemCustomProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -744,7 +756,7 @@ impl ::windows::core::RuntimeName for IWalletItemCustomPropertyFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWalletItemCustomPropertyFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemCustomPropertyFactoryImpl, const OFFSET: isize>() -> IWalletItemCustomPropertyFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemCustomPropertyFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemCustomPropertyFactoryVtbl {
         unsafe extern "system" fn CreateWalletItemCustomProperty<Impl: IWalletItemCustomPropertyFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWalletItemCustomProperty(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -756,7 +768,10 @@ impl IWalletItemCustomPropertyFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemCustomPropertyFactory>, ::windows::core::GetTrustLevel, CreateWalletItemCustomProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemCustomPropertyFactory>, ::windows::core::GetTrustLevel, CreateWalletItemCustomProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemCustomPropertyFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -769,7 +784,7 @@ impl ::windows::core::RuntimeName for IWalletItemFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWalletItemFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemFactoryImpl, const OFFSET: isize>() -> IWalletItemFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemFactoryVtbl {
         unsafe extern "system" fn CreateWalletItem<Impl: IWalletItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: WalletItemKind, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWalletItem(kind, &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -781,10 +796,13 @@ impl IWalletItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemFactory>, ::windows::core::GetTrustLevel, CreateWalletItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemFactory>, ::windows::core::GetTrustLevel, CreateWalletItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWalletItemStoreImpl: Sized {
     fn AddAsync(&self, id: &::windows::core::HSTRING, item: &::core::option::Option<WalletItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ClearAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -797,13 +815,13 @@ pub trait IWalletItemStoreImpl: Sized {
     fn ShowItemAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn UpdateAsync(&self, item: &::core::option::Option<WalletItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletItemStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWalletItemStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemStoreImpl, const OFFSET: isize>() -> IWalletItemStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemStoreVtbl {
         unsafe extern "system" fn AddAsync<Impl: IWalletItemStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, item: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAsync(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&item as *const <WalletItem as ::windows::core::Abi>::Abi as *const <WalletItem as ::windows::core::DefaultType>::DefaultType)) {
@@ -915,37 +933,40 @@ impl IWalletItemStoreVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWalletItemStore>,
             ::windows::core::GetTrustLevel,
-            AddAsync::<Impl, OFFSET>,
-            ClearAsync::<Impl, OFFSET>,
-            GetWalletItemAsync::<Impl, OFFSET>,
-            GetItemsAsync::<Impl, OFFSET>,
-            GetItemsWithKindAsync::<Impl, OFFSET>,
-            ImportItemAsync::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            ShowAsync::<Impl, OFFSET>,
-            ShowItemAsync::<Impl, OFFSET>,
-            UpdateAsync::<Impl, OFFSET>,
+            AddAsync::<Impl, IMPL_OFFSET>,
+            ClearAsync::<Impl, IMPL_OFFSET>,
+            GetWalletItemAsync::<Impl, IMPL_OFFSET>,
+            GetItemsAsync::<Impl, IMPL_OFFSET>,
+            GetItemsWithKindAsync::<Impl, IMPL_OFFSET>,
+            ImportItemAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            ShowAsync::<Impl, IMPL_OFFSET>,
+            ShowItemAsync::<Impl, IMPL_OFFSET>,
+            UpdateAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemStore as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWalletItemStore2Impl: Sized {
     fn ItemsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WalletItemStore, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemsChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletItemStore2 {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletItemStore2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWalletItemStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemStore2Impl, const OFFSET: isize>() -> IWalletItemStore2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletItemStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletItemStore2Vtbl {
         unsafe extern "system" fn ItemsChanged<Impl: IWalletItemStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<WalletItemStore, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<WalletItemStore, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -961,20 +982,23 @@ impl IWalletItemStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemsChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemStore2>, ::windows::core::GetTrustLevel, ItemsChanged::<Impl, OFFSET>, RemoveItemsChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletItemStore2>, ::windows::core::GetTrustLevel, ItemsChanged::<Impl, IMPL_OFFSET>, RemoveItemsChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletItemStore2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWalletManagerStaticsImpl: Sized {
     fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WalletItemStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWalletManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletManagerStaticsImpl, const OFFSET: isize>() -> IWalletManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletManagerStaticsVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IWalletManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync() {
@@ -986,23 +1010,26 @@ impl IWalletManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IWalletRelevantLocationImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::BasicGeoposition>;
     fn SetPosition(&self, value: &super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::Result<()>;
     fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletRelevantLocation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IWalletRelevantLocationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletRelevantLocationImpl, const OFFSET: isize>() -> IWalletRelevantLocationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletRelevantLocationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletRelevantLocationVtbl {
         unsafe extern "system" fn Position<Impl: IWalletRelevantLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -1033,10 +1060,13 @@ impl IWalletRelevantLocationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletRelevantLocation>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, SetPosition::<Impl, OFFSET>, DisplayMessage::<Impl, OFFSET>, SetDisplayMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletRelevantLocation>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, SetPosition::<Impl, IMPL_OFFSET>, DisplayMessage::<Impl, IMPL_OFFSET>, SetDisplayMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletRelevantLocation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWalletTransactionImpl: Sized {
     fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1051,13 +1081,13 @@ pub trait IWalletTransactionImpl: Sized {
     fn IsLaunchable(&self) -> ::windows::core::Result<bool>;
     fn SetIsLaunchable(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.IWalletTransaction";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWalletTransactionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletTransactionImpl, const OFFSET: isize>() -> IWalletTransactionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletTransactionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletTransactionVtbl {
         unsafe extern "system" fn Description<Impl: IWalletTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
@@ -1149,25 +1179,28 @@ impl IWalletTransactionVtbl {
             (*this).SetIsLaunchable(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWalletTransaction>,
             ::windows::core::GetTrustLevel,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
-            DisplayAmount::<Impl, OFFSET>,
-            SetDisplayAmount::<Impl, OFFSET>,
-            IgnoreTimeOfDay::<Impl, OFFSET>,
-            SetIgnoreTimeOfDay::<Impl, OFFSET>,
-            DisplayLocation::<Impl, OFFSET>,
-            SetDisplayLocation::<Impl, OFFSET>,
-            TransactionDate::<Impl, OFFSET>,
-            SetTransactionDate::<Impl, OFFSET>,
-            IsLaunchable::<Impl, OFFSET>,
-            SetIsLaunchable::<Impl, OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            DisplayAmount::<Impl, IMPL_OFFSET>,
+            SetDisplayAmount::<Impl, IMPL_OFFSET>,
+            IgnoreTimeOfDay::<Impl, IMPL_OFFSET>,
+            SetIgnoreTimeOfDay::<Impl, IMPL_OFFSET>,
+            DisplayLocation::<Impl, IMPL_OFFSET>,
+            SetDisplayLocation::<Impl, IMPL_OFFSET>,
+            TransactionDate::<Impl, IMPL_OFFSET>,
+            SetTransactionDate::<Impl, IMPL_OFFSET>,
+            IsLaunchable::<Impl, IMPL_OFFSET>,
+            SetIsLaunchable::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletTransaction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1181,7 +1214,7 @@ impl ::windows::core::RuntimeName for IWalletVerb {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWalletVerbVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletVerbImpl, const OFFSET: isize>() -> IWalletVerbVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletVerbImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletVerbVtbl {
         unsafe extern "system" fn Name<Impl: IWalletVerbImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1197,7 +1230,10 @@ impl IWalletVerbVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletVerb>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletVerb>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletVerb as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1210,7 +1246,7 @@ impl ::windows::core::RuntimeName for IWalletVerbFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWalletVerbFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletVerbFactoryImpl, const OFFSET: isize>() -> IWalletVerbFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWalletVerbFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWalletVerbFactoryVtbl {
         unsafe extern "system" fn CreateWalletVerb<Impl: IWalletVerbFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWalletVerb(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1222,6 +1258,9 @@ impl IWalletVerbFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletVerbFactory>, ::windows::core::GetTrustLevel, CreateWalletVerb::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWalletVerbFactory>, ::windows::core::GetTrustLevel, CreateWalletVerb::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWalletVerbFactory as ::windows::core::Interface>::IID
     }
 }

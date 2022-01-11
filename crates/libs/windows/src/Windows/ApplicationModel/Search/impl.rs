@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ILocalContentSuggestionSettingsImpl: Sized {
     fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
     fn Enabled(&self) -> ::windows::core::Result<bool>;
@@ -7,13 +7,13 @@ pub trait ILocalContentSuggestionSettingsImpl: Sized {
     fn AqsFilter(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PropertiesToMatch(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalContentSuggestionSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ILocalContentSuggestionSettings";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ILocalContentSuggestionSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>() -> ILocalContentSuggestionSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalContentSuggestionSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocalContentSuggestionSettingsVtbl {
         unsafe extern "system" fn SetEnabled<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnabled(value).into()
@@ -66,10 +66,26 @@ impl ILocalContentSuggestionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalContentSuggestionSettings>, ::windows::core::GetTrustLevel, SetEnabled::<Impl, OFFSET>, Enabled::<Impl, OFFSET>, Locations::<Impl, OFFSET>, SetAqsFilter::<Impl, OFFSET>, AqsFilter::<Impl, OFFSET>, PropertiesToMatch::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ILocalContentSuggestionSettings>,
+            ::windows::core::GetTrustLevel,
+            SetEnabled::<Impl, IMPL_OFFSET>,
+            Enabled::<Impl, IMPL_OFFSET>,
+            Locations::<Impl, IMPL_OFFSET>,
+            SetAqsFilter::<Impl, IMPL_OFFSET>,
+            AqsFilter::<Impl, IMPL_OFFSET>,
+            PropertiesToMatch::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocalContentSuggestionSettings as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISearchPaneImpl: Sized {
     fn SetSearchHistoryEnabled(&self, value: bool) -> ::windows::core::Result<()>;
     fn SearchHistoryEnabled(&self) -> ::windows::core::Result<bool>;
@@ -97,13 +113,13 @@ pub trait ISearchPaneImpl: Sized {
     fn ShowOnKeyboardInput(&self) -> ::windows::core::Result<bool>;
     fn TrySetQueryText(&self, query: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchPane {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPane";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneImpl, const OFFSET: isize>() -> ISearchPaneVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneVtbl {
         unsafe extern "system" fn SetSearchHistoryEnabled<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSearchHistoryEnabled(value).into()
@@ -296,38 +312,41 @@ impl ISearchPaneVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISearchPane>,
             ::windows::core::GetTrustLevel,
-            SetSearchHistoryEnabled::<Impl, OFFSET>,
-            SearchHistoryEnabled::<Impl, OFFSET>,
-            SetSearchHistoryContext::<Impl, OFFSET>,
-            SearchHistoryContext::<Impl, OFFSET>,
-            SetPlaceholderText::<Impl, OFFSET>,
-            PlaceholderText::<Impl, OFFSET>,
-            QueryText::<Impl, OFFSET>,
-            Language::<Impl, OFFSET>,
-            Visible::<Impl, OFFSET>,
-            VisibilityChanged::<Impl, OFFSET>,
-            RemoveVisibilityChanged::<Impl, OFFSET>,
-            QueryChanged::<Impl, OFFSET>,
-            RemoveQueryChanged::<Impl, OFFSET>,
-            SuggestionsRequested::<Impl, OFFSET>,
-            RemoveSuggestionsRequested::<Impl, OFFSET>,
-            QuerySubmitted::<Impl, OFFSET>,
-            RemoveQuerySubmitted::<Impl, OFFSET>,
-            ResultSuggestionChosen::<Impl, OFFSET>,
-            RemoveResultSuggestionChosen::<Impl, OFFSET>,
-            SetLocalContentSuggestionSettings::<Impl, OFFSET>,
-            ShowOverloadDefault::<Impl, OFFSET>,
-            ShowOverloadWithQuery::<Impl, OFFSET>,
-            SetShowOnKeyboardInput::<Impl, OFFSET>,
-            ShowOnKeyboardInput::<Impl, OFFSET>,
-            TrySetQueryText::<Impl, OFFSET>,
+            SetSearchHistoryEnabled::<Impl, IMPL_OFFSET>,
+            SearchHistoryEnabled::<Impl, IMPL_OFFSET>,
+            SetSearchHistoryContext::<Impl, IMPL_OFFSET>,
+            SearchHistoryContext::<Impl, IMPL_OFFSET>,
+            SetPlaceholderText::<Impl, IMPL_OFFSET>,
+            PlaceholderText::<Impl, IMPL_OFFSET>,
+            QueryText::<Impl, IMPL_OFFSET>,
+            Language::<Impl, IMPL_OFFSET>,
+            Visible::<Impl, IMPL_OFFSET>,
+            VisibilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveVisibilityChanged::<Impl, IMPL_OFFSET>,
+            QueryChanged::<Impl, IMPL_OFFSET>,
+            RemoveQueryChanged::<Impl, IMPL_OFFSET>,
+            SuggestionsRequested::<Impl, IMPL_OFFSET>,
+            RemoveSuggestionsRequested::<Impl, IMPL_OFFSET>,
+            QuerySubmitted::<Impl, IMPL_OFFSET>,
+            RemoveQuerySubmitted::<Impl, IMPL_OFFSET>,
+            ResultSuggestionChosen::<Impl, IMPL_OFFSET>,
+            RemoveResultSuggestionChosen::<Impl, IMPL_OFFSET>,
+            SetLocalContentSuggestionSettings::<Impl, IMPL_OFFSET>,
+            ShowOverloadDefault::<Impl, IMPL_OFFSET>,
+            ShowOverloadWithQuery::<Impl, IMPL_OFFSET>,
+            SetShowOnKeyboardInput::<Impl, IMPL_OFFSET>,
+            ShowOnKeyboardInput::<Impl, IMPL_OFFSET>,
+            TrySetQueryText::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPane as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "deprecated")]
@@ -342,7 +361,7 @@ impl ::windows::core::RuntimeName for ISearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgsImpl, const OFFSET: isize>() -> ISearchPaneQueryChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryChangedEventArgsVtbl {
         unsafe extern "system" fn QueryText<Impl: ISearchPaneQueryChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryText() {
@@ -376,22 +395,25 @@ impl ISearchPaneQueryChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQueryChangedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, OFFSET>, Language::<Impl, OFFSET>, LinguisticDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQueryChangedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, LinguisticDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneQueryChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISearchPaneQueryLinguisticDetailsImpl: Sized {
     fn QueryTextAlternatives(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn QueryTextCompositionStart(&self) -> ::windows::core::Result<u32>;
     fn QueryTextCompositionLength(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISearchPaneQueryLinguisticDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryLinguisticDetailsImpl, const OFFSET: isize>() -> ISearchPaneQueryLinguisticDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryLinguisticDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryLinguisticDetailsVtbl {
         unsafe extern "system" fn QueryTextAlternatives<Impl: ISearchPaneQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextAlternatives() {
@@ -425,7 +447,10 @@ impl ISearchPaneQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQueryLinguisticDetails>, ::windows::core::GetTrustLevel, QueryTextAlternatives::<Impl, OFFSET>, QueryTextCompositionStart::<Impl, OFFSET>, QueryTextCompositionLength::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQueryLinguisticDetails>, ::windows::core::GetTrustLevel, QueryTextAlternatives::<Impl, IMPL_OFFSET>, QueryTextCompositionStart::<Impl, IMPL_OFFSET>, QueryTextCompositionLength::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneQueryLinguisticDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -439,7 +464,7 @@ impl ::windows::core::RuntimeName for ISearchPaneQuerySubmittedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneQuerySubmittedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsImpl, const OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsVtbl {
         unsafe extern "system" fn QueryText<Impl: ISearchPaneQuerySubmittedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryText() {
@@ -462,7 +487,10 @@ impl ISearchPaneQuerySubmittedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQuerySubmittedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, OFFSET>, Language::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQuerySubmittedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneQuerySubmittedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -475,7 +503,7 @@ impl ::windows::core::RuntimeName for ISearchPaneQuerySubmittedEventArgsWithLing
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsImpl, const OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
         unsafe extern "system" fn LinguisticDetails<Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinguisticDetails() {
@@ -487,7 +515,10 @@ impl ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>, ::windows::core::GetTrustLevel, LinguisticDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>, ::windows::core::GetTrustLevel, LinguisticDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -500,7 +531,7 @@ impl ::windows::core::RuntimeName for ISearchPaneResultSuggestionChosenEventArgs
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneResultSuggestionChosenEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneResultSuggestionChosenEventArgsImpl, const OFFSET: isize>() -> ISearchPaneResultSuggestionChosenEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneResultSuggestionChosenEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneResultSuggestionChosenEventArgsVtbl {
         unsafe extern "system" fn Tag<Impl: ISearchPaneResultSuggestionChosenEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tag() {
@@ -512,7 +543,10 @@ impl ISearchPaneResultSuggestionChosenEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneResultSuggestionChosenEventArgs>, ::windows::core::GetTrustLevel, Tag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneResultSuggestionChosenEventArgs>, ::windows::core::GetTrustLevel, Tag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneResultSuggestionChosenEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -525,7 +559,7 @@ impl ::windows::core::RuntimeName for ISearchPaneStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsImpl, const OFFSET: isize>() -> ISearchPaneStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: ISearchPaneStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -537,7 +571,10 @@ impl ISearchPaneStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -550,12 +587,15 @@ impl ::windows::core::RuntimeName for ISearchPaneStaticsWithHideThisApplication 
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneStaticsWithHideThisApplicationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsWithHideThisApplicationImpl, const OFFSET: isize>() -> ISearchPaneStaticsWithHideThisApplicationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsWithHideThisApplicationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneStaticsWithHideThisApplicationVtbl {
         unsafe extern "system" fn HideThisApplication<Impl: ISearchPaneStaticsWithHideThisApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HideThisApplication().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneStaticsWithHideThisApplication>, ::windows::core::GetTrustLevel, HideThisApplication::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneStaticsWithHideThisApplication>, ::windows::core::GetTrustLevel, HideThisApplication::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneStaticsWithHideThisApplication as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -570,7 +610,7 @@ impl ::windows::core::RuntimeName for ISearchPaneSuggestionsRequest {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneSuggestionsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestImpl, const OFFSET: isize>() -> ISearchPaneSuggestionsRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestVtbl {
         unsafe extern "system" fn IsCanceled<Impl: ISearchPaneSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
@@ -604,7 +644,10 @@ impl ISearchPaneSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequest>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, OFFSET>, SearchSuggestionCollection::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequest>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, SearchSuggestionCollection::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneSuggestionsRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -617,12 +660,15 @@ impl ::windows::core::RuntimeName for ISearchPaneSuggestionsRequestDeferral {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneSuggestionsRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestDeferralImpl, const OFFSET: isize>() -> ISearchPaneSuggestionsRequestDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ISearchPaneSuggestionsRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneSuggestionsRequestDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -635,7 +681,7 @@ impl ::windows::core::RuntimeName for ISearchPaneSuggestionsRequestedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneSuggestionsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestedEventArgsImpl, const OFFSET: isize>() -> ISearchPaneSuggestionsRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: ISearchPaneSuggestionsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -647,7 +693,10 @@ impl ISearchPaneSuggestionsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneSuggestionsRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneSuggestionsRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -660,7 +709,7 @@ impl ::windows::core::RuntimeName for ISearchPaneVisibilityChangedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISearchPaneVisibilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneVisibilityChangedEventArgsImpl, const OFFSET: isize>() -> ISearchPaneVisibilityChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneVisibilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneVisibilityChangedEventArgsVtbl {
         unsafe extern "system" fn Visible<Impl: ISearchPaneVisibilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visible() {
@@ -672,22 +721,25 @@ impl ISearchPaneVisibilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneVisibilityChangedEventArgs>, ::windows::core::GetTrustLevel, Visible::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchPaneVisibilityChangedEventArgs>, ::windows::core::GetTrustLevel, Visible::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPaneVisibilityChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISearchQueryLinguisticDetailsImpl: Sized {
     fn QueryTextAlternatives(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn QueryTextCompositionStart(&self) -> ::windows::core::Result<u32>;
     fn QueryTextCompositionLength(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISearchQueryLinguisticDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsImpl, const OFFSET: isize>() -> ISearchQueryLinguisticDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryLinguisticDetailsVtbl {
         unsafe extern "system" fn QueryTextAlternatives<Impl: ISearchQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextAlternatives() {
@@ -721,20 +773,23 @@ impl ISearchQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchQueryLinguisticDetails>, ::windows::core::GetTrustLevel, QueryTextAlternatives::<Impl, OFFSET>, QueryTextCompositionStart::<Impl, OFFSET>, QueryTextCompositionLength::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchQueryLinguisticDetails>, ::windows::core::GetTrustLevel, QueryTextAlternatives::<Impl, IMPL_OFFSET>, QueryTextCompositionStart::<Impl, IMPL_OFFSET>, QueryTextCompositionLength::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchQueryLinguisticDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISearchQueryLinguisticDetailsFactoryImpl: Sized {
     fn CreateInstance(&self, querytextalternatives: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, querytextcompositionstart: u32, querytextcompositionlength: u32) -> ::windows::core::Result<SearchQueryLinguisticDetails>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchQueryLinguisticDetailsFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchQueryLinguisticDetailsFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISearchQueryLinguisticDetailsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsFactoryImpl, const OFFSET: isize>() -> ISearchQueryLinguisticDetailsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryLinguisticDetailsFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ISearchQueryLinguisticDetailsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querytextalternatives: ::windows::core::RawPtr, querytextcompositionstart: u32, querytextcompositionlength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&querytextalternatives as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), querytextcompositionstart, querytextcompositionlength) {
@@ -746,10 +801,13 @@ impl ISearchQueryLinguisticDetailsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchQueryLinguisticDetailsFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchQueryLinguisticDetailsFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchQueryLinguisticDetailsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISearchSuggestionCollectionImpl: Sized {
     fn Size(&self) -> ::windows::core::Result<u32>;
     fn AppendQuerySuggestion(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -757,13 +815,13 @@ pub trait ISearchSuggestionCollectionImpl: Sized {
     fn AppendResultSuggestion(&self, text: &::windows::core::HSTRING, detailtext: &::windows::core::HSTRING, tag: &::windows::core::HSTRING, image: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, imagealternatetext: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AppendSearchSeparator(&self, label: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchSuggestionCollection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISearchSuggestionCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>() -> ISearchSuggestionCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionCollectionVtbl {
         unsafe extern "system" fn Size<Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
@@ -799,7 +857,22 @@ impl ISearchSuggestionCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendSearchSeparator(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionCollection>, ::windows::core::GetTrustLevel, Size::<Impl, OFFSET>, AppendQuerySuggestion::<Impl, OFFSET>, AppendQuerySuggestions::<Impl, OFFSET>, AppendResultSuggestion::<Impl, OFFSET>, AppendSearchSeparator::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISearchSuggestionCollection>,
+            ::windows::core::GetTrustLevel,
+            Size::<Impl, IMPL_OFFSET>,
+            AppendQuerySuggestion::<Impl, IMPL_OFFSET>,
+            AppendQuerySuggestions::<Impl, IMPL_OFFSET>,
+            AppendResultSuggestion::<Impl, IMPL_OFFSET>,
+            AppendSearchSeparator::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchSuggestionCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -814,7 +887,7 @@ impl ::windows::core::RuntimeName for ISearchSuggestionsRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISearchSuggestionsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestImpl, const OFFSET: isize>() -> ISearchSuggestionsRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequestVtbl {
         unsafe extern "system" fn IsCanceled<Impl: ISearchSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
@@ -848,7 +921,10 @@ impl ISearchSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequest>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, OFFSET>, SearchSuggestionCollection::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequest>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, SearchSuggestionCollection::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchSuggestionsRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -861,11 +937,14 @@ impl ::windows::core::RuntimeName for ISearchSuggestionsRequestDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISearchSuggestionsRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestDeferralImpl, const OFFSET: isize>() -> ISearchSuggestionsRequestDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequestDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ISearchSuggestionsRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchSuggestionsRequestDeferral as ::windows::core::Interface>::IID
     }
 }

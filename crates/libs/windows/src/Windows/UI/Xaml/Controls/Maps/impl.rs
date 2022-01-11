@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICustomMapTileDataSourceImpl: Sized {
     fn BitmapRequested(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CustomMapTileDataSource, MapTileBitmapRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveBitmapRequested(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICustomMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICustomMapTileDataSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomMapTileDataSourceImpl, const OFFSET: isize>() -> ICustomMapTileDataSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomMapTileDataSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomMapTileDataSourceVtbl {
         unsafe extern "system" fn BitmapRequested<Impl: ICustomMapTileDataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapRequested(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<CustomMapTileDataSource, MapTileBitmapRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<CustomMapTileDataSource, MapTileBitmapRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -25,7 +25,10 @@ impl ICustomMapTileDataSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBitmapRequested(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomMapTileDataSource>, ::windows::core::GetTrustLevel, BitmapRequested::<Impl, OFFSET>, RemoveBitmapRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomMapTileDataSource>, ::windows::core::GetTrustLevel, BitmapRequested::<Impl, IMPL_OFFSET>, RemoveBitmapRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomMapTileDataSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -38,7 +41,7 @@ impl ::windows::core::RuntimeName for ICustomMapTileDataSourceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomMapTileDataSourceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomMapTileDataSourceFactoryImpl, const OFFSET: isize>() -> ICustomMapTileDataSourceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomMapTileDataSourceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomMapTileDataSourceFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ICustomMapTileDataSourceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -50,10 +53,13 @@ impl ICustomMapTileDataSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomMapTileDataSourceFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpMapTileDataSourceImpl: Sized {
     fn UriFormatString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetUriFormatString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -63,13 +69,13 @@ pub trait IHttpMapTileDataSourceImpl: Sized {
     fn UriRequested(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<HttpMapTileDataSource, MapTileUriRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveUriRequested(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHttpMapTileDataSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMapTileDataSourceImpl, const OFFSET: isize>() -> IHttpMapTileDataSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMapTileDataSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMapTileDataSourceVtbl {
         unsafe extern "system" fn UriFormatString<Impl: IHttpMapTileDataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UriFormatString() {
@@ -127,20 +133,23 @@ impl IHttpMapTileDataSourceVtbl {
             (*this).RemoveUriRequested(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpMapTileDataSource>,
             ::windows::core::GetTrustLevel,
-            UriFormatString::<Impl, OFFSET>,
-            SetUriFormatString::<Impl, OFFSET>,
-            AdditionalRequestHeaders::<Impl, OFFSET>,
-            AllowCaching::<Impl, OFFSET>,
-            SetAllowCaching::<Impl, OFFSET>,
-            UriRequested::<Impl, OFFSET>,
-            RemoveUriRequested::<Impl, OFFSET>,
+            UriFormatString::<Impl, IMPL_OFFSET>,
+            SetUriFormatString::<Impl, IMPL_OFFSET>,
+            AdditionalRequestHeaders::<Impl, IMPL_OFFSET>,
+            AllowCaching::<Impl, IMPL_OFFSET>,
+            SetAllowCaching::<Impl, IMPL_OFFSET>,
+            UriRequested::<Impl, IMPL_OFFSET>,
+            RemoveUriRequested::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMapTileDataSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -154,7 +163,7 @@ impl ::windows::core::RuntimeName for IHttpMapTileDataSourceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMapTileDataSourceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMapTileDataSourceFactoryImpl, const OFFSET: isize>() -> IHttpMapTileDataSourceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMapTileDataSourceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMapTileDataSourceFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IHttpMapTileDataSourceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -177,23 +186,26 @@ impl IHttpMapTileDataSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>, CreateInstanceWithUriFormatString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstanceWithUriFormatString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMapTileDataSourceFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILocalMapTileDataSourceImpl: Sized {
     fn UriFormatString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetUriFormatString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn UriRequested(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<LocalMapTileDataSource, MapTileUriRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveUriRequested(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILocalMapTileDataSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalMapTileDataSourceImpl, const OFFSET: isize>() -> ILocalMapTileDataSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalMapTileDataSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocalMapTileDataSourceVtbl {
         unsafe extern "system" fn UriFormatString<Impl: ILocalMapTileDataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UriFormatString() {
@@ -224,7 +236,10 @@ impl ILocalMapTileDataSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUriRequested(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalMapTileDataSource>, ::windows::core::GetTrustLevel, UriFormatString::<Impl, OFFSET>, SetUriFormatString::<Impl, OFFSET>, UriRequested::<Impl, OFFSET>, RemoveUriRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalMapTileDataSource>, ::windows::core::GetTrustLevel, UriFormatString::<Impl, IMPL_OFFSET>, SetUriFormatString::<Impl, IMPL_OFFSET>, UriRequested::<Impl, IMPL_OFFSET>, RemoveUriRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocalMapTileDataSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -238,7 +253,7 @@ impl ::windows::core::RuntimeName for ILocalMapTileDataSourceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILocalMapTileDataSourceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalMapTileDataSourceFactoryImpl, const OFFSET: isize>() -> ILocalMapTileDataSourceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalMapTileDataSourceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocalMapTileDataSourceFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ILocalMapTileDataSourceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -261,7 +276,10 @@ impl ILocalMapTileDataSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>, CreateInstanceWithUriFormatString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocalMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateInstanceWithUriFormatString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocalMapTileDataSourceFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -274,7 +292,7 @@ impl ::windows::core::RuntimeName for IMapActualCameraChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapActualCameraChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangedEventArgsImpl, const OFFSET: isize>() -> IMapActualCameraChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapActualCameraChangedEventArgsVtbl {
         unsafe extern "system" fn Camera<Impl: IMapActualCameraChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
@@ -286,7 +304,10 @@ impl IMapActualCameraChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapActualCameraChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -299,7 +320,7 @@ impl ::windows::core::RuntimeName for IMapActualCameraChangedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapActualCameraChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangedEventArgs2Impl, const OFFSET: isize>() -> IMapActualCameraChangedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapActualCameraChangedEventArgs2Vtbl {
         unsafe extern "system" fn ChangeReason<Impl: IMapActualCameraChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MapCameraChangeReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeReason() {
@@ -311,7 +332,10 @@ impl IMapActualCameraChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangedEventArgs2>, ::windows::core::GetTrustLevel, ChangeReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangedEventArgs2>, ::windows::core::GetTrustLevel, ChangeReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapActualCameraChangedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -324,7 +348,7 @@ impl ::windows::core::RuntimeName for IMapActualCameraChangingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapActualCameraChangingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangingEventArgsImpl, const OFFSET: isize>() -> IMapActualCameraChangingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapActualCameraChangingEventArgsVtbl {
         unsafe extern "system" fn Camera<Impl: IMapActualCameraChangingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
@@ -336,7 +360,10 @@ impl IMapActualCameraChangingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangingEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangingEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapActualCameraChangingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -349,7 +376,7 @@ impl ::windows::core::RuntimeName for IMapActualCameraChangingEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapActualCameraChangingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangingEventArgs2Impl, const OFFSET: isize>() -> IMapActualCameraChangingEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapActualCameraChangingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapActualCameraChangingEventArgs2Vtbl {
         unsafe extern "system" fn ChangeReason<Impl: IMapActualCameraChangingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MapCameraChangeReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeReason() {
@@ -361,10 +388,13 @@ impl IMapActualCameraChangingEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangingEventArgs2>, ::windows::core::GetTrustLevel, ChangeReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapActualCameraChangingEventArgs2>, ::windows::core::GetTrustLevel, ChangeReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapActualCameraChangingEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMapBillboardImpl: Sized {
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn SetLocation(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()>;
@@ -376,13 +406,13 @@ pub trait IMapBillboardImpl: Sized {
     fn SetCollisionBehaviorDesired(&self, value: MapElementCollisionBehavior) -> ::windows::core::Result<()>;
     fn ReferenceCamera(&self) -> ::windows::core::Result<MapCamera>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapBillboard {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapBillboard";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMapBillboardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapBillboardImpl, const OFFSET: isize>() -> IMapBillboardVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapBillboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapBillboardVtbl {
         unsafe extern "system" fn Location<Impl: IMapBillboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
@@ -455,22 +485,25 @@ impl IMapBillboardVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapBillboard>,
             ::windows::core::GetTrustLevel,
-            Location::<Impl, OFFSET>,
-            SetLocation::<Impl, OFFSET>,
-            NormalizedAnchorPoint::<Impl, OFFSET>,
-            SetNormalizedAnchorPoint::<Impl, OFFSET>,
-            Image::<Impl, OFFSET>,
-            SetImage::<Impl, OFFSET>,
-            CollisionBehaviorDesired::<Impl, OFFSET>,
-            SetCollisionBehaviorDesired::<Impl, OFFSET>,
-            ReferenceCamera::<Impl, OFFSET>,
+            Location::<Impl, IMPL_OFFSET>,
+            SetLocation::<Impl, IMPL_OFFSET>,
+            NormalizedAnchorPoint::<Impl, IMPL_OFFSET>,
+            SetNormalizedAnchorPoint::<Impl, IMPL_OFFSET>,
+            Image::<Impl, IMPL_OFFSET>,
+            SetImage::<Impl, IMPL_OFFSET>,
+            CollisionBehaviorDesired::<Impl, IMPL_OFFSET>,
+            SetCollisionBehaviorDesired::<Impl, IMPL_OFFSET>,
+            ReferenceCamera::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapBillboard as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -483,7 +516,7 @@ impl ::windows::core::RuntimeName for IMapBillboardFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapBillboardFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapBillboardFactoryImpl, const OFFSET: isize>() -> IMapBillboardFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapBillboardFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapBillboardFactoryVtbl {
         unsafe extern "system" fn CreateInstanceFromCamera<Impl: IMapBillboardFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, camera: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceFromCamera(&*(&camera as *const <MapCamera as ::windows::core::Abi>::Abi as *const <MapCamera as ::windows::core::DefaultType>::DefaultType)) {
@@ -495,7 +528,10 @@ impl IMapBillboardFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapBillboardFactory>, ::windows::core::GetTrustLevel, CreateInstanceFromCamera::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapBillboardFactory>, ::windows::core::GetTrustLevel, CreateInstanceFromCamera::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapBillboardFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -510,7 +546,7 @@ impl ::windows::core::RuntimeName for IMapBillboardStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapBillboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapBillboardStaticsImpl, const OFFSET: isize>() -> IMapBillboardStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapBillboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapBillboardStaticsVtbl {
         unsafe extern "system" fn LocationProperty<Impl: IMapBillboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationProperty() {
@@ -544,10 +580,13 @@ impl IMapBillboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapBillboardStatics>, ::windows::core::GetTrustLevel, LocationProperty::<Impl, OFFSET>, NormalizedAnchorPointProperty::<Impl, OFFSET>, CollisionBehaviorDesiredProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapBillboardStatics>, ::windows::core::GetTrustLevel, LocationProperty::<Impl, IMPL_OFFSET>, NormalizedAnchorPointProperty::<Impl, IMPL_OFFSET>, CollisionBehaviorDesiredProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapBillboardStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapCameraImpl: Sized {
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn SetLocation(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()>;
@@ -560,13 +599,13 @@ pub trait IMapCameraImpl: Sized {
     fn FieldOfView(&self) -> ::windows::core::Result<f64>;
     fn SetFieldOfView(&self, value: f64) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapCamera {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapCamera";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapCameraVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCameraImpl, const OFFSET: isize>() -> IMapCameraVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCameraImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapCameraVtbl {
         unsafe extern "system" fn Location<Impl: IMapCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
@@ -643,39 +682,42 @@ impl IMapCameraVtbl {
             (*this).SetFieldOfView(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapCamera>,
             ::windows::core::GetTrustLevel,
-            Location::<Impl, OFFSET>,
-            SetLocation::<Impl, OFFSET>,
-            Heading::<Impl, OFFSET>,
-            SetHeading::<Impl, OFFSET>,
-            Pitch::<Impl, OFFSET>,
-            SetPitch::<Impl, OFFSET>,
-            Roll::<Impl, OFFSET>,
-            SetRoll::<Impl, OFFSET>,
-            FieldOfView::<Impl, OFFSET>,
-            SetFieldOfView::<Impl, OFFSET>,
+            Location::<Impl, IMPL_OFFSET>,
+            SetLocation::<Impl, IMPL_OFFSET>,
+            Heading::<Impl, IMPL_OFFSET>,
+            SetHeading::<Impl, IMPL_OFFSET>,
+            Pitch::<Impl, IMPL_OFFSET>,
+            SetPitch::<Impl, IMPL_OFFSET>,
+            Roll::<Impl, IMPL_OFFSET>,
+            SetRoll::<Impl, IMPL_OFFSET>,
+            FieldOfView::<Impl, IMPL_OFFSET>,
+            SetFieldOfView::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapCamera as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapCameraFactoryImpl: Sized {
     fn CreateInstanceWithLocation(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<MapCamera>;
     fn CreateInstanceWithLocationAndHeading(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>, headingindegrees: f64) -> ::windows::core::Result<MapCamera>;
     fn CreateInstanceWithLocationHeadingAndPitch(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapCamera>;
     fn CreateInstanceWithLocationHeadingPitchRollAndFieldOfView(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>, headingindegrees: f64, pitchindegrees: f64, rollindegrees: f64, fieldofviewindegrees: f64) -> ::windows::core::Result<MapCamera>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapCameraFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapCameraFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapCameraFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCameraFactoryImpl, const OFFSET: isize>() -> IMapCameraFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCameraFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapCameraFactoryVtbl {
         unsafe extern "system" fn CreateInstanceWithLocation<Impl: IMapCameraFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceWithLocation(&*(&location as *const <super::super::super::super::Devices::Geolocation::Geopoint as ::windows::core::Abi>::Abi as *const <super::super::super::super::Devices::Geolocation::Geopoint as ::windows::core::DefaultType>::DefaultType)) {
@@ -721,32 +763,35 @@ impl IMapCameraFactoryVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapCameraFactory>,
             ::windows::core::GetTrustLevel,
-            CreateInstanceWithLocation::<Impl, OFFSET>,
-            CreateInstanceWithLocationAndHeading::<Impl, OFFSET>,
-            CreateInstanceWithLocationHeadingAndPitch::<Impl, OFFSET>,
-            CreateInstanceWithLocationHeadingPitchRollAndFieldOfView::<Impl, OFFSET>,
+            CreateInstanceWithLocation::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithLocationAndHeading::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithLocationHeadingAndPitch::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithLocationHeadingPitchRollAndFieldOfView::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapCameraFactory as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapContextRequestedEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElements(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapContextRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapContextRequestedEventArgsImpl, const OFFSET: isize>() -> IMapContextRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapContextRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapContextRequestedEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapContextRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -780,10 +825,13 @@ impl IMapContextRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapContextRequestedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapContextRequestedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapContextRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControlImpl: Sized {
     fn Center(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn SetCenter(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()>;
@@ -845,13 +893,13 @@ pub trait IMapControlImpl: Sized {
     fn TrySetViewWithCenterZoomHeadingAndPitchAsync(&self, center: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>, zoomlevel: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>, heading: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>, desiredpitch: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
     fn TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync(&self, center: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>, zoomlevel: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>, heading: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>, desiredpitch: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>, animation: MapAnimationKind) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlImpl, const OFFSET: isize>() -> IMapControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlVtbl {
         unsafe extern "system" fn Center<Impl: IMapControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Center() {
@@ -1349,75 +1397,78 @@ impl IMapControlVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControl>,
             ::windows::core::GetTrustLevel,
-            Center::<Impl, OFFSET>,
-            SetCenter::<Impl, OFFSET>,
-            Children::<Impl, OFFSET>,
-            ColorScheme::<Impl, OFFSET>,
-            SetColorScheme::<Impl, OFFSET>,
-            DesiredPitch::<Impl, OFFSET>,
-            SetDesiredPitch::<Impl, OFFSET>,
-            Heading::<Impl, OFFSET>,
-            SetHeading::<Impl, OFFSET>,
-            LandmarksVisible::<Impl, OFFSET>,
-            SetLandmarksVisible::<Impl, OFFSET>,
-            LoadingStatus::<Impl, OFFSET>,
-            MapServiceToken::<Impl, OFFSET>,
-            SetMapServiceToken::<Impl, OFFSET>,
-            MaxZoomLevel::<Impl, OFFSET>,
-            MinZoomLevel::<Impl, OFFSET>,
-            PedestrianFeaturesVisible::<Impl, OFFSET>,
-            SetPedestrianFeaturesVisible::<Impl, OFFSET>,
-            Pitch::<Impl, OFFSET>,
-            Style::<Impl, OFFSET>,
-            SetStyle::<Impl, OFFSET>,
-            TrafficFlowVisible::<Impl, OFFSET>,
-            SetTrafficFlowVisible::<Impl, OFFSET>,
-            TransformOrigin::<Impl, OFFSET>,
-            SetTransformOrigin::<Impl, OFFSET>,
-            WatermarkMode::<Impl, OFFSET>,
-            SetWatermarkMode::<Impl, OFFSET>,
-            ZoomLevel::<Impl, OFFSET>,
-            SetZoomLevel::<Impl, OFFSET>,
-            MapElements::<Impl, OFFSET>,
-            Routes::<Impl, OFFSET>,
-            TileSources::<Impl, OFFSET>,
-            CenterChanged::<Impl, OFFSET>,
-            RemoveCenterChanged::<Impl, OFFSET>,
-            HeadingChanged::<Impl, OFFSET>,
-            RemoveHeadingChanged::<Impl, OFFSET>,
-            LoadingStatusChanged::<Impl, OFFSET>,
-            RemoveLoadingStatusChanged::<Impl, OFFSET>,
-            MapDoubleTapped::<Impl, OFFSET>,
-            RemoveMapDoubleTapped::<Impl, OFFSET>,
-            MapHolding::<Impl, OFFSET>,
-            RemoveMapHolding::<Impl, OFFSET>,
-            MapTapped::<Impl, OFFSET>,
-            RemoveMapTapped::<Impl, OFFSET>,
-            PitchChanged::<Impl, OFFSET>,
-            RemovePitchChanged::<Impl, OFFSET>,
-            TransformOriginChanged::<Impl, OFFSET>,
-            RemoveTransformOriginChanged::<Impl, OFFSET>,
-            ZoomLevelChanged::<Impl, OFFSET>,
-            RemoveZoomLevelChanged::<Impl, OFFSET>,
-            FindMapElementsAtOffset::<Impl, OFFSET>,
-            GetLocationFromOffset::<Impl, OFFSET>,
-            GetOffsetFromLocation::<Impl, OFFSET>,
-            IsLocationInView::<Impl, OFFSET>,
-            TrySetViewBoundsAsync::<Impl, OFFSET>,
-            TrySetViewWithCenterAsync::<Impl, OFFSET>,
-            TrySetViewWithCenterAndZoomAsync::<Impl, OFFSET>,
-            TrySetViewWithCenterZoomHeadingAndPitchAsync::<Impl, OFFSET>,
-            TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync::<Impl, OFFSET>,
+            Center::<Impl, IMPL_OFFSET>,
+            SetCenter::<Impl, IMPL_OFFSET>,
+            Children::<Impl, IMPL_OFFSET>,
+            ColorScheme::<Impl, IMPL_OFFSET>,
+            SetColorScheme::<Impl, IMPL_OFFSET>,
+            DesiredPitch::<Impl, IMPL_OFFSET>,
+            SetDesiredPitch::<Impl, IMPL_OFFSET>,
+            Heading::<Impl, IMPL_OFFSET>,
+            SetHeading::<Impl, IMPL_OFFSET>,
+            LandmarksVisible::<Impl, IMPL_OFFSET>,
+            SetLandmarksVisible::<Impl, IMPL_OFFSET>,
+            LoadingStatus::<Impl, IMPL_OFFSET>,
+            MapServiceToken::<Impl, IMPL_OFFSET>,
+            SetMapServiceToken::<Impl, IMPL_OFFSET>,
+            MaxZoomLevel::<Impl, IMPL_OFFSET>,
+            MinZoomLevel::<Impl, IMPL_OFFSET>,
+            PedestrianFeaturesVisible::<Impl, IMPL_OFFSET>,
+            SetPedestrianFeaturesVisible::<Impl, IMPL_OFFSET>,
+            Pitch::<Impl, IMPL_OFFSET>,
+            Style::<Impl, IMPL_OFFSET>,
+            SetStyle::<Impl, IMPL_OFFSET>,
+            TrafficFlowVisible::<Impl, IMPL_OFFSET>,
+            SetTrafficFlowVisible::<Impl, IMPL_OFFSET>,
+            TransformOrigin::<Impl, IMPL_OFFSET>,
+            SetTransformOrigin::<Impl, IMPL_OFFSET>,
+            WatermarkMode::<Impl, IMPL_OFFSET>,
+            SetWatermarkMode::<Impl, IMPL_OFFSET>,
+            ZoomLevel::<Impl, IMPL_OFFSET>,
+            SetZoomLevel::<Impl, IMPL_OFFSET>,
+            MapElements::<Impl, IMPL_OFFSET>,
+            Routes::<Impl, IMPL_OFFSET>,
+            TileSources::<Impl, IMPL_OFFSET>,
+            CenterChanged::<Impl, IMPL_OFFSET>,
+            RemoveCenterChanged::<Impl, IMPL_OFFSET>,
+            HeadingChanged::<Impl, IMPL_OFFSET>,
+            RemoveHeadingChanged::<Impl, IMPL_OFFSET>,
+            LoadingStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveLoadingStatusChanged::<Impl, IMPL_OFFSET>,
+            MapDoubleTapped::<Impl, IMPL_OFFSET>,
+            RemoveMapDoubleTapped::<Impl, IMPL_OFFSET>,
+            MapHolding::<Impl, IMPL_OFFSET>,
+            RemoveMapHolding::<Impl, IMPL_OFFSET>,
+            MapTapped::<Impl, IMPL_OFFSET>,
+            RemoveMapTapped::<Impl, IMPL_OFFSET>,
+            PitchChanged::<Impl, IMPL_OFFSET>,
+            RemovePitchChanged::<Impl, IMPL_OFFSET>,
+            TransformOriginChanged::<Impl, IMPL_OFFSET>,
+            RemoveTransformOriginChanged::<Impl, IMPL_OFFSET>,
+            ZoomLevelChanged::<Impl, IMPL_OFFSET>,
+            RemoveZoomLevelChanged::<Impl, IMPL_OFFSET>,
+            FindMapElementsAtOffset::<Impl, IMPL_OFFSET>,
+            GetLocationFromOffset::<Impl, IMPL_OFFSET>,
+            GetOffsetFromLocation::<Impl, IMPL_OFFSET>,
+            IsLocationInView::<Impl, IMPL_OFFSET>,
+            TrySetViewBoundsAsync::<Impl, IMPL_OFFSET>,
+            TrySetViewWithCenterAsync::<Impl, IMPL_OFFSET>,
+            TrySetViewWithCenterAndZoomAsync::<Impl, IMPL_OFFSET>,
+            TrySetViewWithCenterZoomHeadingAndPitchAsync::<Impl, IMPL_OFFSET>,
+            TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapControl2Impl: Sized {
     fn BusinessLandmarksVisible(&self) -> ::windows::core::Result<bool>;
     fn SetBusinessLandmarksVisible(&self, value: bool) -> ::windows::core::Result<()>;
@@ -1469,13 +1520,13 @@ pub trait IMapControl2Impl: Sized {
     fn TrySetSceneAsync(&self, scene: &::core::option::Option<MapScene>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
     fn TrySetSceneWithAnimationAsync(&self, scene: &::core::option::Option<MapScene>, animationkind: MapAnimationKind) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControl2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControl2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl2Impl, const OFFSET: isize>() -> IMapControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl2Vtbl {
         unsafe extern "system" fn BusinessLandmarksVisible<Impl: IMapControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusinessLandmarksVisible() {
@@ -1869,76 +1920,79 @@ impl IMapControl2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControl2>,
             ::windows::core::GetTrustLevel,
-            BusinessLandmarksVisible::<Impl, OFFSET>,
-            SetBusinessLandmarksVisible::<Impl, OFFSET>,
-            TransitFeaturesVisible::<Impl, OFFSET>,
-            SetTransitFeaturesVisible::<Impl, OFFSET>,
-            PanInteractionMode::<Impl, OFFSET>,
-            SetPanInteractionMode::<Impl, OFFSET>,
-            RotateInteractionMode::<Impl, OFFSET>,
-            SetRotateInteractionMode::<Impl, OFFSET>,
-            TiltInteractionMode::<Impl, OFFSET>,
-            SetTiltInteractionMode::<Impl, OFFSET>,
-            ZoomInteractionMode::<Impl, OFFSET>,
-            SetZoomInteractionMode::<Impl, OFFSET>,
-            Is3DSupported::<Impl, OFFSET>,
-            IsStreetsideSupported::<Impl, OFFSET>,
-            Scene::<Impl, OFFSET>,
-            SetScene::<Impl, OFFSET>,
-            ActualCamera::<Impl, OFFSET>,
-            TargetCamera::<Impl, OFFSET>,
-            CustomExperience::<Impl, OFFSET>,
-            SetCustomExperience::<Impl, OFFSET>,
-            MapElementClick::<Impl, OFFSET>,
-            RemoveMapElementClick::<Impl, OFFSET>,
-            MapElementPointerEntered::<Impl, OFFSET>,
-            RemoveMapElementPointerEntered::<Impl, OFFSET>,
-            MapElementPointerExited::<Impl, OFFSET>,
-            RemoveMapElementPointerExited::<Impl, OFFSET>,
-            ActualCameraChanged::<Impl, OFFSET>,
-            RemoveActualCameraChanged::<Impl, OFFSET>,
-            ActualCameraChanging::<Impl, OFFSET>,
-            RemoveActualCameraChanging::<Impl, OFFSET>,
-            TargetCameraChanged::<Impl, OFFSET>,
-            RemoveTargetCameraChanged::<Impl, OFFSET>,
-            CustomExperienceChanged::<Impl, OFFSET>,
-            RemoveCustomExperienceChanged::<Impl, OFFSET>,
-            StartContinuousRotate::<Impl, OFFSET>,
-            StopContinuousRotate::<Impl, OFFSET>,
-            StartContinuousTilt::<Impl, OFFSET>,
-            StopContinuousTilt::<Impl, OFFSET>,
-            StartContinuousZoom::<Impl, OFFSET>,
-            StopContinuousZoom::<Impl, OFFSET>,
-            TryRotateAsync::<Impl, OFFSET>,
-            TryRotateToAsync::<Impl, OFFSET>,
-            TryTiltAsync::<Impl, OFFSET>,
-            TryTiltToAsync::<Impl, OFFSET>,
-            TryZoomInAsync::<Impl, OFFSET>,
-            TryZoomOutAsync::<Impl, OFFSET>,
-            TryZoomToAsync::<Impl, OFFSET>,
-            TrySetSceneAsync::<Impl, OFFSET>,
-            TrySetSceneWithAnimationAsync::<Impl, OFFSET>,
+            BusinessLandmarksVisible::<Impl, IMPL_OFFSET>,
+            SetBusinessLandmarksVisible::<Impl, IMPL_OFFSET>,
+            TransitFeaturesVisible::<Impl, IMPL_OFFSET>,
+            SetTransitFeaturesVisible::<Impl, IMPL_OFFSET>,
+            PanInteractionMode::<Impl, IMPL_OFFSET>,
+            SetPanInteractionMode::<Impl, IMPL_OFFSET>,
+            RotateInteractionMode::<Impl, IMPL_OFFSET>,
+            SetRotateInteractionMode::<Impl, IMPL_OFFSET>,
+            TiltInteractionMode::<Impl, IMPL_OFFSET>,
+            SetTiltInteractionMode::<Impl, IMPL_OFFSET>,
+            ZoomInteractionMode::<Impl, IMPL_OFFSET>,
+            SetZoomInteractionMode::<Impl, IMPL_OFFSET>,
+            Is3DSupported::<Impl, IMPL_OFFSET>,
+            IsStreetsideSupported::<Impl, IMPL_OFFSET>,
+            Scene::<Impl, IMPL_OFFSET>,
+            SetScene::<Impl, IMPL_OFFSET>,
+            ActualCamera::<Impl, IMPL_OFFSET>,
+            TargetCamera::<Impl, IMPL_OFFSET>,
+            CustomExperience::<Impl, IMPL_OFFSET>,
+            SetCustomExperience::<Impl, IMPL_OFFSET>,
+            MapElementClick::<Impl, IMPL_OFFSET>,
+            RemoveMapElementClick::<Impl, IMPL_OFFSET>,
+            MapElementPointerEntered::<Impl, IMPL_OFFSET>,
+            RemoveMapElementPointerEntered::<Impl, IMPL_OFFSET>,
+            MapElementPointerExited::<Impl, IMPL_OFFSET>,
+            RemoveMapElementPointerExited::<Impl, IMPL_OFFSET>,
+            ActualCameraChanged::<Impl, IMPL_OFFSET>,
+            RemoveActualCameraChanged::<Impl, IMPL_OFFSET>,
+            ActualCameraChanging::<Impl, IMPL_OFFSET>,
+            RemoveActualCameraChanging::<Impl, IMPL_OFFSET>,
+            TargetCameraChanged::<Impl, IMPL_OFFSET>,
+            RemoveTargetCameraChanged::<Impl, IMPL_OFFSET>,
+            CustomExperienceChanged::<Impl, IMPL_OFFSET>,
+            RemoveCustomExperienceChanged::<Impl, IMPL_OFFSET>,
+            StartContinuousRotate::<Impl, IMPL_OFFSET>,
+            StopContinuousRotate::<Impl, IMPL_OFFSET>,
+            StartContinuousTilt::<Impl, IMPL_OFFSET>,
+            StopContinuousTilt::<Impl, IMPL_OFFSET>,
+            StartContinuousZoom::<Impl, IMPL_OFFSET>,
+            StopContinuousZoom::<Impl, IMPL_OFFSET>,
+            TryRotateAsync::<Impl, IMPL_OFFSET>,
+            TryRotateToAsync::<Impl, IMPL_OFFSET>,
+            TryTiltAsync::<Impl, IMPL_OFFSET>,
+            TryTiltToAsync::<Impl, IMPL_OFFSET>,
+            TryZoomInAsync::<Impl, IMPL_OFFSET>,
+            TryZoomOutAsync::<Impl, IMPL_OFFSET>,
+            TryZoomToAsync::<Impl, IMPL_OFFSET>,
+            TrySetSceneAsync::<Impl, IMPL_OFFSET>,
+            TrySetSceneWithAnimationAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapControl3Impl: Sized {
     fn MapRightTapped(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapControl, MapRightTappedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveMapRightTapped(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControl3 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControl3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapControl3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl3Impl, const OFFSET: isize>() -> IMapControl3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl3Vtbl {
         unsafe extern "system" fn MapRightTapped<Impl: IMapControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapRightTapped(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<MapControl, MapRightTappedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<MapControl, MapRightTappedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1954,10 +2008,13 @@ impl IMapControl3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMapRightTapped(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl3>, ::windows::core::GetTrustLevel, MapRightTapped::<Impl, OFFSET>, RemoveMapRightTapped::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl3>, ::windows::core::GetTrustLevel, MapRightTapped::<Impl, IMPL_OFFSET>, RemoveMapRightTapped::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapControl4Impl: Sized {
     fn BusinessLandmarksEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetBusinessLandmarksEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -1965,13 +2022,13 @@ pub trait IMapControl4Impl: Sized {
     fn SetTransitFeaturesEnabled(&self, value: bool) -> ::windows::core::Result<()>;
     fn GetVisibleRegion(&self, region: MapVisibleRegionKind) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopath>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControl4 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControl4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapControl4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl4Impl, const OFFSET: isize>() -> IMapControl4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl4Vtbl {
         unsafe extern "system" fn BusinessLandmarksEnabled<Impl: IMapControl4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusinessLandmarksEnabled() {
@@ -2013,10 +2070,25 @@ impl IMapControl4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl4>, ::windows::core::GetTrustLevel, BusinessLandmarksEnabled::<Impl, OFFSET>, SetBusinessLandmarksEnabled::<Impl, OFFSET>, TransitFeaturesEnabled::<Impl, OFFSET>, SetTransitFeaturesEnabled::<Impl, OFFSET>, GetVisibleRegion::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMapControl4>,
+            ::windows::core::GetTrustLevel,
+            BusinessLandmarksEnabled::<Impl, IMPL_OFFSET>,
+            SetBusinessLandmarksEnabled::<Impl, IMPL_OFFSET>,
+            TransitFeaturesEnabled::<Impl, IMPL_OFFSET>,
+            SetTransitFeaturesEnabled::<Impl, IMPL_OFFSET>,
+            GetVisibleRegion::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControl5Impl: Sized {
     fn MapProjection(&self) -> ::windows::core::Result<MapProjection>;
     fn SetMapProjection(&self, value: MapProjection) -> ::windows::core::Result<()>;
@@ -2033,13 +2105,13 @@ pub trait IMapControl5Impl: Sized {
     fn TryPanAsync(&self, horizontalpixels: f64, verticalpixels: f64) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
     fn TryPanToAsync(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControl5 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControl5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControl5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl5Impl, const OFFSET: isize>() -> IMapControl5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl5Vtbl {
         unsafe extern "system" fn MapProjection<Impl: IMapControl5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MapProjection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapProjection() {
@@ -2146,43 +2218,46 @@ impl IMapControl5Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControl5>,
             ::windows::core::GetTrustLevel,
-            MapProjection::<Impl, OFFSET>,
-            SetMapProjection::<Impl, OFFSET>,
-            StyleSheet::<Impl, OFFSET>,
-            SetStyleSheet::<Impl, OFFSET>,
-            ViewPadding::<Impl, OFFSET>,
-            SetViewPadding::<Impl, OFFSET>,
-            MapContextRequested::<Impl, OFFSET>,
-            RemoveMapContextRequested::<Impl, OFFSET>,
-            FindMapElementsAtOffsetWithRadius::<Impl, OFFSET>,
-            GetLocationFromOffsetWithReferenceSystem::<Impl, OFFSET>,
-            StartContinuousPan::<Impl, OFFSET>,
-            StopContinuousPan::<Impl, OFFSET>,
-            TryPanAsync::<Impl, OFFSET>,
-            TryPanToAsync::<Impl, OFFSET>,
+            MapProjection::<Impl, IMPL_OFFSET>,
+            SetMapProjection::<Impl, IMPL_OFFSET>,
+            StyleSheet::<Impl, IMPL_OFFSET>,
+            SetStyleSheet::<Impl, IMPL_OFFSET>,
+            ViewPadding::<Impl, IMPL_OFFSET>,
+            SetViewPadding::<Impl, IMPL_OFFSET>,
+            MapContextRequested::<Impl, IMPL_OFFSET>,
+            RemoveMapContextRequested::<Impl, IMPL_OFFSET>,
+            FindMapElementsAtOffsetWithRadius::<Impl, IMPL_OFFSET>,
+            GetLocationFromOffsetWithReferenceSystem::<Impl, IMPL_OFFSET>,
+            StartContinuousPan::<Impl, IMPL_OFFSET>,
+            StopContinuousPan::<Impl, IMPL_OFFSET>,
+            TryPanAsync::<Impl, IMPL_OFFSET>,
+            TryPanToAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl5 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControl6Impl: Sized {
     fn Layers(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<MapLayer>>;
     fn SetLayers(&self, value: &::core::option::Option<super::super::super::super::Foundation::Collections::IVector<MapLayer>>) -> ::windows::core::Result<()>;
     fn TryGetLocationFromOffset(&self, offset: &super::super::super::super::Foundation::Point, location: &mut ::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<bool>;
     fn TryGetLocationFromOffsetWithReferenceSystem(&self, offset: &super::super::super::super::Foundation::Point, desiredreferencesystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut ::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControl6 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControl6";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControl6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl6Impl, const OFFSET: isize>() -> IMapControl6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl6Vtbl {
         unsafe extern "system" fn Layers<Impl: IMapControl6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Layers() {
@@ -2220,7 +2295,10 @@ impl IMapControl6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl6>, ::windows::core::GetTrustLevel, Layers::<Impl, OFFSET>, SetLayers::<Impl, OFFSET>, TryGetLocationFromOffset::<Impl, OFFSET>, TryGetLocationFromOffsetWithReferenceSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl6>, ::windows::core::GetTrustLevel, Layers::<Impl, IMPL_OFFSET>, SetLayers::<Impl, IMPL_OFFSET>, TryGetLocationFromOffset::<Impl, IMPL_OFFSET>, TryGetLocationFromOffsetWithReferenceSystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2234,7 +2312,7 @@ impl ::windows::core::RuntimeName for IMapControl7 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControl7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl7Impl, const OFFSET: isize>() -> IMapControl7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl7Vtbl {
         unsafe extern "system" fn Region<Impl: IMapControl7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Region() {
@@ -2250,7 +2328,10 @@ impl IMapControl7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRegion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl7>, ::windows::core::GetTrustLevel, Region::<Impl, OFFSET>, SetRegion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl7>, ::windows::core::GetTrustLevel, Region::<Impl, IMPL_OFFSET>, SetRegion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2266,7 +2347,7 @@ impl ::windows::core::RuntimeName for IMapControl8 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControl8Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl8Impl, const OFFSET: isize>() -> IMapControl8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControl8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControl8Vtbl {
         unsafe extern "system" fn CanTiltDown<Impl: IMapControl8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanTiltDown() {
@@ -2311,20 +2392,23 @@ impl IMapControl8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl8>, ::windows::core::GetTrustLevel, CanTiltDown::<Impl, OFFSET>, CanTiltUp::<Impl, OFFSET>, CanZoomIn::<Impl, OFFSET>, CanZoomOut::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControl8>, ::windows::core::GetTrustLevel, CanTiltDown::<Impl, IMPL_OFFSET>, CanTiltUp::<Impl, IMPL_OFFSET>, CanZoomIn::<Impl, IMPL_OFFSET>, CanZoomOut::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControl8 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 pub trait IMapControlBusinessLandmarkClickEventArgsImpl: Sized {
     fn LocalLocations(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlBusinessLandmarkClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl IMapControlBusinessLandmarkClickEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkClickEventArgsImpl, const OFFSET: isize>() -> IMapControlBusinessLandmarkClickEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkClickEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlBusinessLandmarkClickEventArgsVtbl {
         unsafe extern "system" fn LocalLocations<Impl: IMapControlBusinessLandmarkClickEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalLocations() {
@@ -2336,20 +2420,23 @@ impl IMapControlBusinessLandmarkClickEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkClickEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkClickEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlBusinessLandmarkClickEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 pub trait IMapControlBusinessLandmarkPointerEnteredEventArgsImpl: Sized {
     fn LocalLocations(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlBusinessLandmarkPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl IMapControlBusinessLandmarkPointerEnteredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkPointerEnteredEventArgsImpl, const OFFSET: isize>() -> IMapControlBusinessLandmarkPointerEnteredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkPointerEnteredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlBusinessLandmarkPointerEnteredEventArgsVtbl {
         unsafe extern "system" fn LocalLocations<Impl: IMapControlBusinessLandmarkPointerEnteredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalLocations() {
@@ -2361,20 +2448,23 @@ impl IMapControlBusinessLandmarkPointerEnteredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkPointerEnteredEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkPointerEnteredEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlBusinessLandmarkPointerEnteredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 pub trait IMapControlBusinessLandmarkPointerExitedEventArgsImpl: Sized {
     fn LocalLocations(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlBusinessLandmarkPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl IMapControlBusinessLandmarkPointerExitedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkPointerExitedEventArgsImpl, const OFFSET: isize>() -> IMapControlBusinessLandmarkPointerExitedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkPointerExitedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlBusinessLandmarkPointerExitedEventArgsVtbl {
         unsafe extern "system" fn LocalLocations<Impl: IMapControlBusinessLandmarkPointerExitedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalLocations() {
@@ -2386,20 +2476,23 @@ impl IMapControlBusinessLandmarkPointerExitedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkPointerExitedEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkPointerExitedEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlBusinessLandmarkPointerExitedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 pub trait IMapControlBusinessLandmarkRightTappedEventArgsImpl: Sized {
     fn LocalLocations(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlBusinessLandmarkRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch", feature = "implement_exclusive"))]
 impl IMapControlBusinessLandmarkRightTappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkRightTappedEventArgsImpl, const OFFSET: isize>() -> IMapControlBusinessLandmarkRightTappedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlBusinessLandmarkRightTappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlBusinessLandmarkRightTappedEventArgsVtbl {
         unsafe extern "system" fn LocalLocations<Impl: IMapControlBusinessLandmarkRightTappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalLocations() {
@@ -2411,10 +2504,13 @@ impl IMapControlBusinessLandmarkRightTappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkRightTappedEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlBusinessLandmarkRightTappedEventArgs>, ::windows::core::GetTrustLevel, LocalLocations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlBusinessLandmarkRightTappedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapControlDataHelperImpl: Sized {
     fn BusinessLandmarkClick(&self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkClickEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveBusinessLandmarkClick(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2425,13 +2521,13 @@ pub trait IMapControlDataHelperImpl: Sized {
     fn TransitFeatureRightTapped(&self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeatureRightTappedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveTransitFeatureRightTapped(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlDataHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlDataHelper";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapControlDataHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelperImpl, const OFFSET: isize>() -> IMapControlDataHelperVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlDataHelperVtbl {
         unsafe extern "system" fn BusinessLandmarkClick<Impl: IMapControlDataHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusinessLandmarkClick(&*(&value as *const <super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkClickEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkClickEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2493,24 +2589,27 @@ impl IMapControlDataHelperVtbl {
             (*this).RemoveTransitFeatureRightTapped(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControlDataHelper>,
             ::windows::core::GetTrustLevel,
-            BusinessLandmarkClick::<Impl, OFFSET>,
-            RemoveBusinessLandmarkClick::<Impl, OFFSET>,
-            TransitFeatureClick::<Impl, OFFSET>,
-            RemoveTransitFeatureClick::<Impl, OFFSET>,
-            BusinessLandmarkRightTapped::<Impl, OFFSET>,
-            RemoveBusinessLandmarkRightTapped::<Impl, OFFSET>,
-            TransitFeatureRightTapped::<Impl, OFFSET>,
-            RemoveTransitFeatureRightTapped::<Impl, OFFSET>,
+            BusinessLandmarkClick::<Impl, IMPL_OFFSET>,
+            RemoveBusinessLandmarkClick::<Impl, IMPL_OFFSET>,
+            TransitFeatureClick::<Impl, IMPL_OFFSET>,
+            RemoveTransitFeatureClick::<Impl, IMPL_OFFSET>,
+            BusinessLandmarkRightTapped::<Impl, IMPL_OFFSET>,
+            RemoveBusinessLandmarkRightTapped::<Impl, IMPL_OFFSET>,
+            TransitFeatureRightTapped::<Impl, IMPL_OFFSET>,
+            RemoveTransitFeatureRightTapped::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlDataHelper as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapControlDataHelper2Impl: Sized {
     fn BusinessLandmarkPointerEntered(&self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerEnteredEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveBusinessLandmarkPointerEntered(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2521,13 +2620,13 @@ pub trait IMapControlDataHelper2Impl: Sized {
     fn TransitFeaturePointerExited(&self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeaturePointerExitedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveTransitFeaturePointerExited(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlDataHelper2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlDataHelper2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapControlDataHelper2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelper2Impl, const OFFSET: isize>() -> IMapControlDataHelper2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelper2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlDataHelper2Vtbl {
         unsafe extern "system" fn BusinessLandmarkPointerEntered<Impl: IMapControlDataHelper2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusinessLandmarkPointerEntered(&*(&value as *const <super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerEnteredEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerEnteredEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2589,21 +2688,24 @@ impl IMapControlDataHelper2Vtbl {
             (*this).RemoveTransitFeaturePointerExited(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControlDataHelper2>,
             ::windows::core::GetTrustLevel,
-            BusinessLandmarkPointerEntered::<Impl, OFFSET>,
-            RemoveBusinessLandmarkPointerEntered::<Impl, OFFSET>,
-            TransitFeaturePointerEntered::<Impl, OFFSET>,
-            RemoveTransitFeaturePointerEntered::<Impl, OFFSET>,
-            BusinessLandmarkPointerExited::<Impl, OFFSET>,
-            RemoveBusinessLandmarkPointerExited::<Impl, OFFSET>,
-            TransitFeaturePointerExited::<Impl, OFFSET>,
-            RemoveTransitFeaturePointerExited::<Impl, OFFSET>,
+            BusinessLandmarkPointerEntered::<Impl, IMPL_OFFSET>,
+            RemoveBusinessLandmarkPointerEntered::<Impl, IMPL_OFFSET>,
+            TransitFeaturePointerEntered::<Impl, IMPL_OFFSET>,
+            RemoveTransitFeaturePointerEntered::<Impl, IMPL_OFFSET>,
+            BusinessLandmarkPointerExited::<Impl, IMPL_OFFSET>,
+            RemoveBusinessLandmarkPointerExited::<Impl, IMPL_OFFSET>,
+            TransitFeaturePointerExited::<Impl, IMPL_OFFSET>,
+            RemoveTransitFeaturePointerExited::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlDataHelper2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2616,7 +2718,7 @@ impl ::windows::core::RuntimeName for IMapControlDataHelperFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlDataHelperFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelperFactoryImpl, const OFFSET: isize>() -> IMapControlDataHelperFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelperFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlDataHelperFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapControlDataHelperFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, map: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&map as *const <MapControl as ::windows::core::Abi>::Abi as *const <MapControl as ::windows::core::DefaultType>::DefaultType)) {
@@ -2628,7 +2730,10 @@ impl IMapControlDataHelperFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlDataHelperFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlDataHelperFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlDataHelperFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2641,7 +2746,7 @@ impl ::windows::core::RuntimeName for IMapControlDataHelperStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlDataHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelperStaticsImpl, const OFFSET: isize>() -> IMapControlDataHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlDataHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlDataHelperStaticsVtbl {
         unsafe extern "system" fn CreateMapControl<Impl: IMapControlDataHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rasterrendermode: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMapControl(rasterrendermode) {
@@ -2653,10 +2758,13 @@ impl IMapControlDataHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlDataHelperStatics>, ::windows::core::GetTrustLevel, CreateMapControl::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlDataHelperStatics>, ::windows::core::GetTrustLevel, CreateMapControl::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlDataHelperStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapControlStaticsImpl: Sized {
     fn CenterProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ChildrenProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -2683,13 +2791,13 @@ pub trait IMapControlStaticsImpl: Sized {
     fn GetNormalizedAnchorPoint(&self, element: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn SetNormalizedAnchorPoint(&self, element: &::core::option::Option<super::super::DependencyObject>, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapControlStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStaticsImpl, const OFFSET: isize>() -> IMapControlStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStaticsVtbl {
         unsafe extern "system" fn CenterProperty<Impl: IMapControlStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterProperty() {
@@ -2941,37 +3049,40 @@ impl IMapControlStaticsVtbl {
             (*this).SetNormalizedAnchorPoint(&*(&element as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControlStatics>,
             ::windows::core::GetTrustLevel,
-            CenterProperty::<Impl, OFFSET>,
-            ChildrenProperty::<Impl, OFFSET>,
-            ColorSchemeProperty::<Impl, OFFSET>,
-            DesiredPitchProperty::<Impl, OFFSET>,
-            HeadingProperty::<Impl, OFFSET>,
-            LandmarksVisibleProperty::<Impl, OFFSET>,
-            LoadingStatusProperty::<Impl, OFFSET>,
-            MapServiceTokenProperty::<Impl, OFFSET>,
-            PedestrianFeaturesVisibleProperty::<Impl, OFFSET>,
-            PitchProperty::<Impl, OFFSET>,
-            StyleProperty::<Impl, OFFSET>,
-            TrafficFlowVisibleProperty::<Impl, OFFSET>,
-            TransformOriginProperty::<Impl, OFFSET>,
-            WatermarkModeProperty::<Impl, OFFSET>,
-            ZoomLevelProperty::<Impl, OFFSET>,
-            MapElementsProperty::<Impl, OFFSET>,
-            RoutesProperty::<Impl, OFFSET>,
-            TileSourcesProperty::<Impl, OFFSET>,
-            LocationProperty::<Impl, OFFSET>,
-            GetLocation::<Impl, OFFSET>,
-            SetLocation::<Impl, OFFSET>,
-            NormalizedAnchorPointProperty::<Impl, OFFSET>,
-            GetNormalizedAnchorPoint::<Impl, OFFSET>,
-            SetNormalizedAnchorPoint::<Impl, OFFSET>,
+            CenterProperty::<Impl, IMPL_OFFSET>,
+            ChildrenProperty::<Impl, IMPL_OFFSET>,
+            ColorSchemeProperty::<Impl, IMPL_OFFSET>,
+            DesiredPitchProperty::<Impl, IMPL_OFFSET>,
+            HeadingProperty::<Impl, IMPL_OFFSET>,
+            LandmarksVisibleProperty::<Impl, IMPL_OFFSET>,
+            LoadingStatusProperty::<Impl, IMPL_OFFSET>,
+            MapServiceTokenProperty::<Impl, IMPL_OFFSET>,
+            PedestrianFeaturesVisibleProperty::<Impl, IMPL_OFFSET>,
+            PitchProperty::<Impl, IMPL_OFFSET>,
+            StyleProperty::<Impl, IMPL_OFFSET>,
+            TrafficFlowVisibleProperty::<Impl, IMPL_OFFSET>,
+            TransformOriginProperty::<Impl, IMPL_OFFSET>,
+            WatermarkModeProperty::<Impl, IMPL_OFFSET>,
+            ZoomLevelProperty::<Impl, IMPL_OFFSET>,
+            MapElementsProperty::<Impl, IMPL_OFFSET>,
+            RoutesProperty::<Impl, IMPL_OFFSET>,
+            TileSourcesProperty::<Impl, IMPL_OFFSET>,
+            LocationProperty::<Impl, IMPL_OFFSET>,
+            GetLocation::<Impl, IMPL_OFFSET>,
+            SetLocation::<Impl, IMPL_OFFSET>,
+            NormalizedAnchorPointProperty::<Impl, IMPL_OFFSET>,
+            GetNormalizedAnchorPoint::<Impl, IMPL_OFFSET>,
+            SetNormalizedAnchorPoint::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2992,7 +3103,7 @@ impl ::windows::core::RuntimeName for IMapControlStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics2Impl, const OFFSET: isize>() -> IMapControlStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStatics2Vtbl {
         unsafe extern "system" fn BusinessLandmarksVisibleProperty<Impl: IMapControlStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusinessLandmarksVisibleProperty() {
@@ -3093,22 +3204,25 @@ impl IMapControlStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapControlStatics2>,
             ::windows::core::GetTrustLevel,
-            BusinessLandmarksVisibleProperty::<Impl, OFFSET>,
-            TransitFeaturesVisibleProperty::<Impl, OFFSET>,
-            PanInteractionModeProperty::<Impl, OFFSET>,
-            RotateInteractionModeProperty::<Impl, OFFSET>,
-            TiltInteractionModeProperty::<Impl, OFFSET>,
-            ZoomInteractionModeProperty::<Impl, OFFSET>,
-            Is3DSupportedProperty::<Impl, OFFSET>,
-            IsStreetsideSupportedProperty::<Impl, OFFSET>,
-            SceneProperty::<Impl, OFFSET>,
+            BusinessLandmarksVisibleProperty::<Impl, IMPL_OFFSET>,
+            TransitFeaturesVisibleProperty::<Impl, IMPL_OFFSET>,
+            PanInteractionModeProperty::<Impl, IMPL_OFFSET>,
+            RotateInteractionModeProperty::<Impl, IMPL_OFFSET>,
+            TiltInteractionModeProperty::<Impl, IMPL_OFFSET>,
+            ZoomInteractionModeProperty::<Impl, IMPL_OFFSET>,
+            Is3DSupportedProperty::<Impl, IMPL_OFFSET>,
+            IsStreetsideSupportedProperty::<Impl, IMPL_OFFSET>,
+            SceneProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3122,7 +3236,7 @@ impl ::windows::core::RuntimeName for IMapControlStatics4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics4Impl, const OFFSET: isize>() -> IMapControlStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStatics4Vtbl {
         unsafe extern "system" fn BusinessLandmarksEnabledProperty<Impl: IMapControlStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusinessLandmarksEnabledProperty() {
@@ -3145,7 +3259,10 @@ impl IMapControlStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics4>, ::windows::core::GetTrustLevel, BusinessLandmarksEnabledProperty::<Impl, OFFSET>, TransitFeaturesEnabledProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics4>, ::windows::core::GetTrustLevel, BusinessLandmarksEnabledProperty::<Impl, IMPL_OFFSET>, TransitFeaturesEnabledProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3160,7 +3277,7 @@ impl ::windows::core::RuntimeName for IMapControlStatics5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics5Impl, const OFFSET: isize>() -> IMapControlStatics5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStatics5Vtbl {
         unsafe extern "system" fn MapProjectionProperty<Impl: IMapControlStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapProjectionProperty() {
@@ -3194,7 +3311,10 @@ impl IMapControlStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics5>, ::windows::core::GetTrustLevel, MapProjectionProperty::<Impl, OFFSET>, StyleSheetProperty::<Impl, OFFSET>, ViewPaddingProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics5>, ::windows::core::GetTrustLevel, MapProjectionProperty::<Impl, IMPL_OFFSET>, StyleSheetProperty::<Impl, IMPL_OFFSET>, ViewPaddingProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3207,7 +3327,7 @@ impl ::windows::core::RuntimeName for IMapControlStatics6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlStatics6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics6Impl, const OFFSET: isize>() -> IMapControlStatics6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStatics6Vtbl {
         unsafe extern "system" fn LayersProperty<Impl: IMapControlStatics6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LayersProperty() {
@@ -3219,7 +3339,10 @@ impl IMapControlStatics6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics6>, ::windows::core::GetTrustLevel, LayersProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics6>, ::windows::core::GetTrustLevel, LayersProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3232,7 +3355,7 @@ impl ::windows::core::RuntimeName for IMapControlStatics7 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlStatics7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics7Impl, const OFFSET: isize>() -> IMapControlStatics7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStatics7Vtbl {
         unsafe extern "system" fn RegionProperty<Impl: IMapControlStatics7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegionProperty() {
@@ -3244,7 +3367,10 @@ impl IMapControlStatics7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics7>, ::windows::core::GetTrustLevel, RegionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics7>, ::windows::core::GetTrustLevel, RegionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3260,7 +3386,7 @@ impl ::windows::core::RuntimeName for IMapControlStatics8 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapControlStatics8Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics8Impl, const OFFSET: isize>() -> IMapControlStatics8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlStatics8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlStatics8Vtbl {
         unsafe extern "system" fn CanTiltDownProperty<Impl: IMapControlStatics8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanTiltDownProperty() {
@@ -3305,22 +3431,25 @@ impl IMapControlStatics8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics8>, ::windows::core::GetTrustLevel, CanTiltDownProperty::<Impl, OFFSET>, CanTiltUpProperty::<Impl, OFFSET>, CanZoomInProperty::<Impl, OFFSET>, CanZoomOutProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlStatics8>, ::windows::core::GetTrustLevel, CanTiltDownProperty::<Impl, IMPL_OFFSET>, CanTiltUpProperty::<Impl, IMPL_OFFSET>, CanZoomInProperty::<Impl, IMPL_OFFSET>, CanZoomOutProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlStatics8 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControlTransitFeatureClickEventArgsImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn TransitProperties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlTransitFeatureClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControlTransitFeatureClickEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeatureClickEventArgsImpl, const OFFSET: isize>() -> IMapControlTransitFeatureClickEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeatureClickEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlTransitFeatureClickEventArgsVtbl {
         unsafe extern "system" fn DisplayName<Impl: IMapControlTransitFeatureClickEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -3354,22 +3483,25 @@ impl IMapControlTransitFeatureClickEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeatureClickEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Location::<Impl, OFFSET>, TransitProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeatureClickEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, TransitProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlTransitFeatureClickEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControlTransitFeaturePointerEnteredEventArgsImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn TransitProperties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlTransitFeaturePointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControlTransitFeaturePointerEnteredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeaturePointerEnteredEventArgsImpl, const OFFSET: isize>() -> IMapControlTransitFeaturePointerEnteredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeaturePointerEnteredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlTransitFeaturePointerEnteredEventArgsVtbl {
         unsafe extern "system" fn DisplayName<Impl: IMapControlTransitFeaturePointerEnteredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -3403,22 +3535,25 @@ impl IMapControlTransitFeaturePointerEnteredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeaturePointerEnteredEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Location::<Impl, OFFSET>, TransitProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeaturePointerEnteredEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, TransitProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlTransitFeaturePointerEnteredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControlTransitFeaturePointerExitedEventArgsImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn TransitProperties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlTransitFeaturePointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControlTransitFeaturePointerExitedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeaturePointerExitedEventArgsImpl, const OFFSET: isize>() -> IMapControlTransitFeaturePointerExitedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeaturePointerExitedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlTransitFeaturePointerExitedEventArgsVtbl {
         unsafe extern "system" fn DisplayName<Impl: IMapControlTransitFeaturePointerExitedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -3452,22 +3587,25 @@ impl IMapControlTransitFeaturePointerExitedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeaturePointerExitedEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Location::<Impl, OFFSET>, TransitProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeaturePointerExitedEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, TransitProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlTransitFeaturePointerExitedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapControlTransitFeatureRightTappedEventArgsImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn TransitProperties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapControlTransitFeatureRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapControlTransitFeatureRightTappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeatureRightTappedEventArgsImpl, const OFFSET: isize>() -> IMapControlTransitFeatureRightTappedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapControlTransitFeatureRightTappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapControlTransitFeatureRightTappedEventArgsVtbl {
         unsafe extern "system" fn DisplayName<Impl: IMapControlTransitFeatureRightTappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -3501,7 +3639,10 @@ impl IMapControlTransitFeatureRightTappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeatureRightTappedEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Location::<Impl, OFFSET>, TransitProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapControlTransitFeatureRightTappedEventArgs>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, TransitProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapControlTransitFeatureRightTappedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3512,8 +3653,11 @@ impl ::windows::core::RuntimeName for IMapCustomExperience {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapCustomExperienceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCustomExperienceImpl, const OFFSET: isize>() -> IMapCustomExperienceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapCustomExperience>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCustomExperienceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapCustomExperienceVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapCustomExperience>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapCustomExperience as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3524,8 +3668,11 @@ impl ::windows::core::RuntimeName for IMapCustomExperienceChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapCustomExperienceChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCustomExperienceChangedEventArgsImpl, const OFFSET: isize>() -> IMapCustomExperienceChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapCustomExperienceChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCustomExperienceChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapCustomExperienceChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapCustomExperienceChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapCustomExperienceChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3538,7 +3685,7 @@ impl ::windows::core::RuntimeName for IMapCustomExperienceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapCustomExperienceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCustomExperienceFactoryImpl, const OFFSET: isize>() -> IMapCustomExperienceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapCustomExperienceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapCustomExperienceFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapCustomExperienceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -3550,7 +3697,10 @@ impl IMapCustomExperienceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapCustomExperienceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapCustomExperienceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapCustomExperienceFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3566,7 +3716,7 @@ impl ::windows::core::RuntimeName for IMapElement {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementImpl, const OFFSET: isize>() -> IMapElementVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementVtbl {
         unsafe extern "system" fn ZIndex<Impl: IMapElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZIndex() {
@@ -3597,7 +3747,10 @@ impl IMapElementVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVisible(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement>, ::windows::core::GetTrustLevel, ZIndex::<Impl, OFFSET>, SetZIndex::<Impl, OFFSET>, Visible::<Impl, OFFSET>, SetVisible::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement>, ::windows::core::GetTrustLevel, ZIndex::<Impl, IMPL_OFFSET>, SetZIndex::<Impl, IMPL_OFFSET>, Visible::<Impl, IMPL_OFFSET>, SetVisible::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElement as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3611,7 +3764,7 @@ impl ::windows::core::RuntimeName for IMapElement2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElement2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement2Impl, const OFFSET: isize>() -> IMapElement2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElement2Vtbl {
         unsafe extern "system" fn MapTabIndex<Impl: IMapElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapTabIndex() {
@@ -3627,7 +3780,10 @@ impl IMapElement2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMapTabIndex(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement2>, ::windows::core::GetTrustLevel, MapTabIndex::<Impl, OFFSET>, SetMapTabIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement2>, ::windows::core::GetTrustLevel, MapTabIndex::<Impl, IMPL_OFFSET>, SetMapTabIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElement2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3645,7 +3801,7 @@ impl ::windows::core::RuntimeName for IMapElement3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElement3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement3Impl, const OFFSET: isize>() -> IMapElement3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElement3Vtbl {
         unsafe extern "system" fn MapStyleSheetEntry<Impl: IMapElement3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapStyleSheetEntry() {
@@ -3691,10 +3847,26 @@ impl IMapElement3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTag(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement3>, ::windows::core::GetTrustLevel, MapStyleSheetEntry::<Impl, OFFSET>, SetMapStyleSheetEntry::<Impl, OFFSET>, MapStyleSheetEntryState::<Impl, OFFSET>, SetMapStyleSheetEntryState::<Impl, OFFSET>, Tag::<Impl, OFFSET>, SetTag::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMapElement3>,
+            ::windows::core::GetTrustLevel,
+            MapStyleSheetEntry::<Impl, IMPL_OFFSET>,
+            SetMapStyleSheetEntry::<Impl, IMPL_OFFSET>,
+            MapStyleSheetEntryState::<Impl, IMPL_OFFSET>,
+            SetMapStyleSheetEntryState::<Impl, IMPL_OFFSET>,
+            Tag::<Impl, IMPL_OFFSET>,
+            SetTag::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElement3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IMapElement3DImpl: Sized {
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn SetLocation(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()>;
@@ -3709,13 +3881,13 @@ pub trait IMapElement3DImpl: Sized {
     fn Scale(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Numerics::Vector3>;
     fn SetScale(&self, value: &super::super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElement3D {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElement3D";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IMapElement3DVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement3DImpl, const OFFSET: isize>() -> IMapElement3DVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement3DImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElement3DVtbl {
         unsafe extern "system" fn Location<Impl: IMapElement3DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
@@ -3807,25 +3979,28 @@ impl IMapElement3DVtbl {
             (*this).SetScale(&*(&value as *const <super::super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapElement3D>,
             ::windows::core::GetTrustLevel,
-            Location::<Impl, OFFSET>,
-            SetLocation::<Impl, OFFSET>,
-            Model::<Impl, OFFSET>,
-            SetModel::<Impl, OFFSET>,
-            Heading::<Impl, OFFSET>,
-            SetHeading::<Impl, OFFSET>,
-            Pitch::<Impl, OFFSET>,
-            SetPitch::<Impl, OFFSET>,
-            Roll::<Impl, OFFSET>,
-            SetRoll::<Impl, OFFSET>,
-            Scale::<Impl, OFFSET>,
-            SetScale::<Impl, OFFSET>,
+            Location::<Impl, IMPL_OFFSET>,
+            SetLocation::<Impl, IMPL_OFFSET>,
+            Model::<Impl, IMPL_OFFSET>,
+            SetModel::<Impl, IMPL_OFFSET>,
+            Heading::<Impl, IMPL_OFFSET>,
+            SetHeading::<Impl, IMPL_OFFSET>,
+            Pitch::<Impl, IMPL_OFFSET>,
+            SetPitch::<Impl, IMPL_OFFSET>,
+            Roll::<Impl, IMPL_OFFSET>,
+            SetRoll::<Impl, IMPL_OFFSET>,
+            Scale::<Impl, IMPL_OFFSET>,
+            SetScale::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElement3D as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3842,7 +4017,7 @@ impl ::windows::core::RuntimeName for IMapElement3DStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElement3DStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement3DStaticsImpl, const OFFSET: isize>() -> IMapElement3DStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement3DStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElement3DStaticsVtbl {
         unsafe extern "system" fn LocationProperty<Impl: IMapElement3DStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationProperty() {
@@ -3898,7 +4073,10 @@ impl IMapElement3DStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement3DStatics>, ::windows::core::GetTrustLevel, LocationProperty::<Impl, OFFSET>, HeadingProperty::<Impl, OFFSET>, PitchProperty::<Impl, OFFSET>, RollProperty::<Impl, OFFSET>, ScaleProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement3DStatics>, ::windows::core::GetTrustLevel, LocationProperty::<Impl, IMPL_OFFSET>, HeadingProperty::<Impl, IMPL_OFFSET>, PitchProperty::<Impl, IMPL_OFFSET>, RollProperty::<Impl, IMPL_OFFSET>, ScaleProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElement3DStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3912,7 +4090,7 @@ impl ::windows::core::RuntimeName for IMapElement4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElement4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement4Impl, const OFFSET: isize>() -> IMapElement4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElement4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElement4Vtbl {
         unsafe extern "system" fn IsEnabled<Impl: IMapElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -3928,22 +4106,25 @@ impl IMapElement4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement4>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, OFFSET>, SetIsEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElement4>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, SetIsEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElement4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapElementClickEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElements(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<MapElement>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapElementClickEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementClickEventArgsImpl, const OFFSET: isize>() -> IMapElementClickEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementClickEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementClickEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementClickEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -3977,7 +4158,10 @@ impl IMapElementClickEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementClickEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementClickEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementClickEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3990,7 +4174,7 @@ impl ::windows::core::RuntimeName for IMapElementFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementFactoryImpl, const OFFSET: isize>() -> IMapElementFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapElementFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -4002,22 +4186,25 @@ impl IMapElementFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapElementPointerEnteredEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElement(&self) -> ::windows::core::Result<MapElement>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapElementPointerEnteredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementPointerEnteredEventArgsImpl, const OFFSET: isize>() -> IMapElementPointerEnteredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementPointerEnteredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementPointerEnteredEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementPointerEnteredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4051,22 +4238,25 @@ impl IMapElementPointerEnteredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementPointerEnteredEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementPointerEnteredEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementPointerEnteredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapElementPointerExitedEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElement(&self) -> ::windows::core::Result<MapElement>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapElementPointerExitedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementPointerExitedEventArgsImpl, const OFFSET: isize>() -> IMapElementPointerExitedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementPointerExitedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementPointerExitedEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementPointerExitedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4100,7 +4290,10 @@ impl IMapElementPointerExitedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementPointerExitedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementPointerExitedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementPointerExitedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4114,7 +4307,7 @@ impl ::windows::core::RuntimeName for IMapElementStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStaticsImpl, const OFFSET: isize>() -> IMapElementStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementStaticsVtbl {
         unsafe extern "system" fn ZIndexProperty<Impl: IMapElementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZIndexProperty() {
@@ -4137,7 +4330,10 @@ impl IMapElementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics>, ::windows::core::GetTrustLevel, ZIndexProperty::<Impl, OFFSET>, VisibleProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics>, ::windows::core::GetTrustLevel, ZIndexProperty::<Impl, IMPL_OFFSET>, VisibleProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4150,7 +4346,7 @@ impl ::windows::core::RuntimeName for IMapElementStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStatics2Impl, const OFFSET: isize>() -> IMapElementStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementStatics2Vtbl {
         unsafe extern "system" fn MapTabIndexProperty<Impl: IMapElementStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapTabIndexProperty() {
@@ -4162,7 +4358,10 @@ impl IMapElementStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics2>, ::windows::core::GetTrustLevel, MapTabIndexProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics2>, ::windows::core::GetTrustLevel, MapTabIndexProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4177,7 +4376,7 @@ impl ::windows::core::RuntimeName for IMapElementStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStatics3Impl, const OFFSET: isize>() -> IMapElementStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementStatics3Vtbl {
         unsafe extern "system" fn MapStyleSheetEntryProperty<Impl: IMapElementStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapStyleSheetEntryProperty() {
@@ -4211,7 +4410,10 @@ impl IMapElementStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics3>, ::windows::core::GetTrustLevel, MapStyleSheetEntryProperty::<Impl, OFFSET>, MapStyleSheetEntryStateProperty::<Impl, OFFSET>, TagProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics3>, ::windows::core::GetTrustLevel, MapStyleSheetEntryProperty::<Impl, IMPL_OFFSET>, MapStyleSheetEntryStateProperty::<Impl, IMPL_OFFSET>, TagProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4224,7 +4426,7 @@ impl ::windows::core::RuntimeName for IMapElementStatics4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStatics4Impl, const OFFSET: isize>() -> IMapElementStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementStatics4Vtbl {
         unsafe extern "system" fn IsEnabledProperty<Impl: IMapElementStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabledProperty() {
@@ -4236,10 +4438,13 @@ impl IMapElementStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics4>, ::windows::core::GetTrustLevel, IsEnabledProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementStatics4>, ::windows::core::GetTrustLevel, IsEnabledProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementStatics4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapElementsLayerImpl: Sized {
     fn MapElements(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<MapElement>>;
     fn SetMapElements(&self, value: &::core::option::Option<super::super::super::super::Foundation::Collections::IVector<MapElement>>) -> ::windows::core::Result<()>;
@@ -4252,13 +4457,13 @@ pub trait IMapElementsLayerImpl: Sized {
     fn MapContextRequested(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerContextRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveMapContextRequested(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementsLayer {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementsLayer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapElementsLayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerImpl, const OFFSET: isize>() -> IMapElementsLayerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementsLayerVtbl {
         unsafe extern "system" fn MapElements<Impl: IMapElementsLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapElements() {
@@ -4335,38 +4540,41 @@ impl IMapElementsLayerVtbl {
             (*this).RemoveMapContextRequested(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapElementsLayer>,
             ::windows::core::GetTrustLevel,
-            MapElements::<Impl, OFFSET>,
-            SetMapElements::<Impl, OFFSET>,
-            MapElementClick::<Impl, OFFSET>,
-            RemoveMapElementClick::<Impl, OFFSET>,
-            MapElementPointerEntered::<Impl, OFFSET>,
-            RemoveMapElementPointerEntered::<Impl, OFFSET>,
-            MapElementPointerExited::<Impl, OFFSET>,
-            RemoveMapElementPointerExited::<Impl, OFFSET>,
-            MapContextRequested::<Impl, OFFSET>,
-            RemoveMapContextRequested::<Impl, OFFSET>,
+            MapElements::<Impl, IMPL_OFFSET>,
+            SetMapElements::<Impl, IMPL_OFFSET>,
+            MapElementClick::<Impl, IMPL_OFFSET>,
+            RemoveMapElementClick::<Impl, IMPL_OFFSET>,
+            MapElementPointerEntered::<Impl, IMPL_OFFSET>,
+            RemoveMapElementPointerEntered::<Impl, IMPL_OFFSET>,
+            MapElementPointerExited::<Impl, IMPL_OFFSET>,
+            RemoveMapElementPointerExited::<Impl, IMPL_OFFSET>,
+            MapContextRequested::<Impl, IMPL_OFFSET>,
+            RemoveMapContextRequested::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementsLayer as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapElementsLayerClickEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElements(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<MapElement>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementsLayerClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapElementsLayerClickEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerClickEventArgsImpl, const OFFSET: isize>() -> IMapElementsLayerClickEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerClickEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementsLayerClickEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementsLayerClickEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4400,22 +4608,25 @@ impl IMapElementsLayerClickEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerClickEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerClickEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementsLayerClickEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapElementsLayerContextRequestedEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElements(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementsLayerContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapElementsLayerContextRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerContextRequestedEventArgsImpl, const OFFSET: isize>() -> IMapElementsLayerContextRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerContextRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementsLayerContextRequestedEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementsLayerContextRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4449,22 +4660,25 @@ impl IMapElementsLayerContextRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerContextRequestedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerContextRequestedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementsLayerContextRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapElementsLayerPointerEnteredEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElement(&self) -> ::windows::core::Result<MapElement>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementsLayerPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapElementsLayerPointerEnteredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerPointerEnteredEventArgsImpl, const OFFSET: isize>() -> IMapElementsLayerPointerEnteredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerPointerEnteredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementsLayerPointerEnteredEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementsLayerPointerEnteredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4498,22 +4712,25 @@ impl IMapElementsLayerPointerEnteredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerPointerEnteredEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerPointerEnteredEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementsLayerPointerEnteredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapElementsLayerPointerExitedEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn MapElement(&self) -> ::windows::core::Result<MapElement>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapElementsLayerPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapElementsLayerPointerExitedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerPointerExitedEventArgsImpl, const OFFSET: isize>() -> IMapElementsLayerPointerExitedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerPointerExitedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementsLayerPointerExitedEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapElementsLayerPointerExitedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4547,7 +4764,10 @@ impl IMapElementsLayerPointerExitedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerPointerExitedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>, MapElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerPointerExitedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>, MapElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementsLayerPointerExitedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4560,7 +4780,7 @@ impl ::windows::core::RuntimeName for IMapElementsLayerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapElementsLayerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerStaticsImpl, const OFFSET: isize>() -> IMapElementsLayerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapElementsLayerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapElementsLayerStaticsVtbl {
         unsafe extern "system" fn MapElementsProperty<Impl: IMapElementsLayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapElementsProperty() {
@@ -4572,10 +4792,13 @@ impl IMapElementsLayerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerStatics>, ::windows::core::GetTrustLevel, MapElementsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapElementsLayerStatics>, ::windows::core::GetTrustLevel, MapElementsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapElementsLayerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMapIconImpl: Sized {
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
     fn SetLocation(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()>;
@@ -4586,13 +4809,13 @@ pub trait IMapIconImpl: Sized {
     fn Image(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetImage(&self, value: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapIcon {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapIcon";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMapIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIconImpl, const OFFSET: isize>() -> IMapIconVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapIconVtbl {
         unsafe extern "system" fn Location<Impl: IMapIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
@@ -4654,21 +4877,24 @@ impl IMapIconVtbl {
             (*this).SetImage(&*(&value as *const <super::super::super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapIcon>,
             ::windows::core::GetTrustLevel,
-            Location::<Impl, OFFSET>,
-            SetLocation::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            NormalizedAnchorPoint::<Impl, OFFSET>,
-            SetNormalizedAnchorPoint::<Impl, OFFSET>,
-            Image::<Impl, OFFSET>,
-            SetImage::<Impl, OFFSET>,
+            Location::<Impl, IMPL_OFFSET>,
+            SetLocation::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            NormalizedAnchorPoint::<Impl, IMPL_OFFSET>,
+            SetNormalizedAnchorPoint::<Impl, IMPL_OFFSET>,
+            Image::<Impl, IMPL_OFFSET>,
+            SetImage::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapIcon as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4682,7 +4908,7 @@ impl ::windows::core::RuntimeName for IMapIcon2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapIcon2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIcon2Impl, const OFFSET: isize>() -> IMapIcon2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIcon2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapIcon2Vtbl {
         unsafe extern "system" fn CollisionBehaviorDesired<Impl: IMapIcon2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MapElementCollisionBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollisionBehaviorDesired() {
@@ -4698,7 +4924,10 @@ impl IMapIcon2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCollisionBehaviorDesired(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapIcon2>, ::windows::core::GetTrustLevel, CollisionBehaviorDesired::<Impl, OFFSET>, SetCollisionBehaviorDesired::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapIcon2>, ::windows::core::GetTrustLevel, CollisionBehaviorDesired::<Impl, IMPL_OFFSET>, SetCollisionBehaviorDesired::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapIcon2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4713,7 +4942,7 @@ impl ::windows::core::RuntimeName for IMapIconStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapIconStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIconStaticsImpl, const OFFSET: isize>() -> IMapIconStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIconStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapIconStaticsVtbl {
         unsafe extern "system" fn LocationProperty<Impl: IMapIconStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationProperty() {
@@ -4747,7 +4976,10 @@ impl IMapIconStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapIconStatics>, ::windows::core::GetTrustLevel, LocationProperty::<Impl, OFFSET>, TitleProperty::<Impl, OFFSET>, NormalizedAnchorPointProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapIconStatics>, ::windows::core::GetTrustLevel, LocationProperty::<Impl, IMPL_OFFSET>, TitleProperty::<Impl, IMPL_OFFSET>, NormalizedAnchorPointProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapIconStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4760,7 +4992,7 @@ impl ::windows::core::RuntimeName for IMapIconStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapIconStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIconStatics2Impl, const OFFSET: isize>() -> IMapIconStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapIconStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapIconStatics2Vtbl {
         unsafe extern "system" fn CollisionBehaviorDesiredProperty<Impl: IMapIconStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollisionBehaviorDesiredProperty() {
@@ -4772,21 +5004,24 @@ impl IMapIconStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapIconStatics2>, ::windows::core::GetTrustLevel, CollisionBehaviorDesiredProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapIconStatics2>, ::windows::core::GetTrustLevel, CollisionBehaviorDesiredProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapIconStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapInputEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapInputEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapInputEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapInputEventArgsImpl, const OFFSET: isize>() -> IMapInputEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapInputEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapInputEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapInputEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -4809,10 +5044,13 @@ impl IMapInputEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapInputEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapInputEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapInputEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapItemsControlImpl: Sized {
     fn ItemsSource(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SetItemsSource(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
@@ -4820,13 +5058,13 @@ pub trait IMapItemsControlImpl: Sized {
     fn ItemTemplate(&self) -> ::windows::core::Result<super::super::DataTemplate>;
     fn SetItemTemplate(&self, value: &::core::option::Option<super::super::DataTemplate>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapItemsControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapItemsControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapItemsControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapItemsControlImpl, const OFFSET: isize>() -> IMapItemsControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapItemsControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapItemsControlVtbl {
         unsafe extern "system" fn ItemsSource<Impl: IMapItemsControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemsSource() {
@@ -4868,7 +5106,10 @@ impl IMapItemsControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetItemTemplate(&*(&value as *const <super::super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::super::DataTemplate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapItemsControl>, ::windows::core::GetTrustLevel, ItemsSource::<Impl, OFFSET>, SetItemsSource::<Impl, OFFSET>, Items::<Impl, OFFSET>, ItemTemplate::<Impl, OFFSET>, SetItemTemplate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapItemsControl>, ::windows::core::GetTrustLevel, ItemsSource::<Impl, IMPL_OFFSET>, SetItemsSource::<Impl, IMPL_OFFSET>, Items::<Impl, IMPL_OFFSET>, ItemTemplate::<Impl, IMPL_OFFSET>, SetItemTemplate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapItemsControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4883,7 +5124,7 @@ impl ::windows::core::RuntimeName for IMapItemsControlStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapItemsControlStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapItemsControlStaticsImpl, const OFFSET: isize>() -> IMapItemsControlStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapItemsControlStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapItemsControlStaticsVtbl {
         unsafe extern "system" fn ItemsSourceProperty<Impl: IMapItemsControlStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemsSourceProperty() {
@@ -4917,7 +5158,10 @@ impl IMapItemsControlStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapItemsControlStatics>, ::windows::core::GetTrustLevel, ItemsSourceProperty::<Impl, OFFSET>, ItemsProperty::<Impl, OFFSET>, ItemTemplateProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapItemsControlStatics>, ::windows::core::GetTrustLevel, ItemsSourceProperty::<Impl, IMPL_OFFSET>, ItemsProperty::<Impl, IMPL_OFFSET>, ItemTemplateProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapItemsControlStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4935,7 +5179,7 @@ impl ::windows::core::RuntimeName for IMapLayer {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapLayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapLayerImpl, const OFFSET: isize>() -> IMapLayerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapLayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapLayerVtbl {
         unsafe extern "system" fn MapTabIndex<Impl: IMapLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapTabIndex() {
@@ -4981,7 +5225,10 @@ impl IMapLayerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetZIndex(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLayer>, ::windows::core::GetTrustLevel, MapTabIndex::<Impl, OFFSET>, SetMapTabIndex::<Impl, OFFSET>, Visible::<Impl, OFFSET>, SetVisible::<Impl, OFFSET>, ZIndex::<Impl, OFFSET>, SetZIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLayer>, ::windows::core::GetTrustLevel, MapTabIndex::<Impl, IMPL_OFFSET>, SetMapTabIndex::<Impl, IMPL_OFFSET>, Visible::<Impl, IMPL_OFFSET>, SetVisible::<Impl, IMPL_OFFSET>, ZIndex::<Impl, IMPL_OFFSET>, SetZIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapLayer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4994,7 +5241,7 @@ impl ::windows::core::RuntimeName for IMapLayerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapLayerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapLayerFactoryImpl, const OFFSET: isize>() -> IMapLayerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapLayerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapLayerFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapLayerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -5006,7 +5253,10 @@ impl IMapLayerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLayerFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLayerFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapLayerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5021,7 +5271,7 @@ impl ::windows::core::RuntimeName for IMapLayerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapLayerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapLayerStaticsImpl, const OFFSET: isize>() -> IMapLayerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapLayerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapLayerStaticsVtbl {
         unsafe extern "system" fn MapTabIndexProperty<Impl: IMapLayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapTabIndexProperty() {
@@ -5055,7 +5305,10 @@ impl IMapLayerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLayerStatics>, ::windows::core::GetTrustLevel, MapTabIndexProperty::<Impl, OFFSET>, VisibleProperty::<Impl, OFFSET>, ZIndexProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapLayerStatics>, ::windows::core::GetTrustLevel, MapTabIndexProperty::<Impl, IMPL_OFFSET>, VisibleProperty::<Impl, IMPL_OFFSET>, ZIndexProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapLayerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5066,8 +5319,11 @@ impl ::windows::core::RuntimeName for IMapModel3D {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapModel3DVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapModel3DImpl, const OFFSET: isize>() -> IMapModel3DVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapModel3D>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapModel3DImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapModel3DVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapModel3D>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapModel3D as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5080,7 +5336,7 @@ impl ::windows::core::RuntimeName for IMapModel3DFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapModel3DFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapModel3DFactoryImpl, const OFFSET: isize>() -> IMapModel3DFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapModel3DFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapModel3DFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapModel3DFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -5092,21 +5348,24 @@ impl IMapModel3DFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapModel3DFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapModel3DFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapModel3DFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMapModel3DStaticsImpl: Sized {
     fn CreateFrom3MFAsync(&self, source: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>>;
     fn CreateFrom3MFWithShadingOptionAsync(&self, source: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>, shadingoption: MapModel3DShadingOption) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapModel3DStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapModel3DStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMapModel3DStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapModel3DStaticsImpl, const OFFSET: isize>() -> IMapModel3DStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapModel3DStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapModel3DStaticsVtbl {
         unsafe extern "system" fn CreateFrom3MFAsync<Impl: IMapModel3DStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFrom3MFAsync(&*(&source as *const <super::super::super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)) {
@@ -5129,10 +5388,13 @@ impl IMapModel3DStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapModel3DStatics>, ::windows::core::GetTrustLevel, CreateFrom3MFAsync::<Impl, OFFSET>, CreateFrom3MFWithShadingOptionAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapModel3DStatics>, ::windows::core::GetTrustLevel, CreateFrom3MFAsync::<Impl, IMPL_OFFSET>, CreateFrom3MFWithShadingOptionAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapModel3DStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapPolygonImpl: Sized {
     fn Path(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopath>;
     fn SetPath(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopath>) -> ::windows::core::Result<()>;
@@ -5145,13 +5407,13 @@ pub trait IMapPolygonImpl: Sized {
     fn FillColor(&self) -> ::windows::core::Result<super::super::super::Color>;
     fn SetFillColor(&self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapPolygon {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapPolygon";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapPolygonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolygonImpl, const OFFSET: isize>() -> IMapPolygonVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolygonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapPolygonVtbl {
         unsafe extern "system" fn Path<Impl: IMapPolygonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
@@ -5228,36 +5490,39 @@ impl IMapPolygonVtbl {
             (*this).SetFillColor(&*(&value as *const <super::super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapPolygon>,
             ::windows::core::GetTrustLevel,
-            Path::<Impl, OFFSET>,
-            SetPath::<Impl, OFFSET>,
-            StrokeColor::<Impl, OFFSET>,
-            SetStrokeColor::<Impl, OFFSET>,
-            StrokeThickness::<Impl, OFFSET>,
-            SetStrokeThickness::<Impl, OFFSET>,
-            StrokeDashed::<Impl, OFFSET>,
-            SetStrokeDashed::<Impl, OFFSET>,
-            FillColor::<Impl, OFFSET>,
-            SetFillColor::<Impl, OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            SetPath::<Impl, IMPL_OFFSET>,
+            StrokeColor::<Impl, IMPL_OFFSET>,
+            SetStrokeColor::<Impl, IMPL_OFFSET>,
+            StrokeThickness::<Impl, IMPL_OFFSET>,
+            SetStrokeThickness::<Impl, IMPL_OFFSET>,
+            StrokeDashed::<Impl, IMPL_OFFSET>,
+            SetStrokeDashed::<Impl, IMPL_OFFSET>,
+            FillColor::<Impl, IMPL_OFFSET>,
+            SetFillColor::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapPolygon as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapPolygon2Impl: Sized {
     fn Paths(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Devices::Geolocation::Geopath>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapPolygon2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapPolygon2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapPolygon2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolygon2Impl, const OFFSET: isize>() -> IMapPolygon2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolygon2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapPolygon2Vtbl {
         unsafe extern "system" fn Paths<Impl: IMapPolygon2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Paths() {
@@ -5269,7 +5534,10 @@ impl IMapPolygon2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapPolygon2>, ::windows::core::GetTrustLevel, Paths::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapPolygon2>, ::windows::core::GetTrustLevel, Paths::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapPolygon2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5284,7 +5552,7 @@ impl ::windows::core::RuntimeName for IMapPolygonStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapPolygonStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolygonStaticsImpl, const OFFSET: isize>() -> IMapPolygonStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolygonStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapPolygonStaticsVtbl {
         unsafe extern "system" fn PathProperty<Impl: IMapPolygonStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PathProperty() {
@@ -5318,10 +5586,13 @@ impl IMapPolygonStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapPolygonStatics>, ::windows::core::GetTrustLevel, PathProperty::<Impl, OFFSET>, StrokeThicknessProperty::<Impl, OFFSET>, StrokeDashedProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapPolygonStatics>, ::windows::core::GetTrustLevel, PathProperty::<Impl, IMPL_OFFSET>, StrokeThicknessProperty::<Impl, IMPL_OFFSET>, StrokeDashedProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapPolygonStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapPolylineImpl: Sized {
     fn Path(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopath>;
     fn SetPath(&self, value: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopath>) -> ::windows::core::Result<()>;
@@ -5332,13 +5603,13 @@ pub trait IMapPolylineImpl: Sized {
     fn StrokeDashed(&self) -> ::windows::core::Result<bool>;
     fn SetStrokeDashed(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapPolyline {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapPolyline";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapPolylineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolylineImpl, const OFFSET: isize>() -> IMapPolylineVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolylineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapPolylineVtbl {
         unsafe extern "system" fn Path<Impl: IMapPolylineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
@@ -5400,21 +5671,24 @@ impl IMapPolylineVtbl {
             (*this).SetStrokeDashed(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapPolyline>,
             ::windows::core::GetTrustLevel,
-            Path::<Impl, OFFSET>,
-            SetPath::<Impl, OFFSET>,
-            StrokeColor::<Impl, OFFSET>,
-            SetStrokeColor::<Impl, OFFSET>,
-            StrokeThickness::<Impl, OFFSET>,
-            SetStrokeThickness::<Impl, OFFSET>,
-            StrokeDashed::<Impl, OFFSET>,
-            SetStrokeDashed::<Impl, OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            SetPath::<Impl, IMPL_OFFSET>,
+            StrokeColor::<Impl, IMPL_OFFSET>,
+            SetStrokeColor::<Impl, IMPL_OFFSET>,
+            StrokeThickness::<Impl, IMPL_OFFSET>,
+            SetStrokeThickness::<Impl, IMPL_OFFSET>,
+            StrokeDashed::<Impl, IMPL_OFFSET>,
+            SetStrokeDashed::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapPolyline as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5428,7 +5702,7 @@ impl ::windows::core::RuntimeName for IMapPolylineStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapPolylineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolylineStaticsImpl, const OFFSET: isize>() -> IMapPolylineStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapPolylineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapPolylineStaticsVtbl {
         unsafe extern "system" fn PathProperty<Impl: IMapPolylineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PathProperty() {
@@ -5451,21 +5725,24 @@ impl IMapPolylineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapPolylineStatics>, ::windows::core::GetTrustLevel, PathProperty::<Impl, OFFSET>, StrokeDashedProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapPolylineStatics>, ::windows::core::GetTrustLevel, PathProperty::<Impl, IMPL_OFFSET>, StrokeDashedProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapPolylineStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapRightTappedEventArgsImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapRightTappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapRightTappedEventArgsImpl, const OFFSET: isize>() -> IMapRightTappedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapRightTappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapRightTappedEventArgsVtbl {
         unsafe extern "system" fn Position<Impl: IMapRightTappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -5488,10 +5765,13 @@ impl IMapRightTappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRightTappedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, Location::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRightTappedEventArgs>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, Location::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapRightTappedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Services_Maps", feature = "implement_exclusive"))]
 pub trait IMapRouteViewImpl: Sized {
     fn RouteColor(&self) -> ::windows::core::Result<super::super::super::Color>;
     fn SetRouteColor(&self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
@@ -5499,13 +5779,13 @@ pub trait IMapRouteViewImpl: Sized {
     fn SetOutlineColor(&self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
     fn Route(&self) -> ::windows::core::Result<super::super::super::super::Services::Maps::MapRoute>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Services_Maps", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapRouteView {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapRouteView";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Services_Maps", feature = "implement_exclusive"))]
 impl IMapRouteViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapRouteViewImpl, const OFFSET: isize>() -> IMapRouteViewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapRouteViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapRouteViewVtbl {
         unsafe extern "system" fn RouteColor<Impl: IMapRouteViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RouteColor() {
@@ -5547,20 +5827,23 @@ impl IMapRouteViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteView>, ::windows::core::GetTrustLevel, RouteColor::<Impl, OFFSET>, SetRouteColor::<Impl, OFFSET>, OutlineColor::<Impl, OFFSET>, SetOutlineColor::<Impl, OFFSET>, Route::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteView>, ::windows::core::GetTrustLevel, RouteColor::<Impl, IMPL_OFFSET>, SetRouteColor::<Impl, IMPL_OFFSET>, OutlineColor::<Impl, IMPL_OFFSET>, SetOutlineColor::<Impl, IMPL_OFFSET>, Route::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapRouteView as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Services_Maps", feature = "implement_exclusive"))]
 pub trait IMapRouteViewFactoryImpl: Sized {
     fn CreateInstanceWithMapRoute(&self, route: &::core::option::Option<super::super::super::super::Services::Maps::MapRoute>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapRouteView>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Services_Maps", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapRouteViewFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapRouteViewFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Services_Maps", feature = "implement_exclusive"))]
 impl IMapRouteViewFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapRouteViewFactoryImpl, const OFFSET: isize>() -> IMapRouteViewFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapRouteViewFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapRouteViewFactoryVtbl {
         unsafe extern "system" fn CreateInstanceWithMapRoute<Impl: IMapRouteViewFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, route: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceWithMapRoute(&*(&route as *const <super::super::super::super::Services::Maps::MapRoute as ::windows::core::Abi>::Abi as *const <super::super::super::super::Services::Maps::MapRoute as ::windows::core::DefaultType>::DefaultType), &*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -5572,22 +5855,25 @@ impl IMapRouteViewFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteViewFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithMapRoute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapRouteViewFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithMapRoute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapRouteViewFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapSceneImpl: Sized {
     fn TargetCamera(&self) -> ::windows::core::Result<MapCamera>;
     fn TargetCameraChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<MapScene, MapTargetCameraChangedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveTargetCameraChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapScene {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapScene";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapSceneVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapSceneImpl, const OFFSET: isize>() -> IMapSceneVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapSceneImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapSceneVtbl {
         unsafe extern "system" fn TargetCamera<Impl: IMapSceneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetCamera() {
@@ -5614,10 +5900,13 @@ impl IMapSceneVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTargetCameraChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapScene>, ::windows::core::GetTrustLevel, TargetCamera::<Impl, OFFSET>, TargetCameraChanged::<Impl, OFFSET>, RemoveTargetCameraChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapScene>, ::windows::core::GetTrustLevel, TargetCamera::<Impl, IMPL_OFFSET>, TargetCameraChanged::<Impl, IMPL_OFFSET>, RemoveTargetCameraChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapScene as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapSceneStaticsImpl: Sized {
     fn CreateFromBoundingBox(&self, bounds: &::core::option::Option<super::super::super::super::Devices::Geolocation::GeoboundingBox>) -> ::windows::core::Result<MapScene>;
     fn CreateFromBoundingBoxWithHeadingAndPitch(&self, bounds: &::core::option::Option<super::super::super::super::Devices::Geolocation::GeoboundingBox>, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapScene>;
@@ -5629,13 +5918,13 @@ pub trait IMapSceneStaticsImpl: Sized {
     fn CreateFromLocations(&self, locations: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>>) -> ::windows::core::Result<MapScene>;
     fn CreateFromLocationsWithHeadingAndPitch(&self, locations: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>>, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapScene>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapSceneStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapSceneStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapSceneStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapSceneStaticsImpl, const OFFSET: isize>() -> IMapSceneStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapSceneStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapSceneStaticsVtbl {
         unsafe extern "system" fn CreateFromBoundingBox<Impl: IMapSceneStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bounds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromBoundingBox(&*(&bounds as *const <super::super::super::super::Devices::Geolocation::GeoboundingBox as ::windows::core::Abi>::Abi as *const <super::super::super::super::Devices::Geolocation::GeoboundingBox as ::windows::core::DefaultType>::DefaultType)) {
@@ -5736,22 +6025,25 @@ impl IMapSceneStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapSceneStatics>,
             ::windows::core::GetTrustLevel,
-            CreateFromBoundingBox::<Impl, OFFSET>,
-            CreateFromBoundingBoxWithHeadingAndPitch::<Impl, OFFSET>,
-            CreateFromCamera::<Impl, OFFSET>,
-            CreateFromLocation::<Impl, OFFSET>,
-            CreateFromLocationWithHeadingAndPitch::<Impl, OFFSET>,
-            CreateFromLocationAndRadius::<Impl, OFFSET>,
-            CreateFromLocationAndRadiusWithHeadingAndPitch::<Impl, OFFSET>,
-            CreateFromLocations::<Impl, OFFSET>,
-            CreateFromLocationsWithHeadingAndPitch::<Impl, OFFSET>,
+            CreateFromBoundingBox::<Impl, IMPL_OFFSET>,
+            CreateFromBoundingBoxWithHeadingAndPitch::<Impl, IMPL_OFFSET>,
+            CreateFromCamera::<Impl, IMPL_OFFSET>,
+            CreateFromLocation::<Impl, IMPL_OFFSET>,
+            CreateFromLocationWithHeadingAndPitch::<Impl, IMPL_OFFSET>,
+            CreateFromLocationAndRadius::<Impl, IMPL_OFFSET>,
+            CreateFromLocationAndRadiusWithHeadingAndPitch::<Impl, IMPL_OFFSET>,
+            CreateFromLocations::<Impl, IMPL_OFFSET>,
+            CreateFromLocationsWithHeadingAndPitch::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapSceneStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5762,8 +6054,11 @@ impl ::windows::core::RuntimeName for IMapStyleSheet {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapStyleSheetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetImpl, const OFFSET: isize>() -> IMapStyleSheetVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapStyleSheet>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapStyleSheetVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapStyleSheet>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapStyleSheet as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5839,7 +6134,7 @@ impl ::windows::core::RuntimeName for IMapStyleSheetEntriesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapStyleSheetEntriesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetEntriesStaticsImpl, const OFFSET: isize>() -> IMapStyleSheetEntriesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetEntriesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapStyleSheetEntriesStaticsVtbl {
         unsafe extern "system" fn Area<Impl: IMapStyleSheetEntriesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Area() {
@@ -6545,77 +6840,80 @@ impl IMapStyleSheetEntriesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapStyleSheetEntriesStatics>,
             ::windows::core::GetTrustLevel,
-            Area::<Impl, OFFSET>,
-            Airport::<Impl, OFFSET>,
-            Cemetery::<Impl, OFFSET>,
-            Continent::<Impl, OFFSET>,
-            Education::<Impl, OFFSET>,
-            IndigenousPeoplesReserve::<Impl, OFFSET>,
-            Island::<Impl, OFFSET>,
-            Medical::<Impl, OFFSET>,
-            Military::<Impl, OFFSET>,
-            Nautical::<Impl, OFFSET>,
-            Neighborhood::<Impl, OFFSET>,
-            Runway::<Impl, OFFSET>,
-            Sand::<Impl, OFFSET>,
-            ShoppingCenter::<Impl, OFFSET>,
-            Stadium::<Impl, OFFSET>,
-            Vegetation::<Impl, OFFSET>,
-            Forest::<Impl, OFFSET>,
-            GolfCourse::<Impl, OFFSET>,
-            Park::<Impl, OFFSET>,
-            PlayingField::<Impl, OFFSET>,
-            Reserve::<Impl, OFFSET>,
-            Point::<Impl, OFFSET>,
-            NaturalPoint::<Impl, OFFSET>,
-            Peak::<Impl, OFFSET>,
-            VolcanicPeak::<Impl, OFFSET>,
-            WaterPoint::<Impl, OFFSET>,
-            PointOfInterest::<Impl, OFFSET>,
-            Business::<Impl, OFFSET>,
-            FoodPoint::<Impl, OFFSET>,
-            PopulatedPlace::<Impl, OFFSET>,
-            Capital::<Impl, OFFSET>,
-            AdminDistrictCapital::<Impl, OFFSET>,
-            CountryRegionCapital::<Impl, OFFSET>,
-            RoadShield::<Impl, OFFSET>,
-            RoadExit::<Impl, OFFSET>,
-            Transit::<Impl, OFFSET>,
-            Political::<Impl, OFFSET>,
-            CountryRegion::<Impl, OFFSET>,
-            AdminDistrict::<Impl, OFFSET>,
-            District::<Impl, OFFSET>,
-            Structure::<Impl, OFFSET>,
-            Building::<Impl, OFFSET>,
-            EducationBuilding::<Impl, OFFSET>,
-            MedicalBuilding::<Impl, OFFSET>,
-            TransitBuilding::<Impl, OFFSET>,
-            Transportation::<Impl, OFFSET>,
-            Road::<Impl, OFFSET>,
-            ControlledAccessHighway::<Impl, OFFSET>,
-            HighSpeedRamp::<Impl, OFFSET>,
-            Highway::<Impl, OFFSET>,
-            MajorRoad::<Impl, OFFSET>,
-            ArterialRoad::<Impl, OFFSET>,
-            Street::<Impl, OFFSET>,
-            Ramp::<Impl, OFFSET>,
-            UnpavedStreet::<Impl, OFFSET>,
-            TollRoad::<Impl, OFFSET>,
-            Railway::<Impl, OFFSET>,
-            Trail::<Impl, OFFSET>,
-            WaterRoute::<Impl, OFFSET>,
-            Water::<Impl, OFFSET>,
-            River::<Impl, OFFSET>,
-            RouteLine::<Impl, OFFSET>,
-            WalkingRoute::<Impl, OFFSET>,
-            DrivingRoute::<Impl, OFFSET>,
+            Area::<Impl, IMPL_OFFSET>,
+            Airport::<Impl, IMPL_OFFSET>,
+            Cemetery::<Impl, IMPL_OFFSET>,
+            Continent::<Impl, IMPL_OFFSET>,
+            Education::<Impl, IMPL_OFFSET>,
+            IndigenousPeoplesReserve::<Impl, IMPL_OFFSET>,
+            Island::<Impl, IMPL_OFFSET>,
+            Medical::<Impl, IMPL_OFFSET>,
+            Military::<Impl, IMPL_OFFSET>,
+            Nautical::<Impl, IMPL_OFFSET>,
+            Neighborhood::<Impl, IMPL_OFFSET>,
+            Runway::<Impl, IMPL_OFFSET>,
+            Sand::<Impl, IMPL_OFFSET>,
+            ShoppingCenter::<Impl, IMPL_OFFSET>,
+            Stadium::<Impl, IMPL_OFFSET>,
+            Vegetation::<Impl, IMPL_OFFSET>,
+            Forest::<Impl, IMPL_OFFSET>,
+            GolfCourse::<Impl, IMPL_OFFSET>,
+            Park::<Impl, IMPL_OFFSET>,
+            PlayingField::<Impl, IMPL_OFFSET>,
+            Reserve::<Impl, IMPL_OFFSET>,
+            Point::<Impl, IMPL_OFFSET>,
+            NaturalPoint::<Impl, IMPL_OFFSET>,
+            Peak::<Impl, IMPL_OFFSET>,
+            VolcanicPeak::<Impl, IMPL_OFFSET>,
+            WaterPoint::<Impl, IMPL_OFFSET>,
+            PointOfInterest::<Impl, IMPL_OFFSET>,
+            Business::<Impl, IMPL_OFFSET>,
+            FoodPoint::<Impl, IMPL_OFFSET>,
+            PopulatedPlace::<Impl, IMPL_OFFSET>,
+            Capital::<Impl, IMPL_OFFSET>,
+            AdminDistrictCapital::<Impl, IMPL_OFFSET>,
+            CountryRegionCapital::<Impl, IMPL_OFFSET>,
+            RoadShield::<Impl, IMPL_OFFSET>,
+            RoadExit::<Impl, IMPL_OFFSET>,
+            Transit::<Impl, IMPL_OFFSET>,
+            Political::<Impl, IMPL_OFFSET>,
+            CountryRegion::<Impl, IMPL_OFFSET>,
+            AdminDistrict::<Impl, IMPL_OFFSET>,
+            District::<Impl, IMPL_OFFSET>,
+            Structure::<Impl, IMPL_OFFSET>,
+            Building::<Impl, IMPL_OFFSET>,
+            EducationBuilding::<Impl, IMPL_OFFSET>,
+            MedicalBuilding::<Impl, IMPL_OFFSET>,
+            TransitBuilding::<Impl, IMPL_OFFSET>,
+            Transportation::<Impl, IMPL_OFFSET>,
+            Road::<Impl, IMPL_OFFSET>,
+            ControlledAccessHighway::<Impl, IMPL_OFFSET>,
+            HighSpeedRamp::<Impl, IMPL_OFFSET>,
+            Highway::<Impl, IMPL_OFFSET>,
+            MajorRoad::<Impl, IMPL_OFFSET>,
+            ArterialRoad::<Impl, IMPL_OFFSET>,
+            Street::<Impl, IMPL_OFFSET>,
+            Ramp::<Impl, IMPL_OFFSET>,
+            UnpavedStreet::<Impl, IMPL_OFFSET>,
+            TollRoad::<Impl, IMPL_OFFSET>,
+            Railway::<Impl, IMPL_OFFSET>,
+            Trail::<Impl, IMPL_OFFSET>,
+            WaterRoute::<Impl, IMPL_OFFSET>,
+            Water::<Impl, IMPL_OFFSET>,
+            River::<Impl, IMPL_OFFSET>,
+            RouteLine::<Impl, IMPL_OFFSET>,
+            WalkingRoute::<Impl, IMPL_OFFSET>,
+            DrivingRoute::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapStyleSheetEntriesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6630,7 +6928,7 @@ impl ::windows::core::RuntimeName for IMapStyleSheetEntryStatesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapStyleSheetEntryStatesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetEntryStatesStaticsImpl, const OFFSET: isize>() -> IMapStyleSheetEntryStatesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetEntryStatesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapStyleSheetEntryStatesStaticsVtbl {
         unsafe extern "system" fn Disabled<Impl: IMapStyleSheetEntryStatesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Disabled() {
@@ -6664,10 +6962,13 @@ impl IMapStyleSheetEntryStatesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapStyleSheetEntryStatesStatics>, ::windows::core::GetTrustLevel, Disabled::<Impl, OFFSET>, Hover::<Impl, OFFSET>, Selected::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapStyleSheetEntryStatesStatics>, ::windows::core::GetTrustLevel, Disabled::<Impl, IMPL_OFFSET>, Hover::<Impl, IMPL_OFFSET>, Selected::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapStyleSheetEntryStatesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMapStyleSheetStaticsImpl: Sized {
     fn Aerial(&self) -> ::windows::core::Result<MapStyleSheet>;
     fn AerialWithOverlay(&self) -> ::windows::core::Result<MapStyleSheet>;
@@ -6679,13 +6980,13 @@ pub trait IMapStyleSheetStaticsImpl: Sized {
     fn ParseFromJson(&self, styleasjson: &::windows::core::HSTRING) -> ::windows::core::Result<MapStyleSheet>;
     fn TryParseFromJson(&self, styleasjson: &::windows::core::HSTRING, stylesheet: &mut ::core::option::Option<MapStyleSheet>) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapStyleSheetStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapStyleSheetStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMapStyleSheetStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetStaticsImpl, const OFFSET: isize>() -> IMapStyleSheetStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapStyleSheetStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapStyleSheetStaticsVtbl {
         unsafe extern "system" fn Aerial<Impl: IMapStyleSheetStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Aerial() {
@@ -6786,22 +7087,25 @@ impl IMapStyleSheetStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapStyleSheetStatics>,
             ::windows::core::GetTrustLevel,
-            Aerial::<Impl, OFFSET>,
-            AerialWithOverlay::<Impl, OFFSET>,
-            RoadLight::<Impl, OFFSET>,
-            RoadDark::<Impl, OFFSET>,
-            RoadHighContrastLight::<Impl, OFFSET>,
-            RoadHighContrastDark::<Impl, OFFSET>,
-            Combine::<Impl, OFFSET>,
-            ParseFromJson::<Impl, OFFSET>,
-            TryParseFromJson::<Impl, OFFSET>,
+            Aerial::<Impl, IMPL_OFFSET>,
+            AerialWithOverlay::<Impl, IMPL_OFFSET>,
+            RoadLight::<Impl, IMPL_OFFSET>,
+            RoadDark::<Impl, IMPL_OFFSET>,
+            RoadHighContrastLight::<Impl, IMPL_OFFSET>,
+            RoadHighContrastDark::<Impl, IMPL_OFFSET>,
+            Combine::<Impl, IMPL_OFFSET>,
+            ParseFromJson::<Impl, IMPL_OFFSET>,
+            TryParseFromJson::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapStyleSheetStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6814,7 +7118,7 @@ impl ::windows::core::RuntimeName for IMapTargetCameraChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTargetCameraChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTargetCameraChangedEventArgsImpl, const OFFSET: isize>() -> IMapTargetCameraChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTargetCameraChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTargetCameraChangedEventArgsVtbl {
         unsafe extern "system" fn Camera<Impl: IMapTargetCameraChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
@@ -6826,7 +7130,10 @@ impl IMapTargetCameraChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTargetCameraChangedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTargetCameraChangedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTargetCameraChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6839,7 +7146,7 @@ impl ::windows::core::RuntimeName for IMapTargetCameraChangedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTargetCameraChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTargetCameraChangedEventArgs2Impl, const OFFSET: isize>() -> IMapTargetCameraChangedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTargetCameraChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTargetCameraChangedEventArgs2Vtbl {
         unsafe extern "system" fn ChangeReason<Impl: IMapTargetCameraChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MapCameraChangeReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeReason() {
@@ -6851,22 +7158,25 @@ impl IMapTargetCameraChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTargetCameraChangedEventArgs2>, ::windows::core::GetTrustLevel, ChangeReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTargetCameraChangedEventArgs2>, ::windows::core::GetTrustLevel, ChangeReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTargetCameraChangedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMapTileBitmapRequestImpl: Sized {
     fn PixelData(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetPixelData(&self, value: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<MapTileBitmapRequestDeferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapTileBitmapRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMapTileBitmapRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestImpl, const OFFSET: isize>() -> IMapTileBitmapRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileBitmapRequestVtbl {
         unsafe extern "system" fn PixelData<Impl: IMapTileBitmapRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelData() {
@@ -6893,7 +7203,10 @@ impl IMapTileBitmapRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequest>, ::windows::core::GetTrustLevel, PixelData::<Impl, OFFSET>, SetPixelData::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequest>, ::windows::core::GetTrustLevel, PixelData::<Impl, IMPL_OFFSET>, SetPixelData::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileBitmapRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6906,12 +7219,15 @@ impl ::windows::core::RuntimeName for IMapTileBitmapRequestDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileBitmapRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestDeferralImpl, const OFFSET: isize>() -> IMapTileBitmapRequestDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileBitmapRequestDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IMapTileBitmapRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileBitmapRequestDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6927,7 +7243,7 @@ impl ::windows::core::RuntimeName for IMapTileBitmapRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileBitmapRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestedEventArgsImpl, const OFFSET: isize>() -> IMapTileBitmapRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileBitmapRequestedEventArgsVtbl {
         unsafe extern "system" fn X<Impl: IMapTileBitmapRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X() {
@@ -6972,7 +7288,10 @@ impl IMapTileBitmapRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequestedEventArgs>, ::windows::core::GetTrustLevel, X::<Impl, OFFSET>, Y::<Impl, OFFSET>, ZoomLevel::<Impl, OFFSET>, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequestedEventArgs>, ::windows::core::GetTrustLevel, X::<Impl, IMPL_OFFSET>, Y::<Impl, IMPL_OFFSET>, ZoomLevel::<Impl, IMPL_OFFSET>, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileBitmapRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6985,7 +7304,7 @@ impl ::windows::core::RuntimeName for IMapTileBitmapRequestedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileBitmapRequestedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestedEventArgs2Impl, const OFFSET: isize>() -> IMapTileBitmapRequestedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileBitmapRequestedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileBitmapRequestedEventArgs2Vtbl {
         unsafe extern "system" fn FrameIndex<Impl: IMapTileBitmapRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameIndex() {
@@ -6997,7 +7316,10 @@ impl IMapTileBitmapRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequestedEventArgs2>, ::windows::core::GetTrustLevel, FrameIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileBitmapRequestedEventArgs2>, ::windows::core::GetTrustLevel, FrameIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileBitmapRequestedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7008,8 +7330,11 @@ impl ::windows::core::RuntimeName for IMapTileDataSource {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileDataSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileDataSourceImpl, const OFFSET: isize>() -> IMapTileDataSourceVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileDataSource>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileDataSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileDataSourceVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileDataSource>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileDataSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7022,7 +7347,7 @@ impl ::windows::core::RuntimeName for IMapTileDataSourceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileDataSourceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileDataSourceFactoryImpl, const OFFSET: isize>() -> IMapTileDataSourceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileDataSourceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileDataSourceFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapTileDataSourceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -7034,10 +7359,13 @@ impl IMapTileDataSourceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileDataSourceFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileDataSourceFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapTileSourceImpl: Sized {
     fn DataSource(&self) -> ::windows::core::Result<MapTileDataSource>;
     fn SetDataSource(&self, value: &::core::option::Option<MapTileDataSource>) -> ::windows::core::Result<()>;
@@ -7062,13 +7390,13 @@ pub trait IMapTileSourceImpl: Sized {
     fn Visible(&self) -> ::windows::core::Result<bool>;
     fn SetVisible(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapTileSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapTileSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapTileSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceImpl, const OFFSET: isize>() -> IMapTileSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileSourceVtbl {
         unsafe extern "system" fn DataSource<Impl: IMapTileSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataSource() {
@@ -7235,38 +7563,41 @@ impl IMapTileSourceVtbl {
             (*this).SetVisible(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapTileSource>,
             ::windows::core::GetTrustLevel,
-            DataSource::<Impl, OFFSET>,
-            SetDataSource::<Impl, OFFSET>,
-            Layer::<Impl, OFFSET>,
-            SetLayer::<Impl, OFFSET>,
-            ZoomLevelRange::<Impl, OFFSET>,
-            SetZoomLevelRange::<Impl, OFFSET>,
-            Bounds::<Impl, OFFSET>,
-            SetBounds::<Impl, OFFSET>,
-            AllowOverstretch::<Impl, OFFSET>,
-            SetAllowOverstretch::<Impl, OFFSET>,
-            IsFadingEnabled::<Impl, OFFSET>,
-            SetIsFadingEnabled::<Impl, OFFSET>,
-            IsTransparencyEnabled::<Impl, OFFSET>,
-            SetIsTransparencyEnabled::<Impl, OFFSET>,
-            IsRetryEnabled::<Impl, OFFSET>,
-            SetIsRetryEnabled::<Impl, OFFSET>,
-            ZIndex::<Impl, OFFSET>,
-            SetZIndex::<Impl, OFFSET>,
-            TilePixelSize::<Impl, OFFSET>,
-            SetTilePixelSize::<Impl, OFFSET>,
-            Visible::<Impl, OFFSET>,
-            SetVisible::<Impl, OFFSET>,
+            DataSource::<Impl, IMPL_OFFSET>,
+            SetDataSource::<Impl, IMPL_OFFSET>,
+            Layer::<Impl, IMPL_OFFSET>,
+            SetLayer::<Impl, IMPL_OFFSET>,
+            ZoomLevelRange::<Impl, IMPL_OFFSET>,
+            SetZoomLevelRange::<Impl, IMPL_OFFSET>,
+            Bounds::<Impl, IMPL_OFFSET>,
+            SetBounds::<Impl, IMPL_OFFSET>,
+            AllowOverstretch::<Impl, IMPL_OFFSET>,
+            SetAllowOverstretch::<Impl, IMPL_OFFSET>,
+            IsFadingEnabled::<Impl, IMPL_OFFSET>,
+            SetIsFadingEnabled::<Impl, IMPL_OFFSET>,
+            IsTransparencyEnabled::<Impl, IMPL_OFFSET>,
+            SetIsTransparencyEnabled::<Impl, IMPL_OFFSET>,
+            IsRetryEnabled::<Impl, IMPL_OFFSET>,
+            SetIsRetryEnabled::<Impl, IMPL_OFFSET>,
+            ZIndex::<Impl, IMPL_OFFSET>,
+            SetZIndex::<Impl, IMPL_OFFSET>,
+            TilePixelSize::<Impl, IMPL_OFFSET>,
+            SetTilePixelSize::<Impl, IMPL_OFFSET>,
+            Visible::<Impl, IMPL_OFFSET>,
+            SetVisible::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileSource as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapTileSource2Impl: Sized {
     fn AnimationState(&self) -> ::windows::core::Result<MapTileAnimationState>;
     fn AutoPlay(&self) -> ::windows::core::Result<bool>;
@@ -7279,13 +7610,13 @@ pub trait IMapTileSource2Impl: Sized {
     fn Play(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapTileSource2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapTileSource2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapTileSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSource2Impl, const OFFSET: isize>() -> IMapTileSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileSource2Vtbl {
         unsafe extern "system" fn AnimationState<Impl: IMapTileSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MapTileAnimationState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnimationState() {
@@ -7355,26 +7686,29 @@ impl IMapTileSource2Vtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapTileSource2>,
             ::windows::core::GetTrustLevel,
-            AnimationState::<Impl, OFFSET>,
-            AutoPlay::<Impl, OFFSET>,
-            SetAutoPlay::<Impl, OFFSET>,
-            FrameCount::<Impl, OFFSET>,
-            SetFrameCount::<Impl, OFFSET>,
-            FrameDuration::<Impl, OFFSET>,
-            SetFrameDuration::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            Play::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            AnimationState::<Impl, IMPL_OFFSET>,
+            AutoPlay::<Impl, IMPL_OFFSET>,
+            SetAutoPlay::<Impl, IMPL_OFFSET>,
+            FrameCount::<Impl, IMPL_OFFSET>,
+            SetFrameCount::<Impl, IMPL_OFFSET>,
+            FrameDuration::<Impl, IMPL_OFFSET>,
+            SetFrameDuration::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Play::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileSource2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IMapTileSourceFactoryImpl: Sized {
     fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource>;
     fn CreateInstanceWithDataSource(&self, datasource: &::core::option::Option<MapTileDataSource>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource>;
@@ -7382,13 +7716,13 @@ pub trait IMapTileSourceFactoryImpl: Sized {
     fn CreateInstanceWithDataSourceZoomRangeAndBounds(&self, datasource: &::core::option::Option<MapTileDataSource>, zoomlevelrange: &MapZoomLevelRange, bounds: &::core::option::Option<super::super::super::super::Devices::Geolocation::GeoboundingBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource>;
     fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize(&self, datasource: &::core::option::Option<MapTileDataSource>, zoomlevelrange: &MapZoomLevelRange, bounds: &::core::option::Option<super::super::super::super::Devices::Geolocation::GeoboundingBox>, tilesizeinpixels: i32, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapTileSourceFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapTileSourceFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IMapTileSourceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceFactoryImpl, const OFFSET: isize>() -> IMapTileSourceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileSourceFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IMapTileSourceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -7463,18 +7797,21 @@ impl IMapTileSourceFactoryVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapTileSourceFactory>,
             ::windows::core::GetTrustLevel,
-            CreateInstance::<Impl, OFFSET>,
-            CreateInstanceWithDataSource::<Impl, OFFSET>,
-            CreateInstanceWithDataSourceAndZoomRange::<Impl, OFFSET>,
-            CreateInstanceWithDataSourceZoomRangeAndBounds::<Impl, OFFSET>,
-            CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize::<Impl, OFFSET>,
+            CreateInstance::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithDataSource::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithDataSourceAndZoomRange::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithDataSourceZoomRangeAndBounds::<Impl, IMPL_OFFSET>,
+            CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileSourceFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7497,7 +7834,7 @@ impl ::windows::core::RuntimeName for IMapTileSourceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceStaticsImpl, const OFFSET: isize>() -> IMapTileSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileSourceStaticsVtbl {
         unsafe extern "system" fn DataSourceProperty<Impl: IMapTileSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataSourceProperty() {
@@ -7620,24 +7957,27 @@ impl IMapTileSourceStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMapTileSourceStatics>,
             ::windows::core::GetTrustLevel,
-            DataSourceProperty::<Impl, OFFSET>,
-            LayerProperty::<Impl, OFFSET>,
-            ZoomLevelRangeProperty::<Impl, OFFSET>,
-            BoundsProperty::<Impl, OFFSET>,
-            AllowOverstretchProperty::<Impl, OFFSET>,
-            IsFadingEnabledProperty::<Impl, OFFSET>,
-            IsTransparencyEnabledProperty::<Impl, OFFSET>,
-            IsRetryEnabledProperty::<Impl, OFFSET>,
-            ZIndexProperty::<Impl, OFFSET>,
-            TilePixelSizeProperty::<Impl, OFFSET>,
-            VisibleProperty::<Impl, OFFSET>,
+            DataSourceProperty::<Impl, IMPL_OFFSET>,
+            LayerProperty::<Impl, IMPL_OFFSET>,
+            ZoomLevelRangeProperty::<Impl, IMPL_OFFSET>,
+            BoundsProperty::<Impl, IMPL_OFFSET>,
+            AllowOverstretchProperty::<Impl, IMPL_OFFSET>,
+            IsFadingEnabledProperty::<Impl, IMPL_OFFSET>,
+            IsTransparencyEnabledProperty::<Impl, IMPL_OFFSET>,
+            IsRetryEnabledProperty::<Impl, IMPL_OFFSET>,
+            ZIndexProperty::<Impl, IMPL_OFFSET>,
+            TilePixelSizeProperty::<Impl, IMPL_OFFSET>,
+            VisibleProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileSourceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7653,7 +7993,7 @@ impl ::windows::core::RuntimeName for IMapTileSourceStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileSourceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceStatics2Impl, const OFFSET: isize>() -> IMapTileSourceStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileSourceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileSourceStatics2Vtbl {
         unsafe extern "system" fn AnimationStateProperty<Impl: IMapTileSourceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnimationStateProperty() {
@@ -7698,22 +8038,25 @@ impl IMapTileSourceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileSourceStatics2>, ::windows::core::GetTrustLevel, AnimationStateProperty::<Impl, OFFSET>, AutoPlayProperty::<Impl, OFFSET>, FrameCountProperty::<Impl, OFFSET>, FrameDurationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileSourceStatics2>, ::windows::core::GetTrustLevel, AnimationStateProperty::<Impl, IMPL_OFFSET>, AutoPlayProperty::<Impl, IMPL_OFFSET>, FrameCountProperty::<Impl, IMPL_OFFSET>, FrameDurationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileSourceStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMapTileUriRequestImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
     fn SetUri(&self, value: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<MapTileUriRequestDeferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapTileUriRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMapTileUriRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestImpl, const OFFSET: isize>() -> IMapTileUriRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileUriRequestVtbl {
         unsafe extern "system" fn Uri<Impl: IMapTileUriRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -7740,7 +8083,10 @@ impl IMapTileUriRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequest>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, SetUri::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequest>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileUriRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7753,12 +8099,15 @@ impl ::windows::core::RuntimeName for IMapTileUriRequestDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileUriRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestDeferralImpl, const OFFSET: isize>() -> IMapTileUriRequestDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileUriRequestDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IMapTileUriRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileUriRequestDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7774,7 +8123,7 @@ impl ::windows::core::RuntimeName for IMapTileUriRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileUriRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestedEventArgsImpl, const OFFSET: isize>() -> IMapTileUriRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileUriRequestedEventArgsVtbl {
         unsafe extern "system" fn X<Impl: IMapTileUriRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X() {
@@ -7819,7 +8168,10 @@ impl IMapTileUriRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequestedEventArgs>, ::windows::core::GetTrustLevel, X::<Impl, OFFSET>, Y::<Impl, OFFSET>, ZoomLevel::<Impl, OFFSET>, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequestedEventArgs>, ::windows::core::GetTrustLevel, X::<Impl, IMPL_OFFSET>, Y::<Impl, IMPL_OFFSET>, ZoomLevel::<Impl, IMPL_OFFSET>, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileUriRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7832,7 +8184,7 @@ impl ::windows::core::RuntimeName for IMapTileUriRequestedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMapTileUriRequestedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestedEventArgs2Impl, const OFFSET: isize>() -> IMapTileUriRequestedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapTileUriRequestedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapTileUriRequestedEventArgs2Vtbl {
         unsafe extern "system" fn FrameIndex<Impl: IMapTileUriRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameIndex() {
@@ -7844,7 +8196,10 @@ impl IMapTileUriRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequestedEventArgs2>, ::windows::core::GetTrustLevel, FrameIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapTileUriRequestedEventArgs2>, ::windows::core::GetTrustLevel, FrameIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapTileUriRequestedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7868,7 +8223,7 @@ impl ::windows::core::RuntimeName for IStreetsideExperience {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreetsideExperienceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsideExperienceImpl, const OFFSET: isize>() -> IStreetsideExperienceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsideExperienceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreetsideExperienceVtbl {
         unsafe extern "system" fn AddressTextVisible<Impl: IStreetsideExperienceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddressTextVisible() {
@@ -7960,25 +8315,28 @@ impl IStreetsideExperienceVtbl {
             (*this).SetZoomButtonsVisible(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreetsideExperience>,
             ::windows::core::GetTrustLevel,
-            AddressTextVisible::<Impl, OFFSET>,
-            SetAddressTextVisible::<Impl, OFFSET>,
-            CursorVisible::<Impl, OFFSET>,
-            SetCursorVisible::<Impl, OFFSET>,
-            OverviewMapVisible::<Impl, OFFSET>,
-            SetOverviewMapVisible::<Impl, OFFSET>,
-            StreetLabelsVisible::<Impl, OFFSET>,
-            SetStreetLabelsVisible::<Impl, OFFSET>,
-            ExitButtonVisible::<Impl, OFFSET>,
-            SetExitButtonVisible::<Impl, OFFSET>,
-            ZoomButtonsVisible::<Impl, OFFSET>,
-            SetZoomButtonsVisible::<Impl, OFFSET>,
+            AddressTextVisible::<Impl, IMPL_OFFSET>,
+            SetAddressTextVisible::<Impl, IMPL_OFFSET>,
+            CursorVisible::<Impl, IMPL_OFFSET>,
+            SetCursorVisible::<Impl, IMPL_OFFSET>,
+            OverviewMapVisible::<Impl, IMPL_OFFSET>,
+            SetOverviewMapVisible::<Impl, IMPL_OFFSET>,
+            StreetLabelsVisible::<Impl, IMPL_OFFSET>,
+            SetStreetLabelsVisible::<Impl, IMPL_OFFSET>,
+            ExitButtonVisible::<Impl, IMPL_OFFSET>,
+            SetExitButtonVisible::<Impl, IMPL_OFFSET>,
+            ZoomButtonsVisible::<Impl, IMPL_OFFSET>,
+            SetZoomButtonsVisible::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreetsideExperience as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7992,7 +8350,7 @@ impl ::windows::core::RuntimeName for IStreetsideExperienceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreetsideExperienceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsideExperienceFactoryImpl, const OFFSET: isize>() -> IStreetsideExperienceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsideExperienceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreetsideExperienceFactoryVtbl {
         unsafe extern "system" fn CreateInstanceWithPanorama<Impl: IStreetsideExperienceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, panorama: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceWithPanorama(&*(&panorama as *const <StreetsidePanorama as ::windows::core::Abi>::Abi as *const <StreetsidePanorama as ::windows::core::DefaultType>::DefaultType)) {
@@ -8015,20 +8373,23 @@ impl IStreetsideExperienceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreetsideExperienceFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithPanorama::<Impl, OFFSET>, CreateInstanceWithPanoramaHeadingPitchAndFieldOfView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreetsideExperienceFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithPanorama::<Impl, IMPL_OFFSET>, CreateInstanceWithPanoramaHeadingPitchAndFieldOfView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreetsideExperienceFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IStreetsidePanoramaImpl: Sized {
     fn Location(&self) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreetsidePanorama {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IStreetsidePanorama";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IStreetsidePanoramaVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsidePanoramaImpl, const OFFSET: isize>() -> IStreetsidePanoramaVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsidePanoramaImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreetsidePanoramaVtbl {
         unsafe extern "system" fn Location<Impl: IStreetsidePanoramaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
@@ -8040,21 +8401,24 @@ impl IStreetsidePanoramaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreetsidePanorama>, ::windows::core::GetTrustLevel, Location::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreetsidePanorama>, ::windows::core::GetTrustLevel, Location::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreetsidePanorama as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStreetsidePanoramaStaticsImpl: Sized {
     fn FindNearbyWithLocationAsync(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>>;
     fn FindNearbyWithLocationAndRadiusAsync(&self, location: &::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>, radiusinmeters: f64) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreetsidePanoramaStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.IStreetsidePanoramaStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IStreetsidePanoramaStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsidePanoramaStaticsImpl, const OFFSET: isize>() -> IStreetsidePanoramaStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreetsidePanoramaStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreetsidePanoramaStaticsVtbl {
         unsafe extern "system" fn FindNearbyWithLocationAsync<Impl: IStreetsidePanoramaStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNearbyWithLocationAsync(&*(&location as *const <super::super::super::super::Devices::Geolocation::Geopoint as ::windows::core::Abi>::Abi as *const <super::super::super::super::Devices::Geolocation::Geopoint as ::windows::core::DefaultType>::DefaultType)) {
@@ -8077,6 +8441,9 @@ impl IStreetsidePanoramaStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreetsidePanoramaStatics>, ::windows::core::GetTrustLevel, FindNearbyWithLocationAsync::<Impl, OFFSET>, FindNearbyWithLocationAndRadiusAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreetsidePanoramaStatics>, ::windows::core::GetTrustLevel, FindNearbyWithLocationAsync::<Impl, IMPL_OFFSET>, FindNearbyWithLocationAndRadiusAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreetsidePanoramaStatics as ::windows::core::Interface>::IID
     }
 }

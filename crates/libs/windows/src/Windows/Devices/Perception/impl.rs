@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IKnownCameraIntrinsicsPropertiesStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownCameraIntrinsicsPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownCameraIntrinsicsPropertiesStaticsImpl, const OFFSET: isize>() -> IKnownCameraIntrinsicsPropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownCameraIntrinsicsPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownCameraIntrinsicsPropertiesStaticsVtbl {
         unsafe extern "system" fn FocalLength<Impl: IKnownCameraIntrinsicsPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FocalLength() {
@@ -56,7 +56,10 @@ impl IKnownCameraIntrinsicsPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownCameraIntrinsicsPropertiesStatics>, ::windows::core::GetTrustLevel, FocalLength::<Impl, OFFSET>, PrincipalPoint::<Impl, OFFSET>, RadialDistortion::<Impl, OFFSET>, TangentialDistortion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownCameraIntrinsicsPropertiesStatics>, ::windows::core::GetTrustLevel, FocalLength::<Impl, IMPL_OFFSET>, PrincipalPoint::<Impl, IMPL_OFFSET>, RadialDistortion::<Impl, IMPL_OFFSET>, TangentialDistortion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownCameraIntrinsicsPropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -71,7 +74,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionColorFrameSourceProperties
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionColorFrameSourcePropertiesStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionColorFrameSourcePropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
         unsafe extern "system" fn Exposure<Impl: IKnownPerceptionColorFrameSourcePropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exposure() {
@@ -105,7 +108,10 @@ impl IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionColorFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, Exposure::<Impl, OFFSET>, AutoExposureEnabled::<Impl, OFFSET>, ExposureCompensation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionColorFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, Exposure::<Impl, IMPL_OFFSET>, AutoExposureEnabled::<Impl, IMPL_OFFSET>, ExposureCompensation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionColorFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -119,7 +125,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionDepthFrameSourceProperties
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionDepthFrameSourcePropertiesStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionDepthFrameSourcePropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
         unsafe extern "system" fn MinDepth<Impl: IKnownPerceptionDepthFrameSourcePropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinDepth() {
@@ -142,7 +148,10 @@ impl IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionDepthFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, MinDepth::<Impl, OFFSET>, MaxDepth::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionDepthFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, MinDepth::<Impl, IMPL_OFFSET>, MaxDepth::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionDepthFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -159,7 +168,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionFrameSourcePropertiesStati
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameSourcePropertiesStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameSourcePropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
         unsafe extern "system" fn Id<Impl: IKnownPerceptionFrameSourcePropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -215,7 +224,10 @@ impl IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, PhysicalDeviceIds::<Impl, OFFSET>, FrameKind::<Impl, OFFSET>, DeviceModelVersion::<Impl, OFFSET>, EnclosureLocation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, PhysicalDeviceIds::<Impl, IMPL_OFFSET>, FrameKind::<Impl, IMPL_OFFSET>, DeviceModelVersion::<Impl, IMPL_OFFSET>, EnclosureLocation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -228,7 +240,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionFrameSourcePropertiesStati
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameSourcePropertiesStatics2Impl, const OFFSET: isize>() -> IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameSourcePropertiesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
         unsafe extern "system" fn DeviceId<Impl: IKnownPerceptionFrameSourcePropertiesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -240,7 +252,10 @@ impl IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameSourcePropertiesStatics2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameSourcePropertiesStatics2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionFrameSourcePropertiesStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -259,7 +274,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionInfraredFrameSourcePropert
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionInfraredFrameSourcePropertiesStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionInfraredFrameSourcePropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
         unsafe extern "system" fn Exposure<Impl: IKnownPerceptionInfraredFrameSourcePropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exposure() {
@@ -338,20 +353,23 @@ impl IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IKnownPerceptionInfraredFrameSourcePropertiesStatics>,
             ::windows::core::GetTrustLevel,
-            Exposure::<Impl, OFFSET>,
-            AutoExposureEnabled::<Impl, OFFSET>,
-            ExposureCompensation::<Impl, OFFSET>,
-            ActiveIlluminationEnabled::<Impl, OFFSET>,
-            AmbientSubtractionEnabled::<Impl, OFFSET>,
-            StructureLightPatternEnabled::<Impl, OFFSET>,
-            InterleavedIlluminationEnabled::<Impl, OFFSET>,
+            Exposure::<Impl, IMPL_OFFSET>,
+            AutoExposureEnabled::<Impl, IMPL_OFFSET>,
+            ExposureCompensation::<Impl, IMPL_OFFSET>,
+            ActiveIlluminationEnabled::<Impl, IMPL_OFFSET>,
+            AmbientSubtractionEnabled::<Impl, IMPL_OFFSET>,
+            StructureLightPatternEnabled::<Impl, IMPL_OFFSET>,
+            InterleavedIlluminationEnabled::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionInfraredFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -368,7 +386,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionVideoFrameSourceProperties
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionVideoFrameSourcePropertiesStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionVideoFrameSourcePropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
         unsafe extern "system" fn VideoProfile<Impl: IKnownPerceptionVideoFrameSourcePropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoProfile() {
@@ -424,7 +442,22 @@ impl IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionVideoFrameSourcePropertiesStatics>, ::windows::core::GetTrustLevel, VideoProfile::<Impl, OFFSET>, SupportedVideoProfiles::<Impl, OFFSET>, AvailableVideoProfiles::<Impl, OFFSET>, IsMirrored::<Impl, OFFSET>, CameraIntrinsics::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IKnownPerceptionVideoFrameSourcePropertiesStatics>,
+            ::windows::core::GetTrustLevel,
+            VideoProfile::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            IsMirrored::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionVideoFrameSourcePropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -441,7 +474,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionVideoProfilePropertiesStat
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionVideoProfilePropertiesStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionVideoProfilePropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
         unsafe extern "system" fn BitmapPixelFormat<Impl: IKnownPerceptionVideoProfilePropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapPixelFormat() {
@@ -497,20 +530,23 @@ impl IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionVideoProfilePropertiesStatics>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, OFFSET>, BitmapAlphaMode::<Impl, OFFSET>, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>, FrameDuration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionVideoProfilePropertiesStatics>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, IMPL_OFFSET>, BitmapAlphaMode::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, FrameDuration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionVideoProfilePropertiesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionColorFrameImpl: Sized + IClosableImpl {
     fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionColorFrame {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionColorFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameImpl, const OFFSET: isize>() -> IPerceptionColorFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameVtbl {
         unsafe extern "system" fn VideoFrame<Impl: IPerceptionColorFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoFrame() {
@@ -522,21 +558,24 @@ impl IPerceptionColorFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionColorFrameArrivedEventArgsImpl: Sized {
     fn RelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn TryOpenFrame(&self) -> ::windows::core::Result<PerceptionColorFrame>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionColorFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionColorFrameArrivedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameArrivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameArrivedEventArgsImpl, const OFFSET: isize>() -> IPerceptionColorFrameArrivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameArrivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameArrivedEventArgsVtbl {
         unsafe extern "system" fn RelativeTime<Impl: IPerceptionColorFrameArrivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTime() {
@@ -559,7 +598,10 @@ impl IPerceptionColorFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, OFFSET>, TryOpenFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, TryOpenFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameArrivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -577,7 +619,7 @@ impl ::windows::core::RuntimeName for IPerceptionColorFrameReader {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameReaderImpl, const OFFSET: isize>() -> IPerceptionColorFrameReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameReaderVtbl {
         unsafe extern "system" fn FrameArrived<Impl: IPerceptionColorFrameReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameArrived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionColorFrameReader, PerceptionColorFrameArrivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionColorFrameReader, PerceptionColorFrameArrivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -630,10 +672,26 @@ impl IPerceptionColorFrameReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameReader>, ::windows::core::GetTrustLevel, FrameArrived::<Impl, OFFSET>, RemoveFrameArrived::<Impl, OFFSET>, Source::<Impl, OFFSET>, IsPaused::<Impl, OFFSET>, SetIsPaused::<Impl, OFFSET>, TryReadLatestFrame::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameReader>,
+            ::windows::core::GetTrustLevel,
+            FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            IsPaused::<Impl, IMPL_OFFSET>,
+            SetIsPaused::<Impl, IMPL_OFFSET>,
+            TryReadLatestFrame::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionColorFrameSourceImpl: Sized {
     fn AvailableChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PerceptionColorFrameSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -665,13 +723,13 @@ pub trait IPerceptionColorFrameSourceImpl: Sized {
     fn TrySetVideoProfileAsync(&self, controlsession: &::core::option::Option<PerceptionControlSession>, profile: &::core::option::Option<PerceptionVideoProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>;
     fn OpenReader(&self) -> ::windows::core::Result<PerceptionColorFrameReader>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionColorFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionColorFrameSource";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceImpl, const OFFSET: isize>() -> IPerceptionColorFrameSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameSourceVtbl {
         unsafe extern "system" fn AvailableChanged<Impl: IPerceptionColorFrameSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionColorFrameSource, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionColorFrameSource, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -957,42 +1015,45 @@ impl IPerceptionColorFrameSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSource>,
             ::windows::core::GetTrustLevel,
-            AvailableChanged::<Impl, OFFSET>,
-            RemoveAvailableChanged::<Impl, OFFSET>,
-            ActiveChanged::<Impl, OFFSET>,
-            RemoveActiveChanged::<Impl, OFFSET>,
-            PropertiesChanged::<Impl, OFFSET>,
-            RemovePropertiesChanged::<Impl, OFFSET>,
-            VideoProfileChanged::<Impl, OFFSET>,
-            RemoveVideoProfileChanged::<Impl, OFFSET>,
-            CameraIntrinsicsChanged::<Impl, OFFSET>,
-            RemoveCameraIntrinsicsChanged::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            DeviceKind::<Impl, OFFSET>,
-            Available::<Impl, OFFSET>,
-            Active::<Impl, OFFSET>,
-            IsControlled::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            SupportedVideoProfiles::<Impl, OFFSET>,
-            AvailableVideoProfiles::<Impl, OFFSET>,
-            VideoProfile::<Impl, OFFSET>,
-            CameraIntrinsics::<Impl, OFFSET>,
-            AcquireControlSession::<Impl, OFFSET>,
-            CanControlIndependentlyFrom::<Impl, OFFSET>,
-            IsCorrelatedWith::<Impl, OFFSET>,
-            TryGetTransformTo::<Impl, OFFSET>,
-            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, OFFSET>,
-            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, OFFSET>,
-            TrySetVideoProfileAsync::<Impl, OFFSET>,
-            OpenReader::<Impl, OFFSET>,
+            AvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
+            ActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveActiveChanged::<Impl, IMPL_OFFSET>,
+            PropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
+            VideoProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
+            CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind::<Impl, IMPL_OFFSET>,
+            Available::<Impl, IMPL_OFFSET>,
+            Active::<Impl, IMPL_OFFSET>,
+            IsControlled::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            VideoProfile::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics::<Impl, IMPL_OFFSET>,
+            AcquireControlSession::<Impl, IMPL_OFFSET>,
+            CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
+            IsCorrelatedWith::<Impl, IMPL_OFFSET>,
+            TryGetTransformTo::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
+            TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
+            OpenReader::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1005,7 +1066,7 @@ impl ::windows::core::RuntimeName for IPerceptionColorFrameSource2 {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSource2Impl, const OFFSET: isize>() -> IPerceptionColorFrameSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameSource2Vtbl {
         unsafe extern "system" fn DeviceId<Impl: IPerceptionColorFrameSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -1017,7 +1078,10 @@ impl IPerceptionColorFrameSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameSource2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1030,7 +1094,7 @@ impl ::windows::core::RuntimeName for IPerceptionColorFrameSourceAddedEventArgs 
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameSourceAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceAddedEventArgsImpl, const OFFSET: isize>() -> IPerceptionColorFrameSourceAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameSourceAddedEventArgsVtbl {
         unsafe extern "system" fn FrameSource<Impl: IPerceptionColorFrameSourceAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSource() {
@@ -1042,7 +1106,10 @@ impl IPerceptionColorFrameSourceAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameSourceAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1055,7 +1122,7 @@ impl ::windows::core::RuntimeName for IPerceptionColorFrameSourceRemovedEventArg
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameSourceRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceRemovedEventArgsImpl, const OFFSET: isize>() -> IPerceptionColorFrameSourceRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameSourceRemovedEventArgsVtbl {
         unsafe extern "system" fn FrameSource<Impl: IPerceptionColorFrameSourceRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSource() {
@@ -1067,23 +1134,26 @@ impl IPerceptionColorFrameSourceRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionColorFrameSourceStaticsImpl: Sized {
     fn CreateWatcher(&self) -> ::windows::core::Result<PerceptionColorFrameSourceWatcher>;
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionColorFrameSource>>>;
     fn FromIdAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionColorFrameSource>>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionColorFrameSourceStatics {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionColorFrameSourceStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceStaticsImpl, const OFFSET: isize>() -> IPerceptionColorFrameSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameSourceStaticsVtbl {
         unsafe extern "system" fn CreateWatcher<Impl: IPerceptionColorFrameSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
@@ -1128,10 +1198,13 @@ impl IPerceptionColorFrameSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, OFFSET>, FindAllAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameSourceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionColorFrameSourceWatcherImpl: Sized {
     fn SourceAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PerceptionColorFrameSourceWatcher, PerceptionColorFrameSourceAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSourceAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1145,13 +1218,13 @@ pub trait IPerceptionColorFrameSourceWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionColorFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionColorFrameSourceWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceWatcherImpl, const OFFSET: isize>() -> IPerceptionColorFrameSourceWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionColorFrameSourceWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionColorFrameSourceWatcherVtbl {
         unsafe extern "system" fn SourceAdded<Impl: IPerceptionColorFrameSourceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionColorFrameSourceWatcher, PerceptionColorFrameSourceAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionColorFrameSourceWatcher, PerceptionColorFrameSourceAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1232,24 +1305,27 @@ impl IPerceptionColorFrameSourceWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionColorFrameSourceWatcher>,
             ::windows::core::GetTrustLevel,
-            SourceAdded::<Impl, OFFSET>,
-            RemoveSourceAdded::<Impl, OFFSET>,
-            SourceRemoved::<Impl, OFFSET>,
-            RemoveSourceRemoved::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            SourceAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceAdded::<Impl, IMPL_OFFSET>,
+            SourceRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionColorFrameSourceWatcher as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -1264,7 +1340,7 @@ impl ::windows::core::RuntimeName for IPerceptionControlSession {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionControlSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlSessionImpl, const OFFSET: isize>() -> IPerceptionControlSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionControlSessionVtbl {
         unsafe extern "system" fn ControlLost<Impl: IPerceptionControlSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlLost(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionControlSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionControlSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1291,23 +1367,26 @@ impl IPerceptionControlSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlSession>, ::windows::core::GetTrustLevel, ControlLost::<Impl, OFFSET>, RemoveControlLost::<Impl, OFFSET>, TrySetPropertyAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlSession>, ::windows::core::GetTrustLevel, ControlLost::<Impl, IMPL_OFFSET>, RemoveControlLost::<Impl, IMPL_OFFSET>, TrySetPropertyAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionControlSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthCorrelatedCameraIntrinsicsImpl: Sized {
     fn UnprojectPixelAtCorrelatedDepth(&self, pixelcoordinate: &super::super::Foundation::Point, depthframe: &::core::option::Option<PerceptionDepthFrame>) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn UnprojectPixelsAtCorrelatedDepth(&self, sourcecoordinates: &[<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType], depthframe: &::core::option::Option<PerceptionDepthFrame>, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn UnprojectRegionPixelsAtCorrelatedDepthAsync(&self, region: &super::super::Foundation::Rect, depthframe: &::core::option::Option<PerceptionDepthFrame>, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn UnprojectAllPixelsAtCorrelatedDepthAsync(&self, depthframe: &::core::option::Option<PerceptionDepthFrame>, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthCorrelatedCameraIntrinsics {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthCorrelatedCameraIntrinsics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthCorrelatedCameraIntrinsicsImpl, const OFFSET: isize>() -> IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthCorrelatedCameraIntrinsicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
         unsafe extern "system" fn UnprojectPixelAtCorrelatedDepth<Impl: IPerceptionDepthCorrelatedCameraIntrinsicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnprojectPixelAtCorrelatedDepth(&*(&pixelcoordinate as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), &*(&depthframe as *const <PerceptionDepthFrame as ::windows::core::Abi>::Abi as *const <PerceptionDepthFrame as ::windows::core::DefaultType>::DefaultType)) {
@@ -1346,33 +1425,36 @@ impl IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionDepthCorrelatedCameraIntrinsics>,
             ::windows::core::GetTrustLevel,
-            UnprojectPixelAtCorrelatedDepth::<Impl, OFFSET>,
-            UnprojectPixelsAtCorrelatedDepth::<Impl, OFFSET>,
-            UnprojectRegionPixelsAtCorrelatedDepthAsync::<Impl, OFFSET>,
-            UnprojectAllPixelsAtCorrelatedDepthAsync::<Impl, OFFSET>,
+            UnprojectPixelAtCorrelatedDepth::<Impl, IMPL_OFFSET>,
+            UnprojectPixelsAtCorrelatedDepth::<Impl, IMPL_OFFSET>,
+            UnprojectRegionPixelsAtCorrelatedDepthAsync::<Impl, IMPL_OFFSET>,
+            UnprojectAllPixelsAtCorrelatedDepthAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthCorrelatedCameraIntrinsics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthCorrelatedCoordinateMapperImpl: Sized {
     fn MapPixelToTarget(&self, sourcepixelcoordinate: &super::super::Foundation::Point, depthframe: &::core::option::Option<PerceptionDepthFrame>) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn MapPixelsToTarget(&self, sourcecoordinates: &[<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType], depthframe: &::core::option::Option<PerceptionDepthFrame>, results: &mut [<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn MapRegionOfPixelsToTargetAsync(&self, region: &super::super::Foundation::Rect, depthframe: &::core::option::Option<PerceptionDepthFrame>, targetcoordinates: &mut [<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn MapAllPixelsToTargetAsync(&self, depthframe: &::core::option::Option<PerceptionDepthFrame>, targetcoordinates: &mut [<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthCorrelatedCoordinateMapper";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthCorrelatedCoordinateMapperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthCorrelatedCoordinateMapperImpl, const OFFSET: isize>() -> IPerceptionDepthCorrelatedCoordinateMapperVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthCorrelatedCoordinateMapperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthCorrelatedCoordinateMapperVtbl {
         unsafe extern "system" fn MapPixelToTarget<Impl: IPerceptionDepthCorrelatedCoordinateMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcepixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapPixelToTarget(&*(&sourcepixelcoordinate as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), &*(&depthframe as *const <PerceptionDepthFrame as ::windows::core::Abi>::Abi as *const <PerceptionDepthFrame as ::windows::core::DefaultType>::DefaultType)) {
@@ -1410,20 +1492,23 @@ impl IPerceptionDepthCorrelatedCoordinateMapperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthCorrelatedCoordinateMapper>, ::windows::core::GetTrustLevel, MapPixelToTarget::<Impl, OFFSET>, MapPixelsToTarget::<Impl, OFFSET>, MapRegionOfPixelsToTargetAsync::<Impl, OFFSET>, MapAllPixelsToTargetAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthCorrelatedCoordinateMapper>, ::windows::core::GetTrustLevel, MapPixelToTarget::<Impl, IMPL_OFFSET>, MapPixelsToTarget::<Impl, IMPL_OFFSET>, MapRegionOfPixelsToTargetAsync::<Impl, IMPL_OFFSET>, MapAllPixelsToTargetAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthCorrelatedCoordinateMapper as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthFrameImpl: Sized + IClosableImpl {
     fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthFrame {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameImpl, const OFFSET: isize>() -> IPerceptionDepthFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameVtbl {
         unsafe extern "system" fn VideoFrame<Impl: IPerceptionDepthFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoFrame() {
@@ -1435,21 +1520,24 @@ impl IPerceptionDepthFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthFrameArrivedEventArgsImpl: Sized {
     fn RelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn TryOpenFrame(&self) -> ::windows::core::Result<PerceptionDepthFrame>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthFrameArrivedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameArrivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameArrivedEventArgsImpl, const OFFSET: isize>() -> IPerceptionDepthFrameArrivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameArrivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameArrivedEventArgsVtbl {
         unsafe extern "system" fn RelativeTime<Impl: IPerceptionDepthFrameArrivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTime() {
@@ -1472,7 +1560,10 @@ impl IPerceptionDepthFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, OFFSET>, TryOpenFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, TryOpenFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameArrivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -1490,7 +1581,7 @@ impl ::windows::core::RuntimeName for IPerceptionDepthFrameReader {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameReaderImpl, const OFFSET: isize>() -> IPerceptionDepthFrameReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameReaderVtbl {
         unsafe extern "system" fn FrameArrived<Impl: IPerceptionDepthFrameReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameArrived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionDepthFrameReader, PerceptionDepthFrameArrivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionDepthFrameReader, PerceptionDepthFrameArrivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1543,10 +1634,26 @@ impl IPerceptionDepthFrameReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameReader>, ::windows::core::GetTrustLevel, FrameArrived::<Impl, OFFSET>, RemoveFrameArrived::<Impl, OFFSET>, Source::<Impl, OFFSET>, IsPaused::<Impl, OFFSET>, SetIsPaused::<Impl, OFFSET>, TryReadLatestFrame::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameReader>,
+            ::windows::core::GetTrustLevel,
+            FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            IsPaused::<Impl, IMPL_OFFSET>,
+            SetIsPaused::<Impl, IMPL_OFFSET>,
+            TryReadLatestFrame::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthFrameSourceImpl: Sized {
     fn AvailableChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1578,13 +1685,13 @@ pub trait IPerceptionDepthFrameSourceImpl: Sized {
     fn TrySetVideoProfileAsync(&self, controlsession: &::core::option::Option<PerceptionControlSession>, profile: &::core::option::Option<PerceptionVideoProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>;
     fn OpenReader(&self) -> ::windows::core::Result<PerceptionDepthFrameReader>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthFrameSource";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceImpl, const OFFSET: isize>() -> IPerceptionDepthFrameSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameSourceVtbl {
         unsafe extern "system" fn AvailableChanged<Impl: IPerceptionDepthFrameSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSource, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSource, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1870,42 +1977,45 @@ impl IPerceptionDepthFrameSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSource>,
             ::windows::core::GetTrustLevel,
-            AvailableChanged::<Impl, OFFSET>,
-            RemoveAvailableChanged::<Impl, OFFSET>,
-            ActiveChanged::<Impl, OFFSET>,
-            RemoveActiveChanged::<Impl, OFFSET>,
-            PropertiesChanged::<Impl, OFFSET>,
-            RemovePropertiesChanged::<Impl, OFFSET>,
-            VideoProfileChanged::<Impl, OFFSET>,
-            RemoveVideoProfileChanged::<Impl, OFFSET>,
-            CameraIntrinsicsChanged::<Impl, OFFSET>,
-            RemoveCameraIntrinsicsChanged::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            DeviceKind::<Impl, OFFSET>,
-            Available::<Impl, OFFSET>,
-            Active::<Impl, OFFSET>,
-            IsControlled::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            SupportedVideoProfiles::<Impl, OFFSET>,
-            AvailableVideoProfiles::<Impl, OFFSET>,
-            VideoProfile::<Impl, OFFSET>,
-            CameraIntrinsics::<Impl, OFFSET>,
-            AcquireControlSession::<Impl, OFFSET>,
-            CanControlIndependentlyFrom::<Impl, OFFSET>,
-            IsCorrelatedWith::<Impl, OFFSET>,
-            TryGetTransformTo::<Impl, OFFSET>,
-            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, OFFSET>,
-            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, OFFSET>,
-            TrySetVideoProfileAsync::<Impl, OFFSET>,
-            OpenReader::<Impl, OFFSET>,
+            AvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
+            ActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveActiveChanged::<Impl, IMPL_OFFSET>,
+            PropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
+            VideoProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
+            CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind::<Impl, IMPL_OFFSET>,
+            Available::<Impl, IMPL_OFFSET>,
+            Active::<Impl, IMPL_OFFSET>,
+            IsControlled::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            VideoProfile::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics::<Impl, IMPL_OFFSET>,
+            AcquireControlSession::<Impl, IMPL_OFFSET>,
+            CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
+            IsCorrelatedWith::<Impl, IMPL_OFFSET>,
+            TryGetTransformTo::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
+            TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
+            OpenReader::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1918,7 +2028,7 @@ impl ::windows::core::RuntimeName for IPerceptionDepthFrameSource2 {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSource2Impl, const OFFSET: isize>() -> IPerceptionDepthFrameSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameSource2Vtbl {
         unsafe extern "system" fn DeviceId<Impl: IPerceptionDepthFrameSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -1930,7 +2040,10 @@ impl IPerceptionDepthFrameSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameSource2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1943,7 +2056,7 @@ impl ::windows::core::RuntimeName for IPerceptionDepthFrameSourceAddedEventArgs 
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameSourceAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceAddedEventArgsImpl, const OFFSET: isize>() -> IPerceptionDepthFrameSourceAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameSourceAddedEventArgsVtbl {
         unsafe extern "system" fn FrameSource<Impl: IPerceptionDepthFrameSourceAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSource() {
@@ -1955,7 +2068,10 @@ impl IPerceptionDepthFrameSourceAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameSourceAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1968,7 +2084,7 @@ impl ::windows::core::RuntimeName for IPerceptionDepthFrameSourceRemovedEventArg
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceRemovedEventArgsImpl, const OFFSET: isize>() -> IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
         unsafe extern "system" fn FrameSource<Impl: IPerceptionDepthFrameSourceRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSource() {
@@ -1980,23 +2096,26 @@ impl IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthFrameSourceStaticsImpl: Sized {
     fn CreateWatcher(&self) -> ::windows::core::Result<PerceptionDepthFrameSourceWatcher>;
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionDepthFrameSource>>>;
     fn FromIdAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthFrameSource>>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthFrameSourceStatics {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthFrameSourceStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceStaticsImpl, const OFFSET: isize>() -> IPerceptionDepthFrameSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameSourceStaticsVtbl {
         unsafe extern "system" fn CreateWatcher<Impl: IPerceptionDepthFrameSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
@@ -2041,10 +2160,13 @@ impl IPerceptionDepthFrameSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, OFFSET>, FindAllAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameSourceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionDepthFrameSourceWatcherImpl: Sized {
     fn SourceAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSourceWatcher, PerceptionDepthFrameSourceAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSourceAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2058,13 +2180,13 @@ pub trait IPerceptionDepthFrameSourceWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionDepthFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionDepthFrameSourceWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceWatcherImpl, const OFFSET: isize>() -> IPerceptionDepthFrameSourceWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionDepthFrameSourceWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionDepthFrameSourceWatcherVtbl {
         unsafe extern "system" fn SourceAdded<Impl: IPerceptionDepthFrameSourceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSourceWatcher, PerceptionDepthFrameSourceAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSourceWatcher, PerceptionDepthFrameSourceAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2145,38 +2267,41 @@ impl IPerceptionDepthFrameSourceWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionDepthFrameSourceWatcher>,
             ::windows::core::GetTrustLevel,
-            SourceAdded::<Impl, OFFSET>,
-            RemoveSourceAdded::<Impl, OFFSET>,
-            SourceRemoved::<Impl, OFFSET>,
-            RemoveSourceRemoved::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            SourceAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceAdded::<Impl, IMPL_OFFSET>,
+            SourceRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionDepthFrameSourceWatcher as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFrameSourcePropertiesChangedEventArgsImpl: Sized {
     fn CollectionChange(&self) -> ::windows::core::Result<super::super::Foundation::Collections::CollectionChange>;
     fn Key(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameSourcePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameSourcePropertiesChangedEventArgsImpl, const OFFSET: isize>() -> IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameSourcePropertiesChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
         unsafe extern "system" fn CollectionChange<Impl: IPerceptionFrameSourcePropertiesChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Collections::CollectionChange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionChange() {
@@ -2199,7 +2324,10 @@ impl IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameSourcePropertiesChangedEventArgs>, ::windows::core::GetTrustLevel, CollectionChange::<Impl, OFFSET>, Key::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameSourcePropertiesChangedEventArgs>, ::windows::core::GetTrustLevel, CollectionChange::<Impl, IMPL_OFFSET>, Key::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrameSourcePropertiesChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2213,7 +2341,7 @@ impl ::windows::core::RuntimeName for IPerceptionFrameSourcePropertyChangeResult
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameSourcePropertyChangeResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameSourcePropertyChangeResultImpl, const OFFSET: isize>() -> IPerceptionFrameSourcePropertyChangeResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameSourcePropertyChangeResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameSourcePropertyChangeResultVtbl {
         unsafe extern "system" fn Status<Impl: IPerceptionFrameSourcePropertyChangeResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2236,20 +2364,23 @@ impl IPerceptionFrameSourcePropertyChangeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameSourcePropertyChangeResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, NewValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameSourcePropertyChangeResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, NewValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrameSourcePropertyChangeResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionInfraredFrameImpl: Sized + IClosableImpl {
     fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionInfraredFrame {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionInfraredFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameVtbl {
         unsafe extern "system" fn VideoFrame<Impl: IPerceptionInfraredFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoFrame() {
@@ -2261,21 +2392,24 @@ impl IPerceptionInfraredFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrame>, ::windows::core::GetTrustLevel, VideoFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionInfraredFrameArrivedEventArgsImpl: Sized {
     fn RelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn TryOpenFrame(&self) -> ::windows::core::Result<PerceptionInfraredFrame>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionInfraredFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionInfraredFrameArrivedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameArrivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameArrivedEventArgsImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameArrivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameArrivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameArrivedEventArgsVtbl {
         unsafe extern "system" fn RelativeTime<Impl: IPerceptionInfraredFrameArrivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTime() {
@@ -2298,7 +2432,10 @@ impl IPerceptionInfraredFrameArrivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, OFFSET>, TryOpenFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameArrivedEventArgs>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, TryOpenFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameArrivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -2316,7 +2453,7 @@ impl ::windows::core::RuntimeName for IPerceptionInfraredFrameReader {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameReaderImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameReaderVtbl {
         unsafe extern "system" fn FrameArrived<Impl: IPerceptionInfraredFrameReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameArrived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameReader, PerceptionInfraredFrameArrivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameReader, PerceptionInfraredFrameArrivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2369,10 +2506,26 @@ impl IPerceptionInfraredFrameReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameReader>, ::windows::core::GetTrustLevel, FrameArrived::<Impl, OFFSET>, RemoveFrameArrived::<Impl, OFFSET>, Source::<Impl, OFFSET>, IsPaused::<Impl, OFFSET>, SetIsPaused::<Impl, OFFSET>, TryReadLatestFrame::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameReader>,
+            ::windows::core::GetTrustLevel,
+            FrameArrived::<Impl, IMPL_OFFSET>,
+            RemoveFrameArrived::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            IsPaused::<Impl, IMPL_OFFSET>,
+            SetIsPaused::<Impl, IMPL_OFFSET>,
+            TryReadLatestFrame::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionInfraredFrameSourceImpl: Sized {
     fn AvailableChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2404,13 +2557,13 @@ pub trait IPerceptionInfraredFrameSourceImpl: Sized {
     fn TrySetVideoProfileAsync(&self, controlsession: &::core::option::Option<PerceptionControlSession>, profile: &::core::option::Option<PerceptionVideoProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>;
     fn OpenReader(&self) -> ::windows::core::Result<PerceptionInfraredFrameReader>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionInfraredFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionInfraredFrameSource";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Media_Devices_Core", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameSourceVtbl {
         unsafe extern "system" fn AvailableChanged<Impl: IPerceptionInfraredFrameSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSource, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSource, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2696,42 +2849,45 @@ impl IPerceptionInfraredFrameSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSource>,
             ::windows::core::GetTrustLevel,
-            AvailableChanged::<Impl, OFFSET>,
-            RemoveAvailableChanged::<Impl, OFFSET>,
-            ActiveChanged::<Impl, OFFSET>,
-            RemoveActiveChanged::<Impl, OFFSET>,
-            PropertiesChanged::<Impl, OFFSET>,
-            RemovePropertiesChanged::<Impl, OFFSET>,
-            VideoProfileChanged::<Impl, OFFSET>,
-            RemoveVideoProfileChanged::<Impl, OFFSET>,
-            CameraIntrinsicsChanged::<Impl, OFFSET>,
-            RemoveCameraIntrinsicsChanged::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            DeviceKind::<Impl, OFFSET>,
-            Available::<Impl, OFFSET>,
-            Active::<Impl, OFFSET>,
-            IsControlled::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            SupportedVideoProfiles::<Impl, OFFSET>,
-            AvailableVideoProfiles::<Impl, OFFSET>,
-            VideoProfile::<Impl, OFFSET>,
-            CameraIntrinsics::<Impl, OFFSET>,
-            AcquireControlSession::<Impl, OFFSET>,
-            CanControlIndependentlyFrom::<Impl, OFFSET>,
-            IsCorrelatedWith::<Impl, OFFSET>,
-            TryGetTransformTo::<Impl, OFFSET>,
-            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, OFFSET>,
-            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, OFFSET>,
-            TrySetVideoProfileAsync::<Impl, OFFSET>,
-            OpenReader::<Impl, OFFSET>,
+            AvailableChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableChanged::<Impl, IMPL_OFFSET>,
+            ActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveActiveChanged::<Impl, IMPL_OFFSET>,
+            PropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertiesChanged::<Impl, IMPL_OFFSET>,
+            VideoProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveVideoProfileChanged::<Impl, IMPL_OFFSET>,
+            CameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            RemoveCameraIntrinsicsChanged::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind::<Impl, IMPL_OFFSET>,
+            Available::<Impl, IMPL_OFFSET>,
+            Active::<Impl, IMPL_OFFSET>,
+            IsControlled::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            SupportedVideoProfiles::<Impl, IMPL_OFFSET>,
+            AvailableVideoProfiles::<Impl, IMPL_OFFSET>,
+            VideoProfile::<Impl, IMPL_OFFSET>,
+            CameraIntrinsics::<Impl, IMPL_OFFSET>,
+            AcquireControlSession::<Impl, IMPL_OFFSET>,
+            CanControlIndependentlyFrom::<Impl, IMPL_OFFSET>,
+            IsCorrelatedWith::<Impl, IMPL_OFFSET>,
+            TryGetTransformTo::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCameraIntrinsicsAsync::<Impl, IMPL_OFFSET>,
+            TryGetDepthCorrelatedCoordinateMapperAsync::<Impl, IMPL_OFFSET>,
+            TrySetVideoProfileAsync::<Impl, IMPL_OFFSET>,
+            OpenReader::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2744,7 +2900,7 @@ impl ::windows::core::RuntimeName for IPerceptionInfraredFrameSource2 {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSource2Impl, const OFFSET: isize>() -> IPerceptionInfraredFrameSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameSource2Vtbl {
         unsafe extern "system" fn DeviceId<Impl: IPerceptionInfraredFrameSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -2756,7 +2912,10 @@ impl IPerceptionInfraredFrameSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSource2>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameSource2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2769,7 +2928,7 @@ impl ::windows::core::RuntimeName for IPerceptionInfraredFrameSourceAddedEventAr
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceAddedEventArgsImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
         unsafe extern "system" fn FrameSource<Impl: IPerceptionInfraredFrameSourceAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSource() {
@@ -2781,7 +2940,10 @@ impl IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceAddedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameSourceAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2794,7 +2956,7 @@ impl ::windows::core::RuntimeName for IPerceptionInfraredFrameSourceRemovedEvent
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceRemovedEventArgsImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
         unsafe extern "system" fn FrameSource<Impl: IPerceptionInfraredFrameSourceRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSource() {
@@ -2806,23 +2968,26 @@ impl IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceRemovedEventArgs>, ::windows::core::GetTrustLevel, FrameSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionInfraredFrameSourceStaticsImpl: Sized {
     fn CreateWatcher(&self) -> ::windows::core::Result<PerceptionInfraredFrameSourceWatcher>;
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionInfraredFrameSource>>>;
     fn FromIdAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionInfraredFrameSource>>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionInfraredFrameSourceStatics {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionInfraredFrameSourceStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceStaticsImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameSourceStaticsVtbl {
         unsafe extern "system" fn CreateWatcher<Impl: IPerceptionInfraredFrameSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
@@ -2867,10 +3032,13 @@ impl IPerceptionInfraredFrameSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, OFFSET>, FindAllAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameSourceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionInfraredFrameSourceWatcherImpl: Sized {
     fn SourceAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSourceWatcher, PerceptionInfraredFrameSourceAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSourceAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2884,13 +3052,13 @@ pub trait IPerceptionInfraredFrameSourceWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionInfraredFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionInfraredFrameSourceWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceWatcherImpl, const OFFSET: isize>() -> IPerceptionInfraredFrameSourceWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionInfraredFrameSourceWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionInfraredFrameSourceWatcherVtbl {
         unsafe extern "system" fn SourceAdded<Impl: IPerceptionInfraredFrameSourceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSourceWatcher, PerceptionInfraredFrameSourceAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSourceWatcher, PerceptionInfraredFrameSourceAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2971,27 +3139,30 @@ impl IPerceptionInfraredFrameSourceWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionInfraredFrameSourceWatcher>,
             ::windows::core::GetTrustLevel,
-            SourceAdded::<Impl, OFFSET>,
-            RemoveSourceAdded::<Impl, OFFSET>,
-            SourceRemoved::<Impl, OFFSET>,
-            RemoveSourceRemoved::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            SourceAdded::<Impl, IMPL_OFFSET>,
+            RemoveSourceAdded::<Impl, IMPL_OFFSET>,
+            SourceRemoved::<Impl, IMPL_OFFSET>,
+            RemoveSourceRemoved::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionInfraredFrameSourceWatcher as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionVideoProfileImpl: Sized {
     fn BitmapPixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPixelFormat>;
     fn BitmapAlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapAlphaMode>;
@@ -3000,13 +3171,13 @@ pub trait IPerceptionVideoProfileImpl: Sized {
     fn FrameDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn IsEqual(&self, other: &::core::option::Option<PerceptionVideoProfile>) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionVideoProfile {
     const NAME: &'static str = "Windows.Devices.Perception.IPerceptionVideoProfile";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionVideoProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoProfileImpl, const OFFSET: isize>() -> IPerceptionVideoProfileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionVideoProfileVtbl {
         unsafe extern "system" fn BitmapPixelFormat<Impl: IPerceptionVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapPixelFormat() {
@@ -3073,6 +3244,22 @@ impl IPerceptionVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoProfile>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, OFFSET>, BitmapAlphaMode::<Impl, OFFSET>, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>, FrameDuration::<Impl, OFFSET>, IsEqual::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPerceptionVideoProfile>,
+            ::windows::core::GetTrustLevel,
+            BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            Width::<Impl, IMPL_OFFSET>,
+            Height::<Impl, IMPL_OFFSET>,
+            FrameDuration::<Impl, IMPL_OFFSET>,
+            IsEqual::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionVideoProfile as ::windows::core::Interface>::IID
     }
 }

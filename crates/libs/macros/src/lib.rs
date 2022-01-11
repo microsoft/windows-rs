@@ -4,14 +4,14 @@ mod implement2;
 //mod implement_macro;
 
 //use build_macro::*;
-//use gen::*;
+//use gen::*;l
 //use implement_macro::*;
 //use quote::*;
 //use reader::*;
 //use syn::parse_macro_input;
 
 #[proc_macro_attribute]
-pub fn implement2(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn implement(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     implement2::gen(attribute, input)
 }
 

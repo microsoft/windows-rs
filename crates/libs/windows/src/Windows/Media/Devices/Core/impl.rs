@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICameraIntrinsicsImpl: Sized {
     fn FocalLength(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector2>;
     fn PrincipalPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector2>;
@@ -11,13 +11,13 @@ pub trait ICameraIntrinsicsImpl: Sized {
     fn ProjectManyOntoFrame(&self, coordinates: &[<super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.ICameraIntrinsics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ICameraIntrinsicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraIntrinsicsImpl, const OFFSET: isize>() -> ICameraIntrinsicsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraIntrinsicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraIntrinsicsVtbl {
         unsafe extern "system" fn FocalLength<Impl: ICameraIntrinsicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FocalLength() {
@@ -115,26 +115,29 @@ impl ICameraIntrinsicsVtbl {
             (*this).UnprojectPixelsAtUnitDepth(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pixelcoordinates), pixelCoordinates_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&results), results_array_size as _)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICameraIntrinsics>,
             ::windows::core::GetTrustLevel,
-            FocalLength::<Impl, OFFSET>,
-            PrincipalPoint::<Impl, OFFSET>,
-            RadialDistortion::<Impl, OFFSET>,
-            TangentialDistortion::<Impl, OFFSET>,
-            ImageWidth::<Impl, OFFSET>,
-            ImageHeight::<Impl, OFFSET>,
-            ProjectOntoFrame::<Impl, OFFSET>,
-            UnprojectAtUnitDepth::<Impl, OFFSET>,
-            ProjectManyOntoFrame::<Impl, OFFSET>,
-            UnprojectPixelsAtUnitDepth::<Impl, OFFSET>,
+            FocalLength::<Impl, IMPL_OFFSET>,
+            PrincipalPoint::<Impl, IMPL_OFFSET>,
+            RadialDistortion::<Impl, IMPL_OFFSET>,
+            TangentialDistortion::<Impl, IMPL_OFFSET>,
+            ImageWidth::<Impl, IMPL_OFFSET>,
+            ImageHeight::<Impl, IMPL_OFFSET>,
+            ProjectOntoFrame::<Impl, IMPL_OFFSET>,
+            UnprojectAtUnitDepth::<Impl, IMPL_OFFSET>,
+            ProjectManyOntoFrame::<Impl, IMPL_OFFSET>,
+            UnprojectPixelsAtUnitDepth::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICameraIntrinsics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICameraIntrinsics2Impl: Sized {
     fn UndistortedProjectionTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix4x4>;
     fn DistortPoint(&self, input: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Point>;
@@ -142,13 +145,13 @@ pub trait ICameraIntrinsics2Impl: Sized {
     fn UndistortPoint(&self, input: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Point>;
     fn UndistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICameraIntrinsics2 {
     const NAME: &'static str = "Windows.Media.Devices.Core.ICameraIntrinsics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ICameraIntrinsics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraIntrinsics2Impl, const OFFSET: isize>() -> ICameraIntrinsics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraIntrinsics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraIntrinsics2Vtbl {
         unsafe extern "system" fn UndistortedProjectionTransform<Impl: ICameraIntrinsics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UndistortedProjectionTransform() {
@@ -190,20 +193,23 @@ impl ICameraIntrinsics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UndistortPoints(::core::slice::from_raw_parts(::core::mem::transmute_copy(&inputs), inputs_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&results), results_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraIntrinsics2>, ::windows::core::GetTrustLevel, UndistortedProjectionTransform::<Impl, OFFSET>, DistortPoint::<Impl, OFFSET>, DistortPoints::<Impl, OFFSET>, UndistortPoint::<Impl, OFFSET>, UndistortPoints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraIntrinsics2>, ::windows::core::GetTrustLevel, UndistortedProjectionTransform::<Impl, IMPL_OFFSET>, DistortPoint::<Impl, IMPL_OFFSET>, DistortPoints::<Impl, IMPL_OFFSET>, UndistortPoint::<Impl, IMPL_OFFSET>, UndistortPoints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICameraIntrinsics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICameraIntrinsicsFactoryImpl: Sized {
     fn Create(&self, focallength: &super::super::super::Foundation::Numerics::Vector2, principalpoint: &super::super::super::Foundation::Numerics::Vector2, radialdistortion: &super::super::super::Foundation::Numerics::Vector3, tangentialdistortion: &super::super::super::Foundation::Numerics::Vector2, imagewidth: u32, imageheight: u32) -> ::windows::core::Result<CameraIntrinsics>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICameraIntrinsicsFactory {
     const NAME: &'static str = "Windows.Media.Devices.Core.ICameraIntrinsicsFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ICameraIntrinsicsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraIntrinsicsFactoryImpl, const OFFSET: isize>() -> ICameraIntrinsicsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraIntrinsicsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraIntrinsicsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ICameraIntrinsicsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, focallength: super::super::super::Foundation::Numerics::Vector2, principalpoint: super::super::super::Foundation::Numerics::Vector2, radialdistortion: super::super::super::Foundation::Numerics::Vector3, tangentialdistortion: super::super::super::Foundation::Numerics::Vector2, imagewidth: u32, imageheight: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
@@ -222,23 +228,26 @@ impl ICameraIntrinsicsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraIntrinsicsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraIntrinsicsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICameraIntrinsicsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IDepthCorrelatedCoordinateMapperImpl: Sized + IClosableImpl {
     fn UnprojectPoint(&self, sourcepoint: &super::super::super::Foundation::Point, targetcoordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn UnprojectPoints(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType], targetcoordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>, results: &mut [<super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn MapPoint(&self, sourcepoint: &super::super::super::Foundation::Point, targetcoordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>, targetcameraintrinsics: &::core::option::Option<CameraIntrinsics>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
     fn MapPoints(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType], targetcoordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>, targetcameraintrinsics: &::core::option::Option<CameraIntrinsics>, results: &mut [<super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.IDepthCorrelatedCoordinateMapper";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IDepthCorrelatedCoordinateMapperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDepthCorrelatedCoordinateMapperImpl, const OFFSET: isize>() -> IDepthCorrelatedCoordinateMapperVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDepthCorrelatedCoordinateMapperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDepthCorrelatedCoordinateMapperVtbl {
         unsafe extern "system" fn UnprojectPoint<Impl: IDepthCorrelatedCoordinateMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnprojectPoint(&*(&sourcepoint as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), &*(&targetcoordinatesystem as *const <super::super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
@@ -282,7 +291,10 @@ impl IDepthCorrelatedCoordinateMapperVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDepthCorrelatedCoordinateMapper>, ::windows::core::GetTrustLevel, UnprojectPoint::<Impl, OFFSET>, UnprojectPoints::<Impl, OFFSET>, MapPoint::<Impl, OFFSET>, MapPoints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDepthCorrelatedCoordinateMapper>, ::windows::core::GetTrustLevel, UnprojectPoint::<Impl, IMPL_OFFSET>, UnprojectPoints::<Impl, IMPL_OFFSET>, MapPoint::<Impl, IMPL_OFFSET>, MapPoints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDepthCorrelatedCoordinateMapper as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -299,7 +311,7 @@ impl ::windows::core::RuntimeName for IFrameControlCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameControlCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameControlCapabilitiesImpl, const OFFSET: isize>() -> IFrameControlCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameControlCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameControlCapabilitiesVtbl {
         unsafe extern "system" fn Exposure<Impl: IFrameControlCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exposure() {
@@ -355,7 +367,10 @@ impl IFrameControlCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameControlCapabilities>, ::windows::core::GetTrustLevel, Exposure::<Impl, OFFSET>, ExposureCompensation::<Impl, OFFSET>, IsoSpeed::<Impl, OFFSET>, Focus::<Impl, OFFSET>, PhotoConfirmationSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameControlCapabilities>, ::windows::core::GetTrustLevel, Exposure::<Impl, IMPL_OFFSET>, ExposureCompensation::<Impl, IMPL_OFFSET>, IsoSpeed::<Impl, IMPL_OFFSET>, Focus::<Impl, IMPL_OFFSET>, PhotoConfirmationSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameControlCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -368,7 +383,7 @@ impl ::windows::core::RuntimeName for IFrameControlCapabilities2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameControlCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameControlCapabilities2Impl, const OFFSET: isize>() -> IFrameControlCapabilities2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameControlCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameControlCapabilities2Vtbl {
         unsafe extern "system" fn Flash<Impl: IFrameControlCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Flash() {
@@ -380,10 +395,13 @@ impl IFrameControlCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameControlCapabilities2>, ::windows::core::GetTrustLevel, Flash::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameControlCapabilities2>, ::windows::core::GetTrustLevel, Flash::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameControlCapabilities2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFrameControllerImpl: Sized {
     fn ExposureControl(&self) -> ::windows::core::Result<FrameExposureControl>;
     fn ExposureCompensationControl(&self) -> ::windows::core::Result<FrameExposureCompensationControl>;
@@ -392,13 +410,13 @@ pub trait IFrameControllerImpl: Sized {
     fn PhotoConfirmationEnabled(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<bool>>;
     fn SetPhotoConfirmationEnabled(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.IFrameController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFrameControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameControllerImpl, const OFFSET: isize>() -> IFrameControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameControllerVtbl {
         unsafe extern "system" fn ExposureControl<Impl: IFrameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExposureControl() {
@@ -459,19 +477,22 @@ impl IFrameControllerVtbl {
             (*this).SetPhotoConfirmationEnabled(&*(&value as *const <super::super::super::Foundation::IReference<bool> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<bool> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFrameController>,
             ::windows::core::GetTrustLevel,
-            ExposureControl::<Impl, OFFSET>,
-            ExposureCompensationControl::<Impl, OFFSET>,
-            IsoSpeedControl::<Impl, OFFSET>,
-            FocusControl::<Impl, OFFSET>,
-            PhotoConfirmationEnabled::<Impl, OFFSET>,
-            SetPhotoConfirmationEnabled::<Impl, OFFSET>,
+            ExposureControl::<Impl, IMPL_OFFSET>,
+            ExposureCompensationControl::<Impl, IMPL_OFFSET>,
+            IsoSpeedControl::<Impl, IMPL_OFFSET>,
+            FocusControl::<Impl, IMPL_OFFSET>,
+            PhotoConfirmationEnabled::<Impl, IMPL_OFFSET>,
+            SetPhotoConfirmationEnabled::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameController as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -484,7 +505,7 @@ impl ::windows::core::RuntimeName for IFrameController2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameController2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameController2Impl, const OFFSET: isize>() -> IFrameController2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameController2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameController2Vtbl {
         unsafe extern "system" fn FlashControl<Impl: IFrameController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlashControl() {
@@ -496,23 +517,26 @@ impl IFrameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameController2>, ::windows::core::GetTrustLevel, FlashControl::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameController2>, ::windows::core::GetTrustLevel, FlashControl::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameController2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFrameExposureCapabilitiesImpl: Sized {
     fn Supported(&self) -> ::windows::core::Result<bool>;
     fn Min(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn Max(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn Step(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFrameExposureCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.IFrameExposureCapabilities";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFrameExposureCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureCapabilitiesImpl, const OFFSET: isize>() -> IFrameExposureCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameExposureCapabilitiesVtbl {
         unsafe extern "system" fn Supported<Impl: IFrameExposureCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Supported() {
@@ -557,7 +581,10 @@ impl IFrameExposureCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, OFFSET>, Min::<Impl, OFFSET>, Max::<Impl, OFFSET>, Step::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameExposureCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -573,7 +600,7 @@ impl ::windows::core::RuntimeName for IFrameExposureCompensationCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameExposureCompensationCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureCompensationCapabilitiesImpl, const OFFSET: isize>() -> IFrameExposureCompensationCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureCompensationCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameExposureCompensationCapabilitiesVtbl {
         unsafe extern "system" fn Supported<Impl: IFrameExposureCompensationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Supported() {
@@ -618,21 +645,24 @@ impl IFrameExposureCompensationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCompensationCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, OFFSET>, Min::<Impl, OFFSET>, Max::<Impl, OFFSET>, Step::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCompensationCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameExposureCompensationCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFrameExposureCompensationControlImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
     fn SetValue(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFrameExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.IFrameExposureCompensationControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFrameExposureCompensationControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureCompensationControlImpl, const OFFSET: isize>() -> IFrameExposureCompensationControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureCompensationControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameExposureCompensationControlVtbl {
         unsafe extern "system" fn Value<Impl: IFrameExposureCompensationControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -648,23 +678,26 @@ impl IFrameExposureCompensationControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<f32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCompensationControl>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureCompensationControl>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameExposureCompensationControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFrameExposureControlImpl: Sized {
     fn Auto(&self) -> ::windows::core::Result<bool>;
     fn SetAuto(&self, value: bool) -> ::windows::core::Result<()>;
     fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn SetValue(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFrameExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.IFrameExposureControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFrameExposureControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureControlImpl, const OFFSET: isize>() -> IFrameExposureControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameExposureControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameExposureControlVtbl {
         unsafe extern "system" fn Auto<Impl: IFrameExposureControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Auto() {
@@ -695,7 +728,10 @@ impl IFrameExposureControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureControl>, ::windows::core::GetTrustLevel, Auto::<Impl, OFFSET>, SetAuto::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameExposureControl>, ::windows::core::GetTrustLevel, Auto::<Impl, IMPL_OFFSET>, SetAuto::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameExposureControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -710,7 +746,7 @@ impl ::windows::core::RuntimeName for IFrameFlashCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameFlashCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFlashCapabilitiesImpl, const OFFSET: isize>() -> IFrameFlashCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFlashCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameFlashCapabilitiesVtbl {
         unsafe extern "system" fn Supported<Impl: IFrameFlashCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Supported() {
@@ -744,7 +780,10 @@ impl IFrameFlashCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFlashCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, OFFSET>, RedEyeReductionSupported::<Impl, OFFSET>, PowerSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFlashCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, RedEyeReductionSupported::<Impl, IMPL_OFFSET>, PowerSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameFlashCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -764,7 +803,7 @@ impl ::windows::core::RuntimeName for IFrameFlashControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameFlashControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFlashControlImpl, const OFFSET: isize>() -> IFrameFlashControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFlashControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameFlashControlVtbl {
         unsafe extern "system" fn Mode<Impl: IFrameFlashControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FrameFlashMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
@@ -826,21 +865,24 @@ impl IFrameFlashControlVtbl {
             (*this).SetPowerPercent(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFrameFlashControl>,
             ::windows::core::GetTrustLevel,
-            Mode::<Impl, OFFSET>,
-            SetMode::<Impl, OFFSET>,
-            Auto::<Impl, OFFSET>,
-            SetAuto::<Impl, OFFSET>,
-            RedEyeReduction::<Impl, OFFSET>,
-            SetRedEyeReduction::<Impl, OFFSET>,
-            PowerPercent::<Impl, OFFSET>,
-            SetPowerPercent::<Impl, OFFSET>,
+            Mode::<Impl, IMPL_OFFSET>,
+            SetMode::<Impl, IMPL_OFFSET>,
+            Auto::<Impl, IMPL_OFFSET>,
+            SetAuto::<Impl, IMPL_OFFSET>,
+            RedEyeReduction::<Impl, IMPL_OFFSET>,
+            SetRedEyeReduction::<Impl, IMPL_OFFSET>,
+            PowerPercent::<Impl, IMPL_OFFSET>,
+            SetPowerPercent::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameFlashControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -856,7 +898,7 @@ impl ::windows::core::RuntimeName for IFrameFocusCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameFocusCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFocusCapabilitiesImpl, const OFFSET: isize>() -> IFrameFocusCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFocusCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameFocusCapabilitiesVtbl {
         unsafe extern "system" fn Supported<Impl: IFrameFocusCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Supported() {
@@ -901,21 +943,24 @@ impl IFrameFocusCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFocusCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, OFFSET>, Min::<Impl, OFFSET>, Max::<Impl, OFFSET>, Step::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFocusCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameFocusCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFrameFocusControlImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
     fn SetValue(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFrameFocusControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.IFrameFocusControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFrameFocusControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFocusControlImpl, const OFFSET: isize>() -> IFrameFocusControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameFocusControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameFocusControlVtbl {
         unsafe extern "system" fn Value<Impl: IFrameFocusControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -931,7 +976,10 @@ impl IFrameFocusControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFocusControl>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameFocusControl>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameFocusControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -947,7 +995,7 @@ impl ::windows::core::RuntimeName for IFrameIsoSpeedCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFrameIsoSpeedCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameIsoSpeedCapabilitiesImpl, const OFFSET: isize>() -> IFrameIsoSpeedCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameIsoSpeedCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameIsoSpeedCapabilitiesVtbl {
         unsafe extern "system" fn Supported<Impl: IFrameIsoSpeedCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Supported() {
@@ -992,23 +1040,26 @@ impl IFrameIsoSpeedCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameIsoSpeedCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, OFFSET>, Min::<Impl, OFFSET>, Max::<Impl, OFFSET>, Step::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameIsoSpeedCapabilities>, ::windows::core::GetTrustLevel, Supported::<Impl, IMPL_OFFSET>, Min::<Impl, IMPL_OFFSET>, Max::<Impl, IMPL_OFFSET>, Step::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameIsoSpeedCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFrameIsoSpeedControlImpl: Sized {
     fn Auto(&self) -> ::windows::core::Result<bool>;
     fn SetAuto(&self, value: bool) -> ::windows::core::Result<()>;
     fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
     fn SetValue(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.IFrameIsoSpeedControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFrameIsoSpeedControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameIsoSpeedControlImpl, const OFFSET: isize>() -> IFrameIsoSpeedControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrameIsoSpeedControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFrameIsoSpeedControlVtbl {
         unsafe extern "system" fn Auto<Impl: IFrameIsoSpeedControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Auto() {
@@ -1039,10 +1090,13 @@ impl IFrameIsoSpeedControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameIsoSpeedControl>, ::windows::core::GetTrustLevel, Auto::<Impl, OFFSET>, SetAuto::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFrameIsoSpeedControl>, ::windows::core::GetTrustLevel, Auto::<Impl, IMPL_OFFSET>, SetAuto::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFrameIsoSpeedControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IVariablePhotoSequenceControllerImpl: Sized {
     fn Supported(&self) -> ::windows::core::Result<bool>;
     fn MaxPhotosPerSecond(&self) -> ::windows::core::Result<f32>;
@@ -1053,13 +1107,13 @@ pub trait IVariablePhotoSequenceControllerImpl: Sized {
     fn FrameCapabilities(&self) -> ::windows::core::Result<FrameControlCapabilities>;
     fn DesiredFrameControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<FrameController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.IVariablePhotoSequenceController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl IVariablePhotoSequenceControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceControllerImpl, const OFFSET: isize>() -> IVariablePhotoSequenceControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceControllerVtbl {
         unsafe extern "system" fn Supported<Impl: IVariablePhotoSequenceControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Supported() {
@@ -1142,20 +1196,23 @@ impl IVariablePhotoSequenceControllerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceController>,
             ::windows::core::GetTrustLevel,
-            Supported::<Impl, OFFSET>,
-            MaxPhotosPerSecond::<Impl, OFFSET>,
-            PhotosPerSecondLimit::<Impl, OFFSET>,
-            SetPhotosPerSecondLimit::<Impl, OFFSET>,
-            GetHighestConcurrentFrameRate::<Impl, OFFSET>,
-            GetCurrentFrameRate::<Impl, OFFSET>,
-            FrameCapabilities::<Impl, OFFSET>,
-            DesiredFrameControllers::<Impl, OFFSET>,
+            Supported::<Impl, IMPL_OFFSET>,
+            MaxPhotosPerSecond::<Impl, IMPL_OFFSET>,
+            PhotosPerSecondLimit::<Impl, IMPL_OFFSET>,
+            SetPhotosPerSecondLimit::<Impl, IMPL_OFFSET>,
+            GetHighestConcurrentFrameRate::<Impl, IMPL_OFFSET>,
+            GetCurrentFrameRate::<Impl, IMPL_OFFSET>,
+            FrameCapabilities::<Impl, IMPL_OFFSET>,
+            DesiredFrameControllers::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVariablePhotoSequenceController as ::windows::core::Interface>::IID
     }
 }

@@ -20,7 +20,7 @@ impl ::windows::core::RuntimeName for IMdmAlert {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMdmAlertVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmAlertImpl, const OFFSET: isize>() -> IMdmAlertVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmAlertImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMdmAlertVtbl {
         unsafe extern "system" fn Data<Impl: IMdmAlertImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -123,29 +123,32 @@ impl IMdmAlertVtbl {
             (*this).SetType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMdmAlert>,
             ::windows::core::GetTrustLevel,
-            Data::<Impl, OFFSET>,
-            SetData::<Impl, OFFSET>,
-            Format::<Impl, OFFSET>,
-            SetFormat::<Impl, OFFSET>,
-            Mark::<Impl, OFFSET>,
-            SetMark::<Impl, OFFSET>,
-            Source::<Impl, OFFSET>,
-            SetSource::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Target::<Impl, OFFSET>,
-            SetTarget::<Impl, OFFSET>,
-            Type::<Impl, OFFSET>,
-            SetType::<Impl, OFFSET>,
+            Data::<Impl, IMPL_OFFSET>,
+            SetData::<Impl, IMPL_OFFSET>,
+            Format::<Impl, IMPL_OFFSET>,
+            SetFormat::<Impl, IMPL_OFFSET>,
+            Mark::<Impl, IMPL_OFFSET>,
+            SetMark::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            SetSource::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Target::<Impl, IMPL_OFFSET>,
+            SetTarget::<Impl, IMPL_OFFSET>,
+            Type::<Impl, IMPL_OFFSET>,
+            SetType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMdmAlert as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMdmSessionImpl: Sized {
     fn Alerts(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<MdmAlert>>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
@@ -156,13 +159,13 @@ pub trait IMdmSessionImpl: Sized {
     fn StartAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
     fn StartWithAlertsAsync(&self, alerts: &::core::option::Option<super::Foundation::Collections::IIterable<MdmAlert>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMdmSession {
     const NAME: &'static str = "Windows.Management.IMdmSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMdmSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmSessionImpl, const OFFSET: isize>() -> IMdmSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMdmSessionVtbl {
         unsafe extern "system" fn Alerts<Impl: IMdmSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Alerts() {
@@ -244,23 +247,41 @@ impl IMdmSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmSession>, ::windows::core::GetTrustLevel, Alerts::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, Id::<Impl, OFFSET>, State::<Impl, OFFSET>, AttachAsync::<Impl, OFFSET>, Delete::<Impl, OFFSET>, StartAsync::<Impl, OFFSET>, StartWithAlertsAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMdmSession>,
+            ::windows::core::GetTrustLevel,
+            Alerts::<Impl, IMPL_OFFSET>,
+            ExtendedError::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            AttachAsync::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+            StartAsync::<Impl, IMPL_OFFSET>,
+            StartWithAlertsAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMdmSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMdmSessionManagerStaticsImpl: Sized {
     fn SessionIds(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn TryCreateSession(&self) -> ::windows::core::Result<MdmSession>;
     fn DeleteSessionById(&self, sessionid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn GetSessionById(&self, sessionid: &::windows::core::HSTRING) -> ::windows::core::Result<MdmSession>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMdmSessionManagerStatics {
     const NAME: &'static str = "Windows.Management.IMdmSessionManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMdmSessionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmSessionManagerStaticsImpl, const OFFSET: isize>() -> IMdmSessionManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmSessionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMdmSessionManagerStaticsVtbl {
         unsafe extern "system" fn SessionIds<Impl: IMdmSessionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionIds() {
@@ -298,6 +319,9 @@ impl IMdmSessionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmSessionManagerStatics>, ::windows::core::GetTrustLevel, SessionIds::<Impl, OFFSET>, TryCreateSession::<Impl, OFFSET>, DeleteSessionById::<Impl, OFFSET>, GetSessionById::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmSessionManagerStatics>, ::windows::core::GetTrustLevel, SessionIds::<Impl, IMPL_OFFSET>, TryCreateSession::<Impl, IMPL_OFFSET>, DeleteSessionById::<Impl, IMPL_OFFSET>, GetSessionById::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMdmSessionManagerStatics as ::windows::core::Interface>::IID
     }
 }

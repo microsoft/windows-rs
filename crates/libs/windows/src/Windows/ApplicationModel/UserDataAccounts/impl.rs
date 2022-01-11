@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUserDataAccountImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn UserDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -15,13 +15,13 @@ pub trait IUserDataAccountImpl: Sized {
     fn FindContactListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactList>>>;
     fn FindContactAnnotationListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactAnnotationList>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccount {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccount";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUserDataAccountVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountImpl, const OFFSET: isize>() -> IUserDataAccountVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountVtbl {
         unsafe extern "system" fn Id<Impl: IUserDataAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -163,41 +163,44 @@ impl IUserDataAccountVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataAccount>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            UserDisplayName::<Impl, OFFSET>,
-            SetUserDisplayName::<Impl, OFFSET>,
-            OtherAppReadAccess::<Impl, OFFSET>,
-            SetOtherAppReadAccess::<Impl, OFFSET>,
-            Icon::<Impl, OFFSET>,
-            DeviceAccountTypeId::<Impl, OFFSET>,
-            PackageFamilyName::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            FindAppointmentCalendarsAsync::<Impl, OFFSET>,
-            FindEmailMailboxesAsync::<Impl, OFFSET>,
-            FindContactListsAsync::<Impl, OFFSET>,
-            FindContactAnnotationListsAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            UserDisplayName::<Impl, IMPL_OFFSET>,
+            SetUserDisplayName::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            Icon::<Impl, IMPL_OFFSET>,
+            DeviceAccountTypeId::<Impl, IMPL_OFFSET>,
+            PackageFamilyName::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            FindAppointmentCalendarsAsync::<Impl, IMPL_OFFSET>,
+            FindEmailMailboxesAsync::<Impl, IMPL_OFFSET>,
+            FindContactListsAsync::<Impl, IMPL_OFFSET>,
+            FindContactAnnotationListsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccount as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUserDataAccount2Impl: Sized + IUserDataAccountImpl {
     fn EnterpriseId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsProtectedUnderLock(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccount2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccount2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUserDataAccount2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccount2Impl, const OFFSET: isize>() -> IUserDataAccount2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccount2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccount2Vtbl {
         unsafe extern "system" fn EnterpriseId<Impl: IUserDataAccount2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterpriseId() {
@@ -220,22 +223,25 @@ impl IUserDataAccount2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccount2>, ::windows::core::GetTrustLevel, EnterpriseId::<Impl, OFFSET>, IsProtectedUnderLock::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccount2>, ::windows::core::GetTrustLevel, EnterpriseId::<Impl, IMPL_OFFSET>, IsProtectedUnderLock::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccount2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserDataAccount3Impl: Sized {
     fn ExplictReadAccessPackageFamilyNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccount3 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccount3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserDataAccount3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccount3Impl, const OFFSET: isize>() -> IUserDataAccount3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccount3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccount3Vtbl {
         unsafe extern "system" fn ExplictReadAccessPackageFamilyNames<Impl: IUserDataAccount3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExplictReadAccessPackageFamilyNames() {
@@ -262,10 +268,13 @@ impl IUserDataAccount3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccount3>, ::windows::core::GetTrustLevel, ExplictReadAccessPackageFamilyNames::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, SetDisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccount3>, ::windows::core::GetTrustLevel, ExplictReadAccessPackageFamilyNames::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, SetDisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccount3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUserDataAccount4Impl: Sized {
     fn CanShowCreateContactGroup(&self) -> ::windows::core::Result<bool>;
     fn SetCanShowCreateContactGroup(&self, value: bool) -> ::windows::core::Result<()>;
@@ -276,13 +285,13 @@ pub trait IUserDataAccount4Impl: Sized {
     fn SetIsProtectedUnderLock(&self, value: bool) -> ::windows::core::Result<()>;
     fn SetIcon(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccount4 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccount4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUserDataAccount4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccount4Impl, const OFFSET: isize>() -> IUserDataAccount4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccount4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccount4Vtbl {
         unsafe extern "system" fn CanShowCreateContactGroup<Impl: IUserDataAccount4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanShowCreateContactGroup() {
@@ -351,35 +360,38 @@ impl IUserDataAccount4Vtbl {
             (*this).SetIcon(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataAccount4>,
             ::windows::core::GetTrustLevel,
-            CanShowCreateContactGroup::<Impl, OFFSET>,
-            SetCanShowCreateContactGroup::<Impl, OFFSET>,
-            ProviderProperties::<Impl, OFFSET>,
-            FindUserDataTaskListsAsync::<Impl, OFFSET>,
-            FindContactGroupsAsync::<Impl, OFFSET>,
-            TryShowCreateContactGroupAsync::<Impl, OFFSET>,
-            SetIsProtectedUnderLock::<Impl, OFFSET>,
-            SetIcon::<Impl, OFFSET>,
+            CanShowCreateContactGroup::<Impl, IMPL_OFFSET>,
+            SetCanShowCreateContactGroup::<Impl, IMPL_OFFSET>,
+            ProviderProperties::<Impl, IMPL_OFFSET>,
+            FindUserDataTaskListsAsync::<Impl, IMPL_OFFSET>,
+            FindContactGroupsAsync::<Impl, IMPL_OFFSET>,
+            TryShowCreateContactGroupAsync::<Impl, IMPL_OFFSET>,
+            SetIsProtectedUnderLock::<Impl, IMPL_OFFSET>,
+            SetIcon::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccount4 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IUserDataAccountManagerForUserImpl: Sized {
     fn RequestStoreAsync(&self, storeaccesstype: UserDataAccountStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IUserDataAccountManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountManagerForUserImpl, const OFFSET: isize>() -> IUserDataAccountManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountManagerForUserVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IUserDataAccountManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storeaccesstype: UserDataAccountStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync(storeaccesstype) {
@@ -402,23 +414,26 @@ impl IUserDataAccountManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerForUser>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerForUser>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountManagerForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataAccountManagerStaticsImpl: Sized {
     fn RequestStoreAsync(&self, storeaccesstype: UserDataAccountStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>;
     fn ShowAddAccountAsync(&self, contentkinds: UserDataAccountContentKinds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn ShowAccountSettingsAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ShowAccountErrorResolverAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataAccountManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountManagerStaticsImpl, const OFFSET: isize>() -> IUserDataAccountManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountManagerStaticsVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IUserDataAccountManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storeaccesstype: UserDataAccountStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync(storeaccesstype) {
@@ -463,20 +478,23 @@ impl IUserDataAccountManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>, ShowAddAccountAsync::<Impl, OFFSET>, ShowAccountSettingsAsync::<Impl, OFFSET>, ShowAccountErrorResolverAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, ShowAddAccountAsync::<Impl, IMPL_OFFSET>, ShowAccountSettingsAsync::<Impl, IMPL_OFFSET>, ShowAccountErrorResolverAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IUserDataAccountManagerStatics2Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserDataAccountManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IUserDataAccountManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountManagerStatics2Impl, const OFFSET: isize>() -> IUserDataAccountManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountManagerStatics2Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IUserDataAccountManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -488,22 +506,25 @@ impl IUserDataAccountManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserDataAccountStoreImpl: Sized {
     fn FindAccountsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataAccount>>>;
     fn GetAccountAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>>;
     fn CreateAccountAsync(&self, userdisplayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserDataAccountStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStoreImpl, const OFFSET: isize>() -> IUserDataAccountStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountStoreVtbl {
         unsafe extern "system" fn FindAccountsAsync<Impl: IUserDataAccountStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAccountsAsync() {
@@ -537,22 +558,25 @@ impl IUserDataAccountStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore>, ::windows::core::GetTrustLevel, FindAccountsAsync::<Impl, OFFSET>, GetAccountAsync::<Impl, OFFSET>, CreateAccountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore>, ::windows::core::GetTrustLevel, FindAccountsAsync::<Impl, IMPL_OFFSET>, GetAccountAsync::<Impl, IMPL_OFFSET>, CreateAccountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountStore as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataAccountStore2Impl: Sized + IUserDataAccountStoreImpl {
     fn CreateAccountWithPackageRelativeAppIdAsync(&self, userdisplayname: &::windows::core::HSTRING, packagerelativeappid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>>;
     fn StoreChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStoreChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountStore2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataAccountStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStore2Impl, const OFFSET: isize>() -> IUserDataAccountStore2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountStore2Vtbl {
         unsafe extern "system" fn CreateAccountWithPackageRelativeAppIdAsync<Impl: IUserDataAccountStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userdisplayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagerelativeappid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAccountWithPackageRelativeAppIdAsync(&*(&userdisplayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagerelativeappid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -579,20 +603,23 @@ impl IUserDataAccountStore2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStoreChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore2>, ::windows::core::GetTrustLevel, CreateAccountWithPackageRelativeAppIdAsync::<Impl, OFFSET>, StoreChanged::<Impl, OFFSET>, RemoveStoreChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore2>, ::windows::core::GetTrustLevel, CreateAccountWithPackageRelativeAppIdAsync::<Impl, IMPL_OFFSET>, StoreChanged::<Impl, IMPL_OFFSET>, RemoveStoreChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountStore2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataAccountStore3Impl: Sized + IUserDataAccountStoreImpl {
     fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync(&self, userdisplayname: &::windows::core::HSTRING, packagerelativeappid: &::windows::core::HSTRING, enterpriseid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountStore3 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataAccountStore3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStore3Impl, const OFFSET: isize>() -> IUserDataAccountStore3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStore3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountStore3Vtbl {
         unsafe extern "system" fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync<Impl: IUserDataAccountStore3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userdisplayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagerelativeappid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, enterpriseid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync(
@@ -608,20 +635,23 @@ impl IUserDataAccountStore3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore3>, ::windows::core::GetTrustLevel, CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStore3>, ::windows::core::GetTrustLevel, CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountStore3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataAccountStoreChangedEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataAccountStoreChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStoreChangedEventArgsImpl, const OFFSET: isize>() -> IUserDataAccountStoreChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountStoreChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountStoreChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IUserDataAccountStoreChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -633,6 +663,9 @@ impl IUserDataAccountStoreChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStoreChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountStoreChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountStoreChangedEventArgs as ::windows::core::Interface>::IID
     }
 }

@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInstalledVoicesStaticImpl: Sized {
     fn AllVoices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<VoiceInformation>>;
     fn DefaultVoice(&self) -> ::windows::core::Result<VoiceInformation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInstalledVoicesStatic {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IInstalledVoicesStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledVoicesStaticImpl, const OFFSET: isize>() -> IInstalledVoicesStaticVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledVoicesStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInstalledVoicesStaticVtbl {
         unsafe extern "system" fn AllVoices<Impl: IInstalledVoicesStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllVoices() {
@@ -32,20 +32,23 @@ impl IInstalledVoicesStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic>, ::windows::core::GetTrustLevel, AllVoices::<Impl, OFFSET>, DefaultVoice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic>, ::windows::core::GetTrustLevel, AllVoices::<Impl, IMPL_OFFSET>, DefaultVoice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInstalledVoicesStatic as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IInstalledVoicesStatic2Impl: Sized {
     fn TrySetDefaultVoiceAsync(&self, voice: &::core::option::Option<VoiceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInstalledVoicesStatic2 {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IInstalledVoicesStatic2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledVoicesStatic2Impl, const OFFSET: isize>() -> IInstalledVoicesStatic2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledVoicesStatic2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInstalledVoicesStatic2Vtbl {
         unsafe extern "system" fn TrySetDefaultVoiceAsync<Impl: IInstalledVoicesStatic2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voice: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySetDefaultVoiceAsync(&*(&voice as *const <VoiceInformation as ::windows::core::Abi>::Abi as *const <VoiceInformation as ::windows::core::DefaultType>::DefaultType)) {
@@ -57,20 +60,23 @@ impl IInstalledVoicesStatic2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic2>, ::windows::core::GetTrustLevel, TrySetDefaultVoiceAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic2>, ::windows::core::GetTrustLevel, TrySetDefaultVoiceAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInstalledVoicesStatic2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISpeechSynthesisStreamImpl: Sized + IClosableImpl + IContentTypeProviderImpl + IInputStreamImpl + IOutputStreamImpl + IRandomAccessStreamImpl + IRandomAccessStreamWithContentTypeImpl {
     fn Markers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.ISpeechSynthesisStream";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISpeechSynthesisStreamVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesisStreamImpl, const OFFSET: isize>() -> ISpeechSynthesisStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesisStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechSynthesisStreamVtbl {
         unsafe extern "system" fn Markers<Impl: ISpeechSynthesisStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Markers() {
@@ -82,23 +88,26 @@ impl ISpeechSynthesisStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesisStream>, ::windows::core::GetTrustLevel, Markers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesisStream>, ::windows::core::GetTrustLevel, Markers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechSynthesisStream as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpeechSynthesizerImpl: Sized {
     fn SynthesizeTextToStreamAsync(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>;
     fn SynthesizeSsmlToStreamAsync(&self, ssml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>;
     fn SetVoice(&self, value: &::core::option::Option<VoiceInformation>) -> ::windows::core::Result<()>;
     fn Voice(&self) -> ::windows::core::Result<VoiceInformation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.ISpeechSynthesizer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpeechSynthesizerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerImpl, const OFFSET: isize>() -> ISpeechSynthesizerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechSynthesizerVtbl {
         unsafe extern "system" fn SynthesizeTextToStreamAsync<Impl: ISpeechSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SynthesizeTextToStreamAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -136,7 +145,10 @@ impl ISpeechSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer>, ::windows::core::GetTrustLevel, SynthesizeTextToStreamAsync::<Impl, OFFSET>, SynthesizeSsmlToStreamAsync::<Impl, OFFSET>, SetVoice::<Impl, OFFSET>, Voice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer>, ::windows::core::GetTrustLevel, SynthesizeTextToStreamAsync::<Impl, IMPL_OFFSET>, SynthesizeSsmlToStreamAsync::<Impl, IMPL_OFFSET>, SetVoice::<Impl, IMPL_OFFSET>, Voice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechSynthesizer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -149,7 +161,7 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizer2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizer2Impl, const OFFSET: isize>() -> ISpeechSynthesizer2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechSynthesizer2Vtbl {
         unsafe extern "system" fn Options<Impl: ISpeechSynthesizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
@@ -161,7 +173,10 @@ impl ISpeechSynthesizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer2>, ::windows::core::GetTrustLevel, Options::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer2>, ::windows::core::GetTrustLevel, Options::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechSynthesizer2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -177,7 +192,7 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizerOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>() -> ISpeechSynthesizerOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechSynthesizerOptionsVtbl {
         unsafe extern "system" fn IncludeWordBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncludeWordBoundaryMetadata() {
@@ -208,7 +223,21 @@ impl ISpeechSynthesizerOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeSentenceBoundaryMetadata(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions>, ::windows::core::GetTrustLevel, IncludeWordBoundaryMetadata::<Impl, OFFSET>, SetIncludeWordBoundaryMetadata::<Impl, OFFSET>, IncludeSentenceBoundaryMetadata::<Impl, OFFSET>, SetIncludeSentenceBoundaryMetadata::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions>,
+            ::windows::core::GetTrustLevel,
+            IncludeWordBoundaryMetadata::<Impl, IMPL_OFFSET>,
+            SetIncludeWordBoundaryMetadata::<Impl, IMPL_OFFSET>,
+            IncludeSentenceBoundaryMetadata::<Impl, IMPL_OFFSET>,
+            SetIncludeSentenceBoundaryMetadata::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechSynthesizerOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -226,7 +255,7 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizerOptions2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerOptions2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>() -> ISpeechSynthesizerOptions2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptions2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechSynthesizerOptions2Vtbl {
         unsafe extern "system" fn AudioVolume<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioVolume() {
@@ -272,7 +301,23 @@ impl ISpeechSynthesizerOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioPitch(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions2>, ::windows::core::GetTrustLevel, AudioVolume::<Impl, OFFSET>, SetAudioVolume::<Impl, OFFSET>, SpeakingRate::<Impl, OFFSET>, SetSpeakingRate::<Impl, OFFSET>, AudioPitch::<Impl, OFFSET>, SetAudioPitch::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions2>,
+            ::windows::core::GetTrustLevel,
+            AudioVolume::<Impl, IMPL_OFFSET>,
+            SetAudioVolume::<Impl, IMPL_OFFSET>,
+            SpeakingRate::<Impl, IMPL_OFFSET>,
+            SetSpeakingRate::<Impl, IMPL_OFFSET>,
+            AudioPitch::<Impl, IMPL_OFFSET>,
+            SetAudioPitch::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechSynthesizerOptions2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -288,7 +333,7 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizerOptions3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerOptions3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>() -> ISpeechSynthesizerOptions3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptions3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechSynthesizerOptions3Vtbl {
         unsafe extern "system" fn AppendedSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechAppendedSilence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppendedSilence() {
@@ -319,7 +364,10 @@ impl ISpeechSynthesizerOptions3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPunctuationSilence(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions3>, ::windows::core::GetTrustLevel, AppendedSilence::<Impl, OFFSET>, SetAppendedSilence::<Impl, OFFSET>, PunctuationSilence::<Impl, OFFSET>, SetPunctuationSilence::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions3>, ::windows::core::GetTrustLevel, AppendedSilence::<Impl, IMPL_OFFSET>, SetAppendedSilence::<Impl, IMPL_OFFSET>, PunctuationSilence::<Impl, IMPL_OFFSET>, SetPunctuationSilence::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechSynthesizerOptions3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -336,7 +384,7 @@ impl ::windows::core::RuntimeName for IVoiceInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoiceInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceInformationImpl, const OFFSET: isize>() -> IVoiceInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoiceInformationVtbl {
         unsafe extern "system" fn DisplayName<Impl: IVoiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -392,6 +440,9 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Id::<Impl, OFFSET>, Language::<Impl, OFFSET>, Description::<Impl, OFFSET>, Gender::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, Gender::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoiceInformation as ::windows::core::Interface>::IID
     }
 }

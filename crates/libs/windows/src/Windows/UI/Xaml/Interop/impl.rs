@@ -5,7 +5,7 @@ impl ::windows::core::RuntimeName for IBindableIterable {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableIterable";
 }
 impl IBindableIterableVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterableImpl, const OFFSET: isize>() -> IBindableIterableVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindableIterableVtbl {
         unsafe extern "system" fn First<Impl: IBindableIterableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).First() {
@@ -17,7 +17,10 @@ impl IBindableIterableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableIterable>, ::windows::core::GetTrustLevel, First::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableIterable>, ::windows::core::GetTrustLevel, First::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindableIterable as ::windows::core::Interface>::IID
     }
 }
 pub trait IBindableIteratorImpl: Sized {
@@ -29,7 +32,7 @@ impl ::windows::core::RuntimeName for IBindableIterator {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableIterator";
 }
 impl IBindableIteratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIteratorImpl, const OFFSET: isize>() -> IBindableIteratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIteratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindableIteratorVtbl {
         unsafe extern "system" fn Current<Impl: IBindableIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -63,18 +66,24 @@ impl IBindableIteratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableIterator>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>, HasCurrent::<Impl, OFFSET>, MoveNext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableIterator>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, HasCurrent::<Impl, IMPL_OFFSET>, MoveNext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindableIterator as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBindableObservableVectorImpl: Sized + IBindableIterableImpl + IBindableVectorImpl {
     fn VectorChanged(&self, handler: &::core::option::Option<BindableVectorChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveVectorChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBindableObservableVector {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableObservableVector";
 }
+#[cfg(feature = "Foundation")]
 impl IBindableObservableVectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableObservableVectorImpl, const OFFSET: isize>() -> IBindableObservableVectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableObservableVectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindableObservableVectorVtbl {
         unsafe extern "system" fn VectorChanged<Impl: IBindableObservableVectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VectorChanged(&*(&handler as *const <BindableVectorChangedEventHandler as ::windows::core::Abi>::Abi as *const <BindableVectorChangedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -90,7 +99,10 @@ impl IBindableObservableVectorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVectorChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableObservableVector>, ::windows::core::GetTrustLevel, VectorChanged::<Impl, OFFSET>, RemoveVectorChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableObservableVector>, ::windows::core::GetTrustLevel, VectorChanged::<Impl, IMPL_OFFSET>, RemoveVectorChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindableObservableVector as ::windows::core::Interface>::IID
     }
 }
 pub trait IBindableVectorImpl: Sized + IBindableIterableImpl {
@@ -109,7 +121,7 @@ impl ::windows::core::RuntimeName for IBindableVector {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableVector";
 }
 impl IBindableVectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorImpl, const OFFSET: isize>() -> IBindableVectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindableVectorVtbl {
         unsafe extern "system" fn GetAt<Impl: IBindableVectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAt(index) {
@@ -179,23 +191,26 @@ impl IBindableVectorVtbl {
             (*this).Clear().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBindableVector>,
             ::windows::core::GetTrustLevel,
-            GetAt::<Impl, OFFSET>,
-            Size::<Impl, OFFSET>,
-            GetView::<Impl, OFFSET>,
-            IndexOf::<Impl, OFFSET>,
-            SetAt::<Impl, OFFSET>,
-            InsertAt::<Impl, OFFSET>,
-            RemoveAt::<Impl, OFFSET>,
-            Append::<Impl, OFFSET>,
-            RemoveAtEnd::<Impl, OFFSET>,
-            Clear::<Impl, OFFSET>,
+            GetAt::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            GetView::<Impl, IMPL_OFFSET>,
+            IndexOf::<Impl, IMPL_OFFSET>,
+            SetAt::<Impl, IMPL_OFFSET>,
+            InsertAt::<Impl, IMPL_OFFSET>,
+            RemoveAt::<Impl, IMPL_OFFSET>,
+            Append::<Impl, IMPL_OFFSET>,
+            RemoveAtEnd::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindableVector as ::windows::core::Interface>::IID
     }
 }
 pub trait IBindableVectorViewImpl: Sized + IBindableIterableImpl {
@@ -207,7 +222,7 @@ impl ::windows::core::RuntimeName for IBindableVectorView {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableVectorView";
 }
 impl IBindableVectorViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorViewImpl, const OFFSET: isize>() -> IBindableVectorViewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindableVectorViewVtbl {
         unsafe extern "system" fn GetAt<Impl: IBindableVectorViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAt(index) {
@@ -241,18 +256,24 @@ impl IBindableVectorViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableVectorView>, ::windows::core::GetTrustLevel, GetAt::<Impl, OFFSET>, Size::<Impl, OFFSET>, IndexOf::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBindableVectorView>, ::windows::core::GetTrustLevel, GetAt::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>, IndexOf::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindableVectorView as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait INotifyCollectionChangedImpl: Sized {
     fn CollectionChanged(&self, handler: &::core::option::Option<NotifyCollectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveCollectionChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INotifyCollectionChanged {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.INotifyCollectionChanged";
 }
+#[cfg(feature = "Foundation")]
 impl INotifyCollectionChangedVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChangedImpl, const OFFSET: isize>() -> INotifyCollectionChangedVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChangedImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotifyCollectionChangedVtbl {
         unsafe extern "system" fn CollectionChanged<Impl: INotifyCollectionChangedImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionChanged(&*(&handler as *const <NotifyCollectionChangedEventHandler as ::windows::core::Abi>::Abi as *const <NotifyCollectionChangedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -268,7 +289,10 @@ impl INotifyCollectionChangedVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCollectionChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChanged>, ::windows::core::GetTrustLevel, CollectionChanged::<Impl, OFFSET>, RemoveCollectionChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChanged>, ::windows::core::GetTrustLevel, CollectionChanged::<Impl, IMPL_OFFSET>, RemoveCollectionChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotifyCollectionChanged as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -285,7 +309,7 @@ impl ::windows::core::RuntimeName for INotifyCollectionChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INotifyCollectionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChangedEventArgsImpl, const OFFSET: isize>() -> INotifyCollectionChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotifyCollectionChangedEventArgsVtbl {
         unsafe extern "system" fn Action<Impl: INotifyCollectionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NotifyCollectionChangedAction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Action() {
@@ -341,7 +365,10 @@ impl INotifyCollectionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChangedEventArgs>, ::windows::core::GetTrustLevel, Action::<Impl, OFFSET>, NewItems::<Impl, OFFSET>, OldItems::<Impl, OFFSET>, NewStartingIndex::<Impl, OFFSET>, OldStartingIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChangedEventArgs>, ::windows::core::GetTrustLevel, Action::<Impl, IMPL_OFFSET>, NewItems::<Impl, IMPL_OFFSET>, OldItems::<Impl, IMPL_OFFSET>, NewStartingIndex::<Impl, IMPL_OFFSET>, OldStartingIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotifyCollectionChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -354,7 +381,7 @@ impl ::windows::core::RuntimeName for INotifyCollectionChangedEventArgsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INotifyCollectionChangedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChangedEventArgsFactoryImpl, const OFFSET: isize>() -> INotifyCollectionChangedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChangedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotifyCollectionChangedEventArgsFactoryVtbl {
         unsafe extern "system" fn CreateInstanceWithAllParameters<Impl: INotifyCollectionChangedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, action: NotifyCollectionChangedAction, newitems: ::windows::core::RawPtr, olditems: ::windows::core::RawPtr, newindex: i32, oldindex: i32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceWithAllParameters(
@@ -374,6 +401,9 @@ impl INotifyCollectionChangedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChangedEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithAllParameters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotifyCollectionChangedEventArgsFactory>, ::windows::core::GetTrustLevel, CreateInstanceWithAllParameters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotifyCollectionChangedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }

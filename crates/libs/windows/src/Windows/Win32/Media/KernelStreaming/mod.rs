@@ -587,11 +587,11 @@ pub const GUID_NULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub struct IKsAggregateControl(::windows::core::IUnknown);
 impl IKsAggregateControl {
     #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
-    pub unsafe fn KsAddAggregate(&self, aggregateclass: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(aggregateclass)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
-    pub unsafe fn KsRemoveAggregate(&self, aggregateclass: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn KsRemoveAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(aggregateclass)).ok()
     }
 }
@@ -641,8 +641,8 @@ pub struct IKsAggregateControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
 pub struct IKsAllocator(pub u8);
@@ -1030,15 +1030,15 @@ pub struct IKsPin(pub u8);
 pub struct IKsPropertySet(::windows::core::IUnknown);
 impl IKsPropertySet {
     #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
-    pub unsafe fn Set(&self, propset: &::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(instancedata), ::core::mem::transmute(instancelength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
-    pub unsafe fn Get(&self, propset: &::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(instancedata), ::core::mem::transmute(instancelength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
-    pub unsafe fn QuerySupported(&self, propset: &::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
@@ -1089,16 +1089,16 @@ pub struct IKsPropertySetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: &::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: &::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: &::windows::core::GUID, id: u32, typesupport: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, typesupport: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 #[repr(transparent)]
 pub struct IKsTopology(::windows::core::IUnknown);
 impl IKsTopology {
     #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
-    pub unsafe fn CreateNodeInstance<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: Param3, interfaceid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateNodeInstance<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: Param3, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodeid), ::core::mem::transmute(flags), ::core::mem::transmute(desiredaccess), unkouter.into_param().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
     }
 }
@@ -1148,7 +1148,7 @@ pub struct IKsTopologyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]

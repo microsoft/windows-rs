@@ -930,12 +930,12 @@ pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: &::windows::core::GUID) -> u32 {
+pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: &::windows::core::GUID) -> u32;
+            fn DeleteVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(DeleteVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item)))
     }
@@ -1539,12 +1539,12 @@ pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: &::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: &::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32;
+            fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(GetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
     }
@@ -2963,12 +2963,12 @@ pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: &::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: &::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32;
+            fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(SetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
     }

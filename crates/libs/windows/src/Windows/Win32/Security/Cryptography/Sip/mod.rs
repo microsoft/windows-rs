@@ -77,12 +77,12 @@ pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwen
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPLoad(pgsubject: &::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPLoad(pgsubject: &::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CryptSIPLoad(::core::mem::transmute(pgsubject), ::core::mem::transmute(dwflags), ::core::mem::transmute(psipdispatch)))
     }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOfflineMapPackageImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<OfflineMapPackageStatus>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -8,13 +8,13 @@ pub trait IOfflineMapPackageImpl: Sized {
     fn StatusChanged(&self, value: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RequestStartDownloadAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.IOfflineMapPackage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IOfflineMapPackageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageImpl, const OFFSET: isize>() -> IOfflineMapPackageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOfflineMapPackageVtbl {
         unsafe extern "system" fn Status<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -86,34 +86,37 @@ impl IOfflineMapPackageVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IOfflineMapPackage>,
             ::windows::core::GetTrustLevel,
-            Status::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            EnclosingRegionName::<Impl, OFFSET>,
-            EstimatedSizeInBytes::<Impl, OFFSET>,
-            RemoveStatusChanged::<Impl, OFFSET>,
-            StatusChanged::<Impl, OFFSET>,
-            RequestStartDownloadAsync::<Impl, OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            EnclosingRegionName::<Impl, IMPL_OFFSET>,
+            EstimatedSizeInBytes::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            StatusChanged::<Impl, IMPL_OFFSET>,
+            RequestStartDownloadAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOfflineMapPackage as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOfflineMapPackageQueryResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<OfflineMapPackageQueryStatus>;
     fn Packages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.IOfflineMapPackageQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IOfflineMapPackageQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: isize>() -> IOfflineMapPackageQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOfflineMapPackageQueryResultVtbl {
         unsafe extern "system" fn Status<Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageQueryStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -136,7 +139,10 @@ impl IOfflineMapPackageQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageQueryResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Packages::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageQueryResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Packages::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOfflineMapPackageQueryResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -149,7 +155,7 @@ impl ::windows::core::RuntimeName for IOfflineMapPackageStartDownloadResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOfflineMapPackageStartDownloadResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageStartDownloadResultImpl, const OFFSET: isize>() -> IOfflineMapPackageStartDownloadResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageStartDownloadResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOfflineMapPackageStartDownloadResultVtbl {
         unsafe extern "system" fn Status<Impl: IOfflineMapPackageStartDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStartDownloadStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -161,22 +167,25 @@ impl IOfflineMapPackageStartDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStartDownloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStartDownloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOfflineMapPackageStartDownloadResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOfflineMapPackageStaticsImpl: Sized {
     fn FindPackagesAsync(&self, querypoint: &::core::option::Option<super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
     fn FindPackagesInBoundingBoxAsync(&self, queryboundingbox: &::core::option::Option<super::super::super::Devices::Geolocation::GeoboundingBox>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
     fn FindPackagesInGeocircleAsync(&self, querycircle: &::core::option::Option<super::super::super::Devices::Geolocation::Geocircle>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOfflineMapPackageStatics {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IOfflineMapPackageStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageStaticsImpl, const OFFSET: isize>() -> IOfflineMapPackageStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOfflineMapPackageStaticsVtbl {
         unsafe extern "system" fn FindPackagesAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindPackagesAsync(&*(&querypoint as *const <super::super::super::Devices::Geolocation::Geopoint as ::windows::core::Abi>::Abi as *const <super::super::super::Devices::Geolocation::Geopoint as ::windows::core::DefaultType>::DefaultType)) {
@@ -210,6 +219,9 @@ impl IOfflineMapPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStatics>, ::windows::core::GetTrustLevel, FindPackagesAsync::<Impl, OFFSET>, FindPackagesInBoundingBoxAsync::<Impl, OFFSET>, FindPackagesInGeocircleAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStatics>, ::windows::core::GetTrustLevel, FindPackagesAsync::<Impl, IMPL_OFFSET>, FindPackagesInBoundingBoxAsync::<Impl, IMPL_OFFSET>, FindPackagesInGeocircleAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOfflineMapPackageStatics as ::windows::core::Interface>::IID
     }
 }

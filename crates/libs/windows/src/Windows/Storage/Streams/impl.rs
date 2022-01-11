@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IBuffer {
     const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
 }
 impl IBufferVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferImpl, const OFFSET: isize>() -> IBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBufferVtbl {
         unsafe extern "system" fn Capacity<Impl: IBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capacity() {
@@ -34,7 +34,10 @@ impl IBufferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLength(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBuffer>, ::windows::core::GetTrustLevel, Capacity::<Impl, OFFSET>, Length::<Impl, OFFSET>, SetLength::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBuffer>, ::windows::core::GetTrustLevel, Capacity::<Impl, IMPL_OFFSET>, Length::<Impl, IMPL_OFFSET>, SetLength::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBuffer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -47,7 +50,7 @@ impl ::windows::core::RuntimeName for IBufferFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBufferFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferFactoryImpl, const OFFSET: isize>() -> IBufferFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBufferFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IBufferFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(capacity) {
@@ -59,21 +62,24 @@ impl IBufferFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBufferFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBufferStaticsImpl: Sized {
     fn CreateCopyFromMemoryBuffer(&self, input: &::core::option::Option<super::super::Foundation::IMemoryBuffer>) -> ::windows::core::Result<Buffer>;
     fn CreateMemoryBufferOverIBuffer(&self, input: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBufferStatics {
     const NAME: &'static str = "Windows.Storage.Streams.IBufferStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBufferStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferStaticsImpl, const OFFSET: isize>() -> IBufferStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBufferStaticsVtbl {
         unsafe extern "system" fn CreateCopyFromMemoryBuffer<Impl: IBufferStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCopyFromMemoryBuffer(&*(&input as *const <super::super::Foundation::IMemoryBuffer as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IMemoryBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -96,7 +102,10 @@ impl IBufferStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferStatics>, ::windows::core::GetTrustLevel, CreateCopyFromMemoryBuffer::<Impl, OFFSET>, CreateMemoryBufferOverIBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBufferStatics>, ::windows::core::GetTrustLevel, CreateCopyFromMemoryBuffer::<Impl, IMPL_OFFSET>, CreateMemoryBufferOverIBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBufferStatics as ::windows::core::Interface>::IID
     }
 }
 pub trait IContentTypeProviderImpl: Sized {
@@ -106,7 +115,7 @@ impl ::windows::core::RuntimeName for IContentTypeProvider {
     const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
 }
 impl IContentTypeProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentTypeProviderImpl, const OFFSET: isize>() -> IContentTypeProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentTypeProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentTypeProviderVtbl {
         unsafe extern "system" fn ContentType<Impl: IContentTypeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentType() {
@@ -118,9 +127,13 @@ impl IContentTypeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentTypeProvider>, ::windows::core::GetTrustLevel, ContentType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentTypeProvider>, ::windows::core::GetTrustLevel, ContentType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentTypeProvider as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IDataReaderImpl: Sized {
     fn UnconsumedBufferLength(&self) -> ::windows::core::Result<u32>;
     fn UnicodeEncoding(&self) -> ::windows::core::Result<UnicodeEncoding>;
@@ -149,11 +162,13 @@ pub trait IDataReaderImpl: Sized {
     fn DetachBuffer(&self) -> ::windows::core::Result<IBuffer>;
     fn DetachStream(&self) -> ::windows::core::Result<IInputStream>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IDataReader {
     const NAME: &'static str = "Windows.Storage.Streams.IDataReader";
 }
+#[cfg(feature = "Foundation")]
 impl IDataReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReaderImpl, const OFFSET: isize>() -> IDataReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataReaderVtbl {
         unsafe extern "system" fn UnconsumedBufferLength<Impl: IDataReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnconsumedBufferLength() {
@@ -413,39 +428,42 @@ impl IDataReaderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDataReader>,
             ::windows::core::GetTrustLevel,
-            UnconsumedBufferLength::<Impl, OFFSET>,
-            UnicodeEncoding::<Impl, OFFSET>,
-            SetUnicodeEncoding::<Impl, OFFSET>,
-            ByteOrder::<Impl, OFFSET>,
-            SetByteOrder::<Impl, OFFSET>,
-            InputStreamOptions::<Impl, OFFSET>,
-            SetInputStreamOptions::<Impl, OFFSET>,
-            ReadByte::<Impl, OFFSET>,
-            ReadBytes::<Impl, OFFSET>,
-            ReadBuffer::<Impl, OFFSET>,
-            ReadBoolean::<Impl, OFFSET>,
-            ReadGuid::<Impl, OFFSET>,
-            ReadInt16::<Impl, OFFSET>,
-            ReadInt32::<Impl, OFFSET>,
-            ReadInt64::<Impl, OFFSET>,
-            ReadUInt16::<Impl, OFFSET>,
-            ReadUInt32::<Impl, OFFSET>,
-            ReadUInt64::<Impl, OFFSET>,
-            ReadSingle::<Impl, OFFSET>,
-            ReadDouble::<Impl, OFFSET>,
-            ReadString::<Impl, OFFSET>,
-            ReadDateTime::<Impl, OFFSET>,
-            ReadTimeSpan::<Impl, OFFSET>,
-            LoadAsync::<Impl, OFFSET>,
-            DetachBuffer::<Impl, OFFSET>,
-            DetachStream::<Impl, OFFSET>,
+            UnconsumedBufferLength::<Impl, IMPL_OFFSET>,
+            UnicodeEncoding::<Impl, IMPL_OFFSET>,
+            SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
+            ByteOrder::<Impl, IMPL_OFFSET>,
+            SetByteOrder::<Impl, IMPL_OFFSET>,
+            InputStreamOptions::<Impl, IMPL_OFFSET>,
+            SetInputStreamOptions::<Impl, IMPL_OFFSET>,
+            ReadByte::<Impl, IMPL_OFFSET>,
+            ReadBytes::<Impl, IMPL_OFFSET>,
+            ReadBuffer::<Impl, IMPL_OFFSET>,
+            ReadBoolean::<Impl, IMPL_OFFSET>,
+            ReadGuid::<Impl, IMPL_OFFSET>,
+            ReadInt16::<Impl, IMPL_OFFSET>,
+            ReadInt32::<Impl, IMPL_OFFSET>,
+            ReadInt64::<Impl, IMPL_OFFSET>,
+            ReadUInt16::<Impl, IMPL_OFFSET>,
+            ReadUInt32::<Impl, IMPL_OFFSET>,
+            ReadUInt64::<Impl, IMPL_OFFSET>,
+            ReadSingle::<Impl, IMPL_OFFSET>,
+            ReadDouble::<Impl, IMPL_OFFSET>,
+            ReadString::<Impl, IMPL_OFFSET>,
+            ReadDateTime::<Impl, IMPL_OFFSET>,
+            ReadTimeSpan::<Impl, IMPL_OFFSET>,
+            LoadAsync::<Impl, IMPL_OFFSET>,
+            DetachBuffer::<Impl, IMPL_OFFSET>,
+            DetachStream::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -458,7 +476,7 @@ impl ::windows::core::RuntimeName for IDataReaderFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDataReaderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReaderFactoryImpl, const OFFSET: isize>() -> IDataReaderFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReaderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataReaderFactoryVtbl {
         unsafe extern "system" fn CreateDataReader<Impl: IDataReaderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDataReader(&*(&inputstream as *const <IInputStream as ::windows::core::Abi>::Abi as *const <IInputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -470,7 +488,10 @@ impl IDataReaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataReaderFactory>, ::windows::core::GetTrustLevel, CreateDataReader::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataReaderFactory>, ::windows::core::GetTrustLevel, CreateDataReader::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataReaderFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -483,7 +504,7 @@ impl ::windows::core::RuntimeName for IDataReaderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDataReaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReaderStaticsImpl, const OFFSET: isize>() -> IDataReaderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataReaderStaticsVtbl {
         unsafe extern "system" fn FromBuffer<Impl: IDataReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromBuffer(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -495,9 +516,13 @@ impl IDataReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataReaderStatics>, ::windows::core::GetTrustLevel, FromBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataReaderStatics>, ::windows::core::GetTrustLevel, FromBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataReaderStatics as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IDataWriterImpl: Sized {
     fn UnstoredBufferLength(&self) -> ::windows::core::Result<u32>;
     fn UnicodeEncoding(&self) -> ::windows::core::Result<UnicodeEncoding>;
@@ -527,11 +552,13 @@ pub trait IDataWriterImpl: Sized {
     fn DetachBuffer(&self) -> ::windows::core::Result<IBuffer>;
     fn DetachStream(&self) -> ::windows::core::Result<IOutputStream>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IDataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.IDataWriter";
 }
+#[cfg(feature = "Foundation")]
 impl IDataWriterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriterImpl, const OFFSET: isize>() -> IDataWriterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataWriterVtbl {
         unsafe extern "system" fn UnstoredBufferLength<Impl: IDataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnstoredBufferLength() {
@@ -704,40 +731,43 @@ impl IDataWriterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDataWriter>,
             ::windows::core::GetTrustLevel,
-            UnstoredBufferLength::<Impl, OFFSET>,
-            UnicodeEncoding::<Impl, OFFSET>,
-            SetUnicodeEncoding::<Impl, OFFSET>,
-            ByteOrder::<Impl, OFFSET>,
-            SetByteOrder::<Impl, OFFSET>,
-            WriteByte::<Impl, OFFSET>,
-            WriteBytes::<Impl, OFFSET>,
-            WriteBuffer::<Impl, OFFSET>,
-            WriteBufferRange::<Impl, OFFSET>,
-            WriteBoolean::<Impl, OFFSET>,
-            WriteGuid::<Impl, OFFSET>,
-            WriteInt16::<Impl, OFFSET>,
-            WriteInt32::<Impl, OFFSET>,
-            WriteInt64::<Impl, OFFSET>,
-            WriteUInt16::<Impl, OFFSET>,
-            WriteUInt32::<Impl, OFFSET>,
-            WriteUInt64::<Impl, OFFSET>,
-            WriteSingle::<Impl, OFFSET>,
-            WriteDouble::<Impl, OFFSET>,
-            WriteDateTime::<Impl, OFFSET>,
-            WriteTimeSpan::<Impl, OFFSET>,
-            WriteString::<Impl, OFFSET>,
-            MeasureString::<Impl, OFFSET>,
-            StoreAsync::<Impl, OFFSET>,
-            FlushAsync::<Impl, OFFSET>,
-            DetachBuffer::<Impl, OFFSET>,
-            DetachStream::<Impl, OFFSET>,
+            UnstoredBufferLength::<Impl, IMPL_OFFSET>,
+            UnicodeEncoding::<Impl, IMPL_OFFSET>,
+            SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
+            ByteOrder::<Impl, IMPL_OFFSET>,
+            SetByteOrder::<Impl, IMPL_OFFSET>,
+            WriteByte::<Impl, IMPL_OFFSET>,
+            WriteBytes::<Impl, IMPL_OFFSET>,
+            WriteBuffer::<Impl, IMPL_OFFSET>,
+            WriteBufferRange::<Impl, IMPL_OFFSET>,
+            WriteBoolean::<Impl, IMPL_OFFSET>,
+            WriteGuid::<Impl, IMPL_OFFSET>,
+            WriteInt16::<Impl, IMPL_OFFSET>,
+            WriteInt32::<Impl, IMPL_OFFSET>,
+            WriteInt64::<Impl, IMPL_OFFSET>,
+            WriteUInt16::<Impl, IMPL_OFFSET>,
+            WriteUInt32::<Impl, IMPL_OFFSET>,
+            WriteUInt64::<Impl, IMPL_OFFSET>,
+            WriteSingle::<Impl, IMPL_OFFSET>,
+            WriteDouble::<Impl, IMPL_OFFSET>,
+            WriteDateTime::<Impl, IMPL_OFFSET>,
+            WriteTimeSpan::<Impl, IMPL_OFFSET>,
+            WriteString::<Impl, IMPL_OFFSET>,
+            MeasureString::<Impl, IMPL_OFFSET>,
+            StoreAsync::<Impl, IMPL_OFFSET>,
+            FlushAsync::<Impl, IMPL_OFFSET>,
+            DetachBuffer::<Impl, IMPL_OFFSET>,
+            DetachStream::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataWriter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -750,7 +780,7 @@ impl ::windows::core::RuntimeName for IDataWriterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDataWriterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriterFactoryImpl, const OFFSET: isize>() -> IDataWriterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataWriterFactoryVtbl {
         unsafe extern "system" fn CreateDataWriter<Impl: IDataWriterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDataWriter(&*(&outputstream as *const <IOutputStream as ::windows::core::Abi>::Abi as *const <IOutputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -762,10 +792,13 @@ impl IDataWriterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataWriterFactory>, ::windows::core::GetTrustLevel, CreateDataWriter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataWriterFactory>, ::windows::core::GetTrustLevel, CreateDataWriter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataWriterFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IFileRandomAccessStreamStaticsImpl: Sized {
     fn OpenAsync(&self, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
     fn OpenWithOptionsAsync(&self, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
@@ -776,13 +809,13 @@ pub trait IFileRandomAccessStreamStaticsImpl: Sized {
     fn OpenTransactedWriteForUserAsync(&self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
     fn OpenTransactedWriteForUserWithOptionsAsync(&self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileRandomAccessStreamStatics {
     const NAME: &'static str = "Windows.Storage.Streams.IFileRandomAccessStreamStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IFileRandomAccessStreamStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRandomAccessStreamStaticsImpl, const OFFSET: isize>() -> IFileRandomAccessStreamStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRandomAccessStreamStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileRandomAccessStreamStaticsVtbl {
         unsafe extern "system" fn OpenAsync<Impl: IFileRandomAccessStreamStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, accessmode: super::FileAccessMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAsync(&*(&filepath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), accessmode) {
@@ -872,21 +905,24 @@ impl IFileRandomAccessStreamStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileRandomAccessStreamStatics>,
             ::windows::core::GetTrustLevel,
-            OpenAsync::<Impl, OFFSET>,
-            OpenWithOptionsAsync::<Impl, OFFSET>,
-            OpenTransactedWriteAsync::<Impl, OFFSET>,
-            OpenTransactedWriteWithOptionsAsync::<Impl, OFFSET>,
-            OpenForUserAsync::<Impl, OFFSET>,
-            OpenForUserWithOptionsAsync::<Impl, OFFSET>,
-            OpenTransactedWriteForUserAsync::<Impl, OFFSET>,
-            OpenTransactedWriteForUserWithOptionsAsync::<Impl, OFFSET>,
+            OpenAsync::<Impl, IMPL_OFFSET>,
+            OpenWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            OpenForUserAsync::<Impl, IMPL_OFFSET>,
+            OpenForUserWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteForUserAsync::<Impl, IMPL_OFFSET>,
+            OpenTransactedWriteForUserWithOptionsAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileRandomAccessStreamStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Foundation")]
@@ -899,7 +935,7 @@ impl ::windows::core::RuntimeName for IInputStream {
 }
 #[cfg(feature = "Foundation")]
 impl IInputStreamVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamImpl, const OFFSET: isize>() -> IInputStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputStreamVtbl {
         unsafe extern "system" fn ReadAsync<Impl: IInputStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, count: u32, options: InputStreamOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadAsync(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType), count, options) {
@@ -911,17 +947,23 @@ impl IInputStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputStream>, ::windows::core::GetTrustLevel, ReadAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputStream>, ::windows::core::GetTrustLevel, ReadAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputStream as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IInputStreamReferenceImpl: Sized {
     fn OpenSequentialReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IInputStream>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IInputStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStreamReference";
 }
+#[cfg(feature = "Foundation")]
 impl IInputStreamReferenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamReferenceImpl, const OFFSET: isize>() -> IInputStreamReferenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputStreamReferenceVtbl {
         unsafe extern "system" fn OpenSequentialReadAsync<Impl: IInputStreamReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenSequentialReadAsync() {
@@ -933,7 +975,10 @@ impl IInputStreamReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputStreamReference>, ::windows::core::GetTrustLevel, OpenSequentialReadAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputStreamReference>, ::windows::core::GetTrustLevel, OpenSequentialReadAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputStreamReference as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Foundation")]
@@ -947,7 +992,7 @@ impl ::windows::core::RuntimeName for IOutputStream {
 }
 #[cfg(feature = "Foundation")]
 impl IOutputStreamVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStreamImpl, const OFFSET: isize>() -> IOutputStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOutputStreamVtbl {
         unsafe extern "system" fn WriteAsync<Impl: IOutputStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteAsync(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -970,18 +1015,24 @@ impl IOutputStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOutputStream>, ::windows::core::GetTrustLevel, WriteAsync::<Impl, OFFSET>, FlushAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOutputStream>, ::windows::core::GetTrustLevel, WriteAsync::<Impl, IMPL_OFFSET>, FlushAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOutputStream as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializerImpl: Sized {
     fn Serialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<IBuffer>;
     fn Deserialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPropertySetSerializer {
     const NAME: &'static str = "Windows.Storage.Streams.IPropertySetSerializer";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IPropertySetSerializerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializerImpl, const OFFSET: isize>() -> IPropertySetSerializerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPropertySetSerializerVtbl {
         unsafe extern "system" fn Serialize<Impl: IPropertySetSerializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Serialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
@@ -997,7 +1048,10 @@ impl IPropertySetSerializerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Deserialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertySetSerializer>, ::windows::core::GetTrustLevel, Serialize::<Impl, OFFSET>, Deserialize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertySetSerializer>, ::windows::core::GetTrustLevel, Serialize::<Impl, IMPL_OFFSET>, Deserialize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPropertySetSerializer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1018,7 +1072,7 @@ impl ::windows::core::RuntimeName for IRandomAccessStream {
 }
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStreamVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamImpl, const OFFSET: isize>() -> IRandomAccessStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamVtbl {
         unsafe extern "system" fn Size<Impl: IRandomAccessStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
@@ -1105,32 +1159,38 @@ impl IRandomAccessStreamVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRandomAccessStream>,
             ::windows::core::GetTrustLevel,
-            Size::<Impl, OFFSET>,
-            SetSize::<Impl, OFFSET>,
-            GetInputStreamAt::<Impl, OFFSET>,
-            GetOutputStreamAt::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            Seek::<Impl, OFFSET>,
-            CloneStream::<Impl, OFFSET>,
-            CanRead::<Impl, OFFSET>,
-            CanWrite::<Impl, OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            SetSize::<Impl, IMPL_OFFSET>,
+            GetInputStreamAt::<Impl, IMPL_OFFSET>,
+            GetOutputStreamAt::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            Seek::<Impl, IMPL_OFFSET>,
+            CloneStream::<Impl, IMPL_OFFSET>,
+            CanRead::<Impl, IMPL_OFFSET>,
+            CanWrite::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRandomAccessStream as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation")]
 pub trait IRandomAccessStreamReferenceImpl: Sized {
     fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IRandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamReference";
 }
+#[cfg(feature = "Foundation")]
 impl IRandomAccessStreamReferenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReferenceImpl, const OFFSET: isize>() -> IRandomAccessStreamReferenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamReferenceVtbl {
         unsafe extern "system" fn OpenReadAsync<Impl: IRandomAccessStreamReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenReadAsync() {
@@ -1142,22 +1202,25 @@ impl IRandomAccessStreamReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamReference>, ::windows::core::GetTrustLevel, OpenReadAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamReference>, ::windows::core::GetTrustLevel, OpenReadAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRandomAccessStreamReference as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRandomAccessStreamReferenceStaticsImpl: Sized {
     fn CreateFromFile(&self, file: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<RandomAccessStreamReference>;
     fn CreateFromUri(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<RandomAccessStreamReference>;
     fn CreateFromStream(&self, stream: &::core::option::Option<IRandomAccessStream>) -> ::windows::core::Result<RandomAccessStreamReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRandomAccessStreamReferenceStatics {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamReferenceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRandomAccessStreamReferenceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReferenceStaticsImpl, const OFFSET: isize>() -> IRandomAccessStreamReferenceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReferenceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamReferenceStaticsVtbl {
         unsafe extern "system" fn CreateFromFile<Impl: IRandomAccessStreamReferenceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromFile(&*(&file as *const <super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -1191,22 +1254,25 @@ impl IRandomAccessStreamReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamReferenceStatics>, ::windows::core::GetTrustLevel, CreateFromFile::<Impl, OFFSET>, CreateFromUri::<Impl, OFFSET>, CreateFromStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamReferenceStatics>, ::windows::core::GetTrustLevel, CreateFromFile::<Impl, IMPL_OFFSET>, CreateFromUri::<Impl, IMPL_OFFSET>, CreateFromStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRandomAccessStreamReferenceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRandomAccessStreamStaticsImpl: Sized {
     fn CopyAsync(&self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
     fn CopySizeAsync(&self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
     fn CopyAndCloseAsync(&self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRandomAccessStreamStatics {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRandomAccessStreamStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamStaticsImpl, const OFFSET: isize>() -> IRandomAccessStreamStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamStaticsVtbl {
         unsafe extern "system" fn CopyAsync<Impl: IRandomAccessStreamStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CopyAsync(&*(&source as *const <IInputStream as ::windows::core::Abi>::Abi as *const <IInputStream as ::windows::core::DefaultType>::DefaultType), &*(&destination as *const <IOutputStream as ::windows::core::Abi>::Abi as *const <IOutputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -1240,7 +1306,10 @@ impl IRandomAccessStreamStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamStatics>, ::windows::core::GetTrustLevel, CopyAsync::<Impl, OFFSET>, CopySizeAsync::<Impl, OFFSET>, CopyAndCloseAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamStatics>, ::windows::core::GetTrustLevel, CopyAsync::<Impl, IMPL_OFFSET>, CopySizeAsync::<Impl, IMPL_OFFSET>, CopyAndCloseAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRandomAccessStreamStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1251,7 +1320,10 @@ impl ::windows::core::RuntimeName for IRandomAccessStreamWithContentType {
 }
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStreamWithContentTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamWithContentTypeImpl, const OFFSET: isize>() -> IRandomAccessStreamWithContentTypeVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamWithContentType>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamWithContentTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamWithContentTypeVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRandomAccessStreamWithContentType>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID
     }
 }

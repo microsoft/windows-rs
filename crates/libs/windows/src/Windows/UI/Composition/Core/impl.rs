@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompositorControllerImpl: Sized {
     fn Compositor(&self) -> ::windows::core::Result<super::Compositor>;
     fn Commit(&self) -> ::windows::core::Result<()>;
@@ -6,13 +6,13 @@ pub trait ICompositorControllerImpl: Sized {
     fn CommitNeeded(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CompositorController, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveCommitNeeded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.ICompositorController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICompositorControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorControllerImpl, const OFFSET: isize>() -> ICompositorControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorControllerVtbl {
         unsafe extern "system" fn Compositor<Impl: ICompositorControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compositor() {
@@ -54,6 +54,9 @@ impl ICompositorControllerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCommitNeeded(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositorController>, ::windows::core::GetTrustLevel, Compositor::<Impl, OFFSET>, Commit::<Impl, OFFSET>, EnsurePreviousCommitCompletedAsync::<Impl, OFFSET>, CommitNeeded::<Impl, OFFSET>, RemoveCommitNeeded::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompositorController>, ::windows::core::GetTrustLevel, Compositor::<Impl, IMPL_OFFSET>, Commit::<Impl, IMPL_OFFSET>, EnsurePreviousCommitCompletedAsync::<Impl, IMPL_OFFSET>, CommitNeeded::<Impl, IMPL_OFFSET>, RemoveCommitNeeded::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositorController as ::windows::core::Interface>::IID
     }
 }

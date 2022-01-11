@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IUsbBulkInEndpointDescriptor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbBulkInEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInEndpointDescriptorImpl, const OFFSET: isize>() -> IUsbBulkInEndpointDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkInEndpointDescriptorVtbl {
         unsafe extern "system" fn MaxPacketSize<Impl: IUsbBulkInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
@@ -44,10 +44,13 @@ impl IUsbBulkInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkInEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, OFFSET>, EndpointNumber::<Impl, OFFSET>, Pipe::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkInEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbBulkInEndpointDescriptor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbBulkInPipeImpl: Sized {
     fn MaxTransferSizeBytes(&self) -> ::windows::core::Result<u32>;
     fn EndpointDescriptor(&self) -> ::windows::core::Result<UsbBulkInEndpointDescriptor>;
@@ -57,13 +60,13 @@ pub trait IUsbBulkInPipeImpl: Sized {
     fn FlushBuffer(&self) -> ::windows::core::Result<()>;
     fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbBulkInPipe";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbBulkInPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInPipeImpl, const OFFSET: isize>() -> IUsbBulkInPipeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkInPipeVtbl {
         unsafe extern "system" fn MaxTransferSizeBytes<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxTransferSizeBytes() {
@@ -128,20 +131,23 @@ impl IUsbBulkInPipeVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbBulkInPipe>,
             ::windows::core::GetTrustLevel,
-            MaxTransferSizeBytes::<Impl, OFFSET>,
-            EndpointDescriptor::<Impl, OFFSET>,
-            ClearStallAsync::<Impl, OFFSET>,
-            SetReadOptions::<Impl, OFFSET>,
-            ReadOptions::<Impl, OFFSET>,
-            FlushBuffer::<Impl, OFFSET>,
-            InputStream::<Impl, OFFSET>,
+            MaxTransferSizeBytes::<Impl, IMPL_OFFSET>,
+            EndpointDescriptor::<Impl, IMPL_OFFSET>,
+            ClearStallAsync::<Impl, IMPL_OFFSET>,
+            SetReadOptions::<Impl, IMPL_OFFSET>,
+            ReadOptions::<Impl, IMPL_OFFSET>,
+            FlushBuffer::<Impl, IMPL_OFFSET>,
+            InputStream::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbBulkInPipe as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -156,7 +162,7 @@ impl ::windows::core::RuntimeName for IUsbBulkOutEndpointDescriptor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbBulkOutEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutEndpointDescriptorImpl, const OFFSET: isize>() -> IUsbBulkOutEndpointDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkOutEndpointDescriptorVtbl {
         unsafe extern "system" fn MaxPacketSize<Impl: IUsbBulkOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
@@ -190,10 +196,13 @@ impl IUsbBulkOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkOutEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, OFFSET>, EndpointNumber::<Impl, OFFSET>, Pipe::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkOutEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbBulkOutEndpointDescriptor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbBulkOutPipeImpl: Sized {
     fn EndpointDescriptor(&self) -> ::windows::core::Result<UsbBulkOutEndpointDescriptor>;
     fn ClearStallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -201,13 +210,13 @@ pub trait IUsbBulkOutPipeImpl: Sized {
     fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions>;
     fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbBulkOutPipe";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbBulkOutPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>() -> IUsbBulkOutPipeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkOutPipeVtbl {
         unsafe extern "system" fn EndpointDescriptor<Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
@@ -256,22 +265,25 @@ impl IUsbBulkOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkOutPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, OFFSET>, ClearStallAsync::<Impl, OFFSET>, SetWriteOptions::<Impl, OFFSET>, WriteOptions::<Impl, OFFSET>, OutputStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbBulkOutPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, IMPL_OFFSET>, ClearStallAsync::<Impl, IMPL_OFFSET>, SetWriteOptions::<Impl, IMPL_OFFSET>, WriteOptions::<Impl, IMPL_OFFSET>, OutputStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbBulkOutPipe as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUsbConfigurationImpl: Sized {
     fn UsbInterfaces(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbInterface>>;
     fn ConfigurationDescriptor(&self) -> ::windows::core::Result<UsbConfigurationDescriptor>;
     fn Descriptors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUsbConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationImpl, const OFFSET: isize>() -> IUsbConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationVtbl {
         unsafe extern "system" fn UsbInterfaces<Impl: IUsbConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsbInterfaces() {
@@ -305,7 +317,10 @@ impl IUsbConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfiguration>, ::windows::core::GetTrustLevel, UsbInterfaces::<Impl, OFFSET>, ConfigurationDescriptor::<Impl, OFFSET>, Descriptors::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfiguration>, ::windows::core::GetTrustLevel, UsbInterfaces::<Impl, IMPL_OFFSET>, ConfigurationDescriptor::<Impl, IMPL_OFFSET>, Descriptors::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -321,7 +336,7 @@ impl ::windows::core::RuntimeName for IUsbConfigurationDescriptor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbConfigurationDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorImpl, const OFFSET: isize>() -> IUsbConfigurationDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationDescriptorVtbl {
         unsafe extern "system" fn ConfigurationValue<Impl: IUsbConfigurationDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfigurationValue() {
@@ -366,7 +381,10 @@ impl IUsbConfigurationDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfigurationDescriptor>, ::windows::core::GetTrustLevel, ConfigurationValue::<Impl, OFFSET>, MaxPowerMilliamps::<Impl, OFFSET>, SelfPowered::<Impl, OFFSET>, RemoteWakeup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfigurationDescriptor>, ::windows::core::GetTrustLevel, ConfigurationValue::<Impl, IMPL_OFFSET>, MaxPowerMilliamps::<Impl, IMPL_OFFSET>, SelfPowered::<Impl, IMPL_OFFSET>, RemoteWakeup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbConfigurationDescriptor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -380,7 +398,7 @@ impl ::windows::core::RuntimeName for IUsbConfigurationDescriptorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbConfigurationDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorStaticsImpl, const OFFSET: isize>() -> IUsbConfigurationDescriptorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationDescriptorStaticsVtbl {
         unsafe extern "system" fn TryParse<Impl: IUsbConfigurationDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&parsed)) {
@@ -403,7 +421,10 @@ impl IUsbConfigurationDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfigurationDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, OFFSET>, Parse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbConfigurationDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, Parse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbConfigurationDescriptorStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -423,7 +444,7 @@ impl ::windows::core::RuntimeName for IUsbControlRequestType {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbControlRequestTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>() -> IUsbControlRequestTypeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbControlRequestTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbControlRequestTypeVtbl {
         unsafe extern "system" fn Direction<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbTransferDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
@@ -485,36 +506,39 @@ impl IUsbControlRequestTypeVtbl {
             (*this).SetAsByte(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbControlRequestType>,
             ::windows::core::GetTrustLevel,
-            Direction::<Impl, OFFSET>,
-            SetDirection::<Impl, OFFSET>,
-            ControlTransferType::<Impl, OFFSET>,
-            SetControlTransferType::<Impl, OFFSET>,
-            Recipient::<Impl, OFFSET>,
-            SetRecipient::<Impl, OFFSET>,
-            AsByte::<Impl, OFFSET>,
-            SetAsByte::<Impl, OFFSET>,
+            Direction::<Impl, IMPL_OFFSET>,
+            SetDirection::<Impl, IMPL_OFFSET>,
+            ControlTransferType::<Impl, IMPL_OFFSET>,
+            SetControlTransferType::<Impl, IMPL_OFFSET>,
+            Recipient::<Impl, IMPL_OFFSET>,
+            SetRecipient::<Impl, IMPL_OFFSET>,
+            AsByte::<Impl, IMPL_OFFSET>,
+            SetAsByte::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbControlRequestType as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbDescriptorImpl: Sized {
     fn Length(&self) -> ::windows::core::Result<u8>;
     fn DescriptorType(&self) -> ::windows::core::Result<u8>;
     fn ReadDescriptorBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDescriptor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDescriptorImpl, const OFFSET: isize>() -> IUsbDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDescriptorVtbl {
         unsafe extern "system" fn Length<Impl: IUsbDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
@@ -541,10 +565,13 @@ impl IUsbDescriptorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReadDescriptorBuffer(&*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDescriptor>, ::windows::core::GetTrustLevel, Length::<Impl, OFFSET>, DescriptorType::<Impl, OFFSET>, ReadDescriptorBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDescriptor>, ::windows::core::GetTrustLevel, Length::<Impl, IMPL_OFFSET>, DescriptorType::<Impl, IMPL_OFFSET>, ReadDescriptorBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDescriptor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbDeviceImpl: Sized + IClosableImpl {
     fn SendControlOutTransferAsync(&self, setuppacket: &::core::option::Option<UsbSetupPacket>, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn SendControlOutTransferAsyncNoBuffer(&self, setuppacket: &::core::option::Option<UsbSetupPacket>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
@@ -554,13 +581,13 @@ pub trait IUsbDeviceImpl: Sized + IClosableImpl {
     fn DeviceDescriptor(&self) -> ::windows::core::Result<UsbDeviceDescriptor>;
     fn Configuration(&self) -> ::windows::core::Result<UsbConfiguration>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDevice";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceImpl, const OFFSET: isize>() -> IUsbDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceVtbl {
         unsafe extern "system" fn SendControlOutTransferAsync<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendControlOutTransferAsync(&*(&setuppacket as *const <UsbSetupPacket as ::windows::core::Abi>::Abi as *const <UsbSetupPacket as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -639,23 +666,26 @@ impl IUsbDeviceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbDevice>,
             ::windows::core::GetTrustLevel,
-            SendControlOutTransferAsync::<Impl, OFFSET>,
-            SendControlOutTransferAsyncNoBuffer::<Impl, OFFSET>,
-            SendControlInTransferAsync::<Impl, OFFSET>,
-            SendControlInTransferAsyncNoBuffer::<Impl, OFFSET>,
-            DefaultInterface::<Impl, OFFSET>,
-            DeviceDescriptor::<Impl, OFFSET>,
-            Configuration::<Impl, OFFSET>,
+            SendControlOutTransferAsync::<Impl, IMPL_OFFSET>,
+            SendControlOutTransferAsyncNoBuffer::<Impl, IMPL_OFFSET>,
+            SendControlInTransferAsync::<Impl, IMPL_OFFSET>,
+            SendControlInTransferAsyncNoBuffer::<Impl, IMPL_OFFSET>,
+            DefaultInterface::<Impl, IMPL_OFFSET>,
+            DeviceDescriptor::<Impl, IMPL_OFFSET>,
+            Configuration::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUsbDeviceClassImpl: Sized {
     fn ClassCode(&self) -> ::windows::core::Result<u8>;
     fn SetClassCode(&self, value: u8) -> ::windows::core::Result<()>;
@@ -664,13 +694,13 @@ pub trait IUsbDeviceClassImpl: Sized {
     fn ProtocolCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u8>>;
     fn SetProtocolCode(&self, value: &::core::option::Option<super::super::Foundation::IReference<u8>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceClass";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUsbDeviceClassVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassImpl, const OFFSET: isize>() -> IUsbDeviceClassVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassVtbl {
         unsafe extern "system" fn ClassCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClassCode() {
@@ -716,7 +746,23 @@ impl IUsbDeviceClassVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtocolCode(&*(&value as *const <super::super::Foundation::IReference<u8> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u8> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDeviceClass>, ::windows::core::GetTrustLevel, ClassCode::<Impl, OFFSET>, SetClassCode::<Impl, OFFSET>, SubclassCode::<Impl, OFFSET>, SetSubclassCode::<Impl, OFFSET>, ProtocolCode::<Impl, OFFSET>, SetProtocolCode::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUsbDeviceClass>,
+            ::windows::core::GetTrustLevel,
+            ClassCode::<Impl, IMPL_OFFSET>,
+            SetClassCode::<Impl, IMPL_OFFSET>,
+            SubclassCode::<Impl, IMPL_OFFSET>,
+            SetSubclassCode::<Impl, IMPL_OFFSET>,
+            ProtocolCode::<Impl, IMPL_OFFSET>,
+            SetProtocolCode::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDeviceClass as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -727,8 +773,11 @@ impl ::windows::core::RuntimeName for IUsbDeviceClasses {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbDeviceClassesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesImpl, const OFFSET: isize>() -> IUsbDeviceClassesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDeviceClasses>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassesVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDeviceClasses>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDeviceClasses as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -749,7 +798,7 @@ impl ::windows::core::RuntimeName for IUsbDeviceClassesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbDeviceClassesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>() -> IUsbDeviceClassesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassesStaticsVtbl {
         unsafe extern "system" fn CdcControl<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CdcControl() {
@@ -850,22 +899,25 @@ impl IUsbDeviceClassesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbDeviceClassesStatics>,
             ::windows::core::GetTrustLevel,
-            CdcControl::<Impl, OFFSET>,
-            Physical::<Impl, OFFSET>,
-            PersonalHealthcare::<Impl, OFFSET>,
-            ActiveSync::<Impl, OFFSET>,
-            PalmSync::<Impl, OFFSET>,
-            DeviceFirmwareUpdate::<Impl, OFFSET>,
-            Irda::<Impl, OFFSET>,
-            Measurement::<Impl, OFFSET>,
-            VendorSpecific::<Impl, OFFSET>,
+            CdcControl::<Impl, IMPL_OFFSET>,
+            Physical::<Impl, IMPL_OFFSET>,
+            PersonalHealthcare::<Impl, IMPL_OFFSET>,
+            ActiveSync::<Impl, IMPL_OFFSET>,
+            PalmSync::<Impl, IMPL_OFFSET>,
+            DeviceFirmwareUpdate::<Impl, IMPL_OFFSET>,
+            Irda::<Impl, IMPL_OFFSET>,
+            Measurement::<Impl, IMPL_OFFSET>,
+            VendorSpecific::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDeviceClassesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -883,7 +935,7 @@ impl ::windows::core::RuntimeName for IUsbDeviceDescriptor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbDeviceDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>() -> IUsbDeviceDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceDescriptorVtbl {
         unsafe extern "system" fn BcdUsb<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BcdUsb() {
@@ -950,10 +1002,26 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDeviceDescriptor>, ::windows::core::GetTrustLevel, BcdUsb::<Impl, OFFSET>, MaxPacketSize0::<Impl, OFFSET>, VendorId::<Impl, OFFSET>, ProductId::<Impl, OFFSET>, BcdDeviceRevision::<Impl, OFFSET>, NumberOfConfigurations::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUsbDeviceDescriptor>,
+            ::windows::core::GetTrustLevel,
+            BcdUsb::<Impl, IMPL_OFFSET>,
+            MaxPacketSize0::<Impl, IMPL_OFFSET>,
+            VendorId::<Impl, IMPL_OFFSET>,
+            ProductId::<Impl, IMPL_OFFSET>,
+            BcdDeviceRevision::<Impl, IMPL_OFFSET>,
+            NumberOfConfigurations::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDeviceDescriptor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUsbDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self, vendorid: u32, productid: u32, winusbinterfaceclass: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorGuidOnly(&self, winusbinterfaceclass: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -961,13 +1029,13 @@ pub trait IUsbDeviceStaticsImpl: Sized {
     fn GetDeviceClassSelector(&self, usbclass: &::core::option::Option<UsbDeviceClass>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUsbDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>() -> IUsbDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u32, productid: u32, winusbinterfaceclass: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector(vendorid, productid, &*(&winusbinterfaceclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
@@ -1023,7 +1091,22 @@ impl IUsbDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorGuidOnly::<Impl, OFFSET>, GetDeviceSelectorVidPidOnly::<Impl, OFFSET>, GetDeviceClassSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUsbDeviceStatics>,
+            ::windows::core::GetTrustLevel,
+            GetDeviceSelector::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorGuidOnly::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorVidPidOnly::<Impl, IMPL_OFFSET>,
+            GetDeviceClassSelector::<Impl, IMPL_OFFSET>,
+            FromIdAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbDeviceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1042,7 +1125,7 @@ impl ::windows::core::RuntimeName for IUsbEndpointDescriptor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>() -> IUsbEndpointDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbEndpointDescriptorVtbl {
         unsafe extern "system" fn EndpointNumber<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointNumber() {
@@ -1121,20 +1204,23 @@ impl IUsbEndpointDescriptorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbEndpointDescriptor>,
             ::windows::core::GetTrustLevel,
-            EndpointNumber::<Impl, OFFSET>,
-            Direction::<Impl, OFFSET>,
-            EndpointType::<Impl, OFFSET>,
-            AsBulkInEndpointDescriptor::<Impl, OFFSET>,
-            AsInterruptInEndpointDescriptor::<Impl, OFFSET>,
-            AsBulkOutEndpointDescriptor::<Impl, OFFSET>,
-            AsInterruptOutEndpointDescriptor::<Impl, OFFSET>,
+            EndpointNumber::<Impl, IMPL_OFFSET>,
+            Direction::<Impl, IMPL_OFFSET>,
+            EndpointType::<Impl, IMPL_OFFSET>,
+            AsBulkInEndpointDescriptor::<Impl, IMPL_OFFSET>,
+            AsInterruptInEndpointDescriptor::<Impl, IMPL_OFFSET>,
+            AsBulkOutEndpointDescriptor::<Impl, IMPL_OFFSET>,
+            AsInterruptOutEndpointDescriptor::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbEndpointDescriptor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1148,7 +1234,7 @@ impl ::windows::core::RuntimeName for IUsbEndpointDescriptorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbEndpointDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorStaticsImpl, const OFFSET: isize>() -> IUsbEndpointDescriptorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbEndpointDescriptorStaticsVtbl {
         unsafe extern "system" fn TryParse<Impl: IUsbEndpointDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&parsed)) {
@@ -1171,10 +1257,13 @@ impl IUsbEndpointDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbEndpointDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, OFFSET>, Parse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbEndpointDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, Parse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbEndpointDescriptorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUsbInterfaceImpl: Sized {
     fn BulkInPipes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>>;
     fn InterruptInPipes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>>;
@@ -1184,13 +1273,13 @@ pub trait IUsbInterfaceImpl: Sized {
     fn InterfaceNumber(&self) -> ::windows::core::Result<u8>;
     fn Descriptors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterface";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUsbInterfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceImpl, const OFFSET: isize>() -> IUsbInterfaceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceVtbl {
         unsafe extern "system" fn BulkInPipes<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BulkInPipes() {
@@ -1268,7 +1357,24 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterface>, ::windows::core::GetTrustLevel, BulkInPipes::<Impl, OFFSET>, InterruptInPipes::<Impl, OFFSET>, BulkOutPipes::<Impl, OFFSET>, InterruptOutPipes::<Impl, OFFSET>, InterfaceSettings::<Impl, OFFSET>, InterfaceNumber::<Impl, OFFSET>, Descriptors::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUsbInterface>,
+            ::windows::core::GetTrustLevel,
+            BulkInPipes::<Impl, IMPL_OFFSET>,
+            InterruptInPipes::<Impl, IMPL_OFFSET>,
+            BulkOutPipes::<Impl, IMPL_OFFSET>,
+            InterruptOutPipes::<Impl, IMPL_OFFSET>,
+            InterfaceSettings::<Impl, IMPL_OFFSET>,
+            InterfaceNumber::<Impl, IMPL_OFFSET>,
+            Descriptors::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterface as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1285,7 +1391,7 @@ impl ::windows::core::RuntimeName for IUsbInterfaceDescriptor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbInterfaceDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>() -> IUsbInterfaceDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceDescriptorVtbl {
         unsafe extern "system" fn ClassCode<Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClassCode() {
@@ -1341,7 +1447,10 @@ impl IUsbInterfaceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterfaceDescriptor>, ::windows::core::GetTrustLevel, ClassCode::<Impl, OFFSET>, SubclassCode::<Impl, OFFSET>, ProtocolCode::<Impl, OFFSET>, AlternateSettingNumber::<Impl, OFFSET>, InterfaceNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterfaceDescriptor>, ::windows::core::GetTrustLevel, ClassCode::<Impl, IMPL_OFFSET>, SubclassCode::<Impl, IMPL_OFFSET>, ProtocolCode::<Impl, IMPL_OFFSET>, AlternateSettingNumber::<Impl, IMPL_OFFSET>, InterfaceNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterfaceDescriptor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1355,7 +1464,7 @@ impl ::windows::core::RuntimeName for IUsbInterfaceDescriptorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbInterfaceDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorStaticsImpl, const OFFSET: isize>() -> IUsbInterfaceDescriptorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceDescriptorStaticsVtbl {
         unsafe extern "system" fn TryParse<Impl: IUsbInterfaceDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&parsed)) {
@@ -1378,10 +1487,13 @@ impl IUsbInterfaceDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterfaceDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, OFFSET>, Parse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterfaceDescriptorStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, Parse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterfaceDescriptorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUsbInterfaceSettingImpl: Sized {
     fn BulkInEndpoints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>>;
     fn InterruptInEndpoints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>>;
@@ -1392,13 +1504,13 @@ pub trait IUsbInterfaceSettingImpl: Sized {
     fn InterfaceDescriptor(&self) -> ::windows::core::Result<UsbInterfaceDescriptor>;
     fn Descriptors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterfaceSetting";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUsbInterfaceSettingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>() -> IUsbInterfaceSettingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceSettingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceSettingVtbl {
         unsafe extern "system" fn BulkInEndpoints<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BulkInEndpoints() {
@@ -1488,37 +1600,40 @@ impl IUsbInterfaceSettingVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbInterfaceSetting>,
             ::windows::core::GetTrustLevel,
-            BulkInEndpoints::<Impl, OFFSET>,
-            InterruptInEndpoints::<Impl, OFFSET>,
-            BulkOutEndpoints::<Impl, OFFSET>,
-            InterruptOutEndpoints::<Impl, OFFSET>,
-            Selected::<Impl, OFFSET>,
-            SelectSettingAsync::<Impl, OFFSET>,
-            InterfaceDescriptor::<Impl, OFFSET>,
-            Descriptors::<Impl, OFFSET>,
+            BulkInEndpoints::<Impl, IMPL_OFFSET>,
+            InterruptInEndpoints::<Impl, IMPL_OFFSET>,
+            BulkOutEndpoints::<Impl, IMPL_OFFSET>,
+            InterruptOutEndpoints::<Impl, IMPL_OFFSET>,
+            Selected::<Impl, IMPL_OFFSET>,
+            SelectSettingAsync::<Impl, IMPL_OFFSET>,
+            InterfaceDescriptor::<Impl, IMPL_OFFSET>,
+            Descriptors::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterfaceSetting as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUsbInterruptInEndpointDescriptorImpl: Sized {
     fn MaxPacketSize(&self) -> ::windows::core::Result<u32>;
     fn EndpointNumber(&self) -> ::windows::core::Result<u8>;
     fn Interval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Pipe(&self) -> ::windows::core::Result<UsbInterruptInPipe>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptInEndpointDescriptor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUsbInterruptInEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEndpointDescriptorImpl, const OFFSET: isize>() -> IUsbInterruptInEndpointDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInEndpointDescriptorVtbl {
         unsafe extern "system" fn MaxPacketSize<Impl: IUsbInterruptInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
@@ -1563,20 +1678,23 @@ impl IUsbInterruptInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, OFFSET>, EndpointNumber::<Impl, OFFSET>, Interval::<Impl, OFFSET>, Pipe::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Interval::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterruptInEndpointDescriptor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbInterruptInEventArgsImpl: Sized {
     fn InterruptData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptInEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbInterruptInEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEventArgsImpl, const OFFSET: isize>() -> IUsbInterruptInEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInEventArgsVtbl {
         unsafe extern "system" fn InterruptData<Impl: IUsbInterruptInEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterruptData() {
@@ -1588,23 +1706,26 @@ impl IUsbInterruptInEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInEventArgs>, ::windows::core::GetTrustLevel, InterruptData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInEventArgs>, ::windows::core::GetTrustLevel, InterruptData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterruptInEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUsbInterruptInPipeImpl: Sized {
     fn EndpointDescriptor(&self) -> ::windows::core::Result<UsbInterruptInEndpointDescriptor>;
     fn ClearStallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn DataReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDataReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptInPipe";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUsbInterruptInPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInPipeImpl, const OFFSET: isize>() -> IUsbInterruptInPipeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInPipeVtbl {
         unsafe extern "system" fn EndpointDescriptor<Impl: IUsbInterruptInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
@@ -1642,23 +1763,26 @@ impl IUsbInterruptInPipeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, OFFSET>, ClearStallAsync::<Impl, OFFSET>, DataReceived::<Impl, OFFSET>, RemoveDataReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptInPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, IMPL_OFFSET>, ClearStallAsync::<Impl, IMPL_OFFSET>, DataReceived::<Impl, IMPL_OFFSET>, RemoveDataReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterruptInPipe as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUsbInterruptOutEndpointDescriptorImpl: Sized {
     fn MaxPacketSize(&self) -> ::windows::core::Result<u32>;
     fn EndpointNumber(&self) -> ::windows::core::Result<u8>;
     fn Interval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Pipe(&self) -> ::windows::core::Result<UsbInterruptOutPipe>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptOutEndpointDescriptor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUsbInterruptOutEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutEndpointDescriptorImpl, const OFFSET: isize>() -> IUsbInterruptOutEndpointDescriptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptOutEndpointDescriptorVtbl {
         unsafe extern "system" fn MaxPacketSize<Impl: IUsbInterruptOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
@@ -1703,10 +1827,13 @@ impl IUsbInterruptOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptOutEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, OFFSET>, EndpointNumber::<Impl, OFFSET>, Interval::<Impl, OFFSET>, Pipe::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptOutEndpointDescriptor>, ::windows::core::GetTrustLevel, MaxPacketSize::<Impl, IMPL_OFFSET>, EndpointNumber::<Impl, IMPL_OFFSET>, Interval::<Impl, IMPL_OFFSET>, Pipe::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterruptOutEndpointDescriptor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbInterruptOutPipeImpl: Sized {
     fn EndpointDescriptor(&self) -> ::windows::core::Result<UsbInterruptOutEndpointDescriptor>;
     fn ClearStallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -1714,13 +1841,13 @@ pub trait IUsbInterruptOutPipeImpl: Sized {
     fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions>;
     fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptOutPipe";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbInterruptOutPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>() -> IUsbInterruptOutPipeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptOutPipeVtbl {
         unsafe extern "system" fn EndpointDescriptor<Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
@@ -1769,7 +1896,10 @@ impl IUsbInterruptOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptOutPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, OFFSET>, ClearStallAsync::<Impl, OFFSET>, SetWriteOptions::<Impl, OFFSET>, WriteOptions::<Impl, OFFSET>, OutputStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbInterruptOutPipe>, ::windows::core::GetTrustLevel, EndpointDescriptor::<Impl, IMPL_OFFSET>, ClearStallAsync::<Impl, IMPL_OFFSET>, SetWriteOptions::<Impl, IMPL_OFFSET>, WriteOptions::<Impl, IMPL_OFFSET>, OutputStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbInterruptOutPipe as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1791,7 +1921,7 @@ impl ::windows::core::RuntimeName for IUsbSetupPacket {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUsbSetupPacketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketImpl, const OFFSET: isize>() -> IUsbSetupPacketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbSetupPacketVtbl {
         unsafe extern "system" fn RequestType<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestType() {
@@ -1868,36 +1998,39 @@ impl IUsbSetupPacketVtbl {
             (*this).SetLength(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUsbSetupPacket>,
             ::windows::core::GetTrustLevel,
-            RequestType::<Impl, OFFSET>,
-            SetRequestType::<Impl, OFFSET>,
-            Request::<Impl, OFFSET>,
-            SetRequest::<Impl, OFFSET>,
-            Value::<Impl, OFFSET>,
-            SetValue::<Impl, OFFSET>,
-            Index::<Impl, OFFSET>,
-            SetIndex::<Impl, OFFSET>,
-            Length::<Impl, OFFSET>,
-            SetLength::<Impl, OFFSET>,
+            RequestType::<Impl, IMPL_OFFSET>,
+            SetRequestType::<Impl, IMPL_OFFSET>,
+            Request::<Impl, IMPL_OFFSET>,
+            SetRequest::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Length::<Impl, IMPL_OFFSET>,
+            SetLength::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbSetupPacket as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUsbSetupPacketFactoryImpl: Sized {
     fn CreateWithEightByteBuffer(&self, eightbytebuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<UsbSetupPacket>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUsbSetupPacketFactory {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbSetupPacketFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IUsbSetupPacketFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketFactoryImpl, const OFFSET: isize>() -> IUsbSetupPacketFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbSetupPacketFactoryVtbl {
         unsafe extern "system" fn CreateWithEightByteBuffer<Impl: IUsbSetupPacketFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eightbytebuffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithEightByteBuffer(&*(&eightbytebuffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -1909,6 +2042,9 @@ impl IUsbSetupPacketFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbSetupPacketFactory>, ::windows::core::GetTrustLevel, CreateWithEightByteBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUsbSetupPacketFactory>, ::windows::core::GetTrustLevel, CreateWithEightByteBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUsbSetupPacketFactory as ::windows::core::Interface>::IID
     }
 }

@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICurrencyFormatterImpl: Sized + INumberFormatterImpl + INumberFormatter2Impl + INumberFormatterOptionsImpl + INumberParserImpl {
     fn Currency(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCurrency(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ICurrencyFormatter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICurrencyFormatterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterImpl, const OFFSET: isize>() -> ICurrencyFormatterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatterVtbl {
         unsafe extern "system" fn Currency<Impl: ICurrencyFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Currency() {
@@ -25,7 +25,10 @@ impl ICurrencyFormatterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrency(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatter>, ::windows::core::GetTrustLevel, Currency::<Impl, OFFSET>, SetCurrency::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatter>, ::windows::core::GetTrustLevel, Currency::<Impl, IMPL_OFFSET>, SetCurrency::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyFormatter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -40,7 +43,7 @@ impl ::windows::core::RuntimeName for ICurrencyFormatter2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrencyFormatter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatter2Impl, const OFFSET: isize>() -> ICurrencyFormatter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatter2Vtbl {
         unsafe extern "system" fn Mode<Impl: ICurrencyFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CurrencyFormatterMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
@@ -60,21 +63,24 @@ impl ICurrencyFormatter2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyRoundingForCurrency(roundingalgorithm).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatter2>, ::windows::core::GetTrustLevel, Mode::<Impl, OFFSET>, SetMode::<Impl, OFFSET>, ApplyRoundingForCurrency::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatter2>, ::windows::core::GetTrustLevel, Mode::<Impl, IMPL_OFFSET>, SetMode::<Impl, IMPL_OFFSET>, ApplyRoundingForCurrency::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyFormatter2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICurrencyFormatterFactoryImpl: Sized {
     fn CreateCurrencyFormatterCode(&self, currencycode: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
     fn CreateCurrencyFormatterCodeContext(&self, currencycode: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrencyFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICurrencyFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterFactoryImpl, const OFFSET: isize>() -> ICurrencyFormatterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatterFactoryVtbl {
         unsafe extern "system" fn CreateCurrencyFormatterCode<Impl: ICurrencyFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currencycode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCurrencyFormatterCode(&*(&currencycode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -101,20 +107,23 @@ impl ICurrencyFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatterFactory>, ::windows::core::GetTrustLevel, CreateCurrencyFormatterCode::<Impl, OFFSET>, CreateCurrencyFormatterCodeContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyFormatterFactory>, ::windows::core::GetTrustLevel, CreateCurrencyFormatterCode::<Impl, IMPL_OFFSET>, CreateCurrencyFormatterCodeContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyFormatterFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDecimalFormatterFactoryImpl: Sized {
     fn CreateDecimalFormatter(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDecimalFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IDecimalFormatterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDecimalFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecimalFormatterFactoryImpl, const OFFSET: isize>() -> IDecimalFormatterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecimalFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecimalFormatterFactoryVtbl {
         unsafe extern "system" fn CreateDecimalFormatter<Impl: IDecimalFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecimalFormatter(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&geographicregion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -126,7 +135,10 @@ impl IDecimalFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDecimalFormatterFactory>, ::windows::core::GetTrustLevel, CreateDecimalFormatter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDecimalFormatterFactory>, ::windows::core::GetTrustLevel, CreateDecimalFormatter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDecimalFormatterFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -142,7 +154,7 @@ impl ::windows::core::RuntimeName for IIncrementNumberRounder {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIncrementNumberRounderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIncrementNumberRounderImpl, const OFFSET: isize>() -> IIncrementNumberRounderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIncrementNumberRounderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIncrementNumberRounderVtbl {
         unsafe extern "system" fn RoundingAlgorithm<Impl: IIncrementNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundingAlgorithm() {
@@ -173,7 +185,10 @@ impl IIncrementNumberRounderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncrement(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIncrementNumberRounder>, ::windows::core::GetTrustLevel, RoundingAlgorithm::<Impl, OFFSET>, SetRoundingAlgorithm::<Impl, OFFSET>, Increment::<Impl, OFFSET>, SetIncrement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIncrementNumberRounder>, ::windows::core::GetTrustLevel, RoundingAlgorithm::<Impl, IMPL_OFFSET>, SetRoundingAlgorithm::<Impl, IMPL_OFFSET>, Increment::<Impl, IMPL_OFFSET>, SetIncrement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIncrementNumberRounder as ::windows::core::Interface>::IID
     }
 }
 pub trait INumberFormatterImpl: Sized {
@@ -185,7 +200,7 @@ impl ::windows::core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
 }
 impl INumberFormatterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterImpl, const OFFSET: isize>() -> INumberFormatterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatterVtbl {
         unsafe extern "system" fn FormatInt<Impl: INumberFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatInt(value) {
@@ -219,7 +234,10 @@ impl INumberFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberFormatter>, ::windows::core::GetTrustLevel, FormatInt::<Impl, OFFSET>, FormatUInt::<Impl, OFFSET>, FormatDouble::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberFormatter>, ::windows::core::GetTrustLevel, FormatInt::<Impl, IMPL_OFFSET>, FormatUInt::<Impl, IMPL_OFFSET>, FormatDouble::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumberFormatter as ::windows::core::Interface>::IID
     }
 }
 pub trait INumberFormatter2Impl: Sized {
@@ -231,7 +249,7 @@ impl ::windows::core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
 }
 impl INumberFormatter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatter2Impl, const OFFSET: isize>() -> INumberFormatter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatter2Vtbl {
         unsafe extern "system" fn FormatInt<Impl: INumberFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatInt(value) {
@@ -265,9 +283,13 @@ impl INumberFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberFormatter2>, ::windows::core::GetTrustLevel, FormatInt::<Impl, OFFSET>, FormatUInt::<Impl, OFFSET>, FormatDouble::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberFormatter2>, ::windows::core::GetTrustLevel, FormatInt::<Impl, IMPL_OFFSET>, FormatUInt::<Impl, IMPL_OFFSET>, FormatDouble::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumberFormatter2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait INumberFormatterOptionsImpl: Sized {
     fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -284,11 +306,13 @@ pub trait INumberFormatterOptionsImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ResolvedGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for INumberFormatterOptions {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatterOptions";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl INumberFormatterOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterOptionsImpl, const OFFSET: isize>() -> INumberFormatterOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatterOptionsVtbl {
         unsafe extern "system" fn Languages<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Languages() {
@@ -409,39 +433,45 @@ impl INumberFormatterOptionsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INumberFormatterOptions>,
             ::windows::core::GetTrustLevel,
-            Languages::<Impl, OFFSET>,
-            GeographicRegion::<Impl, OFFSET>,
-            IntegerDigits::<Impl, OFFSET>,
-            SetIntegerDigits::<Impl, OFFSET>,
-            FractionDigits::<Impl, OFFSET>,
-            SetFractionDigits::<Impl, OFFSET>,
-            IsGrouped::<Impl, OFFSET>,
-            SetIsGrouped::<Impl, OFFSET>,
-            IsDecimalPointAlwaysDisplayed::<Impl, OFFSET>,
-            SetIsDecimalPointAlwaysDisplayed::<Impl, OFFSET>,
-            NumeralSystem::<Impl, OFFSET>,
-            SetNumeralSystem::<Impl, OFFSET>,
-            ResolvedLanguage::<Impl, OFFSET>,
-            ResolvedGeographicRegion::<Impl, OFFSET>,
+            Languages::<Impl, IMPL_OFFSET>,
+            GeographicRegion::<Impl, IMPL_OFFSET>,
+            IntegerDigits::<Impl, IMPL_OFFSET>,
+            SetIntegerDigits::<Impl, IMPL_OFFSET>,
+            FractionDigits::<Impl, IMPL_OFFSET>,
+            SetFractionDigits::<Impl, IMPL_OFFSET>,
+            IsGrouped::<Impl, IMPL_OFFSET>,
+            SetIsGrouped::<Impl, IMPL_OFFSET>,
+            IsDecimalPointAlwaysDisplayed::<Impl, IMPL_OFFSET>,
+            SetIsDecimalPointAlwaysDisplayed::<Impl, IMPL_OFFSET>,
+            NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            ResolvedGeographicRegion::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumberFormatterOptions as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation")]
 pub trait INumberParserImpl: Sized {
     fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
     fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>;
     fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INumberParser {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberParser";
 }
+#[cfg(feature = "Foundation")]
 impl INumberParserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberParserImpl, const OFFSET: isize>() -> INumberParserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberParserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberParserVtbl {
         unsafe extern "system" fn ParseInt<Impl: INumberParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParseInt(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -475,7 +505,10 @@ impl INumberParserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberParser>, ::windows::core::GetTrustLevel, ParseInt::<Impl, OFFSET>, ParseUInt::<Impl, OFFSET>, ParseDouble::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberParser>, ::windows::core::GetTrustLevel, ParseInt::<Impl, IMPL_OFFSET>, ParseUInt::<Impl, IMPL_OFFSET>, ParseDouble::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumberParser as ::windows::core::Interface>::IID
     }
 }
 pub trait INumberRounderImpl: Sized {
@@ -490,7 +523,7 @@ impl ::windows::core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
 }
 impl INumberRounderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderImpl, const OFFSET: isize>() -> INumberRounderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberRounderVtbl {
         unsafe extern "system" fn RoundInt32<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundInt32(value) {
@@ -557,7 +590,10 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberRounder>, ::windows::core::GetTrustLevel, RoundInt32::<Impl, OFFSET>, RoundUInt32::<Impl, OFFSET>, RoundInt64::<Impl, OFFSET>, RoundUInt64::<Impl, OFFSET>, RoundSingle::<Impl, OFFSET>, RoundDouble::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberRounder>, ::windows::core::GetTrustLevel, RoundInt32::<Impl, IMPL_OFFSET>, RoundUInt32::<Impl, IMPL_OFFSET>, RoundInt64::<Impl, IMPL_OFFSET>, RoundUInt64::<Impl, IMPL_OFFSET>, RoundSingle::<Impl, IMPL_OFFSET>, RoundDouble::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumberRounder as ::windows::core::Interface>::IID
     }
 }
 pub trait INumberRounderOptionImpl: Sized {
@@ -568,7 +604,7 @@ impl ::windows::core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
 }
 impl INumberRounderOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderOptionImpl, const OFFSET: isize>() -> INumberRounderOptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberRounderOptionVtbl {
         unsafe extern "system" fn NumberRounder<Impl: INumberRounderOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberRounder() {
@@ -584,10 +620,13 @@ impl INumberRounderOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumberRounder(&*(&value as *const <INumberRounder as ::windows::core::Abi>::Abi as *const <INumberRounder as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberRounderOption>, ::windows::core::GetTrustLevel, NumberRounder::<Impl, OFFSET>, SetNumberRounder::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumberRounderOption>, ::windows::core::GetTrustLevel, NumberRounder::<Impl, IMPL_OFFSET>, SetNumberRounder::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumberRounderOption as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INumeralSystemTranslatorImpl: Sized {
     fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -595,13 +634,13 @@ pub trait INumeralSystemTranslatorImpl: Sized {
     fn SetNumeralSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TranslateNumerals(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumeralSystemTranslator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INumeralSystemTranslatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>() -> INumeralSystemTranslatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemTranslatorVtbl {
         unsafe extern "system" fn Languages<Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Languages() {
@@ -650,20 +689,23 @@ impl INumeralSystemTranslatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumeralSystemTranslator>, ::windows::core::GetTrustLevel, Languages::<Impl, OFFSET>, ResolvedLanguage::<Impl, OFFSET>, NumeralSystem::<Impl, OFFSET>, SetNumeralSystem::<Impl, OFFSET>, TranslateNumerals::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumeralSystemTranslator>, ::windows::core::GetTrustLevel, Languages::<Impl, IMPL_OFFSET>, ResolvedLanguage::<Impl, IMPL_OFFSET>, NumeralSystem::<Impl, IMPL_OFFSET>, SetNumeralSystem::<Impl, IMPL_OFFSET>, TranslateNumerals::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumeralSystemTranslator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INumeralSystemTranslatorFactoryImpl: Sized {
     fn Create(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<NumeralSystemTranslator>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INumeralSystemTranslatorFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INumeralSystemTranslatorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorFactoryImpl, const OFFSET: isize>() -> INumeralSystemTranslatorFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemTranslatorFactoryVtbl {
         unsafe extern "system" fn Create<Impl: INumeralSystemTranslatorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -675,20 +717,23 @@ impl INumeralSystemTranslatorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumeralSystemTranslatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INumeralSystemTranslatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumeralSystemTranslatorFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPercentFormatterFactoryImpl: Sized {
     fn CreatePercentFormatter(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPercentFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IPercentFormatterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPercentFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPercentFormatterFactoryImpl, const OFFSET: isize>() -> IPercentFormatterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPercentFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPercentFormatterFactoryVtbl {
         unsafe extern "system" fn CreatePercentFormatter<Impl: IPercentFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePercentFormatter(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&geographicregion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -700,20 +745,23 @@ impl IPercentFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPercentFormatterFactory>, ::windows::core::GetTrustLevel, CreatePercentFormatter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPercentFormatterFactory>, ::windows::core::GetTrustLevel, CreatePercentFormatter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPercentFormatterFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPermilleFormatterFactoryImpl: Sized {
     fn CreatePermilleFormatter(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPermilleFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IPermilleFormatterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPermilleFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPermilleFormatterFactoryImpl, const OFFSET: isize>() -> IPermilleFormatterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPermilleFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPermilleFormatterFactoryVtbl {
         unsafe extern "system" fn CreatePermilleFormatter<Impl: IPermilleFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePermilleFormatter(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&geographicregion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -725,7 +773,10 @@ impl IPermilleFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPermilleFormatterFactory>, ::windows::core::GetTrustLevel, CreatePermilleFormatter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPermilleFormatterFactory>, ::windows::core::GetTrustLevel, CreatePermilleFormatter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPermilleFormatterFactory as ::windows::core::Interface>::IID
     }
 }
 pub trait ISignedZeroOptionImpl: Sized {
@@ -736,7 +787,7 @@ impl ::windows::core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
 }
 impl ISignedZeroOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignedZeroOptionImpl, const OFFSET: isize>() -> ISignedZeroOptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignedZeroOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignedZeroOptionVtbl {
         unsafe extern "system" fn IsZeroSigned<Impl: ISignedZeroOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsZeroSigned() {
@@ -752,7 +803,10 @@ impl ISignedZeroOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsZeroSigned(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignedZeroOption>, ::windows::core::GetTrustLevel, IsZeroSigned::<Impl, OFFSET>, SetIsZeroSigned::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignedZeroOption>, ::windows::core::GetTrustLevel, IsZeroSigned::<Impl, IMPL_OFFSET>, SetIsZeroSigned::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISignedZeroOption as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -768,7 +822,7 @@ impl ::windows::core::RuntimeName for ISignificantDigitsNumberRounder {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISignificantDigitsNumberRounderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsNumberRounderImpl, const OFFSET: isize>() -> ISignificantDigitsNumberRounderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsNumberRounderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignificantDigitsNumberRounderVtbl {
         unsafe extern "system" fn RoundingAlgorithm<Impl: ISignificantDigitsNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundingAlgorithm() {
@@ -799,7 +853,10 @@ impl ISignificantDigitsNumberRounderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignificantDigits(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignificantDigitsNumberRounder>, ::windows::core::GetTrustLevel, RoundingAlgorithm::<Impl, OFFSET>, SetRoundingAlgorithm::<Impl, OFFSET>, SignificantDigits::<Impl, OFFSET>, SetSignificantDigits::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignificantDigitsNumberRounder>, ::windows::core::GetTrustLevel, RoundingAlgorithm::<Impl, IMPL_OFFSET>, SetRoundingAlgorithm::<Impl, IMPL_OFFSET>, SignificantDigits::<Impl, IMPL_OFFSET>, SetSignificantDigits::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISignificantDigitsNumberRounder as ::windows::core::Interface>::IID
     }
 }
 pub trait ISignificantDigitsOptionImpl: Sized {
@@ -810,7 +867,7 @@ impl ::windows::core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";
 }
 impl ISignificantDigitsOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsOptionImpl, const OFFSET: isize>() -> ISignificantDigitsOptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignificantDigitsOptionVtbl {
         unsafe extern "system" fn SignificantDigits<Impl: ISignificantDigitsOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignificantDigits() {
@@ -826,6 +883,9 @@ impl ISignificantDigitsOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignificantDigits(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignificantDigitsOption>, ::windows::core::GetTrustLevel, SignificantDigits::<Impl, OFFSET>, SetSignificantDigits::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignificantDigitsOption>, ::windows::core::GetTrustLevel, SignificantDigits::<Impl, IMPL_OFFSET>, SetSignificantDigits::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISignificantDigitsOption as ::windows::core::Interface>::IID
     }
 }

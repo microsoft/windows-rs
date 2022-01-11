@@ -65,12 +65,12 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         struct #impl_ident {
             base: ::core::option::Option<::windows::core::IInspectable>,
             identity: *const ::windows::core::IInspectableVtbl,
-            vtables: (#(*const #vtbl_idents),*),
+            vtables: (#(*const #vtbl_idents,)*),
             _this: #original_ident,
             count: ::windows::core::WeakRefCount,
         }
         impl #impl_ident {
-            const VTABLES: (#(#vtbl_idents2),*) = (#(#vtable_news),*);
+            const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
             const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl(
                 ::windows::core::QueryInterface::<Self, 0>,
                 ::windows::core::AddRef::<Self, 0>,
@@ -83,7 +83,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 Self {
                     base: ::core::option::Option::None,
                     identity: &Self::IDENTITY,
-                    vtables:(#(&Self::VTABLES.#vtbl_count),*),
+                    vtables:(#(&Self::VTABLES.#vtbl_count,)*),
                     _this: this,
                     count: ::windows::core::WeakRefCount::new(),
                 }

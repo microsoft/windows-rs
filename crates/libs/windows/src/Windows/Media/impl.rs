@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IAudioBuffer {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAudioBufferVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioBufferImpl, const OFFSET: isize>() -> IAudioBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioBufferVtbl {
         unsafe extern "system" fn Capacity<Impl: IAudioBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capacity() {
@@ -37,20 +37,23 @@ impl IAudioBufferVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLength(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioBuffer>, ::windows::core::GetTrustLevel, Capacity::<Impl, OFFSET>, Length::<Impl, OFFSET>, SetLength::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioBuffer>, ::windows::core::GetTrustLevel, Capacity::<Impl, IMPL_OFFSET>, Length::<Impl, IMPL_OFFSET>, SetLength::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioBuffer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAudioFrameImpl: Sized + IClosableImpl + IMediaFrameImpl {
     fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::core::Result<AudioBuffer>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioFrame {
     const NAME: &'static str = "Windows.Media.IAudioFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAudioFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioFrameImpl, const OFFSET: isize>() -> IAudioFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioFrameVtbl {
         unsafe extern "system" fn LockBuffer<Impl: IAudioFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: AudioBufferAccessMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LockBuffer(mode) {
@@ -62,7 +65,10 @@ impl IAudioFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFrame>, ::windows::core::GetTrustLevel, LockBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFrame>, ::windows::core::GetTrustLevel, LockBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -75,7 +81,7 @@ impl ::windows::core::RuntimeName for IAudioFrameFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAudioFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioFrameFactoryImpl, const OFFSET: isize>() -> IAudioFrameFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioFrameFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAudioFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(capacity) {
@@ -87,7 +93,10 @@ impl IAudioFrameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFrameFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAudioFrameFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioFrameFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -100,7 +109,7 @@ impl ::windows::core::RuntimeName for IAutoRepeatModeChangeRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutoRepeatModeChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutoRepeatModeChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IAutoRepeatModeChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutoRepeatModeChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutoRepeatModeChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn RequestedAutoRepeatMode<Impl: IAutoRepeatModeChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackAutoRepeatMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedAutoRepeatMode() {
@@ -112,7 +121,10 @@ impl IAutoRepeatModeChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutoRepeatModeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedAutoRepeatMode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutoRepeatModeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedAutoRepeatMode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutoRepeatModeChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -128,7 +140,7 @@ impl ::windows::core::RuntimeName for IImageDisplayProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IImageDisplayPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageDisplayPropertiesImpl, const OFFSET: isize>() -> IImageDisplayPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageDisplayPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageDisplayPropertiesVtbl {
         unsafe extern "system" fn Title<Impl: IImageDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -159,10 +171,13 @@ impl IImageDisplayPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubtitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageDisplayProperties>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, Subtitle::<Impl, OFFSET>, SetSubtitle::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageDisplayProperties>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, Subtitle::<Impl, IMPL_OFFSET>, SetSubtitle::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageDisplayProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IMediaControlImpl: Sized {
     fn SoundLevelChanged(&self, handler: &::core::option::Option<super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemoveSoundLevelChanged(&self, cookie: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -198,13 +213,13 @@ pub trait IMediaControlImpl: Sized {
     fn SetAlbumArt(&self, value: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn AlbumArt(&self) -> ::windows::core::Result<super::Foundation::Uri>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaControl {
     const NAME: &'static str = "Windows.Media.IMediaControl";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IMediaControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaControlImpl, const OFFSET: isize>() -> IMediaControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaControlVtbl {
         unsafe extern "system" fn SoundLevelChanged<Impl: IMediaControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoundLevelChanged(&*(&handler as *const <super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -457,64 +472,73 @@ impl IMediaControlVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaControl>,
             ::windows::core::GetTrustLevel,
-            SoundLevelChanged::<Impl, OFFSET>,
-            RemoveSoundLevelChanged::<Impl, OFFSET>,
-            PlayPressed::<Impl, OFFSET>,
-            RemovePlayPressed::<Impl, OFFSET>,
-            PausePressed::<Impl, OFFSET>,
-            RemovePausePressed::<Impl, OFFSET>,
-            StopPressed::<Impl, OFFSET>,
-            RemoveStopPressed::<Impl, OFFSET>,
-            PlayPauseTogglePressed::<Impl, OFFSET>,
-            RemovePlayPauseTogglePressed::<Impl, OFFSET>,
-            RecordPressed::<Impl, OFFSET>,
-            RemoveRecordPressed::<Impl, OFFSET>,
-            NextTrackPressed::<Impl, OFFSET>,
-            RemoveNextTrackPressed::<Impl, OFFSET>,
-            PreviousTrackPressed::<Impl, OFFSET>,
-            RemovePreviousTrackPressed::<Impl, OFFSET>,
-            FastForwardPressed::<Impl, OFFSET>,
-            RemoveFastForwardPressed::<Impl, OFFSET>,
-            RewindPressed::<Impl, OFFSET>,
-            RemoveRewindPressed::<Impl, OFFSET>,
-            ChannelUpPressed::<Impl, OFFSET>,
-            RemoveChannelUpPressed::<Impl, OFFSET>,
-            ChannelDownPressed::<Impl, OFFSET>,
-            RemoveChannelDownPressed::<Impl, OFFSET>,
-            SoundLevel::<Impl, OFFSET>,
-            SetTrackName::<Impl, OFFSET>,
-            TrackName::<Impl, OFFSET>,
-            SetArtistName::<Impl, OFFSET>,
-            ArtistName::<Impl, OFFSET>,
-            SetIsPlaying::<Impl, OFFSET>,
-            IsPlaying::<Impl, OFFSET>,
-            SetAlbumArt::<Impl, OFFSET>,
-            AlbumArt::<Impl, OFFSET>,
+            SoundLevelChanged::<Impl, IMPL_OFFSET>,
+            RemoveSoundLevelChanged::<Impl, IMPL_OFFSET>,
+            PlayPressed::<Impl, IMPL_OFFSET>,
+            RemovePlayPressed::<Impl, IMPL_OFFSET>,
+            PausePressed::<Impl, IMPL_OFFSET>,
+            RemovePausePressed::<Impl, IMPL_OFFSET>,
+            StopPressed::<Impl, IMPL_OFFSET>,
+            RemoveStopPressed::<Impl, IMPL_OFFSET>,
+            PlayPauseTogglePressed::<Impl, IMPL_OFFSET>,
+            RemovePlayPauseTogglePressed::<Impl, IMPL_OFFSET>,
+            RecordPressed::<Impl, IMPL_OFFSET>,
+            RemoveRecordPressed::<Impl, IMPL_OFFSET>,
+            NextTrackPressed::<Impl, IMPL_OFFSET>,
+            RemoveNextTrackPressed::<Impl, IMPL_OFFSET>,
+            PreviousTrackPressed::<Impl, IMPL_OFFSET>,
+            RemovePreviousTrackPressed::<Impl, IMPL_OFFSET>,
+            FastForwardPressed::<Impl, IMPL_OFFSET>,
+            RemoveFastForwardPressed::<Impl, IMPL_OFFSET>,
+            RewindPressed::<Impl, IMPL_OFFSET>,
+            RemoveRewindPressed::<Impl, IMPL_OFFSET>,
+            ChannelUpPressed::<Impl, IMPL_OFFSET>,
+            RemoveChannelUpPressed::<Impl, IMPL_OFFSET>,
+            ChannelDownPressed::<Impl, IMPL_OFFSET>,
+            RemoveChannelDownPressed::<Impl, IMPL_OFFSET>,
+            SoundLevel::<Impl, IMPL_OFFSET>,
+            SetTrackName::<Impl, IMPL_OFFSET>,
+            TrackName::<Impl, IMPL_OFFSET>,
+            SetArtistName::<Impl, IMPL_OFFSET>,
+            ArtistName::<Impl, IMPL_OFFSET>,
+            SetIsPlaying::<Impl, IMPL_OFFSET>,
+            IsPlaying::<Impl, IMPL_OFFSET>,
+            SetAlbumArt::<Impl, IMPL_OFFSET>,
+            AlbumArt::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaControl as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IMediaExtensionImpl: Sized {
     fn SetProperties(&self, configuration: &::core::option::Option<super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaExtension {
     const NAME: &'static str = "Windows.Media.IMediaExtension";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IMediaExtensionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaExtensionImpl, const OFFSET: isize>() -> IMediaExtensionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaExtensionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaExtensionVtbl {
         unsafe extern "system" fn SetProperties<Impl: IMediaExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProperties(&*(&configuration as *const <super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaExtension>, ::windows::core::GetTrustLevel, SetProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaExtension>, ::windows::core::GetTrustLevel, SetProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaExtension as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaExtensionManagerImpl: Sized {
     fn RegisterSchemeHandler(&self, activatableclassid: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn RegisterSchemeHandlerWithSettings(&self, activatableclassid: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING, configuration: &::core::option::Option<super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
@@ -529,13 +553,13 @@ pub trait IMediaExtensionManagerImpl: Sized {
     fn RegisterVideoEncoder(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: &::windows::core::GUID, outputsubtype: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RegisterVideoEncoderWithSettings(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: &::windows::core::GUID, outputsubtype: &::windows::core::GUID, configuration: &::core::option::Option<super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaExtensionManager {
     const NAME: &'static str = "Windows.Media.IMediaExtensionManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaExtensionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaExtensionManagerImpl, const OFFSET: isize>() -> IMediaExtensionManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaExtensionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaExtensionManagerVtbl {
         unsafe extern "system" fn RegisterSchemeHandler<Impl: IMediaExtensionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterSchemeHandler(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&scheme as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -656,46 +680,52 @@ impl IMediaExtensionManagerVtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaExtensionManager>,
             ::windows::core::GetTrustLevel,
-            RegisterSchemeHandler::<Impl, OFFSET>,
-            RegisterSchemeHandlerWithSettings::<Impl, OFFSET>,
-            RegisterByteStreamHandler::<Impl, OFFSET>,
-            RegisterByteStreamHandlerWithSettings::<Impl, OFFSET>,
-            RegisterAudioDecoder::<Impl, OFFSET>,
-            RegisterAudioDecoderWithSettings::<Impl, OFFSET>,
-            RegisterAudioEncoder::<Impl, OFFSET>,
-            RegisterAudioEncoderWithSettings::<Impl, OFFSET>,
-            RegisterVideoDecoder::<Impl, OFFSET>,
-            RegisterVideoDecoderWithSettings::<Impl, OFFSET>,
-            RegisterVideoEncoder::<Impl, OFFSET>,
-            RegisterVideoEncoderWithSettings::<Impl, OFFSET>,
+            RegisterSchemeHandler::<Impl, IMPL_OFFSET>,
+            RegisterSchemeHandlerWithSettings::<Impl, IMPL_OFFSET>,
+            RegisterByteStreamHandler::<Impl, IMPL_OFFSET>,
+            RegisterByteStreamHandlerWithSettings::<Impl, IMPL_OFFSET>,
+            RegisterAudioDecoder::<Impl, IMPL_OFFSET>,
+            RegisterAudioDecoderWithSettings::<Impl, IMPL_OFFSET>,
+            RegisterAudioEncoder::<Impl, IMPL_OFFSET>,
+            RegisterAudioEncoderWithSettings::<Impl, IMPL_OFFSET>,
+            RegisterVideoDecoder::<Impl, IMPL_OFFSET>,
+            RegisterVideoDecoderWithSettings::<Impl, IMPL_OFFSET>,
+            RegisterVideoEncoder::<Impl, IMPL_OFFSET>,
+            RegisterVideoEncoderWithSettings::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaExtensionManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaExtensionManager2Impl: Sized + IMediaExtensionManagerImpl {
     fn RegisterMediaExtensionForAppService(&self, extension: &::core::option::Option<IMediaExtension>, connection: &::core::option::Option<super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaExtensionManager2 {
     const NAME: &'static str = "Windows.Media.IMediaExtensionManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaExtensionManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaExtensionManager2Impl, const OFFSET: isize>() -> IMediaExtensionManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaExtensionManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaExtensionManager2Vtbl {
         unsafe extern "system" fn RegisterMediaExtensionForAppService<Impl: IMediaExtensionManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extension: ::windows::core::RawPtr, connection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterMediaExtensionForAppService(&*(&extension as *const <IMediaExtension as ::windows::core::Abi>::Abi as *const <IMediaExtension as ::windows::core::DefaultType>::DefaultType), &*(&connection as *const <super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::Abi>::Abi as *const <super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaExtensionManager2>, ::windows::core::GetTrustLevel, RegisterMediaExtensionForAppService::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaExtensionManager2>, ::windows::core::GetTrustLevel, RegisterMediaExtensionForAppService::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaExtensionManager2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IMediaFrameImpl: Sized + IClosableImpl {
     fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
@@ -709,13 +739,13 @@ pub trait IMediaFrameImpl: Sized + IClosableImpl {
     fn IsDiscontinuous(&self) -> ::windows::core::Result<bool>;
     fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet>;
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IMediaFrame {
     const NAME: &'static str = "Windows.Media.IMediaFrame";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IMediaFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaFrameImpl, const OFFSET: isize>() -> IMediaFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaFrameVtbl {
         unsafe extern "system" fn Type<Impl: IMediaFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -810,36 +840,42 @@ impl IMediaFrameVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaFrame>,
             ::windows::core::GetTrustLevel,
-            Type::<Impl, OFFSET>,
-            IsReadOnly::<Impl, OFFSET>,
-            SetRelativeTime::<Impl, OFFSET>,
-            RelativeTime::<Impl, OFFSET>,
-            SetSystemRelativeTime::<Impl, OFFSET>,
-            SystemRelativeTime::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            SetIsDiscontinuous::<Impl, OFFSET>,
-            IsDiscontinuous::<Impl, OFFSET>,
-            ExtendedProperties::<Impl, OFFSET>,
+            Type::<Impl, IMPL_OFFSET>,
+            IsReadOnly::<Impl, IMPL_OFFSET>,
+            SetRelativeTime::<Impl, IMPL_OFFSET>,
+            RelativeTime::<Impl, IMPL_OFFSET>,
+            SetSystemRelativeTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeTime::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetIsDiscontinuous::<Impl, IMPL_OFFSET>,
+            IsDiscontinuous::<Impl, IMPL_OFFSET>,
+            ExtendedProperties::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaFrame as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation")]
 pub trait IMediaMarkerImpl: Sized {
     fn Time(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
     fn MediaMarkerType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IMediaMarker {
     const NAME: &'static str = "Windows.Media.IMediaMarker";
 }
+#[cfg(feature = "Foundation")]
 impl IMediaMarkerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMarkerImpl, const OFFSET: isize>() -> IMediaMarkerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMarkerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaMarkerVtbl {
         unsafe extern "system" fn Time<Impl: IMediaMarkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Time() {
@@ -873,7 +909,10 @@ impl IMediaMarkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMarker>, ::windows::core::GetTrustLevel, Time::<Impl, OFFSET>, MediaMarkerType::<Impl, OFFSET>, Text::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMarker>, ::windows::core::GetTrustLevel, Time::<Impl, IMPL_OFFSET>, MediaMarkerType::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaMarker as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -886,7 +925,7 @@ impl ::windows::core::RuntimeName for IMediaMarkerTypesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaMarkerTypesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMarkerTypesStaticsImpl, const OFFSET: isize>() -> IMediaMarkerTypesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMarkerTypesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaMarkerTypesStaticsVtbl {
         unsafe extern "system" fn Bookmark<Impl: IMediaMarkerTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bookmark() {
@@ -898,17 +937,23 @@ impl IMediaMarkerTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMarkerTypesStatics>, ::windows::core::GetTrustLevel, Bookmark::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMarkerTypesStatics>, ::windows::core::GetTrustLevel, Bookmark::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaMarkerTypesStatics as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IMediaMarkersImpl: Sized {
     fn Markers(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaMarkers {
     const NAME: &'static str = "Windows.Media.IMediaMarkers";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IMediaMarkersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMarkersImpl, const OFFSET: isize>() -> IMediaMarkersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMarkersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaMarkersVtbl {
         unsafe extern "system" fn Markers<Impl: IMediaMarkersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Markers() {
@@ -920,20 +965,23 @@ impl IMediaMarkersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMarkers>, ::windows::core::GetTrustLevel, Markers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMarkers>, ::windows::core::GetTrustLevel, Markers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaMarkers as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProcessingTriggerDetailsImpl: Sized {
     fn Arguments(&self) -> ::windows::core::Result<super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProcessingTriggerDetails {
     const NAME: &'static str = "Windows.Media.IMediaProcessingTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaProcessingTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProcessingTriggerDetailsImpl, const OFFSET: isize>() -> IMediaProcessingTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProcessingTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProcessingTriggerDetailsVtbl {
         unsafe extern "system" fn Arguments<Impl: IMediaProcessingTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
@@ -945,10 +993,13 @@ impl IMediaProcessingTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProcessingTriggerDetails>, ::windows::core::GetTrustLevel, Arguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProcessingTriggerDetails>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProcessingTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaTimelineControllerImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
@@ -963,13 +1014,13 @@ pub trait IMediaTimelineControllerImpl: Sized {
     fn StateChanged(&self, statechangedeventhandler: &::core::option::Option<super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemoveStateChanged(&self, eventcookie: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTimelineController {
     const NAME: &'static str = "Windows.Media.IMediaTimelineController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMediaTimelineControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTimelineControllerImpl, const OFFSET: isize>() -> IMediaTimelineControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTimelineControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTimelineControllerVtbl {
         unsafe extern "system" fn Start<Impl: IMediaTimelineControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -1054,28 +1105,31 @@ impl IMediaTimelineControllerVtbl {
             (*this).RemoveStateChanged(&*(&eventcookie as *const <super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaTimelineController>,
             ::windows::core::GetTrustLevel,
-            Start::<Impl, OFFSET>,
-            Resume::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            SetPosition::<Impl, OFFSET>,
-            ClockRate::<Impl, OFFSET>,
-            SetClockRate::<Impl, OFFSET>,
-            State::<Impl, OFFSET>,
-            PositionChanged::<Impl, OFFSET>,
-            RemovePositionChanged::<Impl, OFFSET>,
-            StateChanged::<Impl, OFFSET>,
-            RemoveStateChanged::<Impl, OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Resume::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            SetPosition::<Impl, IMPL_OFFSET>,
+            ClockRate::<Impl, IMPL_OFFSET>,
+            SetClockRate::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            PositionChanged::<Impl, IMPL_OFFSET>,
+            RemovePositionChanged::<Impl, IMPL_OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaTimelineController as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaTimelineController2Impl: Sized {
     fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
     fn SetDuration(&self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
@@ -1086,13 +1140,13 @@ pub trait IMediaTimelineController2Impl: Sized {
     fn Ended(&self, eventhandler: &::core::option::Option<super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemoveEnded(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTimelineController2 {
     const NAME: &'static str = "Windows.Media.IMediaTimelineController2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMediaTimelineController2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTimelineController2Impl, const OFFSET: isize>() -> IMediaTimelineController2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTimelineController2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTimelineController2Vtbl {
         unsafe extern "system" fn Duration<Impl: IMediaTimelineController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
@@ -1154,21 +1208,24 @@ impl IMediaTimelineController2Vtbl {
             (*this).RemoveEnded(&*(&token as *const <super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaTimelineController2>,
             ::windows::core::GetTrustLevel,
-            Duration::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            IsLoopingEnabled::<Impl, OFFSET>,
-            SetIsLoopingEnabled::<Impl, OFFSET>,
-            Failed::<Impl, OFFSET>,
-            RemoveFailed::<Impl, OFFSET>,
-            Ended::<Impl, OFFSET>,
-            RemoveEnded::<Impl, OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            IsLoopingEnabled::<Impl, IMPL_OFFSET>,
+            SetIsLoopingEnabled::<Impl, IMPL_OFFSET>,
+            Failed::<Impl, IMPL_OFFSET>,
+            RemoveFailed::<Impl, IMPL_OFFSET>,
+            Ended::<Impl, IMPL_OFFSET>,
+            RemoveEnded::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaTimelineController2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1181,7 +1238,7 @@ impl ::windows::core::RuntimeName for IMediaTimelineControllerFailedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaTimelineControllerFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTimelineControllerFailedEventArgsImpl, const OFFSET: isize>() -> IMediaTimelineControllerFailedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTimelineControllerFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTimelineControllerFailedEventArgsVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IMediaTimelineControllerFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -1193,7 +1250,10 @@ impl IMediaTimelineControllerFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTimelineControllerFailedEventArgs>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTimelineControllerFailedEventArgs>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaTimelineControllerFailedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1211,7 +1271,7 @@ impl ::windows::core::RuntimeName for IMusicDisplayProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMusicDisplayPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicDisplayPropertiesImpl, const OFFSET: isize>() -> IMusicDisplayPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicDisplayPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMusicDisplayPropertiesVtbl {
         unsafe extern "system" fn Title<Impl: IMusicDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -1257,10 +1317,13 @@ impl IMusicDisplayPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetArtist(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMusicDisplayProperties>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, AlbumArtist::<Impl, OFFSET>, SetAlbumArtist::<Impl, OFFSET>, Artist::<Impl, OFFSET>, SetArtist::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMusicDisplayProperties>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, AlbumArtist::<Impl, IMPL_OFFSET>, SetAlbumArtist::<Impl, IMPL_OFFSET>, Artist::<Impl, IMPL_OFFSET>, SetArtist::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMusicDisplayProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMusicDisplayProperties2Impl: Sized {
     fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetAlbumTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1268,13 +1331,13 @@ pub trait IMusicDisplayProperties2Impl: Sized {
     fn SetTrackNumber(&self, value: u32) -> ::windows::core::Result<()>;
     fn Genres(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMusicDisplayProperties2 {
     const NAME: &'static str = "Windows.Media.IMusicDisplayProperties2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMusicDisplayProperties2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicDisplayProperties2Impl, const OFFSET: isize>() -> IMusicDisplayProperties2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicDisplayProperties2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMusicDisplayProperties2Vtbl {
         unsafe extern "system" fn AlbumTitle<Impl: IMusicDisplayProperties2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlbumTitle() {
@@ -1316,7 +1379,10 @@ impl IMusicDisplayProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMusicDisplayProperties2>, ::windows::core::GetTrustLevel, AlbumTitle::<Impl, OFFSET>, SetAlbumTitle::<Impl, OFFSET>, TrackNumber::<Impl, OFFSET>, SetTrackNumber::<Impl, OFFSET>, Genres::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMusicDisplayProperties2>, ::windows::core::GetTrustLevel, AlbumTitle::<Impl, IMPL_OFFSET>, SetAlbumTitle::<Impl, IMPL_OFFSET>, TrackNumber::<Impl, IMPL_OFFSET>, SetTrackNumber::<Impl, IMPL_OFFSET>, Genres::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMusicDisplayProperties2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1330,7 +1396,7 @@ impl ::windows::core::RuntimeName for IMusicDisplayProperties3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMusicDisplayProperties3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicDisplayProperties3Impl, const OFFSET: isize>() -> IMusicDisplayProperties3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicDisplayProperties3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMusicDisplayProperties3Vtbl {
         unsafe extern "system" fn AlbumTrackCount<Impl: IMusicDisplayProperties3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlbumTrackCount() {
@@ -1346,20 +1412,23 @@ impl IMusicDisplayProperties3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlbumTrackCount(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMusicDisplayProperties3>, ::windows::core::GetTrustLevel, AlbumTrackCount::<Impl, OFFSET>, SetAlbumTrackCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMusicDisplayProperties3>, ::windows::core::GetTrustLevel, AlbumTrackCount::<Impl, IMPL_OFFSET>, SetAlbumTrackCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMusicDisplayProperties3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlaybackPositionChangeRequestedEventArgsImpl: Sized {
     fn RequestedPlaybackPosition(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlaybackPositionChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.IPlaybackPositionChangeRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPlaybackPositionChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackPositionChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IPlaybackPositionChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackPositionChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackPositionChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn RequestedPlaybackPosition<Impl: IPlaybackPositionChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedPlaybackPosition() {
@@ -1371,7 +1440,10 @@ impl IPlaybackPositionChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackPositionChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedPlaybackPosition::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackPositionChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedPlaybackPosition::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlaybackPositionChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1384,7 +1456,7 @@ impl ::windows::core::RuntimeName for IPlaybackRateChangeRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPlaybackRateChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackRateChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IPlaybackRateChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackRateChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackRateChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn RequestedPlaybackRate<Impl: IPlaybackRateChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedPlaybackRate() {
@@ -1396,7 +1468,10 @@ impl IPlaybackRateChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackRateChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedPlaybackRate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackRateChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedPlaybackRate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlaybackRateChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1409,7 +1484,7 @@ impl ::windows::core::RuntimeName for IShuffleEnabledChangeRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShuffleEnabledChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShuffleEnabledChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IShuffleEnabledChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShuffleEnabledChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShuffleEnabledChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn RequestedShuffleEnabled<Impl: IShuffleEnabledChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedShuffleEnabled() {
@@ -1421,10 +1496,13 @@ impl IShuffleEnabledChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShuffleEnabledChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedShuffleEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShuffleEnabledChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, RequestedShuffleEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShuffleEnabledChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemMediaTransportControlsImpl: Sized {
     fn PlaybackStatus(&self) -> ::windows::core::Result<MediaPlaybackStatus>;
     fn SetPlaybackStatus(&self, value: MediaPlaybackStatus) -> ::windows::core::Result<()>;
@@ -1457,13 +1535,13 @@ pub trait ISystemMediaTransportControlsImpl: Sized {
     fn PropertyChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemovePropertyChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemMediaTransportControls {
     const NAME: &'static str = "Windows.Media.ISystemMediaTransportControls";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISystemMediaTransportControlsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsImpl, const OFFSET: isize>() -> ISystemMediaTransportControlsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsVtbl {
         unsafe extern "system" fn PlaybackStatus<Impl: ISystemMediaTransportControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackStatus() {
@@ -1697,46 +1775,49 @@ impl ISystemMediaTransportControlsVtbl {
             (*this).RemovePropertyChanged(&*(&token as *const <super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControls>,
             ::windows::core::GetTrustLevel,
-            PlaybackStatus::<Impl, OFFSET>,
-            SetPlaybackStatus::<Impl, OFFSET>,
-            DisplayUpdater::<Impl, OFFSET>,
-            SoundLevel::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
-            IsPlayEnabled::<Impl, OFFSET>,
-            SetIsPlayEnabled::<Impl, OFFSET>,
-            IsStopEnabled::<Impl, OFFSET>,
-            SetIsStopEnabled::<Impl, OFFSET>,
-            IsPauseEnabled::<Impl, OFFSET>,
-            SetIsPauseEnabled::<Impl, OFFSET>,
-            IsRecordEnabled::<Impl, OFFSET>,
-            SetIsRecordEnabled::<Impl, OFFSET>,
-            IsFastForwardEnabled::<Impl, OFFSET>,
-            SetIsFastForwardEnabled::<Impl, OFFSET>,
-            IsRewindEnabled::<Impl, OFFSET>,
-            SetIsRewindEnabled::<Impl, OFFSET>,
-            IsPreviousEnabled::<Impl, OFFSET>,
-            SetIsPreviousEnabled::<Impl, OFFSET>,
-            IsNextEnabled::<Impl, OFFSET>,
-            SetIsNextEnabled::<Impl, OFFSET>,
-            IsChannelUpEnabled::<Impl, OFFSET>,
-            SetIsChannelUpEnabled::<Impl, OFFSET>,
-            IsChannelDownEnabled::<Impl, OFFSET>,
-            SetIsChannelDownEnabled::<Impl, OFFSET>,
-            ButtonPressed::<Impl, OFFSET>,
-            RemoveButtonPressed::<Impl, OFFSET>,
-            PropertyChanged::<Impl, OFFSET>,
-            RemovePropertyChanged::<Impl, OFFSET>,
+            PlaybackStatus::<Impl, IMPL_OFFSET>,
+            SetPlaybackStatus::<Impl, IMPL_OFFSET>,
+            DisplayUpdater::<Impl, IMPL_OFFSET>,
+            SoundLevel::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            IsPlayEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPlayEnabled::<Impl, IMPL_OFFSET>,
+            IsStopEnabled::<Impl, IMPL_OFFSET>,
+            SetIsStopEnabled::<Impl, IMPL_OFFSET>,
+            IsPauseEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPauseEnabled::<Impl, IMPL_OFFSET>,
+            IsRecordEnabled::<Impl, IMPL_OFFSET>,
+            SetIsRecordEnabled::<Impl, IMPL_OFFSET>,
+            IsFastForwardEnabled::<Impl, IMPL_OFFSET>,
+            SetIsFastForwardEnabled::<Impl, IMPL_OFFSET>,
+            IsRewindEnabled::<Impl, IMPL_OFFSET>,
+            SetIsRewindEnabled::<Impl, IMPL_OFFSET>,
+            IsPreviousEnabled::<Impl, IMPL_OFFSET>,
+            SetIsPreviousEnabled::<Impl, IMPL_OFFSET>,
+            IsNextEnabled::<Impl, IMPL_OFFSET>,
+            SetIsNextEnabled::<Impl, IMPL_OFFSET>,
+            IsChannelUpEnabled::<Impl, IMPL_OFFSET>,
+            SetIsChannelUpEnabled::<Impl, IMPL_OFFSET>,
+            IsChannelDownEnabled::<Impl, IMPL_OFFSET>,
+            SetIsChannelDownEnabled::<Impl, IMPL_OFFSET>,
+            ButtonPressed::<Impl, IMPL_OFFSET>,
+            RemoveButtonPressed::<Impl, IMPL_OFFSET>,
+            PropertyChanged::<Impl, IMPL_OFFSET>,
+            RemovePropertyChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControls as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemMediaTransportControls2Impl: Sized {
     fn AutoRepeatMode(&self) -> ::windows::core::Result<MediaPlaybackAutoRepeatMode>;
     fn SetAutoRepeatMode(&self, value: MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<()>;
@@ -1754,13 +1835,13 @@ pub trait ISystemMediaTransportControls2Impl: Sized {
     fn AutoRepeatModeChangeRequested(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemoveAutoRepeatModeChangeRequested(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemMediaTransportControls2 {
     const NAME: &'static str = "Windows.Media.ISystemMediaTransportControls2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISystemMediaTransportControls2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControls2Impl, const OFFSET: isize>() -> ISystemMediaTransportControls2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControls2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControls2Vtbl {
         unsafe extern "system" fn AutoRepeatMode<Impl: ISystemMediaTransportControls2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackAutoRepeatMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoRepeatMode() {
@@ -1871,28 +1952,31 @@ impl ISystemMediaTransportControls2Vtbl {
             (*this).RemoveAutoRepeatModeChangeRequested(&*(&token as *const <super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControls2>,
             ::windows::core::GetTrustLevel,
-            AutoRepeatMode::<Impl, OFFSET>,
-            SetAutoRepeatMode::<Impl, OFFSET>,
-            ShuffleEnabled::<Impl, OFFSET>,
-            SetShuffleEnabled::<Impl, OFFSET>,
-            PlaybackRate::<Impl, OFFSET>,
-            SetPlaybackRate::<Impl, OFFSET>,
-            UpdateTimelineProperties::<Impl, OFFSET>,
-            PlaybackPositionChangeRequested::<Impl, OFFSET>,
-            RemovePlaybackPositionChangeRequested::<Impl, OFFSET>,
-            PlaybackRateChangeRequested::<Impl, OFFSET>,
-            RemovePlaybackRateChangeRequested::<Impl, OFFSET>,
-            ShuffleEnabledChangeRequested::<Impl, OFFSET>,
-            RemoveShuffleEnabledChangeRequested::<Impl, OFFSET>,
-            AutoRepeatModeChangeRequested::<Impl, OFFSET>,
-            RemoveAutoRepeatModeChangeRequested::<Impl, OFFSET>,
+            AutoRepeatMode::<Impl, IMPL_OFFSET>,
+            SetAutoRepeatMode::<Impl, IMPL_OFFSET>,
+            ShuffleEnabled::<Impl, IMPL_OFFSET>,
+            SetShuffleEnabled::<Impl, IMPL_OFFSET>,
+            PlaybackRate::<Impl, IMPL_OFFSET>,
+            SetPlaybackRate::<Impl, IMPL_OFFSET>,
+            UpdateTimelineProperties::<Impl, IMPL_OFFSET>,
+            PlaybackPositionChangeRequested::<Impl, IMPL_OFFSET>,
+            RemovePlaybackPositionChangeRequested::<Impl, IMPL_OFFSET>,
+            PlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
+            RemovePlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
+            ShuffleEnabledChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveShuffleEnabledChangeRequested::<Impl, IMPL_OFFSET>,
+            AutoRepeatModeChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveAutoRepeatModeChangeRequested::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControls2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1905,7 +1989,7 @@ impl ::windows::core::RuntimeName for ISystemMediaTransportControlsButtonPressed
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMediaTransportControlsButtonPressedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsButtonPressedEventArgsImpl, const OFFSET: isize>() -> ISystemMediaTransportControlsButtonPressedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsButtonPressedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsButtonPressedEventArgsVtbl {
         unsafe extern "system" fn Button<Impl: ISystemMediaTransportControlsButtonPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemMediaTransportControlsButton) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Button() {
@@ -1917,10 +2001,13 @@ impl ISystemMediaTransportControlsButtonPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsButtonPressedEventArgs>, ::windows::core::GetTrustLevel, Button::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsButtonPressedEventArgs>, ::windows::core::GetTrustLevel, Button::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControlsButtonPressedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISystemMediaTransportControlsDisplayUpdaterImpl: Sized {
     fn Type(&self) -> ::windows::core::Result<MediaPlaybackType>;
     fn SetType(&self, value: MediaPlaybackType) -> ::windows::core::Result<()>;
@@ -1935,13 +2022,13 @@ pub trait ISystemMediaTransportControlsDisplayUpdaterImpl: Sized {
     fn ClearAll(&self) -> ::windows::core::Result<()>;
     fn Update(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemMediaTransportControlsDisplayUpdater {
     const NAME: &'static str = "Windows.Media.ISystemMediaTransportControlsDisplayUpdater";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISystemMediaTransportControlsDisplayUpdaterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsDisplayUpdaterImpl, const OFFSET: isize>() -> ISystemMediaTransportControlsDisplayUpdaterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsDisplayUpdaterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsDisplayUpdaterVtbl {
         unsafe extern "system" fn Type<Impl: ISystemMediaTransportControlsDisplayUpdaterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -2040,25 +2127,28 @@ impl ISystemMediaTransportControlsDisplayUpdaterVtbl {
             (*this).Update().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsDisplayUpdater>,
             ::windows::core::GetTrustLevel,
-            Type::<Impl, OFFSET>,
-            SetType::<Impl, OFFSET>,
-            AppMediaId::<Impl, OFFSET>,
-            SetAppMediaId::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            SetThumbnail::<Impl, OFFSET>,
-            MusicProperties::<Impl, OFFSET>,
-            VideoProperties::<Impl, OFFSET>,
-            ImageProperties::<Impl, OFFSET>,
-            CopyFromFileAsync::<Impl, OFFSET>,
-            ClearAll::<Impl, OFFSET>,
-            Update::<Impl, OFFSET>,
+            Type::<Impl, IMPL_OFFSET>,
+            SetType::<Impl, IMPL_OFFSET>,
+            AppMediaId::<Impl, IMPL_OFFSET>,
+            SetAppMediaId::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            MusicProperties::<Impl, IMPL_OFFSET>,
+            VideoProperties::<Impl, IMPL_OFFSET>,
+            ImageProperties::<Impl, IMPL_OFFSET>,
+            CopyFromFileAsync::<Impl, IMPL_OFFSET>,
+            ClearAll::<Impl, IMPL_OFFSET>,
+            Update::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControlsDisplayUpdater as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2071,7 +2161,7 @@ impl ::windows::core::RuntimeName for ISystemMediaTransportControlsPropertyChang
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMediaTransportControlsPropertyChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsPropertyChangedEventArgsImpl, const OFFSET: isize>() -> ISystemMediaTransportControlsPropertyChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsPropertyChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsPropertyChangedEventArgsVtbl {
         unsafe extern "system" fn Property<Impl: ISystemMediaTransportControlsPropertyChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemMediaTransportControlsProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Property() {
@@ -2083,7 +2173,10 @@ impl ISystemMediaTransportControlsPropertyChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsPropertyChangedEventArgs>, ::windows::core::GetTrustLevel, Property::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsPropertyChangedEventArgs>, ::windows::core::GetTrustLevel, Property::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControlsPropertyChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2096,7 +2189,7 @@ impl ::windows::core::RuntimeName for ISystemMediaTransportControlsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMediaTransportControlsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsStaticsImpl, const OFFSET: isize>() -> ISystemMediaTransportControlsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: ISystemMediaTransportControlsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -2108,10 +2201,13 @@ impl ISystemMediaTransportControlsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControlsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemMediaTransportControlsTimelinePropertiesImpl: Sized {
     fn StartTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
     fn SetStartTime(&self, value: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -2124,13 +2220,13 @@ pub trait ISystemMediaTransportControlsTimelinePropertiesImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
     fn SetPosition(&self, value: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemMediaTransportControlsTimelineProperties {
     const NAME: &'static str = "Windows.Media.ISystemMediaTransportControlsTimelineProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISystemMediaTransportControlsTimelinePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsTimelinePropertiesImpl, const OFFSET: isize>() -> ISystemMediaTransportControlsTimelinePropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsTimelinePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsTimelinePropertiesVtbl {
         unsafe extern "system" fn StartTime<Impl: ISystemMediaTransportControlsTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
@@ -2207,23 +2303,26 @@ impl ISystemMediaTransportControlsTimelinePropertiesVtbl {
             (*this).SetPosition(&*(&value as *const <super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemMediaTransportControlsTimelineProperties>,
             ::windows::core::GetTrustLevel,
-            StartTime::<Impl, OFFSET>,
-            SetStartTime::<Impl, OFFSET>,
-            EndTime::<Impl, OFFSET>,
-            SetEndTime::<Impl, OFFSET>,
-            MinSeekTime::<Impl, OFFSET>,
-            SetMinSeekTime::<Impl, OFFSET>,
-            MaxSeekTime::<Impl, OFFSET>,
-            SetMaxSeekTime::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            SetPosition::<Impl, OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
+            EndTime::<Impl, IMPL_OFFSET>,
+            SetEndTime::<Impl, IMPL_OFFSET>,
+            MinSeekTime::<Impl, IMPL_OFFSET>,
+            SetMinSeekTime::<Impl, IMPL_OFFSET>,
+            MaxSeekTime::<Impl, IMPL_OFFSET>,
+            SetMaxSeekTime::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            SetPosition::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMediaTransportControlsTimelineProperties as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2239,7 +2338,7 @@ impl ::windows::core::RuntimeName for IVideoDisplayProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVideoDisplayPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoDisplayPropertiesImpl, const OFFSET: isize>() -> IVideoDisplayPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoDisplayPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoDisplayPropertiesVtbl {
         unsafe extern "system" fn Title<Impl: IVideoDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -2270,20 +2369,23 @@ impl IVideoDisplayPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubtitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoDisplayProperties>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, Subtitle::<Impl, OFFSET>, SetSubtitle::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoDisplayProperties>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, Subtitle::<Impl, IMPL_OFFSET>, SetSubtitle::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoDisplayProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVideoDisplayProperties2Impl: Sized {
     fn Genres(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoDisplayProperties2 {
     const NAME: &'static str = "Windows.Media.IVideoDisplayProperties2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVideoDisplayProperties2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoDisplayProperties2Impl, const OFFSET: isize>() -> IVideoDisplayProperties2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoDisplayProperties2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoDisplayProperties2Vtbl {
         unsafe extern "system" fn Genres<Impl: IVideoDisplayProperties2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Genres() {
@@ -2295,7 +2397,10 @@ impl IVideoDisplayProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoDisplayProperties2>, ::windows::core::GetTrustLevel, Genres::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoDisplayProperties2>, ::windows::core::GetTrustLevel, Genres::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoDisplayProperties2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2308,7 +2413,7 @@ impl ::windows::core::RuntimeName for IVideoEffectsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVideoEffectsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoEffectsStaticsImpl, const OFFSET: isize>() -> IVideoEffectsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoEffectsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoEffectsStaticsVtbl {
         unsafe extern "system" fn VideoStabilization<Impl: IVideoEffectsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoStabilization() {
@@ -2320,22 +2425,25 @@ impl IVideoEffectsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEffectsStatics>, ::windows::core::GetTrustLevel, VideoStabilization::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoEffectsStatics>, ::windows::core::GetTrustLevel, VideoStabilization::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoEffectsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IVideoFrameImpl: Sized + IClosableImpl + IMediaFrameImpl {
     fn SoftwareBitmap(&self) -> ::windows::core::Result<super::Graphics::Imaging::SoftwareBitmap>;
     fn CopyToAsync(&self, frame: &::core::option::Option<VideoFrame>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
     fn Direct3DSurface(&self) -> ::windows::core::Result<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoFrame {
     const NAME: &'static str = "Windows.Media.IVideoFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IVideoFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrameImpl, const OFFSET: isize>() -> IVideoFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoFrameVtbl {
         unsafe extern "system" fn SoftwareBitmap<Impl: IVideoFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoftwareBitmap() {
@@ -2369,20 +2477,23 @@ impl IVideoFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrame>, ::windows::core::GetTrustLevel, SoftwareBitmap::<Impl, OFFSET>, CopyToAsync::<Impl, OFFSET>, Direct3DSurface::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrame>, ::windows::core::GetTrustLevel, SoftwareBitmap::<Impl, IMPL_OFFSET>, CopyToAsync::<Impl, IMPL_OFFSET>, Direct3DSurface::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IVideoFrame2Impl: Sized {
     fn CopyToWithBoundsAsync(&self, frame: &::core::option::Option<VideoFrame>, sourcebounds: &::core::option::Option<super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, destinationbounds: &::core::option::Option<super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoFrame2 {
     const NAME: &'static str = "Windows.Media.IVideoFrame2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IVideoFrame2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrame2Impl, const OFFSET: isize>() -> IVideoFrame2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrame2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoFrame2Vtbl {
         unsafe extern "system" fn CopyToWithBoundsAsync<Impl: IVideoFrame2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frame: ::windows::core::RawPtr, sourcebounds: ::windows::core::RawPtr, destinationbounds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CopyToWithBoundsAsync(
@@ -2398,21 +2509,24 @@ impl IVideoFrame2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrame2>, ::windows::core::GetTrustLevel, CopyToWithBoundsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrame2>, ::windows::core::GetTrustLevel, CopyToWithBoundsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoFrame2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IVideoFrameFactoryImpl: Sized {
     fn Create(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame>;
     fn CreateWithAlpha(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<VideoFrame>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoFrameFactory {
     const NAME: &'static str = "Windows.Media.IVideoFrameFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IVideoFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrameFactoryImpl, const OFFSET: isize>() -> IVideoFrameFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoFrameFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IVideoFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(format, width, height) {
@@ -2435,23 +2549,26 @@ impl IVideoFrameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrameFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithAlpha::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrameFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAlpha::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoFrameFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IVideoFrameStaticsImpl: Sized {
     fn CreateAsDirect3D11SurfaceBacked(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame>;
     fn CreateAsDirect3D11SurfaceBackedWithDevice(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: &::core::option::Option<super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<VideoFrame>;
     fn CreateWithSoftwareBitmap(&self, bitmap: &::core::option::Option<super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<VideoFrame>;
     fn CreateWithDirect3D11Surface(&self, surface: &::core::option::Option<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<VideoFrame>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoFrameStatics {
     const NAME: &'static str = "Windows.Media.IVideoFrameStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IVideoFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrameStaticsImpl, const OFFSET: isize>() -> IVideoFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoFrameStaticsVtbl {
         unsafe extern "system" fn CreateAsDirect3D11SurfaceBacked<Impl: IVideoFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsDirect3D11SurfaceBacked(format, width, height) {
@@ -2496,6 +2613,20 @@ impl IVideoFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVideoFrameStatics>, ::windows::core::GetTrustLevel, CreateAsDirect3D11SurfaceBacked::<Impl, OFFSET>, CreateAsDirect3D11SurfaceBackedWithDevice::<Impl, OFFSET>, CreateWithSoftwareBitmap::<Impl, OFFSET>, CreateWithDirect3D11Surface::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVideoFrameStatics>,
+            ::windows::core::GetTrustLevel,
+            CreateAsDirect3D11SurfaceBacked::<Impl, IMPL_OFFSET>,
+            CreateAsDirect3D11SurfaceBackedWithDevice::<Impl, IMPL_OFFSET>,
+            CreateWithSoftwareBitmap::<Impl, IMPL_OFFSET>,
+            CreateWithDirect3D11Surface::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoFrameStatics as ::windows::core::Interface>::IID
     }
 }

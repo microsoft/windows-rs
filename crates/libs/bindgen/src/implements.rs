@@ -1,19 +1,17 @@
 use super::*;
 
 pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let cfg = gen.type_cfg(def);
-
     match def.kind() {
-        TypeKind::Interface => gen_interface(def, &cfg, gen),
-        TypeKind::Class => gen_class(def, &cfg, gen),
+        TypeKind::Interface => gen_interface(def,gen),
+        TypeKind::Class => gen_class(def, gen),
         _ => quote! {}
     }
 }
 
-fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    // TODO: gen trait for interface and cfg based on all interfaces being featured 
-    // and if interface is exclusive then only provide implement trait if "implement_exclusive" is featured.
-    // Also cfg should include all method cfgs.
+fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if !def.is_winrt() {
+        return quote! {};
+    }
 
     let type_ident = gen_ident(def.name());
     let impl_ident = type_ident.join("Impl");
@@ -21,26 +19,20 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let generics = gen_type_generics(def, gen);
     let phantoms = gen_phantoms(def, gen);
-    let mut cfg = cfg.clone();
+    let cfg = gen.type_impl_cfg(def);
     let mut requires = vec![];
 
     // vtable_types includes self at the end so reverse and skip it
     for def in def.vtable_types().iter().rev().skip(1) {
         if let ElementType::TypeDef(def) = def {
-            cfg = cfg.union(gen.type_cfg(def));
             requires.push(gen_impl_ident(def, gen));
         }
     }
 
     if def.is_winrt() {
         for def in def.required_interfaces() {
-            cfg = cfg.union(gen.type_cfg(&def));
             requires.push(gen_impl_ident(&def, gen));
         }
-    }
-
-    if def.is_exclusive() {
-        cfg.features.insert("implement_exclusive");
     }
 
     let runtime_name = gen_runtime_name(def, &cfg, gen);
@@ -56,7 +48,12 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         let name = gen_ident(&method.rust_name());
         let signature = method.signature(&def.generics);
         let vtbl_signature = gen_vtbl_signature(&def, &method, gen);
-        let invoke_upcall = gen_winrt_upcall(&signature, quote! { (*this).#name }, gen);
+
+        let invoke_upcall = if def.is_winrt() {
+             gen_winrt_upcall(&signature, quote! { (*this).#name }, gen)
+        } else {
+            quote! { panic!() } 
+        };
 
         quote! {
             unsafe extern "system" fn #name<#(#constraints)* Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
@@ -76,7 +73,6 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         pub trait #impl_ident<#(#generics)*> : Sized #(+#requires)* where #(#constraints)* {
             #(#method_traits)*
         }
-        
         #runtime_name
         #cfg
         impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
@@ -102,7 +98,7 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_class(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: gen trait for classes and cfg based on all interfaces being featured 
     // and only provide implement trait if "implement_exclusive" is featured.
     // Also cfg should include all method cfgs.

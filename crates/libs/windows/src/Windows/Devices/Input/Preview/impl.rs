@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGazeDevicePreviewImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn CanTrackEyes(&self) -> ::windows::core::Result<bool>;
@@ -8,13 +8,13 @@ pub trait IGazeDevicePreviewImpl: Sized {
     fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>>;
     fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDevicePreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGazeDevicePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDevicePreviewImpl, const OFFSET: isize>() -> IGazeDevicePreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDevicePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDevicePreviewVtbl {
         unsafe extern "system" fn Id<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -93,20 +93,23 @@ impl IGazeDevicePreviewVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGazeDevicePreview>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            CanTrackEyes::<Impl, OFFSET>,
-            CanTrackHead::<Impl, OFFSET>,
-            ConfigurationState::<Impl, OFFSET>,
-            RequestCalibrationAsync::<Impl, OFFSET>,
-            GetNumericControlDescriptions::<Impl, OFFSET>,
-            GetBooleanControlDescriptions::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            CanTrackEyes::<Impl, IMPL_OFFSET>,
+            CanTrackHead::<Impl, IMPL_OFFSET>,
+            ConfigurationState::<Impl, IMPL_OFFSET>,
+            RequestCalibrationAsync::<Impl, IMPL_OFFSET>,
+            GetNumericControlDescriptions::<Impl, IMPL_OFFSET>,
+            GetBooleanControlDescriptions::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeDevicePreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -119,7 +122,7 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherAddedPreviewEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherAddedPreviewEventArgsImpl, const OFFSET: isize>() -> IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherAddedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
         unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherAddedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
@@ -131,10 +134,13 @@ impl IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherAddedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherAddedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeDeviceWatcherAddedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGazeDeviceWatcherPreviewImpl: Sized {
     fn Added(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -147,13 +153,13 @@ pub trait IGazeDeviceWatcherPreviewImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGazeDeviceWatcherPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>() -> IGazeDeviceWatcherPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherPreviewVtbl {
         unsafe extern "system" fn Added<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -223,23 +229,26 @@ impl IGazeDeviceWatcherPreviewVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherPreview>,
             ::windows::core::GetTrustLevel,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            Removed::<Impl, OFFSET>,
-            RemoveRemoved::<Impl, OFFSET>,
-            Updated::<Impl, OFFSET>,
-            RemoveUpdated::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved::<Impl, IMPL_OFFSET>,
+            Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeDeviceWatcherPreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -252,7 +261,7 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherRemovedPreviewEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherRemovedPreviewEventArgsImpl, const OFFSET: isize>() -> IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherRemovedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
         unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherRemovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
@@ -264,7 +273,10 @@ impl IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherRemovedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherRemovedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeDeviceWatcherRemovedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -277,7 +289,7 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherUpdatedPreviewEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherUpdatedPreviewEventArgsImpl, const OFFSET: isize>() -> IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherUpdatedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
         unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherUpdatedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
@@ -289,7 +301,10 @@ impl IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherUpdatedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeDeviceWatcherUpdatedPreviewEventArgs>, ::windows::core::GetTrustLevel, Device::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeDeviceWatcherUpdatedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -304,7 +319,7 @@ impl ::windows::core::RuntimeName for IGazeEnteredPreviewEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGazeEnteredPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeEnteredPreviewEventArgsImpl, const OFFSET: isize>() -> IGazeEnteredPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeEnteredPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeEnteredPreviewEventArgsVtbl {
         unsafe extern "system" fn Handled<Impl: IGazeEnteredPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
@@ -331,7 +346,10 @@ impl IGazeEnteredPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeEnteredPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>, CurrentPoint::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeEnteredPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, CurrentPoint::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeEnteredPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -346,7 +364,7 @@ impl ::windows::core::RuntimeName for IGazeExitedPreviewEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGazeExitedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeExitedPreviewEventArgsImpl, const OFFSET: isize>() -> IGazeExitedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeExitedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeExitedPreviewEventArgsVtbl {
         unsafe extern "system" fn Handled<Impl: IGazeExitedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
@@ -373,10 +391,13 @@ impl IGazeExitedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeExitedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>, CurrentPoint::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeExitedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, CurrentPoint::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeExitedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGazeInputSourcePreviewImpl: Sized {
     fn GazeMoved(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveGazeMoved(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -385,13 +406,13 @@ pub trait IGazeInputSourcePreviewImpl: Sized {
     fn GazeExited(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveGazeExited(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeInputSourcePreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGazeInputSourcePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>() -> IGazeInputSourcePreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeInputSourcePreviewVtbl {
         unsafe extern "system" fn GazeMoved<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GazeMoved(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -437,7 +458,23 @@ impl IGazeInputSourcePreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGazeExited(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeInputSourcePreview>, ::windows::core::GetTrustLevel, GazeMoved::<Impl, OFFSET>, RemoveGazeMoved::<Impl, OFFSET>, GazeEntered::<Impl, OFFSET>, RemoveGazeEntered::<Impl, OFFSET>, GazeExited::<Impl, OFFSET>, RemoveGazeExited::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGazeInputSourcePreview>,
+            ::windows::core::GetTrustLevel,
+            GazeMoved::<Impl, IMPL_OFFSET>,
+            RemoveGazeMoved::<Impl, IMPL_OFFSET>,
+            GazeEntered::<Impl, IMPL_OFFSET>,
+            RemoveGazeEntered::<Impl, IMPL_OFFSET>,
+            GazeExited::<Impl, IMPL_OFFSET>,
+            RemoveGazeExited::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeInputSourcePreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -451,7 +488,7 @@ impl ::windows::core::RuntimeName for IGazeInputSourcePreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGazeInputSourcePreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewStaticsImpl, const OFFSET: isize>() -> IGazeInputSourcePreviewStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeInputSourcePreviewStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IGazeInputSourcePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -474,23 +511,26 @@ impl IGazeInputSourcePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeInputSourcePreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>, CreateWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeInputSourcePreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeInputSourcePreviewStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGazeMovedPreviewEventArgsImpl: Sized {
     fn Handled(&self) -> ::windows::core::Result<bool>;
     fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
     fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview>;
     fn GetIntermediatePoints(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<GazePointPreview>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGazeMovedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeMovedPreviewEventArgsImpl, const OFFSET: isize>() -> IGazeMovedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeMovedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeMovedPreviewEventArgsVtbl {
         unsafe extern "system" fn Handled<Impl: IGazeMovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
@@ -528,10 +568,13 @@ impl IGazeMovedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeMovedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>, CurrentPoint::<Impl, OFFSET>, GetIntermediatePoints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazeMovedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>, CurrentPoint::<Impl, IMPL_OFFSET>, GetIntermediatePoints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazeMovedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGazePointPreviewImpl: Sized {
     fn SourceDevice(&self) -> ::windows::core::Result<GazeDevicePreview>;
     fn EyeGazePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>;
@@ -539,13 +582,13 @@ pub trait IGazePointPreviewImpl: Sized {
     fn Timestamp(&self) -> ::windows::core::Result<u64>;
     fn HidInputReport(&self) -> ::windows::core::Result<super::super::HumanInterfaceDevice::HidInputReport>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazePointPreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "implement_exclusive"))]
 impl IGazePointPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazePointPreviewImpl, const OFFSET: isize>() -> IGazePointPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazePointPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazePointPreviewVtbl {
         unsafe extern "system" fn SourceDevice<Impl: IGazePointPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceDevice() {
@@ -601,6 +644,9 @@ impl IGazePointPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazePointPreview>, ::windows::core::GetTrustLevel, SourceDevice::<Impl, OFFSET>, EyeGazePosition::<Impl, OFFSET>, HeadGazePosition::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, HidInputReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGazePointPreview>, ::windows::core::GetTrustLevel, SourceDevice::<Impl, IMPL_OFFSET>, EyeGazePosition::<Impl, IMPL_OFFSET>, HeadGazePosition::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, HidInputReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGazePointPreview as ::windows::core::Interface>::IID
     }
 }

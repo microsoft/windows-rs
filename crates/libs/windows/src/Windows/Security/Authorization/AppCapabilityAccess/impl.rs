@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppCapabilityImpl: Sized {
     fn CapabilityName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn User(&self) -> ::windows::core::Result<super::super::super::System::User>;
@@ -7,13 +7,13 @@ pub trait IAppCapabilityImpl: Sized {
     fn AccessChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveAccessChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.IAppCapability";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IAppCapabilityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityImpl, const OFFSET: isize>() -> IAppCapabilityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCapabilityVtbl {
         unsafe extern "system" fn CapabilityName<Impl: IAppCapabilityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapabilityName() {
@@ -73,7 +73,23 @@ impl IAppCapabilityVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccessChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapability>, ::windows::core::GetTrustLevel, CapabilityName::<Impl, OFFSET>, User::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>, CheckAccess::<Impl, OFFSET>, AccessChanged::<Impl, OFFSET>, RemoveAccessChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAppCapability>,
+            ::windows::core::GetTrustLevel,
+            CapabilityName::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            CheckAccess::<Impl, IMPL_OFFSET>,
+            AccessChanged::<Impl, IMPL_OFFSET>,
+            RemoveAccessChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppCapability as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -84,24 +100,27 @@ impl ::windows::core::RuntimeName for IAppCapabilityAccessChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppCapabilityAccessChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityAccessChangedEventArgsImpl, const OFFSET: isize>() -> IAppCapabilityAccessChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapabilityAccessChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityAccessChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCapabilityAccessChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapabilityAccessChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppCapabilityAccessChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppCapabilityStaticsImpl: Sized {
     fn RequestAccessForCapabilitiesAsync(&self, capabilitynames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>;
     fn RequestAccessForCapabilitiesForUserAsync(&self, user: &::core::option::Option<super::super::super::System::User>, capabilitynames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>;
     fn Create(&self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<AppCapability>;
     fn CreateWithProcessIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>, capabilityname: &::windows::core::HSTRING, pid: u32) -> ::windows::core::Result<AppCapability>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCapabilityStatics {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.IAppCapabilityStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IAppCapabilityStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityStaticsImpl, const OFFSET: isize>() -> IAppCapabilityStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapabilityStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCapabilityStaticsVtbl {
         unsafe extern "system" fn RequestAccessForCapabilitiesAsync<Impl: IAppCapabilityStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilitynames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessForCapabilitiesAsync(&*(&capabilitynames as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -146,6 +165,9 @@ impl IAppCapabilityStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapabilityStatics>, ::windows::core::GetTrustLevel, RequestAccessForCapabilitiesAsync::<Impl, OFFSET>, RequestAccessForCapabilitiesForUserAsync::<Impl, OFFSET>, Create::<Impl, OFFSET>, CreateWithProcessIdForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppCapabilityStatics>, ::windows::core::GetTrustLevel, RequestAccessForCapabilitiesAsync::<Impl, IMPL_OFFSET>, RequestAccessForCapabilitiesForUserAsync::<Impl, IMPL_OFFSET>, Create::<Impl, IMPL_OFFSET>, CreateWithProcessIdForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppCapabilityStatics as ::windows::core::Interface>::IID
     }
 }

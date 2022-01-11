@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorImpl: Sized {
     fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem>;
     fn RawCoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem>;
     fn RawCoordinateSystemAdjusted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpatialAnchor, SpatialAnchorRawCoordinateSystemAdjustedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRawCoordinateSystemAdjusted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialAnchorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorImpl, const OFFSET: isize>() -> ISpatialAnchorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorVtbl {
         unsafe extern "system" fn CoordinateSystem<Impl: ISpatialAnchorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
@@ -49,7 +49,10 @@ impl ISpatialAnchorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRawCoordinateSystemAdjusted(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>, RawCoordinateSystem::<Impl, OFFSET>, RawCoordinateSystemAdjusted::<Impl, OFFSET>, RemoveRawCoordinateSystemAdjusted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>, RawCoordinateSystem::<Impl, IMPL_OFFSET>, RawCoordinateSystemAdjusted::<Impl, IMPL_OFFSET>, RemoveRawCoordinateSystemAdjusted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -62,7 +65,7 @@ impl ::windows::core::RuntimeName for ISpatialAnchor2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchor2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchor2Impl, const OFFSET: isize>() -> ISpatialAnchor2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchor2Vtbl {
         unsafe extern "system" fn RemovedByUser<Impl: ISpatialAnchor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemovedByUser() {
@@ -74,7 +77,10 @@ impl ISpatialAnchor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor2>, ::windows::core::GetTrustLevel, RemovedByUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor2>, ::windows::core::GetTrustLevel, RemovedByUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchor2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -89,7 +95,7 @@ impl ::windows::core::RuntimeName for ISpatialAnchorExportSufficiency {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorExportSufficiencyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: isize>() -> ISpatialAnchorExportSufficiencyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExportSufficiencyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorExportSufficiencyVtbl {
         unsafe extern "system" fn IsMinimallySufficient<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMinimallySufficient() {
@@ -123,21 +129,24 @@ impl ISpatialAnchorExportSufficiencyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExportSufficiency>, ::windows::core::GetTrustLevel, IsMinimallySufficient::<Impl, OFFSET>, SufficiencyLevel::<Impl, OFFSET>, RecommendedSufficiencyLevel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExportSufficiency>, ::windows::core::GetTrustLevel, IsMinimallySufficient::<Impl, IMPL_OFFSET>, SufficiencyLevel::<Impl, IMPL_OFFSET>, RecommendedSufficiencyLevel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorExportSufficiency as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorExporterImpl: Sized {
     fn GetAnchorExportSufficiencyAsync(&self, anchor: &::core::option::Option<SpatialAnchor>, purpose: SpatialAnchorExportPurpose) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>;
     fn TryExportAnchorAsync(&self, anchor: &::core::option::Option<SpatialAnchor>, purpose: SpatialAnchorExportPurpose, stream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorExporter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISpatialAnchorExporterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExporterImpl, const OFFSET: isize>() -> ISpatialAnchorExporterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExporterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorExporterVtbl {
         unsafe extern "system" fn GetAnchorExportSufficiencyAsync<Impl: ISpatialAnchorExporterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anchor: ::windows::core::RawPtr, purpose: SpatialAnchorExportPurpose, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnchorExportSufficiencyAsync(&*(&anchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType), purpose) {
@@ -160,21 +169,24 @@ impl ISpatialAnchorExporterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporter>, ::windows::core::GetTrustLevel, GetAnchorExportSufficiencyAsync::<Impl, OFFSET>, TryExportAnchorAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporter>, ::windows::core::GetTrustLevel, GetAnchorExportSufficiencyAsync::<Impl, IMPL_OFFSET>, TryExportAnchorAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorExporter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorExporterStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<SpatialAnchorExporter>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorExporterStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorExporterStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialAnchorExporterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorExporterStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExporterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorExporterStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -197,20 +209,23 @@ impl ISpatialAnchorExporterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporterStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporterStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorExporterStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorManagerStaticsImpl: Sized {
     fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorManagerStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialAnchorManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorManagerStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorManagerStaticsVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: ISpatialAnchorManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync() {
@@ -222,20 +237,23 @@ impl ISpatialAnchorManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl: Sized {
     fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const OFFSET: isize>() -> ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
         unsafe extern "system" fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform<Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldRawCoordinateSystemToNewRawCoordinateSystemTransform() {
@@ -247,22 +265,25 @@ impl ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>, ::windows::core::GetTrustLevel, OldRawCoordinateSystemToNewRawCoordinateSystemTransform::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>, ::windows::core::GetTrustLevel, OldRawCoordinateSystemToNewRawCoordinateSystemTransform::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorStaticsImpl: Sized {
     fn TryCreateRelativeTo(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialAnchor>;
     fn TryCreateWithPositionRelativeTo(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialAnchor>;
     fn TryCreateWithPositionAndOrientationRelativeTo(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialAnchor>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialAnchorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorStaticsVtbl {
         unsafe extern "system" fn TryCreateRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateRelativeTo(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
@@ -300,23 +321,26 @@ impl ISpatialAnchorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStatics>, ::windows::core::GetTrustLevel, TryCreateRelativeTo::<Impl, OFFSET>, TryCreateWithPositionRelativeTo::<Impl, OFFSET>, TryCreateWithPositionAndOrientationRelativeTo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStatics>, ::windows::core::GetTrustLevel, TryCreateRelativeTo::<Impl, IMPL_OFFSET>, TryCreateWithPositionRelativeTo::<Impl, IMPL_OFFSET>, TryCreateWithPositionAndOrientationRelativeTo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorStoreImpl: Sized {
     fn GetAllSavedAnchors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>;
     fn TrySave(&self, id: &::windows::core::HSTRING, anchor: &::core::option::Option<SpatialAnchor>) -> ::windows::core::Result<bool>;
     fn Remove(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISpatialAnchorStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>() -> ISpatialAnchorStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorStoreVtbl {
         unsafe extern "system" fn GetAllSavedAnchors<Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllSavedAnchors() {
@@ -347,22 +371,25 @@ impl ISpatialAnchorStoreVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStore>, ::windows::core::GetTrustLevel, GetAllSavedAnchors::<Impl, OFFSET>, TrySave::<Impl, OFFSET>, Remove::<Impl, OFFSET>, Clear::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStore>, ::windows::core::GetTrustLevel, GetAllSavedAnchors::<Impl, IMPL_OFFSET>, TrySave::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorStore as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISpatialAnchorTransferManagerStaticsImpl: Sized {
     fn TryImportAnchorsAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>>;
     fn TryExportAnchorsAsync(&self, anchors: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, SpatialAnchor>>>, stream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAnchorTransferManagerStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialAnchorTransferManagerStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISpatialAnchorTransferManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorTransferManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorTransferManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAnchorTransferManagerStaticsVtbl {
         unsafe extern "system" fn TryImportAnchorsAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryImportAnchorsAsync(&*(&stream as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -399,7 +426,10 @@ impl ISpatialAnchorTransferManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorTransferManagerStatics>, ::windows::core::GetTrustLevel, TryImportAnchorsAsync::<Impl, OFFSET>, TryExportAnchorsAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorTransferManagerStatics>, ::windows::core::GetTrustLevel, TryImportAnchorsAsync::<Impl, IMPL_OFFSET>, TryExportAnchorsAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAnchorTransferManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -410,24 +440,27 @@ impl ::windows::core::RuntimeName for ISpatialBoundingVolume {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialBoundingVolumeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeImpl, const OFFSET: isize>() -> ISpatialBoundingVolumeVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolume>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialBoundingVolumeVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolume>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialBoundingVolume as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialBoundingVolumeStaticsImpl: Sized {
     fn FromBox(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>, r#box: &SpatialBoundingBox) -> ::windows::core::Result<SpatialBoundingVolume>;
     fn FromOrientedBox(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>, r#box: &SpatialBoundingOrientedBox) -> ::windows::core::Result<SpatialBoundingVolume>;
     fn FromSphere(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>, sphere: &SpatialBoundingSphere) -> ::windows::core::Result<SpatialBoundingVolume>;
     fn FromFrustum(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>, frustum: &SpatialBoundingFrustum) -> ::windows::core::Result<SpatialBoundingVolume>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialBoundingVolumeStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialBoundingVolumeStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialBoundingVolumeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>() -> ISpatialBoundingVolumeStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialBoundingVolumeStaticsVtbl {
         unsafe extern "system" fn FromBox<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, r#box: SpatialBoundingBox, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromBox(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&r#box as *const <SpatialBoundingBox as ::windows::core::Abi>::Abi as *const <SpatialBoundingBox as ::windows::core::DefaultType>::DefaultType)) {
@@ -472,20 +505,23 @@ impl ISpatialBoundingVolumeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolumeStatics>, ::windows::core::GetTrustLevel, FromBox::<Impl, OFFSET>, FromOrientedBox::<Impl, OFFSET>, FromSphere::<Impl, OFFSET>, FromFrustum::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolumeStatics>, ::windows::core::GetTrustLevel, FromBox::<Impl, IMPL_OFFSET>, FromOrientedBox::<Impl, IMPL_OFFSET>, FromSphere::<Impl, IMPL_OFFSET>, FromFrustum::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialBoundingVolumeStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialCoordinateSystemImpl: Sized {
     fn TryGetTransformTo(&self, target: &::core::option::Option<SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialCoordinateSystem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialCoordinateSystemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialCoordinateSystemImpl, const OFFSET: isize>() -> ISpatialCoordinateSystemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialCoordinateSystemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialCoordinateSystemVtbl {
         unsafe extern "system" fn TryGetTransformTo<Impl: ISpatialCoordinateSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetTransformTo(&*(&target as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
@@ -497,22 +533,25 @@ impl ISpatialCoordinateSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialCoordinateSystem>, ::windows::core::GetTrustLevel, TryGetTransformTo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialCoordinateSystem>, ::windows::core::GetTrustLevel, TryGetTransformTo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialCoordinateSystem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpatialEntityImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Anchor(&self) -> ::windows::core::Result<SpatialAnchor>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialEntity";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISpatialEntityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityImpl, const OFFSET: isize>() -> ISpatialEntityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityVtbl {
         unsafe extern "system" fn Id<Impl: ISpatialEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -546,7 +585,10 @@ impl ISpatialEntityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntity>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Anchor::<Impl, OFFSET>, Properties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntity>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Anchor::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntity as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -559,7 +601,7 @@ impl ::windows::core::RuntimeName for ISpatialEntityAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityAddedEventArgsImpl, const OFFSET: isize>() -> ISpatialEntityAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityAddedEventArgsVtbl {
         unsafe extern "system" fn Entity<Impl: ISpatialEntityAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entity() {
@@ -571,21 +613,24 @@ impl ISpatialEntityAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityAddedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityAddedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpatialEntityFactoryImpl: Sized {
     fn CreateWithSpatialAnchor(&self, spatialanchor: &::core::option::Option<SpatialAnchor>) -> ::windows::core::Result<SpatialEntity>;
     fn CreateWithSpatialAnchorAndProperties(&self, spatialanchor: &::core::option::Option<SpatialAnchor>, propertyset: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<SpatialEntity>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialEntityFactory {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialEntityFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISpatialEntityFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityFactoryImpl, const OFFSET: isize>() -> ISpatialEntityFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityFactoryVtbl {
         unsafe extern "system" fn CreateWithSpatialAnchor<Impl: ISpatialEntityFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, spatialanchor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSpatialAnchor(&*(&spatialanchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType)) {
@@ -608,7 +653,10 @@ impl ISpatialEntityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityFactory>, ::windows::core::GetTrustLevel, CreateWithSpatialAnchor::<Impl, OFFSET>, CreateWithSpatialAnchorAndProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityFactory>, ::windows::core::GetTrustLevel, CreateWithSpatialAnchor::<Impl, IMPL_OFFSET>, CreateWithSpatialAnchorAndProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -621,7 +669,7 @@ impl ::windows::core::RuntimeName for ISpatialEntityRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityRemovedEventArgsImpl, const OFFSET: isize>() -> ISpatialEntityRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityRemovedEventArgsVtbl {
         unsafe extern "system" fn Entity<Impl: ISpatialEntityRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entity() {
@@ -633,22 +681,25 @@ impl ISpatialEntityRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityRemovedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityRemovedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialEntityStoreImpl: Sized {
     fn SaveAsync(&self, entity: &::core::option::Option<SpatialEntity>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RemoveAsync(&self, entity: &::core::option::Option<SpatialEntity>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn CreateEntityWatcher(&self) -> ::windows::core::Result<SpatialEntityWatcher>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialEntityStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialEntityStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityStoreImpl, const OFFSET: isize>() -> ISpatialEntityStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityStoreVtbl {
         unsafe extern "system" fn SaveAsync<Impl: ISpatialEntityStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync(&*(&entity as *const <SpatialEntity as ::windows::core::Abi>::Abi as *const <SpatialEntity as ::windows::core::DefaultType>::DefaultType)) {
@@ -682,21 +733,24 @@ impl ISpatialEntityStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStore>, ::windows::core::GetTrustLevel, SaveAsync::<Impl, OFFSET>, RemoveAsync::<Impl, OFFSET>, CreateEntityWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStore>, ::windows::core::GetTrustLevel, SaveAsync::<Impl, IMPL_OFFSET>, RemoveAsync::<Impl, IMPL_OFFSET>, CreateEntityWatcher::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityStore as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 pub trait ISpatialEntityStoreStaticsImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn TryGetForRemoteSystemSession(&self, session: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemSession>) -> ::windows::core::Result<SpatialEntityStore>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialEntityStoreStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialEntityStoreStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ISpatialEntityStoreStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: isize>() -> ISpatialEntityStoreStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityStoreStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityStoreStaticsVtbl {
         unsafe extern "system" fn IsSupported<Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -719,7 +773,10 @@ impl ISpatialEntityStoreStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStoreStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, TryGetForRemoteSystemSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStoreStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, TryGetForRemoteSystemSession::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityStoreStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -732,7 +789,7 @@ impl ::windows::core::RuntimeName for ISpatialEntityUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityUpdatedEventArgsImpl, const OFFSET: isize>() -> ISpatialEntityUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityUpdatedEventArgsVtbl {
         unsafe extern "system" fn Entity<Impl: ISpatialEntityUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entity() {
@@ -744,10 +801,13 @@ impl ISpatialEntityUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityUpdatedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityUpdatedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialEntityWatcherImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<SpatialEntityWatcherStatus>;
     fn Added(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -761,13 +821,13 @@ pub trait ISpatialEntityWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialEntityWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialEntityWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>() -> ISpatialEntityWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialEntityWatcherVtbl {
         unsafe extern "system" fn Status<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialEntityWatcherStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -848,27 +908,30 @@ impl ISpatialEntityWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialEntityWatcher>,
             ::windows::core::GetTrustLevel,
-            Status::<Impl, OFFSET>,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            Updated::<Impl, OFFSET>,
-            RemoveUpdated::<Impl, OFFSET>,
-            Removed::<Impl, OFFSET>,
-            RemoveRemoved::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialEntityWatcher as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialLocationImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
@@ -877,13 +940,13 @@ pub trait ISpatialLocationImpl: Sized {
     fn AbsoluteAngularVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
     fn AbsoluteAngularAcceleration(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialLocation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialLocationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocationImpl, const OFFSET: isize>() -> ISpatialLocationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialLocationVtbl {
         unsafe extern "system" fn Position<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -951,33 +1014,36 @@ impl ISpatialLocationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialLocation>,
             ::windows::core::GetTrustLevel,
-            Position::<Impl, OFFSET>,
-            Orientation::<Impl, OFFSET>,
-            AbsoluteLinearVelocity::<Impl, OFFSET>,
-            AbsoluteLinearAcceleration::<Impl, OFFSET>,
-            AbsoluteAngularVelocity::<Impl, OFFSET>,
-            AbsoluteAngularAcceleration::<Impl, OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            Orientation::<Impl, IMPL_OFFSET>,
+            AbsoluteLinearVelocity::<Impl, IMPL_OFFSET>,
+            AbsoluteLinearAcceleration::<Impl, IMPL_OFFSET>,
+            AbsoluteAngularVelocity::<Impl, IMPL_OFFSET>,
+            AbsoluteAngularAcceleration::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialLocation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialLocation2Impl: Sized {
     fn AbsoluteAngularVelocityAxisAngle(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn AbsoluteAngularAccelerationAxisAngle(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialLocation2 {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialLocation2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialLocation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocation2Impl, const OFFSET: isize>() -> ISpatialLocation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialLocation2Vtbl {
         unsafe extern "system" fn AbsoluteAngularVelocityAxisAngle<Impl: ISpatialLocation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteAngularVelocityAxisAngle() {
@@ -1000,10 +1066,13 @@ impl ISpatialLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocation2>, ::windows::core::GetTrustLevel, AbsoluteAngularVelocityAxisAngle::<Impl, OFFSET>, AbsoluteAngularAccelerationAxisAngle::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocation2>, ::windows::core::GetTrustLevel, AbsoluteAngularVelocityAxisAngle::<Impl, IMPL_OFFSET>, AbsoluteAngularAccelerationAxisAngle::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialLocation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialLocatorImpl: Sized {
     fn Locatability(&self) -> ::windows::core::Result<SpatialLocatability>;
     fn LocatabilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpatialLocator, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1020,13 +1089,13 @@ pub trait ISpatialLocatorImpl: Sized {
     fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&self, relativeposition: &super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialStationaryFrameOfReference>;
     fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: &super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> ::windows::core::Result<SpatialStationaryFrameOfReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialLocator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialLocatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorImpl, const OFFSET: isize>() -> ISpatialLocatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialLocatorVtbl {
         unsafe extern "system" fn Locatability<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialLocatability) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Locatability() {
@@ -1168,30 +1237,33 @@ impl ISpatialLocatorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialLocator>,
             ::windows::core::GetTrustLevel,
-            Locatability::<Impl, OFFSET>,
-            LocatabilityChanged::<Impl, OFFSET>,
-            RemoveLocatabilityChanged::<Impl, OFFSET>,
-            PositionalTrackingDeactivating::<Impl, OFFSET>,
-            RemovePositionalTrackingDeactivating::<Impl, OFFSET>,
-            TryLocateAtTimestamp::<Impl, OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeading::<Impl, OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition::<Impl, OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation::<Impl, OFFSET>,
-            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading::<Impl, OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocation::<Impl, OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition::<Impl, OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation::<Impl, OFFSET>,
-            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading::<Impl, OFFSET>,
+            Locatability::<Impl, IMPL_OFFSET>,
+            LocatabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveLocatabilityChanged::<Impl, IMPL_OFFSET>,
+            PositionalTrackingDeactivating::<Impl, IMPL_OFFSET>,
+            RemovePositionalTrackingDeactivating::<Impl, IMPL_OFFSET>,
+            TryLocateAtTimestamp::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeading::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+            CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocation::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation::<Impl, IMPL_OFFSET>,
+            CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialLocator as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialLocatorAttachedFrameOfReferenceImpl: Sized {
     fn RelativePosition(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn SetRelativePosition(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
@@ -1201,13 +1273,13 @@ pub trait ISpatialLocatorAttachedFrameOfReferenceImpl: Sized {
     fn GetStationaryCoordinateSystemAtTimestamp(&self, timestamp: &::core::option::Option<super::PerceptionTimestamp>) -> ::windows::core::Result<SpatialCoordinateSystem>;
     fn TryGetRelativeHeadingAtTimestamp(&self, timestamp: &::core::option::Option<super::PerceptionTimestamp>) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialLocatorAttachedFrameOfReference";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>() -> ISpatialLocatorAttachedFrameOfReferenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialLocatorAttachedFrameOfReferenceVtbl {
         unsafe extern "system" fn RelativePosition<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativePosition() {
@@ -1265,20 +1337,23 @@ impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialLocatorAttachedFrameOfReference>,
             ::windows::core::GetTrustLevel,
-            RelativePosition::<Impl, OFFSET>,
-            SetRelativePosition::<Impl, OFFSET>,
-            RelativeOrientation::<Impl, OFFSET>,
-            SetRelativeOrientation::<Impl, OFFSET>,
-            AdjustHeading::<Impl, OFFSET>,
-            GetStationaryCoordinateSystemAtTimestamp::<Impl, OFFSET>,
-            TryGetRelativeHeadingAtTimestamp::<Impl, OFFSET>,
+            RelativePosition::<Impl, IMPL_OFFSET>,
+            SetRelativePosition::<Impl, IMPL_OFFSET>,
+            RelativeOrientation::<Impl, IMPL_OFFSET>,
+            SetRelativeOrientation::<Impl, IMPL_OFFSET>,
+            AdjustHeading::<Impl, IMPL_OFFSET>,
+            GetStationaryCoordinateSystemAtTimestamp::<Impl, IMPL_OFFSET>,
+            TryGetRelativeHeadingAtTimestamp::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialLocatorAttachedFrameOfReference as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1292,7 +1367,7 @@ impl ::windows::core::RuntimeName for ISpatialLocatorPositionalTrackingDeactivat
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: isize>() -> ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
         unsafe extern "system" fn Canceled<Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Canceled() {
@@ -1308,7 +1383,10 @@ impl ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanceled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorPositionalTrackingDeactivatingEventArgs>, ::windows::core::GetTrustLevel, Canceled::<Impl, OFFSET>, SetCanceled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorPositionalTrackingDeactivatingEventArgs>, ::windows::core::GetTrustLevel, Canceled::<Impl, IMPL_OFFSET>, SetCanceled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialLocatorPositionalTrackingDeactivatingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1321,7 +1399,7 @@ impl ::windows::core::RuntimeName for ISpatialLocatorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorStaticsImpl, const OFFSET: isize>() -> ISpatialLocatorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialLocatorStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: ISpatialLocatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -1333,10 +1411,13 @@ impl ISpatialLocatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialLocatorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialStageFrameOfReferenceImpl: Sized {
     fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem>;
     fn MovementRange(&self) -> ::windows::core::Result<SpatialMovementRange>;
@@ -1344,13 +1425,13 @@ pub trait ISpatialStageFrameOfReferenceImpl: Sized {
     fn GetCoordinateSystemAtCurrentLocation(&self, locator: &::core::option::Option<SpatialLocator>) -> ::windows::core::Result<SpatialCoordinateSystem>;
     fn TryGetMovementBounds(&self, coordinatesystem: &::core::option::Option<SpatialCoordinateSystem>) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector3>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialStageFrameOfReference";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialStageFrameOfReferenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>() -> ISpatialStageFrameOfReferenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStageFrameOfReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialStageFrameOfReferenceVtbl {
         unsafe extern "system" fn CoordinateSystem<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
@@ -1407,23 +1488,38 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReference>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>, MovementRange::<Impl, OFFSET>, LookDirectionRange::<Impl, OFFSET>, GetCoordinateSystemAtCurrentLocation::<Impl, OFFSET>, TryGetMovementBounds::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReference>,
+            ::windows::core::GetTrustLevel,
+            CoordinateSystem::<Impl, IMPL_OFFSET>,
+            MovementRange::<Impl, IMPL_OFFSET>,
+            LookDirectionRange::<Impl, IMPL_OFFSET>,
+            GetCoordinateSystemAtCurrentLocation::<Impl, IMPL_OFFSET>,
+            TryGetMovementBounds::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialStageFrameOfReference as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialStageFrameOfReferenceStaticsImpl: Sized {
     fn Current(&self) -> ::windows::core::Result<SpatialStageFrameOfReference>;
     fn CurrentChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCurrentChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn RequestNewStageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialStageFrameOfReference>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialStageFrameOfReferenceStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.ISpatialStageFrameOfReferenceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialStageFrameOfReferenceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>() -> ISpatialStageFrameOfReferenceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStageFrameOfReferenceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialStageFrameOfReferenceStaticsVtbl {
         unsafe extern "system" fn Current<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -1461,7 +1557,10 @@ impl ISpatialStageFrameOfReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReferenceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>, CurrentChanged::<Impl, OFFSET>, RemoveCurrentChanged::<Impl, OFFSET>, RequestNewStageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReferenceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, CurrentChanged::<Impl, IMPL_OFFSET>, RemoveCurrentChanged::<Impl, IMPL_OFFSET>, RequestNewStageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialStageFrameOfReferenceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1474,7 +1573,7 @@ impl ::windows::core::RuntimeName for ISpatialStationaryFrameOfReference {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialStationaryFrameOfReferenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStationaryFrameOfReferenceImpl, const OFFSET: isize>() -> ISpatialStationaryFrameOfReferenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStationaryFrameOfReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialStationaryFrameOfReferenceVtbl {
         unsafe extern "system" fn CoordinateSystem<Impl: ISpatialStationaryFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
@@ -1486,6 +1585,9 @@ impl ISpatialStationaryFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStationaryFrameOfReference>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStationaryFrameOfReference>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialStationaryFrameOfReference as ::windows::core::Interface>::IID
     }
 }

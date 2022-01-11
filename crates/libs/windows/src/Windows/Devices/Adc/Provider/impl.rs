@@ -14,7 +14,7 @@ impl ::windows::core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
 impl IAdcControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProviderImpl, const OFFSET: isize>() -> IAdcControllerProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcControllerProviderVtbl {
         unsafe extern "system" fn ChannelCount<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelCount() {
@@ -105,33 +105,39 @@ impl IAdcControllerProviderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAdcControllerProvider>,
             ::windows::core::GetTrustLevel,
-            ChannelCount::<Impl, OFFSET>,
-            ResolutionInBits::<Impl, OFFSET>,
-            MinValue::<Impl, OFFSET>,
-            MaxValue::<Impl, OFFSET>,
-            ChannelMode::<Impl, OFFSET>,
-            SetChannelMode::<Impl, OFFSET>,
-            IsChannelModeSupported::<Impl, OFFSET>,
-            AcquireChannel::<Impl, OFFSET>,
-            ReleaseChannel::<Impl, OFFSET>,
-            ReadValue::<Impl, OFFSET>,
+            ChannelCount::<Impl, IMPL_OFFSET>,
+            ResolutionInBits::<Impl, IMPL_OFFSET>,
+            MinValue::<Impl, IMPL_OFFSET>,
+            MaxValue::<Impl, IMPL_OFFSET>,
+            ChannelMode::<Impl, IMPL_OFFSET>,
+            SetChannelMode::<Impl, IMPL_OFFSET>,
+            IsChannelModeSupported::<Impl, IMPL_OFFSET>,
+            AcquireChannel::<Impl, IMPL_OFFSET>,
+            ReleaseChannel::<Impl, IMPL_OFFSET>,
+            ReadValue::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdcControllerProvider as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IAdcProviderImpl: Sized {
     fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAdcProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IAdcProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcProviderImpl, const OFFSET: isize>() -> IAdcProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcProviderVtbl {
         unsafe extern "system" fn GetControllers<Impl: IAdcProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllers() {
@@ -143,6 +149,9 @@ impl IAdcProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcProvider>, ::windows::core::GetTrustLevel, GetControllers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcProvider>, ::windows::core::GetTrustLevel, GetControllers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdcProvider as ::windows::core::Interface>::IID
     }
 }

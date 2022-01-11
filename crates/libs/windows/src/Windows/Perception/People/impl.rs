@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IEyesPoseImpl: Sized {
     fn IsCalibrationValid(&self) -> ::windows::core::Result<bool>;
     fn Gaze(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>>;
     fn UpdateTimestamp(&self) -> ::windows::core::Result<super::PerceptionTimestamp>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEyesPose {
     const NAME: &'static str = "Windows.Perception.People.IEyesPose";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IEyesPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseImpl, const OFFSET: isize>() -> IEyesPoseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEyesPoseVtbl {
         unsafe extern "system" fn IsCalibrationValid<Impl: IEyesPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCalibrationValid() {
@@ -44,21 +44,24 @@ impl IEyesPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEyesPose>, ::windows::core::GetTrustLevel, IsCalibrationValid::<Impl, OFFSET>, Gaze::<Impl, OFFSET>, UpdateTimestamp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEyesPose>, ::windows::core::GetTrustLevel, IsCalibrationValid::<Impl, IMPL_OFFSET>, Gaze::<Impl, IMPL_OFFSET>, UpdateTimestamp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEyesPose as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IEyesPoseStaticsImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEyesPoseStatics {
     const NAME: &'static str = "Windows.Perception.People.IEyesPoseStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl IEyesPoseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseStaticsImpl, const OFFSET: isize>() -> IEyesPoseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEyesPoseStaticsVtbl {
         unsafe extern "system" fn IsSupported<Impl: IEyesPoseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -81,10 +84,13 @@ impl IEyesPoseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEyesPoseStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEyesPoseStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEyesPoseStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Input_Spatial", feature = "implement_exclusive"))]
 pub trait IHandMeshObserverImpl: Sized {
     fn Source(&self) -> ::windows::core::Result<super::super::UI::Input::Spatial::SpatialInteractionSource>;
     fn TriangleIndexCount(&self) -> ::windows::core::Result<u32>;
@@ -95,13 +101,13 @@ pub trait IHandMeshObserverImpl: Sized {
     fn NeutralPoseVersion(&self) -> ::windows::core::Result<i32>;
     fn ModelId(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Input_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.IHandMeshObserver";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Input_Spatial", feature = "implement_exclusive"))]
 impl IHandMeshObserverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshObserverImpl, const OFFSET: isize>() -> IHandMeshObserverVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshObserverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandMeshObserverVtbl {
         unsafe extern "system" fn Source<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
@@ -184,36 +190,39 @@ impl IHandMeshObserverVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHandMeshObserver>,
             ::windows::core::GetTrustLevel,
-            Source::<Impl, OFFSET>,
-            TriangleIndexCount::<Impl, OFFSET>,
-            VertexCount::<Impl, OFFSET>,
-            GetTriangleIndices::<Impl, OFFSET>,
-            GetVertexStateForPose::<Impl, OFFSET>,
-            NeutralPose::<Impl, OFFSET>,
-            NeutralPoseVersion::<Impl, OFFSET>,
-            ModelId::<Impl, OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            TriangleIndexCount::<Impl, IMPL_OFFSET>,
+            VertexCount::<Impl, IMPL_OFFSET>,
+            GetTriangleIndices::<Impl, IMPL_OFFSET>,
+            GetVertexStateForPose::<Impl, IMPL_OFFSET>,
+            NeutralPose::<Impl, IMPL_OFFSET>,
+            NeutralPoseVersion::<Impl, IMPL_OFFSET>,
+            ModelId::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHandMeshObserver as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHandMeshVertexStateImpl: Sized {
     fn CoordinateSystem(&self) -> ::windows::core::Result<super::Spatial::SpatialCoordinateSystem>;
     fn GetVertices(&self, vertices: &mut [<HandMeshVertex as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn UpdateTimestamp(&self) -> ::windows::core::Result<super::PerceptionTimestamp>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.IHandMeshVertexState";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHandMeshVertexStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshVertexStateImpl, const OFFSET: isize>() -> IHandMeshVertexStateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshVertexStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandMeshVertexStateVtbl {
         unsafe extern "system" fn CoordinateSystem<Impl: IHandMeshVertexStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
@@ -240,23 +249,26 @@ impl IHandMeshVertexStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHandMeshVertexState>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>, GetVertices::<Impl, OFFSET>, UpdateTimestamp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHandMeshVertexState>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, IMPL_OFFSET>, GetVertices::<Impl, IMPL_OFFSET>, UpdateTimestamp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHandMeshVertexState as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHandPoseImpl: Sized {
     fn TryGetJoint(&self, coordinatesystem: &::core::option::Option<super::Spatial::SpatialCoordinateSystem>, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool>;
     fn TryGetJoints(&self, coordinatesystem: &::core::option::Option<super::Spatial::SpatialCoordinateSystem>, joints: &[<HandJointKind as ::windows::core::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool>;
     fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> ::windows::core::Result<JointPose>;
     fn GetRelativeJoints(&self, joints: &[<HandJointKind as ::windows::core::DefaultType>::DefaultType], referencejoints: &[<HandJointKind as ::windows::core::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHandPose {
     const NAME: &'static str = "Windows.Perception.People.IHandPose";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHandPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandPoseImpl, const OFFSET: isize>() -> IHandPoseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandPoseVtbl {
         unsafe extern "system" fn TryGetJoint<Impl: IHandPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, joint: HandJointKind, jointpose: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetJoint(&*(&coordinatesystem as *const <super::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), joint, ::core::mem::transmute_copy(&jointpose)) {
@@ -294,22 +306,25 @@ impl IHandPoseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRelativeJoints(::core::slice::from_raw_parts(::core::mem::transmute_copy(&joints), joints_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&referencejoints), referenceJoints_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&jointposes), jointPoses_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHandPose>, ::windows::core::GetTrustLevel, TryGetJoint::<Impl, OFFSET>, TryGetJoints::<Impl, OFFSET>, GetRelativeJoint::<Impl, OFFSET>, GetRelativeJoints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHandPose>, ::windows::core::GetTrustLevel, TryGetJoint::<Impl, IMPL_OFFSET>, TryGetJoints::<Impl, IMPL_OFFSET>, GetRelativeJoint::<Impl, IMPL_OFFSET>, GetRelativeJoints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHandPose as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IHeadPoseImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn ForwardDirection(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn UpDirection(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHeadPose {
     const NAME: &'static str = "Windows.Perception.People.IHeadPose";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IHeadPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadPoseImpl, const OFFSET: isize>() -> IHeadPoseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHeadPoseVtbl {
         unsafe extern "system" fn Position<Impl: IHeadPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -343,6 +358,9 @@ impl IHeadPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadPose>, ::windows::core::GetTrustLevel, Position::<Impl, OFFSET>, ForwardDirection::<Impl, OFFSET>, UpDirection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadPose>, ::windows::core::GetTrustLevel, Position::<Impl, IMPL_OFFSET>, ForwardDirection::<Impl, IMPL_OFFSET>, UpDirection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHeadPose as ::windows::core::Interface>::IID
     }
 }

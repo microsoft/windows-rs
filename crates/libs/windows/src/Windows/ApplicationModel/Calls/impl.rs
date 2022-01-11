@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for ICallAnswerEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICallAnswerEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallAnswerEventArgsImpl, const OFFSET: isize>() -> ICallAnswerEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallAnswerEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallAnswerEventArgsVtbl {
         unsafe extern "system" fn AcceptedMedia<Impl: ICallAnswerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VoipPhoneCallMedia) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptedMedia() {
@@ -20,7 +20,10 @@ impl ICallAnswerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallAnswerEventArgs>, ::windows::core::GetTrustLevel, AcceptedMedia::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallAnswerEventArgs>, ::windows::core::GetTrustLevel, AcceptedMedia::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICallAnswerEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,7 +36,7 @@ impl ::windows::core::RuntimeName for ICallRejectEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICallRejectEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallRejectEventArgsImpl, const OFFSET: isize>() -> ICallRejectEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallRejectEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallRejectEventArgsVtbl {
         unsafe extern "system" fn RejectReason<Impl: ICallRejectEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VoipPhoneCallRejectReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RejectReason() {
@@ -45,7 +48,10 @@ impl ICallRejectEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallRejectEventArgs>, ::windows::core::GetTrustLevel, RejectReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallRejectEventArgs>, ::windows::core::GetTrustLevel, RejectReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICallRejectEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,7 +64,7 @@ impl ::windows::core::RuntimeName for ICallStateChangeEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICallStateChangeEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallStateChangeEventArgsImpl, const OFFSET: isize>() -> ICallStateChangeEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallStateChangeEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallStateChangeEventArgsVtbl {
         unsafe extern "system" fn State<Impl: ICallStateChangeEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VoipPhoneCallState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -70,7 +76,10 @@ impl ICallStateChangeEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallStateChangeEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICallStateChangeEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICallStateChangeEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -83,26 +92,29 @@ impl ::windows::core::RuntimeName for ILockScreenCallEndCallDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILockScreenCallEndCallDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenCallEndCallDeferralImpl, const OFFSET: isize>() -> ILockScreenCallEndCallDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenCallEndCallDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenCallEndCallDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ILockScreenCallEndCallDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallEndCallDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallEndCallDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenCallEndCallDeferral as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenCallEndRequestedEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<LockScreenCallEndCallDeferral>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILockScreenCallEndRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenCallEndRequestedEventArgsImpl, const OFFSET: isize>() -> ILockScreenCallEndRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenCallEndRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenCallEndRequestedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ILockScreenCallEndRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -125,10 +137,13 @@ impl ILockScreenCallEndRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallEndRequestedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>, Deadline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallEndRequestedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenCallEndRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenCallUIImpl: Sized {
     fn Dismiss(&self) -> ::windows::core::Result<()>;
     fn EndRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -138,13 +153,13 @@ pub trait ILockScreenCallUIImpl: Sized {
     fn CallTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCallTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.ILockScreenCallUI";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILockScreenCallUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenCallUIImpl, const OFFSET: isize>() -> ILockScreenCallUIVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenCallUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenCallUIVtbl {
         unsafe extern "system" fn Dismiss<Impl: ILockScreenCallUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Dismiss().into()
@@ -194,7 +209,24 @@ impl ILockScreenCallUIVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCallTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenCallUI>, ::windows::core::GetTrustLevel, Dismiss::<Impl, OFFSET>, EndRequested::<Impl, OFFSET>, RemoveEndRequested::<Impl, OFFSET>, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>, CallTitle::<Impl, OFFSET>, SetCallTitle::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ILockScreenCallUI>,
+            ::windows::core::GetTrustLevel,
+            Dismiss::<Impl, IMPL_OFFSET>,
+            EndRequested::<Impl, IMPL_OFFSET>,
+            RemoveEndRequested::<Impl, IMPL_OFFSET>,
+            Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed::<Impl, IMPL_OFFSET>,
+            CallTitle::<Impl, IMPL_OFFSET>,
+            SetCallTitle::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenCallUI as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -207,7 +239,7 @@ impl ::windows::core::RuntimeName for IMuteChangeEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMuteChangeEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMuteChangeEventArgsImpl, const OFFSET: isize>() -> IMuteChangeEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMuteChangeEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMuteChangeEventArgsVtbl {
         unsafe extern "system" fn Muted<Impl: IMuteChangeEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Muted() {
@@ -219,10 +251,13 @@ impl IMuteChangeEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMuteChangeEventArgs>, ::windows::core::GetTrustLevel, Muted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMuteChangeEventArgs>, ::windows::core::GetTrustLevel, Muted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMuteChangeEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallImpl: Sized {
     fn StatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -255,13 +290,13 @@ pub trait IPhoneCallImpl: Sized {
     fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<PhoneCallOperationStatus>;
     fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCall";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallImpl, const OFFSET: isize>() -> IPhoneCallVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallVtbl {
         unsafe extern "system" fn StatusChanged<Impl: IPhoneCallImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -572,46 +607,49 @@ impl IPhoneCallVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneCall>,
             ::windows::core::GetTrustLevel,
-            StatusChanged::<Impl, OFFSET>,
-            RemoveStatusChanged::<Impl, OFFSET>,
-            AudioDeviceChanged::<Impl, OFFSET>,
-            RemoveAudioDeviceChanged::<Impl, OFFSET>,
-            IsMutedChanged::<Impl, OFFSET>,
-            RemoveIsMutedChanged::<Impl, OFFSET>,
-            CallId::<Impl, OFFSET>,
-            IsMuted::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            AudioDevice::<Impl, OFFSET>,
-            GetPhoneCallInfo::<Impl, OFFSET>,
-            GetPhoneCallInfoAsync::<Impl, OFFSET>,
-            End::<Impl, OFFSET>,
-            EndAsync::<Impl, OFFSET>,
-            SendDtmfKey::<Impl, OFFSET>,
-            SendDtmfKeyAsync::<Impl, OFFSET>,
-            AcceptIncoming::<Impl, OFFSET>,
-            AcceptIncomingAsync::<Impl, OFFSET>,
-            Hold::<Impl, OFFSET>,
-            HoldAsync::<Impl, OFFSET>,
-            ResumeFromHold::<Impl, OFFSET>,
-            ResumeFromHoldAsync::<Impl, OFFSET>,
-            Mute::<Impl, OFFSET>,
-            MuteAsync::<Impl, OFFSET>,
-            Unmute::<Impl, OFFSET>,
-            UnmuteAsync::<Impl, OFFSET>,
-            RejectIncoming::<Impl, OFFSET>,
-            RejectIncomingAsync::<Impl, OFFSET>,
-            ChangeAudioDevice::<Impl, OFFSET>,
-            ChangeAudioDeviceAsync::<Impl, OFFSET>,
+            StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            AudioDeviceChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioDeviceChanged::<Impl, IMPL_OFFSET>,
+            IsMutedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsMutedChanged::<Impl, IMPL_OFFSET>,
+            CallId::<Impl, IMPL_OFFSET>,
+            IsMuted::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            AudioDevice::<Impl, IMPL_OFFSET>,
+            GetPhoneCallInfo::<Impl, IMPL_OFFSET>,
+            GetPhoneCallInfoAsync::<Impl, IMPL_OFFSET>,
+            End::<Impl, IMPL_OFFSET>,
+            EndAsync::<Impl, IMPL_OFFSET>,
+            SendDtmfKey::<Impl, IMPL_OFFSET>,
+            SendDtmfKeyAsync::<Impl, IMPL_OFFSET>,
+            AcceptIncoming::<Impl, IMPL_OFFSET>,
+            AcceptIncomingAsync::<Impl, IMPL_OFFSET>,
+            Hold::<Impl, IMPL_OFFSET>,
+            HoldAsync::<Impl, IMPL_OFFSET>,
+            ResumeFromHold::<Impl, IMPL_OFFSET>,
+            ResumeFromHoldAsync::<Impl, IMPL_OFFSET>,
+            Mute::<Impl, IMPL_OFFSET>,
+            MuteAsync::<Impl, IMPL_OFFSET>,
+            Unmute::<Impl, IMPL_OFFSET>,
+            UnmuteAsync::<Impl, IMPL_OFFSET>,
+            RejectIncoming::<Impl, IMPL_OFFSET>,
+            RejectIncomingAsync::<Impl, IMPL_OFFSET>,
+            ChangeAudioDevice::<Impl, IMPL_OFFSET>,
+            ChangeAudioDeviceAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCall as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallBlockingStaticsImpl: Sized {
     fn BlockUnknownNumbers(&self) -> ::windows::core::Result<bool>;
     fn SetBlockUnknownNumbers(&self, value: bool) -> ::windows::core::Result<()>;
@@ -619,13 +657,13 @@ pub trait IPhoneCallBlockingStaticsImpl: Sized {
     fn SetBlockPrivateNumbers(&self, value: bool) -> ::windows::core::Result<()>;
     fn SetCallBlockingListAsync(&self, phonenumberlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallBlockingStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallBlockingStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneCallBlockingStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallBlockingStaticsImpl, const OFFSET: isize>() -> IPhoneCallBlockingStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallBlockingStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallBlockingStaticsVtbl {
         unsafe extern "system" fn BlockUnknownNumbers<Impl: IPhoneCallBlockingStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BlockUnknownNumbers() {
@@ -667,10 +705,25 @@ impl IPhoneCallBlockingStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallBlockingStatics>, ::windows::core::GetTrustLevel, BlockUnknownNumbers::<Impl, OFFSET>, SetBlockUnknownNumbers::<Impl, OFFSET>, BlockPrivateNumbers::<Impl, OFFSET>, SetBlockPrivateNumbers::<Impl, OFFSET>, SetCallBlockingListAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhoneCallBlockingStatics>,
+            ::windows::core::GetTrustLevel,
+            BlockUnknownNumbers::<Impl, IMPL_OFFSET>,
+            SetBlockUnknownNumbers::<Impl, IMPL_OFFSET>,
+            BlockPrivateNumbers::<Impl, IMPL_OFFSET>,
+            SetBlockPrivateNumbers::<Impl, IMPL_OFFSET>,
+            SetCallBlockingListAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallBlockingStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryEntryImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Address(&self) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>;
@@ -707,13 +760,13 @@ pub trait IPhoneCallHistoryEntryImpl: Sized {
     fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn SetStartTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryEntryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryImpl, const OFFSET: isize>() -> IPhoneCallHistoryEntryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryEntryVtbl {
         unsafe extern "system" fn Id<Impl: IPhoneCallHistoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -977,47 +1030,50 @@ impl IPhoneCallHistoryEntryVtbl {
             (*this).SetStartTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntry>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            Address::<Impl, OFFSET>,
-            SetAddress::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            IsCallerIdBlocked::<Impl, OFFSET>,
-            SetIsCallerIdBlocked::<Impl, OFFSET>,
-            IsEmergency::<Impl, OFFSET>,
-            SetIsEmergency::<Impl, OFFSET>,
-            IsIncoming::<Impl, OFFSET>,
-            SetIsIncoming::<Impl, OFFSET>,
-            IsMissed::<Impl, OFFSET>,
-            SetIsMissed::<Impl, OFFSET>,
-            IsRinging::<Impl, OFFSET>,
-            SetIsRinging::<Impl, OFFSET>,
-            IsSeen::<Impl, OFFSET>,
-            SetIsSeen::<Impl, OFFSET>,
-            IsSuppressed::<Impl, OFFSET>,
-            SetIsSuppressed::<Impl, OFFSET>,
-            IsVoicemail::<Impl, OFFSET>,
-            SetIsVoicemail::<Impl, OFFSET>,
-            Media::<Impl, OFFSET>,
-            SetMedia::<Impl, OFFSET>,
-            OtherAppReadAccess::<Impl, OFFSET>,
-            SetOtherAppReadAccess::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            SourceDisplayName::<Impl, OFFSET>,
-            SourceId::<Impl, OFFSET>,
-            SetSourceId::<Impl, OFFSET>,
-            SourceIdKind::<Impl, OFFSET>,
-            SetSourceIdKind::<Impl, OFFSET>,
-            StartTime::<Impl, OFFSET>,
-            SetStartTime::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Address::<Impl, IMPL_OFFSET>,
+            SetAddress::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            IsCallerIdBlocked::<Impl, IMPL_OFFSET>,
+            SetIsCallerIdBlocked::<Impl, IMPL_OFFSET>,
+            IsEmergency::<Impl, IMPL_OFFSET>,
+            SetIsEmergency::<Impl, IMPL_OFFSET>,
+            IsIncoming::<Impl, IMPL_OFFSET>,
+            SetIsIncoming::<Impl, IMPL_OFFSET>,
+            IsMissed::<Impl, IMPL_OFFSET>,
+            SetIsMissed::<Impl, IMPL_OFFSET>,
+            IsRinging::<Impl, IMPL_OFFSET>,
+            SetIsRinging::<Impl, IMPL_OFFSET>,
+            IsSeen::<Impl, IMPL_OFFSET>,
+            SetIsSeen::<Impl, IMPL_OFFSET>,
+            IsSuppressed::<Impl, IMPL_OFFSET>,
+            SetIsSuppressed::<Impl, IMPL_OFFSET>,
+            IsVoicemail::<Impl, IMPL_OFFSET>,
+            SetIsVoicemail::<Impl, IMPL_OFFSET>,
+            Media::<Impl, IMPL_OFFSET>,
+            SetMedia::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            SourceDisplayName::<Impl, IMPL_OFFSET>,
+            SourceId::<Impl, IMPL_OFFSET>,
+            SetSourceId::<Impl, IMPL_OFFSET>,
+            SourceIdKind::<Impl, IMPL_OFFSET>,
+            SetSourceIdKind::<Impl, IMPL_OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryEntry as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1037,7 +1093,7 @@ impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryAddress {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallHistoryEntryAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryAddressImpl, const OFFSET: isize>() -> IPhoneCallHistoryEntryAddressVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryEntryAddressVtbl {
         unsafe extern "system" fn ContactId<Impl: IPhoneCallHistoryEntryAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactId() {
@@ -1099,21 +1155,24 @@ impl IPhoneCallHistoryEntryAddressVtbl {
             (*this).SetRawAddressKind(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryAddress>,
             ::windows::core::GetTrustLevel,
-            ContactId::<Impl, OFFSET>,
-            SetContactId::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            RawAddress::<Impl, OFFSET>,
-            SetRawAddress::<Impl, OFFSET>,
-            RawAddressKind::<Impl, OFFSET>,
-            SetRawAddressKind::<Impl, OFFSET>,
+            ContactId::<Impl, IMPL_OFFSET>,
+            SetContactId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            RawAddress::<Impl, IMPL_OFFSET>,
+            SetRawAddress::<Impl, IMPL_OFFSET>,
+            RawAddressKind::<Impl, IMPL_OFFSET>,
+            SetRawAddressKind::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryEntryAddress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1126,7 +1185,7 @@ impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryAddressFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallHistoryEntryAddressFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryAddressFactoryImpl, const OFFSET: isize>() -> IPhoneCallHistoryEntryAddressFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryAddressFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryEntryAddressFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPhoneCallHistoryEntryAddressFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rawaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, rawaddresskind: PhoneCallHistoryEntryRawAddressKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&rawaddress as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), rawaddresskind) {
@@ -1138,22 +1197,25 @@ impl IPhoneCallHistoryEntryAddressFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryAddressFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryAddressFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryEntryAddressFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryEntryQueryOptionsImpl: Sized {
     fn DesiredMedia(&self) -> ::windows::core::Result<PhoneCallHistoryEntryQueryDesiredMedia>;
     fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::Result<()>;
     fn SourceIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryEntryQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryQueryOptionsImpl, const OFFSET: isize>() -> IPhoneCallHistoryEntryQueryOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryEntryQueryOptionsVtbl {
         unsafe extern "system" fn DesiredMedia<Impl: IPhoneCallHistoryEntryQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredMedia() {
@@ -1180,20 +1242,23 @@ impl IPhoneCallHistoryEntryQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryQueryOptions>, ::windows::core::GetTrustLevel, DesiredMedia::<Impl, OFFSET>, SetDesiredMedia::<Impl, OFFSET>, SourceIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryQueryOptions>, ::windows::core::GetTrustLevel, DesiredMedia::<Impl, IMPL_OFFSET>, SetDesiredMedia::<Impl, IMPL_OFFSET>, SourceIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryEntryQueryOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryEntryReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryEntryReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryReaderImpl, const OFFSET: isize>() -> IPhoneCallHistoryEntryReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryEntryReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryEntryReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IPhoneCallHistoryEntryReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -1205,21 +1270,24 @@ impl IPhoneCallHistoryEntryReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryEntryReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryEntryReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryManagerForUserImpl: Sized {
     fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryManagerForUserImpl, const OFFSET: isize>() -> IPhoneCallHistoryManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryManagerForUserVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IPhoneCallHistoryManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: PhoneCallHistoryStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync(accesstype) {
@@ -1242,20 +1310,23 @@ impl IPhoneCallHistoryManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerForUser>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerForUser>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryManagerForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryManagerStaticsImpl: Sized {
     fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryManagerStaticsImpl, const OFFSET: isize>() -> IPhoneCallHistoryManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryManagerStaticsVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IPhoneCallHistoryManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: PhoneCallHistoryStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync(accesstype) {
@@ -1267,20 +1338,23 @@ impl IPhoneCallHistoryManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryManagerStatics2Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PhoneCallHistoryManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryManagerStatics2Impl, const OFFSET: isize>() -> IPhoneCallHistoryManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryManagerStatics2Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IPhoneCallHistoryManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -1292,10 +1366,13 @@ impl IPhoneCallHistoryManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryStoreImpl: Sized {
     fn GetEntryAsync(&self, callhistoryentryid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>>;
     fn GetEntryReader(&self) -> ::windows::core::Result<PhoneCallHistoryEntryReader>;
@@ -1310,13 +1387,13 @@ pub trait IPhoneCallHistoryStoreImpl: Sized {
     fn GetSourcesUnseenCountAsync(&self, sourceids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn MarkSourcesAsSeenAsync(&self, sourceids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallHistoryStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneCallHistoryStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryStoreImpl, const OFFSET: isize>() -> IPhoneCallHistoryStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallHistoryStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallHistoryStoreVtbl {
         unsafe extern "system" fn GetEntryAsync<Impl: IPhoneCallHistoryStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callhistoryentryid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEntryAsync(&*(&callhistoryentryid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1450,28 +1527,31 @@ impl IPhoneCallHistoryStoreVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneCallHistoryStore>,
             ::windows::core::GetTrustLevel,
-            GetEntryAsync::<Impl, OFFSET>,
-            GetEntryReader::<Impl, OFFSET>,
-            GetEntryReaderWithOptions::<Impl, OFFSET>,
-            SaveEntryAsync::<Impl, OFFSET>,
-            DeleteEntryAsync::<Impl, OFFSET>,
-            DeleteEntriesAsync::<Impl, OFFSET>,
-            MarkEntryAsSeenAsync::<Impl, OFFSET>,
-            MarkEntriesAsSeenAsync::<Impl, OFFSET>,
-            GetUnseenCountAsync::<Impl, OFFSET>,
-            MarkAllAsSeenAsync::<Impl, OFFSET>,
-            GetSourcesUnseenCountAsync::<Impl, OFFSET>,
-            MarkSourcesAsSeenAsync::<Impl, OFFSET>,
+            GetEntryAsync::<Impl, IMPL_OFFSET>,
+            GetEntryReader::<Impl, IMPL_OFFSET>,
+            GetEntryReaderWithOptions::<Impl, IMPL_OFFSET>,
+            SaveEntryAsync::<Impl, IMPL_OFFSET>,
+            DeleteEntryAsync::<Impl, IMPL_OFFSET>,
+            DeleteEntriesAsync::<Impl, IMPL_OFFSET>,
+            MarkEntryAsSeenAsync::<Impl, IMPL_OFFSET>,
+            MarkEntriesAsSeenAsync::<Impl, IMPL_OFFSET>,
+            GetUnseenCountAsync::<Impl, IMPL_OFFSET>,
+            MarkAllAsSeenAsync::<Impl, IMPL_OFFSET>,
+            GetSourcesUnseenCountAsync::<Impl, IMPL_OFFSET>,
+            MarkSourcesAsSeenAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallHistoryStore as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallInfoImpl: Sized {
     fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsHoldSupported(&self) -> ::windows::core::Result<bool>;
@@ -1480,13 +1560,13 @@ pub trait IPhoneCallInfoImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CallDirection(&self) -> ::windows::core::Result<PhoneCallDirection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallInfoImpl, const OFFSET: isize>() -> IPhoneCallInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallInfoVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneCallInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -1553,7 +1633,10 @@ impl IPhoneCallInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallInfo>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, IsHoldSupported::<Impl, OFFSET>, StartTime::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, CallDirection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallInfo>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, IsHoldSupported::<Impl, IMPL_OFFSET>, StartTime::<Impl, IMPL_OFFSET>, PhoneNumber::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, CallDirection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1566,15 +1649,18 @@ impl ::windows::core::RuntimeName for IPhoneCallManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallManagerStaticsImpl, const OFFSET: isize>() -> IPhoneCallManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallManagerStaticsVtbl {
         unsafe extern "system" fn ShowPhoneCallUI<Impl: IPhoneCallManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPhoneCallUI(&*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallManagerStatics>, ::windows::core::GetTrustLevel, ShowPhoneCallUI::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallManagerStatics>, ::windows::core::GetTrustLevel, ShowPhoneCallUI::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallManagerStatics2Impl: Sized {
     fn CallStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCallStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1583,13 +1669,13 @@ pub trait IPhoneCallManagerStatics2Impl: Sized {
     fn ShowPhoneCallSettingsUI(&self) -> ::windows::core::Result<()>;
     fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallManagerStatics2Impl, const OFFSET: isize>() -> IPhoneCallManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallManagerStatics2Vtbl {
         unsafe extern "system" fn CallStateChanged<Impl: IPhoneCallManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallStateChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1642,7 +1728,23 @@ impl IPhoneCallManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallManagerStatics2>, ::windows::core::GetTrustLevel, CallStateChanged::<Impl, OFFSET>, RemoveCallStateChanged::<Impl, OFFSET>, IsCallActive::<Impl, OFFSET>, IsCallIncoming::<Impl, OFFSET>, ShowPhoneCallSettingsUI::<Impl, OFFSET>, RequestStoreAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhoneCallManagerStatics2>,
+            ::windows::core::GetTrustLevel,
+            CallStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveCallStateChanged::<Impl, IMPL_OFFSET>,
+            IsCallActive::<Impl, IMPL_OFFSET>,
+            IsCallIncoming::<Impl, IMPL_OFFSET>,
+            ShowPhoneCallSettingsUI::<Impl, IMPL_OFFSET>,
+            RequestStoreAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1655,7 +1757,7 @@ impl ::windows::core::RuntimeName for IPhoneCallStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallStaticsImpl, const OFFSET: isize>() -> IPhoneCallStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallStaticsVtbl {
         unsafe extern "system" fn GetFromId<Impl: IPhoneCallStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFromId(&*(&callid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1667,22 +1769,25 @@ impl IPhoneCallStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallStatics>, ::windows::core::GetTrustLevel, GetFromId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallStatics>, ::windows::core::GetTrustLevel, GetFromId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallStoreImpl: Sized {
     fn IsEmergencyPhoneNumberAsync(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn GetDefaultLineAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
     fn RequestLineWatcher(&self) -> ::windows::core::Result<PhoneLineWatcher>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallStoreImpl, const OFFSET: isize>() -> IPhoneCallStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallStoreVtbl {
         unsafe extern "system" fn IsEmergencyPhoneNumberAsync<Impl: IPhoneCallStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEmergencyPhoneNumberAsync(&*(&number as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1716,7 +1821,10 @@ impl IPhoneCallStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallStore>, ::windows::core::GetTrustLevel, IsEmergencyPhoneNumberAsync::<Impl, OFFSET>, GetDefaultLineAsync::<Impl, OFFSET>, RequestLineWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallStore>, ::windows::core::GetTrustLevel, IsEmergencyPhoneNumberAsync::<Impl, IMPL_OFFSET>, GetDefaultLineAsync::<Impl, IMPL_OFFSET>, RequestLineWatcher::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallStore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1729,7 +1837,7 @@ impl ::windows::core::RuntimeName for IPhoneCallVideoCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallVideoCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallVideoCapabilitiesImpl, const OFFSET: isize>() -> IPhoneCallVideoCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallVideoCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallVideoCapabilitiesVtbl {
         unsafe extern "system" fn IsVideoCallingCapable<Impl: IPhoneCallVideoCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoCallingCapable() {
@@ -1741,20 +1849,23 @@ impl IPhoneCallVideoCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallVideoCapabilities>, ::windows::core::GetTrustLevel, IsVideoCallingCapable::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallVideoCapabilities>, ::windows::core::GetTrustLevel, IsVideoCallingCapable::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallVideoCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallVideoCapabilitiesManagerStaticsImpl: Sized {
     fn GetCapabilitiesAsync(&self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallVideoCapabilitiesManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilitiesManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallVideoCapabilitiesManagerStaticsImpl, const OFFSET: isize>() -> IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallVideoCapabilitiesManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
         unsafe extern "system" fn GetCapabilitiesAsync<Impl: IPhoneCallVideoCapabilitiesManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCapabilitiesAsync(&*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1766,21 +1877,24 @@ impl IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallVideoCapabilitiesManagerStatics>, ::windows::core::GetTrustLevel, GetCapabilitiesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallVideoCapabilitiesManagerStatics>, ::windows::core::GetTrustLevel, GetCapabilitiesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallVideoCapabilitiesManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallsResultImpl: Sized {
     fn OperationStatus(&self) -> ::windows::core::Result<PhoneLineOperationStatus>;
     fn AllActivePhoneCalls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneCallsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneCallsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallsResultImpl, const OFFSET: isize>() -> IPhoneCallsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallsResultVtbl {
         unsafe extern "system" fn OperationStatus<Impl: IPhoneCallsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
@@ -1803,10 +1917,13 @@ impl IPhoneCallsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, OFFSET>, AllActivePhoneCalls::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, AllActivePhoneCalls::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallsResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Contacts", feature = "implement_exclusive"))]
 pub trait IPhoneDialOptionsImpl: Sized {
     fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1821,13 +1938,13 @@ pub trait IPhoneDialOptionsImpl: Sized {
     fn AudioEndpoint(&self) -> ::windows::core::Result<PhoneAudioRoutingEndpoint>;
     fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Contacts", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneDialOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Contacts", feature = "implement_exclusive"))]
 impl IPhoneDialOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneDialOptionsImpl, const OFFSET: isize>() -> IPhoneDialOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneDialOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneDialOptionsVtbl {
         unsafe extern "system" fn Number<Impl: IPhoneDialOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Number() {
@@ -1919,28 +2036,31 @@ impl IPhoneDialOptionsVtbl {
             (*this).SetAudioEndpoint(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneDialOptions>,
             ::windows::core::GetTrustLevel,
-            Number::<Impl, OFFSET>,
-            SetNumber::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            Contact::<Impl, OFFSET>,
-            SetContact::<Impl, OFFSET>,
-            ContactPhone::<Impl, OFFSET>,
-            SetContactPhone::<Impl, OFFSET>,
-            Media::<Impl, OFFSET>,
-            SetMedia::<Impl, OFFSET>,
-            AudioEndpoint::<Impl, OFFSET>,
-            SetAudioEndpoint::<Impl, OFFSET>,
+            Number::<Impl, IMPL_OFFSET>,
+            SetNumber::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            Contact::<Impl, IMPL_OFFSET>,
+            SetContact::<Impl, IMPL_OFFSET>,
+            ContactPhone::<Impl, IMPL_OFFSET>,
+            SetContactPhone::<Impl, IMPL_OFFSET>,
+            Media::<Impl, IMPL_OFFSET>,
+            SetMedia::<Impl, IMPL_OFFSET>,
+            AudioEndpoint::<Impl, IMPL_OFFSET>,
+            SetAudioEndpoint::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneDialOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait IPhoneLineImpl: Sized {
     fn LineChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveLineChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1960,13 +2080,13 @@ pub trait IPhoneLineImpl: Sized {
     fn Dial(&self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DialWithOptions(&self, options: &::core::option::Option<PhoneDialOptions>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLine";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl IPhoneLineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineImpl, const OFFSET: isize>() -> IPhoneLineVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineVtbl {
         unsafe extern "system" fn LineChanged<Impl: IPhoneLineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2134,30 +2254,33 @@ impl IPhoneLineVtbl {
             (*this).DialWithOptions(&*(&options as *const <PhoneDialOptions as ::windows::core::Abi>::Abi as *const <PhoneDialOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneLine>,
             ::windows::core::GetTrustLevel,
-            LineChanged::<Impl, OFFSET>,
-            RemoveLineChanged::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            DisplayColor::<Impl, OFFSET>,
-            NetworkState::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            Voicemail::<Impl, OFFSET>,
-            NetworkName::<Impl, OFFSET>,
-            CellularDetails::<Impl, OFFSET>,
-            Transport::<Impl, OFFSET>,
-            CanDial::<Impl, OFFSET>,
-            SupportsTile::<Impl, OFFSET>,
-            VideoCallingCapabilities::<Impl, OFFSET>,
-            LineConfiguration::<Impl, OFFSET>,
-            IsImmediateDialNumberAsync::<Impl, OFFSET>,
-            Dial::<Impl, OFFSET>,
-            DialWithOptions::<Impl, OFFSET>,
+            LineChanged::<Impl, IMPL_OFFSET>,
+            RemoveLineChanged::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayColor::<Impl, IMPL_OFFSET>,
+            NetworkState::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            Voicemail::<Impl, IMPL_OFFSET>,
+            NetworkName::<Impl, IMPL_OFFSET>,
+            CellularDetails::<Impl, IMPL_OFFSET>,
+            Transport::<Impl, IMPL_OFFSET>,
+            CanDial::<Impl, IMPL_OFFSET>,
+            SupportsTile::<Impl, IMPL_OFFSET>,
+            VideoCallingCapabilities::<Impl, IMPL_OFFSET>,
+            LineConfiguration::<Impl, IMPL_OFFSET>,
+            IsImmediateDialNumberAsync::<Impl, IMPL_OFFSET>,
+            Dial::<Impl, IMPL_OFFSET>,
+            DialWithOptions::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLine as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2171,7 +2294,7 @@ impl ::windows::core::RuntimeName for IPhoneLine2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLine2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLine2Impl, const OFFSET: isize>() -> IPhoneLine2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLine2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLine2Vtbl {
         unsafe extern "system" fn EnableTextReply<Impl: IPhoneLine2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTextReply(value).into()
@@ -2187,23 +2310,26 @@ impl IPhoneLine2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLine2>, ::windows::core::GetTrustLevel, EnableTextReply::<Impl, OFFSET>, TransportDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLine2>, ::windows::core::GetTrustLevel, EnableTextReply::<Impl, IMPL_OFFSET>, TransportDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLine2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLine3Impl: Sized {
     fn DialWithResult(&self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneLineDialResult>;
     fn DialWithResultAsync(&self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>>;
     fn GetAllActivePhoneCalls(&self) -> ::windows::core::Result<PhoneCallsResult>;
     fn GetAllActivePhoneCallsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLine3 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLine3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneLine3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLine3Impl, const OFFSET: isize>() -> IPhoneLine3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLine3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLine3Vtbl {
         unsafe extern "system" fn DialWithResult<Impl: IPhoneLine3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DialWithResult(&*(&number as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2248,7 +2374,10 @@ impl IPhoneLine3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLine3>, ::windows::core::GetTrustLevel, DialWithResult::<Impl, OFFSET>, DialWithResultAsync::<Impl, OFFSET>, GetAllActivePhoneCalls::<Impl, OFFSET>, GetAllActivePhoneCallsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLine3>, ::windows::core::GetTrustLevel, DialWithResult::<Impl, IMPL_OFFSET>, DialWithResultAsync::<Impl, IMPL_OFFSET>, GetAllActivePhoneCalls::<Impl, IMPL_OFFSET>, GetAllActivePhoneCallsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLine3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2265,7 +2394,7 @@ impl ::windows::core::RuntimeName for IPhoneLineCellularDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineCellularDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineCellularDetailsImpl, const OFFSET: isize>() -> IPhoneLineCellularDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineCellularDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineCellularDetailsVtbl {
         unsafe extern "system" fn SimState<Impl: IPhoneLineCellularDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneSimState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimState() {
@@ -2321,21 +2450,24 @@ impl IPhoneLineCellularDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineCellularDetails>, ::windows::core::GetTrustLevel, SimState::<Impl, OFFSET>, SimSlotIndex::<Impl, OFFSET>, IsModemOn::<Impl, OFFSET>, RegistrationRejectCode::<Impl, OFFSET>, GetNetworkOperatorDisplayText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineCellularDetails>, ::windows::core::GetTrustLevel, SimState::<Impl, IMPL_OFFSET>, SimSlotIndex::<Impl, IMPL_OFFSET>, IsModemOn::<Impl, IMPL_OFFSET>, RegistrationRejectCode::<Impl, IMPL_OFFSET>, GetNetworkOperatorDisplayText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineCellularDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneLineConfigurationImpl: Sized {
     fn IsVideoCallingEnabled(&self) -> ::windows::core::Result<bool>;
     fn ExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLineConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneLineConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineConfigurationImpl, const OFFSET: isize>() -> IPhoneLineConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineConfigurationVtbl {
         unsafe extern "system" fn IsVideoCallingEnabled<Impl: IPhoneLineConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoCallingEnabled() {
@@ -2358,7 +2490,10 @@ impl IPhoneLineConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineConfiguration>, ::windows::core::GetTrustLevel, IsVideoCallingEnabled::<Impl, OFFSET>, ExtendedProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineConfiguration>, ::windows::core::GetTrustLevel, IsVideoCallingEnabled::<Impl, IMPL_OFFSET>, ExtendedProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2372,7 +2507,7 @@ impl ::windows::core::RuntimeName for IPhoneLineDialResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineDialResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDialResultImpl, const OFFSET: isize>() -> IPhoneLineDialResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDialResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineDialResultVtbl {
         unsafe extern "system" fn DialCallStatus<Impl: IPhoneLineDialResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DialCallStatus() {
@@ -2395,20 +2530,23 @@ impl IPhoneLineDialResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDialResult>, ::windows::core::GetTrustLevel, DialCallStatus::<Impl, OFFSET>, DialedCall::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDialResult>, ::windows::core::GetTrustLevel, DialCallStatus::<Impl, IMPL_OFFSET>, DialedCall::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineDialResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLineStaticsImpl: Sized {
     fn FromIdAsync(&self, lineid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLine>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLineStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneLineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineStaticsImpl, const OFFSET: isize>() -> IPhoneLineStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IPhoneLineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&lineid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
@@ -2420,10 +2558,13 @@ impl IPhoneLineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPhoneLineTransportDeviceImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Transport(&self) -> ::windows::core::Result<PhoneLineTransport>;
@@ -2436,13 +2577,13 @@ pub trait IPhoneLineTransportDeviceImpl: Sized {
     fn Connect(&self) -> ::windows::core::Result<bool>;
     fn ConnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLineTransportDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IPhoneLineTransportDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineTransportDeviceImpl, const OFFSET: isize>() -> IPhoneLineTransportDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineTransportDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineTransportDeviceVtbl {
         unsafe extern "system" fn DeviceId<Impl: IPhoneLineTransportDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -2526,26 +2667,29 @@ impl IPhoneLineTransportDeviceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDevice>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Transport::<Impl, OFFSET>,
-            RequestAccessAsync::<Impl, OFFSET>,
-            RegisterApp::<Impl, OFFSET>,
-            RegisterAppForUser::<Impl, OFFSET>,
-            UnregisterApp::<Impl, OFFSET>,
-            UnregisterAppForUser::<Impl, OFFSET>,
-            IsRegistered::<Impl, OFFSET>,
-            Connect::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Transport::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            RegisterApp::<Impl, IMPL_OFFSET>,
+            RegisterAppForUser::<Impl, IMPL_OFFSET>,
+            UnregisterApp::<Impl, IMPL_OFFSET>,
+            UnregisterAppForUser::<Impl, IMPL_OFFSET>,
+            IsRegistered::<Impl, IMPL_OFFSET>,
+            Connect::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineTransportDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLineTransportDevice2Impl: Sized {
     fn AudioRoutingStatus(&self) -> ::windows::core::Result<TransportDeviceAudioRoutingStatus>;
     fn AudioRoutingStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2554,13 +2698,13 @@ pub trait IPhoneLineTransportDevice2Impl: Sized {
     fn InBandRingingEnabledChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInBandRingingEnabledChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineTransportDevice2 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLineTransportDevice2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneLineTransportDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineTransportDevice2Impl, const OFFSET: isize>() -> IPhoneLineTransportDevice2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineTransportDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineTransportDevice2Vtbl {
         unsafe extern "system" fn AudioRoutingStatus<Impl: IPhoneLineTransportDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TransportDeviceAudioRoutingStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioRoutingStatus() {
@@ -2614,19 +2758,22 @@ impl IPhoneLineTransportDevice2Vtbl {
             (*this).RemoveInBandRingingEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDevice2>,
             ::windows::core::GetTrustLevel,
-            AudioRoutingStatus::<Impl, OFFSET>,
-            AudioRoutingStatusChanged::<Impl, OFFSET>,
-            RemoveAudioRoutingStatusChanged::<Impl, OFFSET>,
-            InBandRingingEnabled::<Impl, OFFSET>,
-            InBandRingingEnabledChanged::<Impl, OFFSET>,
-            RemoveInBandRingingEnabledChanged::<Impl, OFFSET>,
+            AudioRoutingStatus::<Impl, IMPL_OFFSET>,
+            AudioRoutingStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveAudioRoutingStatusChanged::<Impl, IMPL_OFFSET>,
+            InBandRingingEnabled::<Impl, IMPL_OFFSET>,
+            InBandRingingEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveInBandRingingEnabledChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineTransportDevice2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2641,7 +2788,7 @@ impl ::windows::core::RuntimeName for IPhoneLineTransportDeviceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineTransportDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineTransportDeviceStaticsImpl, const OFFSET: isize>() -> IPhoneLineTransportDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineTransportDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineTransportDeviceStaticsVtbl {
         unsafe extern "system" fn FromId<Impl: IPhoneLineTransportDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromId(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2675,10 +2822,13 @@ impl IPhoneLineTransportDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDeviceStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorForPhoneLineTransport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineTransportDeviceStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorForPhoneLineTransport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineTransportDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLineWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -2694,13 +2844,13 @@ pub trait IPhoneLineWatcherImpl: Sized {
     fn RemoveStopped(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Status(&self) -> ::windows::core::Result<PhoneLineWatcherStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneLineWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneLineWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineWatcherImpl, const OFFSET: isize>() -> IPhoneLineWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineWatcherVtbl {
         unsafe extern "system" fn Start<Impl: IPhoneLineWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -2796,26 +2946,29 @@ impl IPhoneLineWatcherVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneLineWatcher>,
             ::windows::core::GetTrustLevel,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            LineAdded::<Impl, OFFSET>,
-            RemoveLineAdded::<Impl, OFFSET>,
-            LineRemoved::<Impl, OFFSET>,
-            RemoveLineRemoved::<Impl, OFFSET>,
-            LineUpdated::<Impl, OFFSET>,
-            RemoveLineUpdated::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            LineAdded::<Impl, IMPL_OFFSET>,
+            RemoveLineAdded::<Impl, IMPL_OFFSET>,
+            LineRemoved::<Impl, IMPL_OFFSET>,
+            RemoveLineRemoved::<Impl, IMPL_OFFSET>,
+            LineUpdated::<Impl, IMPL_OFFSET>,
+            RemoveLineUpdated::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineWatcher as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2828,7 +2981,7 @@ impl ::windows::core::RuntimeName for IPhoneLineWatcherEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineWatcherEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineWatcherEventArgsImpl, const OFFSET: isize>() -> IPhoneLineWatcherEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineWatcherEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineWatcherEventArgsVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneLineWatcherEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -2840,23 +2993,26 @@ impl IPhoneLineWatcherEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineWatcherEventArgs>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineWatcherEventArgs>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineWatcherEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneVoicemailImpl: Sized {
     fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MessageCount(&self) -> ::windows::core::Result<i32>;
     fn Type(&self) -> ::windows::core::Result<PhoneVoicemailType>;
     fn DialVoicemailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IPhoneVoicemail";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneVoicemailVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneVoicemailImpl, const OFFSET: isize>() -> IPhoneVoicemailVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneVoicemailImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneVoicemailVtbl {
         unsafe extern "system" fn Number<Impl: IPhoneVoicemailImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Number() {
@@ -2901,10 +3057,13 @@ impl IPhoneVoicemailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneVoicemail>, ::windows::core::GetTrustLevel, Number::<Impl, OFFSET>, MessageCount::<Impl, OFFSET>, Type::<Impl, OFFSET>, DialVoicemailAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneVoicemail>, ::windows::core::GetTrustLevel, Number::<Impl, IMPL_OFFSET>, MessageCount::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, DialVoicemailAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneVoicemail as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinatorImpl: Sized {
     fn ReserveCallResourcesAsync(&self, taskentrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>>;
     fn MuteStateChanged(&self, mutechangehandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2918,13 +3077,13 @@ pub trait IVoipCallCoordinatorImpl: Sized {
     fn TerminateCellularCall(&self, callupgradeguid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn CancelUpgrade(&self, callupgradeguid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipCallCoordinator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipCallCoordinatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinatorImpl, const OFFSET: isize>() -> IVoipCallCoordinatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipCallCoordinatorVtbl {
         unsafe extern "system" fn ReserveCallResourcesAsync<Impl: IVoipCallCoordinatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskentrypoint: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReserveCallResourcesAsync(&*(&taskentrypoint as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3043,37 +3202,40 @@ impl IVoipCallCoordinatorVtbl {
             (*this).CancelUpgrade(&*(&callupgradeguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator>,
             ::windows::core::GetTrustLevel,
-            ReserveCallResourcesAsync::<Impl, OFFSET>,
-            MuteStateChanged::<Impl, OFFSET>,
-            RemoveMuteStateChanged::<Impl, OFFSET>,
-            RequestNewIncomingCall::<Impl, OFFSET>,
-            RequestNewOutgoingCall::<Impl, OFFSET>,
-            NotifyMuted::<Impl, OFFSET>,
-            NotifyUnmuted::<Impl, OFFSET>,
-            RequestOutgoingUpgradeToVideoCall::<Impl, OFFSET>,
-            RequestIncomingUpgradeToVideoCall::<Impl, OFFSET>,
-            TerminateCellularCall::<Impl, OFFSET>,
-            CancelUpgrade::<Impl, OFFSET>,
+            ReserveCallResourcesAsync::<Impl, IMPL_OFFSET>,
+            MuteStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveMuteStateChanged::<Impl, IMPL_OFFSET>,
+            RequestNewIncomingCall::<Impl, IMPL_OFFSET>,
+            RequestNewOutgoingCall::<Impl, IMPL_OFFSET>,
+            NotifyMuted::<Impl, IMPL_OFFSET>,
+            NotifyUnmuted::<Impl, IMPL_OFFSET>,
+            RequestOutgoingUpgradeToVideoCall::<Impl, IMPL_OFFSET>,
+            RequestIncomingUpgradeToVideoCall::<Impl, IMPL_OFFSET>,
+            TerminateCellularCall::<Impl, IMPL_OFFSET>,
+            CancelUpgrade::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipCallCoordinator as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinator2Impl: Sized + IVoipCallCoordinatorImpl {
     fn SetupNewAcceptedCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator2 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipCallCoordinator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipCallCoordinator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinator2Impl, const OFFSET: isize>() -> IVoipCallCoordinator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipCallCoordinator2Vtbl {
         unsafe extern "system" fn SetupNewAcceptedCall<Impl: IVoipCallCoordinator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetupNewAcceptedCall(
@@ -3091,21 +3253,24 @@ impl IVoipCallCoordinator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator2>, ::windows::core::GetTrustLevel, SetupNewAcceptedCall::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator2>, ::windows::core::GetTrustLevel, SetupNewAcceptedCall::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipCallCoordinator2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinator3Impl: Sized + IVoipCallCoordinatorImpl {
     fn RequestNewAppInitiatedCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
     fn RequestNewIncomingCallWithContactRemoteId(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, media: VoipPhoneCallMedia, ringtimeout: &super::super::Foundation::TimeSpan, contactremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator3 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipCallCoordinator3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipCallCoordinator3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinator3Impl, const OFFSET: isize>() -> IVoipCallCoordinator3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinator3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipCallCoordinator3Vtbl {
         unsafe extern "system" fn RequestNewAppInitiatedCall<Impl: IVoipCallCoordinator3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestNewAppInitiatedCall(
@@ -3160,20 +3325,23 @@ impl IVoipCallCoordinator3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator3>, ::windows::core::GetTrustLevel, RequestNewAppInitiatedCall::<Impl, OFFSET>, RequestNewIncomingCallWithContactRemoteId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator3>, ::windows::core::GetTrustLevel, RequestNewAppInitiatedCall::<Impl, IMPL_OFFSET>, RequestNewIncomingCallWithContactRemoteId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipCallCoordinator3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinator4Impl: Sized + IVoipCallCoordinatorImpl {
     fn ReserveOneProcessCallResourcesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator4 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipCallCoordinator4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipCallCoordinator4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinator4Impl, const OFFSET: isize>() -> IVoipCallCoordinator4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinator4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipCallCoordinator4Vtbl {
         unsafe extern "system" fn ReserveOneProcessCallResourcesAsync<Impl: IVoipCallCoordinator4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReserveOneProcessCallResourcesAsync() {
@@ -3185,7 +3353,10 @@ impl IVoipCallCoordinator4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator4>, ::windows::core::GetTrustLevel, ReserveOneProcessCallResourcesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinator4>, ::windows::core::GetTrustLevel, ReserveOneProcessCallResourcesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipCallCoordinator4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3198,7 +3369,7 @@ impl ::windows::core::RuntimeName for IVoipCallCoordinatorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoipCallCoordinatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinatorStaticsImpl, const OFFSET: isize>() -> IVoipCallCoordinatorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipCallCoordinatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipCallCoordinatorStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IVoipCallCoordinatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -3210,10 +3381,13 @@ impl IVoipCallCoordinatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipCallCoordinatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipCallCoordinatorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipPhoneCallImpl: Sized {
     fn EndRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveEndRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -3236,13 +3410,13 @@ pub trait IVoipPhoneCallImpl: Sized {
     fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> ::windows::core::Result<()>;
     fn NotifyCallReady(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipPhoneCall";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipPhoneCallVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipPhoneCallImpl, const OFFSET: isize>() -> IVoipPhoneCallVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipPhoneCallImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipPhoneCallVtbl {
         unsafe extern "system" fn EndRequested<Impl: IVoipPhoneCallImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3380,68 +3554,77 @@ impl IVoipPhoneCallVtbl {
             (*this).NotifyCallReady().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVoipPhoneCall>,
             ::windows::core::GetTrustLevel,
-            EndRequested::<Impl, OFFSET>,
-            RemoveEndRequested::<Impl, OFFSET>,
-            HoldRequested::<Impl, OFFSET>,
-            RemoveHoldRequested::<Impl, OFFSET>,
-            ResumeRequested::<Impl, OFFSET>,
-            RemoveResumeRequested::<Impl, OFFSET>,
-            AnswerRequested::<Impl, OFFSET>,
-            RemoveAnswerRequested::<Impl, OFFSET>,
-            RejectRequested::<Impl, OFFSET>,
-            RemoveRejectRequested::<Impl, OFFSET>,
-            NotifyCallHeld::<Impl, OFFSET>,
-            NotifyCallActive::<Impl, OFFSET>,
-            NotifyCallEnded::<Impl, OFFSET>,
-            ContactName::<Impl, OFFSET>,
-            SetContactName::<Impl, OFFSET>,
-            StartTime::<Impl, OFFSET>,
-            SetStartTime::<Impl, OFFSET>,
-            CallMedia::<Impl, OFFSET>,
-            SetCallMedia::<Impl, OFFSET>,
-            NotifyCallReady::<Impl, OFFSET>,
+            EndRequested::<Impl, IMPL_OFFSET>,
+            RemoveEndRequested::<Impl, IMPL_OFFSET>,
+            HoldRequested::<Impl, IMPL_OFFSET>,
+            RemoveHoldRequested::<Impl, IMPL_OFFSET>,
+            ResumeRequested::<Impl, IMPL_OFFSET>,
+            RemoveResumeRequested::<Impl, IMPL_OFFSET>,
+            AnswerRequested::<Impl, IMPL_OFFSET>,
+            RemoveAnswerRequested::<Impl, IMPL_OFFSET>,
+            RejectRequested::<Impl, IMPL_OFFSET>,
+            RemoveRejectRequested::<Impl, IMPL_OFFSET>,
+            NotifyCallHeld::<Impl, IMPL_OFFSET>,
+            NotifyCallActive::<Impl, IMPL_OFFSET>,
+            NotifyCallEnded::<Impl, IMPL_OFFSET>,
+            ContactName::<Impl, IMPL_OFFSET>,
+            SetContactName::<Impl, IMPL_OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
+            CallMedia::<Impl, IMPL_OFFSET>,
+            SetCallMedia::<Impl, IMPL_OFFSET>,
+            NotifyCallReady::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipPhoneCall as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipPhoneCall2Impl: Sized + IVoipPhoneCallImpl {
     fn TryShowAppUI(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipPhoneCall2 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipPhoneCall2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipPhoneCall2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipPhoneCall2Impl, const OFFSET: isize>() -> IVoipPhoneCall2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipPhoneCall2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipPhoneCall2Vtbl {
         unsafe extern "system" fn TryShowAppUI<Impl: IVoipPhoneCall2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TryShowAppUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipPhoneCall2>, ::windows::core::GetTrustLevel, TryShowAppUI::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipPhoneCall2>, ::windows::core::GetTrustLevel, TryShowAppUI::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipPhoneCall2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipPhoneCall3Impl: Sized + IVoipPhoneCallImpl + IVoipPhoneCall2Impl {
     fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipPhoneCall3 {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.IVoipPhoneCall3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVoipPhoneCall3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipPhoneCall3Impl, const OFFSET: isize>() -> IVoipPhoneCall3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoipPhoneCall3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVoipPhoneCall3Vtbl {
         unsafe extern "system" fn NotifyCallAccepted<Impl: IVoipPhoneCall3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, media: VoipPhoneCallMedia) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyCallAccepted(media).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipPhoneCall3>, ::windows::core::GetTrustLevel, NotifyCallAccepted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoipPhoneCall3>, ::windows::core::GetTrustLevel, NotifyCallAccepted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVoipPhoneCall3 as ::windows::core::Interface>::IID
     }
 }

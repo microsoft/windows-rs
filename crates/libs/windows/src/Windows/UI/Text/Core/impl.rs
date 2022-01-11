@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICoreTextCompositionCompletedEventArgsImpl: Sized {
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn CompositionSegments(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICoreTextCompositionCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionCompletedEventArgsImpl, const OFFSET: isize>() -> ICoreTextCompositionCompletedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionCompletedEventArgsVtbl {
         unsafe extern "system" fn IsCanceled<Impl: ICoreTextCompositionCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
@@ -44,7 +44,10 @@ impl ICoreTextCompositionCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionCompletedEventArgs>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, OFFSET>, CompositionSegments::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionCompletedEventArgs>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, CompositionSegments::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextCompositionCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,7 +61,7 @@ impl ::windows::core::RuntimeName for ICoreTextCompositionSegment {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextCompositionSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionSegmentImpl, const OFFSET: isize>() -> ICoreTextCompositionSegmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionSegmentVtbl {
         unsafe extern "system" fn PreconversionString<Impl: ICoreTextCompositionSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreconversionString() {
@@ -81,21 +84,24 @@ impl ICoreTextCompositionSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionSegment>, ::windows::core::GetTrustLevel, PreconversionString::<Impl, OFFSET>, Range::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionSegment>, ::windows::core::GetTrustLevel, PreconversionString::<Impl, IMPL_OFFSET>, Range::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextCompositionSegment as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextCompositionStartedEventArgsImpl: Sized {
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextCompositionStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionStartedEventArgsImpl, const OFFSET: isize>() -> ICoreTextCompositionStartedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionStartedEventArgsVtbl {
         unsafe extern "system" fn IsCanceled<Impl: ICoreTextCompositionStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
@@ -118,10 +124,13 @@ impl ICoreTextCompositionStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionStartedEventArgs>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextCompositionStartedEventArgs>, ::windows::core::GetTrustLevel, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextCompositionStartedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextEditContextImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -155,13 +164,13 @@ pub trait ICoreTextEditContextImpl: Sized {
     fn NotifySelectionChanged(&self, selection: &CoreTextRange) -> ::windows::core::Result<()>;
     fn NotifyLayoutChanged(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextEditContext";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextEditContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContextImpl, const OFFSET: isize>() -> ICoreTextEditContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextEditContextVtbl {
         unsafe extern "system" fn Name<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -378,58 +387,61 @@ impl ICoreTextEditContextVtbl {
             (*this).NotifyLayoutChanged().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreTextEditContext>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            SetName::<Impl, OFFSET>,
-            InputScope::<Impl, OFFSET>,
-            SetInputScope::<Impl, OFFSET>,
-            IsReadOnly::<Impl, OFFSET>,
-            SetIsReadOnly::<Impl, OFFSET>,
-            InputPaneDisplayPolicy::<Impl, OFFSET>,
-            SetInputPaneDisplayPolicy::<Impl, OFFSET>,
-            TextRequested::<Impl, OFFSET>,
-            RemoveTextRequested::<Impl, OFFSET>,
-            SelectionRequested::<Impl, OFFSET>,
-            RemoveSelectionRequested::<Impl, OFFSET>,
-            LayoutRequested::<Impl, OFFSET>,
-            RemoveLayoutRequested::<Impl, OFFSET>,
-            TextUpdating::<Impl, OFFSET>,
-            RemoveTextUpdating::<Impl, OFFSET>,
-            SelectionUpdating::<Impl, OFFSET>,
-            RemoveSelectionUpdating::<Impl, OFFSET>,
-            FormatUpdating::<Impl, OFFSET>,
-            RemoveFormatUpdating::<Impl, OFFSET>,
-            CompositionStarted::<Impl, OFFSET>,
-            RemoveCompositionStarted::<Impl, OFFSET>,
-            CompositionCompleted::<Impl, OFFSET>,
-            RemoveCompositionCompleted::<Impl, OFFSET>,
-            FocusRemoved::<Impl, OFFSET>,
-            RemoveFocusRemoved::<Impl, OFFSET>,
-            NotifyFocusEnter::<Impl, OFFSET>,
-            NotifyFocusLeave::<Impl, OFFSET>,
-            NotifyTextChanged::<Impl, OFFSET>,
-            NotifySelectionChanged::<Impl, OFFSET>,
-            NotifyLayoutChanged::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            InputScope::<Impl, IMPL_OFFSET>,
+            SetInputScope::<Impl, IMPL_OFFSET>,
+            IsReadOnly::<Impl, IMPL_OFFSET>,
+            SetIsReadOnly::<Impl, IMPL_OFFSET>,
+            InputPaneDisplayPolicy::<Impl, IMPL_OFFSET>,
+            SetInputPaneDisplayPolicy::<Impl, IMPL_OFFSET>,
+            TextRequested::<Impl, IMPL_OFFSET>,
+            RemoveTextRequested::<Impl, IMPL_OFFSET>,
+            SelectionRequested::<Impl, IMPL_OFFSET>,
+            RemoveSelectionRequested::<Impl, IMPL_OFFSET>,
+            LayoutRequested::<Impl, IMPL_OFFSET>,
+            RemoveLayoutRequested::<Impl, IMPL_OFFSET>,
+            TextUpdating::<Impl, IMPL_OFFSET>,
+            RemoveTextUpdating::<Impl, IMPL_OFFSET>,
+            SelectionUpdating::<Impl, IMPL_OFFSET>,
+            RemoveSelectionUpdating::<Impl, IMPL_OFFSET>,
+            FormatUpdating::<Impl, IMPL_OFFSET>,
+            RemoveFormatUpdating::<Impl, IMPL_OFFSET>,
+            CompositionStarted::<Impl, IMPL_OFFSET>,
+            RemoveCompositionStarted::<Impl, IMPL_OFFSET>,
+            CompositionCompleted::<Impl, IMPL_OFFSET>,
+            RemoveCompositionCompleted::<Impl, IMPL_OFFSET>,
+            FocusRemoved::<Impl, IMPL_OFFSET>,
+            RemoveFocusRemoved::<Impl, IMPL_OFFSET>,
+            NotifyFocusEnter::<Impl, IMPL_OFFSET>,
+            NotifyFocusLeave::<Impl, IMPL_OFFSET>,
+            NotifyTextChanged::<Impl, IMPL_OFFSET>,
+            NotifySelectionChanged::<Impl, IMPL_OFFSET>,
+            NotifyLayoutChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextEditContext as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextEditContext2Impl: Sized {
     fn NotifyFocusLeaveCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveNotifyFocusLeaveCompleted(&self, cookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextEditContext2 {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextEditContext2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextEditContext2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContext2Impl, const OFFSET: isize>() -> ICoreTextEditContext2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContext2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextEditContext2Vtbl {
         unsafe extern "system" fn NotifyFocusLeaveCompleted<Impl: ICoreTextEditContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotifyFocusLeaveCompleted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -445,10 +457,13 @@ impl ICoreTextEditContext2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotifyFocusLeaveCompleted(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextEditContext2>, ::windows::core::GetTrustLevel, NotifyFocusLeaveCompleted::<Impl, OFFSET>, RemoveNotifyFocusLeaveCompleted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextEditContext2>, ::windows::core::GetTrustLevel, NotifyFocusLeaveCompleted::<Impl, IMPL_OFFSET>, RemoveNotifyFocusLeaveCompleted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextEditContext2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 pub trait ICoreTextFormatUpdatingEventArgsImpl: Sized {
     fn Range(&self) -> ::windows::core::Result<CoreTextRange>;
     fn TextColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>;
@@ -461,13 +476,13 @@ pub trait ICoreTextFormatUpdatingEventArgsImpl: Sized {
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 impl ICoreTextFormatUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>() -> ICoreTextFormatUpdatingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextFormatUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextFormatUpdatingEventArgsVtbl {
         unsafe extern "system" fn Range<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
@@ -572,39 +587,42 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreTextFormatUpdatingEventArgs>,
             ::windows::core::GetTrustLevel,
-            Range::<Impl, OFFSET>,
-            TextColor::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            UnderlineColor::<Impl, OFFSET>,
-            UnderlineType::<Impl, OFFSET>,
-            Reason::<Impl, OFFSET>,
-            Result::<Impl, OFFSET>,
-            SetResult::<Impl, OFFSET>,
-            IsCanceled::<Impl, OFFSET>,
-            GetDeferral::<Impl, OFFSET>,
+            Range::<Impl, IMPL_OFFSET>,
+            TextColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            UnderlineColor::<Impl, IMPL_OFFSET>,
+            UnderlineType::<Impl, IMPL_OFFSET>,
+            Reason::<Impl, IMPL_OFFSET>,
+            Result::<Impl, IMPL_OFFSET>,
+            SetResult::<Impl, IMPL_OFFSET>,
+            IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextFormatUpdatingEventArgs as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextLayoutBoundsImpl: Sized {
     fn TextBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
     fn SetTextBounds(&self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
     fn ControlBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
     fn SetControlBounds(&self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextLayoutBounds";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextLayoutBoundsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutBoundsImpl, const OFFSET: isize>() -> ICoreTextLayoutBoundsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutBoundsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutBoundsVtbl {
         unsafe extern "system" fn TextBounds<Impl: ICoreTextLayoutBoundsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextBounds() {
@@ -635,23 +653,26 @@ impl ICoreTextLayoutBoundsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlBounds(&*(&value as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutBounds>, ::windows::core::GetTrustLevel, TextBounds::<Impl, OFFSET>, SetTextBounds::<Impl, OFFSET>, ControlBounds::<Impl, OFFSET>, SetControlBounds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutBounds>, ::windows::core::GetTrustLevel, TextBounds::<Impl, IMPL_OFFSET>, SetTextBounds::<Impl, IMPL_OFFSET>, ControlBounds::<Impl, IMPL_OFFSET>, SetControlBounds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextLayoutBounds as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextLayoutRequestImpl: Sized {
     fn Range(&self) -> ::windows::core::Result<CoreTextRange>;
     fn LayoutBounds(&self) -> ::windows::core::Result<CoreTextLayoutBounds>;
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextLayoutRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextLayoutRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestImpl, const OFFSET: isize>() -> ICoreTextLayoutRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequestVtbl {
         unsafe extern "system" fn Range<Impl: ICoreTextLayoutRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
@@ -696,7 +717,10 @@ impl ICoreTextLayoutRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequest>, ::windows::core::GetTrustLevel, Range::<Impl, OFFSET>, LayoutBounds::<Impl, OFFSET>, IsCanceled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequest>, ::windows::core::GetTrustLevel, Range::<Impl, IMPL_OFFSET>, LayoutBounds::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextLayoutRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -709,7 +733,7 @@ impl ::windows::core::RuntimeName for ICoreTextLayoutRequest2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextLayoutRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequest2Impl, const OFFSET: isize>() -> ICoreTextLayoutRequest2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequest2Vtbl {
         unsafe extern "system" fn LayoutBoundsVisualPixels<Impl: ICoreTextLayoutRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LayoutBoundsVisualPixels() {
@@ -721,7 +745,10 @@ impl ICoreTextLayoutRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequest2>, ::windows::core::GetTrustLevel, LayoutBoundsVisualPixels::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequest2>, ::windows::core::GetTrustLevel, LayoutBoundsVisualPixels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextLayoutRequest2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -734,7 +761,7 @@ impl ::windows::core::RuntimeName for ICoreTextLayoutRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextLayoutRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestedEventArgsImpl, const OFFSET: isize>() -> ICoreTextLayoutRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: ICoreTextLayoutRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -746,23 +773,26 @@ impl ICoreTextLayoutRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextLayoutRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextLayoutRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextSelectionRequestImpl: Sized {
     fn Selection(&self) -> ::windows::core::Result<CoreTextRange>;
     fn SetSelection(&self, value: &CoreTextRange) -> ::windows::core::Result<()>;
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextSelectionRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextSelectionRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestImpl, const OFFSET: isize>() -> ICoreTextSelectionRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionRequestVtbl {
         unsafe extern "system" fn Selection<Impl: ICoreTextSelectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Selection() {
@@ -800,7 +830,10 @@ impl ICoreTextSelectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionRequest>, ::windows::core::GetTrustLevel, Selection::<Impl, OFFSET>, SetSelection::<Impl, OFFSET>, IsCanceled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionRequest>, ::windows::core::GetTrustLevel, Selection::<Impl, IMPL_OFFSET>, SetSelection::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextSelectionRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -813,7 +846,7 @@ impl ::windows::core::RuntimeName for ICoreTextSelectionRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextSelectionRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestedEventArgsImpl, const OFFSET: isize>() -> ICoreTextSelectionRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: ICoreTextSelectionRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -825,10 +858,13 @@ impl ICoreTextSelectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextSelectionRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextSelectionUpdatingEventArgsImpl: Sized {
     fn Selection(&self) -> ::windows::core::Result<CoreTextRange>;
     fn Result(&self) -> ::windows::core::Result<CoreTextSelectionUpdatingResult>;
@@ -836,13 +872,13 @@ pub trait ICoreTextSelectionUpdatingEventArgsImpl: Sized {
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextSelectionUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>() -> ICoreTextSelectionUpdatingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionUpdatingEventArgsVtbl {
         unsafe extern "system" fn Selection<Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Selection() {
@@ -891,23 +927,26 @@ impl ICoreTextSelectionUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionUpdatingEventArgs>, ::windows::core::GetTrustLevel, Selection::<Impl, OFFSET>, Result::<Impl, OFFSET>, SetResult::<Impl, OFFSET>, IsCanceled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextSelectionUpdatingEventArgs>, ::windows::core::GetTrustLevel, Selection::<Impl, IMPL_OFFSET>, Result::<Impl, IMPL_OFFSET>, SetResult::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextSelectionUpdatingEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ICoreTextServicesManagerImpl: Sized {
     fn InputLanguage(&self) -> ::windows::core::Result<super::super::super::Globalization::Language>;
     fn InputLanguageChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveInputLanguageChanged(&self, cookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CreateEditContext(&self) -> ::windows::core::Result<CoreTextEditContext>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextServicesManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ICoreTextServicesManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerImpl, const OFFSET: isize>() -> ICoreTextServicesManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesManagerVtbl {
         unsafe extern "system" fn InputLanguage<Impl: ICoreTextServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputLanguage() {
@@ -945,7 +984,10 @@ impl ICoreTextServicesManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesManager>, ::windows::core::GetTrustLevel, InputLanguage::<Impl, OFFSET>, InputLanguageChanged::<Impl, OFFSET>, RemoveInputLanguageChanged::<Impl, OFFSET>, CreateEditContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesManager>, ::windows::core::GetTrustLevel, InputLanguage::<Impl, IMPL_OFFSET>, InputLanguageChanged::<Impl, IMPL_OFFSET>, RemoveInputLanguageChanged::<Impl, IMPL_OFFSET>, CreateEditContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextServicesManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -958,7 +1000,7 @@ impl ::windows::core::RuntimeName for ICoreTextServicesManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextServicesManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerStaticsImpl, const OFFSET: isize>() -> ICoreTextServicesManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesManagerStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: ICoreTextServicesManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -970,7 +1012,10 @@ impl ICoreTextServicesManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextServicesManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -983,7 +1028,7 @@ impl ::windows::core::RuntimeName for ICoreTextServicesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextServicesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesStaticsImpl, const OFFSET: isize>() -> ICoreTextServicesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesStaticsVtbl {
         unsafe extern "system" fn HiddenCharacter<Impl: ICoreTextServicesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HiddenCharacter() {
@@ -995,10 +1040,13 @@ impl ICoreTextServicesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesStatics>, ::windows::core::GetTrustLevel, HiddenCharacter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextServicesStatics>, ::windows::core::GetTrustLevel, HiddenCharacter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextServicesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTextTextRequestImpl: Sized {
     fn Range(&self) -> ::windows::core::Result<CoreTextRange>;
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1006,13 +1054,13 @@ pub trait ICoreTextTextRequestImpl: Sized {
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextTextRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreTextTextRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestImpl, const OFFSET: isize>() -> ICoreTextTextRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextRequestVtbl {
         unsafe extern "system" fn Range<Impl: ICoreTextTextRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
@@ -1061,7 +1109,10 @@ impl ICoreTextTextRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextTextRequest>, ::windows::core::GetTrustLevel, Range::<Impl, OFFSET>, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, IsCanceled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextTextRequest>, ::windows::core::GetTrustLevel, Range::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextTextRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1074,7 +1125,7 @@ impl ::windows::core::RuntimeName for ICoreTextTextRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreTextTextRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestedEventArgsImpl, const OFFSET: isize>() -> ICoreTextTextRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: ICoreTextTextRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -1086,10 +1137,13 @@ impl ICoreTextTextRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextTextRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreTextTextRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextTextRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ICoreTextTextUpdatingEventArgsImpl: Sized {
     fn Range(&self) -> ::windows::core::Result<CoreTextRange>;
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1100,13 +1154,13 @@ pub trait ICoreTextTextUpdatingEventArgsImpl: Sized {
     fn IsCanceled(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ICoreTextTextUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>() -> ICoreTextTextUpdatingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextUpdatingEventArgsVtbl {
         unsafe extern "system" fn Range<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
@@ -1189,20 +1243,23 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreTextTextUpdatingEventArgs>,
             ::windows::core::GetTrustLevel,
-            Range::<Impl, OFFSET>,
-            Text::<Impl, OFFSET>,
-            NewSelection::<Impl, OFFSET>,
-            InputLanguage::<Impl, OFFSET>,
-            Result::<Impl, OFFSET>,
-            SetResult::<Impl, OFFSET>,
-            IsCanceled::<Impl, OFFSET>,
-            GetDeferral::<Impl, OFFSET>,
+            Range::<Impl, IMPL_OFFSET>,
+            Text::<Impl, IMPL_OFFSET>,
+            NewSelection::<Impl, IMPL_OFFSET>,
+            InputLanguage::<Impl, IMPL_OFFSET>,
+            Result::<Impl, IMPL_OFFSET>,
+            SetResult::<Impl, IMPL_OFFSET>,
+            IsCanceled::<Impl, IMPL_OFFSET>,
+            GetDeferral::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreTextTextUpdatingEventArgs as ::windows::core::Interface>::IID
     }
 }

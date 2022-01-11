@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileOpenPickerUIImpl: Sized {
     fn AddFile(&self, id: &::windows::core::HSTRING, file: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<AddFileResult>;
     fn RemoveFile(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -14,13 +14,13 @@ pub trait IFileOpenPickerUIImpl: Sized {
     fn Closing(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosing(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IFileOpenPickerUI";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileOpenPickerUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerUIImpl, const OFFSET: isize>() -> IFileOpenPickerUIVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerUIVtbl {
         unsafe extern "system" fn AddFile<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, result__: *mut AddFileResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddFile(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -137,26 +137,29 @@ impl IFileOpenPickerUIVtbl {
             (*this).RemoveClosing(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileOpenPickerUI>,
             ::windows::core::GetTrustLevel,
-            AddFile::<Impl, OFFSET>,
-            RemoveFile::<Impl, OFFSET>,
-            ContainsFile::<Impl, OFFSET>,
-            CanAddFile::<Impl, OFFSET>,
-            AllowedFileTypes::<Impl, OFFSET>,
-            SelectionMode::<Impl, OFFSET>,
-            SettingsIdentifier::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            FileRemoved::<Impl, OFFSET>,
-            RemoveFileRemoved::<Impl, OFFSET>,
-            Closing::<Impl, OFFSET>,
-            RemoveClosing::<Impl, OFFSET>,
+            AddFile::<Impl, IMPL_OFFSET>,
+            RemoveFile::<Impl, IMPL_OFFSET>,
+            ContainsFile::<Impl, IMPL_OFFSET>,
+            CanAddFile::<Impl, IMPL_OFFSET>,
+            AllowedFileTypes::<Impl, IMPL_OFFSET>,
+            SelectionMode::<Impl, IMPL_OFFSET>,
+            SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            FileRemoved::<Impl, IMPL_OFFSET>,
+            RemoveFileRemoved::<Impl, IMPL_OFFSET>,
+            Closing::<Impl, IMPL_OFFSET>,
+            RemoveClosing::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPickerUI as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -169,7 +172,7 @@ impl ::windows::core::RuntimeName for IFileRemovedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IFileRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRemovedEventArgsImpl, const OFFSET: isize>() -> IFileRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileRemovedEventArgsVtbl {
         unsafe extern "system" fn Id<Impl: IFileRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -181,10 +184,13 @@ impl IFileRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileRemovedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileRemovedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileSavePickerUIImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -197,13 +203,13 @@ pub trait IFileSavePickerUIImpl: Sized {
     fn TargetFileRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveTargetFileRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileSavePickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IFileSavePickerUI";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileSavePickerUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerUIImpl, const OFFSET: isize>() -> IFileSavePickerUIVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePickerUIVtbl {
         unsafe extern "system" fn Title<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -294,23 +300,26 @@ impl IFileSavePickerUIVtbl {
             (*this).RemoveTargetFileRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileSavePickerUI>,
             ::windows::core::GetTrustLevel,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            AllowedFileTypes::<Impl, OFFSET>,
-            SettingsIdentifier::<Impl, OFFSET>,
-            FileName::<Impl, OFFSET>,
-            TrySetFileName::<Impl, OFFSET>,
-            FileNameChanged::<Impl, OFFSET>,
-            RemoveFileNameChanged::<Impl, OFFSET>,
-            TargetFileRequested::<Impl, OFFSET>,
-            RemoveTargetFileRequested::<Impl, OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            AllowedFileTypes::<Impl, IMPL_OFFSET>,
+            SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            TrySetFileName::<Impl, IMPL_OFFSET>,
+            FileNameChanged::<Impl, IMPL_OFFSET>,
+            RemoveFileNameChanged::<Impl, IMPL_OFFSET>,
+            TargetFileRequested::<Impl, IMPL_OFFSET>,
+            RemoveTargetFileRequested::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileSavePickerUI as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -323,12 +332,15 @@ impl ::windows::core::RuntimeName for IPickerClosingDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPickerClosingDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingDeferralImpl, const OFFSET: isize>() -> IPickerClosingDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IPickerClosingDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerClosingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerClosingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPickerClosingDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -342,7 +354,7 @@ impl ::windows::core::RuntimeName for IPickerClosingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPickerClosingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingEventArgsImpl, const OFFSET: isize>() -> IPickerClosingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingEventArgsVtbl {
         unsafe extern "system" fn ClosingOperation<Impl: IPickerClosingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosingOperation() {
@@ -365,21 +377,24 @@ impl IPickerClosingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerClosingEventArgs>, ::windows::core::GetTrustLevel, ClosingOperation::<Impl, OFFSET>, IsCanceled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerClosingEventArgs>, ::windows::core::GetTrustLevel, ClosingOperation::<Impl, IMPL_OFFSET>, IsCanceled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPickerClosingEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPickerClosingOperationImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<PickerClosingDeferral>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPickerClosingOperation {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IPickerClosingOperation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPickerClosingOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingOperationImpl, const OFFSET: isize>() -> IPickerClosingOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingOperationVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IPickerClosingOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -402,7 +417,10 @@ impl IPickerClosingOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerClosingOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>, Deadline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPickerClosingOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPickerClosingOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -417,7 +435,7 @@ impl ::windows::core::RuntimeName for ITargetFileRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITargetFileRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestImpl, const OFFSET: isize>() -> ITargetFileRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestVtbl {
         unsafe extern "system" fn TargetFile<Impl: ITargetFileRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetFile() {
@@ -444,7 +462,10 @@ impl ITargetFileRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetFileRequest>, ::windows::core::GetTrustLevel, TargetFile::<Impl, OFFSET>, SetTargetFile::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetFileRequest>, ::windows::core::GetTrustLevel, TargetFile::<Impl, IMPL_OFFSET>, SetTargetFile::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetFileRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -457,12 +478,15 @@ impl ::windows::core::RuntimeName for ITargetFileRequestDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITargetFileRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestDeferralImpl, const OFFSET: isize>() -> ITargetFileRequestDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ITargetFileRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetFileRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetFileRequestDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetFileRequestDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -475,7 +499,7 @@ impl ::windows::core::RuntimeName for ITargetFileRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITargetFileRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestedEventArgsImpl, const OFFSET: isize>() -> ITargetFileRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: ITargetFileRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -487,6 +511,9 @@ impl ITargetFileRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetFileRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetFileRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetFileRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

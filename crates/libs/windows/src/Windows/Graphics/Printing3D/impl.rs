@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DManagerImpl: Sized {
     fn TaskRequested(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Print3DManager, Print3DTaskRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveTaskRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrint3DManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrint3DManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DManagerImpl, const OFFSET: isize>() -> IPrint3DManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DManagerVtbl {
         unsafe extern "system" fn TaskRequested<Impl: IPrint3DManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TaskRequested(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<Print3DManager, Print3DTaskRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<Print3DManager, Print3DTaskRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -25,21 +25,24 @@ impl IPrint3DManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTaskRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DManager>, ::windows::core::GetTrustLevel, TaskRequested::<Impl, OFFSET>, RemoveTaskRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DManager>, ::windows::core::GetTrustLevel, TaskRequested::<Impl, IMPL_OFFSET>, RemoveTaskRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DManagerStaticsImpl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<Print3DManager>;
     fn ShowPrintUIAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DManagerStatics {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrint3DManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrint3DManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DManagerStaticsImpl, const OFFSET: isize>() -> IPrint3DManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DManagerStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IPrint3DManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -62,10 +65,13 @@ impl IPrint3DManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>, ShowPrintUIAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, ShowPrintUIAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DTaskImpl: Sized {
     fn Source(&self) -> ::windows::core::Result<Printing3D3MFPackage>;
     fn Submitting(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Print3DTask, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -75,13 +81,13 @@ pub trait IPrint3DTaskImpl: Sized {
     fn SourceChanged(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskSourceChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSourceChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrint3DTask";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrint3DTaskVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskImpl, const OFFSET: isize>() -> IPrint3DTaskVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DTaskVtbl {
         unsafe extern "system" fn Source<Impl: IPrint3DTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
@@ -138,7 +144,24 @@ impl IPrint3DTaskVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSourceChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTask>, ::windows::core::GetTrustLevel, Source::<Impl, OFFSET>, Submitting::<Impl, OFFSET>, RemoveSubmitting::<Impl, OFFSET>, Completed::<Impl, OFFSET>, RemoveCompleted::<Impl, OFFSET>, SourceChanged::<Impl, OFFSET>, RemoveSourceChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrint3DTask>,
+            ::windows::core::GetTrustLevel,
+            Source::<Impl, IMPL_OFFSET>,
+            Submitting::<Impl, IMPL_OFFSET>,
+            RemoveSubmitting::<Impl, IMPL_OFFSET>,
+            Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted::<Impl, IMPL_OFFSET>,
+            SourceChanged::<Impl, IMPL_OFFSET>,
+            RemoveSourceChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DTask as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -152,7 +175,7 @@ impl ::windows::core::RuntimeName for IPrint3DTaskCompletedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DTaskCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskCompletedEventArgsImpl, const OFFSET: isize>() -> IPrint3DTaskCompletedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DTaskCompletedEventArgsVtbl {
         unsafe extern "system" fn Completion<Impl: IPrint3DTaskCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Print3DTaskCompletion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completion() {
@@ -175,7 +198,10 @@ impl IPrint3DTaskCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskCompletedEventArgs>, ::windows::core::GetTrustLevel, Completion::<Impl, OFFSET>, ExtendedStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskCompletedEventArgs>, ::windows::core::GetTrustLevel, Completion::<Impl, IMPL_OFFSET>, ExtendedStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DTaskCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -188,7 +214,7 @@ impl ::windows::core::RuntimeName for IPrint3DTaskRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DTaskRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskRequestImpl, const OFFSET: isize>() -> IPrint3DTaskRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DTaskRequestVtbl {
         unsafe extern "system" fn CreateTask<Impl: IPrint3DTaskRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTask(
@@ -204,7 +230,10 @@ impl IPrint3DTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskRequest>, ::windows::core::GetTrustLevel, CreateTask::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskRequest>, ::windows::core::GetTrustLevel, CreateTask::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DTaskRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -217,7 +246,7 @@ impl ::windows::core::RuntimeName for IPrint3DTaskRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DTaskRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskRequestedEventArgsImpl, const OFFSET: isize>() -> IPrint3DTaskRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DTaskRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IPrint3DTaskRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -229,7 +258,10 @@ impl IPrint3DTaskRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DTaskRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -242,7 +274,7 @@ impl ::windows::core::RuntimeName for IPrint3DTaskSourceChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DTaskSourceChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskSourceChangedEventArgsImpl, const OFFSET: isize>() -> IPrint3DTaskSourceChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskSourceChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DTaskSourceChangedEventArgsVtbl {
         unsafe extern "system" fn Source<Impl: IPrint3DTaskSourceChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
@@ -254,7 +286,10 @@ impl IPrint3DTaskSourceChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskSourceChangedEventArgs>, ::windows::core::GetTrustLevel, Source::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskSourceChangedEventArgs>, ::windows::core::GetTrustLevel, Source::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DTaskSourceChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -267,15 +302,18 @@ impl ::windows::core::RuntimeName for IPrint3DTaskSourceRequestedArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DTaskSourceRequestedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskSourceRequestedArgsImpl, const OFFSET: isize>() -> IPrint3DTaskSourceRequestedArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DTaskSourceRequestedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DTaskSourceRequestedArgsVtbl {
         unsafe extern "system" fn SetSource<Impl: IPrint3DTaskSourceRequestedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&source as *const <Printing3D3MFPackage as ::windows::core::Abi>::Abi as *const <Printing3D3MFPackage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskSourceRequestedArgs>, ::windows::core::GetTrustLevel, SetSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DTaskSourceRequestedArgs>, ::windows::core::GetTrustLevel, SetSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DTaskSourceRequestedArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrinting3D3MFPackageImpl: Sized {
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
     fn PrintTicket(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
@@ -288,13 +326,13 @@ pub trait IPrinting3D3MFPackageImpl: Sized {
     fn LoadModelFromPackageAsync(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>;
     fn SaveModelToPackageAsync(&self, value: &::core::option::Option<Printing3DModel>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3D3MFPackage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrinting3D3MFPackageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3D3MFPackageImpl, const OFFSET: isize>() -> IPrinting3D3MFPackageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3D3MFPackageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3D3MFPackageVtbl {
         unsafe extern "system" fn SaveAsync<Impl: IPrinting3D3MFPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync() {
@@ -385,23 +423,26 @@ impl IPrinting3D3MFPackageVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackage>,
             ::windows::core::GetTrustLevel,
-            SaveAsync::<Impl, OFFSET>,
-            PrintTicket::<Impl, OFFSET>,
-            SetPrintTicket::<Impl, OFFSET>,
-            ModelPart::<Impl, OFFSET>,
-            SetModelPart::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            SetThumbnail::<Impl, OFFSET>,
-            Textures::<Impl, OFFSET>,
-            LoadModelFromPackageAsync::<Impl, OFFSET>,
-            SaveModelToPackageAsync::<Impl, OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            PrintTicket::<Impl, IMPL_OFFSET>,
+            SetPrintTicket::<Impl, IMPL_OFFSET>,
+            ModelPart::<Impl, IMPL_OFFSET>,
+            SetModelPart::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            Textures::<Impl, IMPL_OFFSET>,
+            LoadModelFromPackageAsync::<Impl, IMPL_OFFSET>,
+            SaveModelToPackageAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3D3MFPackage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -415,7 +456,7 @@ impl ::windows::core::RuntimeName for IPrinting3D3MFPackage2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3D3MFPackage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3D3MFPackage2Impl, const OFFSET: isize>() -> IPrinting3D3MFPackage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3D3MFPackage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3D3MFPackage2Vtbl {
         unsafe extern "system" fn Compression<Impl: IPrinting3D3MFPackage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Printing3DPackageCompression) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compression() {
@@ -431,20 +472,23 @@ impl IPrinting3D3MFPackage2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompression(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackage2>, ::windows::core::GetTrustLevel, Compression::<Impl, OFFSET>, SetCompression::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackage2>, ::windows::core::GetTrustLevel, Compression::<Impl, IMPL_OFFSET>, SetCompression::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3D3MFPackage2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrinting3D3MFPackageStaticsImpl: Sized {
     fn LoadAsync(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3D3MFPackageStatics {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3D3MFPackageStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrinting3D3MFPackageStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3D3MFPackageStaticsImpl, const OFFSET: isize>() -> IPrinting3D3MFPackageStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3D3MFPackageStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3D3MFPackageStaticsVtbl {
         unsafe extern "system" fn LoadAsync<Impl: IPrinting3D3MFPackageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadAsync(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -456,7 +500,10 @@ impl IPrinting3D3MFPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackageStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3D3MFPackageStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3D3MFPackageStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -472,7 +519,7 @@ impl ::windows::core::RuntimeName for IPrinting3DBaseMaterial {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DBaseMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialImpl, const OFFSET: isize>() -> IPrinting3DBaseMaterialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DBaseMaterialVtbl {
         unsafe extern "system" fn Name<Impl: IPrinting3DBaseMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -503,21 +550,24 @@ impl IPrinting3DBaseMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <Printing3DColorMaterial as ::windows::core::Abi>::Abi as *const <Printing3DColorMaterial as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterial>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Color::<Impl, OFFSET>, SetColor::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterial>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Color::<Impl, IMPL_OFFSET>, SetColor::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DBaseMaterial as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DBaseMaterialGroupImpl: Sized {
     fn Bases(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>>;
     fn MaterialGroupId(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DBaseMaterialGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialGroupImpl, const OFFSET: isize>() -> IPrinting3DBaseMaterialGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DBaseMaterialGroupVtbl {
         unsafe extern "system" fn Bases<Impl: IPrinting3DBaseMaterialGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bases() {
@@ -540,7 +590,10 @@ impl IPrinting3DBaseMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialGroup>, ::windows::core::GetTrustLevel, Bases::<Impl, OFFSET>, MaterialGroupId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialGroup>, ::windows::core::GetTrustLevel, Bases::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DBaseMaterialGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -553,7 +606,7 @@ impl ::windows::core::RuntimeName for IPrinting3DBaseMaterialGroupFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DBaseMaterialGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialGroupFactoryImpl, const OFFSET: isize>() -> IPrinting3DBaseMaterialGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DBaseMaterialGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPrinting3DBaseMaterialGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(materialgroupid) {
@@ -565,7 +618,10 @@ impl IPrinting3DBaseMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DBaseMaterialGroupFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -579,7 +635,7 @@ impl ::windows::core::RuntimeName for IPrinting3DBaseMaterialStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DBaseMaterialStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialStaticsImpl, const OFFSET: isize>() -> IPrinting3DBaseMaterialStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DBaseMaterialStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DBaseMaterialStaticsVtbl {
         unsafe extern "system" fn Abs<Impl: IPrinting3DBaseMaterialStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Abs() {
@@ -602,7 +658,10 @@ impl IPrinting3DBaseMaterialStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialStatics>, ::windows::core::GetTrustLevel, Abs::<Impl, OFFSET>, Pla::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DBaseMaterialStatics>, ::windows::core::GetTrustLevel, Abs::<Impl, IMPL_OFFSET>, Pla::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DBaseMaterialStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -616,7 +675,7 @@ impl ::windows::core::RuntimeName for IPrinting3DColorMaterial {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DColorMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterialImpl, const OFFSET: isize>() -> IPrinting3DColorMaterialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DColorMaterialVtbl {
         unsafe extern "system" fn Value<Impl: IPrinting3DColorMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -632,21 +691,24 @@ impl IPrinting3DColorMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterial>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterial>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DColorMaterial as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IPrinting3DColorMaterial2Impl: Sized {
     fn Color(&self) -> ::windows::core::Result<super::super::UI::Color>;
     fn SetColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DColorMaterial2 {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DColorMaterial2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl IPrinting3DColorMaterial2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterial2Impl, const OFFSET: isize>() -> IPrinting3DColorMaterial2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterial2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DColorMaterial2Vtbl {
         unsafe extern "system" fn Color<Impl: IPrinting3DColorMaterial2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
@@ -662,21 +724,24 @@ impl IPrinting3DColorMaterial2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterial2>, ::windows::core::GetTrustLevel, Color::<Impl, OFFSET>, SetColor::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterial2>, ::windows::core::GetTrustLevel, Color::<Impl, IMPL_OFFSET>, SetColor::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DColorMaterial2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DColorMaterialGroupImpl: Sized {
     fn Colors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>>;
     fn MaterialGroupId(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DColorMaterialGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterialGroupImpl, const OFFSET: isize>() -> IPrinting3DColorMaterialGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterialGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DColorMaterialGroupVtbl {
         unsafe extern "system" fn Colors<Impl: IPrinting3DColorMaterialGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Colors() {
@@ -699,7 +764,10 @@ impl IPrinting3DColorMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterialGroup>, ::windows::core::GetTrustLevel, Colors::<Impl, OFFSET>, MaterialGroupId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterialGroup>, ::windows::core::GetTrustLevel, Colors::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DColorMaterialGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -712,7 +780,7 @@ impl ::windows::core::RuntimeName for IPrinting3DColorMaterialGroupFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DColorMaterialGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterialGroupFactoryImpl, const OFFSET: isize>() -> IPrinting3DColorMaterialGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DColorMaterialGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DColorMaterialGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPrinting3DColorMaterialGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(materialgroupid) {
@@ -724,10 +792,13 @@ impl IPrinting3DColorMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DColorMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DColorMaterialGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DComponentImpl: Sized {
     fn Mesh(&self) -> ::windows::core::Result<Printing3DMesh>;
     fn SetMesh(&self, value: &::core::option::Option<Printing3DMesh>) -> ::windows::core::Result<()>;
@@ -741,13 +812,13 @@ pub trait IPrinting3DComponentImpl: Sized {
     fn PartNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPartNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DComponent";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DComponentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DComponentImpl, const OFFSET: isize>() -> IPrinting3DComponentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DComponentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DComponentVtbl {
         unsafe extern "system" fn Mesh<Impl: IPrinting3DComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mesh() {
@@ -835,40 +906,43 @@ impl IPrinting3DComponentVtbl {
             (*this).SetPartNumber(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrinting3DComponent>,
             ::windows::core::GetTrustLevel,
-            Mesh::<Impl, OFFSET>,
-            SetMesh::<Impl, OFFSET>,
-            Components::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            SetThumbnail::<Impl, OFFSET>,
-            Type::<Impl, OFFSET>,
-            SetType::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            SetName::<Impl, OFFSET>,
-            PartNumber::<Impl, OFFSET>,
-            SetPartNumber::<Impl, OFFSET>,
+            Mesh::<Impl, IMPL_OFFSET>,
+            SetMesh::<Impl, IMPL_OFFSET>,
+            Components::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            Type::<Impl, IMPL_OFFSET>,
+            SetType::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            PartNumber::<Impl, IMPL_OFFSET>,
+            SetPartNumber::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DComponent as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IPrinting3DComponentWithMatrixImpl: Sized {
     fn Component(&self) -> ::windows::core::Result<Printing3DComponent>;
     fn SetComponent(&self, value: &::core::option::Option<Printing3DComponent>) -> ::windows::core::Result<()>;
     fn Matrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4>;
     fn SetMatrix(&self, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IPrinting3DComponentWithMatrixVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DComponentWithMatrixImpl, const OFFSET: isize>() -> IPrinting3DComponentWithMatrixVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DComponentWithMatrixImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DComponentWithMatrixVtbl {
         unsafe extern "system" fn Component<Impl: IPrinting3DComponentWithMatrixImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Component() {
@@ -899,20 +973,23 @@ impl IPrinting3DComponentWithMatrixVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DComponentWithMatrix>, ::windows::core::GetTrustLevel, Component::<Impl, OFFSET>, SetComponent::<Impl, OFFSET>, Matrix::<Impl, OFFSET>, SetMatrix::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DComponentWithMatrix>, ::windows::core::GetTrustLevel, Component::<Impl, IMPL_OFFSET>, SetComponent::<Impl, IMPL_OFFSET>, Matrix::<Impl, IMPL_OFFSET>, SetMatrix::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DComponentWithMatrix as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DCompositeMaterialImpl: Sized {
     fn Values(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DCompositeMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialImpl, const OFFSET: isize>() -> IPrinting3DCompositeMaterialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DCompositeMaterialVtbl {
         unsafe extern "system" fn Values<Impl: IPrinting3DCompositeMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Values() {
@@ -924,22 +1001,25 @@ impl IPrinting3DCompositeMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterial>, ::windows::core::GetTrustLevel, Values::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterial>, ::windows::core::GetTrustLevel, Values::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DCompositeMaterial as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DCompositeMaterialGroupImpl: Sized {
     fn Composites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>>;
     fn MaterialGroupId(&self) -> ::windows::core::Result<u32>;
     fn MaterialIndices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DCompositeMaterialGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialGroupImpl, const OFFSET: isize>() -> IPrinting3DCompositeMaterialGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DCompositeMaterialGroupVtbl {
         unsafe extern "system" fn Composites<Impl: IPrinting3DCompositeMaterialGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Composites() {
@@ -973,7 +1053,10 @@ impl IPrinting3DCompositeMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroup>, ::windows::core::GetTrustLevel, Composites::<Impl, OFFSET>, MaterialGroupId::<Impl, OFFSET>, MaterialIndices::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroup>, ::windows::core::GetTrustLevel, Composites::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>, MaterialIndices::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DCompositeMaterialGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -987,7 +1070,7 @@ impl ::windows::core::RuntimeName for IPrinting3DCompositeMaterialGroup2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DCompositeMaterialGroup2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialGroup2Impl, const OFFSET: isize>() -> IPrinting3DCompositeMaterialGroup2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialGroup2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DCompositeMaterialGroup2Vtbl {
         unsafe extern "system" fn BaseMaterialGroup<Impl: IPrinting3DCompositeMaterialGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseMaterialGroup() {
@@ -1003,7 +1086,10 @@ impl IPrinting3DCompositeMaterialGroup2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBaseMaterialGroup(&*(&value as *const <Printing3DBaseMaterialGroup as ::windows::core::Abi>::Abi as *const <Printing3DBaseMaterialGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroup2>, ::windows::core::GetTrustLevel, BaseMaterialGroup::<Impl, OFFSET>, SetBaseMaterialGroup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroup2>, ::windows::core::GetTrustLevel, BaseMaterialGroup::<Impl, IMPL_OFFSET>, SetBaseMaterialGroup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DCompositeMaterialGroup2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1016,7 +1102,7 @@ impl ::windows::core::RuntimeName for IPrinting3DCompositeMaterialGroupFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DCompositeMaterialGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialGroupFactoryImpl, const OFFSET: isize>() -> IPrinting3DCompositeMaterialGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DCompositeMaterialGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DCompositeMaterialGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPrinting3DCompositeMaterialGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(materialgroupid) {
@@ -1028,7 +1114,10 @@ impl IPrinting3DCompositeMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DCompositeMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DCompositeMaterialGroupFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1046,7 +1135,7 @@ impl ::windows::core::RuntimeName for IPrinting3DFaceReductionOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DFaceReductionOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DFaceReductionOptionsImpl, const OFFSET: isize>() -> IPrinting3DFaceReductionOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DFaceReductionOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DFaceReductionOptionsVtbl {
         unsafe extern "system" fn MaxReductionArea<Impl: IPrinting3DFaceReductionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxReductionArea() {
@@ -1093,22 +1182,25 @@ impl IPrinting3DFaceReductionOptionsVtbl {
             (*this).SetMaxEdgeLength(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrinting3DFaceReductionOptions>,
             ::windows::core::GetTrustLevel,
-            MaxReductionArea::<Impl, OFFSET>,
-            SetMaxReductionArea::<Impl, OFFSET>,
-            TargetTriangleCount::<Impl, OFFSET>,
-            SetTargetTriangleCount::<Impl, OFFSET>,
-            MaxEdgeLength::<Impl, OFFSET>,
-            SetMaxEdgeLength::<Impl, OFFSET>,
+            MaxReductionArea::<Impl, IMPL_OFFSET>,
+            SetMaxReductionArea::<Impl, IMPL_OFFSET>,
+            TargetTriangleCount::<Impl, IMPL_OFFSET>,
+            SetTargetTriangleCount::<Impl, IMPL_OFFSET>,
+            MaxEdgeLength::<Impl, IMPL_OFFSET>,
+            SetMaxEdgeLength::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DFaceReductionOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DMaterialImpl: Sized {
     fn BaseGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>>;
     fn ColorGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>>;
@@ -1116,13 +1208,13 @@ pub trait IPrinting3DMaterialImpl: Sized {
     fn CompositeGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>>;
     fn MultiplePropertyGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DMaterial";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMaterialImpl, const OFFSET: isize>() -> IPrinting3DMaterialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DMaterialVtbl {
         unsafe extern "system" fn BaseGroups<Impl: IPrinting3DMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseGroups() {
@@ -1178,10 +1270,13 @@ impl IPrinting3DMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMaterial>, ::windows::core::GetTrustLevel, BaseGroups::<Impl, OFFSET>, ColorGroups::<Impl, OFFSET>, Texture2CoordGroups::<Impl, OFFSET>, CompositeGroups::<Impl, OFFSET>, MultiplePropertyGroups::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMaterial>, ::windows::core::GetTrustLevel, BaseGroups::<Impl, IMPL_OFFSET>, ColorGroups::<Impl, IMPL_OFFSET>, Texture2CoordGroups::<Impl, IMPL_OFFSET>, CompositeGroups::<Impl, IMPL_OFFSET>, MultiplePropertyGroups::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DMaterial as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrinting3DMeshImpl: Sized {
     fn VertexCount(&self) -> ::windows::core::Result<u32>;
     fn SetVertexCount(&self, value: u32) -> ::windows::core::Result<()>;
@@ -1207,13 +1302,13 @@ pub trait IPrinting3DMeshImpl: Sized {
     fn BufferSet(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
     fn VerifyAsync(&self, value: Printing3DMeshVerificationMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DMesh";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrinting3DMeshVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMeshImpl, const OFFSET: isize>() -> IPrinting3DMeshVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMeshImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DMeshVtbl {
         unsafe extern "system" fn VertexCount<Impl: IPrinting3DMeshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VertexCount() {
@@ -1398,51 +1493,54 @@ impl IPrinting3DMeshVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrinting3DMesh>,
             ::windows::core::GetTrustLevel,
-            VertexCount::<Impl, OFFSET>,
-            SetVertexCount::<Impl, OFFSET>,
-            IndexCount::<Impl, OFFSET>,
-            SetIndexCount::<Impl, OFFSET>,
-            VertexPositionsDescription::<Impl, OFFSET>,
-            SetVertexPositionsDescription::<Impl, OFFSET>,
-            VertexNormalsDescription::<Impl, OFFSET>,
-            SetVertexNormalsDescription::<Impl, OFFSET>,
-            TriangleIndicesDescription::<Impl, OFFSET>,
-            SetTriangleIndicesDescription::<Impl, OFFSET>,
-            TriangleMaterialIndicesDescription::<Impl, OFFSET>,
-            SetTriangleMaterialIndicesDescription::<Impl, OFFSET>,
-            GetVertexPositions::<Impl, OFFSET>,
-            CreateVertexPositions::<Impl, OFFSET>,
-            GetVertexNormals::<Impl, OFFSET>,
-            CreateVertexNormals::<Impl, OFFSET>,
-            GetTriangleIndices::<Impl, OFFSET>,
-            CreateTriangleIndices::<Impl, OFFSET>,
-            GetTriangleMaterialIndices::<Impl, OFFSET>,
-            CreateTriangleMaterialIndices::<Impl, OFFSET>,
-            BufferDescriptionSet::<Impl, OFFSET>,
-            BufferSet::<Impl, OFFSET>,
-            VerifyAsync::<Impl, OFFSET>,
+            VertexCount::<Impl, IMPL_OFFSET>,
+            SetVertexCount::<Impl, IMPL_OFFSET>,
+            IndexCount::<Impl, IMPL_OFFSET>,
+            SetIndexCount::<Impl, IMPL_OFFSET>,
+            VertexPositionsDescription::<Impl, IMPL_OFFSET>,
+            SetVertexPositionsDescription::<Impl, IMPL_OFFSET>,
+            VertexNormalsDescription::<Impl, IMPL_OFFSET>,
+            SetVertexNormalsDescription::<Impl, IMPL_OFFSET>,
+            TriangleIndicesDescription::<Impl, IMPL_OFFSET>,
+            SetTriangleIndicesDescription::<Impl, IMPL_OFFSET>,
+            TriangleMaterialIndicesDescription::<Impl, IMPL_OFFSET>,
+            SetTriangleMaterialIndicesDescription::<Impl, IMPL_OFFSET>,
+            GetVertexPositions::<Impl, IMPL_OFFSET>,
+            CreateVertexPositions::<Impl, IMPL_OFFSET>,
+            GetVertexNormals::<Impl, IMPL_OFFSET>,
+            CreateVertexNormals::<Impl, IMPL_OFFSET>,
+            GetTriangleIndices::<Impl, IMPL_OFFSET>,
+            CreateTriangleIndices::<Impl, IMPL_OFFSET>,
+            GetTriangleMaterialIndices::<Impl, IMPL_OFFSET>,
+            CreateTriangleMaterialIndices::<Impl, IMPL_OFFSET>,
+            BufferDescriptionSet::<Impl, IMPL_OFFSET>,
+            BufferSet::<Impl, IMPL_OFFSET>,
+            VerifyAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DMesh as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DMeshVerificationResultImpl: Sized {
     fn IsValid(&self) -> ::windows::core::Result<bool>;
     fn NonmanifoldTriangles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
     fn ReversedNormalTriangles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DMeshVerificationResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DMeshVerificationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMeshVerificationResultImpl, const OFFSET: isize>() -> IPrinting3DMeshVerificationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMeshVerificationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DMeshVerificationResultVtbl {
         unsafe extern "system" fn IsValid<Impl: IPrinting3DMeshVerificationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsValid() {
@@ -1476,10 +1574,13 @@ impl IPrinting3DMeshVerificationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMeshVerificationResult>, ::windows::core::GetTrustLevel, IsValid::<Impl, OFFSET>, NonmanifoldTriangles::<Impl, OFFSET>, ReversedNormalTriangles::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMeshVerificationResult>, ::windows::core::GetTrustLevel, IsValid::<Impl, IMPL_OFFSET>, NonmanifoldTriangles::<Impl, IMPL_OFFSET>, ReversedNormalTriangles::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DMeshVerificationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DModelImpl: Sized {
     fn Unit(&self) -> ::windows::core::Result<Printing3DModelUnit>;
     fn SetUnit(&self, value: Printing3DModelUnit) -> ::windows::core::Result<()>;
@@ -1497,13 +1598,13 @@ pub trait IPrinting3DModelImpl: Sized {
     fn RepairAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn Clone(&self) -> ::windows::core::Result<Printing3DModel>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DModel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DModelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DModelImpl, const OFFSET: isize>() -> IPrinting3DModelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DModelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DModelVtbl {
         unsafe extern "system" fn Unit<Impl: IPrinting3DModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Printing3DModelUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unit() {
@@ -1642,31 +1743,34 @@ impl IPrinting3DModelVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrinting3DModel>,
             ::windows::core::GetTrustLevel,
-            Unit::<Impl, OFFSET>,
-            SetUnit::<Impl, OFFSET>,
-            Textures::<Impl, OFFSET>,
-            Meshes::<Impl, OFFSET>,
-            Components::<Impl, OFFSET>,
-            Material::<Impl, OFFSET>,
-            SetMaterial::<Impl, OFFSET>,
-            Build::<Impl, OFFSET>,
-            SetBuild::<Impl, OFFSET>,
-            Version::<Impl, OFFSET>,
-            SetVersion::<Impl, OFFSET>,
-            RequiredExtensions::<Impl, OFFSET>,
-            Metadata::<Impl, OFFSET>,
-            RepairAsync::<Impl, OFFSET>,
-            Clone::<Impl, OFFSET>,
+            Unit::<Impl, IMPL_OFFSET>,
+            SetUnit::<Impl, IMPL_OFFSET>,
+            Textures::<Impl, IMPL_OFFSET>,
+            Meshes::<Impl, IMPL_OFFSET>,
+            Components::<Impl, IMPL_OFFSET>,
+            Material::<Impl, IMPL_OFFSET>,
+            SetMaterial::<Impl, IMPL_OFFSET>,
+            Build::<Impl, IMPL_OFFSET>,
+            SetBuild::<Impl, IMPL_OFFSET>,
+            Version::<Impl, IMPL_OFFSET>,
+            SetVersion::<Impl, IMPL_OFFSET>,
+            RequiredExtensions::<Impl, IMPL_OFFSET>,
+            Metadata::<Impl, IMPL_OFFSET>,
+            RepairAsync::<Impl, IMPL_OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DModel as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrinting3DModel2Impl: Sized {
     fn TryPartialRepairAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryPartialRepairWithTimeAsync(&self, maxwaittime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -1675,13 +1779,13 @@ pub trait IPrinting3DModel2Impl: Sized {
     fn TryReduceFacesWithOptionsAndTimeAsync(&self, printing3dfacereductionoptions: &::core::option::Option<Printing3DFaceReductionOptions>, maxwait: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>;
     fn RepairWithProgressAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DModel2 {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DModel2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrinting3DModel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DModel2Impl, const OFFSET: isize>() -> IPrinting3DModel2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DModel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DModel2Vtbl {
         unsafe extern "system" fn TryPartialRepairAsync<Impl: IPrinting3DModel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryPartialRepairAsync() {
@@ -1749,19 +1853,22 @@ impl IPrinting3DModel2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrinting3DModel2>,
             ::windows::core::GetTrustLevel,
-            TryPartialRepairAsync::<Impl, OFFSET>,
-            TryPartialRepairWithTimeAsync::<Impl, OFFSET>,
-            TryReduceFacesAsync::<Impl, OFFSET>,
-            TryReduceFacesWithOptionsAsync::<Impl, OFFSET>,
-            TryReduceFacesWithOptionsAndTimeAsync::<Impl, OFFSET>,
-            RepairWithProgressAsync::<Impl, OFFSET>,
+            TryPartialRepairAsync::<Impl, IMPL_OFFSET>,
+            TryPartialRepairWithTimeAsync::<Impl, IMPL_OFFSET>,
+            TryReduceFacesAsync::<Impl, IMPL_OFFSET>,
+            TryReduceFacesWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            TryReduceFacesWithOptionsAndTimeAsync::<Impl, IMPL_OFFSET>,
+            RepairWithProgressAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DModel2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1779,7 +1886,7 @@ impl ::windows::core::RuntimeName for IPrinting3DModelTexture {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DModelTextureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DModelTextureImpl, const OFFSET: isize>() -> IPrinting3DModelTextureVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DModelTextureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DModelTextureVtbl {
         unsafe extern "system" fn TextureResource<Impl: IPrinting3DModelTextureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextureResource() {
@@ -1825,20 +1932,36 @@ impl IPrinting3DModelTextureVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTileStyleV(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DModelTexture>, ::windows::core::GetTrustLevel, TextureResource::<Impl, OFFSET>, SetTextureResource::<Impl, OFFSET>, TileStyleU::<Impl, OFFSET>, SetTileStyleU::<Impl, OFFSET>, TileStyleV::<Impl, OFFSET>, SetTileStyleV::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrinting3DModelTexture>,
+            ::windows::core::GetTrustLevel,
+            TextureResource::<Impl, IMPL_OFFSET>,
+            SetTextureResource::<Impl, IMPL_OFFSET>,
+            TileStyleU::<Impl, IMPL_OFFSET>,
+            SetTileStyleU::<Impl, IMPL_OFFSET>,
+            TileStyleV::<Impl, IMPL_OFFSET>,
+            SetTileStyleV::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DModelTexture as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DMultiplePropertyMaterialImpl: Sized {
     fn MaterialIndices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DMultiplePropertyMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMultiplePropertyMaterialImpl, const OFFSET: isize>() -> IPrinting3DMultiplePropertyMaterialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMultiplePropertyMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DMultiplePropertyMaterialVtbl {
         unsafe extern "system" fn MaterialIndices<Impl: IPrinting3DMultiplePropertyMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaterialIndices() {
@@ -1850,22 +1973,25 @@ impl IPrinting3DMultiplePropertyMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterial>, ::windows::core::GetTrustLevel, MaterialIndices::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterial>, ::windows::core::GetTrustLevel, MaterialIndices::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DMultiplePropertyMaterial as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DMultiplePropertyMaterialGroupImpl: Sized {
     fn MultipleProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>>;
     fn MaterialGroupIndices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<u32>>;
     fn MaterialGroupId(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DMultiplePropertyMaterialGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMultiplePropertyMaterialGroupImpl, const OFFSET: isize>() -> IPrinting3DMultiplePropertyMaterialGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMultiplePropertyMaterialGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DMultiplePropertyMaterialGroupVtbl {
         unsafe extern "system" fn MultipleProperties<Impl: IPrinting3DMultiplePropertyMaterialGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MultipleProperties() {
@@ -1899,7 +2025,10 @@ impl IPrinting3DMultiplePropertyMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterialGroup>, ::windows::core::GetTrustLevel, MultipleProperties::<Impl, OFFSET>, MaterialGroupIndices::<Impl, OFFSET>, MaterialGroupId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterialGroup>, ::windows::core::GetTrustLevel, MultipleProperties::<Impl, IMPL_OFFSET>, MaterialGroupIndices::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DMultiplePropertyMaterialGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1912,7 +2041,7 @@ impl ::windows::core::RuntimeName for IPrinting3DMultiplePropertyMaterialGroupFa
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMultiplePropertyMaterialGroupFactoryImpl, const OFFSET: isize>() -> IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DMultiplePropertyMaterialGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPrinting3DMultiplePropertyMaterialGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(materialgroupid) {
@@ -1924,7 +2053,10 @@ impl IPrinting3DMultiplePropertyMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DMultiplePropertyMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DMultiplePropertyMaterialGroupFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1942,7 +2074,7 @@ impl ::windows::core::RuntimeName for IPrinting3DTexture2CoordMaterial {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DTexture2CoordMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialImpl, const OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialVtbl {
         unsafe extern "system" fn Texture<Impl: IPrinting3DTexture2CoordMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Texture() {
@@ -1988,21 +2120,24 @@ impl IPrinting3DTexture2CoordMaterialVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetV(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterial>, ::windows::core::GetTrustLevel, Texture::<Impl, OFFSET>, SetTexture::<Impl, OFFSET>, U::<Impl, OFFSET>, SetU::<Impl, OFFSET>, V::<Impl, OFFSET>, SetV::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterial>, ::windows::core::GetTrustLevel, Texture::<Impl, IMPL_OFFSET>, SetTexture::<Impl, IMPL_OFFSET>, U::<Impl, IMPL_OFFSET>, SetU::<Impl, IMPL_OFFSET>, V::<Impl, IMPL_OFFSET>, SetV::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DTexture2CoordMaterial as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrinting3DTexture2CoordMaterialGroupImpl: Sized {
     fn Texture2Coords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>>;
     fn MaterialGroupId(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrinting3DTexture2CoordMaterialGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialGroupImpl, const OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialGroupVtbl {
         unsafe extern "system" fn Texture2Coords<Impl: IPrinting3DTexture2CoordMaterialGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Texture2Coords() {
@@ -2025,7 +2160,10 @@ impl IPrinting3DTexture2CoordMaterialGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroup>, ::windows::core::GetTrustLevel, Texture2Coords::<Impl, OFFSET>, MaterialGroupId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroup>, ::windows::core::GetTrustLevel, Texture2Coords::<Impl, IMPL_OFFSET>, MaterialGroupId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DTexture2CoordMaterialGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2039,7 +2177,7 @@ impl ::windows::core::RuntimeName for IPrinting3DTexture2CoordMaterialGroup2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DTexture2CoordMaterialGroup2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialGroup2Impl, const OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialGroup2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialGroup2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialGroup2Vtbl {
         unsafe extern "system" fn Texture<Impl: IPrinting3DTexture2CoordMaterialGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Texture() {
@@ -2055,7 +2193,10 @@ impl IPrinting3DTexture2CoordMaterialGroup2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTexture(&*(&value as *const <Printing3DModelTexture as ::windows::core::Abi>::Abi as *const <Printing3DModelTexture as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroup2>, ::windows::core::GetTrustLevel, Texture::<Impl, OFFSET>, SetTexture::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroup2>, ::windows::core::GetTrustLevel, Texture::<Impl, IMPL_OFFSET>, SetTexture::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DTexture2CoordMaterialGroup2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2068,7 +2209,7 @@ impl ::windows::core::RuntimeName for IPrinting3DTexture2CoordMaterialGroupFacto
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrinting3DTexture2CoordMaterialGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialGroupFactoryImpl, const OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTexture2CoordMaterialGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DTexture2CoordMaterialGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPrinting3DTexture2CoordMaterialGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(materialgroupid) {
@@ -2080,23 +2221,26 @@ impl IPrinting3DTexture2CoordMaterialGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTexture2CoordMaterialGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DTexture2CoordMaterialGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrinting3DTextureResourceImpl: Sized {
     fn TextureData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
     fn SetTextureData(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrinting3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.IPrinting3DTextureResource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrinting3DTextureResourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTextureResourceImpl, const OFFSET: isize>() -> IPrinting3DTextureResourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DTextureResourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DTextureResourceVtbl {
         unsafe extern "system" fn TextureData<Impl: IPrinting3DTextureResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextureData() {
@@ -2127,6 +2271,9 @@ impl IPrinting3DTextureResourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTextureResource>, ::windows::core::GetTrustLevel, TextureData::<Impl, OFFSET>, SetTextureData::<Impl, OFFSET>, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrinting3DTextureResource>, ::windows::core::GetTrustLevel, TextureData::<Impl, IMPL_OFFSET>, SetTextureData::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrinting3DTextureResource as ::windows::core::Interface>::IID
     }
 }

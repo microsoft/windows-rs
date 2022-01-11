@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportDeleteImportedItemsFromSourceResultImpl: Sized {
     fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
     fn HasSucceeded(&self) -> ::windows::core::Result<bool>;
@@ -14,13 +14,13 @@ pub trait IPhotoImportDeleteImportedItemsFromSourceResultImpl: Sized {
     fn TotalCount(&self) -> ::windows::core::Result<u32>;
     fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportDeleteImportedItemsFromSourceResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>() -> IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
         unsafe extern "system" fn Session<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -165,29 +165,32 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportDeleteImportedItemsFromSourceResult>,
             ::windows::core::GetTrustLevel,
-            Session::<Impl, OFFSET>,
-            HasSucceeded::<Impl, OFFSET>,
-            DeletedItems::<Impl, OFFSET>,
-            PhotosCount::<Impl, OFFSET>,
-            PhotosSizeInBytes::<Impl, OFFSET>,
-            VideosCount::<Impl, OFFSET>,
-            VideosSizeInBytes::<Impl, OFFSET>,
-            SidecarsCount::<Impl, OFFSET>,
-            SidecarsSizeInBytes::<Impl, OFFSET>,
-            SiblingsCount::<Impl, OFFSET>,
-            SiblingsSizeInBytes::<Impl, OFFSET>,
-            TotalCount::<Impl, OFFSET>,
-            TotalSizeInBytes::<Impl, OFFSET>,
+            Session::<Impl, IMPL_OFFSET>,
+            HasSucceeded::<Impl, IMPL_OFFSET>,
+            DeletedItems::<Impl, IMPL_OFFSET>,
+            PhotosCount::<Impl, IMPL_OFFSET>,
+            PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            VideosCount::<Impl, IMPL_OFFSET>,
+            VideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SidecarsCount::<Impl, IMPL_OFFSET>,
+            SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SiblingsCount::<Impl, IMPL_OFFSET>,
+            SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            TotalCount::<Impl, IMPL_OFFSET>,
+            TotalSizeInBytes::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportDeleteImportedItemsFromSourceResult as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportFindItemsResultImpl: Sized {
     fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
     fn HasSucceeded(&self) -> ::windows::core::Result<bool>;
@@ -223,13 +226,13 @@ pub trait IPhotoImportFindItemsResultImpl: Sized {
     fn ItemImported(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemImported(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportFindItemsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhotoImportFindItemsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>() -> IPhotoImportFindItemsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportFindItemsResultVtbl {
         unsafe extern "system" fn Session<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -559,67 +562,73 @@ impl IPhotoImportFindItemsResultVtbl {
             (*this).RemoveItemImported(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportFindItemsResult>,
             ::windows::core::GetTrustLevel,
-            Session::<Impl, OFFSET>,
-            HasSucceeded::<Impl, OFFSET>,
-            FoundItems::<Impl, OFFSET>,
-            PhotosCount::<Impl, OFFSET>,
-            PhotosSizeInBytes::<Impl, OFFSET>,
-            VideosCount::<Impl, OFFSET>,
-            VideosSizeInBytes::<Impl, OFFSET>,
-            SidecarsCount::<Impl, OFFSET>,
-            SidecarsSizeInBytes::<Impl, OFFSET>,
-            SiblingsCount::<Impl, OFFSET>,
-            SiblingsSizeInBytes::<Impl, OFFSET>,
-            TotalCount::<Impl, OFFSET>,
-            TotalSizeInBytes::<Impl, OFFSET>,
-            SelectAll::<Impl, OFFSET>,
-            SelectNone::<Impl, OFFSET>,
-            SelectNewAsync::<Impl, OFFSET>,
-            SetImportMode::<Impl, OFFSET>,
-            ImportMode::<Impl, OFFSET>,
-            SelectedPhotosCount::<Impl, OFFSET>,
-            SelectedPhotosSizeInBytes::<Impl, OFFSET>,
-            SelectedVideosCount::<Impl, OFFSET>,
-            SelectedVideosSizeInBytes::<Impl, OFFSET>,
-            SelectedSidecarsCount::<Impl, OFFSET>,
-            SelectedSidecarsSizeInBytes::<Impl, OFFSET>,
-            SelectedSiblingsCount::<Impl, OFFSET>,
-            SelectedSiblingsSizeInBytes::<Impl, OFFSET>,
-            SelectedTotalCount::<Impl, OFFSET>,
-            SelectedTotalSizeInBytes::<Impl, OFFSET>,
-            SelectionChanged::<Impl, OFFSET>,
-            RemoveSelectionChanged::<Impl, OFFSET>,
-            ImportItemsAsync::<Impl, OFFSET>,
-            ItemImported::<Impl, OFFSET>,
-            RemoveItemImported::<Impl, OFFSET>,
+            Session::<Impl, IMPL_OFFSET>,
+            HasSucceeded::<Impl, IMPL_OFFSET>,
+            FoundItems::<Impl, IMPL_OFFSET>,
+            PhotosCount::<Impl, IMPL_OFFSET>,
+            PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            VideosCount::<Impl, IMPL_OFFSET>,
+            VideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SidecarsCount::<Impl, IMPL_OFFSET>,
+            SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SiblingsCount::<Impl, IMPL_OFFSET>,
+            SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            TotalCount::<Impl, IMPL_OFFSET>,
+            TotalSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectAll::<Impl, IMPL_OFFSET>,
+            SelectNone::<Impl, IMPL_OFFSET>,
+            SelectNewAsync::<Impl, IMPL_OFFSET>,
+            SetImportMode::<Impl, IMPL_OFFSET>,
+            ImportMode::<Impl, IMPL_OFFSET>,
+            SelectedPhotosCount::<Impl, IMPL_OFFSET>,
+            SelectedPhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedVideosCount::<Impl, IMPL_OFFSET>,
+            SelectedVideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedSidecarsCount::<Impl, IMPL_OFFSET>,
+            SelectedSidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedSiblingsCount::<Impl, IMPL_OFFSET>,
+            SelectedSiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectedTotalCount::<Impl, IMPL_OFFSET>,
+            SelectedTotalSizeInBytes::<Impl, IMPL_OFFSET>,
+            SelectionChanged::<Impl, IMPL_OFFSET>,
+            RemoveSelectionChanged::<Impl, IMPL_OFFSET>,
+            ImportItemsAsync::<Impl, IMPL_OFFSET>,
+            ItemImported::<Impl, IMPL_OFFSET>,
+            RemoveItemImported::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportFindItemsResult as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoImportFindItemsResult2Impl: Sized {
     fn AddItemsInDateRangeToSelection(&self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportFindItemsResult2 {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportFindItemsResult2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhotoImportFindItemsResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResult2Impl, const OFFSET: isize>() -> IPhotoImportFindItemsResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportFindItemsResult2Vtbl {
         unsafe extern "system" fn AddItemsInDateRangeToSelection<Impl: IPhotoImportFindItemsResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddItemsInDateRangeToSelection(&*(&rangestart as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&rangelength as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportFindItemsResult2>, ::windows::core::GetTrustLevel, AddItemsInDateRangeToSelection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportFindItemsResult2>, ::windows::core::GetTrustLevel, AddItemsInDateRangeToSelection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportFindItemsResult2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportImportItemsResultImpl: Sized {
     fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
     fn HasSucceeded(&self) -> ::windows::core::Result<bool>;
@@ -636,13 +645,13 @@ pub trait IPhotoImportImportItemsResultImpl: Sized {
     fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64>;
     fn DeleteImportedItemsFromSourceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportImportItemsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhotoImportImportItemsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>() -> IPhotoImportImportItemsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportImportItemsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportImportItemsResultVtbl {
         unsafe extern "system" fn Session<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -798,30 +807,33 @@ impl IPhotoImportImportItemsResultVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportImportItemsResult>,
             ::windows::core::GetTrustLevel,
-            Session::<Impl, OFFSET>,
-            HasSucceeded::<Impl, OFFSET>,
-            ImportedItems::<Impl, OFFSET>,
-            PhotosCount::<Impl, OFFSET>,
-            PhotosSizeInBytes::<Impl, OFFSET>,
-            VideosCount::<Impl, OFFSET>,
-            VideosSizeInBytes::<Impl, OFFSET>,
-            SidecarsCount::<Impl, OFFSET>,
-            SidecarsSizeInBytes::<Impl, OFFSET>,
-            SiblingsCount::<Impl, OFFSET>,
-            SiblingsSizeInBytes::<Impl, OFFSET>,
-            TotalCount::<Impl, OFFSET>,
-            TotalSizeInBytes::<Impl, OFFSET>,
-            DeleteImportedItemsFromSourceAsync::<Impl, OFFSET>,
+            Session::<Impl, IMPL_OFFSET>,
+            HasSucceeded::<Impl, IMPL_OFFSET>,
+            ImportedItems::<Impl, IMPL_OFFSET>,
+            PhotosCount::<Impl, IMPL_OFFSET>,
+            PhotosSizeInBytes::<Impl, IMPL_OFFSET>,
+            VideosCount::<Impl, IMPL_OFFSET>,
+            VideosSizeInBytes::<Impl, IMPL_OFFSET>,
+            SidecarsCount::<Impl, IMPL_OFFSET>,
+            SidecarsSizeInBytes::<Impl, IMPL_OFFSET>,
+            SiblingsCount::<Impl, IMPL_OFFSET>,
+            SiblingsSizeInBytes::<Impl, IMPL_OFFSET>,
+            TotalCount::<Impl, IMPL_OFFSET>,
+            TotalSizeInBytes::<Impl, IMPL_OFFSET>,
+            DeleteImportedItemsFromSourceAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportImportItemsResult as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPhotoImportItemImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ItemKey(&self) -> ::windows::core::Result<u64>;
@@ -837,13 +849,13 @@ pub trait IPhotoImportItemImpl: Sized {
     fn ImportedFileNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn DeletedFileNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPhotoImportItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImpl, const OFFSET: isize>() -> IPhotoImportItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItemVtbl {
         unsafe extern "system" fn Name<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -981,26 +993,29 @@ impl IPhotoImportItemVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportItem>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            ItemKey::<Impl, OFFSET>,
-            ContentType::<Impl, OFFSET>,
-            SizeInBytes::<Impl, OFFSET>,
-            Date::<Impl, OFFSET>,
-            Sibling::<Impl, OFFSET>,
-            Sidecars::<Impl, OFFSET>,
-            VideoSegments::<Impl, OFFSET>,
-            IsSelected::<Impl, OFFSET>,
-            SetIsSelected::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            ImportedFileNames::<Impl, OFFSET>,
-            DeletedFileNames::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            ItemKey::<Impl, IMPL_OFFSET>,
+            ContentType::<Impl, IMPL_OFFSET>,
+            SizeInBytes::<Impl, IMPL_OFFSET>,
+            Date::<Impl, IMPL_OFFSET>,
+            Sibling::<Impl, IMPL_OFFSET>,
+            Sidecars::<Impl, IMPL_OFFSET>,
+            VideoSegments::<Impl, IMPL_OFFSET>,
+            IsSelected::<Impl, IMPL_OFFSET>,
+            SetIsSelected::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            ImportedFileNames::<Impl, IMPL_OFFSET>,
+            DeletedFileNames::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1013,7 +1028,7 @@ impl ::windows::core::RuntimeName for IPhotoImportItem2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhotoImportItem2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItem2Impl, const OFFSET: isize>() -> IPhotoImportItem2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItem2Vtbl {
         unsafe extern "system" fn Path<Impl: IPhotoImportItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
@@ -1025,7 +1040,10 @@ impl IPhotoImportItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportItem2>, ::windows::core::GetTrustLevel, Path::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportItem2>, ::windows::core::GetTrustLevel, Path::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportItem2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1038,7 +1056,7 @@ impl ::windows::core::RuntimeName for IPhotoImportItemImportedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhotoImportItemImportedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImportedEventArgsImpl, const OFFSET: isize>() -> IPhotoImportItemImportedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImportedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItemImportedEventArgsVtbl {
         unsafe extern "system" fn ImportedItem<Impl: IPhotoImportItemImportedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportedItem() {
@@ -1050,22 +1068,25 @@ impl IPhotoImportItemImportedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportItemImportedEventArgs>, ::windows::core::GetTrustLevel, ImportedItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportItemImportedEventArgs>, ::windows::core::GetTrustLevel, ImportedItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportItemImportedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportManagerStaticsImpl: Sized {
     fn IsSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn FindAllSourcesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>>;
     fn GetPendingOperations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportManagerStatics {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhotoImportManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportManagerStaticsImpl, const OFFSET: isize>() -> IPhotoImportManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportManagerStaticsVtbl {
         unsafe extern "system" fn IsSupportedAsync<Impl: IPhotoImportManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupportedAsync() {
@@ -1099,10 +1120,13 @@ impl IPhotoImportManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportManagerStatics>, ::windows::core::GetTrustLevel, IsSupportedAsync::<Impl, OFFSET>, FindAllSourcesAsync::<Impl, OFFSET>, GetPendingOperations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportManagerStatics>, ::windows::core::GetTrustLevel, IsSupportedAsync::<Impl, IMPL_OFFSET>, FindAllSourcesAsync::<Impl, IMPL_OFFSET>, GetPendingOperations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoImportOperationImpl: Sized {
     fn Stage(&self) -> ::windows::core::Result<PhotoImportStage>;
     fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
@@ -1110,13 +1134,13 @@ pub trait IPhotoImportOperationImpl: Sized {
     fn ContinueImportingItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>;
     fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportOperation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhotoImportOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportOperationImpl, const OFFSET: isize>() -> IPhotoImportOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportOperationVtbl {
         unsafe extern "system" fn Stage<Impl: IPhotoImportOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportStage) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stage() {
@@ -1172,7 +1196,22 @@ impl IPhotoImportOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportOperation>, ::windows::core::GetTrustLevel, Stage::<Impl, OFFSET>, Session::<Impl, OFFSET>, ContinueFindingItemsAsync::<Impl, OFFSET>, ContinueImportingItemsAsync::<Impl, OFFSET>, ContinueDeletingImportedItemsFromSourceAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhotoImportOperation>,
+            ::windows::core::GetTrustLevel,
+            Stage::<Impl, IMPL_OFFSET>,
+            Session::<Impl, IMPL_OFFSET>,
+            ContinueFindingItemsAsync::<Impl, IMPL_OFFSET>,
+            ContinueImportingItemsAsync::<Impl, IMPL_OFFSET>,
+            ContinueDeletingImportedItemsFromSourceAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1185,7 +1224,7 @@ impl ::windows::core::RuntimeName for IPhotoImportSelectionChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhotoImportSelectionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSelectionChangedEventArgsImpl, const OFFSET: isize>() -> IPhotoImportSelectionChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSelectionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSelectionChangedEventArgsVtbl {
         unsafe extern "system" fn IsSelectionEmpty<Impl: IPhotoImportSelectionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelectionEmpty() {
@@ -1197,10 +1236,13 @@ impl IPhotoImportSelectionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSelectionChangedEventArgs>, ::windows::core::GetTrustLevel, IsSelectionEmpty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSelectionChangedEventArgs>, ::windows::core::GetTrustLevel, IsSelectionEmpty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportSelectionChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPhotoImportSessionImpl: Sized + IClosableImpl {
     fn Source(&self) -> ::windows::core::Result<PhotoImportSource>;
     fn SessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1214,13 +1256,13 @@ pub trait IPhotoImportSessionImpl: Sized + IClosableImpl {
     fn DestinationFileNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSession";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IPhotoImportSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSessionImpl, const OFFSET: isize>() -> IPhotoImportSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSessionVtbl {
         unsafe extern "system" fn Source<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
@@ -1315,24 +1357,27 @@ impl IPhotoImportSessionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportSession>,
             ::windows::core::GetTrustLevel,
-            Source::<Impl, OFFSET>,
-            SessionId::<Impl, OFFSET>,
-            SetDestinationFolder::<Impl, OFFSET>,
-            DestinationFolder::<Impl, OFFSET>,
-            SetAppendSessionDateToDestinationFolder::<Impl, OFFSET>,
-            AppendSessionDateToDestinationFolder::<Impl, OFFSET>,
-            SetSubfolderCreationMode::<Impl, OFFSET>,
-            SubfolderCreationMode::<Impl, OFFSET>,
-            SetDestinationFileNamePrefix::<Impl, OFFSET>,
-            DestinationFileNamePrefix::<Impl, OFFSET>,
-            FindItemsAsync::<Impl, OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            SessionId::<Impl, IMPL_OFFSET>,
+            SetDestinationFolder::<Impl, IMPL_OFFSET>,
+            DestinationFolder::<Impl, IMPL_OFFSET>,
+            SetAppendSessionDateToDestinationFolder::<Impl, IMPL_OFFSET>,
+            AppendSessionDateToDestinationFolder::<Impl, IMPL_OFFSET>,
+            SetSubfolderCreationMode::<Impl, IMPL_OFFSET>,
+            SubfolderCreationMode::<Impl, IMPL_OFFSET>,
+            SetDestinationFileNamePrefix::<Impl, IMPL_OFFSET>,
+            DestinationFileNamePrefix::<Impl, IMPL_OFFSET>,
+            FindItemsAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportSession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1348,7 +1393,7 @@ impl ::windows::core::RuntimeName for IPhotoImportSession2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhotoImportSession2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSession2Impl, const OFFSET: isize>() -> IPhotoImportSession2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSession2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSession2Vtbl {
         unsafe extern "system" fn SetSubfolderDateFormat<Impl: IPhotoImportSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubfolderDateFormat(value).into()
@@ -1379,22 +1424,25 @@ impl IPhotoImportSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSession2>, ::windows::core::GetTrustLevel, SetSubfolderDateFormat::<Impl, OFFSET>, SubfolderDateFormat::<Impl, OFFSET>, SetRememberDeselectedItems::<Impl, OFFSET>, RememberDeselectedItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSession2>, ::windows::core::GetTrustLevel, SetSubfolderDateFormat::<Impl, IMPL_OFFSET>, SubfolderDateFormat::<Impl, IMPL_OFFSET>, SetRememberDeselectedItems::<Impl, IMPL_OFFSET>, RememberDeselectedItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportSession2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoImportSidecarImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SizeInBytes(&self) -> ::windows::core::Result<u64>;
     fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSidecar";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhotoImportSidecarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSidecarImpl, const OFFSET: isize>() -> IPhotoImportSidecarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSidecarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSidecarVtbl {
         unsafe extern "system" fn Name<Impl: IPhotoImportSidecarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1428,10 +1476,13 @@ impl IPhotoImportSidecarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSidecar>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SizeInBytes::<Impl, OFFSET>, Date::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSidecar>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SizeInBytes::<Impl, IMPL_OFFSET>, Date::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportSidecar as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPhotoImportSourceImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1451,13 +1502,13 @@ pub trait IPhotoImportSourceImpl: Sized {
     fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn CreateImportSession(&self) -> ::windows::core::Result<PhotoImportSession>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPhotoImportSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceImpl, const OFFSET: isize>() -> IPhotoImportSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSourceVtbl {
         unsafe extern "system" fn Id<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1646,44 +1697,47 @@ impl IPhotoImportSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportSource>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            Manufacturer::<Impl, OFFSET>,
-            Model::<Impl, OFFSET>,
-            SerialNumber::<Impl, OFFSET>,
-            ConnectionProtocol::<Impl, OFFSET>,
-            ConnectionTransport::<Impl, OFFSET>,
-            Type::<Impl, OFFSET>,
-            PowerSource::<Impl, OFFSET>,
-            BatteryLevelPercent::<Impl, OFFSET>,
-            DateTime::<Impl, OFFSET>,
-            StorageMedia::<Impl, OFFSET>,
-            IsLocked::<Impl, OFFSET>,
-            IsMassStorage::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            CreateImportSession::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Manufacturer::<Impl, IMPL_OFFSET>,
+            Model::<Impl, IMPL_OFFSET>,
+            SerialNumber::<Impl, IMPL_OFFSET>,
+            ConnectionProtocol::<Impl, IMPL_OFFSET>,
+            ConnectionTransport::<Impl, IMPL_OFFSET>,
+            Type::<Impl, IMPL_OFFSET>,
+            PowerSource::<Impl, IMPL_OFFSET>,
+            BatteryLevelPercent::<Impl, IMPL_OFFSET>,
+            DateTime::<Impl, IMPL_OFFSET>,
+            StorageMedia::<Impl, IMPL_OFFSET>,
+            IsLocked::<Impl, IMPL_OFFSET>,
+            IsMassStorage::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            CreateImportSession::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportSource as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPhotoImportSourceStaticsImpl: Sized {
     fn FromIdAsync(&self, sourceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
     fn FromFolderAsync(&self, sourcerootfolder: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSourceStatics {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSourceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IPhotoImportSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceStaticsImpl, const OFFSET: isize>() -> IPhotoImportSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSourceStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IPhotoImportSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&sourceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1706,7 +1760,10 @@ impl IPhotoImportSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSourceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, FromFolderAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportSourceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, FromFolderAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportSourceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1726,7 +1783,7 @@ impl ::windows::core::RuntimeName for IPhotoImportStorageMedium {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhotoImportStorageMediumVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>() -> IPhotoImportStorageMediumVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportStorageMediumImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportStorageMediumVtbl {
         unsafe extern "system" fn Name<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1809,24 +1866,27 @@ impl IPhotoImportStorageMediumVtbl {
             (*this).Refresh().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhotoImportStorageMedium>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SerialNumber::<Impl, OFFSET>,
-            StorageMediumType::<Impl, OFFSET>,
-            SupportedAccessMode::<Impl, OFFSET>,
-            CapacityInBytes::<Impl, OFFSET>,
-            AvailableSpaceInBytes::<Impl, OFFSET>,
-            Refresh::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SerialNumber::<Impl, IMPL_OFFSET>,
+            StorageMediumType::<Impl, IMPL_OFFSET>,
+            SupportedAccessMode::<Impl, IMPL_OFFSET>,
+            CapacityInBytes::<Impl, IMPL_OFFSET>,
+            AvailableSpaceInBytes::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportStorageMedium as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportVideoSegmentImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SizeInBytes(&self) -> ::windows::core::Result<u64>;
@@ -1834,13 +1894,13 @@ pub trait IPhotoImportVideoSegmentImpl: Sized {
     fn Sibling(&self) -> ::windows::core::Result<PhotoImportSidecar>;
     fn Sidecars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportVideoSegment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhotoImportVideoSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>() -> IPhotoImportVideoSegmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportVideoSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportVideoSegmentVtbl {
         unsafe extern "system" fn Name<Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1896,6 +1956,9 @@ impl IPhotoImportVideoSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportVideoSegment>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SizeInBytes::<Impl, OFFSET>, Date::<Impl, OFFSET>, Sibling::<Impl, OFFSET>, Sidecars::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhotoImportVideoSegment>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SizeInBytes::<Impl, IMPL_OFFSET>, Date::<Impl, IMPL_OFFSET>, Sibling::<Impl, IMPL_OFFSET>, Sidecars::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhotoImportVideoSegment as ::windows::core::Interface>::IID
     }
 }

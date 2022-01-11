@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IRetailModeStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IRetailModeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRetailModeStaticsImpl, const OFFSET: isize>() -> IRetailModeStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRetailModeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRetailModeStaticsVtbl {
         unsafe extern "system" fn RetailModeEnabled<Impl: IRetailModeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetailModeEnabled() {
@@ -20,6 +20,9 @@ impl IRetailModeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRetailModeStatics>, ::windows::core::GetTrustLevel, RetailModeEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRetailModeStatics>, ::windows::core::GetTrustLevel, RetailModeEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRetailModeStatics as ::windows::core::Interface>::IID
     }
 }

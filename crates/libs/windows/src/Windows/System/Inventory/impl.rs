@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IInstalledDesktopApp {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInstalledDesktopAppVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledDesktopAppImpl, const OFFSET: isize>() -> IInstalledDesktopAppVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledDesktopAppImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInstalledDesktopAppVtbl {
         unsafe extern "system" fn Id<Impl: IInstalledDesktopAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -56,20 +56,23 @@ impl IInstalledDesktopAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledDesktopApp>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, Publisher::<Impl, OFFSET>, DisplayVersion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledDesktopApp>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, Publisher::<Impl, IMPL_OFFSET>, DisplayVersion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInstalledDesktopApp as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInstalledDesktopAppStaticsImpl: Sized {
     fn GetInventoryAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInstalledDesktopAppStatics {
     const NAME: &'static str = "Windows.System.Inventory.IInstalledDesktopAppStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IInstalledDesktopAppStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledDesktopAppStaticsImpl, const OFFSET: isize>() -> IInstalledDesktopAppStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledDesktopAppStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInstalledDesktopAppStaticsVtbl {
         unsafe extern "system" fn GetInventoryAsync<Impl: IInstalledDesktopAppStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetInventoryAsync() {
@@ -81,6 +84,9 @@ impl IInstalledDesktopAppStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledDesktopAppStatics>, ::windows::core::GetTrustLevel, GetInventoryAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledDesktopAppStatics>, ::windows::core::GetTrustLevel, GetInventoryAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInstalledDesktopAppStatics as ::windows::core::Interface>::IID
     }
 }

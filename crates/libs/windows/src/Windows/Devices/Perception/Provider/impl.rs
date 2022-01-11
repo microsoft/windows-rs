@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IKnownPerceptionFrameKindStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionFrameKindStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionFrameKindStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameKindStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownPerceptionFrameKindStaticsVtbl {
         unsafe extern "system" fn Color<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
@@ -44,20 +44,23 @@ impl IKnownPerceptionFrameKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameKindStatics>, ::windows::core::GetTrustLevel, Color::<Impl, OFFSET>, Depth::<Impl, OFFSET>, Infrared::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameKindStatics>, ::windows::core::GetTrustLevel, Color::<Impl, IMPL_OFFSET>, Depth::<Impl, IMPL_OFFSET>, Infrared::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownPerceptionFrameKindStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionControlGroupImpl: Sized {
     fn FrameProviderIds(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionControlGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionControlGroup";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionControlGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlGroupImpl, const OFFSET: isize>() -> IPerceptionControlGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionControlGroupVtbl {
         unsafe extern "system" fn FrameProviderIds<Impl: IPerceptionControlGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameProviderIds() {
@@ -69,20 +72,23 @@ impl IPerceptionControlGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionControlGroup as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionControlGroupFactoryImpl: Sized {
     fn Create(&self, ids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PerceptionControlGroup>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionControlGroupFactory {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionControlGroupFactory";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionControlGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlGroupFactoryImpl, const OFFSET: isize>() -> IPerceptionControlGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionControlGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPerceptionControlGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&ids as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -94,22 +100,25 @@ impl IPerceptionControlGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionControlGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationImpl: Sized {
     fn TargetId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn Orientation(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Quaternion>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelation {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionCorrelation";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationImpl, const OFFSET: isize>() -> IPerceptionCorrelationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionCorrelationVtbl {
         unsafe extern "system" fn TargetId<Impl: IPerceptionCorrelationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetId() {
@@ -143,20 +152,23 @@ impl IPerceptionCorrelationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelation>, ::windows::core::GetTrustLevel, TargetId::<Impl, OFFSET>, Position::<Impl, OFFSET>, Orientation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelation>, ::windows::core::GetTrustLevel, TargetId::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, Orientation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionCorrelation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationFactoryImpl: Sized {
     fn Create(&self, targetid: &::windows::core::HSTRING, position: &super::super::super::Foundation::Numerics::Vector3, orientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<PerceptionCorrelation>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelationFactory {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionCorrelationFactory";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationFactoryImpl, const OFFSET: isize>() -> IPerceptionCorrelationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionCorrelationFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPerceptionCorrelationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, position: super::super::super::Foundation::Numerics::Vector3, orientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
@@ -172,20 +184,23 @@ impl IPerceptionCorrelationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionCorrelationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationGroupImpl: Sized {
     fn RelativeLocations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelationGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationGroupImpl, const OFFSET: isize>() -> IPerceptionCorrelationGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionCorrelationGroupVtbl {
         unsafe extern "system" fn RelativeLocations<Impl: IPerceptionCorrelationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeLocations() {
@@ -197,20 +212,23 @@ impl IPerceptionCorrelationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroup>, ::windows::core::GetTrustLevel, RelativeLocations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroup>, ::windows::core::GetTrustLevel, RelativeLocations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionCorrelationGroup as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationGroupFactoryImpl: Sized {
     fn Create(&self, relativelocations: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation>>) -> ::windows::core::Result<PerceptionCorrelationGroup>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelationGroupFactory {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionCorrelationGroupFactory";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationGroupFactoryImpl, const OFFSET: isize>() -> IPerceptionCorrelationGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionCorrelationGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPerceptionCorrelationGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativelocations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&relativelocations as *const <super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation> as ::windows::core::DefaultType>::DefaultType)) {
@@ -222,20 +240,23 @@ impl IPerceptionCorrelationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionCorrelationGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFaceAuthenticationGroupImpl: Sized {
     fn FrameProviderIds(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFaceAuthenticationGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFaceAuthenticationGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFaceAuthenticationGroupImpl, const OFFSET: isize>() -> IPerceptionFaceAuthenticationGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFaceAuthenticationGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFaceAuthenticationGroupVtbl {
         unsafe extern "system" fn FrameProviderIds<Impl: IPerceptionFaceAuthenticationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameProviderIds() {
@@ -247,20 +268,23 @@ impl IPerceptionFaceAuthenticationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFaceAuthenticationGroup as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFaceAuthenticationGroupFactoryImpl: Sized {
     fn Create(&self, ids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, starthandler: &::core::option::Option<PerceptionStartFaceAuthenticationHandler>, stophandler: &::core::option::Option<PerceptionStopFaceAuthenticationHandler>) -> ::windows::core::Result<PerceptionFaceAuthenticationGroup>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFaceAuthenticationGroupFactory {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroupFactory";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFaceAuthenticationGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const OFFSET: isize>() -> IPerceptionFaceAuthenticationGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFaceAuthenticationGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, starthandler: ::windows::core::RawPtr, stophandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
@@ -276,23 +300,26 @@ impl IPerceptionFaceAuthenticationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFaceAuthenticationGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFrameImpl: Sized {
     fn RelativeTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetRelativeTime(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::ValueSet>;
     fn FrameData(&self) -> ::windows::core::Result<super::super::super::Foundation::IMemoryBuffer>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFrame {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionFrame";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameImpl, const OFFSET: isize>() -> IPerceptionFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameVtbl {
         unsafe extern "system" fn RelativeTime<Impl: IPerceptionFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTime() {
@@ -330,10 +357,13 @@ impl IPerceptionFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrame>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, OFFSET>, SetRelativeTime::<Impl, OFFSET>, Properties::<Impl, OFFSET>, FrameData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrame>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, IMPL_OFFSET>, SetRelativeTime::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, FrameData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait IPerceptionFrameProviderImpl: Sized + IClosableImpl {
     fn FrameProviderInfo(&self) -> ::windows::core::Result<PerceptionFrameProviderInfo>;
     fn Available(&self) -> ::windows::core::Result<bool>;
@@ -342,13 +372,13 @@ pub trait IPerceptionFrameProviderImpl: Sized + IClosableImpl {
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn SetProperty(&self, value: &::core::option::Option<PerceptionPropertyChangeRequest>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProvider {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionFrameProvider";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl IPerceptionFrameProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>() -> IPerceptionFrameProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameProviderVtbl {
         unsafe extern "system" fn FrameProviderInfo<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameProviderInfo() {
@@ -394,7 +424,10 @@ impl IPerceptionFrameProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProperty(&*(&value as *const <PerceptionPropertyChangeRequest as ::windows::core::Abi>::Abi as *const <PerceptionPropertyChangeRequest as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProvider>, ::windows::core::GetTrustLevel, FrameProviderInfo::<Impl, OFFSET>, Available::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, SetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProvider>, ::windows::core::GetTrustLevel, FrameProviderInfo::<Impl, IMPL_OFFSET>, Available::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>, SetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrameProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -416,7 +449,7 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProviderInfo {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameProviderInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>() -> IPerceptionFrameProviderInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameProviderInfoVtbl {
         unsafe extern "system" fn Id<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -493,23 +526,26 @@ impl IPerceptionFrameProviderInfoVtbl {
             (*this).SetHidden(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderInfo>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            SetId::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            DeviceKind::<Impl, OFFSET>,
-            SetDeviceKind::<Impl, OFFSET>,
-            FrameKind::<Impl, OFFSET>,
-            SetFrameKind::<Impl, OFFSET>,
-            Hidden::<Impl, OFFSET>,
-            SetHidden::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            DeviceKind::<Impl, IMPL_OFFSET>,
+            SetDeviceKind::<Impl, IMPL_OFFSET>,
+            FrameKind::<Impl, IMPL_OFFSET>,
+            SetFrameKind::<Impl, IMPL_OFFSET>,
+            Hidden::<Impl, IMPL_OFFSET>,
+            SetHidden::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrameProviderInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -522,7 +558,7 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProviderManager {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl IPerceptionFrameProviderManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderManagerImpl, const OFFSET: isize>() -> IPerceptionFrameProviderManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameProviderManagerVtbl {
         unsafe extern "system" fn GetFrameProvider<Impl: IPerceptionFrameProviderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameproviderinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFrameProvider(&*(&frameproviderinfo as *const <PerceptionFrameProviderInfo as ::windows::core::Abi>::Abi as *const <PerceptionFrameProviderInfo as ::windows::core::DefaultType>::DefaultType)) {
@@ -534,7 +570,10 @@ impl IPerceptionFrameProviderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManager>, ::windows::core::GetTrustLevel, GetFrameProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManager>, ::windows::core::GetTrustLevel, GetFrameProvider::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrameProviderManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -556,7 +595,7 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProviderManagerServiceStat
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameProviderManagerServiceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>() -> IPerceptionFrameProviderManagerServiceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionFrameProviderManagerServiceStaticsVtbl {
         unsafe extern "system" fn RegisterFrameProviderInfo<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, frameproviderinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterFrameProviderInfo(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&frameproviderinfo as *const <PerceptionFrameProviderInfo as ::windows::core::Abi>::Abi as *const <PerceptionFrameProviderInfo as ::windows::core::DefaultType>::DefaultType)).into()
@@ -598,26 +637,29 @@ impl IPerceptionFrameProviderManagerServiceStaticsVtbl {
             (*this).PublishFrameForProvider(&*(&provider as *const <IPerceptionFrameProvider as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProvider as ::windows::core::DefaultType>::DefaultType), &*(&frame as *const <PerceptionFrame as ::windows::core::Abi>::Abi as *const <PerceptionFrame as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManagerServiceStatics>,
             ::windows::core::GetTrustLevel,
-            RegisterFrameProviderInfo::<Impl, OFFSET>,
-            UnregisterFrameProviderInfo::<Impl, OFFSET>,
-            RegisterFaceAuthenticationGroup::<Impl, OFFSET>,
-            UnregisterFaceAuthenticationGroup::<Impl, OFFSET>,
-            RegisterControlGroup::<Impl, OFFSET>,
-            UnregisterControlGroup::<Impl, OFFSET>,
-            RegisterCorrelationGroup::<Impl, OFFSET>,
-            UnregisterCorrelationGroup::<Impl, OFFSET>,
-            UpdateAvailabilityForProvider::<Impl, OFFSET>,
-            PublishFrameForProvider::<Impl, OFFSET>,
+            RegisterFrameProviderInfo::<Impl, IMPL_OFFSET>,
+            UnregisterFrameProviderInfo::<Impl, IMPL_OFFSET>,
+            RegisterFaceAuthenticationGroup::<Impl, IMPL_OFFSET>,
+            UnregisterFaceAuthenticationGroup::<Impl, IMPL_OFFSET>,
+            RegisterControlGroup::<Impl, IMPL_OFFSET>,
+            UnregisterControlGroup::<Impl, IMPL_OFFSET>,
+            RegisterCorrelationGroup::<Impl, IMPL_OFFSET>,
+            UnregisterCorrelationGroup::<Impl, IMPL_OFFSET>,
+            UpdateAvailabilityForProvider::<Impl, IMPL_OFFSET>,
+            PublishFrameForProvider::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionFrameProviderManagerServiceStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionPropertyChangeRequestImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -625,13 +667,13 @@ pub trait IPerceptionPropertyChangeRequestImpl: Sized {
     fn SetStatus(&self, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionPropertyChangeRequest {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionPropertyChangeRequest";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionPropertyChangeRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>() -> IPerceptionPropertyChangeRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionPropertyChangeRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionPropertyChangeRequestVtbl {
         unsafe extern "system" fn Name<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -680,21 +722,24 @@ impl IPerceptionPropertyChangeRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionPropertyChangeRequest>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, Value::<Impl, OFFSET>, Status::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionPropertyChangeRequest>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionPropertyChangeRequest as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionVideoFrameAllocatorImpl: Sized + IClosableImpl {
     fn AllocateFrame(&self) -> ::windows::core::Result<PerceptionFrame>;
     fn CopyFromVideoFrame(&self, frame: &::core::option::Option<super::super::super::Media::VideoFrame>) -> ::windows::core::Result<PerceptionFrame>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionVideoFrameAllocator {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionVideoFrameAllocatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: isize>() -> IPerceptionVideoFrameAllocatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoFrameAllocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionVideoFrameAllocatorVtbl {
         unsafe extern "system" fn AllocateFrame<Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllocateFrame() {
@@ -717,20 +762,23 @@ impl IPerceptionVideoFrameAllocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocator>, ::windows::core::GetTrustLevel, AllocateFrame::<Impl, OFFSET>, CopyFromVideoFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocator>, ::windows::core::GetTrustLevel, AllocateFrame::<Impl, IMPL_OFFSET>, CopyFromVideoFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionVideoFrameAllocator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionVideoFrameAllocatorFactoryImpl: Sized {
     fn Create(&self, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: &super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionVideoFrameAllocatorFactory {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocatorFactory";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionVideoFrameAllocatorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const OFFSET: isize>() -> IPerceptionVideoFrameAllocatorFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerceptionVideoFrameAllocatorFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(maxoutstandingframecountforwrite, format, &*(&resolution as *const <super::super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType), alpha) {
@@ -742,6 +790,9 @@ impl IPerceptionVideoFrameAllocatorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerceptionVideoFrameAllocatorFactory as ::windows::core::Interface>::IID
     }
 }

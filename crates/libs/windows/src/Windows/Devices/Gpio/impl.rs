@@ -14,7 +14,7 @@ impl ::windows::core::RuntimeName for IGpioChangeCounter {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGpioChangeCounterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeCounterImpl, const OFFSET: isize>() -> IGpioChangeCounterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeCounterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioChangeCounterVtbl {
         unsafe extern "system" fn SetPolarity<Impl: IGpioChangeCounterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GpioChangePolarity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPolarity(value).into()
@@ -71,7 +71,24 @@ impl IGpioChangeCounterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeCounter>, ::windows::core::GetTrustLevel, SetPolarity::<Impl, OFFSET>, Polarity::<Impl, OFFSET>, IsStarted::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, Read::<Impl, OFFSET>, Reset::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGpioChangeCounter>,
+            ::windows::core::GetTrustLevel,
+            SetPolarity::<Impl, IMPL_OFFSET>,
+            Polarity::<Impl, IMPL_OFFSET>,
+            IsStarted::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Read::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioChangeCounter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -84,7 +101,7 @@ impl ::windows::core::RuntimeName for IGpioChangeCounterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGpioChangeCounterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeCounterFactoryImpl, const OFFSET: isize>() -> IGpioChangeCounterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeCounterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioChangeCounterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IGpioChangeCounterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&pin as *const <GpioPin as ::windows::core::Abi>::Abi as *const <GpioPin as ::windows::core::DefaultType>::DefaultType)) {
@@ -96,10 +113,13 @@ impl IGpioChangeCounterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeCounterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeCounterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioChangeCounterFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGpioChangeReaderImpl: Sized + IClosableImpl {
     fn Capacity(&self) -> ::windows::core::Result<i32>;
     fn Length(&self) -> ::windows::core::Result<i32>;
@@ -116,13 +136,13 @@ pub trait IGpioChangeReaderImpl: Sized + IClosableImpl {
     fn GetAllItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<GpioChangeRecord>>;
     fn WaitForItemsAsync(&self, count: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.IGpioChangeReader";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGpioChangeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeReaderImpl, const OFFSET: isize>() -> IGpioChangeReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioChangeReaderVtbl {
         unsafe extern "system" fn Capacity<Impl: IGpioChangeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capacity() {
@@ -250,27 +270,30 @@ impl IGpioChangeReaderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGpioChangeReader>,
             ::windows::core::GetTrustLevel,
-            Capacity::<Impl, OFFSET>,
-            Length::<Impl, OFFSET>,
-            IsEmpty::<Impl, OFFSET>,
-            IsOverflowed::<Impl, OFFSET>,
-            SetPolarity::<Impl, OFFSET>,
-            Polarity::<Impl, OFFSET>,
-            IsStarted::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            Clear::<Impl, OFFSET>,
-            GetNextItem::<Impl, OFFSET>,
-            PeekNextItem::<Impl, OFFSET>,
-            GetAllItems::<Impl, OFFSET>,
-            WaitForItemsAsync::<Impl, OFFSET>,
+            Capacity::<Impl, IMPL_OFFSET>,
+            Length::<Impl, IMPL_OFFSET>,
+            IsEmpty::<Impl, IMPL_OFFSET>,
+            IsOverflowed::<Impl, IMPL_OFFSET>,
+            SetPolarity::<Impl, IMPL_OFFSET>,
+            Polarity::<Impl, IMPL_OFFSET>,
+            IsStarted::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            GetNextItem::<Impl, IMPL_OFFSET>,
+            PeekNextItem::<Impl, IMPL_OFFSET>,
+            GetAllItems::<Impl, IMPL_OFFSET>,
+            WaitForItemsAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioChangeReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -284,7 +307,7 @@ impl ::windows::core::RuntimeName for IGpioChangeReaderFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGpioChangeReaderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeReaderFactoryImpl, const OFFSET: isize>() -> IGpioChangeReaderFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioChangeReaderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioChangeReaderFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IGpioChangeReaderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&pin as *const <GpioPin as ::windows::core::Abi>::Abi as *const <GpioPin as ::windows::core::DefaultType>::DefaultType)) {
@@ -307,7 +330,10 @@ impl IGpioChangeReaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeReaderFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithCapacity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioChangeReaderFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithCapacity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioChangeReaderFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -323,7 +349,7 @@ impl ::windows::core::RuntimeName for IGpioController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGpioControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioControllerImpl, const OFFSET: isize>() -> IGpioControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioControllerVtbl {
         unsafe extern "system" fn PinCount<Impl: IGpioControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinCount() {
@@ -368,7 +394,10 @@ impl IGpioControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioController>, ::windows::core::GetTrustLevel, PinCount::<Impl, OFFSET>, OpenPin::<Impl, OFFSET>, OpenPinWithSharingMode::<Impl, OFFSET>, TryOpenPin::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioController>, ::windows::core::GetTrustLevel, PinCount::<Impl, IMPL_OFFSET>, OpenPin::<Impl, IMPL_OFFSET>, OpenPinWithSharingMode::<Impl, IMPL_OFFSET>, TryOpenPin::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioController as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -381,7 +410,7 @@ impl ::windows::core::RuntimeName for IGpioControllerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGpioControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioControllerStaticsImpl, const OFFSET: isize>() -> IGpioControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioControllerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IGpioControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -393,21 +422,24 @@ impl IGpioControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioControllerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGpioControllerStatics2Impl: Sized {
     fn GetControllersAsync(&self, provider: &::core::option::Option<Provider::IGpioProvider>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>;
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GpioController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGpioControllerStatics2 {
     const NAME: &'static str = "Windows.Devices.Gpio.IGpioControllerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGpioControllerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioControllerStatics2Impl, const OFFSET: isize>() -> IGpioControllerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioControllerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioControllerStatics2Vtbl {
         unsafe extern "system" fn GetControllersAsync<Impl: IGpioControllerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllersAsync(&*(&provider as *const <Provider::IGpioProvider as ::windows::core::Abi>::Abi as *const <Provider::IGpioProvider as ::windows::core::DefaultType>::DefaultType)) {
@@ -430,7 +462,10 @@ impl IGpioControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerStatics2>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioControllerStatics2>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioControllerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -453,7 +488,7 @@ impl ::windows::core::RuntimeName for IGpioPin {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGpioPinVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioPinImpl, const OFFSET: isize>() -> IGpioPinVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioPinImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioPinVtbl {
         unsafe extern "system" fn ValueChanged<Impl: IGpioPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -548,24 +583,27 @@ impl IGpioPinVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGpioPin>,
             ::windows::core::GetTrustLevel,
-            ValueChanged::<Impl, OFFSET>,
-            RemoveValueChanged::<Impl, OFFSET>,
-            DebounceTimeout::<Impl, OFFSET>,
-            SetDebounceTimeout::<Impl, OFFSET>,
-            PinNumber::<Impl, OFFSET>,
-            SharingMode::<Impl, OFFSET>,
-            IsDriveModeSupported::<Impl, OFFSET>,
-            GetDriveMode::<Impl, OFFSET>,
-            SetDriveMode::<Impl, OFFSET>,
-            Write::<Impl, OFFSET>,
-            Read::<Impl, OFFSET>,
+            ValueChanged::<Impl, IMPL_OFFSET>,
+            RemoveValueChanged::<Impl, IMPL_OFFSET>,
+            DebounceTimeout::<Impl, IMPL_OFFSET>,
+            SetDebounceTimeout::<Impl, IMPL_OFFSET>,
+            PinNumber::<Impl, IMPL_OFFSET>,
+            SharingMode::<Impl, IMPL_OFFSET>,
+            IsDriveModeSupported::<Impl, IMPL_OFFSET>,
+            GetDriveMode::<Impl, IMPL_OFFSET>,
+            SetDriveMode::<Impl, IMPL_OFFSET>,
+            Write::<Impl, IMPL_OFFSET>,
+            Read::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioPin as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -578,7 +616,7 @@ impl ::windows::core::RuntimeName for IGpioPinValueChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGpioPinValueChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioPinValueChangedEventArgsImpl, const OFFSET: isize>() -> IGpioPinValueChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioPinValueChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioPinValueChangedEventArgsVtbl {
         unsafe extern "system" fn Edge<Impl: IGpioPinValueChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GpioPinEdge) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Edge() {
@@ -590,6 +628,9 @@ impl IGpioPinValueChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioPinValueChangedEventArgs>, ::windows::core::GetTrustLevel, Edge::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGpioPinValueChangedEventArgs>, ::windows::core::GetTrustLevel, Edge::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGpioPinValueChangedEventArgs as ::windows::core::Interface>::IID
     }
 }

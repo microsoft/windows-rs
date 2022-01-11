@@ -6,8 +6,11 @@ impl ::windows::core::RuntimeName for IAddDeleteThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAddDeleteThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddDeleteThemeTransitionImpl, const OFFSET: isize>() -> IAddDeleteThemeTransitionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAddDeleteThemeTransition>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddDeleteThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddDeleteThemeTransitionVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAddDeleteThemeTransition>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAddDeleteThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -21,7 +24,7 @@ impl ::windows::core::RuntimeName for IBackEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseImpl, const OFFSET: isize>() -> IBackEaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEaseVtbl {
         unsafe extern "system" fn Amplitude<Impl: IBackEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Amplitude() {
@@ -37,7 +40,10 @@ impl IBackEaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAmplitude(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackEase>, ::windows::core::GetTrustLevel, Amplitude::<Impl, OFFSET>, SetAmplitude::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackEase>, ::windows::core::GetTrustLevel, Amplitude::<Impl, IMPL_OFFSET>, SetAmplitude::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -50,7 +56,7 @@ impl ::windows::core::RuntimeName for IBackEaseStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseStaticsImpl, const OFFSET: isize>() -> IBackEaseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEaseStaticsVtbl {
         unsafe extern "system" fn AmplitudeProperty<Impl: IBackEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AmplitudeProperty() {
@@ -62,7 +68,10 @@ impl IBackEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackEaseStatics>, ::windows::core::GetTrustLevel, AmplitudeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackEaseStatics>, ::windows::core::GetTrustLevel, AmplitudeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackEaseStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -73,8 +82,11 @@ impl ::windows::core::RuntimeName for IBasicConnectedAnimationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBasicConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationImpl, const OFFSET: isize>() -> IBasicConnectedAnimationConfigurationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicConnectedAnimationConfigurationVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBasicConnectedAnimationConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -87,7 +99,7 @@ impl ::windows::core::RuntimeName for IBasicConnectedAnimationConfigurationFacto
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBasicConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>() -> IBasicConnectedAnimationConfigurationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicConnectedAnimationConfigurationFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IBasicConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -99,7 +111,10 @@ impl IBasicConnectedAnimationConfigurationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBasicConnectedAnimationConfigurationFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -113,7 +128,7 @@ impl ::windows::core::RuntimeName for IBeginStoryboard {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBeginStoryboardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardImpl, const OFFSET: isize>() -> IBeginStoryboardVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBeginStoryboardVtbl {
         unsafe extern "system" fn Storyboard<Impl: IBeginStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Storyboard() {
@@ -129,7 +144,10 @@ impl IBeginStoryboardVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStoryboard(&*(&value as *const <Storyboard as ::windows::core::Abi>::Abi as *const <Storyboard as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBeginStoryboard>, ::windows::core::GetTrustLevel, Storyboard::<Impl, OFFSET>, SetStoryboard::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBeginStoryboard>, ::windows::core::GetTrustLevel, Storyboard::<Impl, IMPL_OFFSET>, SetStoryboard::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBeginStoryboard as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -142,7 +160,7 @@ impl ::windows::core::RuntimeName for IBeginStoryboardStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBeginStoryboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardStaticsImpl, const OFFSET: isize>() -> IBeginStoryboardStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBeginStoryboardStaticsVtbl {
         unsafe extern "system" fn StoryboardProperty<Impl: IBeginStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoryboardProperty() {
@@ -154,7 +172,10 @@ impl IBeginStoryboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBeginStoryboardStatics>, ::windows::core::GetTrustLevel, StoryboardProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBeginStoryboardStatics>, ::windows::core::GetTrustLevel, StoryboardProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBeginStoryboardStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -170,7 +191,7 @@ impl ::windows::core::RuntimeName for IBounceEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBounceEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseImpl, const OFFSET: isize>() -> IBounceEaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEaseVtbl {
         unsafe extern "system" fn Bounces<Impl: IBounceEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounces() {
@@ -201,7 +222,10 @@ impl IBounceEaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBounciness(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBounceEase>, ::windows::core::GetTrustLevel, Bounces::<Impl, OFFSET>, SetBounces::<Impl, OFFSET>, Bounciness::<Impl, OFFSET>, SetBounciness::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBounceEase>, ::windows::core::GetTrustLevel, Bounces::<Impl, IMPL_OFFSET>, SetBounces::<Impl, IMPL_OFFSET>, Bounciness::<Impl, IMPL_OFFSET>, SetBounciness::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBounceEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -215,7 +239,7 @@ impl ::windows::core::RuntimeName for IBounceEaseStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBounceEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseStaticsImpl, const OFFSET: isize>() -> IBounceEaseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEaseStaticsVtbl {
         unsafe extern "system" fn BouncesProperty<Impl: IBounceEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BouncesProperty() {
@@ -238,7 +262,10 @@ impl IBounceEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBounceEaseStatics>, ::windows::core::GetTrustLevel, BouncesProperty::<Impl, OFFSET>, BouncinessProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBounceEaseStatics>, ::windows::core::GetTrustLevel, BouncesProperty::<Impl, IMPL_OFFSET>, BouncinessProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBounceEaseStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -249,11 +276,14 @@ impl ::windows::core::RuntimeName for ICircleEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICircleEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICircleEaseImpl, const OFFSET: isize>() -> ICircleEaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICircleEase>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICircleEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICircleEaseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICircleEase>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICircleEase as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IColorAnimationImpl: Sized {
     fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
     fn SetFrom(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
@@ -266,13 +296,13 @@ pub trait IColorAnimationImpl: Sized {
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IColorAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationImpl, const OFFSET: isize>() -> IColorAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationVtbl {
         unsafe extern "system" fn From<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
@@ -349,23 +379,26 @@ impl IColorAnimationVtbl {
             (*this).SetEnableDependentAnimation(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IColorAnimation>,
             ::windows::core::GetTrustLevel,
-            From::<Impl, OFFSET>,
-            SetFrom::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            SetTo::<Impl, OFFSET>,
-            By::<Impl, OFFSET>,
-            SetBy::<Impl, OFFSET>,
-            EasingFunction::<Impl, OFFSET>,
-            SetEasingFunction::<Impl, OFFSET>,
-            EnableDependentAnimation::<Impl, OFFSET>,
-            SetEnableDependentAnimation::<Impl, OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            SetFrom::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            SetTo::<Impl, IMPL_OFFSET>,
+            By::<Impl, IMPL_OFFSET>,
+            SetBy::<Impl, IMPL_OFFSET>,
+            EasingFunction::<Impl, IMPL_OFFSET>,
+            SetEasingFunction::<Impl, IMPL_OFFSET>,
+            EnableDependentAnimation::<Impl, IMPL_OFFSET>,
+            SetEnableDependentAnimation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -382,7 +415,7 @@ impl ::windows::core::RuntimeName for IColorAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationStaticsImpl, const OFFSET: isize>() -> IColorAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationStaticsVtbl {
         unsafe extern "system" fn FromProperty<Impl: IColorAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromProperty() {
@@ -438,22 +471,25 @@ impl IColorAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorAnimationStatics>, ::windows::core::GetTrustLevel, FromProperty::<Impl, OFFSET>, ToProperty::<Impl, OFFSET>, ByProperty::<Impl, OFFSET>, EasingFunctionProperty::<Impl, OFFSET>, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorAnimationStatics>, ::windows::core::GetTrustLevel, FromProperty::<Impl, IMPL_OFFSET>, ToProperty::<Impl, IMPL_OFFSET>, ByProperty::<Impl, IMPL_OFFSET>, EasingFunctionProperty::<Impl, IMPL_OFFSET>, EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorAnimationStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IColorAnimationUsingKeyFramesImpl: Sized {
     fn KeyFrames(&self) -> ::windows::core::Result<ColorKeyFrameCollection>;
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IColorAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesImpl, const OFFSET: isize>() -> IColorAnimationUsingKeyFramesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationUsingKeyFramesVtbl {
         unsafe extern "system" fn KeyFrames<Impl: IColorAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
@@ -480,7 +516,10 @@ impl IColorAnimationUsingKeyFramesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, OFFSET>, EnableDependentAnimation::<Impl, OFFSET>, SetEnableDependentAnimation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, IMPL_OFFSET>, EnableDependentAnimation::<Impl, IMPL_OFFSET>, SetEnableDependentAnimation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorAnimationUsingKeyFrames as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -493,7 +532,7 @@ impl ::windows::core::RuntimeName for IColorAnimationUsingKeyFramesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>() -> IColorAnimationUsingKeyFramesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationUsingKeyFramesStaticsVtbl {
         unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IColorAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
@@ -505,23 +544,26 @@ impl IColorAnimationUsingKeyFramesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorAnimationUsingKeyFramesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IColorKeyFrameImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<super::super::super::Color>;
     fn SetValue(&self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
     fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
     fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorKeyFrame";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameImpl, const OFFSET: isize>() -> IColorKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameVtbl {
         unsafe extern "system" fn Value<Impl: IColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -552,7 +594,10 @@ impl IColorKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>, KeyTime::<Impl, OFFSET>, SetKeyTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, KeyTime::<Impl, IMPL_OFFSET>, SetKeyTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -565,7 +610,7 @@ impl ::windows::core::RuntimeName for IColorKeyFrameFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameFactoryImpl, const OFFSET: isize>() -> IColorKeyFrameFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IColorKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -577,7 +622,10 @@ impl IColorKeyFrameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorKeyFrameFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -591,7 +639,7 @@ impl ::windows::core::RuntimeName for IColorKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameStaticsImpl, const OFFSET: isize>() -> IColorKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameStaticsVtbl {
         unsafe extern "system" fn ValueProperty<Impl: IColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
@@ -614,7 +662,10 @@ impl IColorKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, OFFSET>, KeyTimeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, IMPL_OFFSET>, KeyTimeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -628,7 +679,7 @@ impl ::windows::core::RuntimeName for ICommonNavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICommonNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoImpl, const OFFSET: isize>() -> ICommonNavigationTransitionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonNavigationTransitionInfoVtbl {
         unsafe extern "system" fn IsStaggeringEnabled<Impl: ICommonNavigationTransitionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabled() {
@@ -644,7 +695,10 @@ impl ICommonNavigationTransitionInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggeringEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommonNavigationTransitionInfo>, ::windows::core::GetTrustLevel, IsStaggeringEnabled::<Impl, OFFSET>, SetIsStaggeringEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommonNavigationTransitionInfo>, ::windows::core::GetTrustLevel, IsStaggeringEnabled::<Impl, IMPL_OFFSET>, SetIsStaggeringEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommonNavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -660,7 +714,7 @@ impl ::windows::core::RuntimeName for ICommonNavigationTransitionInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICommonNavigationTransitionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoStaticsImpl, const OFFSET: isize>() -> ICommonNavigationTransitionInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonNavigationTransitionInfoStaticsVtbl {
         unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: ICommonNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabledProperty() {
@@ -698,23 +752,26 @@ impl ICommonNavigationTransitionInfoStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggerElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommonNavigationTransitionInfoStatics>, ::windows::core::GetTrustLevel, IsStaggeringEnabledProperty::<Impl, OFFSET>, IsStaggerElementProperty::<Impl, OFFSET>, GetIsStaggerElement::<Impl, OFFSET>, SetIsStaggerElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommonNavigationTransitionInfoStatics>, ::windows::core::GetTrustLevel, IsStaggeringEnabledProperty::<Impl, IMPL_OFFSET>, IsStaggerElementProperty::<Impl, IMPL_OFFSET>, GetIsStaggerElement::<Impl, IMPL_OFFSET>, SetIsStaggerElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommonNavigationTransitionInfoStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectedAnimationImpl: Sized {
     fn Completed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn TryStart(&self, destination: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectedAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectedAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationImpl, const OFFSET: isize>() -> IConnectedAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationVtbl {
         unsafe extern "system" fn Completed<Impl: IConnectedAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -745,23 +802,26 @@ impl IConnectedAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimation>, ::windows::core::GetTrustLevel, Completed::<Impl, OFFSET>, RemoveCompleted::<Impl, OFFSET>, TryStart::<Impl, OFFSET>, Cancel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimation>, ::windows::core::GetTrustLevel, Completed::<Impl, IMPL_OFFSET>, RemoveCompleted::<Impl, IMPL_OFFSET>, TryStart::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IConnectedAnimation2Impl: Sized {
     fn IsScaleAnimationEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsScaleAnimationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
     fn TryStartWithCoordinatedElements(&self, destination: &::core::option::Option<super::super::UIElement>, coordinatedelements: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>>) -> ::windows::core::Result<bool>;
     fn SetAnimationComponent(&self, component: ConnectedAnimationComponent, animation: &::core::option::Option<super::super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectedAnimation2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimation2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl IConnectedAnimation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation2Impl, const OFFSET: isize>() -> IConnectedAnimation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation2Vtbl {
         unsafe extern "system" fn IsScaleAnimationEnabled<Impl: IConnectedAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScaleAnimationEnabled() {
@@ -792,7 +852,10 @@ impl IConnectedAnimation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnimationComponent(component, &*(&animation as *const <super::super::super::Composition::ICompositionAnimationBase as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::ICompositionAnimationBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimation2>, ::windows::core::GetTrustLevel, IsScaleAnimationEnabled::<Impl, OFFSET>, SetIsScaleAnimationEnabled::<Impl, OFFSET>, TryStartWithCoordinatedElements::<Impl, OFFSET>, SetAnimationComponent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimation2>, ::windows::core::GetTrustLevel, IsScaleAnimationEnabled::<Impl, IMPL_OFFSET>, SetIsScaleAnimationEnabled::<Impl, IMPL_OFFSET>, TryStartWithCoordinatedElements::<Impl, IMPL_OFFSET>, SetAnimationComponent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimation2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -806,7 +869,7 @@ impl ::windows::core::RuntimeName for IConnectedAnimation3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectedAnimation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation3Impl, const OFFSET: isize>() -> IConnectedAnimation3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation3Vtbl {
         unsafe extern "system" fn Configuration<Impl: IConnectedAnimation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -822,7 +885,10 @@ impl IConnectedAnimation3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetConfiguration(&*(&value as *const <ConnectedAnimationConfiguration as ::windows::core::Abi>::Abi as *const <ConnectedAnimationConfiguration as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimation3>, ::windows::core::GetTrustLevel, Configuration::<Impl, OFFSET>, SetConfiguration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimation3>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, SetConfiguration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimation3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -833,8 +899,11 @@ impl ::windows::core::RuntimeName for IConnectedAnimationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationImpl, const OFFSET: isize>() -> IConnectedAnimationConfigurationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationConfigurationVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimationConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -845,11 +914,14 @@ impl ::windows::core::RuntimeName for IConnectedAnimationConfigurationFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>() -> IConnectedAnimationConfigurationFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationConfigurationFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimationConfigurationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IConnectedAnimationServiceImpl: Sized {
     fn DefaultDuration(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
     fn SetDefaultDuration(&self, value: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -858,13 +930,13 @@ pub trait IConnectedAnimationServiceImpl: Sized {
     fn PrepareToAnimate(&self, key: &::windows::core::HSTRING, source: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<ConnectedAnimation>;
     fn GetAnimation(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<ConnectedAnimation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectedAnimationService {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimationService";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl IConnectedAnimationServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>() -> IConnectedAnimationServiceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationServiceVtbl {
         unsafe extern "system" fn DefaultDuration<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultDuration() {
@@ -918,19 +990,22 @@ impl IConnectedAnimationServiceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConnectedAnimationService>,
             ::windows::core::GetTrustLevel,
-            DefaultDuration::<Impl, OFFSET>,
-            SetDefaultDuration::<Impl, OFFSET>,
-            DefaultEasingFunction::<Impl, OFFSET>,
-            SetDefaultEasingFunction::<Impl, OFFSET>,
-            PrepareToAnimate::<Impl, OFFSET>,
-            GetAnimation::<Impl, OFFSET>,
+            DefaultDuration::<Impl, IMPL_OFFSET>,
+            SetDefaultDuration::<Impl, IMPL_OFFSET>,
+            DefaultEasingFunction::<Impl, IMPL_OFFSET>,
+            SetDefaultEasingFunction::<Impl, IMPL_OFFSET>,
+            PrepareToAnimate::<Impl, IMPL_OFFSET>,
+            GetAnimation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimationService as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -943,7 +1018,7 @@ impl ::windows::core::RuntimeName for IConnectedAnimationServiceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectedAnimationServiceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceStaticsImpl, const OFFSET: isize>() -> IConnectedAnimationServiceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationServiceStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IConnectedAnimationServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -955,7 +1030,10 @@ impl IConnectedAnimationServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimationServiceStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectedAnimationServiceStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectedAnimationServiceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -971,7 +1049,7 @@ impl ::windows::core::RuntimeName for IContentThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContentThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionImpl, const OFFSET: isize>() -> IContentThemeTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentThemeTransitionVtbl {
         unsafe extern "system" fn HorizontalOffset<Impl: IContentThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalOffset() {
@@ -1002,7 +1080,10 @@ impl IContentThemeTransitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVerticalOffset(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentThemeTransition>, ::windows::core::GetTrustLevel, HorizontalOffset::<Impl, OFFSET>, SetHorizontalOffset::<Impl, OFFSET>, VerticalOffset::<Impl, OFFSET>, SetVerticalOffset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentThemeTransition>, ::windows::core::GetTrustLevel, HorizontalOffset::<Impl, IMPL_OFFSET>, SetHorizontalOffset::<Impl, IMPL_OFFSET>, VerticalOffset::<Impl, IMPL_OFFSET>, SetVerticalOffset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1016,7 +1097,7 @@ impl ::windows::core::RuntimeName for IContentThemeTransitionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContentThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionStaticsImpl, const OFFSET: isize>() -> IContentThemeTransitionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentThemeTransitionStaticsVtbl {
         unsafe extern "system" fn HorizontalOffsetProperty<Impl: IContentThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalOffsetProperty() {
@@ -1039,7 +1120,10 @@ impl IContentThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentThemeTransitionStatics>, ::windows::core::GetTrustLevel, HorizontalOffsetProperty::<Impl, OFFSET>, VerticalOffsetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentThemeTransitionStatics>, ::windows::core::GetTrustLevel, HorizontalOffsetProperty::<Impl, IMPL_OFFSET>, VerticalOffsetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentThemeTransitionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1053,7 +1137,7 @@ impl ::windows::core::RuntimeName for IContinuumNavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContinuumNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoImpl, const OFFSET: isize>() -> IContinuumNavigationTransitionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContinuumNavigationTransitionInfoVtbl {
         unsafe extern "system" fn ExitElement<Impl: IContinuumNavigationTransitionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitElement() {
@@ -1069,10 +1153,13 @@ impl IContinuumNavigationTransitionInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitElement(&*(&value as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContinuumNavigationTransitionInfo>, ::windows::core::GetTrustLevel, ExitElement::<Impl, OFFSET>, SetExitElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContinuumNavigationTransitionInfo>, ::windows::core::GetTrustLevel, ExitElement::<Impl, IMPL_OFFSET>, SetExitElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContinuumNavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IContinuumNavigationTransitionInfoStaticsImpl: Sized {
     fn ExitElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn IsEntranceElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -1085,13 +1172,13 @@ pub trait IContinuumNavigationTransitionInfoStaticsImpl: Sized {
     fn GetExitElementContainer(&self, element: &::core::option::Option<super::super::Controls::ListViewBase>) -> ::windows::core::Result<bool>;
     fn SetExitElementContainer(&self, element: &::core::option::Option<super::super::Controls::ListViewBase>, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContinuumNavigationTransitionInfoStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfoStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl IContinuumNavigationTransitionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>() -> IContinuumNavigationTransitionInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContinuumNavigationTransitionInfoStaticsVtbl {
         unsafe extern "system" fn ExitElementProperty<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitElementProperty() {
@@ -1182,23 +1269,26 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
             (*this).SetExitElementContainer(&*(&element as *const <super::super::Controls::ListViewBase as ::windows::core::Abi>::Abi as *const <super::super::Controls::ListViewBase as ::windows::core::DefaultType>::DefaultType), value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContinuumNavigationTransitionInfoStatics>,
             ::windows::core::GetTrustLevel,
-            ExitElementProperty::<Impl, OFFSET>,
-            IsEntranceElementProperty::<Impl, OFFSET>,
-            GetIsEntranceElement::<Impl, OFFSET>,
-            SetIsEntranceElement::<Impl, OFFSET>,
-            IsExitElementProperty::<Impl, OFFSET>,
-            GetIsExitElement::<Impl, OFFSET>,
-            SetIsExitElement::<Impl, OFFSET>,
-            ExitElementContainerProperty::<Impl, OFFSET>,
-            GetExitElementContainer::<Impl, OFFSET>,
-            SetExitElementContainer::<Impl, OFFSET>,
+            ExitElementProperty::<Impl, IMPL_OFFSET>,
+            IsEntranceElementProperty::<Impl, IMPL_OFFSET>,
+            GetIsEntranceElement::<Impl, IMPL_OFFSET>,
+            SetIsEntranceElement::<Impl, IMPL_OFFSET>,
+            IsExitElementProperty::<Impl, IMPL_OFFSET>,
+            GetIsExitElement::<Impl, IMPL_OFFSET>,
+            SetIsExitElement::<Impl, IMPL_OFFSET>,
+            ExitElementContainerProperty::<Impl, IMPL_OFFSET>,
+            GetExitElementContainer::<Impl, IMPL_OFFSET>,
+            SetExitElementContainer::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContinuumNavigationTransitionInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1209,8 +1299,11 @@ impl ::windows::core::RuntimeName for ICubicEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICubicEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICubicEaseImpl, const OFFSET: isize>() -> ICubicEaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICubicEase>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICubicEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICubicEaseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICubicEase>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICubicEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1221,8 +1314,11 @@ impl ::windows::core::RuntimeName for IDirectConnectedAnimationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDirectConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationImpl, const OFFSET: isize>() -> IDirectConnectedAnimationConfigurationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirectConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectConnectedAnimationConfigurationVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirectConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectConnectedAnimationConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1235,7 +1331,7 @@ impl ::windows::core::RuntimeName for IDirectConnectedAnimationConfigurationFact
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDirectConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>() -> IDirectConnectedAnimationConfigurationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectConnectedAnimationConfigurationFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IDirectConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -1247,7 +1343,10 @@ impl IDirectConnectedAnimationConfigurationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirectConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirectConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectConnectedAnimationConfigurationFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1258,8 +1357,11 @@ impl ::windows::core::RuntimeName for IDiscreteColorKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiscreteColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteColorKeyFrameImpl, const OFFSET: isize>() -> IDiscreteColorKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscreteColorKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteColorKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscreteColorKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiscreteColorKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1270,8 +1372,11 @@ impl ::windows::core::RuntimeName for IDiscreteDoubleKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiscreteDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteDoubleKeyFrameImpl, const OFFSET: isize>() -> IDiscreteDoubleKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscreteDoubleKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteDoubleKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscreteDoubleKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiscreteDoubleKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1282,8 +1387,11 @@ impl ::windows::core::RuntimeName for IDiscreteObjectKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiscreteObjectKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteObjectKeyFrameImpl, const OFFSET: isize>() -> IDiscreteObjectKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscreteObjectKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteObjectKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteObjectKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscreteObjectKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiscreteObjectKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1294,11 +1402,14 @@ impl ::windows::core::RuntimeName for IDiscretePointKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiscretePointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscretePointKeyFrameImpl, const OFFSET: isize>() -> IDiscretePointKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscretePointKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscretePointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscretePointKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiscretePointKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiscretePointKeyFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDoubleAnimationImpl: Sized {
     fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
     fn SetFrom(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
@@ -1311,13 +1422,13 @@ pub trait IDoubleAnimationImpl: Sized {
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDoubleAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationImpl, const OFFSET: isize>() -> IDoubleAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationVtbl {
         unsafe extern "system" fn From<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
@@ -1394,23 +1505,26 @@ impl IDoubleAnimationVtbl {
             (*this).SetEnableDependentAnimation(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDoubleAnimation>,
             ::windows::core::GetTrustLevel,
-            From::<Impl, OFFSET>,
-            SetFrom::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            SetTo::<Impl, OFFSET>,
-            By::<Impl, OFFSET>,
-            SetBy::<Impl, OFFSET>,
-            EasingFunction::<Impl, OFFSET>,
-            SetEasingFunction::<Impl, OFFSET>,
-            EnableDependentAnimation::<Impl, OFFSET>,
-            SetEnableDependentAnimation::<Impl, OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            SetFrom::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            SetTo::<Impl, IMPL_OFFSET>,
+            By::<Impl, IMPL_OFFSET>,
+            SetBy::<Impl, IMPL_OFFSET>,
+            EasingFunction::<Impl, IMPL_OFFSET>,
+            SetEasingFunction::<Impl, IMPL_OFFSET>,
+            EnableDependentAnimation::<Impl, IMPL_OFFSET>,
+            SetEnableDependentAnimation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1427,7 +1541,7 @@ impl ::windows::core::RuntimeName for IDoubleAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDoubleAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>() -> IDoubleAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationStaticsVtbl {
         unsafe extern "system" fn FromProperty<Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromProperty() {
@@ -1483,22 +1597,37 @@ impl IDoubleAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleAnimationStatics>, ::windows::core::GetTrustLevel, FromProperty::<Impl, OFFSET>, ToProperty::<Impl, OFFSET>, ByProperty::<Impl, OFFSET>, EasingFunctionProperty::<Impl, OFFSET>, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IDoubleAnimationStatics>,
+            ::windows::core::GetTrustLevel,
+            FromProperty::<Impl, IMPL_OFFSET>,
+            ToProperty::<Impl, IMPL_OFFSET>,
+            ByProperty::<Impl, IMPL_OFFSET>,
+            EasingFunctionProperty::<Impl, IMPL_OFFSET>,
+            EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleAnimationStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDoubleAnimationUsingKeyFramesImpl: Sized {
     fn KeyFrames(&self) -> ::windows::core::Result<DoubleKeyFrameCollection>;
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDoubleAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesImpl, const OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesVtbl {
         unsafe extern "system" fn KeyFrames<Impl: IDoubleAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
@@ -1525,7 +1654,10 @@ impl IDoubleAnimationUsingKeyFramesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, OFFSET>, EnableDependentAnimation::<Impl, OFFSET>, SetEnableDependentAnimation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, IMPL_OFFSET>, EnableDependentAnimation::<Impl, IMPL_OFFSET>, SetEnableDependentAnimation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleAnimationUsingKeyFrames as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1538,7 +1670,7 @@ impl ::windows::core::RuntimeName for IDoubleAnimationUsingKeyFramesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDoubleAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesStaticsVtbl {
         unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IDoubleAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
@@ -1550,23 +1682,26 @@ impl IDoubleAnimationUsingKeyFramesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleAnimationUsingKeyFramesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDoubleKeyFrameImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<f64>;
     fn SetValue(&self, value: f64) -> ::windows::core::Result<()>;
     fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
     fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameImpl, const OFFSET: isize>() -> IDoubleKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameVtbl {
         unsafe extern "system" fn Value<Impl: IDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -1597,7 +1732,10 @@ impl IDoubleKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>, KeyTime::<Impl, OFFSET>, SetKeyTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, KeyTime::<Impl, IMPL_OFFSET>, SetKeyTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1610,7 +1748,7 @@ impl ::windows::core::RuntimeName for IDoubleKeyFrameFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDoubleKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameFactoryImpl, const OFFSET: isize>() -> IDoubleKeyFrameFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IDoubleKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -1622,7 +1760,10 @@ impl IDoubleKeyFrameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleKeyFrameFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1636,7 +1777,7 @@ impl ::windows::core::RuntimeName for IDoubleKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDoubleKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameStaticsImpl, const OFFSET: isize>() -> IDoubleKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameStaticsVtbl {
         unsafe extern "system" fn ValueProperty<Impl: IDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
@@ -1659,7 +1800,10 @@ impl IDoubleKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, OFFSET>, KeyTimeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDoubleKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, IMPL_OFFSET>, KeyTimeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDoubleKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1673,7 +1817,7 @@ impl ::windows::core::RuntimeName for IDragItemThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDragItemThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationImpl, const OFFSET: isize>() -> IDragItemThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragItemThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IDragItemThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -1689,7 +1833,10 @@ impl IDragItemThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragItemThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragItemThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragItemThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1702,7 +1849,7 @@ impl ::windows::core::RuntimeName for IDragItemThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDragItemThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationStaticsImpl, const OFFSET: isize>() -> IDragItemThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragItemThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IDragItemThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -1714,10 +1861,13 @@ impl IDragItemThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragItemThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragItemThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragItemThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IDragOverThemeAnimationImpl: Sized {
     fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1726,13 +1876,13 @@ pub trait IDragOverThemeAnimationImpl: Sized {
     fn Direction(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
     fn SetDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDragOverThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl IDragOverThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>() -> IDragOverThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragOverThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -1778,7 +1928,23 @@ impl IDragOverThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirection(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragOverThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>, ToOffset::<Impl, OFFSET>, SetToOffset::<Impl, OFFSET>, Direction::<Impl, OFFSET>, SetDirection::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IDragOverThemeAnimation>,
+            ::windows::core::GetTrustLevel,
+            TargetName::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            ToOffset::<Impl, IMPL_OFFSET>,
+            SetToOffset::<Impl, IMPL_OFFSET>,
+            Direction::<Impl, IMPL_OFFSET>,
+            SetDirection::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragOverThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1793,7 +1959,7 @@ impl ::windows::core::RuntimeName for IDragOverThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDragOverThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationStaticsImpl, const OFFSET: isize>() -> IDragOverThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragOverThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IDragOverThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -1827,7 +1993,10 @@ impl IDragOverThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragOverThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>, ToOffsetProperty::<Impl, OFFSET>, DirectionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragOverThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>, ToOffsetProperty::<Impl, IMPL_OFFSET>, DirectionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragOverThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1838,8 +2007,11 @@ impl ::windows::core::RuntimeName for IDrillInNavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDrillInNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInNavigationTransitionInfoImpl, const OFFSET: isize>() -> IDrillInNavigationTransitionInfoVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDrillInNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInNavigationTransitionInfoVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDrillInNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDrillInNavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1859,7 +2031,7 @@ impl ::windows::core::RuntimeName for IDrillInThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDrillInThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>() -> IDrillInThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInThemeAnimationVtbl {
         unsafe extern "system" fn EntranceTargetName<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetName() {
@@ -1921,21 +2093,24 @@ impl IDrillInThemeAnimationVtbl {
             (*this).SetExitTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDrillInThemeAnimation>,
             ::windows::core::GetTrustLevel,
-            EntranceTargetName::<Impl, OFFSET>,
-            SetEntranceTargetName::<Impl, OFFSET>,
-            EntranceTarget::<Impl, OFFSET>,
-            SetEntranceTarget::<Impl, OFFSET>,
-            ExitTargetName::<Impl, OFFSET>,
-            SetExitTargetName::<Impl, OFFSET>,
-            ExitTarget::<Impl, OFFSET>,
-            SetExitTarget::<Impl, OFFSET>,
+            EntranceTargetName::<Impl, IMPL_OFFSET>,
+            SetEntranceTargetName::<Impl, IMPL_OFFSET>,
+            EntranceTarget::<Impl, IMPL_OFFSET>,
+            SetEntranceTarget::<Impl, IMPL_OFFSET>,
+            ExitTargetName::<Impl, IMPL_OFFSET>,
+            SetExitTargetName::<Impl, IMPL_OFFSET>,
+            ExitTarget::<Impl, IMPL_OFFSET>,
+            SetExitTarget::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDrillInThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1951,7 +2126,7 @@ impl ::windows::core::RuntimeName for IDrillInThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDrillInThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationStaticsImpl, const OFFSET: isize>() -> IDrillInThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInThemeAnimationStaticsVtbl {
         unsafe extern "system" fn EntranceTargetNameProperty<Impl: IDrillInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetNameProperty() {
@@ -1996,7 +2171,10 @@ impl IDrillInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDrillInThemeAnimationStatics>, ::windows::core::GetTrustLevel, EntranceTargetNameProperty::<Impl, OFFSET>, EntranceTargetProperty::<Impl, OFFSET>, ExitTargetNameProperty::<Impl, OFFSET>, ExitTargetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDrillInThemeAnimationStatics>, ::windows::core::GetTrustLevel, EntranceTargetNameProperty::<Impl, IMPL_OFFSET>, EntranceTargetProperty::<Impl, IMPL_OFFSET>, ExitTargetNameProperty::<Impl, IMPL_OFFSET>, ExitTargetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDrillInThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2016,7 +2194,7 @@ impl ::windows::core::RuntimeName for IDrillOutThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDrillOutThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>() -> IDrillOutThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillOutThemeAnimationVtbl {
         unsafe extern "system" fn EntranceTargetName<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetName() {
@@ -2078,21 +2256,24 @@ impl IDrillOutThemeAnimationVtbl {
             (*this).SetExitTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDrillOutThemeAnimation>,
             ::windows::core::GetTrustLevel,
-            EntranceTargetName::<Impl, OFFSET>,
-            SetEntranceTargetName::<Impl, OFFSET>,
-            EntranceTarget::<Impl, OFFSET>,
-            SetEntranceTarget::<Impl, OFFSET>,
-            ExitTargetName::<Impl, OFFSET>,
-            SetExitTargetName::<Impl, OFFSET>,
-            ExitTarget::<Impl, OFFSET>,
-            SetExitTarget::<Impl, OFFSET>,
+            EntranceTargetName::<Impl, IMPL_OFFSET>,
+            SetEntranceTargetName::<Impl, IMPL_OFFSET>,
+            EntranceTarget::<Impl, IMPL_OFFSET>,
+            SetEntranceTarget::<Impl, IMPL_OFFSET>,
+            ExitTargetName::<Impl, IMPL_OFFSET>,
+            SetExitTargetName::<Impl, IMPL_OFFSET>,
+            ExitTarget::<Impl, IMPL_OFFSET>,
+            SetExitTarget::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDrillOutThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2108,7 +2289,7 @@ impl ::windows::core::RuntimeName for IDrillOutThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDrillOutThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationStaticsImpl, const OFFSET: isize>() -> IDrillOutThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillOutThemeAnimationStaticsVtbl {
         unsafe extern "system" fn EntranceTargetNameProperty<Impl: IDrillOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetNameProperty() {
@@ -2153,7 +2334,10 @@ impl IDrillOutThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDrillOutThemeAnimationStatics>, ::windows::core::GetTrustLevel, EntranceTargetNameProperty::<Impl, OFFSET>, EntranceTargetProperty::<Impl, OFFSET>, ExitTargetNameProperty::<Impl, OFFSET>, ExitTargetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDrillOutThemeAnimationStatics>, ::windows::core::GetTrustLevel, EntranceTargetNameProperty::<Impl, IMPL_OFFSET>, EntranceTargetProperty::<Impl, IMPL_OFFSET>, ExitTargetNameProperty::<Impl, IMPL_OFFSET>, ExitTargetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDrillOutThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2167,7 +2351,7 @@ impl ::windows::core::RuntimeName for IDropTargetItemThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDropTargetItemThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationImpl, const OFFSET: isize>() -> IDropTargetItemThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetItemThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IDropTargetItemThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -2183,7 +2367,10 @@ impl IDropTargetItemThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetItemThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetItemThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDropTargetItemThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2196,7 +2383,7 @@ impl ::windows::core::RuntimeName for IDropTargetItemThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDropTargetItemThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationStaticsImpl, const OFFSET: isize>() -> IDropTargetItemThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetItemThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IDropTargetItemThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -2208,7 +2395,10 @@ impl IDropTargetItemThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetItemThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetItemThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDropTargetItemThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2222,7 +2412,7 @@ impl ::windows::core::RuntimeName for IEasingColorKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameImpl, const OFFSET: isize>() -> IEasingColorKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingColorKeyFrameVtbl {
         unsafe extern "system" fn EasingFunction<Impl: IEasingColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
@@ -2238,7 +2428,10 @@ impl IEasingColorKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingColorKeyFrame>, ::windows::core::GetTrustLevel, EasingFunction::<Impl, OFFSET>, SetEasingFunction::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingColorKeyFrame>, ::windows::core::GetTrustLevel, EasingFunction::<Impl, IMPL_OFFSET>, SetEasingFunction::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingColorKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2251,7 +2444,7 @@ impl ::windows::core::RuntimeName for IEasingColorKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingColorKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameStaticsImpl, const OFFSET: isize>() -> IEasingColorKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingColorKeyFrameStaticsVtbl {
         unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
@@ -2263,7 +2456,10 @@ impl IEasingColorKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingColorKeyFrameStatics>, ::windows::core::GetTrustLevel, EasingFunctionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingColorKeyFrameStatics>, ::windows::core::GetTrustLevel, EasingFunctionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingColorKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2277,7 +2473,7 @@ impl ::windows::core::RuntimeName for IEasingDoubleKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameImpl, const OFFSET: isize>() -> IEasingDoubleKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingDoubleKeyFrameVtbl {
         unsafe extern "system" fn EasingFunction<Impl: IEasingDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
@@ -2293,7 +2489,10 @@ impl IEasingDoubleKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingDoubleKeyFrame>, ::windows::core::GetTrustLevel, EasingFunction::<Impl, OFFSET>, SetEasingFunction::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingDoubleKeyFrame>, ::windows::core::GetTrustLevel, EasingFunction::<Impl, IMPL_OFFSET>, SetEasingFunction::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingDoubleKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2306,7 +2505,7 @@ impl ::windows::core::RuntimeName for IEasingDoubleKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingDoubleKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameStaticsImpl, const OFFSET: isize>() -> IEasingDoubleKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingDoubleKeyFrameStaticsVtbl {
         unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
@@ -2318,7 +2517,10 @@ impl IEasingDoubleKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingDoubleKeyFrameStatics>, ::windows::core::GetTrustLevel, EasingFunctionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingDoubleKeyFrameStatics>, ::windows::core::GetTrustLevel, EasingFunctionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingDoubleKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2333,7 +2535,7 @@ impl ::windows::core::RuntimeName for IEasingFunctionBase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingFunctionBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseImpl, const OFFSET: isize>() -> IEasingFunctionBaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseVtbl {
         unsafe extern "system" fn EasingMode<Impl: IEasingFunctionBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingMode() {
@@ -2360,7 +2562,10 @@ impl IEasingFunctionBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingFunctionBase>, ::windows::core::GetTrustLevel, EasingMode::<Impl, OFFSET>, SetEasingMode::<Impl, OFFSET>, Ease::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingFunctionBase>, ::windows::core::GetTrustLevel, EasingMode::<Impl, IMPL_OFFSET>, SetEasingMode::<Impl, IMPL_OFFSET>, Ease::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingFunctionBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2371,8 +2576,11 @@ impl ::windows::core::RuntimeName for IEasingFunctionBaseFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingFunctionBaseFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseFactoryImpl, const OFFSET: isize>() -> IEasingFunctionBaseFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingFunctionBaseFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingFunctionBaseFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingFunctionBaseFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2385,7 +2593,7 @@ impl ::windows::core::RuntimeName for IEasingFunctionBaseStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingFunctionBaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseStaticsImpl, const OFFSET: isize>() -> IEasingFunctionBaseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseStaticsVtbl {
         unsafe extern "system" fn EasingModeProperty<Impl: IEasingFunctionBaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingModeProperty() {
@@ -2397,7 +2605,10 @@ impl IEasingFunctionBaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingFunctionBaseStatics>, ::windows::core::GetTrustLevel, EasingModeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingFunctionBaseStatics>, ::windows::core::GetTrustLevel, EasingModeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingFunctionBaseStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2411,7 +2622,7 @@ impl ::windows::core::RuntimeName for IEasingPointKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingPointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameImpl, const OFFSET: isize>() -> IEasingPointKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingPointKeyFrameVtbl {
         unsafe extern "system" fn EasingFunction<Impl: IEasingPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
@@ -2427,7 +2638,10 @@ impl IEasingPointKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingPointKeyFrame>, ::windows::core::GetTrustLevel, EasingFunction::<Impl, OFFSET>, SetEasingFunction::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingPointKeyFrame>, ::windows::core::GetTrustLevel, EasingFunction::<Impl, IMPL_OFFSET>, SetEasingFunction::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingPointKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2440,7 +2654,7 @@ impl ::windows::core::RuntimeName for IEasingPointKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasingPointKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameStaticsImpl, const OFFSET: isize>() -> IEasingPointKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingPointKeyFrameStaticsVtbl {
         unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingPointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
@@ -2452,21 +2666,24 @@ impl IEasingPointKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingPointKeyFrameStatics>, ::windows::core::GetTrustLevel, EasingFunctionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasingPointKeyFrameStatics>, ::windows::core::GetTrustLevel, EasingFunctionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasingPointKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IEdgeUIThemeTransitionImpl: Sized {
     fn Edge(&self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
     fn SetEdge(&self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEdgeUIThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl IEdgeUIThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionImpl, const OFFSET: isize>() -> IEdgeUIThemeTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeUIThemeTransitionVtbl {
         unsafe extern "system" fn Edge<Impl: IEdgeUIThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Edge() {
@@ -2482,7 +2699,10 @@ impl IEdgeUIThemeTransitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEdge(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeUIThemeTransition>, ::windows::core::GetTrustLevel, Edge::<Impl, OFFSET>, SetEdge::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeUIThemeTransition>, ::windows::core::GetTrustLevel, Edge::<Impl, IMPL_OFFSET>, SetEdge::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEdgeUIThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2495,7 +2715,7 @@ impl ::windows::core::RuntimeName for IEdgeUIThemeTransitionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEdgeUIThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionStaticsImpl, const OFFSET: isize>() -> IEdgeUIThemeTransitionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeUIThemeTransitionStaticsVtbl {
         unsafe extern "system" fn EdgeProperty<Impl: IEdgeUIThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EdgeProperty() {
@@ -2507,7 +2727,10 @@ impl IEdgeUIThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeUIThemeTransitionStatics>, ::windows::core::GetTrustLevel, EdgeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeUIThemeTransitionStatics>, ::windows::core::GetTrustLevel, EdgeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEdgeUIThemeTransitionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2523,7 +2746,7 @@ impl ::windows::core::RuntimeName for IElasticEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IElasticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseImpl, const OFFSET: isize>() -> IElasticEaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEaseVtbl {
         unsafe extern "system" fn Oscillations<Impl: IElasticEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Oscillations() {
@@ -2554,7 +2777,10 @@ impl IElasticEaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpringiness(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElasticEase>, ::windows::core::GetTrustLevel, Oscillations::<Impl, OFFSET>, SetOscillations::<Impl, OFFSET>, Springiness::<Impl, OFFSET>, SetSpringiness::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElasticEase>, ::windows::core::GetTrustLevel, Oscillations::<Impl, IMPL_OFFSET>, SetOscillations::<Impl, IMPL_OFFSET>, Springiness::<Impl, IMPL_OFFSET>, SetSpringiness::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IElasticEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2568,7 +2794,7 @@ impl ::windows::core::RuntimeName for IElasticEaseStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IElasticEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseStaticsImpl, const OFFSET: isize>() -> IElasticEaseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEaseStaticsVtbl {
         unsafe extern "system" fn OscillationsProperty<Impl: IElasticEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OscillationsProperty() {
@@ -2591,7 +2817,10 @@ impl IElasticEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElasticEaseStatics>, ::windows::core::GetTrustLevel, OscillationsProperty::<Impl, OFFSET>, SpringinessProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IElasticEaseStatics>, ::windows::core::GetTrustLevel, OscillationsProperty::<Impl, IMPL_OFFSET>, SpringinessProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IElasticEaseStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2602,8 +2831,11 @@ impl ::windows::core::RuntimeName for IEntranceNavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEntranceNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoImpl, const OFFSET: isize>() -> IEntranceNavigationTransitionInfoVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEntranceNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceNavigationTransitionInfoVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEntranceNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEntranceNavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2618,7 +2850,7 @@ impl ::windows::core::RuntimeName for IEntranceNavigationTransitionInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEntranceNavigationTransitionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoStaticsImpl, const OFFSET: isize>() -> IEntranceNavigationTransitionInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceNavigationTransitionInfoStaticsVtbl {
         unsafe extern "system" fn IsTargetElementProperty<Impl: IEntranceNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTargetElementProperty() {
@@ -2645,7 +2877,10 @@ impl IEntranceNavigationTransitionInfoStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsTargetElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEntranceNavigationTransitionInfoStatics>, ::windows::core::GetTrustLevel, IsTargetElementProperty::<Impl, OFFSET>, GetIsTargetElement::<Impl, OFFSET>, SetIsTargetElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEntranceNavigationTransitionInfoStatics>, ::windows::core::GetTrustLevel, IsTargetElementProperty::<Impl, IMPL_OFFSET>, GetIsTargetElement::<Impl, IMPL_OFFSET>, SetIsTargetElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEntranceNavigationTransitionInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2663,7 +2898,7 @@ impl ::windows::core::RuntimeName for IEntranceThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEntranceThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>() -> IEntranceThemeTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceThemeTransitionVtbl {
         unsafe extern "system" fn FromHorizontalOffset<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
@@ -2710,19 +2945,22 @@ impl IEntranceThemeTransitionVtbl {
             (*this).SetIsStaggeringEnabled(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEntranceThemeTransition>,
             ::windows::core::GetTrustLevel,
-            FromHorizontalOffset::<Impl, OFFSET>,
-            SetFromHorizontalOffset::<Impl, OFFSET>,
-            FromVerticalOffset::<Impl, OFFSET>,
-            SetFromVerticalOffset::<Impl, OFFSET>,
-            IsStaggeringEnabled::<Impl, OFFSET>,
-            SetIsStaggeringEnabled::<Impl, OFFSET>,
+            FromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetFromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            FromVerticalOffset::<Impl, IMPL_OFFSET>,
+            SetFromVerticalOffset::<Impl, IMPL_OFFSET>,
+            IsStaggeringEnabled::<Impl, IMPL_OFFSET>,
+            SetIsStaggeringEnabled::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEntranceThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2737,7 +2975,7 @@ impl ::windows::core::RuntimeName for IEntranceThemeTransitionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEntranceThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionStaticsImpl, const OFFSET: isize>() -> IEntranceThemeTransitionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceThemeTransitionStaticsVtbl {
         unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IEntranceThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
@@ -2771,7 +3009,10 @@ impl IEntranceThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEntranceThemeTransitionStatics>, ::windows::core::GetTrustLevel, FromHorizontalOffsetProperty::<Impl, OFFSET>, FromVerticalOffsetProperty::<Impl, OFFSET>, IsStaggeringEnabledProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEntranceThemeTransitionStatics>, ::windows::core::GetTrustLevel, FromHorizontalOffsetProperty::<Impl, IMPL_OFFSET>, FromVerticalOffsetProperty::<Impl, IMPL_OFFSET>, IsStaggeringEnabledProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEntranceThemeTransitionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2785,7 +3026,7 @@ impl ::windows::core::RuntimeName for IExponentialEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IExponentialEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseImpl, const OFFSET: isize>() -> IExponentialEaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEaseVtbl {
         unsafe extern "system" fn Exponent<Impl: IExponentialEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exponent() {
@@ -2801,7 +3042,10 @@ impl IExponentialEaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExponent(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExponentialEase>, ::windows::core::GetTrustLevel, Exponent::<Impl, OFFSET>, SetExponent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExponentialEase>, ::windows::core::GetTrustLevel, Exponent::<Impl, IMPL_OFFSET>, SetExponent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExponentialEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2814,7 +3058,7 @@ impl ::windows::core::RuntimeName for IExponentialEaseStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IExponentialEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseStaticsImpl, const OFFSET: isize>() -> IExponentialEaseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEaseStaticsVtbl {
         unsafe extern "system" fn ExponentProperty<Impl: IExponentialEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExponentProperty() {
@@ -2826,7 +3070,10 @@ impl IExponentialEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExponentialEaseStatics>, ::windows::core::GetTrustLevel, ExponentProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExponentialEaseStatics>, ::windows::core::GetTrustLevel, ExponentProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExponentialEaseStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2840,7 +3087,7 @@ impl ::windows::core::RuntimeName for IFadeInThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFadeInThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationImpl, const OFFSET: isize>() -> IFadeInThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeInThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IFadeInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -2856,7 +3103,10 @@ impl IFadeInThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeInThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeInThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFadeInThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2869,7 +3119,7 @@ impl ::windows::core::RuntimeName for IFadeInThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFadeInThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationStaticsImpl, const OFFSET: isize>() -> IFadeInThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeInThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IFadeInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -2881,7 +3131,10 @@ impl IFadeInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeInThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeInThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFadeInThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2895,7 +3148,7 @@ impl ::windows::core::RuntimeName for IFadeOutThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFadeOutThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationImpl, const OFFSET: isize>() -> IFadeOutThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeOutThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IFadeOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -2911,7 +3164,10 @@ impl IFadeOutThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeOutThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeOutThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFadeOutThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2924,7 +3180,7 @@ impl ::windows::core::RuntimeName for IFadeOutThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFadeOutThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationStaticsImpl, const OFFSET: isize>() -> IFadeOutThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeOutThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IFadeOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -2936,7 +3192,10 @@ impl IFadeOutThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeOutThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFadeOutThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFadeOutThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2947,8 +3206,11 @@ impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGravityConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationImpl, const OFFSET: isize>() -> IGravityConnectedAnimationConfigurationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGravityConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfigurationVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGravityConnectedAnimationConfiguration>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGravityConnectedAnimationConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2962,7 +3224,7 @@ impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfiguration2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGravityConnectedAnimationConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfiguration2Impl, const OFFSET: isize>() -> IGravityConnectedAnimationConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfiguration2Vtbl {
         unsafe extern "system" fn IsShadowEnabled<Impl: IGravityConnectedAnimationConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShadowEnabled() {
@@ -2978,7 +3240,10 @@ impl IGravityConnectedAnimationConfiguration2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsShadowEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGravityConnectedAnimationConfiguration2>, ::windows::core::GetTrustLevel, IsShadowEnabled::<Impl, OFFSET>, SetIsShadowEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGravityConnectedAnimationConfiguration2>, ::windows::core::GetTrustLevel, IsShadowEnabled::<Impl, IMPL_OFFSET>, SetIsShadowEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGravityConnectedAnimationConfiguration2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2991,7 +3256,7 @@ impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfigurationFac
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGravityConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>() -> IGravityConnectedAnimationConfigurationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfigurationFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IGravityConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -3003,23 +3268,26 @@ impl IGravityConnectedAnimationConfigurationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGravityConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGravityConnectedAnimationConfigurationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGravityConnectedAnimationConfigurationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeySplineImpl: Sized {
     fn ControlPoint1(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn SetControlPoint1(&self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
     fn ControlPoint2(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn SetControlPoint2(&self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeySpline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IKeySpline";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IKeySplineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeySplineImpl, const OFFSET: isize>() -> IKeySplineVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeySplineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeySplineVtbl {
         unsafe extern "system" fn ControlPoint1<Impl: IKeySplineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlPoint1() {
@@ -3050,7 +3318,10 @@ impl IKeySplineVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlPoint2(&*(&value as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeySpline>, ::windows::core::GetTrustLevel, ControlPoint1::<Impl, OFFSET>, SetControlPoint1::<Impl, OFFSET>, ControlPoint2::<Impl, OFFSET>, SetControlPoint2::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeySpline>, ::windows::core::GetTrustLevel, ControlPoint1::<Impl, IMPL_OFFSET>, SetControlPoint1::<Impl, IMPL_OFFSET>, ControlPoint2::<Impl, IMPL_OFFSET>, SetControlPoint2::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeySpline as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3061,21 +3332,24 @@ impl ::windows::core::RuntimeName for IKeyTimeHelper {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyTimeHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperImpl, const OFFSET: isize>() -> IKeyTimeHelperVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyTimeHelper>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyTimeHelperVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyTimeHelper>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyTimeHelper as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyTimeHelperStaticsImpl: Sized {
     fn FromTimeSpan(&self, timespan: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<KeyTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyTimeHelperStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IKeyTimeHelperStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IKeyTimeHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperStaticsImpl, const OFFSET: isize>() -> IKeyTimeHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyTimeHelperStaticsVtbl {
         unsafe extern "system" fn FromTimeSpan<Impl: IKeyTimeHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timespan: super::super::super::super::Foundation::TimeSpan, result__: *mut KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromTimeSpan(&*(&timespan as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
@@ -3087,7 +3361,10 @@ impl IKeyTimeHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyTimeHelperStatics>, ::windows::core::GetTrustLevel, FromTimeSpan::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyTimeHelperStatics>, ::windows::core::GetTrustLevel, FromTimeSpan::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyTimeHelperStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3098,8 +3375,11 @@ impl ::windows::core::RuntimeName for ILinearColorKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILinearColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearColorKeyFrameImpl, const OFFSET: isize>() -> ILinearColorKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILinearColorKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearColorKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILinearColorKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILinearColorKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3110,8 +3390,11 @@ impl ::windows::core::RuntimeName for ILinearDoubleKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILinearDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearDoubleKeyFrameImpl, const OFFSET: isize>() -> ILinearDoubleKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILinearDoubleKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearDoubleKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILinearDoubleKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILinearDoubleKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3122,8 +3405,11 @@ impl ::windows::core::RuntimeName for ILinearPointKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILinearPointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearPointKeyFrameImpl, const OFFSET: isize>() -> ILinearPointKeyFrameVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILinearPointKeyFrame>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearPointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearPointKeyFrameVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILinearPointKeyFrame>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILinearPointKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3137,7 +3423,7 @@ impl ::windows::core::RuntimeName for INavigationThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INavigationThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionImpl, const OFFSET: isize>() -> INavigationThemeTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationThemeTransitionVtbl {
         unsafe extern "system" fn DefaultNavigationTransitionInfo<Impl: INavigationThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultNavigationTransitionInfo() {
@@ -3153,7 +3439,10 @@ impl INavigationThemeTransitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultNavigationTransitionInfo(&*(&value as *const <NavigationTransitionInfo as ::windows::core::Abi>::Abi as *const <NavigationTransitionInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationThemeTransition>, ::windows::core::GetTrustLevel, DefaultNavigationTransitionInfo::<Impl, OFFSET>, SetDefaultNavigationTransitionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationThemeTransition>, ::windows::core::GetTrustLevel, DefaultNavigationTransitionInfo::<Impl, IMPL_OFFSET>, SetDefaultNavigationTransitionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INavigationThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3166,7 +3455,7 @@ impl ::windows::core::RuntimeName for INavigationThemeTransitionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INavigationThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionStaticsImpl, const OFFSET: isize>() -> INavigationThemeTransitionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationThemeTransitionStaticsVtbl {
         unsafe extern "system" fn DefaultNavigationTransitionInfoProperty<Impl: INavigationThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultNavigationTransitionInfoProperty() {
@@ -3178,7 +3467,10 @@ impl INavigationThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationThemeTransitionStatics>, ::windows::core::GetTrustLevel, DefaultNavigationTransitionInfoProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationThemeTransitionStatics>, ::windows::core::GetTrustLevel, DefaultNavigationTransitionInfoProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INavigationThemeTransitionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3189,8 +3481,11 @@ impl ::windows::core::RuntimeName for INavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoImpl, const OFFSET: isize>() -> INavigationTransitionInfoVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3203,7 +3498,7 @@ impl ::windows::core::RuntimeName for INavigationTransitionInfoFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INavigationTransitionInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoFactoryImpl, const OFFSET: isize>() -> INavigationTransitionInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: INavigationTransitionInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -3215,7 +3510,10 @@ impl INavigationTransitionInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationTransitionInfoFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationTransitionInfoFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INavigationTransitionInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3229,7 +3527,7 @@ impl ::windows::core::RuntimeName for INavigationTransitionInfoOverrides {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INavigationTransitionInfoOverridesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverridesImpl, const OFFSET: isize>() -> INavigationTransitionInfoOverridesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverridesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoOverridesVtbl {
         unsafe extern "system" fn GetNavigationStateCore<Impl: INavigationTransitionInfoOverridesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNavigationStateCore() {
@@ -3245,22 +3543,25 @@ impl INavigationTransitionInfoOverridesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNavigationStateCore(&*(&navigationstate as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationTransitionInfoOverrides>, ::windows::core::GetTrustLevel, GetNavigationStateCore::<Impl, OFFSET>, SetNavigationStateCore::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INavigationTransitionInfoOverrides>, ::windows::core::GetTrustLevel, GetNavigationStateCore::<Impl, IMPL_OFFSET>, SetNavigationStateCore::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INavigationTransitionInfoOverrides as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IObjectAnimationUsingKeyFramesImpl: Sized {
     fn KeyFrames(&self) -> ::windows::core::Result<ObjectKeyFrameCollection>;
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IObjectAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IObjectAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesImpl, const OFFSET: isize>() -> IObjectAnimationUsingKeyFramesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAnimationUsingKeyFramesVtbl {
         unsafe extern "system" fn KeyFrames<Impl: IObjectAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
@@ -3287,7 +3588,10 @@ impl IObjectAnimationUsingKeyFramesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, OFFSET>, EnableDependentAnimation::<Impl, OFFSET>, SetEnableDependentAnimation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, IMPL_OFFSET>, EnableDependentAnimation::<Impl, IMPL_OFFSET>, SetEnableDependentAnimation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectAnimationUsingKeyFrames as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3300,7 +3604,7 @@ impl ::windows::core::RuntimeName for IObjectAnimationUsingKeyFramesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IObjectAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>() -> IObjectAnimationUsingKeyFramesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAnimationUsingKeyFramesStaticsVtbl {
         unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IObjectAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
@@ -3312,23 +3616,26 @@ impl IObjectAnimationUsingKeyFramesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectAnimationUsingKeyFramesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IObjectKeyFrameImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SetValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
     fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectKeyFrame";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IObjectKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameImpl, const OFFSET: isize>() -> IObjectKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameVtbl {
         unsafe extern "system" fn Value<Impl: IObjectKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -3359,7 +3666,10 @@ impl IObjectKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>, KeyTime::<Impl, OFFSET>, SetKeyTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, KeyTime::<Impl, IMPL_OFFSET>, SetKeyTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3372,7 +3682,7 @@ impl ::windows::core::RuntimeName for IObjectKeyFrameFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IObjectKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameFactoryImpl, const OFFSET: isize>() -> IObjectKeyFrameFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IObjectKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -3384,7 +3694,10 @@ impl IObjectKeyFrameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectKeyFrameFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3398,7 +3711,7 @@ impl ::windows::core::RuntimeName for IObjectKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IObjectKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameStaticsImpl, const OFFSET: isize>() -> IObjectKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameStaticsVtbl {
         unsafe extern "system" fn ValueProperty<Impl: IObjectKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
@@ -3421,21 +3734,24 @@ impl IObjectKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, OFFSET>, KeyTimeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, IMPL_OFFSET>, KeyTimeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IPaneThemeTransitionImpl: Sized {
     fn Edge(&self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
     fn SetEdge(&self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaneThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPaneThemeTransition";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl IPaneThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionImpl, const OFFSET: isize>() -> IPaneThemeTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaneThemeTransitionVtbl {
         unsafe extern "system" fn Edge<Impl: IPaneThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Edge() {
@@ -3451,7 +3767,10 @@ impl IPaneThemeTransitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEdge(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaneThemeTransition>, ::windows::core::GetTrustLevel, Edge::<Impl, OFFSET>, SetEdge::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaneThemeTransition>, ::windows::core::GetTrustLevel, Edge::<Impl, IMPL_OFFSET>, SetEdge::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaneThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3464,7 +3783,7 @@ impl ::windows::core::RuntimeName for IPaneThemeTransitionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaneThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionStaticsImpl, const OFFSET: isize>() -> IPaneThemeTransitionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaneThemeTransitionStaticsVtbl {
         unsafe extern "system" fn EdgeProperty<Impl: IPaneThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EdgeProperty() {
@@ -3476,10 +3795,13 @@ impl IPaneThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaneThemeTransitionStatics>, ::windows::core::GetTrustLevel, EdgeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaneThemeTransitionStatics>, ::windows::core::GetTrustLevel, EdgeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaneThemeTransitionStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointAnimationImpl: Sized {
     fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
     fn SetFrom(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
@@ -3492,13 +3814,13 @@ pub trait IPointAnimationImpl: Sized {
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPointAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationImpl, const OFFSET: isize>() -> IPointAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationVtbl {
         unsafe extern "system" fn From<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
@@ -3575,23 +3897,26 @@ impl IPointAnimationVtbl {
             (*this).SetEnableDependentAnimation(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPointAnimation>,
             ::windows::core::GetTrustLevel,
-            From::<Impl, OFFSET>,
-            SetFrom::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            SetTo::<Impl, OFFSET>,
-            By::<Impl, OFFSET>,
-            SetBy::<Impl, OFFSET>,
-            EasingFunction::<Impl, OFFSET>,
-            SetEasingFunction::<Impl, OFFSET>,
-            EnableDependentAnimation::<Impl, OFFSET>,
-            SetEnableDependentAnimation::<Impl, OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            SetFrom::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            SetTo::<Impl, IMPL_OFFSET>,
+            By::<Impl, IMPL_OFFSET>,
+            SetBy::<Impl, IMPL_OFFSET>,
+            EasingFunction::<Impl, IMPL_OFFSET>,
+            SetEasingFunction::<Impl, IMPL_OFFSET>,
+            EnableDependentAnimation::<Impl, IMPL_OFFSET>,
+            SetEnableDependentAnimation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3608,7 +3933,7 @@ impl ::windows::core::RuntimeName for IPointAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationStaticsImpl, const OFFSET: isize>() -> IPointAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationStaticsVtbl {
         unsafe extern "system" fn FromProperty<Impl: IPointAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromProperty() {
@@ -3664,22 +3989,25 @@ impl IPointAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointAnimationStatics>, ::windows::core::GetTrustLevel, FromProperty::<Impl, OFFSET>, ToProperty::<Impl, OFFSET>, ByProperty::<Impl, OFFSET>, EasingFunctionProperty::<Impl, OFFSET>, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointAnimationStatics>, ::windows::core::GetTrustLevel, FromProperty::<Impl, IMPL_OFFSET>, ToProperty::<Impl, IMPL_OFFSET>, ByProperty::<Impl, IMPL_OFFSET>, EasingFunctionProperty::<Impl, IMPL_OFFSET>, EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointAnimationStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPointAnimationUsingKeyFramesImpl: Sized {
     fn KeyFrames(&self) -> ::windows::core::Result<PointKeyFrameCollection>;
     fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPointAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesImpl, const OFFSET: isize>() -> IPointAnimationUsingKeyFramesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationUsingKeyFramesVtbl {
         unsafe extern "system" fn KeyFrames<Impl: IPointAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
@@ -3706,7 +4034,10 @@ impl IPointAnimationUsingKeyFramesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, OFFSET>, EnableDependentAnimation::<Impl, OFFSET>, SetEnableDependentAnimation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointAnimationUsingKeyFrames>, ::windows::core::GetTrustLevel, KeyFrames::<Impl, IMPL_OFFSET>, EnableDependentAnimation::<Impl, IMPL_OFFSET>, SetEnableDependentAnimation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointAnimationUsingKeyFrames as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3719,7 +4050,7 @@ impl ::windows::core::RuntimeName for IPointAnimationUsingKeyFramesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>() -> IPointAnimationUsingKeyFramesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationUsingKeyFramesStaticsVtbl {
         unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IPointAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
@@ -3731,23 +4062,26 @@ impl IPointAnimationUsingKeyFramesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointAnimationUsingKeyFramesStatics>, ::windows::core::GetTrustLevel, EnableDependentAnimationProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointAnimationUsingKeyFramesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointKeyFrameImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn SetValue(&self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
     fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
     fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointKeyFrame";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameImpl, const OFFSET: isize>() -> IPointKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameVtbl {
         unsafe extern "system" fn Value<Impl: IPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -3778,7 +4112,10 @@ impl IPointKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>, KeyTime::<Impl, OFFSET>, SetKeyTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointKeyFrame>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, KeyTime::<Impl, IMPL_OFFSET>, SetKeyTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3791,7 +4128,7 @@ impl ::windows::core::RuntimeName for IPointKeyFrameFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameFactoryImpl, const OFFSET: isize>() -> IPointKeyFrameFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IPointKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -3803,7 +4140,10 @@ impl IPointKeyFrameFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointKeyFrameFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointKeyFrameFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3817,7 +4157,7 @@ impl ::windows::core::RuntimeName for IPointKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameStaticsImpl, const OFFSET: isize>() -> IPointKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameStaticsVtbl {
         unsafe extern "system" fn ValueProperty<Impl: IPointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
@@ -3840,7 +4180,10 @@ impl IPointKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, OFFSET>, KeyTimeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointKeyFrameStatics>, ::windows::core::GetTrustLevel, ValueProperty::<Impl, IMPL_OFFSET>, KeyTimeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3854,7 +4197,7 @@ impl ::windows::core::RuntimeName for IPointerDownThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointerDownThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationImpl, const OFFSET: isize>() -> IPointerDownThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDownThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IPointerDownThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -3870,7 +4213,10 @@ impl IPointerDownThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerDownThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerDownThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerDownThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3883,7 +4229,7 @@ impl ::windows::core::RuntimeName for IPointerDownThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointerDownThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationStaticsImpl, const OFFSET: isize>() -> IPointerDownThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDownThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IPointerDownThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -3895,7 +4241,10 @@ impl IPointerDownThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerDownThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerDownThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerDownThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3909,7 +4258,7 @@ impl ::windows::core::RuntimeName for IPointerUpThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointerUpThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationImpl, const OFFSET: isize>() -> IPointerUpThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerUpThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IPointerUpThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -3925,7 +4274,10 @@ impl IPointerUpThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerUpThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerUpThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerUpThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3938,7 +4290,7 @@ impl ::windows::core::RuntimeName for IPointerUpThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointerUpThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationStaticsImpl, const OFFSET: isize>() -> IPointerUpThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerUpThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IPointerUpThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -3950,7 +4302,10 @@ impl IPointerUpThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerUpThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerUpThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerUpThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3968,7 +4323,7 @@ impl ::windows::core::RuntimeName for IPopInThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPopInThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationImpl, const OFFSET: isize>() -> IPopInThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopInThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -4014,7 +4369,23 @@ impl IPopInThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopInThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>, FromHorizontalOffset::<Impl, OFFSET>, SetFromHorizontalOffset::<Impl, OFFSET>, FromVerticalOffset::<Impl, OFFSET>, SetFromVerticalOffset::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPopInThemeAnimation>,
+            ::windows::core::GetTrustLevel,
+            TargetName::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            FromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetFromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            FromVerticalOffset::<Impl, IMPL_OFFSET>,
+            SetFromVerticalOffset::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPopInThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4029,7 +4400,7 @@ impl ::windows::core::RuntimeName for IPopInThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPopInThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationStaticsImpl, const OFFSET: isize>() -> IPopInThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopInThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IPopInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -4063,7 +4434,10 @@ impl IPopInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopInThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>, FromHorizontalOffsetProperty::<Impl, OFFSET>, FromVerticalOffsetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopInThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>, FromHorizontalOffsetProperty::<Impl, IMPL_OFFSET>, FromVerticalOffsetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPopInThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4077,7 +4451,7 @@ impl ::windows::core::RuntimeName for IPopOutThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPopOutThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationImpl, const OFFSET: isize>() -> IPopOutThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopOutThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IPopOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -4093,7 +4467,10 @@ impl IPopOutThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopOutThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopOutThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, IMPL_OFFSET>, SetTargetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPopOutThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4106,7 +4483,7 @@ impl ::windows::core::RuntimeName for IPopOutThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPopOutThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationStaticsImpl, const OFFSET: isize>() -> IPopOutThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopOutThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IPopOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -4118,7 +4495,10 @@ impl IPopOutThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopOutThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopOutThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPopOutThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4134,7 +4514,7 @@ impl ::windows::core::RuntimeName for IPopupThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPopupThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionImpl, const OFFSET: isize>() -> IPopupThemeTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupThemeTransitionVtbl {
         unsafe extern "system" fn FromHorizontalOffset<Impl: IPopupThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
@@ -4165,7 +4545,10 @@ impl IPopupThemeTransitionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupThemeTransition>, ::windows::core::GetTrustLevel, FromHorizontalOffset::<Impl, OFFSET>, SetFromHorizontalOffset::<Impl, OFFSET>, FromVerticalOffset::<Impl, OFFSET>, SetFromVerticalOffset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupThemeTransition>, ::windows::core::GetTrustLevel, FromHorizontalOffset::<Impl, IMPL_OFFSET>, SetFromHorizontalOffset::<Impl, IMPL_OFFSET>, FromVerticalOffset::<Impl, IMPL_OFFSET>, SetFromVerticalOffset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPopupThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4179,7 +4562,7 @@ impl ::windows::core::RuntimeName for IPopupThemeTransitionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPopupThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionStaticsImpl, const OFFSET: isize>() -> IPopupThemeTransitionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupThemeTransitionStaticsVtbl {
         unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IPopupThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
@@ -4202,7 +4585,10 @@ impl IPopupThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupThemeTransitionStatics>, ::windows::core::GetTrustLevel, FromHorizontalOffsetProperty::<Impl, OFFSET>, FromVerticalOffsetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPopupThemeTransitionStatics>, ::windows::core::GetTrustLevel, FromHorizontalOffsetProperty::<Impl, IMPL_OFFSET>, FromVerticalOffsetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPopupThemeTransitionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4216,7 +4602,7 @@ impl ::windows::core::RuntimeName for IPowerEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPowerEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseImpl, const OFFSET: isize>() -> IPowerEaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEaseVtbl {
         unsafe extern "system" fn Power<Impl: IPowerEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Power() {
@@ -4232,7 +4618,10 @@ impl IPowerEaseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPower(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPowerEase>, ::windows::core::GetTrustLevel, Power::<Impl, OFFSET>, SetPower::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPowerEase>, ::windows::core::GetTrustLevel, Power::<Impl, IMPL_OFFSET>, SetPower::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPowerEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4245,7 +4634,7 @@ impl ::windows::core::RuntimeName for IPowerEaseStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPowerEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseStaticsImpl, const OFFSET: isize>() -> IPowerEaseStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEaseStaticsVtbl {
         unsafe extern "system" fn PowerProperty<Impl: IPowerEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerProperty() {
@@ -4257,7 +4646,10 @@ impl IPowerEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPowerEaseStatics>, ::windows::core::GetTrustLevel, PowerProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPowerEaseStatics>, ::windows::core::GetTrustLevel, PowerProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPowerEaseStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4268,8 +4660,11 @@ impl ::windows::core::RuntimeName for IQuadraticEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IQuadraticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuadraticEaseImpl, const OFFSET: isize>() -> IQuadraticEaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuadraticEase>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuadraticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuadraticEaseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuadraticEase>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQuadraticEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4280,8 +4675,11 @@ impl ::windows::core::RuntimeName for IQuarticEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IQuarticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuarticEaseImpl, const OFFSET: isize>() -> IQuarticEaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuarticEase>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuarticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuarticEaseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuarticEase>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQuarticEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4292,8 +4690,11 @@ impl ::windows::core::RuntimeName for IQuinticEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IQuinticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuinticEaseImpl, const OFFSET: isize>() -> IQuinticEaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuinticEase>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuinticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuinticEaseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuinticEase>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQuinticEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4304,8 +4705,11 @@ impl ::windows::core::RuntimeName for IReorderThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReorderThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReorderThemeTransitionImpl, const OFFSET: isize>() -> IReorderThemeTransitionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReorderThemeTransition>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReorderThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReorderThemeTransitionVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReorderThemeTransition>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReorderThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4316,11 +4720,14 @@ impl ::windows::core::RuntimeName for IRepeatBehaviorHelper {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRepeatBehaviorHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperImpl, const OFFSET: isize>() -> IRepeatBehaviorHelperVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatBehaviorHelper>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatBehaviorHelperVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatBehaviorHelper>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepeatBehaviorHelper as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRepeatBehaviorHelperStaticsImpl: Sized {
     fn Forever(&self) -> ::windows::core::Result<RepeatBehavior>;
     fn FromCount(&self, count: f64) -> ::windows::core::Result<RepeatBehavior>;
@@ -4329,13 +4736,13 @@ pub trait IRepeatBehaviorHelperStaticsImpl: Sized {
     fn GetHasDuration(&self, target: &RepeatBehavior) -> ::windows::core::Result<bool>;
     fn Equals(&self, target: &RepeatBehavior, value: &RepeatBehavior) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRepeatBehaviorHelperStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelperStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRepeatBehaviorHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>() -> IRepeatBehaviorHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatBehaviorHelperStaticsVtbl {
         unsafe extern "system" fn Forever<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Forever() {
@@ -4402,7 +4809,23 @@ impl IRepeatBehaviorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepeatBehaviorHelperStatics>, ::windows::core::GetTrustLevel, Forever::<Impl, OFFSET>, FromCount::<Impl, OFFSET>, FromDuration::<Impl, OFFSET>, GetHasCount::<Impl, OFFSET>, GetHasDuration::<Impl, OFFSET>, Equals::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRepeatBehaviorHelperStatics>,
+            ::windows::core::GetTrustLevel,
+            Forever::<Impl, IMPL_OFFSET>,
+            FromCount::<Impl, IMPL_OFFSET>,
+            FromDuration::<Impl, IMPL_OFFSET>,
+            GetHasCount::<Impl, IMPL_OFFSET>,
+            GetHasDuration::<Impl, IMPL_OFFSET>,
+            Equals::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepeatBehaviorHelperStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4420,7 +4843,7 @@ impl ::windows::core::RuntimeName for IRepositionThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRepositionThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>() -> IRepositionThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -4466,7 +4889,23 @@ impl IRepositionThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>, FromHorizontalOffset::<Impl, OFFSET>, SetFromHorizontalOffset::<Impl, OFFSET>, FromVerticalOffset::<Impl, OFFSET>, SetFromVerticalOffset::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRepositionThemeAnimation>,
+            ::windows::core::GetTrustLevel,
+            TargetName::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            FromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetFromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            FromVerticalOffset::<Impl, IMPL_OFFSET>,
+            SetFromVerticalOffset::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepositionThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4481,7 +4920,7 @@ impl ::windows::core::RuntimeName for IRepositionThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRepositionThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationStaticsImpl, const OFFSET: isize>() -> IRepositionThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: IRepositionThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -4515,7 +4954,10 @@ impl IRepositionThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>, FromHorizontalOffsetProperty::<Impl, OFFSET>, FromVerticalOffsetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>, FromHorizontalOffsetProperty::<Impl, IMPL_OFFSET>, FromVerticalOffsetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepositionThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4526,8 +4968,11 @@ impl ::windows::core::RuntimeName for IRepositionThemeTransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRepositionThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionImpl, const OFFSET: isize>() -> IRepositionThemeTransitionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeTransition>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransitionVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeTransition>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepositionThemeTransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4541,7 +4986,7 @@ impl ::windows::core::RuntimeName for IRepositionThemeTransition2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRepositionThemeTransition2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransition2Impl, const OFFSET: isize>() -> IRepositionThemeTransition2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransition2Vtbl {
         unsafe extern "system" fn IsStaggeringEnabled<Impl: IRepositionThemeTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabled() {
@@ -4557,7 +5002,10 @@ impl IRepositionThemeTransition2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggeringEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeTransition2>, ::windows::core::GetTrustLevel, IsStaggeringEnabled::<Impl, OFFSET>, SetIsStaggeringEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeTransition2>, ::windows::core::GetTrustLevel, IsStaggeringEnabled::<Impl, IMPL_OFFSET>, SetIsStaggeringEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepositionThemeTransition2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4570,7 +5018,7 @@ impl ::windows::core::RuntimeName for IRepositionThemeTransitionStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRepositionThemeTransitionStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionStatics2Impl, const OFFSET: isize>() -> IRepositionThemeTransitionStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransitionStatics2Vtbl {
         unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: IRepositionThemeTransitionStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabledProperty() {
@@ -4582,7 +5030,10 @@ impl IRepositionThemeTransitionStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeTransitionStatics2>, ::windows::core::GetTrustLevel, IsStaggeringEnabledProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRepositionThemeTransitionStatics2>, ::windows::core::GetTrustLevel, IsStaggeringEnabledProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRepositionThemeTransitionStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4593,8 +5044,11 @@ impl ::windows::core::RuntimeName for ISineEase {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISineEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISineEaseImpl, const OFFSET: isize>() -> ISineEaseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISineEase>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISineEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISineEaseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISineEase>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISineEase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4605,8 +5059,11 @@ impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISlideNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoImpl, const OFFSET: isize>() -> ISlideNavigationTransitionInfoVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlideNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfoVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlideNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISlideNavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4620,7 +5077,7 @@ impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISlideNavigationTransitionInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfo2Impl, const OFFSET: isize>() -> ISlideNavigationTransitionInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfo2Vtbl {
         unsafe extern "system" fn Effect<Impl: ISlideNavigationTransitionInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SlideNavigationTransitionEffect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Effect() {
@@ -4636,7 +5093,10 @@ impl ISlideNavigationTransitionInfo2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEffect(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlideNavigationTransitionInfo2>, ::windows::core::GetTrustLevel, Effect::<Impl, OFFSET>, SetEffect::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlideNavigationTransitionInfo2>, ::windows::core::GetTrustLevel, Effect::<Impl, IMPL_OFFSET>, SetEffect::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISlideNavigationTransitionInfo2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4649,7 +5109,7 @@ impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfoStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISlideNavigationTransitionInfoStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoStatics2Impl, const OFFSET: isize>() -> ISlideNavigationTransitionInfoStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfoStatics2Vtbl {
         unsafe extern "system" fn EffectProperty<Impl: ISlideNavigationTransitionInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EffectProperty() {
@@ -4661,7 +5121,10 @@ impl ISlideNavigationTransitionInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlideNavigationTransitionInfoStatics2>, ::windows::core::GetTrustLevel, EffectProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISlideNavigationTransitionInfoStatics2>, ::windows::core::GetTrustLevel, EffectProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISlideNavigationTransitionInfoStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4675,7 +5138,7 @@ impl ::windows::core::RuntimeName for ISplineColorKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplineColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameImpl, const OFFSET: isize>() -> ISplineColorKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineColorKeyFrameVtbl {
         unsafe extern "system" fn KeySpline<Impl: ISplineColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySpline() {
@@ -4691,7 +5154,10 @@ impl ISplineColorKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeySpline(&*(&value as *const <KeySpline as ::windows::core::Abi>::Abi as *const <KeySpline as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineColorKeyFrame>, ::windows::core::GetTrustLevel, KeySpline::<Impl, OFFSET>, SetKeySpline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineColorKeyFrame>, ::windows::core::GetTrustLevel, KeySpline::<Impl, IMPL_OFFSET>, SetKeySpline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplineColorKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4704,7 +5170,7 @@ impl ::windows::core::RuntimeName for ISplineColorKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplineColorKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameStaticsImpl, const OFFSET: isize>() -> ISplineColorKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineColorKeyFrameStaticsVtbl {
         unsafe extern "system" fn KeySplineProperty<Impl: ISplineColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySplineProperty() {
@@ -4716,7 +5182,10 @@ impl ISplineColorKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineColorKeyFrameStatics>, ::windows::core::GetTrustLevel, KeySplineProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineColorKeyFrameStatics>, ::windows::core::GetTrustLevel, KeySplineProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplineColorKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4730,7 +5199,7 @@ impl ::windows::core::RuntimeName for ISplineDoubleKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplineDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameImpl, const OFFSET: isize>() -> ISplineDoubleKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineDoubleKeyFrameVtbl {
         unsafe extern "system" fn KeySpline<Impl: ISplineDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySpline() {
@@ -4746,7 +5215,10 @@ impl ISplineDoubleKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeySpline(&*(&value as *const <KeySpline as ::windows::core::Abi>::Abi as *const <KeySpline as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineDoubleKeyFrame>, ::windows::core::GetTrustLevel, KeySpline::<Impl, OFFSET>, SetKeySpline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineDoubleKeyFrame>, ::windows::core::GetTrustLevel, KeySpline::<Impl, IMPL_OFFSET>, SetKeySpline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplineDoubleKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4759,7 +5231,7 @@ impl ::windows::core::RuntimeName for ISplineDoubleKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplineDoubleKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameStaticsImpl, const OFFSET: isize>() -> ISplineDoubleKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineDoubleKeyFrameStaticsVtbl {
         unsafe extern "system" fn KeySplineProperty<Impl: ISplineDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySplineProperty() {
@@ -4771,7 +5243,10 @@ impl ISplineDoubleKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineDoubleKeyFrameStatics>, ::windows::core::GetTrustLevel, KeySplineProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplineDoubleKeyFrameStatics>, ::windows::core::GetTrustLevel, KeySplineProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplineDoubleKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4785,7 +5260,7 @@ impl ::windows::core::RuntimeName for ISplinePointKeyFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplinePointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameImpl, const OFFSET: isize>() -> ISplinePointKeyFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplinePointKeyFrameVtbl {
         unsafe extern "system" fn KeySpline<Impl: ISplinePointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySpline() {
@@ -4801,7 +5276,10 @@ impl ISplinePointKeyFrameVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeySpline(&*(&value as *const <KeySpline as ::windows::core::Abi>::Abi as *const <KeySpline as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplinePointKeyFrame>, ::windows::core::GetTrustLevel, KeySpline::<Impl, OFFSET>, SetKeySpline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplinePointKeyFrame>, ::windows::core::GetTrustLevel, KeySpline::<Impl, IMPL_OFFSET>, SetKeySpline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplinePointKeyFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4814,7 +5292,7 @@ impl ::windows::core::RuntimeName for ISplinePointKeyFrameStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplinePointKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameStaticsImpl, const OFFSET: isize>() -> ISplinePointKeyFrameStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplinePointKeyFrameStaticsVtbl {
         unsafe extern "system" fn KeySplineProperty<Impl: ISplinePointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySplineProperty() {
@@ -4826,10 +5304,13 @@ impl ISplinePointKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplinePointKeyFrameStatics>, ::windows::core::GetTrustLevel, KeySplineProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISplinePointKeyFrameStatics>, ::windows::core::GetTrustLevel, KeySplineProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplinePointKeyFrameStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait ISplitCloseThemeAnimationImpl: Sized {
     fn OpenedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetOpenedTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -4854,13 +5335,13 @@ pub trait ISplitCloseThemeAnimationImpl: Sized {
     fn ContentTranslationOffset(&self) -> ::windows::core::Result<f64>;
     fn SetContentTranslationOffset(&self, value: f64) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISplitCloseThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ISplitCloseThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>() -> ISplitCloseThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitCloseThemeAnimationVtbl {
         unsafe extern "system" fn OpenedTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetName() {
@@ -5027,35 +5508,38 @@ impl ISplitCloseThemeAnimationVtbl {
             (*this).SetContentTranslationOffset(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISplitCloseThemeAnimation>,
             ::windows::core::GetTrustLevel,
-            OpenedTargetName::<Impl, OFFSET>,
-            SetOpenedTargetName::<Impl, OFFSET>,
-            OpenedTarget::<Impl, OFFSET>,
-            SetOpenedTarget::<Impl, OFFSET>,
-            ClosedTargetName::<Impl, OFFSET>,
-            SetClosedTargetName::<Impl, OFFSET>,
-            ClosedTarget::<Impl, OFFSET>,
-            SetClosedTarget::<Impl, OFFSET>,
-            ContentTargetName::<Impl, OFFSET>,
-            SetContentTargetName::<Impl, OFFSET>,
-            ContentTarget::<Impl, OFFSET>,
-            SetContentTarget::<Impl, OFFSET>,
-            OpenedLength::<Impl, OFFSET>,
-            SetOpenedLength::<Impl, OFFSET>,
-            ClosedLength::<Impl, OFFSET>,
-            SetClosedLength::<Impl, OFFSET>,
-            OffsetFromCenter::<Impl, OFFSET>,
-            SetOffsetFromCenter::<Impl, OFFSET>,
-            ContentTranslationDirection::<Impl, OFFSET>,
-            SetContentTranslationDirection::<Impl, OFFSET>,
-            ContentTranslationOffset::<Impl, OFFSET>,
-            SetContentTranslationOffset::<Impl, OFFSET>,
+            OpenedTargetName::<Impl, IMPL_OFFSET>,
+            SetOpenedTargetName::<Impl, IMPL_OFFSET>,
+            OpenedTarget::<Impl, IMPL_OFFSET>,
+            SetOpenedTarget::<Impl, IMPL_OFFSET>,
+            ClosedTargetName::<Impl, IMPL_OFFSET>,
+            SetClosedTargetName::<Impl, IMPL_OFFSET>,
+            ClosedTarget::<Impl, IMPL_OFFSET>,
+            SetClosedTarget::<Impl, IMPL_OFFSET>,
+            ContentTargetName::<Impl, IMPL_OFFSET>,
+            SetContentTargetName::<Impl, IMPL_OFFSET>,
+            ContentTarget::<Impl, IMPL_OFFSET>,
+            SetContentTarget::<Impl, IMPL_OFFSET>,
+            OpenedLength::<Impl, IMPL_OFFSET>,
+            SetOpenedLength::<Impl, IMPL_OFFSET>,
+            ClosedLength::<Impl, IMPL_OFFSET>,
+            SetClosedLength::<Impl, IMPL_OFFSET>,
+            OffsetFromCenter::<Impl, IMPL_OFFSET>,
+            SetOffsetFromCenter::<Impl, IMPL_OFFSET>,
+            ContentTranslationDirection::<Impl, IMPL_OFFSET>,
+            SetContentTranslationDirection::<Impl, IMPL_OFFSET>,
+            ContentTranslationOffset::<Impl, IMPL_OFFSET>,
+            SetContentTranslationOffset::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplitCloseThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5078,7 +5562,7 @@ impl ::windows::core::RuntimeName for ISplitCloseThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplitCloseThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>() -> ISplitCloseThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitCloseThemeAnimationStaticsVtbl {
         unsafe extern "system" fn OpenedTargetNameProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetNameProperty() {
@@ -5201,27 +5685,30 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISplitCloseThemeAnimationStatics>,
             ::windows::core::GetTrustLevel,
-            OpenedTargetNameProperty::<Impl, OFFSET>,
-            OpenedTargetProperty::<Impl, OFFSET>,
-            ClosedTargetNameProperty::<Impl, OFFSET>,
-            ClosedTargetProperty::<Impl, OFFSET>,
-            ContentTargetNameProperty::<Impl, OFFSET>,
-            ContentTargetProperty::<Impl, OFFSET>,
-            OpenedLengthProperty::<Impl, OFFSET>,
-            ClosedLengthProperty::<Impl, OFFSET>,
-            OffsetFromCenterProperty::<Impl, OFFSET>,
-            ContentTranslationDirectionProperty::<Impl, OFFSET>,
-            ContentTranslationOffsetProperty::<Impl, OFFSET>,
+            OpenedTargetNameProperty::<Impl, IMPL_OFFSET>,
+            OpenedTargetProperty::<Impl, IMPL_OFFSET>,
+            ClosedTargetNameProperty::<Impl, IMPL_OFFSET>,
+            ClosedTargetProperty::<Impl, IMPL_OFFSET>,
+            ContentTargetNameProperty::<Impl, IMPL_OFFSET>,
+            ContentTargetProperty::<Impl, IMPL_OFFSET>,
+            OpenedLengthProperty::<Impl, IMPL_OFFSET>,
+            ClosedLengthProperty::<Impl, IMPL_OFFSET>,
+            OffsetFromCenterProperty::<Impl, IMPL_OFFSET>,
+            ContentTranslationDirectionProperty::<Impl, IMPL_OFFSET>,
+            ContentTranslationOffsetProperty::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplitCloseThemeAnimationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait ISplitOpenThemeAnimationImpl: Sized {
     fn OpenedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetOpenedTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -5246,13 +5733,13 @@ pub trait ISplitOpenThemeAnimationImpl: Sized {
     fn ContentTranslationOffset(&self) -> ::windows::core::Result<f64>;
     fn SetContentTranslationOffset(&self, value: f64) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISplitOpenThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ISplitOpenThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>() -> ISplitOpenThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitOpenThemeAnimationVtbl {
         unsafe extern "system" fn OpenedTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetName() {
@@ -5419,35 +5906,38 @@ impl ISplitOpenThemeAnimationVtbl {
             (*this).SetContentTranslationOffset(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISplitOpenThemeAnimation>,
             ::windows::core::GetTrustLevel,
-            OpenedTargetName::<Impl, OFFSET>,
-            SetOpenedTargetName::<Impl, OFFSET>,
-            OpenedTarget::<Impl, OFFSET>,
-            SetOpenedTarget::<Impl, OFFSET>,
-            ClosedTargetName::<Impl, OFFSET>,
-            SetClosedTargetName::<Impl, OFFSET>,
-            ClosedTarget::<Impl, OFFSET>,
-            SetClosedTarget::<Impl, OFFSET>,
-            ContentTargetName::<Impl, OFFSET>,
-            SetContentTargetName::<Impl, OFFSET>,
-            ContentTarget::<Impl, OFFSET>,
-            SetContentTarget::<Impl, OFFSET>,
-            OpenedLength::<Impl, OFFSET>,
-            SetOpenedLength::<Impl, OFFSET>,
-            ClosedLength::<Impl, OFFSET>,
-            SetClosedLength::<Impl, OFFSET>,
-            OffsetFromCenter::<Impl, OFFSET>,
-            SetOffsetFromCenter::<Impl, OFFSET>,
-            ContentTranslationDirection::<Impl, OFFSET>,
-            SetContentTranslationDirection::<Impl, OFFSET>,
-            ContentTranslationOffset::<Impl, OFFSET>,
-            SetContentTranslationOffset::<Impl, OFFSET>,
+            OpenedTargetName::<Impl, IMPL_OFFSET>,
+            SetOpenedTargetName::<Impl, IMPL_OFFSET>,
+            OpenedTarget::<Impl, IMPL_OFFSET>,
+            SetOpenedTarget::<Impl, IMPL_OFFSET>,
+            ClosedTargetName::<Impl, IMPL_OFFSET>,
+            SetClosedTargetName::<Impl, IMPL_OFFSET>,
+            ClosedTarget::<Impl, IMPL_OFFSET>,
+            SetClosedTarget::<Impl, IMPL_OFFSET>,
+            ContentTargetName::<Impl, IMPL_OFFSET>,
+            SetContentTargetName::<Impl, IMPL_OFFSET>,
+            ContentTarget::<Impl, IMPL_OFFSET>,
+            SetContentTarget::<Impl, IMPL_OFFSET>,
+            OpenedLength::<Impl, IMPL_OFFSET>,
+            SetOpenedLength::<Impl, IMPL_OFFSET>,
+            ClosedLength::<Impl, IMPL_OFFSET>,
+            SetClosedLength::<Impl, IMPL_OFFSET>,
+            OffsetFromCenter::<Impl, IMPL_OFFSET>,
+            SetOffsetFromCenter::<Impl, IMPL_OFFSET>,
+            ContentTranslationDirection::<Impl, IMPL_OFFSET>,
+            SetContentTranslationDirection::<Impl, IMPL_OFFSET>,
+            ContentTranslationOffset::<Impl, IMPL_OFFSET>,
+            SetContentTranslationOffset::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplitOpenThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5470,7 +5960,7 @@ impl ::windows::core::RuntimeName for ISplitOpenThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISplitOpenThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>() -> ISplitOpenThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitOpenThemeAnimationStaticsVtbl {
         unsafe extern "system" fn OpenedTargetNameProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetNameProperty() {
@@ -5593,27 +6083,30 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISplitOpenThemeAnimationStatics>,
             ::windows::core::GetTrustLevel,
-            OpenedTargetNameProperty::<Impl, OFFSET>,
-            OpenedTargetProperty::<Impl, OFFSET>,
-            ClosedTargetNameProperty::<Impl, OFFSET>,
-            ClosedTargetProperty::<Impl, OFFSET>,
-            ContentTargetNameProperty::<Impl, OFFSET>,
-            ContentTargetProperty::<Impl, OFFSET>,
-            OpenedLengthProperty::<Impl, OFFSET>,
-            ClosedLengthProperty::<Impl, OFFSET>,
-            OffsetFromCenterProperty::<Impl, OFFSET>,
-            ContentTranslationDirectionProperty::<Impl, OFFSET>,
-            ContentTranslationOffsetProperty::<Impl, OFFSET>,
+            OpenedTargetNameProperty::<Impl, IMPL_OFFSET>,
+            OpenedTargetProperty::<Impl, IMPL_OFFSET>,
+            ClosedTargetNameProperty::<Impl, IMPL_OFFSET>,
+            ClosedTargetProperty::<Impl, IMPL_OFFSET>,
+            ContentTargetNameProperty::<Impl, IMPL_OFFSET>,
+            ContentTargetProperty::<Impl, IMPL_OFFSET>,
+            OpenedLengthProperty::<Impl, IMPL_OFFSET>,
+            ClosedLengthProperty::<Impl, IMPL_OFFSET>,
+            OffsetFromCenterProperty::<Impl, IMPL_OFFSET>,
+            ContentTranslationDirectionProperty::<Impl, IMPL_OFFSET>,
+            ContentTranslationOffsetProperty::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISplitOpenThemeAnimationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoryboardImpl: Sized {
     fn Children(&self) -> ::windows::core::Result<TimelineCollection>;
     fn Seek(&self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -5626,13 +6119,13 @@ pub trait IStoryboardImpl: Sized {
     fn SeekAlignedToLastTick(&self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SkipToFill(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoryboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IStoryboard";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoryboardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardImpl, const OFFSET: isize>() -> IStoryboardVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoryboardVtbl {
         unsafe extern "system" fn Children<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
@@ -5695,23 +6188,26 @@ impl IStoryboardVtbl {
             (*this).SkipToFill().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoryboard>,
             ::windows::core::GetTrustLevel,
-            Children::<Impl, OFFSET>,
-            Seek::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            Begin::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            Resume::<Impl, OFFSET>,
-            GetCurrentState::<Impl, OFFSET>,
-            GetCurrentTime::<Impl, OFFSET>,
-            SeekAlignedToLastTick::<Impl, OFFSET>,
-            SkipToFill::<Impl, OFFSET>,
+            Children::<Impl, IMPL_OFFSET>,
+            Seek::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Begin::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Resume::<Impl, IMPL_OFFSET>,
+            GetCurrentState::<Impl, IMPL_OFFSET>,
+            GetCurrentTime::<Impl, IMPL_OFFSET>,
+            SeekAlignedToLastTick::<Impl, IMPL_OFFSET>,
+            SkipToFill::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoryboard as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5730,7 +6226,7 @@ impl ::windows::core::RuntimeName for IStoryboardStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoryboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardStaticsImpl, const OFFSET: isize>() -> IStoryboardStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoryboardStaticsVtbl {
         unsafe extern "system" fn TargetPropertyProperty<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetPropertyProperty() {
@@ -5788,20 +6284,23 @@ impl IStoryboardStaticsVtbl {
             (*this).SetTarget(&*(&timeline as *const <Timeline as ::windows::core::Abi>::Abi as *const <Timeline as ::windows::core::DefaultType>::DefaultType), &*(&target as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoryboardStatics>,
             ::windows::core::GetTrustLevel,
-            TargetPropertyProperty::<Impl, OFFSET>,
-            GetTargetProperty::<Impl, OFFSET>,
-            SetTargetProperty::<Impl, OFFSET>,
-            TargetNameProperty::<Impl, OFFSET>,
-            GetTargetName::<Impl, OFFSET>,
-            SetTargetName::<Impl, OFFSET>,
-            SetTarget::<Impl, OFFSET>,
+            TargetPropertyProperty::<Impl, IMPL_OFFSET>,
+            GetTargetProperty::<Impl, IMPL_OFFSET>,
+            SetTargetProperty::<Impl, IMPL_OFFSET>,
+            TargetNameProperty::<Impl, IMPL_OFFSET>,
+            GetTargetName::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            SetTarget::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoryboardStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5812,8 +6311,11 @@ impl ::windows::core::RuntimeName for ISuppressNavigationTransitionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISuppressNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuppressNavigationTransitionInfoImpl, const OFFSET: isize>() -> ISuppressNavigationTransitionInfoVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuppressNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuppressNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuppressNavigationTransitionInfoVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuppressNavigationTransitionInfo>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISuppressNavigationTransitionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5831,7 +6333,7 @@ impl ::windows::core::RuntimeName for ISwipeBackThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISwipeBackThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>() -> ISwipeBackThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeBackThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -5877,7 +6379,23 @@ impl ISwipeBackThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISwipeBackThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>, FromHorizontalOffset::<Impl, OFFSET>, SetFromHorizontalOffset::<Impl, OFFSET>, FromVerticalOffset::<Impl, OFFSET>, SetFromVerticalOffset::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISwipeBackThemeAnimation>,
+            ::windows::core::GetTrustLevel,
+            TargetName::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            FromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetFromHorizontalOffset::<Impl, IMPL_OFFSET>,
+            FromVerticalOffset::<Impl, IMPL_OFFSET>,
+            SetFromVerticalOffset::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISwipeBackThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5892,7 +6410,7 @@ impl ::windows::core::RuntimeName for ISwipeBackThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISwipeBackThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationStaticsImpl, const OFFSET: isize>() -> ISwipeBackThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeBackThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: ISwipeBackThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -5926,7 +6444,10 @@ impl ISwipeBackThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISwipeBackThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>, FromHorizontalOffsetProperty::<Impl, OFFSET>, FromVerticalOffsetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISwipeBackThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>, FromHorizontalOffsetProperty::<Impl, IMPL_OFFSET>, FromVerticalOffsetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISwipeBackThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5944,7 +6465,7 @@ impl ::windows::core::RuntimeName for ISwipeHintThemeAnimation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISwipeHintThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>() -> ISwipeHintThemeAnimationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeHintThemeAnimationVtbl {
         unsafe extern "system" fn TargetName<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
@@ -5990,7 +6511,23 @@ impl ISwipeHintThemeAnimationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToVerticalOffset(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISwipeHintThemeAnimation>, ::windows::core::GetTrustLevel, TargetName::<Impl, OFFSET>, SetTargetName::<Impl, OFFSET>, ToHorizontalOffset::<Impl, OFFSET>, SetToHorizontalOffset::<Impl, OFFSET>, ToVerticalOffset::<Impl, OFFSET>, SetToVerticalOffset::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISwipeHintThemeAnimation>,
+            ::windows::core::GetTrustLevel,
+            TargetName::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            ToHorizontalOffset::<Impl, IMPL_OFFSET>,
+            SetToHorizontalOffset::<Impl, IMPL_OFFSET>,
+            ToVerticalOffset::<Impl, IMPL_OFFSET>,
+            SetToVerticalOffset::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISwipeHintThemeAnimation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6005,7 +6542,7 @@ impl ::windows::core::RuntimeName for ISwipeHintThemeAnimationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISwipeHintThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationStaticsImpl, const OFFSET: isize>() -> ISwipeHintThemeAnimationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeHintThemeAnimationStaticsVtbl {
         unsafe extern "system" fn TargetNameProperty<Impl: ISwipeHintThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
@@ -6039,10 +6576,13 @@ impl ISwipeHintThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISwipeHintThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, OFFSET>, ToHorizontalOffsetProperty::<Impl, OFFSET>, ToVerticalOffsetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISwipeHintThemeAnimationStatics>, ::windows::core::GetTrustLevel, TargetNameProperty::<Impl, IMPL_OFFSET>, ToHorizontalOffsetProperty::<Impl, IMPL_OFFSET>, ToVerticalOffsetProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISwipeHintThemeAnimationStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITimelineImpl: Sized {
     fn AutoReverse(&self) -> ::windows::core::Result<bool>;
     fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()>;
@@ -6059,13 +6599,13 @@ pub trait ITimelineImpl: Sized {
     fn Completed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimeline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ITimeline";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITimelineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineImpl, const OFFSET: isize>() -> ITimelineVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineVtbl {
         unsafe extern "system" fn AutoReverse<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoReverse() {
@@ -6172,27 +6712,30 @@ impl ITimelineVtbl {
             (*this).RemoveCompleted(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITimeline>,
             ::windows::core::GetTrustLevel,
-            AutoReverse::<Impl, OFFSET>,
-            SetAutoReverse::<Impl, OFFSET>,
-            BeginTime::<Impl, OFFSET>,
-            SetBeginTime::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            SpeedRatio::<Impl, OFFSET>,
-            SetSpeedRatio::<Impl, OFFSET>,
-            FillBehavior::<Impl, OFFSET>,
-            SetFillBehavior::<Impl, OFFSET>,
-            RepeatBehavior::<Impl, OFFSET>,
-            SetRepeatBehavior::<Impl, OFFSET>,
-            Completed::<Impl, OFFSET>,
-            RemoveCompleted::<Impl, OFFSET>,
+            AutoReverse::<Impl, IMPL_OFFSET>,
+            SetAutoReverse::<Impl, IMPL_OFFSET>,
+            BeginTime::<Impl, IMPL_OFFSET>,
+            SetBeginTime::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            SpeedRatio::<Impl, IMPL_OFFSET>,
+            SetSpeedRatio::<Impl, IMPL_OFFSET>,
+            FillBehavior::<Impl, IMPL_OFFSET>,
+            SetFillBehavior::<Impl, IMPL_OFFSET>,
+            RepeatBehavior::<Impl, IMPL_OFFSET>,
+            SetRepeatBehavior::<Impl, IMPL_OFFSET>,
+            Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimeline as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6205,7 +6748,7 @@ impl ::windows::core::RuntimeName for ITimelineFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITimelineFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineFactoryImpl, const OFFSET: isize>() -> ITimelineFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ITimelineFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -6217,7 +6760,10 @@ impl ITimelineFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimelineFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimelineFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimelineFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6237,7 +6783,7 @@ impl ::windows::core::RuntimeName for ITimelineStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITimelineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineStaticsImpl, const OFFSET: isize>() -> ITimelineStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineStaticsVtbl {
         unsafe extern "system" fn AllowDependentAnimations<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowDependentAnimations() {
@@ -6320,21 +6866,24 @@ impl ITimelineStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITimelineStatics>,
             ::windows::core::GetTrustLevel,
-            AllowDependentAnimations::<Impl, OFFSET>,
-            SetAllowDependentAnimations::<Impl, OFFSET>,
-            AutoReverseProperty::<Impl, OFFSET>,
-            BeginTimeProperty::<Impl, OFFSET>,
-            DurationProperty::<Impl, OFFSET>,
-            SpeedRatioProperty::<Impl, OFFSET>,
-            FillBehaviorProperty::<Impl, OFFSET>,
-            RepeatBehaviorProperty::<Impl, OFFSET>,
+            AllowDependentAnimations::<Impl, IMPL_OFFSET>,
+            SetAllowDependentAnimations::<Impl, IMPL_OFFSET>,
+            AutoReverseProperty::<Impl, IMPL_OFFSET>,
+            BeginTimeProperty::<Impl, IMPL_OFFSET>,
+            DurationProperty::<Impl, IMPL_OFFSET>,
+            SpeedRatioProperty::<Impl, IMPL_OFFSET>,
+            FillBehaviorProperty::<Impl, IMPL_OFFSET>,
+            RepeatBehaviorProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimelineStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6345,8 +6894,11 @@ impl ::windows::core::RuntimeName for ITransition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionImpl, const OFFSET: isize>() -> ITransitionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransition>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransitionVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransition>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6357,7 +6909,10 @@ impl ::windows::core::RuntimeName for ITransitionFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransitionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionFactoryImpl, const OFFSET: isize>() -> ITransitionFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransitionFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransitionFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransitionFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransitionFactory as ::windows::core::Interface>::IID
     }
 }

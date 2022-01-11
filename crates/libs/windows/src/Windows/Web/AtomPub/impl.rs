@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams", feature = "Web_Syndication", feature = "implement_exclusive"))]
 pub trait IAtomPubClientImpl: Sized + ISyndicationClientImpl {
     fn RetrieveServiceDocumentAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>;
     fn RetrieveMediaResourceAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>;
@@ -12,13 +12,13 @@ pub trait IAtomPubClientImpl: Sized + ISyndicationClientImpl {
     fn DeleteResourceItemAsync(&self, item: &::core::option::Option<super::Syndication::SyndicationItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>;
     fn CancelAsyncOperations(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.IAtomPubClient";
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl IAtomPubClientVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAtomPubClientImpl, const OFFSET: isize>() -> IAtomPubClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAtomPubClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAtomPubClientVtbl {
         unsafe extern "system" fn RetrieveServiceDocumentAsync<Impl: IAtomPubClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetrieveServiceDocumentAsync(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -147,37 +147,40 @@ impl IAtomPubClientVtbl {
             (*this).CancelAsyncOperations().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAtomPubClient>,
             ::windows::core::GetTrustLevel,
-            RetrieveServiceDocumentAsync::<Impl, OFFSET>,
-            RetrieveMediaResourceAsync::<Impl, OFFSET>,
-            RetrieveResourceAsync::<Impl, OFFSET>,
-            CreateResourceAsync::<Impl, OFFSET>,
-            CreateMediaResourceAsync::<Impl, OFFSET>,
-            UpdateMediaResourceAsync::<Impl, OFFSET>,
-            UpdateResourceAsync::<Impl, OFFSET>,
-            UpdateResourceItemAsync::<Impl, OFFSET>,
-            DeleteResourceAsync::<Impl, OFFSET>,
-            DeleteResourceItemAsync::<Impl, OFFSET>,
-            CancelAsyncOperations::<Impl, OFFSET>,
+            RetrieveServiceDocumentAsync::<Impl, IMPL_OFFSET>,
+            RetrieveMediaResourceAsync::<Impl, IMPL_OFFSET>,
+            RetrieveResourceAsync::<Impl, IMPL_OFFSET>,
+            CreateResourceAsync::<Impl, IMPL_OFFSET>,
+            CreateMediaResourceAsync::<Impl, IMPL_OFFSET>,
+            UpdateMediaResourceAsync::<Impl, IMPL_OFFSET>,
+            UpdateResourceAsync::<Impl, IMPL_OFFSET>,
+            UpdateResourceItemAsync::<Impl, IMPL_OFFSET>,
+            DeleteResourceAsync::<Impl, IMPL_OFFSET>,
+            DeleteResourceItemAsync::<Impl, IMPL_OFFSET>,
+            CancelAsyncOperations::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAtomPubClient as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IAtomPubClientFactoryImpl: Sized {
     fn CreateAtomPubClientWithCredentials(&self, servercredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<AtomPubClient>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAtomPubClientFactory {
     const NAME: &'static str = "Windows.Web.AtomPub.IAtomPubClientFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IAtomPubClientFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAtomPubClientFactoryImpl, const OFFSET: isize>() -> IAtomPubClientFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAtomPubClientFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAtomPubClientFactoryVtbl {
         unsafe extern "system" fn CreateAtomPubClientWithCredentials<Impl: IAtomPubClientFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servercredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAtomPubClientWithCredentials(&*(&servercredential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)) {
@@ -189,23 +192,26 @@ impl IAtomPubClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAtomPubClientFactory>, ::windows::core::GetTrustLevel, CreateAtomPubClientWithCredentials::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAtomPubClientFactory>, ::windows::core::GetTrustLevel, CreateAtomPubClientWithCredentials::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAtomPubClientFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 pub trait IResourceCollectionImpl: Sized + ISyndicationNodeImpl {
     fn Title(&self) -> ::windows::core::Result<super::Syndication::ISyndicationText>;
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn Categories(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::Syndication::SyndicationCategory>>;
     fn Accepts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.IResourceCollection";
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl IResourceCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCollectionImpl, const OFFSET: isize>() -> IResourceCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceCollectionVtbl {
         unsafe extern "system" fn Title<Impl: IResourceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -250,20 +256,23 @@ impl IResourceCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCollection>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, Uri::<Impl, OFFSET>, Categories::<Impl, OFFSET>, Accepts::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCollection>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, Categories::<Impl, IMPL_OFFSET>, Accepts::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 pub trait IServiceDocumentImpl: Sized + ISyndicationNodeImpl {
     fn Workspaces(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Workspace>>;
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.IServiceDocument";
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl IServiceDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceDocumentImpl, const OFFSET: isize>() -> IServiceDocumentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceDocumentVtbl {
         unsafe extern "system" fn Workspaces<Impl: IServiceDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Workspaces() {
@@ -275,21 +284,24 @@ impl IServiceDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceDocument>, ::windows::core::GetTrustLevel, Workspaces::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceDocument>, ::windows::core::GetTrustLevel, Workspaces::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServiceDocument as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 pub trait IWorkspaceImpl: Sized + ISyndicationNodeImpl {
     fn Title(&self) -> ::windows::core::Result<super::Syndication::ISyndicationText>;
     fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ResourceCollection>>;
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWorkspace {
     const NAME: &'static str = "Windows.Web.AtomPub.IWorkspace";
 }
-#[cfg(all(feature = "Web_Syndication", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Syndication", feature = "implement_exclusive"))]
 impl IWorkspaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceImpl, const OFFSET: isize>() -> IWorkspaceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkspaceVtbl {
         unsafe extern "system" fn Title<Impl: IWorkspaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -312,6 +324,9 @@ impl IWorkspaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkspace>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, Collections::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkspace>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Collections::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWorkspace as ::windows::core::Interface>::IID
     }
 }

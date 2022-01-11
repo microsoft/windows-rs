@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IErrorReceivedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IErrorReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReceivedEventArgsImpl, const OFFSET: isize>() -> IErrorReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorReceivedEventArgsVtbl {
         unsafe extern "system" fn Error<Impl: IErrorReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
@@ -20,7 +20,10 @@ impl IErrorReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IErrorReceivedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IErrorReceivedEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IErrorReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,7 +36,7 @@ impl ::windows::core::RuntimeName for IPinChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPinChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinChangedEventArgsImpl, const OFFSET: isize>() -> IPinChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPinChangedEventArgsVtbl {
         unsafe extern "system" fn PinChange<Impl: IPinChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialPinChange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinChange() {
@@ -45,10 +48,13 @@ impl IPinChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinChangedEventArgs>, ::windows::core::GetTrustLevel, PinChange::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinChangedEventArgs>, ::windows::core::GetTrustLevel, PinChange::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPinChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISerialDeviceImpl: Sized + IClosableImpl {
     fn BaudRate(&self) -> ::windows::core::Result<u32>;
     fn SetBaudRate(&self, value: u32) -> ::windows::core::Result<()>;
@@ -84,13 +90,13 @@ pub trait ISerialDeviceImpl: Sized + IClosableImpl {
     fn PinChanged(&self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePinChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ISerialDevice";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISerialDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceImpl, const OFFSET: isize>() -> ISerialDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISerialDeviceVtbl {
         unsafe extern "system" fn BaudRate<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaudRate() {
@@ -371,62 +377,65 @@ impl ISerialDeviceVtbl {
             (*this).RemovePinChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISerialDevice>,
             ::windows::core::GetTrustLevel,
-            BaudRate::<Impl, OFFSET>,
-            SetBaudRate::<Impl, OFFSET>,
-            BreakSignalState::<Impl, OFFSET>,
-            SetBreakSignalState::<Impl, OFFSET>,
-            BytesReceived::<Impl, OFFSET>,
-            CarrierDetectState::<Impl, OFFSET>,
-            ClearToSendState::<Impl, OFFSET>,
-            DataBits::<Impl, OFFSET>,
-            SetDataBits::<Impl, OFFSET>,
-            DataSetReadyState::<Impl, OFFSET>,
-            Handshake::<Impl, OFFSET>,
-            SetHandshake::<Impl, OFFSET>,
-            IsDataTerminalReadyEnabled::<Impl, OFFSET>,
-            SetIsDataTerminalReadyEnabled::<Impl, OFFSET>,
-            IsRequestToSendEnabled::<Impl, OFFSET>,
-            SetIsRequestToSendEnabled::<Impl, OFFSET>,
-            Parity::<Impl, OFFSET>,
-            SetParity::<Impl, OFFSET>,
-            PortName::<Impl, OFFSET>,
-            ReadTimeout::<Impl, OFFSET>,
-            SetReadTimeout::<Impl, OFFSET>,
-            StopBits::<Impl, OFFSET>,
-            SetStopBits::<Impl, OFFSET>,
-            UsbVendorId::<Impl, OFFSET>,
-            UsbProductId::<Impl, OFFSET>,
-            WriteTimeout::<Impl, OFFSET>,
-            SetWriteTimeout::<Impl, OFFSET>,
-            InputStream::<Impl, OFFSET>,
-            OutputStream::<Impl, OFFSET>,
-            ErrorReceived::<Impl, OFFSET>,
-            RemoveErrorReceived::<Impl, OFFSET>,
-            PinChanged::<Impl, OFFSET>,
-            RemovePinChanged::<Impl, OFFSET>,
+            BaudRate::<Impl, IMPL_OFFSET>,
+            SetBaudRate::<Impl, IMPL_OFFSET>,
+            BreakSignalState::<Impl, IMPL_OFFSET>,
+            SetBreakSignalState::<Impl, IMPL_OFFSET>,
+            BytesReceived::<Impl, IMPL_OFFSET>,
+            CarrierDetectState::<Impl, IMPL_OFFSET>,
+            ClearToSendState::<Impl, IMPL_OFFSET>,
+            DataBits::<Impl, IMPL_OFFSET>,
+            SetDataBits::<Impl, IMPL_OFFSET>,
+            DataSetReadyState::<Impl, IMPL_OFFSET>,
+            Handshake::<Impl, IMPL_OFFSET>,
+            SetHandshake::<Impl, IMPL_OFFSET>,
+            IsDataTerminalReadyEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDataTerminalReadyEnabled::<Impl, IMPL_OFFSET>,
+            IsRequestToSendEnabled::<Impl, IMPL_OFFSET>,
+            SetIsRequestToSendEnabled::<Impl, IMPL_OFFSET>,
+            Parity::<Impl, IMPL_OFFSET>,
+            SetParity::<Impl, IMPL_OFFSET>,
+            PortName::<Impl, IMPL_OFFSET>,
+            ReadTimeout::<Impl, IMPL_OFFSET>,
+            SetReadTimeout::<Impl, IMPL_OFFSET>,
+            StopBits::<Impl, IMPL_OFFSET>,
+            SetStopBits::<Impl, IMPL_OFFSET>,
+            UsbVendorId::<Impl, IMPL_OFFSET>,
+            UsbProductId::<Impl, IMPL_OFFSET>,
+            WriteTimeout::<Impl, IMPL_OFFSET>,
+            SetWriteTimeout::<Impl, IMPL_OFFSET>,
+            InputStream::<Impl, IMPL_OFFSET>,
+            OutputStream::<Impl, IMPL_OFFSET>,
+            ErrorReceived::<Impl, IMPL_OFFSET>,
+            RemoveErrorReceived::<Impl, IMPL_OFFSET>,
+            PinChanged::<Impl, IMPL_OFFSET>,
+            RemovePinChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISerialDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISerialDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromPortName(&self, portname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromUsbVidPid(&self, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SerialDevice>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISerialDeviceStatics {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ISerialDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISerialDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceStaticsImpl, const OFFSET: isize>() -> ISerialDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISerialDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ISerialDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -471,6 +480,9 @@ impl ISerialDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISerialDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromPortName::<Impl, OFFSET>, GetDeviceSelectorFromUsbVidPid::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISerialDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromPortName::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromUsbVidPid::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISerialDeviceStatics as ::windows::core::Interface>::IID
     }
 }

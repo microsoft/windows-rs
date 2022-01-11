@@ -39,7 +39,7 @@ impl ::windows::core::RuntimeName for IDeviceAccountConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDeviceAccountConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccountConfigurationImpl, const OFFSET: isize>() -> IDeviceAccountConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccountConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccountConfigurationVtbl {
         unsafe extern "system" fn AccountName<Impl: IDeviceAccountConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountName() {
@@ -281,48 +281,51 @@ impl IDeviceAccountConfigurationVtbl {
             (*this).SetOutgoingServerUsername(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDeviceAccountConfiguration>,
             ::windows::core::GetTrustLevel,
-            AccountName::<Impl, OFFSET>,
-            SetAccountName::<Impl, OFFSET>,
-            DeviceAccountTypeId::<Impl, OFFSET>,
-            SetDeviceAccountTypeId::<Impl, OFFSET>,
-            ServerType::<Impl, OFFSET>,
-            SetServerType::<Impl, OFFSET>,
-            EmailAddress::<Impl, OFFSET>,
-            SetEmailAddress::<Impl, OFFSET>,
-            Domain::<Impl, OFFSET>,
-            SetDomain::<Impl, OFFSET>,
-            EmailSyncEnabled::<Impl, OFFSET>,
-            SetEmailSyncEnabled::<Impl, OFFSET>,
-            ContactsSyncEnabled::<Impl, OFFSET>,
-            SetContactsSyncEnabled::<Impl, OFFSET>,
-            CalendarSyncEnabled::<Impl, OFFSET>,
-            SetCalendarSyncEnabled::<Impl, OFFSET>,
-            IncomingServerAddress::<Impl, OFFSET>,
-            SetIncomingServerAddress::<Impl, OFFSET>,
-            IncomingServerPort::<Impl, OFFSET>,
-            SetIncomingServerPort::<Impl, OFFSET>,
-            IncomingServerRequiresSsl::<Impl, OFFSET>,
-            SetIncomingServerRequiresSsl::<Impl, OFFSET>,
-            IncomingServerUsername::<Impl, OFFSET>,
-            SetIncomingServerUsername::<Impl, OFFSET>,
-            OutgoingServerAddress::<Impl, OFFSET>,
-            SetOutgoingServerAddress::<Impl, OFFSET>,
-            OutgoingServerPort::<Impl, OFFSET>,
-            SetOutgoingServerPort::<Impl, OFFSET>,
-            OutgoingServerRequiresSsl::<Impl, OFFSET>,
-            SetOutgoingServerRequiresSsl::<Impl, OFFSET>,
-            OutgoingServerUsername::<Impl, OFFSET>,
-            SetOutgoingServerUsername::<Impl, OFFSET>,
+            AccountName::<Impl, IMPL_OFFSET>,
+            SetAccountName::<Impl, IMPL_OFFSET>,
+            DeviceAccountTypeId::<Impl, IMPL_OFFSET>,
+            SetDeviceAccountTypeId::<Impl, IMPL_OFFSET>,
+            ServerType::<Impl, IMPL_OFFSET>,
+            SetServerType::<Impl, IMPL_OFFSET>,
+            EmailAddress::<Impl, IMPL_OFFSET>,
+            SetEmailAddress::<Impl, IMPL_OFFSET>,
+            Domain::<Impl, IMPL_OFFSET>,
+            SetDomain::<Impl, IMPL_OFFSET>,
+            EmailSyncEnabled::<Impl, IMPL_OFFSET>,
+            SetEmailSyncEnabled::<Impl, IMPL_OFFSET>,
+            ContactsSyncEnabled::<Impl, IMPL_OFFSET>,
+            SetContactsSyncEnabled::<Impl, IMPL_OFFSET>,
+            CalendarSyncEnabled::<Impl, IMPL_OFFSET>,
+            SetCalendarSyncEnabled::<Impl, IMPL_OFFSET>,
+            IncomingServerAddress::<Impl, IMPL_OFFSET>,
+            SetIncomingServerAddress::<Impl, IMPL_OFFSET>,
+            IncomingServerPort::<Impl, IMPL_OFFSET>,
+            SetIncomingServerPort::<Impl, IMPL_OFFSET>,
+            IncomingServerRequiresSsl::<Impl, IMPL_OFFSET>,
+            SetIncomingServerRequiresSsl::<Impl, IMPL_OFFSET>,
+            IncomingServerUsername::<Impl, IMPL_OFFSET>,
+            SetIncomingServerUsername::<Impl, IMPL_OFFSET>,
+            OutgoingServerAddress::<Impl, IMPL_OFFSET>,
+            SetOutgoingServerAddress::<Impl, IMPL_OFFSET>,
+            OutgoingServerPort::<Impl, IMPL_OFFSET>,
+            SetOutgoingServerPort::<Impl, IMPL_OFFSET>,
+            OutgoingServerRequiresSsl::<Impl, IMPL_OFFSET>,
+            SetOutgoingServerRequiresSsl::<Impl, IMPL_OFFSET>,
+            OutgoingServerUsername::<Impl, IMPL_OFFSET>,
+            SetOutgoingServerUsername::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceAccountConfiguration as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IDeviceAccountConfiguration2Impl: Sized {
     fn IncomingServerCredential(&self) -> ::windows::core::Result<super::super::super::Security::Credentials::PasswordCredential>;
     fn SetIncomingServerCredential(&self, value: &::core::option::Option<super::super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
@@ -381,13 +384,13 @@ pub trait IDeviceAccountConfiguration2Impl: Sized {
     fn IsSyncScheduleManagedBySystem(&self) -> ::windows::core::Result<bool>;
     fn SetIsSyncScheduleManagedBySystem(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceAccountConfiguration2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IDeviceAccountConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccountConfiguration2Impl, const OFFSET: isize>() -> IDeviceAccountConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccountConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccountConfiguration2Vtbl {
         unsafe extern "system" fn IncomingServerCredential<Impl: IDeviceAccountConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncomingServerCredential() {
@@ -816,82 +819,85 @@ impl IDeviceAccountConfiguration2Vtbl {
             (*this).SetIsSyncScheduleManagedBySystem(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDeviceAccountConfiguration2>,
             ::windows::core::GetTrustLevel,
-            IncomingServerCredential::<Impl, OFFSET>,
-            SetIncomingServerCredential::<Impl, OFFSET>,
-            OutgoingServerCredential::<Impl, OFFSET>,
-            SetOutgoingServerCredential::<Impl, OFFSET>,
-            OAuthRefreshToken::<Impl, OFFSET>,
-            SetOAuthRefreshToken::<Impl, OFFSET>,
-            IsExternallyManaged::<Impl, OFFSET>,
-            SetIsExternallyManaged::<Impl, OFFSET>,
-            AccountIconId::<Impl, OFFSET>,
-            SetAccountIconId::<Impl, OFFSET>,
-            AuthenticationType::<Impl, OFFSET>,
-            SetAuthenticationType::<Impl, OFFSET>,
-            IsSsoAuthenticationSupported::<Impl, OFFSET>,
-            SsoAccountId::<Impl, OFFSET>,
-            SetSsoAccountId::<Impl, OFFSET>,
-            AlwaysDownloadFullMessage::<Impl, OFFSET>,
-            SetAlwaysDownloadFullMessage::<Impl, OFFSET>,
-            DoesPolicyAllowMailSync::<Impl, OFFSET>,
-            SyncScheduleKind::<Impl, OFFSET>,
-            SetSyncScheduleKind::<Impl, OFFSET>,
-            MailAgeFilter::<Impl, OFFSET>,
-            SetMailAgeFilter::<Impl, OFFSET>,
-            IsClientAuthenticationCertificateRequired::<Impl, OFFSET>,
-            SetIsClientAuthenticationCertificateRequired::<Impl, OFFSET>,
-            AutoSelectAuthenticationCertificate::<Impl, OFFSET>,
-            SetAutoSelectAuthenticationCertificate::<Impl, OFFSET>,
-            AuthenticationCertificateId::<Impl, OFFSET>,
-            SetAuthenticationCertificateId::<Impl, OFFSET>,
-            CardDavSyncScheduleKind::<Impl, OFFSET>,
-            SetCardDavSyncScheduleKind::<Impl, OFFSET>,
-            CalDavSyncScheduleKind::<Impl, OFFSET>,
-            SetCalDavSyncScheduleKind::<Impl, OFFSET>,
-            CardDavServerUrl::<Impl, OFFSET>,
-            SetCardDavServerUrl::<Impl, OFFSET>,
-            CardDavRequiresSsl::<Impl, OFFSET>,
-            SetCardDavRequiresSsl::<Impl, OFFSET>,
-            CalDavServerUrl::<Impl, OFFSET>,
-            SetCalDavServerUrl::<Impl, OFFSET>,
-            CalDavRequiresSsl::<Impl, OFFSET>,
-            SetCalDavRequiresSsl::<Impl, OFFSET>,
-            WasModifiedByUser::<Impl, OFFSET>,
-            SetWasModifiedByUser::<Impl, OFFSET>,
-            WasIncomingServerCertificateHashConfirmed::<Impl, OFFSET>,
-            SetWasIncomingServerCertificateHashConfirmed::<Impl, OFFSET>,
-            IncomingServerCertificateHash::<Impl, OFFSET>,
-            SetIncomingServerCertificateHash::<Impl, OFFSET>,
-            IsOutgoingServerAuthenticationRequired::<Impl, OFFSET>,
-            SetIsOutgoingServerAuthenticationRequired::<Impl, OFFSET>,
-            IsOutgoingServerAuthenticationEnabled::<Impl, OFFSET>,
-            SetIsOutgoingServerAuthenticationEnabled::<Impl, OFFSET>,
-            WasOutgoingServerCertificateHashConfirmed::<Impl, OFFSET>,
-            SetWasOutgoingServerCertificateHashConfirmed::<Impl, OFFSET>,
-            OutgoingServerCertificateHash::<Impl, OFFSET>,
-            SetOutgoingServerCertificateHash::<Impl, OFFSET>,
-            IsSyncScheduleManagedBySystem::<Impl, OFFSET>,
-            SetIsSyncScheduleManagedBySystem::<Impl, OFFSET>,
+            IncomingServerCredential::<Impl, IMPL_OFFSET>,
+            SetIncomingServerCredential::<Impl, IMPL_OFFSET>,
+            OutgoingServerCredential::<Impl, IMPL_OFFSET>,
+            SetOutgoingServerCredential::<Impl, IMPL_OFFSET>,
+            OAuthRefreshToken::<Impl, IMPL_OFFSET>,
+            SetOAuthRefreshToken::<Impl, IMPL_OFFSET>,
+            IsExternallyManaged::<Impl, IMPL_OFFSET>,
+            SetIsExternallyManaged::<Impl, IMPL_OFFSET>,
+            AccountIconId::<Impl, IMPL_OFFSET>,
+            SetAccountIconId::<Impl, IMPL_OFFSET>,
+            AuthenticationType::<Impl, IMPL_OFFSET>,
+            SetAuthenticationType::<Impl, IMPL_OFFSET>,
+            IsSsoAuthenticationSupported::<Impl, IMPL_OFFSET>,
+            SsoAccountId::<Impl, IMPL_OFFSET>,
+            SetSsoAccountId::<Impl, IMPL_OFFSET>,
+            AlwaysDownloadFullMessage::<Impl, IMPL_OFFSET>,
+            SetAlwaysDownloadFullMessage::<Impl, IMPL_OFFSET>,
+            DoesPolicyAllowMailSync::<Impl, IMPL_OFFSET>,
+            SyncScheduleKind::<Impl, IMPL_OFFSET>,
+            SetSyncScheduleKind::<Impl, IMPL_OFFSET>,
+            MailAgeFilter::<Impl, IMPL_OFFSET>,
+            SetMailAgeFilter::<Impl, IMPL_OFFSET>,
+            IsClientAuthenticationCertificateRequired::<Impl, IMPL_OFFSET>,
+            SetIsClientAuthenticationCertificateRequired::<Impl, IMPL_OFFSET>,
+            AutoSelectAuthenticationCertificate::<Impl, IMPL_OFFSET>,
+            SetAutoSelectAuthenticationCertificate::<Impl, IMPL_OFFSET>,
+            AuthenticationCertificateId::<Impl, IMPL_OFFSET>,
+            SetAuthenticationCertificateId::<Impl, IMPL_OFFSET>,
+            CardDavSyncScheduleKind::<Impl, IMPL_OFFSET>,
+            SetCardDavSyncScheduleKind::<Impl, IMPL_OFFSET>,
+            CalDavSyncScheduleKind::<Impl, IMPL_OFFSET>,
+            SetCalDavSyncScheduleKind::<Impl, IMPL_OFFSET>,
+            CardDavServerUrl::<Impl, IMPL_OFFSET>,
+            SetCardDavServerUrl::<Impl, IMPL_OFFSET>,
+            CardDavRequiresSsl::<Impl, IMPL_OFFSET>,
+            SetCardDavRequiresSsl::<Impl, IMPL_OFFSET>,
+            CalDavServerUrl::<Impl, IMPL_OFFSET>,
+            SetCalDavServerUrl::<Impl, IMPL_OFFSET>,
+            CalDavRequiresSsl::<Impl, IMPL_OFFSET>,
+            SetCalDavRequiresSsl::<Impl, IMPL_OFFSET>,
+            WasModifiedByUser::<Impl, IMPL_OFFSET>,
+            SetWasModifiedByUser::<Impl, IMPL_OFFSET>,
+            WasIncomingServerCertificateHashConfirmed::<Impl, IMPL_OFFSET>,
+            SetWasIncomingServerCertificateHashConfirmed::<Impl, IMPL_OFFSET>,
+            IncomingServerCertificateHash::<Impl, IMPL_OFFSET>,
+            SetIncomingServerCertificateHash::<Impl, IMPL_OFFSET>,
+            IsOutgoingServerAuthenticationRequired::<Impl, IMPL_OFFSET>,
+            SetIsOutgoingServerAuthenticationRequired::<Impl, IMPL_OFFSET>,
+            IsOutgoingServerAuthenticationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsOutgoingServerAuthenticationEnabled::<Impl, IMPL_OFFSET>,
+            WasOutgoingServerCertificateHashConfirmed::<Impl, IMPL_OFFSET>,
+            SetWasOutgoingServerCertificateHashConfirmed::<Impl, IMPL_OFFSET>,
+            OutgoingServerCertificateHash::<Impl, IMPL_OFFSET>,
+            SetOutgoingServerCertificateHash::<Impl, IMPL_OFFSET>,
+            IsSyncScheduleManagedBySystem::<Impl, IMPL_OFFSET>,
+            SetIsSyncScheduleManagedBySystem::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceAccountConfiguration2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserDataAccountSystemAccessManagerStaticsImpl: Sized {
     fn AddAndShowDeviceAccountsAsync(&self, accounts: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountSystemAccessManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserDataAccountSystemAccessManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountSystemAccessManagerStaticsImpl, const OFFSET: isize>() -> IUserDataAccountSystemAccessManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountSystemAccessManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountSystemAccessManagerStaticsVtbl {
         unsafe extern "system" fn AddAndShowDeviceAccountsAsync<Impl: IUserDataAccountSystemAccessManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accounts: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAndShowDeviceAccountsAsync(&*(&accounts as *const <super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration> as ::windows::core::DefaultType>::DefaultType)) {
@@ -903,23 +909,26 @@ impl IUserDataAccountSystemAccessManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountSystemAccessManagerStatics>, ::windows::core::GetTrustLevel, AddAndShowDeviceAccountsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountSystemAccessManagerStatics>, ::windows::core::GetTrustLevel, AddAndShowDeviceAccountsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountSystemAccessManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataAccountSystemAccessManagerStatics2Impl: Sized {
     fn SuppressLocalAccountWithAccountAsync(&self, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn CreateDeviceAccountAsync(&self, account: &::core::option::Option<DeviceAccountConfiguration>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn DeleteDeviceAccountAsync(&self, accountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn GetDeviceAccountConfigurationAsync(&self, accountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAccountSystemAccessManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataAccountSystemAccessManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountSystemAccessManagerStatics2Impl, const OFFSET: isize>() -> IUserDataAccountSystemAccessManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountSystemAccessManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAccountSystemAccessManagerStatics2Vtbl {
         unsafe extern "system" fn SuppressLocalAccountWithAccountAsync<Impl: IUserDataAccountSystemAccessManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuppressLocalAccountWithAccountAsync(&*(&userdataaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -964,6 +973,20 @@ impl IUserDataAccountSystemAccessManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountSystemAccessManagerStatics2>, ::windows::core::GetTrustLevel, SuppressLocalAccountWithAccountAsync::<Impl, OFFSET>, CreateDeviceAccountAsync::<Impl, OFFSET>, DeleteDeviceAccountAsync::<Impl, OFFSET>, GetDeviceAccountConfigurationAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUserDataAccountSystemAccessManagerStatics2>,
+            ::windows::core::GetTrustLevel,
+            SuppressLocalAccountWithAccountAsync::<Impl, IMPL_OFFSET>,
+            CreateDeviceAccountAsync::<Impl, IMPL_OFFSET>,
+            DeleteDeviceAccountAsync::<Impl, IMPL_OFFSET>,
+            GetDeviceAccountConfigurationAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataAccountSystemAccessManagerStatics2 as ::windows::core::Interface>::IID
     }
 }

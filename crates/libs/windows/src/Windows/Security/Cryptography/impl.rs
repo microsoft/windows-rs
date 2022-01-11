@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicBufferStaticsImpl: Sized {
     fn Compare(&self, object1: &::core::option::Option<super::super::Storage::Streams::IBuffer>, object2: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
     fn GenerateRandom(&self, length: u32) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -12,13 +12,13 @@ pub trait ICryptographicBufferStaticsImpl: Sized {
     fn ConvertStringToBinary(&self, value: &::windows::core::HSTRING, encoding: BinaryStringEncoding) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ConvertBinaryToString(&self, encoding: BinaryStringEncoding, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicBufferStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.ICryptographicBufferStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICryptographicBufferStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicBufferStaticsImpl, const OFFSET: isize>() -> ICryptographicBufferStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicBufferStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicBufferStaticsVtbl {
         unsafe extern "system" fn Compare<Impl: ICryptographicBufferStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object1: ::windows::core::RawPtr, object2: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compare(&*(&object1 as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&object2 as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -134,23 +134,26 @@ impl ICryptographicBufferStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICryptographicBufferStatics>,
             ::windows::core::GetTrustLevel,
-            Compare::<Impl, OFFSET>,
-            GenerateRandom::<Impl, OFFSET>,
-            GenerateRandomNumber::<Impl, OFFSET>,
-            CreateFromByteArray::<Impl, OFFSET>,
-            CopyToByteArray::<Impl, OFFSET>,
-            DecodeFromHexString::<Impl, OFFSET>,
-            EncodeToHexString::<Impl, OFFSET>,
-            DecodeFromBase64String::<Impl, OFFSET>,
-            EncodeToBase64String::<Impl, OFFSET>,
-            ConvertStringToBinary::<Impl, OFFSET>,
-            ConvertBinaryToString::<Impl, OFFSET>,
+            Compare::<Impl, IMPL_OFFSET>,
+            GenerateRandom::<Impl, IMPL_OFFSET>,
+            GenerateRandomNumber::<Impl, IMPL_OFFSET>,
+            CreateFromByteArray::<Impl, IMPL_OFFSET>,
+            CopyToByteArray::<Impl, IMPL_OFFSET>,
+            DecodeFromHexString::<Impl, IMPL_OFFSET>,
+            EncodeToHexString::<Impl, IMPL_OFFSET>,
+            DecodeFromBase64String::<Impl, IMPL_OFFSET>,
+            EncodeToBase64String::<Impl, IMPL_OFFSET>,
+            ConvertStringToBinary::<Impl, IMPL_OFFSET>,
+            ConvertBinaryToString::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICryptographicBufferStatics as ::windows::core::Interface>::IID
     }
 }

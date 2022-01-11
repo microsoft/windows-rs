@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDualSimTileImpl: Sized {
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -7,13 +7,13 @@ pub trait IDualSimTileImpl: Sized {
     fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.IDualSimTile";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDualSimTileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileImpl, const OFFSET: isize>() -> IDualSimTileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDualSimTileVtbl {
         unsafe extern "system" fn SetDisplayName<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -73,10 +73,13 @@ impl IDualSimTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDualSimTile>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, IsPinnedToStart::<Impl, OFFSET>, CreateAsync::<Impl, OFFSET>, UpdateAsync::<Impl, OFFSET>, DeleteAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDualSimTile>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IsPinnedToStart::<Impl, IMPL_OFFSET>, CreateAsync::<Impl, IMPL_OFFSET>, UpdateAsync::<Impl, IMPL_OFFSET>, DeleteAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDualSimTile as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait IDualSimTileStaticsImpl: Sized {
     fn GetTileForSim2(&self) -> ::windows::core::Result<DualSimTile>;
     fn UpdateDisplayNameForSim1Async(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -87,13 +90,13 @@ pub trait IDualSimTileStaticsImpl: Sized {
     fn CreateToastNotifierForSim1(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
     fn CreateToastNotifierForSim2(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDualSimTileStatics {
     const NAME: &'static str = "Windows.Phone.StartScreen.IDualSimTileStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl IDualSimTileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileStaticsImpl, const OFFSET: isize>() -> IDualSimTileStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDualSimTileStaticsVtbl {
         unsafe extern "system" fn GetTileForSim2<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTileForSim2() {
@@ -183,31 +186,37 @@ impl IDualSimTileStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDualSimTileStatics>,
             ::windows::core::GetTrustLevel,
-            GetTileForSim2::<Impl, OFFSET>,
-            UpdateDisplayNameForSim1Async::<Impl, OFFSET>,
-            CreateTileUpdaterForSim1::<Impl, OFFSET>,
-            CreateTileUpdaterForSim2::<Impl, OFFSET>,
-            CreateBadgeUpdaterForSim1::<Impl, OFFSET>,
-            CreateBadgeUpdaterForSim2::<Impl, OFFSET>,
-            CreateToastNotifierForSim1::<Impl, OFFSET>,
-            CreateToastNotifierForSim2::<Impl, OFFSET>,
+            GetTileForSim2::<Impl, IMPL_OFFSET>,
+            UpdateDisplayNameForSim1Async::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSim1::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSim2::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSim1::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSim2::<Impl, IMPL_OFFSET>,
+            CreateToastNotifierForSim1::<Impl, IMPL_OFFSET>,
+            CreateToastNotifierForSim2::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDualSimTileStatics as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "UI_Notifications")]
 pub trait IToastNotificationManagerStatics3Impl: Sized {
     fn CreateToastNotifierForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
+#[cfg(feature = "UI_Notifications")]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics3 {
     const NAME: &'static str = "Windows.Phone.StartScreen.IToastNotificationManagerStatics3";
 }
+#[cfg(feature = "UI_Notifications")]
 impl IToastNotificationManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics3Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStatics3Vtbl {
         unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Impl: IToastNotificationManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotifierForSecondaryTile(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -219,6 +228,9 @@ impl IToastNotificationManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics3>, ::windows::core::GetTrustLevel, CreateToastNotifierForSecondaryTile::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics3>, ::windows::core::GetTrustLevel, CreateToastNotifierForSecondaryTile::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerStatics3 as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCancelMeetingRequestImpl: Sized {
     fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -9,13 +9,13 @@ pub trait IAppointmentCalendarCancelMeetingRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarCancelMeetingRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: isize>() -> IAppointmentCalendarCancelMeetingRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCancelMeetingRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarCancelMeetingRequestVtbl {
         unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentCalendarLocalId() {
@@ -105,35 +105,38 @@ impl IAppointmentCalendarCancelMeetingRequestVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequest>,
             ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, OFFSET>,
-            AppointmentLocalId::<Impl, OFFSET>,
-            AppointmentOriginalStartTime::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            Comment::<Impl, OFFSET>,
-            NotifyInvitees::<Impl, OFFSET>,
-            ReportCompletedAsync::<Impl, OFFSET>,
-            ReportFailedAsync::<Impl, OFFSET>,
+            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            Comment::<Impl, IMPL_OFFSET>,
+            NotifyInvitees::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarCancelMeetingRequest as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCancelMeetingRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCancelMeetingRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCancelMeetingRequestEventArgsImpl, const OFFSET: isize>() -> IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCancelMeetingRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppointmentCalendarCancelMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -156,10 +159,13 @@ impl IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarCancelMeetingRequestEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl: Sized {
     fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Appointment(&self) -> ::windows::core::Result<super::Appointment>;
@@ -168,13 +174,13 @@ pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl: Sized {
     fn ReportCompletedAsync(&self, createdorupdatedappointment: &::core::option::Option<super::Appointment>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: isize>() -> IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
         unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentCalendarLocalId() {
@@ -242,33 +248,36 @@ impl IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequest>,
             ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, OFFSET>,
-            Appointment::<Impl, OFFSET>,
-            NotifyInvitees::<Impl, OFFSET>,
-            ChangedProperties::<Impl, OFFSET>,
-            ReportCompletedAsync::<Impl, OFFSET>,
-            ReportFailedAsync::<Impl, OFFSET>,
+            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            Appointment::<Impl, IMPL_OFFSET>,
+            NotifyInvitees::<Impl, IMPL_OFFSET>,
+            ChangedProperties::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarCreateOrUpdateAppointmentRequest as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl, const OFFSET: isize>() -> IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -291,10 +300,13 @@ impl IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarForwardMeetingRequestImpl: Sized {
     fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -306,13 +318,13 @@ pub trait IAppointmentCalendarForwardMeetingRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppointmentCalendarForwardMeetingRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: isize>() -> IAppointmentCalendarForwardMeetingRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarForwardMeetingRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarForwardMeetingRequestVtbl {
         unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentCalendarLocalId() {
@@ -413,36 +425,39 @@ impl IAppointmentCalendarForwardMeetingRequestVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequest>,
             ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, OFFSET>,
-            AppointmentLocalId::<Impl, OFFSET>,
-            AppointmentOriginalStartTime::<Impl, OFFSET>,
-            Invitees::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            ForwardHeader::<Impl, OFFSET>,
-            Comment::<Impl, OFFSET>,
-            ReportCompletedAsync::<Impl, OFFSET>,
-            ReportFailedAsync::<Impl, OFFSET>,
+            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Invitees::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            ForwardHeader::<Impl, IMPL_OFFSET>,
+            Comment::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarForwardMeetingRequest as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarForwardMeetingRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarForwardMeetingRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequestEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarForwardMeetingRequestEventArgsImpl, const OFFSET: isize>() -> IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarForwardMeetingRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppointmentCalendarForwardMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -465,10 +480,13 @@ impl IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarForwardMeetingRequestEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestImpl: Sized {
     fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -480,13 +498,13 @@ pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>() -> IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
         unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentCalendarLocalId() {
@@ -587,36 +605,39 @@ impl IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequest>,
             ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, OFFSET>,
-            AppointmentLocalId::<Impl, OFFSET>,
-            AppointmentOriginalStartTime::<Impl, OFFSET>,
-            NewStartTime::<Impl, OFFSET>,
-            NewDuration::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            Comment::<Impl, OFFSET>,
-            ReportCompletedAsync::<Impl, OFFSET>,
-            ReportFailedAsync::<Impl, OFFSET>,
+            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            NewStartTime::<Impl, IMPL_OFFSET>,
+            NewDuration::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            Comment::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarProposeNewTimeForMeetingRequest as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: isize>() -> IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -639,22 +660,25 @@ impl IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarSyncManagerSyncRequestImpl: Sized {
     fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarSyncManagerSyncRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const OFFSET: isize>() -> IAppointmentCalendarSyncManagerSyncRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarSyncManagerSyncRequestVtbl {
         unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentCalendarLocalId() {
@@ -688,21 +712,24 @@ impl IAppointmentCalendarSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequest>, ::windows::core::GetTrustLevel, AppointmentCalendarLocalId::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequest>, ::windows::core::GetTrustLevel, AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>, ReportCompletedAsync::<Impl, IMPL_OFFSET>, ReportFailedAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarSyncManagerSyncRequest as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarSyncManagerSyncRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl, const OFFSET: isize>() -> IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -725,10 +752,13 @@ impl IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarUpdateMeetingResponseRequestImpl: Sized {
     fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -740,13 +770,13 @@ pub trait IAppointmentCalendarUpdateMeetingResponseRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: isize>() -> IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
         unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentCalendarLocalId() {
@@ -847,36 +877,39 @@ impl IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequest>,
             ::windows::core::GetTrustLevel,
-            AppointmentCalendarLocalId::<Impl, OFFSET>,
-            AppointmentLocalId::<Impl, OFFSET>,
-            AppointmentOriginalStartTime::<Impl, OFFSET>,
-            Response::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            Comment::<Impl, OFFSET>,
-            SendUpdate::<Impl, OFFSET>,
-            ReportCompletedAsync::<Impl, OFFSET>,
-            ReportFailedAsync::<Impl, OFFSET>,
+            AppointmentCalendarLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentLocalId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Response::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            Comment::<Impl, IMPL_OFFSET>,
+            SendUpdate::<Impl, IMPL_OFFSET>,
+            ReportCompletedAsync::<Impl, IMPL_OFFSET>,
+            ReportFailedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarUpdateMeetingResponseRequest as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarUpdateMeetingResponseRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequestEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: isize>() -> IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -899,10 +932,13 @@ impl IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequestEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentDataProviderConnectionImpl: Sized {
     fn SyncRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSyncRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -918,13 +954,13 @@ pub trait IAppointmentDataProviderConnectionImpl: Sized {
     fn RemoveUpdateMeetingResponseRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Start(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppointmentDataProviderConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: isize>() -> IAppointmentDataProviderConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentDataProviderConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentDataProviderConnectionVtbl {
         unsafe extern "system" fn SyncRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1020,26 +1056,29 @@ impl IAppointmentDataProviderConnectionVtbl {
             (*this).Start().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderConnection>,
             ::windows::core::GetTrustLevel,
-            SyncRequested::<Impl, OFFSET>,
-            RemoveSyncRequested::<Impl, OFFSET>,
-            CreateOrUpdateAppointmentRequested::<Impl, OFFSET>,
-            RemoveCreateOrUpdateAppointmentRequested::<Impl, OFFSET>,
-            CancelMeetingRequested::<Impl, OFFSET>,
-            RemoveCancelMeetingRequested::<Impl, OFFSET>,
-            ForwardMeetingRequested::<Impl, OFFSET>,
-            RemoveForwardMeetingRequested::<Impl, OFFSET>,
-            ProposeNewTimeForMeetingRequested::<Impl, OFFSET>,
-            RemoveProposeNewTimeForMeetingRequested::<Impl, OFFSET>,
-            UpdateMeetingResponseRequested::<Impl, OFFSET>,
-            RemoveUpdateMeetingResponseRequested::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
+            SyncRequested::<Impl, IMPL_OFFSET>,
+            RemoveSyncRequested::<Impl, IMPL_OFFSET>,
+            CreateOrUpdateAppointmentRequested::<Impl, IMPL_OFFSET>,
+            RemoveCreateOrUpdateAppointmentRequested::<Impl, IMPL_OFFSET>,
+            CancelMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveCancelMeetingRequested::<Impl, IMPL_OFFSET>,
+            ForwardMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveForwardMeetingRequested::<Impl, IMPL_OFFSET>,
+            ProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
+            RemoveProposeNewTimeForMeetingRequested::<Impl, IMPL_OFFSET>,
+            UpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
+            RemoveUpdateMeetingResponseRequested::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentDataProviderConnection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1052,7 +1091,7 @@ impl ::windows::core::RuntimeName for IAppointmentDataProviderTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppointmentDataProviderTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentDataProviderTriggerDetailsImpl, const OFFSET: isize>() -> IAppointmentDataProviderTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentDataProviderTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentDataProviderTriggerDetailsVtbl {
         unsafe extern "system" fn Connection<Impl: IAppointmentDataProviderTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
@@ -1064,6 +1103,9 @@ impl IAppointmentDataProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentDataProviderTriggerDetails as ::windows::core::Interface>::IID
     }
 }

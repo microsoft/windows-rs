@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDevicePortalConnectionImpl: Sized {
     fn Closed(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn RequestReceived(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveRequestReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDevicePortalConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionImpl, const OFFSET: isize>() -> IDevicePortalConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePortalConnectionVtbl {
         unsafe extern "system" fn Closed<Impl: IDevicePortalConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -42,7 +42,10 @@ impl IDevicePortalConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestReceived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnection>, ::windows::core::GetTrustLevel, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>, RequestReceived::<Impl, OFFSET>, RemoveRequestReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnection>, ::windows::core::GetTrustLevel, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>, RequestReceived::<Impl, IMPL_OFFSET>, RemoveRequestReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDevicePortalConnection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -55,7 +58,7 @@ impl ::windows::core::RuntimeName for IDevicePortalConnectionClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDevicePortalConnectionClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionClosedEventArgsImpl, const OFFSET: isize>() -> IDevicePortalConnectionClosedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePortalConnectionClosedEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IDevicePortalConnectionClosedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePortalConnectionClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -67,21 +70,24 @@ impl IDevicePortalConnectionClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionClosedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionClosedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDevicePortalConnectionClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IDevicePortalConnectionRequestReceivedEventArgsImpl: Sized {
     fn RequestMessage(&self) -> ::windows::core::Result<super::super::super::Web::Http::HttpRequestMessage>;
     fn ResponseMessage(&self) -> ::windows::core::Result<super::super::super::Web::Http::HttpResponseMessage>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 impl IDevicePortalConnectionRequestReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionRequestReceivedEventArgsImpl, const OFFSET: isize>() -> IDevicePortalConnectionRequestReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionRequestReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePortalConnectionRequestReceivedEventArgsVtbl {
         unsafe extern "system" fn RequestMessage<Impl: IDevicePortalConnectionRequestReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestMessage() {
@@ -104,20 +110,23 @@ impl IDevicePortalConnectionRequestReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, RequestMessage::<Impl, OFFSET>, ResponseMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDevicePortalConnectionRequestReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IDevicePortalConnectionStaticsImpl: Sized {
     fn GetForAppServiceConnection(&self, appserviceconnection: &::core::option::Option<super::super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<DevicePortalConnection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalConnectionStatics {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl IDevicePortalConnectionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionStaticsImpl, const OFFSET: isize>() -> IDevicePortalConnectionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalConnectionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePortalConnectionStaticsVtbl {
         unsafe extern "system" fn GetForAppServiceConnection<Impl: IDevicePortalConnectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appserviceconnection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForAppServiceConnection(&*(&appserviceconnection as *const <super::super::super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::Abi>::Abi as *const <super::super::super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::DefaultType>::DefaultType)) {
@@ -129,10 +138,13 @@ impl IDevicePortalConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionStatics>, ::windows::core::GetTrustLevel, GetForAppServiceConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalConnectionStatics>, ::windows::core::GetTrustLevel, GetForAppServiceConnection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDevicePortalConnectionStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Networking_Sockets", feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IDevicePortalWebSocketConnectionImpl: Sized {
     fn GetServerMessageWebSocketForRequest(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
     fn GetServerMessageWebSocketForRequest2(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
@@ -140,13 +152,13 @@ pub trait IDevicePortalWebSocketConnectionImpl: Sized {
     fn GetServerStreamWebSocketForRequest(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>;
     fn GetServerStreamWebSocketForRequest2(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Networking_Sockets", feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalWebSocketConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Networking_Sockets", feature = "Web_Http", feature = "implement_exclusive"))]
 impl IDevicePortalWebSocketConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalWebSocketConnectionImpl, const OFFSET: isize>() -> IDevicePortalWebSocketConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalWebSocketConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePortalWebSocketConnectionVtbl {
         unsafe extern "system" fn GetServerMessageWebSocketForRequest<Impl: IDevicePortalWebSocketConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetServerMessageWebSocketForRequest(&*(&request as *const <super::super::super::Web::Http::HttpRequestMessage as ::windows::core::Abi>::Abi as *const <super::super::super::Web::Http::HttpRequestMessage as ::windows::core::DefaultType>::DefaultType)) {
@@ -203,33 +215,36 @@ impl IDevicePortalWebSocketConnectionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDevicePortalWebSocketConnection>,
             ::windows::core::GetTrustLevel,
-            GetServerMessageWebSocketForRequest::<Impl, OFFSET>,
-            GetServerMessageWebSocketForRequest2::<Impl, OFFSET>,
-            GetServerMessageWebSocketForRequest3::<Impl, OFFSET>,
-            GetServerStreamWebSocketForRequest::<Impl, OFFSET>,
-            GetServerStreamWebSocketForRequest2::<Impl, OFFSET>,
+            GetServerMessageWebSocketForRequest::<Impl, IMPL_OFFSET>,
+            GetServerMessageWebSocketForRequest2::<Impl, IMPL_OFFSET>,
+            GetServerMessageWebSocketForRequest3::<Impl, IMPL_OFFSET>,
+            GetServerStreamWebSocketForRequest::<Impl, IMPL_OFFSET>,
+            GetServerStreamWebSocketForRequest2::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDevicePortalWebSocketConnection as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDevicePortalWebSocketConnectionRequestReceivedEventArgsImpl: Sized {
     fn IsWebSocketUpgradeRequest(&self) -> ::windows::core::Result<bool>;
     fn WebSocketProtocolsRequested(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnectionRequestReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalWebSocketConnectionRequestReceivedEventArgsImpl, const OFFSET: isize>() -> IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePortalWebSocketConnectionRequestReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl {
         unsafe extern "system" fn IsWebSocketUpgradeRequest<Impl: IDevicePortalWebSocketConnectionRequestReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWebSocketUpgradeRequest() {
@@ -263,6 +278,9 @@ impl IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, IsWebSocketUpgradeRequest::<Impl, OFFSET>, WebSocketProtocolsRequested::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, IsWebSocketUpgradeRequest::<Impl, IMPL_OFFSET>, WebSocketProtocolsRequested::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDevicePortalWebSocketConnectionRequestReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }

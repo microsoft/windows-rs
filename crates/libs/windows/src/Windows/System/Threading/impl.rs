@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThreadPoolStaticsImpl: Sized {
     fn RunAsync(&self, handler: &::core::option::Option<WorkItemHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RunWithPriorityAsync(&self, handler: &::core::option::Option<WorkItemHandler>, priority: WorkItemPriority) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RunWithPriorityAndOptionsAsync(&self, handler: &::core::option::Option<WorkItemHandler>, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThreadPoolStatics {
     const NAME: &'static str = "Windows.System.Threading.IThreadPoolStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IThreadPoolStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolStaticsImpl, const OFFSET: isize>() -> IThreadPoolStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThreadPoolStaticsVtbl {
         unsafe extern "system" fn RunAsync<Impl: IThreadPoolStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunAsync(&*(&handler as *const <WorkItemHandler as ::windows::core::Abi>::Abi as *const <WorkItemHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -44,22 +44,25 @@ impl IThreadPoolStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolStatics>, ::windows::core::GetTrustLevel, RunAsync::<Impl, OFFSET>, RunWithPriorityAsync::<Impl, OFFSET>, RunWithPriorityAndOptionsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolStatics>, ::windows::core::GetTrustLevel, RunAsync::<Impl, IMPL_OFFSET>, RunWithPriorityAsync::<Impl, IMPL_OFFSET>, RunWithPriorityAndOptionsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IThreadPoolStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThreadPoolTimerImpl: Sized {
     fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.IThreadPoolTimer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IThreadPoolTimerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolTimerImpl, const OFFSET: isize>() -> IThreadPoolTimerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolTimerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThreadPoolTimerVtbl {
         unsafe extern "system" fn Period<Impl: IThreadPoolTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Period() {
@@ -86,23 +89,26 @@ impl IThreadPoolTimerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolTimer>, ::windows::core::GetTrustLevel, Period::<Impl, OFFSET>, Delay::<Impl, OFFSET>, Cancel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolTimer>, ::windows::core::GetTrustLevel, Period::<Impl, IMPL_OFFSET>, Delay::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IThreadPoolTimer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThreadPoolTimerStaticsImpl: Sized {
     fn CreatePeriodicTimer(&self, handler: &::core::option::Option<TimerElapsedHandler>, period: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ThreadPoolTimer>;
     fn CreateTimer(&self, handler: &::core::option::Option<TimerElapsedHandler>, delay: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ThreadPoolTimer>;
     fn CreatePeriodicTimerWithCompletion(&self, handler: &::core::option::Option<TimerElapsedHandler>, period: &super::super::Foundation::TimeSpan, destroyed: &::core::option::Option<TimerDestroyedHandler>) -> ::windows::core::Result<ThreadPoolTimer>;
     fn CreateTimerWithCompletion(&self, handler: &::core::option::Option<TimerElapsedHandler>, delay: &super::super::Foundation::TimeSpan, destroyed: &::core::option::Option<TimerDestroyedHandler>) -> ::windows::core::Result<ThreadPoolTimer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThreadPoolTimerStatics {
     const NAME: &'static str = "Windows.System.Threading.IThreadPoolTimerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IThreadPoolTimerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolTimerStaticsImpl, const OFFSET: isize>() -> IThreadPoolTimerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolTimerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThreadPoolTimerStaticsVtbl {
         unsafe extern "system" fn CreatePeriodicTimer<Impl: IThreadPoolTimerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePeriodicTimer(&*(&handler as *const <TimerElapsedHandler as ::windows::core::Abi>::Abi as *const <TimerElapsedHandler as ::windows::core::DefaultType>::DefaultType), &*(&period as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
@@ -155,6 +161,9 @@ impl IThreadPoolTimerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolTimerStatics>, ::windows::core::GetTrustLevel, CreatePeriodicTimer::<Impl, OFFSET>, CreateTimer::<Impl, OFFSET>, CreatePeriodicTimerWithCompletion::<Impl, OFFSET>, CreateTimerWithCompletion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThreadPoolTimerStatics>, ::windows::core::GetTrustLevel, CreatePeriodicTimer::<Impl, IMPL_OFFSET>, CreateTimer::<Impl, IMPL_OFFSET>, CreatePeriodicTimerWithCompletion::<Impl, IMPL_OFFSET>, CreateTimerWithCompletion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IThreadPoolTimerStatics as ::windows::core::Interface>::IID
     }
 }

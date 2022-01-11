@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWebUICommandBarImpl: Sized {
     fn Visible(&self) -> ::windows::core::Result<bool>;
     fn SetVisible(&self, value: bool) -> ::windows::core::Result<()>;
@@ -22,13 +22,13 @@ pub trait IWebUICommandBarImpl: Sized {
     fn SizeChanged(&self, handler: &::core::option::Option<SizeChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSizeChanged(&self, value: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBar";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWebUICommandBarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarImpl, const OFFSET: isize>() -> IWebUICommandBarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarVtbl {
         unsafe extern "system" fn Visible<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visible() {
@@ -198,48 +198,51 @@ impl IWebUICommandBarVtbl {
             (*this).RemoveSizeChanged(&*(&value as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebUICommandBar>,
             ::windows::core::GetTrustLevel,
-            Visible::<Impl, OFFSET>,
-            SetVisible::<Impl, OFFSET>,
-            Opacity::<Impl, OFFSET>,
-            SetOpacity::<Impl, OFFSET>,
-            ForegroundColor::<Impl, OFFSET>,
-            SetForegroundColor::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            SetBackgroundColor::<Impl, OFFSET>,
-            ClosedDisplayMode::<Impl, OFFSET>,
-            SetClosedDisplayMode::<Impl, OFFSET>,
-            IsOpen::<Impl, OFFSET>,
-            SetIsOpen::<Impl, OFFSET>,
-            Size::<Impl, OFFSET>,
-            PrimaryCommands::<Impl, OFFSET>,
-            SecondaryCommands::<Impl, OFFSET>,
-            MenuOpened::<Impl, OFFSET>,
-            RemoveMenuOpened::<Impl, OFFSET>,
-            MenuClosed::<Impl, OFFSET>,
-            RemoveMenuClosed::<Impl, OFFSET>,
-            SizeChanged::<Impl, OFFSET>,
-            RemoveSizeChanged::<Impl, OFFSET>,
+            Visible::<Impl, IMPL_OFFSET>,
+            SetVisible::<Impl, IMPL_OFFSET>,
+            Opacity::<Impl, IMPL_OFFSET>,
+            SetOpacity::<Impl, IMPL_OFFSET>,
+            ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetForegroundColor::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            ClosedDisplayMode::<Impl, IMPL_OFFSET>,
+            SetClosedDisplayMode::<Impl, IMPL_OFFSET>,
+            IsOpen::<Impl, IMPL_OFFSET>,
+            SetIsOpen::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            PrimaryCommands::<Impl, IMPL_OFFSET>,
+            SecondaryCommands::<Impl, IMPL_OFFSET>,
+            MenuOpened::<Impl, IMPL_OFFSET>,
+            RemoveMenuOpened::<Impl, IMPL_OFFSET>,
+            MenuClosed::<Impl, IMPL_OFFSET>,
+            RemoveMenuClosed::<Impl, IMPL_OFFSET>,
+            SizeChanged::<Impl, IMPL_OFFSET>,
+            RemoveSizeChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBar as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUICommandBarBitmapIconImpl: Sized + IWebUICommandBarIconImpl {
     fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn SetUri(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUICommandBarBitmapIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconImpl, const OFFSET: isize>() -> IWebUICommandBarBitmapIconVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarBitmapIconVtbl {
         unsafe extern "system" fn Uri<Impl: IWebUICommandBarBitmapIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -255,20 +258,23 @@ impl IWebUICommandBarBitmapIconVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarBitmapIcon>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, SetUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarBitmapIcon>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarBitmapIcon as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUICommandBarBitmapIconFactoryImpl: Sized {
     fn Create(&self, uri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<WebUICommandBarBitmapIcon>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUICommandBarBitmapIconFactory {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarBitmapIconFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUICommandBarBitmapIconFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconFactoryImpl, const OFFSET: isize>() -> IWebUICommandBarBitmapIconFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarBitmapIconFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IWebUICommandBarBitmapIconFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uri as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -280,23 +286,26 @@ impl IWebUICommandBarBitmapIconFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarBitmapIconFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarBitmapIconFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarBitmapIconFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUICommandBarConfirmationButtonImpl: Sized + IWebUICommandBarElementImpl {
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ItemInvoked(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemInvoked(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUICommandBarConfirmationButtonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarConfirmationButtonImpl, const OFFSET: isize>() -> IWebUICommandBarConfirmationButtonVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarConfirmationButtonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarConfirmationButtonVtbl {
         unsafe extern "system" fn Text<Impl: IWebUICommandBarConfirmationButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
@@ -327,7 +336,10 @@ impl IWebUICommandBarConfirmationButtonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemInvoked(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarConfirmationButton>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, ItemInvoked::<Impl, OFFSET>, RemoveItemInvoked::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarConfirmationButton>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, ItemInvoked::<Impl, IMPL_OFFSET>, RemoveItemInvoked::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarConfirmationButton as ::windows::core::Interface>::IID
     }
 }
 pub trait IWebUICommandBarElementImpl: Sized {}
@@ -335,8 +347,11 @@ impl ::windows::core::RuntimeName for IWebUICommandBarElement {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
 }
 impl IWebUICommandBarElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElementImpl, const OFFSET: isize>() -> IWebUICommandBarElementVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarElement>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarElementVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarElement>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarElement as ::windows::core::Interface>::IID
     }
 }
 pub trait IWebUICommandBarIconImpl: Sized {}
@@ -344,11 +359,14 @@ impl ::windows::core::RuntimeName for IWebUICommandBarIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";
 }
 impl IWebUICommandBarIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconImpl, const OFFSET: isize>() -> IWebUICommandBarIconVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarIcon>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIconVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarIcon>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarIcon as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUICommandBarIconButtonImpl: Sized + IWebUICommandBarElementImpl {
     fn Enabled(&self) -> ::windows::core::Result<bool>;
     fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -363,13 +381,13 @@ pub trait IWebUICommandBarIconButtonImpl: Sized + IWebUICommandBarElementImpl {
     fn ItemInvoked(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WebUICommandBarIconButton, WebUICommandBarItemInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemInvoked(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIconButton";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUICommandBarIconButtonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>() -> IWebUICommandBarIconButtonVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconButtonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIconButtonVtbl {
         unsafe extern "system" fn Enabled<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
@@ -461,25 +479,28 @@ impl IWebUICommandBarIconButtonVtbl {
             (*this).RemoveItemInvoked(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebUICommandBarIconButton>,
             ::windows::core::GetTrustLevel,
-            Enabled::<Impl, OFFSET>,
-            SetEnabled::<Impl, OFFSET>,
-            Label::<Impl, OFFSET>,
-            SetLabel::<Impl, OFFSET>,
-            IsToggleButton::<Impl, OFFSET>,
-            SetIsToggleButton::<Impl, OFFSET>,
-            IsChecked::<Impl, OFFSET>,
-            SetIsChecked::<Impl, OFFSET>,
-            Icon::<Impl, OFFSET>,
-            SetIcon::<Impl, OFFSET>,
-            ItemInvoked::<Impl, OFFSET>,
-            RemoveItemInvoked::<Impl, OFFSET>,
+            Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled::<Impl, IMPL_OFFSET>,
+            Label::<Impl, IMPL_OFFSET>,
+            SetLabel::<Impl, IMPL_OFFSET>,
+            IsToggleButton::<Impl, IMPL_OFFSET>,
+            SetIsToggleButton::<Impl, IMPL_OFFSET>,
+            IsChecked::<Impl, IMPL_OFFSET>,
+            SetIsChecked::<Impl, IMPL_OFFSET>,
+            Icon::<Impl, IMPL_OFFSET>,
+            SetIcon::<Impl, IMPL_OFFSET>,
+            ItemInvoked::<Impl, IMPL_OFFSET>,
+            RemoveItemInvoked::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarIconButton as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -492,7 +513,7 @@ impl ::windows::core::RuntimeName for IWebUICommandBarItemInvokedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUICommandBarItemInvokedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarItemInvokedEventArgsImpl, const OFFSET: isize>() -> IWebUICommandBarItemInvokedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarItemInvokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarItemInvokedEventArgsVtbl {
         unsafe extern "system" fn IsPrimaryCommand<Impl: IWebUICommandBarItemInvokedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrimaryCommand() {
@@ -504,20 +525,23 @@ impl IWebUICommandBarItemInvokedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarItemInvokedEventArgs>, ::windows::core::GetTrustLevel, IsPrimaryCommand::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarItemInvokedEventArgs>, ::windows::core::GetTrustLevel, IsPrimaryCommand::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarItemInvokedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUICommandBarSizeChangedEventArgsImpl: Sized {
     fn Size(&self) -> ::windows::core::Result<super::super::super::Foundation::Size>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarSizeChangedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUICommandBarSizeChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSizeChangedEventArgsImpl, const OFFSET: isize>() -> IWebUICommandBarSizeChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSizeChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSizeChangedEventArgsVtbl {
         unsafe extern "system" fn Size<Impl: IWebUICommandBarSizeChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
@@ -529,7 +553,10 @@ impl IWebUICommandBarSizeChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarSizeChangedEventArgs>, ::windows::core::GetTrustLevel, Size::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarSizeChangedEventArgs>, ::windows::core::GetTrustLevel, Size::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarSizeChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -542,7 +569,7 @@ impl ::windows::core::RuntimeName for IWebUICommandBarStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUICommandBarStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarStaticsImpl, const OFFSET: isize>() -> IWebUICommandBarStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IWebUICommandBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -554,7 +581,10 @@ impl IWebUICommandBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -568,7 +598,7 @@ impl ::windows::core::RuntimeName for IWebUICommandBarSymbolIcon {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUICommandBarSymbolIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconImpl, const OFFSET: isize>() -> IWebUICommandBarSymbolIconVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSymbolIconVtbl {
         unsafe extern "system" fn Symbol<Impl: IWebUICommandBarSymbolIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Symbol() {
@@ -584,7 +614,10 @@ impl IWebUICommandBarSymbolIconVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSymbol(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarSymbolIcon>, ::windows::core::GetTrustLevel, Symbol::<Impl, OFFSET>, SetSymbol::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarSymbolIcon>, ::windows::core::GetTrustLevel, Symbol::<Impl, IMPL_OFFSET>, SetSymbol::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarSymbolIcon as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -597,7 +630,7 @@ impl ::windows::core::RuntimeName for IWebUICommandBarSymbolIconFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUICommandBarSymbolIconFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconFactoryImpl, const OFFSET: isize>() -> IWebUICommandBarSymbolIconFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSymbolIconFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IWebUICommandBarSymbolIconFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&symbol as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -609,6 +642,9 @@ impl IWebUICommandBarSymbolIconFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarSymbolIconFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUICommandBarSymbolIconFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUICommandBarSymbolIconFactory as ::windows::core::Interface>::IID
     }
 }

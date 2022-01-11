@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppWindowImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::UIContentRoot>;
     fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
@@ -30,13 +30,13 @@ pub trait IAppWindowImpl: Sized {
     fn CloseRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCloseRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindow";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IAppWindowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowImpl, const OFFSET: isize>() -> IAppWindowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowVtbl {
         unsafe extern "system" fn Content<Impl: IAppWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -273,42 +273,45 @@ impl IAppWindowVtbl {
             (*this).RemoveCloseRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppWindow>,
             ::windows::core::GetTrustLevel,
-            Content::<Impl, OFFSET>,
-            DispatcherQueue::<Impl, OFFSET>,
-            Frame::<Impl, OFFSET>,
-            IsVisible::<Impl, OFFSET>,
-            PersistedStateId::<Impl, OFFSET>,
-            SetPersistedStateId::<Impl, OFFSET>,
-            Presenter::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            TitleBar::<Impl, OFFSET>,
-            UIContext::<Impl, OFFSET>,
-            WindowingEnvironment::<Impl, OFFSET>,
-            CloseAsync::<Impl, OFFSET>,
-            GetPlacement::<Impl, OFFSET>,
-            GetDisplayRegions::<Impl, OFFSET>,
-            RequestMoveToDisplayRegion::<Impl, OFFSET>,
-            RequestMoveAdjacentToCurrentView::<Impl, OFFSET>,
-            RequestMoveAdjacentToWindow::<Impl, OFFSET>,
-            RequestMoveRelativeToWindowContent::<Impl, OFFSET>,
-            RequestMoveRelativeToCurrentViewContent::<Impl, OFFSET>,
-            RequestMoveRelativeToDisplayRegion::<Impl, OFFSET>,
-            RequestSize::<Impl, OFFSET>,
-            TryShowAsync::<Impl, OFFSET>,
-            Changed::<Impl, OFFSET>,
-            RemoveChanged::<Impl, OFFSET>,
-            Closed::<Impl, OFFSET>,
-            RemoveClosed::<Impl, OFFSET>,
-            CloseRequested::<Impl, OFFSET>,
-            RemoveCloseRequested::<Impl, OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            DispatcherQueue::<Impl, IMPL_OFFSET>,
+            Frame::<Impl, IMPL_OFFSET>,
+            IsVisible::<Impl, IMPL_OFFSET>,
+            PersistedStateId::<Impl, IMPL_OFFSET>,
+            SetPersistedStateId::<Impl, IMPL_OFFSET>,
+            Presenter::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            TitleBar::<Impl, IMPL_OFFSET>,
+            UIContext::<Impl, IMPL_OFFSET>,
+            WindowingEnvironment::<Impl, IMPL_OFFSET>,
+            CloseAsync::<Impl, IMPL_OFFSET>,
+            GetPlacement::<Impl, IMPL_OFFSET>,
+            GetDisplayRegions::<Impl, IMPL_OFFSET>,
+            RequestMoveToDisplayRegion::<Impl, IMPL_OFFSET>,
+            RequestMoveAdjacentToCurrentView::<Impl, IMPL_OFFSET>,
+            RequestMoveAdjacentToWindow::<Impl, IMPL_OFFSET>,
+            RequestMoveRelativeToWindowContent::<Impl, IMPL_OFFSET>,
+            RequestMoveRelativeToCurrentViewContent::<Impl, IMPL_OFFSET>,
+            RequestMoveRelativeToDisplayRegion::<Impl, IMPL_OFFSET>,
+            RequestSize::<Impl, IMPL_OFFSET>,
+            TryShowAsync::<Impl, IMPL_OFFSET>,
+            Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged::<Impl, IMPL_OFFSET>,
+            Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed::<Impl, IMPL_OFFSET>,
+            CloseRequested::<Impl, IMPL_OFFSET>,
+            RemoveCloseRequested::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindow as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -328,7 +331,7 @@ impl ::windows::core::RuntimeName for IAppWindowChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowChangedEventArgsImpl, const OFFSET: isize>() -> IAppWindowChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowChangedEventArgsVtbl {
         unsafe extern "system" fn DidAvailableWindowPresentationsChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DidAvailableWindowPresentationsChange() {
@@ -418,36 +421,39 @@ impl IAppWindowChangedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppWindowChangedEventArgs>,
             ::windows::core::GetTrustLevel,
-            DidAvailableWindowPresentationsChange::<Impl, OFFSET>,
-            DidDisplayRegionsChange::<Impl, OFFSET>,
-            DidFrameChange::<Impl, OFFSET>,
-            DidSizeChange::<Impl, OFFSET>,
-            DidTitleBarChange::<Impl, OFFSET>,
-            DidVisibilityChange::<Impl, OFFSET>,
-            DidWindowingEnvironmentChange::<Impl, OFFSET>,
-            DidWindowPresentationChange::<Impl, OFFSET>,
+            DidAvailableWindowPresentationsChange::<Impl, IMPL_OFFSET>,
+            DidDisplayRegionsChange::<Impl, IMPL_OFFSET>,
+            DidFrameChange::<Impl, IMPL_OFFSET>,
+            DidSizeChange::<Impl, IMPL_OFFSET>,
+            DidTitleBarChange::<Impl, IMPL_OFFSET>,
+            DidVisibilityChange::<Impl, IMPL_OFFSET>,
+            DidWindowingEnvironmentChange::<Impl, IMPL_OFFSET>,
+            DidWindowPresentationChange::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowChangedEventArgs as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowCloseRequestedEventArgsImpl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<bool>;
     fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowCloseRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppWindowCloseRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowCloseRequestedEventArgsImpl, const OFFSET: isize>() -> IAppWindowCloseRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowCloseRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowCloseRequestedEventArgsVtbl {
         unsafe extern "system" fn Cancel<Impl: IAppWindowCloseRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cancel() {
@@ -474,7 +480,10 @@ impl IAppWindowCloseRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowCloseRequestedEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, OFFSET>, SetCancel::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowCloseRequestedEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, SetCancel::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowCloseRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -487,7 +496,7 @@ impl ::windows::core::RuntimeName for IAppWindowClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowClosedEventArgsImpl, const OFFSET: isize>() -> IAppWindowClosedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowClosedEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IAppWindowClosedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -499,20 +508,23 @@ impl IAppWindowClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowClosedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowClosedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IAppWindowFrameImpl: Sized {
     fn DragRegionVisuals(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowFrame";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl IAppWindowFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowFrameImpl, const OFFSET: isize>() -> IAppWindowFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowFrameVtbl {
         unsafe extern "system" fn DragRegionVisuals<Impl: IAppWindowFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DragRegionVisuals() {
@@ -524,7 +536,10 @@ impl IAppWindowFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowFrame>, ::windows::core::GetTrustLevel, DragRegionVisuals::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowFrame>, ::windows::core::GetTrustLevel, DragRegionVisuals::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowFrame as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -538,7 +553,7 @@ impl ::windows::core::RuntimeName for IAppWindowFrameStyle {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowFrameStyleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowFrameStyleImpl, const OFFSET: isize>() -> IAppWindowFrameStyleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowFrameStyleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowFrameStyleVtbl {
         unsafe extern "system" fn GetFrameStyle<Impl: IAppWindowFrameStyleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowFrameStyle) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFrameStyle() {
@@ -554,22 +569,25 @@ impl IAppWindowFrameStyleVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrameStyle(framestyle).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowFrameStyle>, ::windows::core::GetTrustLevel, GetFrameStyle::<Impl, OFFSET>, SetFrameStyle::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowFrameStyle>, ::windows::core::GetTrustLevel, GetFrameStyle::<Impl, IMPL_OFFSET>, SetFrameStyle::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowFrameStyle as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowPlacementImpl: Sized {
     fn DisplayRegion(&self) -> ::windows::core::Result<DisplayRegion>;
     fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowPlacement";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppWindowPlacementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPlacementImpl, const OFFSET: isize>() -> IAppWindowPlacementVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPlacementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowPlacementVtbl {
         unsafe extern "system" fn DisplayRegion<Impl: IAppWindowPlacementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayRegion() {
@@ -603,7 +621,10 @@ impl IAppWindowPlacementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPlacement>, ::windows::core::GetTrustLevel, DisplayRegion::<Impl, OFFSET>, Offset::<Impl, OFFSET>, Size::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPlacement>, ::windows::core::GetTrustLevel, DisplayRegion::<Impl, IMPL_OFFSET>, Offset::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowPlacement as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -616,7 +637,7 @@ impl ::windows::core::RuntimeName for IAppWindowPresentationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowPresentationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPresentationConfigurationImpl, const OFFSET: isize>() -> IAppWindowPresentationConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPresentationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowPresentationConfigurationVtbl {
         unsafe extern "system" fn Kind<Impl: IAppWindowPresentationConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowPresentationKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -628,7 +649,10 @@ impl IAppWindowPresentationConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPresentationConfiguration>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPresentationConfiguration>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowPresentationConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -639,8 +663,11 @@ impl ::windows::core::RuntimeName for IAppWindowPresentationConfigurationFactory
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowPresentationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPresentationConfigurationFactoryImpl, const OFFSET: isize>() -> IAppWindowPresentationConfigurationFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPresentationConfigurationFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPresentationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowPresentationConfigurationFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPresentationConfigurationFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowPresentationConfigurationFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -656,7 +683,7 @@ impl ::windows::core::RuntimeName for IAppWindowPresenter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowPresenterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPresenterImpl, const OFFSET: isize>() -> IAppWindowPresenterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowPresenterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowPresenterVtbl {
         unsafe extern "system" fn GetConfiguration<Impl: IAppWindowPresenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConfiguration() {
@@ -701,22 +728,25 @@ impl IAppWindowPresenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPresenter>, ::windows::core::GetTrustLevel, GetConfiguration::<Impl, OFFSET>, IsPresentationSupported::<Impl, OFFSET>, RequestPresentation::<Impl, OFFSET>, RequestPresentationByKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowPresenter>, ::windows::core::GetTrustLevel, GetConfiguration::<Impl, IMPL_OFFSET>, IsPresentationSupported::<Impl, IMPL_OFFSET>, RequestPresentation::<Impl, IMPL_OFFSET>, RequestPresentationByKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowPresenter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowStaticsImpl: Sized {
     fn TryCreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppWindow>>;
     fn ClearAllPersistedState(&self) -> ::windows::core::Result<()>;
     fn ClearPersistedState(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowStatics {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppWindowStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowStaticsImpl, const OFFSET: isize>() -> IAppWindowStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowStaticsVtbl {
         unsafe extern "system" fn TryCreateAsync<Impl: IAppWindowStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateAsync() {
@@ -736,10 +766,13 @@ impl IAppWindowStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearPersistedState(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowStatics>, ::windows::core::GetTrustLevel, TryCreateAsync::<Impl, OFFSET>, ClearAllPersistedState::<Impl, OFFSET>, ClearPersistedState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowStatics>, ::windows::core::GetTrustLevel, TryCreateAsync::<Impl, IMPL_OFFSET>, ClearAllPersistedState::<Impl, IMPL_OFFSET>, ClearPersistedState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppWindowTitleBarImpl: Sized {
     fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
     fn SetBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
@@ -770,13 +803,13 @@ pub trait IAppWindowTitleBarImpl: Sized {
     fn IsVisible(&self) -> ::windows::core::Result<bool>;
     fn GetTitleBarOcclusions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowTitleBar";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppWindowTitleBarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowTitleBarImpl, const OFFSET: isize>() -> IAppWindowTitleBarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowTitleBarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowTitleBarVtbl {
         unsafe extern "system" fn BackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
@@ -995,54 +1028,57 @@ impl IAppWindowTitleBarVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppWindowTitleBar>,
             ::windows::core::GetTrustLevel,
-            BackgroundColor::<Impl, OFFSET>,
-            SetBackgroundColor::<Impl, OFFSET>,
-            ButtonBackgroundColor::<Impl, OFFSET>,
-            SetButtonBackgroundColor::<Impl, OFFSET>,
-            ButtonForegroundColor::<Impl, OFFSET>,
-            SetButtonForegroundColor::<Impl, OFFSET>,
-            ButtonHoverBackgroundColor::<Impl, OFFSET>,
-            SetButtonHoverBackgroundColor::<Impl, OFFSET>,
-            ButtonHoverForegroundColor::<Impl, OFFSET>,
-            SetButtonHoverForegroundColor::<Impl, OFFSET>,
-            ButtonInactiveBackgroundColor::<Impl, OFFSET>,
-            SetButtonInactiveBackgroundColor::<Impl, OFFSET>,
-            ButtonInactiveForegroundColor::<Impl, OFFSET>,
-            SetButtonInactiveForegroundColor::<Impl, OFFSET>,
-            ButtonPressedBackgroundColor::<Impl, OFFSET>,
-            SetButtonPressedBackgroundColor::<Impl, OFFSET>,
-            ButtonPressedForegroundColor::<Impl, OFFSET>,
-            SetButtonPressedForegroundColor::<Impl, OFFSET>,
-            ExtendsContentIntoTitleBar::<Impl, OFFSET>,
-            SetExtendsContentIntoTitleBar::<Impl, OFFSET>,
-            ForegroundColor::<Impl, OFFSET>,
-            SetForegroundColor::<Impl, OFFSET>,
-            InactiveBackgroundColor::<Impl, OFFSET>,
-            SetInactiveBackgroundColor::<Impl, OFFSET>,
-            InactiveForegroundColor::<Impl, OFFSET>,
-            SetInactiveForegroundColor::<Impl, OFFSET>,
-            IsVisible::<Impl, OFFSET>,
-            GetTitleBarOcclusions::<Impl, OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonHoverBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonHoverBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonHoverForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonHoverForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonInactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonInactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            ButtonPressedBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonPressedBackgroundColor::<Impl, IMPL_OFFSET>,
+            ButtonPressedForegroundColor::<Impl, IMPL_OFFSET>,
+            SetButtonPressedForegroundColor::<Impl, IMPL_OFFSET>,
+            ExtendsContentIntoTitleBar::<Impl, IMPL_OFFSET>,
+            SetExtendsContentIntoTitleBar::<Impl, IMPL_OFFSET>,
+            ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetForegroundColor::<Impl, IMPL_OFFSET>,
+            InactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            SetInactiveBackgroundColor::<Impl, IMPL_OFFSET>,
+            InactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            SetInactiveForegroundColor::<Impl, IMPL_OFFSET>,
+            IsVisible::<Impl, IMPL_OFFSET>,
+            GetTitleBarOcclusions::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowTitleBar as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowTitleBarOcclusionImpl: Sized {
     fn OccludingRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowTitleBarOcclusion";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppWindowTitleBarOcclusionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowTitleBarOcclusionImpl, const OFFSET: isize>() -> IAppWindowTitleBarOcclusionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowTitleBarOcclusionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowTitleBarOcclusionVtbl {
         unsafe extern "system" fn OccludingRect<Impl: IAppWindowTitleBarOcclusionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OccludingRect() {
@@ -1054,7 +1090,10 @@ impl IAppWindowTitleBarOcclusionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowTitleBarOcclusion>, ::windows::core::GetTrustLevel, OccludingRect::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowTitleBarOcclusion>, ::windows::core::GetTrustLevel, OccludingRect::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowTitleBarOcclusion as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1068,7 +1107,7 @@ impl ::windows::core::RuntimeName for IAppWindowTitleBarVisibility {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppWindowTitleBarVisibilityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowTitleBarVisibilityImpl, const OFFSET: isize>() -> IAppWindowTitleBarVisibilityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppWindowTitleBarVisibilityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppWindowTitleBarVisibilityVtbl {
         unsafe extern "system" fn GetPreferredVisibility<Impl: IAppWindowTitleBarVisibilityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowTitleBarVisibility) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreferredVisibility() {
@@ -1084,7 +1123,10 @@ impl IAppWindowTitleBarVisibilityVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredVisibility(visibilitymode).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowTitleBarVisibility>, ::windows::core::GetTrustLevel, GetPreferredVisibility::<Impl, OFFSET>, SetPreferredVisibility::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppWindowTitleBarVisibility>, ::windows::core::GetTrustLevel, GetPreferredVisibility::<Impl, IMPL_OFFSET>, SetPreferredVisibility::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppWindowTitleBarVisibility as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1095,8 +1137,11 @@ impl ::windows::core::RuntimeName for ICompactOverlayPresentationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICompactOverlayPresentationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompactOverlayPresentationConfigurationImpl, const OFFSET: isize>() -> ICompactOverlayPresentationConfigurationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompactOverlayPresentationConfiguration>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompactOverlayPresentationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompactOverlayPresentationConfigurationVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICompactOverlayPresentationConfiguration>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompactOverlayPresentationConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1107,11 +1152,14 @@ impl ::windows::core::RuntimeName for IDefaultPresentationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDefaultPresentationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultPresentationConfigurationImpl, const OFFSET: isize>() -> IDefaultPresentationConfigurationVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDefaultPresentationConfiguration>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultPresentationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDefaultPresentationConfigurationVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDefaultPresentationConfiguration>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDefaultPresentationConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayRegionImpl: Sized {
     fn DisplayMonitorDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsVisible(&self) -> ::windows::core::Result<bool>;
@@ -1121,13 +1169,13 @@ pub trait IDisplayRegionImpl: Sized {
     fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.IDisplayRegion";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDisplayRegionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayRegionImpl, const OFFSET: isize>() -> IDisplayRegionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayRegionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayRegionVtbl {
         unsafe extern "system" fn DisplayMonitorDeviceId<Impl: IDisplayRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayMonitorDeviceId() {
@@ -1198,7 +1246,24 @@ impl IDisplayRegionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayRegion>, ::windows::core::GetTrustLevel, DisplayMonitorDeviceId::<Impl, OFFSET>, IsVisible::<Impl, OFFSET>, WorkAreaOffset::<Impl, OFFSET>, WorkAreaSize::<Impl, OFFSET>, WindowingEnvironment::<Impl, OFFSET>, Changed::<Impl, OFFSET>, RemoveChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IDisplayRegion>,
+            ::windows::core::GetTrustLevel,
+            DisplayMonitorDeviceId::<Impl, IMPL_OFFSET>,
+            IsVisible::<Impl, IMPL_OFFSET>,
+            WorkAreaOffset::<Impl, IMPL_OFFSET>,
+            WorkAreaSize::<Impl, IMPL_OFFSET>,
+            WindowingEnvironment::<Impl, IMPL_OFFSET>,
+            Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayRegion as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1212,7 +1277,7 @@ impl ::windows::core::RuntimeName for IFullScreenPresentationConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFullScreenPresentationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullScreenPresentationConfigurationImpl, const OFFSET: isize>() -> IFullScreenPresentationConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullScreenPresentationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFullScreenPresentationConfigurationVtbl {
         unsafe extern "system" fn IsExclusive<Impl: IFullScreenPresentationConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExclusive() {
@@ -1228,20 +1293,23 @@ impl IFullScreenPresentationConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsExclusive(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullScreenPresentationConfiguration>, ::windows::core::GetTrustLevel, IsExclusive::<Impl, OFFSET>, SetIsExclusive::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullScreenPresentationConfiguration>, ::windows::core::GetTrustLevel, IsExclusive::<Impl, IMPL_OFFSET>, SetIsExclusive::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFullScreenPresentationConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWindowServicesStaticsImpl: Sized {
     fn FindAllTopLevelWindowIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowServicesStatics {
     const NAME: &'static str = "Windows.UI.WindowManagement.IWindowServicesStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWindowServicesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowServicesStaticsImpl, const OFFSET: isize>() -> IWindowServicesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowServicesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowServicesStaticsVtbl {
         unsafe extern "system" fn FindAllTopLevelWindowIds<Impl: IWindowServicesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllTopLevelWindowIds() {
@@ -1253,10 +1321,13 @@ impl IWindowServicesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowServicesStatics>, ::windows::core::GetTrustLevel, FindAllTopLevelWindowIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowServicesStatics>, ::windows::core::GetTrustLevel, FindAllTopLevelWindowIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowServicesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWindowingEnvironmentImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn Kind(&self) -> ::windows::core::Result<WindowingEnvironmentKind>;
@@ -1264,13 +1335,13 @@ pub trait IWindowingEnvironmentImpl: Sized {
     fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWindowingEnvironmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentImpl, const OFFSET: isize>() -> IWindowingEnvironmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowingEnvironmentVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IWindowingEnvironmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -1319,7 +1390,10 @@ impl IWindowingEnvironmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironment>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, OFFSET>, Kind::<Impl, OFFSET>, GetDisplayRegions::<Impl, OFFSET>, Changed::<Impl, OFFSET>, RemoveChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironment>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, GetDisplayRegions::<Impl, IMPL_OFFSET>, Changed::<Impl, IMPL_OFFSET>, RemoveChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowingEnvironment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1332,7 +1406,7 @@ impl ::windows::core::RuntimeName for IWindowingEnvironmentAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowingEnvironmentAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentAddedEventArgsImpl, const OFFSET: isize>() -> IWindowingEnvironmentAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowingEnvironmentAddedEventArgsVtbl {
         unsafe extern "system" fn WindowingEnvironment<Impl: IWindowingEnvironmentAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowingEnvironment() {
@@ -1344,7 +1418,10 @@ impl IWindowingEnvironmentAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentAddedEventArgs>, ::windows::core::GetTrustLevel, WindowingEnvironment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentAddedEventArgs>, ::windows::core::GetTrustLevel, WindowingEnvironment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowingEnvironmentAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1355,8 +1432,11 @@ impl ::windows::core::RuntimeName for IWindowingEnvironmentChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowingEnvironmentChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentChangedEventArgsImpl, const OFFSET: isize>() -> IWindowingEnvironmentChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowingEnvironmentChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowingEnvironmentChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1369,7 +1449,7 @@ impl ::windows::core::RuntimeName for IWindowingEnvironmentRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowingEnvironmentRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentRemovedEventArgsImpl, const OFFSET: isize>() -> IWindowingEnvironmentRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowingEnvironmentRemovedEventArgsVtbl {
         unsafe extern "system" fn WindowingEnvironment<Impl: IWindowingEnvironmentRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowingEnvironment() {
@@ -1381,21 +1461,24 @@ impl IWindowingEnvironmentRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentRemovedEventArgs>, ::windows::core::GetTrustLevel, WindowingEnvironment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentRemovedEventArgs>, ::windows::core::GetTrustLevel, WindowingEnvironment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowingEnvironmentRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWindowingEnvironmentStaticsImpl: Sized {
     fn FindAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
     fn FindAllWithKind(&self, kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowingEnvironmentStatics {
     const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironmentStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWindowingEnvironmentStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentStaticsImpl, const OFFSET: isize>() -> IWindowingEnvironmentStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowingEnvironmentStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowingEnvironmentStaticsVtbl {
         unsafe extern "system" fn FindAll<Impl: IWindowingEnvironmentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAll() {
@@ -1418,6 +1501,9 @@ impl IWindowingEnvironmentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentStatics>, ::windows::core::GetTrustLevel, FindAll::<Impl, OFFSET>, FindAllWithKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentStatics>, ::windows::core::GetTrustLevel, FindAll::<Impl, IMPL_OFFSET>, FindAllWithKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowingEnvironmentStatics as ::windows::core::Interface>::IID
     }
 }

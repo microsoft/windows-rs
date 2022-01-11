@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICoreIncrementalInkStrokeImpl: Sized {
     fn AppendInkPoints(&self, inkpoints: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>>) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
     fn CreateInkStroke(&self) -> ::windows::core::Result<super::InkStroke>;
@@ -6,13 +6,13 @@ pub trait ICoreIncrementalInkStrokeImpl: Sized {
     fn PointTransform(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Numerics::Matrix3x2>;
     fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreIncrementalInkStroke";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ICoreIncrementalInkStrokeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreIncrementalInkStrokeImpl, const OFFSET: isize>() -> ICoreIncrementalInkStrokeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreIncrementalInkStrokeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreIncrementalInkStrokeVtbl {
         unsafe extern "system" fn AppendInkPoints<Impl: ICoreIncrementalInkStrokeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppendInkPoints(&*(&inkpoints as *const <super::super::super::super::Foundation::Collections::IIterable<super::InkPoint> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<super::InkPoint> as ::windows::core::DefaultType>::DefaultType)) {
@@ -68,20 +68,23 @@ impl ICoreIncrementalInkStrokeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreIncrementalInkStroke>, ::windows::core::GetTrustLevel, AppendInkPoints::<Impl, OFFSET>, CreateInkStroke::<Impl, OFFSET>, DrawingAttributes::<Impl, OFFSET>, PointTransform::<Impl, OFFSET>, BoundingRect::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreIncrementalInkStroke>, ::windows::core::GetTrustLevel, AppendInkPoints::<Impl, IMPL_OFFSET>, CreateInkStroke::<Impl, IMPL_OFFSET>, DrawingAttributes::<Impl, IMPL_OFFSET>, PointTransform::<Impl, IMPL_OFFSET>, BoundingRect::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreIncrementalInkStroke as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICoreIncrementalInkStrokeFactoryImpl: Sized {
     fn Create(&self, drawingattributes: &::core::option::Option<super::InkDrawingAttributes>, pointtransform: &super::super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<CoreIncrementalInkStroke>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreIncrementalInkStrokeFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreIncrementalInkStrokeFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ICoreIncrementalInkStrokeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreIncrementalInkStrokeFactoryImpl, const OFFSET: isize>() -> ICoreIncrementalInkStrokeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreIncrementalInkStrokeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreIncrementalInkStrokeFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ICoreIncrementalInkStrokeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, drawingattributes: ::windows::core::RawPtr, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&drawingattributes as *const <super::InkDrawingAttributes as ::windows::core::Abi>::Abi as *const <super::InkDrawingAttributes as ::windows::core::DefaultType>::DefaultType), &*(&pointtransform as *const <super::super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)) {
@@ -93,10 +96,13 @@ impl ICoreIncrementalInkStrokeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreIncrementalInkStrokeFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreIncrementalInkStrokeFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreIncrementalInkStrokeFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait ICoreInkIndependentInputSourceImpl: Sized {
     fn PointerEntering(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemovePointerEntering(&self, cookie: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -114,13 +120,13 @@ pub trait ICoreInkIndependentInputSourceImpl: Sized {
     fn RemovePointerLost(&self, cookie: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn InkPresenter(&self) -> ::windows::core::Result<super::InkPresenter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 impl ICoreInkIndependentInputSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkIndependentInputSourceImpl, const OFFSET: isize>() -> ICoreInkIndependentInputSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkIndependentInputSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInkIndependentInputSourceVtbl {
         unsafe extern "system" fn PointerEntering<Impl: ICoreInkIndependentInputSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerEntering(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -238,42 +244,45 @@ impl ICoreInkIndependentInputSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSource>,
             ::windows::core::GetTrustLevel,
-            PointerEntering::<Impl, OFFSET>,
-            RemovePointerEntering::<Impl, OFFSET>,
-            PointerHovering::<Impl, OFFSET>,
-            RemovePointerHovering::<Impl, OFFSET>,
-            PointerExiting::<Impl, OFFSET>,
-            RemovePointerExiting::<Impl, OFFSET>,
-            PointerPressing::<Impl, OFFSET>,
-            RemovePointerPressing::<Impl, OFFSET>,
-            PointerMoving::<Impl, OFFSET>,
-            RemovePointerMoving::<Impl, OFFSET>,
-            PointerReleasing::<Impl, OFFSET>,
-            RemovePointerReleasing::<Impl, OFFSET>,
-            PointerLost::<Impl, OFFSET>,
-            RemovePointerLost::<Impl, OFFSET>,
-            InkPresenter::<Impl, OFFSET>,
+            PointerEntering::<Impl, IMPL_OFFSET>,
+            RemovePointerEntering::<Impl, IMPL_OFFSET>,
+            PointerHovering::<Impl, IMPL_OFFSET>,
+            RemovePointerHovering::<Impl, IMPL_OFFSET>,
+            PointerExiting::<Impl, IMPL_OFFSET>,
+            RemovePointerExiting::<Impl, IMPL_OFFSET>,
+            PointerPressing::<Impl, IMPL_OFFSET>,
+            RemovePointerPressing::<Impl, IMPL_OFFSET>,
+            PointerMoving::<Impl, IMPL_OFFSET>,
+            RemovePointerMoving::<Impl, IMPL_OFFSET>,
+            PointerReleasing::<Impl, IMPL_OFFSET>,
+            RemovePointerReleasing::<Impl, IMPL_OFFSET>,
+            PointerLost::<Impl, IMPL_OFFSET>,
+            RemovePointerLost::<Impl, IMPL_OFFSET>,
+            InkPresenter::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreInkIndependentInputSource as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait ICoreInkIndependentInputSource2Impl: Sized {
     fn PointerCursor(&self) -> ::windows::core::Result<super::super::super::Core::CoreCursor>;
     fn SetPointerCursor(&self, value: &::core::option::Option<super::super::super::Core::CoreCursor>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreInkIndependentInputSource2 {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ICoreInkIndependentInputSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkIndependentInputSource2Impl, const OFFSET: isize>() -> ICoreInkIndependentInputSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkIndependentInputSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInkIndependentInputSource2Vtbl {
         unsafe extern "system" fn PointerCursor<Impl: ICoreInkIndependentInputSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerCursor() {
@@ -289,7 +298,10 @@ impl ICoreInkIndependentInputSource2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerCursor(&*(&value as *const <super::super::super::Core::CoreCursor as ::windows::core::Abi>::Abi as *const <super::super::super::Core::CoreCursor as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSource2>, ::windows::core::GetTrustLevel, PointerCursor::<Impl, OFFSET>, SetPointerCursor::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSource2>, ::windows::core::GetTrustLevel, PointerCursor::<Impl, IMPL_OFFSET>, SetPointerCursor::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreInkIndependentInputSource2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -302,7 +314,7 @@ impl ::windows::core::RuntimeName for ICoreInkIndependentInputSourceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreInkIndependentInputSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkIndependentInputSourceStaticsImpl, const OFFSET: isize>() -> ICoreInkIndependentInputSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkIndependentInputSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInkIndependentInputSourceStaticsVtbl {
         unsafe extern "system" fn Create<Impl: ICoreInkIndependentInputSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&inkpresenter as *const <super::InkPresenter as ::windows::core::Abi>::Abi as *const <super::InkPresenter as ::windows::core::DefaultType>::DefaultType)) {
@@ -314,22 +326,25 @@ impl ICoreInkIndependentInputSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkIndependentInputSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreInkIndependentInputSourceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait ICoreInkPresenterHostImpl: Sized {
     fn InkPresenter(&self) -> ::windows::core::Result<super::InkPresenter>;
     fn RootVisual(&self) -> ::windows::core::Result<super::super::super::Composition::ContainerVisual>;
     fn SetRootVisual(&self, value: &::core::option::Option<super::super::super::Composition::ContainerVisual>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreInkPresenterHost";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ICoreInkPresenterHostVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkPresenterHostImpl, const OFFSET: isize>() -> ICoreInkPresenterHostVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInkPresenterHostImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInkPresenterHostVtbl {
         unsafe extern "system" fn InkPresenter<Impl: ICoreInkPresenterHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InkPresenter() {
@@ -356,23 +371,26 @@ impl ICoreInkPresenterHostVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRootVisual(&*(&value as *const <super::super::super::Composition::ContainerVisual as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::ContainerVisual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkPresenterHost>, ::windows::core::GetTrustLevel, InkPresenter::<Impl, OFFSET>, RootVisual::<Impl, OFFSET>, SetRootVisual::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreInkPresenterHost>, ::windows::core::GetTrustLevel, InkPresenter::<Impl, IMPL_OFFSET>, RootVisual::<Impl, IMPL_OFFSET>, SetRootVisual::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreInkPresenterHost as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICoreWetStrokeUpdateEventArgsImpl: Sized {
     fn NewInkPoints(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<super::InkPoint>>;
     fn PointerId(&self) -> ::windows::core::Result<u32>;
     fn Disposition(&self) -> ::windows::core::Result<CoreWetStrokeDisposition>;
     fn SetDisposition(&self, value: CoreWetStrokeDisposition) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICoreWetStrokeUpdateEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWetStrokeUpdateEventArgsImpl, const OFFSET: isize>() -> ICoreWetStrokeUpdateEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWetStrokeUpdateEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreWetStrokeUpdateEventArgsVtbl {
         unsafe extern "system" fn NewInkPoints<Impl: ICoreWetStrokeUpdateEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewInkPoints() {
@@ -410,10 +428,13 @@ impl ICoreWetStrokeUpdateEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisposition(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateEventArgs>, ::windows::core::GetTrustLevel, NewInkPoints::<Impl, OFFSET>, PointerId::<Impl, OFFSET>, Disposition::<Impl, OFFSET>, SetDisposition::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateEventArgs>, ::windows::core::GetTrustLevel, NewInkPoints::<Impl, IMPL_OFFSET>, PointerId::<Impl, IMPL_OFFSET>, Disposition::<Impl, IMPL_OFFSET>, SetDisposition::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWetStrokeUpdateEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreWetStrokeUpdateSourceImpl: Sized {
     fn WetStrokeStarting(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveWetStrokeStarting(&self, cookie: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -427,13 +448,13 @@ pub trait ICoreWetStrokeUpdateSourceImpl: Sized {
     fn RemoveWetStrokeCanceled(&self, cookie: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn InkPresenter(&self) -> ::windows::core::Result<super::InkPresenter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreWetStrokeUpdateSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWetStrokeUpdateSourceImpl, const OFFSET: isize>() -> ICoreWetStrokeUpdateSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWetStrokeUpdateSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreWetStrokeUpdateSourceVtbl {
         unsafe extern "system" fn WetStrokeStarting<Impl: ICoreWetStrokeUpdateSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WetStrokeStarting(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -521,24 +542,27 @@ impl ICoreWetStrokeUpdateSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateSource>,
             ::windows::core::GetTrustLevel,
-            WetStrokeStarting::<Impl, OFFSET>,
-            RemoveWetStrokeStarting::<Impl, OFFSET>,
-            WetStrokeContinuing::<Impl, OFFSET>,
-            RemoveWetStrokeContinuing::<Impl, OFFSET>,
-            WetStrokeStopping::<Impl, OFFSET>,
-            RemoveWetStrokeStopping::<Impl, OFFSET>,
-            WetStrokeCompleted::<Impl, OFFSET>,
-            RemoveWetStrokeCompleted::<Impl, OFFSET>,
-            WetStrokeCanceled::<Impl, OFFSET>,
-            RemoveWetStrokeCanceled::<Impl, OFFSET>,
-            InkPresenter::<Impl, OFFSET>,
+            WetStrokeStarting::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeStarting::<Impl, IMPL_OFFSET>,
+            WetStrokeContinuing::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeContinuing::<Impl, IMPL_OFFSET>,
+            WetStrokeStopping::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeStopping::<Impl, IMPL_OFFSET>,
+            WetStrokeCompleted::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeCompleted::<Impl, IMPL_OFFSET>,
+            WetStrokeCanceled::<Impl, IMPL_OFFSET>,
+            RemoveWetStrokeCanceled::<Impl, IMPL_OFFSET>,
+            InkPresenter::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWetStrokeUpdateSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -551,7 +575,7 @@ impl ::windows::core::RuntimeName for ICoreWetStrokeUpdateSourceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreWetStrokeUpdateSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWetStrokeUpdateSourceStaticsImpl, const OFFSET: isize>() -> ICoreWetStrokeUpdateSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWetStrokeUpdateSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreWetStrokeUpdateSourceStaticsVtbl {
         unsafe extern "system" fn Create<Impl: ICoreWetStrokeUpdateSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&inkpresenter as *const <super::InkPresenter as ::windows::core::Abi>::Abi as *const <super::InkPresenter as ::windows::core::DefaultType>::DefaultType)) {
@@ -563,6 +587,9 @@ impl ICoreWetStrokeUpdateSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreWetStrokeUpdateSourceStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWetStrokeUpdateSourceStatics as ::windows::core::Interface>::IID
     }
 }

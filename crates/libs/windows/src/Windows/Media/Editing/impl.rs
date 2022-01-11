@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IBackgroundAudioTrackImpl: Sized {
     fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetTrimTimeFromStart(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -15,13 +15,13 @@ pub trait IBackgroundAudioTrackImpl: Sized {
     fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
     fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.IBackgroundAudioTrack";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl IBackgroundAudioTrackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>() -> IBackgroundAudioTrackVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundAudioTrackVtbl {
         unsafe extern "system" fn TrimTimeFromStart<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimTimeFromStart() {
@@ -149,41 +149,44 @@ impl IBackgroundAudioTrackVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBackgroundAudioTrack>,
             ::windows::core::GetTrustLevel,
-            TrimTimeFromStart::<Impl, OFFSET>,
-            SetTrimTimeFromStart::<Impl, OFFSET>,
-            TrimTimeFromEnd::<Impl, OFFSET>,
-            SetTrimTimeFromEnd::<Impl, OFFSET>,
-            OriginalDuration::<Impl, OFFSET>,
-            TrimmedDuration::<Impl, OFFSET>,
-            UserData::<Impl, OFFSET>,
-            SetDelay::<Impl, OFFSET>,
-            Delay::<Impl, OFFSET>,
-            SetVolume::<Impl, OFFSET>,
-            Volume::<Impl, OFFSET>,
-            Clone::<Impl, OFFSET>,
-            GetAudioEncodingProperties::<Impl, OFFSET>,
-            AudioEffectDefinitions::<Impl, OFFSET>,
+            TrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            TrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            OriginalDuration::<Impl, IMPL_OFFSET>,
+            TrimmedDuration::<Impl, IMPL_OFFSET>,
+            UserData::<Impl, IMPL_OFFSET>,
+            SetDelay::<Impl, IMPL_OFFSET>,
+            Delay::<Impl, IMPL_OFFSET>,
+            SetVolume::<Impl, IMPL_OFFSET>,
+            Volume::<Impl, IMPL_OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            GetAudioEncodingProperties::<Impl, IMPL_OFFSET>,
+            AudioEffectDefinitions::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundAudioTrack as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IBackgroundAudioTrackStaticsImpl: Sized {
     fn CreateFromEmbeddedAudioTrack(&self, embeddedaudiotrack: &::core::option::Option<EmbeddedAudioTrack>) -> ::windows::core::Result<BackgroundAudioTrack>;
     fn CreateFromFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundAudioTrackStatics {
     const NAME: &'static str = "Windows.Media.Editing.IBackgroundAudioTrackStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IBackgroundAudioTrackStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackStaticsImpl, const OFFSET: isize>() -> IBackgroundAudioTrackStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundAudioTrackStaticsVtbl {
         unsafe extern "system" fn CreateFromEmbeddedAudioTrack<Impl: IBackgroundAudioTrackStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddedaudiotrack: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromEmbeddedAudioTrack(&*(&embeddedaudiotrack as *const <EmbeddedAudioTrack as ::windows::core::Abi>::Abi as *const <EmbeddedAudioTrack as ::windows::core::DefaultType>::DefaultType)) {
@@ -206,20 +209,23 @@ impl IBackgroundAudioTrackStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundAudioTrackStatics>, ::windows::core::GetTrustLevel, CreateFromEmbeddedAudioTrack::<Impl, OFFSET>, CreateFromFileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundAudioTrackStatics>, ::windows::core::GetTrustLevel, CreateFromEmbeddedAudioTrack::<Impl, IMPL_OFFSET>, CreateFromFileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundAudioTrackStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IEmbeddedAudioTrackImpl: Sized {
     fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.IEmbeddedAudioTrack";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl IEmbeddedAudioTrackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmbeddedAudioTrackImpl, const OFFSET: isize>() -> IEmbeddedAudioTrackVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmbeddedAudioTrackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmbeddedAudioTrackVtbl {
         unsafe extern "system" fn GetAudioEncodingProperties<Impl: IEmbeddedAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioEncodingProperties() {
@@ -231,10 +237,13 @@ impl IEmbeddedAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmbeddedAudioTrack>, ::windows::core::GetTrustLevel, GetAudioEncodingProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmbeddedAudioTrack>, ::windows::core::GetTrustLevel, GetAudioEncodingProperties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmbeddedAudioTrack as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IMediaClipImpl: Sized {
     fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetTrimTimeFromStart(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -255,13 +264,13 @@ pub trait IMediaClipImpl: Sized {
     fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
     fn VideoEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaClip {
     const NAME: &'static str = "Windows.Media.Editing.IMediaClip";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl IMediaClipVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipImpl, const OFFSET: isize>() -> IMediaClipVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipVtbl {
         unsafe extern "system" fn TrimTimeFromStart<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimTimeFromStart() {
@@ -433,46 +442,49 @@ impl IMediaClipVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaClip>,
             ::windows::core::GetTrustLevel,
-            TrimTimeFromStart::<Impl, OFFSET>,
-            SetTrimTimeFromStart::<Impl, OFFSET>,
-            TrimTimeFromEnd::<Impl, OFFSET>,
-            SetTrimTimeFromEnd::<Impl, OFFSET>,
-            OriginalDuration::<Impl, OFFSET>,
-            TrimmedDuration::<Impl, OFFSET>,
-            UserData::<Impl, OFFSET>,
-            Clone::<Impl, OFFSET>,
-            StartTimeInComposition::<Impl, OFFSET>,
-            EndTimeInComposition::<Impl, OFFSET>,
-            EmbeddedAudioTracks::<Impl, OFFSET>,
-            SelectedEmbeddedAudioTrackIndex::<Impl, OFFSET>,
-            SetSelectedEmbeddedAudioTrackIndex::<Impl, OFFSET>,
-            SetVolume::<Impl, OFFSET>,
-            Volume::<Impl, OFFSET>,
-            GetVideoEncodingProperties::<Impl, OFFSET>,
-            AudioEffectDefinitions::<Impl, OFFSET>,
-            VideoEffectDefinitions::<Impl, OFFSET>,
+            TrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromStart::<Impl, IMPL_OFFSET>,
+            TrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            SetTrimTimeFromEnd::<Impl, IMPL_OFFSET>,
+            OriginalDuration::<Impl, IMPL_OFFSET>,
+            TrimmedDuration::<Impl, IMPL_OFFSET>,
+            UserData::<Impl, IMPL_OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            StartTimeInComposition::<Impl, IMPL_OFFSET>,
+            EndTimeInComposition::<Impl, IMPL_OFFSET>,
+            EmbeddedAudioTracks::<Impl, IMPL_OFFSET>,
+            SelectedEmbeddedAudioTrackIndex::<Impl, IMPL_OFFSET>,
+            SetSelectedEmbeddedAudioTrackIndex::<Impl, IMPL_OFFSET>,
+            SetVolume::<Impl, IMPL_OFFSET>,
+            Volume::<Impl, IMPL_OFFSET>,
+            GetVideoEncodingProperties::<Impl, IMPL_OFFSET>,
+            AudioEffectDefinitions::<Impl, IMPL_OFFSET>,
+            VideoEffectDefinitions::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaClip as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
 pub trait IMediaClipStaticsImpl: Sized {
     fn CreateFromColor(&self, color: &super::super::UI::Color, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
     fn CreateFromFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
     fn CreateFromImageFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaClipStatics {
     const NAME: &'static str = "Windows.Media.Editing.IMediaClipStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
 impl IMediaClipStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStaticsImpl, const OFFSET: isize>() -> IMediaClipStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipStaticsVtbl {
         unsafe extern "system" fn CreateFromColor<Impl: IMediaClipStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromColor(&*(&color as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType), &*(&originalduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
@@ -506,20 +518,23 @@ impl IMediaClipStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaClipStatics>, ::windows::core::GetTrustLevel, CreateFromColor::<Impl, OFFSET>, CreateFromFileAsync::<Impl, OFFSET>, CreateFromImageFileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaClipStatics>, ::windows::core::GetTrustLevel, CreateFromColor::<Impl, IMPL_OFFSET>, CreateFromFileAsync::<Impl, IMPL_OFFSET>, CreateFromImageFileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaClipStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IMediaClipStatics2Impl: Sized {
     fn CreateFromSurface(&self, surface: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaClipStatics2 {
     const NAME: &'static str = "Windows.Media.Editing.IMediaClipStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl IMediaClipStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStatics2Impl, const OFFSET: isize>() -> IMediaClipStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipStatics2Vtbl {
         unsafe extern "system" fn CreateFromSurface<Impl: IMediaClipStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSurface(&*(&surface as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType), &*(&originalduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
@@ -531,10 +546,13 @@ impl IMediaClipStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaClipStatics2>, ::windows::core::GetTrustLevel, CreateFromSurface::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaClipStatics2>, ::windows::core::GetTrustLevel, CreateFromSurface::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaClipStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaCompositionImpl: Sized {
     fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Clips(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaClip>>;
@@ -552,13 +570,13 @@ pub trait IMediaCompositionImpl: Sized {
     fn GenerateMediaStreamSourceWithProfile(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::Core::MediaStreamSource>;
     fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> ::windows::core::Result<super::Core::MediaStreamSource>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.IMediaComposition";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMediaCompositionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionImpl, const OFFSET: isize>() -> IMediaCompositionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCompositionVtbl {
         unsafe extern "system" fn Duration<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
@@ -725,41 +743,44 @@ impl IMediaCompositionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaComposition>,
             ::windows::core::GetTrustLevel,
-            Duration::<Impl, OFFSET>,
-            Clips::<Impl, OFFSET>,
-            BackgroundAudioTracks::<Impl, OFFSET>,
-            UserData::<Impl, OFFSET>,
-            Clone::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
-            GetThumbnailAsync::<Impl, OFFSET>,
-            GetThumbnailsAsync::<Impl, OFFSET>,
-            RenderToFileAsync::<Impl, OFFSET>,
-            RenderToFileWithTrimmingPreferenceAsync::<Impl, OFFSET>,
-            RenderToFileWithProfileAsync::<Impl, OFFSET>,
-            CreateDefaultEncodingProfile::<Impl, OFFSET>,
-            GenerateMediaStreamSource::<Impl, OFFSET>,
-            GenerateMediaStreamSourceWithProfile::<Impl, OFFSET>,
-            GeneratePreviewMediaStreamSource::<Impl, OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            Clips::<Impl, IMPL_OFFSET>,
+            BackgroundAudioTracks::<Impl, IMPL_OFFSET>,
+            UserData::<Impl, IMPL_OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            GetThumbnailAsync::<Impl, IMPL_OFFSET>,
+            GetThumbnailsAsync::<Impl, IMPL_OFFSET>,
+            RenderToFileAsync::<Impl, IMPL_OFFSET>,
+            RenderToFileWithTrimmingPreferenceAsync::<Impl, IMPL_OFFSET>,
+            RenderToFileWithProfileAsync::<Impl, IMPL_OFFSET>,
+            CreateDefaultEncodingProfile::<Impl, IMPL_OFFSET>,
+            GenerateMediaStreamSource::<Impl, IMPL_OFFSET>,
+            GenerateMediaStreamSourceWithProfile::<Impl, IMPL_OFFSET>,
+            GeneratePreviewMediaStreamSource::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaComposition as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaComposition2Impl: Sized {
     fn OverlayLayers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlayLayer>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaComposition2 {
     const NAME: &'static str = "Windows.Media.Editing.IMediaComposition2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaComposition2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaComposition2Impl, const OFFSET: isize>() -> IMediaComposition2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaComposition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaComposition2Vtbl {
         unsafe extern "system" fn OverlayLayers<Impl: IMediaComposition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OverlayLayers() {
@@ -771,20 +792,23 @@ impl IMediaComposition2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaComposition2>, ::windows::core::GetTrustLevel, OverlayLayers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaComposition2>, ::windows::core::GetTrustLevel, OverlayLayers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaComposition2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IMediaCompositionStaticsImpl: Sized {
     fn LoadAsync(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCompositionStatics {
     const NAME: &'static str = "Windows.Media.Editing.IMediaCompositionStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IMediaCompositionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionStaticsImpl, const OFFSET: isize>() -> IMediaCompositionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCompositionStaticsVtbl {
         unsafe extern "system" fn LoadAsync<Impl: IMediaCompositionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadAsync(&*(&file as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -796,10 +820,13 @@ impl IMediaCompositionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaCompositionStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaCompositionStatics>, ::windows::core::GetTrustLevel, LoadAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaCompositionStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaOverlayImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn SetPosition(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
@@ -812,13 +839,13 @@ pub trait IMediaOverlayImpl: Sized {
     fn AudioEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetAudioEnabled(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlay";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMediaOverlayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayImpl, const OFFSET: isize>() -> IMediaOverlayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayVtbl {
         unsafe extern "system" fn Position<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
@@ -902,37 +929,40 @@ impl IMediaOverlayVtbl {
             (*this).SetAudioEnabled(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaOverlay>,
             ::windows::core::GetTrustLevel,
-            Position::<Impl, OFFSET>,
-            SetPosition::<Impl, OFFSET>,
-            SetDelay::<Impl, OFFSET>,
-            Delay::<Impl, OFFSET>,
-            Opacity::<Impl, OFFSET>,
-            SetOpacity::<Impl, OFFSET>,
-            Clone::<Impl, OFFSET>,
-            Clip::<Impl, OFFSET>,
-            AudioEnabled::<Impl, OFFSET>,
-            SetAudioEnabled::<Impl, OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            SetPosition::<Impl, IMPL_OFFSET>,
+            SetDelay::<Impl, IMPL_OFFSET>,
+            Delay::<Impl, IMPL_OFFSET>,
+            Opacity::<Impl, IMPL_OFFSET>,
+            SetOpacity::<Impl, IMPL_OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            Clip::<Impl, IMPL_OFFSET>,
+            AudioEnabled::<Impl, IMPL_OFFSET>,
+            SetAudioEnabled::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaOverlay as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaOverlayFactoryImpl: Sized {
     fn Create(&self, clip: &::core::option::Option<MediaClip>) -> ::windows::core::Result<MediaOverlay>;
     fn CreateWithPositionAndOpacity(&self, clip: &::core::option::Option<MediaClip>, position: &super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlayFactory {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlayFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMediaOverlayFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayFactoryImpl, const OFFSET: isize>() -> IMediaOverlayFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IMediaOverlayFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&clip as *const <MediaClip as ::windows::core::Abi>::Abi as *const <MediaClip as ::windows::core::DefaultType>::DefaultType)) {
@@ -955,22 +985,25 @@ impl IMediaOverlayFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithPositionAndOpacity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPositionAndOpacity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaOverlayFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IMediaOverlayLayerImpl: Sized {
     fn Clone(&self) -> ::windows::core::Result<MediaOverlayLayer>;
     fn Overlays(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlay>>;
     fn CustomCompositorDefinition(&self) -> ::windows::core::Result<super::Effects::IVideoCompositorDefinition>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlayLayer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl IMediaOverlayLayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerImpl, const OFFSET: isize>() -> IMediaOverlayLayerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayLayerVtbl {
         unsafe extern "system" fn Clone<Impl: IMediaOverlayLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
@@ -1004,20 +1037,23 @@ impl IMediaOverlayLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayLayer>, ::windows::core::GetTrustLevel, Clone::<Impl, OFFSET>, Overlays::<Impl, OFFSET>, CustomCompositorDefinition::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayLayer>, ::windows::core::GetTrustLevel, Clone::<Impl, IMPL_OFFSET>, Overlays::<Impl, IMPL_OFFSET>, CustomCompositorDefinition::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaOverlayLayer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IMediaOverlayLayerFactoryImpl: Sized {
     fn CreateWithCompositorDefinition(&self, compositordefinition: &::core::option::Option<super::Effects::IVideoCompositorDefinition>) -> ::windows::core::Result<MediaOverlayLayer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlayLayerFactory {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlayLayerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
 impl IMediaOverlayLayerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerFactoryImpl, const OFFSET: isize>() -> IMediaOverlayLayerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayLayerFactoryVtbl {
         unsafe extern "system" fn CreateWithCompositorDefinition<Impl: IMediaOverlayLayerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositordefinition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithCompositorDefinition(&*(&compositordefinition as *const <super::Effects::IVideoCompositorDefinition as ::windows::core::Abi>::Abi as *const <super::Effects::IVideoCompositorDefinition as ::windows::core::DefaultType>::DefaultType)) {
@@ -1029,6 +1065,9 @@ impl IMediaOverlayLayerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayLayerFactory>, ::windows::core::GetTrustLevel, CreateWithCompositorDefinition::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaOverlayLayerFactory>, ::windows::core::GetTrustLevel, CreateWithCompositorDefinition::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaOverlayLayerFactory as ::windows::core::Interface>::IID
     }
 }

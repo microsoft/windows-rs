@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for ICredentialFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICredentialFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialFactoryImpl, const OFFSET: isize>() -> ICredentialFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICredentialFactoryVtbl {
         unsafe extern "system" fn CreatePasswordCredential<Impl: ICredentialFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePasswordCredential(
@@ -24,10 +24,13 @@ impl ICredentialFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialFactory>, ::windows::core::GetTrustLevel, CreatePasswordCredential::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialFactory>, ::windows::core::GetTrustLevel, CreatePasswordCredential::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICredentialFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyCredentialImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RetrievePublicKeyWithDefaultBlobType(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -35,13 +38,13 @@ pub trait IKeyCredentialImpl: Sized {
     fn RequestSignAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>;
     fn GetAttestationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.IKeyCredential";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKeyCredentialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialImpl, const OFFSET: isize>() -> IKeyCredentialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyCredentialVtbl {
         unsafe extern "system" fn Name<Impl: IKeyCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -97,22 +100,37 @@ impl IKeyCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredential>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, RetrievePublicKeyWithDefaultBlobType::<Impl, OFFSET>, RetrievePublicKeyWithBlobType::<Impl, OFFSET>, RequestSignAsync::<Impl, OFFSET>, GetAttestationAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IKeyCredential>,
+            ::windows::core::GetTrustLevel,
+            Name::<Impl, IMPL_OFFSET>,
+            RetrievePublicKeyWithDefaultBlobType::<Impl, IMPL_OFFSET>,
+            RetrievePublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
+            RequestSignAsync::<Impl, IMPL_OFFSET>,
+            GetAttestationAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyCredential as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyCredentialAttestationResultImpl: Sized {
     fn CertificateChainBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn AttestationBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Status(&self) -> ::windows::core::Result<KeyCredentialAttestationStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.IKeyCredentialAttestationResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKeyCredentialAttestationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialAttestationResultImpl, const OFFSET: isize>() -> IKeyCredentialAttestationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialAttestationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyCredentialAttestationResultVtbl {
         unsafe extern "system" fn CertificateChainBuffer<Impl: IKeyCredentialAttestationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CertificateChainBuffer() {
@@ -146,10 +164,13 @@ impl IKeyCredentialAttestationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialAttestationResult>, ::windows::core::GetTrustLevel, CertificateChainBuffer::<Impl, OFFSET>, AttestationBuffer::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialAttestationResult>, ::windows::core::GetTrustLevel, CertificateChainBuffer::<Impl, IMPL_OFFSET>, AttestationBuffer::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyCredentialAttestationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyCredentialManagerStaticsImpl: Sized {
     fn IsSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RenewAttestationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -157,13 +178,13 @@ pub trait IKeyCredentialManagerStaticsImpl: Sized {
     fn OpenAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>;
     fn DeleteAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredentialManagerStatics {
     const NAME: &'static str = "Windows.Security.Credentials.IKeyCredentialManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IKeyCredentialManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialManagerStaticsImpl, const OFFSET: isize>() -> IKeyCredentialManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyCredentialManagerStaticsVtbl {
         unsafe extern "system" fn IsSupportedAsync<Impl: IKeyCredentialManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupportedAsync() {
@@ -219,21 +240,24 @@ impl IKeyCredentialManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialManagerStatics>, ::windows::core::GetTrustLevel, IsSupportedAsync::<Impl, OFFSET>, RenewAttestationAsync::<Impl, OFFSET>, RequestCreateAsync::<Impl, OFFSET>, OpenAsync::<Impl, OFFSET>, DeleteAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialManagerStatics>, ::windows::core::GetTrustLevel, IsSupportedAsync::<Impl, IMPL_OFFSET>, RenewAttestationAsync::<Impl, IMPL_OFFSET>, RequestCreateAsync::<Impl, IMPL_OFFSET>, OpenAsync::<Impl, IMPL_OFFSET>, DeleteAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyCredentialManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyCredentialOperationResultImpl: Sized {
     fn Result(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Status(&self) -> ::windows::core::Result<KeyCredentialStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.IKeyCredentialOperationResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKeyCredentialOperationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialOperationResultImpl, const OFFSET: isize>() -> IKeyCredentialOperationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialOperationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyCredentialOperationResultVtbl {
         unsafe extern "system" fn Result<Impl: IKeyCredentialOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
@@ -256,7 +280,10 @@ impl IKeyCredentialOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialOperationResult>, ::windows::core::GetTrustLevel, Result::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialOperationResult>, ::windows::core::GetTrustLevel, Result::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyCredentialOperationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -270,7 +297,7 @@ impl ::windows::core::RuntimeName for IKeyCredentialRetrievalResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyCredentialRetrievalResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialRetrievalResultImpl, const OFFSET: isize>() -> IKeyCredentialRetrievalResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyCredentialRetrievalResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyCredentialRetrievalResultVtbl {
         unsafe extern "system" fn Credential<Impl: IKeyCredentialRetrievalResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Credential() {
@@ -293,10 +320,13 @@ impl IKeyCredentialRetrievalResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialRetrievalResult>, ::windows::core::GetTrustLevel, Credential::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyCredentialRetrievalResult>, ::windows::core::GetTrustLevel, Credential::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyCredentialRetrievalResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPasswordCredentialImpl: Sized {
     fn Resource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetResource(&self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -307,13 +337,13 @@ pub trait IPasswordCredentialImpl: Sized {
     fn RetrievePassword(&self) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.IPasswordCredential";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPasswordCredentialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPasswordCredentialImpl, const OFFSET: isize>() -> IPasswordCredentialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPasswordCredentialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPasswordCredentialVtbl {
         unsafe extern "system" fn Resource<Impl: IPasswordCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Resource() {
@@ -375,24 +405,27 @@ impl IPasswordCredentialVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPasswordCredential>,
             ::windows::core::GetTrustLevel,
-            Resource::<Impl, OFFSET>,
-            SetResource::<Impl, OFFSET>,
-            UserName::<Impl, OFFSET>,
-            SetUserName::<Impl, OFFSET>,
-            Password::<Impl, OFFSET>,
-            SetPassword::<Impl, OFFSET>,
-            RetrievePassword::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
+            Resource::<Impl, IMPL_OFFSET>,
+            SetResource::<Impl, IMPL_OFFSET>,
+            UserName::<Impl, IMPL_OFFSET>,
+            SetUserName::<Impl, IMPL_OFFSET>,
+            Password::<Impl, IMPL_OFFSET>,
+            SetPassword::<Impl, IMPL_OFFSET>,
+            RetrievePassword::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPasswordCredential as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPasswordVaultImpl: Sized {
     fn Add(&self, credential: &::core::option::Option<PasswordCredential>) -> ::windows::core::Result<()>;
     fn Remove(&self, credential: &::core::option::Option<PasswordCredential>) -> ::windows::core::Result<()>;
@@ -401,13 +434,13 @@ pub trait IPasswordVaultImpl: Sized {
     fn FindAllByUserName(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
     fn RetrieveAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.IPasswordVault";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPasswordVaultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPasswordVaultImpl, const OFFSET: isize>() -> IPasswordVaultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPasswordVaultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPasswordVaultVtbl {
         unsafe extern "system" fn Add<Impl: IPasswordVaultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&credential as *const <PasswordCredential as ::windows::core::Abi>::Abi as *const <PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
@@ -460,7 +493,10 @@ impl IPasswordVaultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPasswordVault>, ::windows::core::GetTrustLevel, Add::<Impl, OFFSET>, Remove::<Impl, OFFSET>, Retrieve::<Impl, OFFSET>, FindAllByResource::<Impl, OFFSET>, FindAllByUserName::<Impl, OFFSET>, RetrieveAll::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPasswordVault>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, Retrieve::<Impl, IMPL_OFFSET>, FindAllByResource::<Impl, IMPL_OFFSET>, FindAllByUserName::<Impl, IMPL_OFFSET>, RetrieveAll::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPasswordVault as ::windows::core::Interface>::IID
     }
 }
 pub trait IWebAccountImpl: Sized {
@@ -472,7 +508,7 @@ impl ::windows::core::RuntimeName for IWebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";
 }
 impl IWebAccountVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountImpl, const OFFSET: isize>() -> IWebAccountVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountVtbl {
         unsafe extern "system" fn WebAccountProvider<Impl: IWebAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebAccountProvider() {
@@ -506,10 +542,13 @@ impl IWebAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccount>, ::windows::core::GetTrustLevel, WebAccountProvider::<Impl, OFFSET>, UserName::<Impl, OFFSET>, State::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccount>, ::windows::core::GetTrustLevel, WebAccountProvider::<Impl, IMPL_OFFSET>, UserName::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccount as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWebAccount2Impl: Sized + IWebAccountImpl {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
@@ -517,13 +556,13 @@ pub trait IWebAccount2Impl: Sized + IWebAccountImpl {
     fn SignOutAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SignOutWithClientIdAsync(&self, clientid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccount2 {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWebAccount2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccount2Impl, const OFFSET: isize>() -> IWebAccount2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccount2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccount2Vtbl {
         unsafe extern "system" fn Id<Impl: IWebAccount2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -579,7 +618,10 @@ impl IWebAccount2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccount2>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Properties::<Impl, OFFSET>, GetPictureAsync::<Impl, OFFSET>, SignOutAsync::<Impl, OFFSET>, SignOutWithClientIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccount2>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, GetPictureAsync::<Impl, IMPL_OFFSET>, SignOutAsync::<Impl, IMPL_OFFSET>, SignOutWithClientIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccount2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -592,7 +634,7 @@ impl ::windows::core::RuntimeName for IWebAccountFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebAccountFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountFactoryImpl, const OFFSET: isize>() -> IWebAccountFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountFactoryVtbl {
         unsafe extern "system" fn CreateWebAccount<Impl: IWebAccountFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountprovider: ::windows::core::RawPtr, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, state: WebAccountState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWebAccount(&*(&webaccountprovider as *const <WebAccountProvider as ::windows::core::Abi>::Abi as *const <WebAccountProvider as ::windows::core::DefaultType>::DefaultType), &*(&username as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), state) {
@@ -604,22 +646,25 @@ impl IWebAccountFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountFactory>, ::windows::core::GetTrustLevel, CreateWebAccount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountFactory>, ::windows::core::GetTrustLevel, CreateWebAccount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccountFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccountProvider";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebAccountProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderImpl, const OFFSET: isize>() -> IWebAccountProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderVtbl {
         unsafe extern "system" fn Id<Impl: IWebAccountProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -653,21 +698,24 @@ impl IWebAccountProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, IconUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IconUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccountProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountProvider2Impl: Sized + IWebAccountProviderImpl {
     fn DisplayPurpose(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Authority(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProvider2 {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccountProvider2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebAccountProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProvider2Impl, const OFFSET: isize>() -> IWebAccountProvider2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProvider2Vtbl {
         unsafe extern "system" fn DisplayPurpose<Impl: IWebAccountProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayPurpose() {
@@ -690,20 +738,23 @@ impl IWebAccountProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider2>, ::windows::core::GetTrustLevel, DisplayPurpose::<Impl, OFFSET>, Authority::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider2>, ::windows::core::GetTrustLevel, DisplayPurpose::<Impl, IMPL_OFFSET>, Authority::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccountProvider2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IWebAccountProvider3Impl: Sized + IWebAccountProviderImpl + IWebAccountProvider2Impl {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProvider3 {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccountProvider3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IWebAccountProvider3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProvider3Impl, const OFFSET: isize>() -> IWebAccountProvider3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProvider3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProvider3Vtbl {
         unsafe extern "system" fn User<Impl: IWebAccountProvider3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -715,7 +766,10 @@ impl IWebAccountProvider3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider3>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccountProvider3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -728,7 +782,7 @@ impl ::windows::core::RuntimeName for IWebAccountProvider4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebAccountProvider4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProvider4Impl, const OFFSET: isize>() -> IWebAccountProvider4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProvider4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProvider4Vtbl {
         unsafe extern "system" fn IsSystemProvider<Impl: IWebAccountProvider4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSystemProvider() {
@@ -740,20 +794,23 @@ impl IWebAccountProvider4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider4>, ::windows::core::GetTrustLevel, IsSystemProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProvider4>, ::windows::core::GetTrustLevel, IsSystemProvider::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccountProvider4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderFactoryImpl: Sized {
     fn CreateWebAccountProvider(&self, id: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<WebAccountProvider>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderFactory {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccountProviderFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebAccountProviderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderFactoryImpl, const OFFSET: isize>() -> IWebAccountProviderFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderFactoryVtbl {
         unsafe extern "system" fn CreateWebAccountProvider<Impl: IWebAccountProviderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iconuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWebAccountProvider(
@@ -769,6 +826,9 @@ impl IWebAccountProviderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderFactory>, ::windows::core::GetTrustLevel, CreateWebAccountProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAccountProviderFactory>, ::windows::core::GetTrustLevel, CreateWebAccountProvider::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAccountProviderFactory as ::windows::core::Interface>::IID
     }
 }

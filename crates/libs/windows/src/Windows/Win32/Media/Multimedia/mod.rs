@@ -593,12 +593,12 @@ pub unsafe fn AVIFileInit() {
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileOpenA(ppfile: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIFileOpenA(ppfile: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIFileOpenA(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
     }
@@ -608,12 +608,12 @@ pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileOpenW(ppfile: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIFileOpenW(ppfile: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIFileOpenW(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
     }
@@ -685,12 +685,12 @@ pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[inline]
-pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::core::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::core::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeCompressedStream(ppscompressed: *mut ::windows::core::RawPtr, ppssource: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIMakeCompressedStream(ppscompressed: *mut ::windows::core::RawPtr, ppssource: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIMakeCompressedStream(::core::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::core::mem::transmute(lpoptions), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -901,12 +901,12 @@ pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: &::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: &::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
     }
@@ -945,12 +945,12 @@ pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOM
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: &::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: &::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
     }
@@ -960,12 +960,12 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: &::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: &::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
     }
@@ -975,12 +975,12 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: &::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: &::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
     }
@@ -1017,12 +1017,12 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[inline]
-pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamCreate(ppavi: *mut ::windows::core::RawPtr, lparam1: i32, lparam2: i32, pclsidhandler: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIStreamCreate(ppavi: *mut ::windows::core::RawPtr, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIStreamCreate(::core::mem::transmute(ppavi), ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -1147,12 +1147,12 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamOpenFromFileA(ppavi: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIStreamOpenFromFileA(ppavi: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIStreamOpenFromFileA(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -1162,12 +1162,12 @@ pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamOpenFromFileW(ppavi: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIStreamOpenFromFileW(ppavi: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIStreamOpenFromFileW(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
     }

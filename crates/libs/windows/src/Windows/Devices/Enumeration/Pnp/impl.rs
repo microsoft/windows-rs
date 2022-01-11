@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPnpObjectImpl: Sized {
     fn Type(&self) -> ::windows::core::Result<PnpObjectType>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
     fn Update(&self, updateinfo: &::core::option::Option<PnpObjectUpdate>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.IPnpObject";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPnpObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectImpl, const OFFSET: isize>() -> IPnpObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPnpObjectVtbl {
         unsafe extern "system" fn Type<Impl: IPnpObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PnpObjectType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -49,10 +49,13 @@ impl IPnpObjectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update(&*(&updateinfo as *const <PnpObjectUpdate as ::windows::core::Abi>::Abi as *const <PnpObjectUpdate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObject>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, Id::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Update::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObject>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, Update::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPnpObject as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPnpObjectStaticsImpl: Sized {
     fn CreateFromIdAsync(&self, r#type: PnpObjectType, id: &::windows::core::HSTRING, requestedproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>;
     fn FindAllAsync(&self, r#type: PnpObjectType, requestedproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>;
@@ -60,13 +63,13 @@ pub trait IPnpObjectStaticsImpl: Sized {
     fn CreateWatcher(&self, r#type: PnpObjectType, requestedproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PnpObjectWatcher>;
     fn CreateWatcherAqsFilter(&self, r#type: PnpObjectType, requestedproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<PnpObjectWatcher>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPnpObjectStatics {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.IPnpObjectStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPnpObjectStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectStaticsImpl, const OFFSET: isize>() -> IPnpObjectStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPnpObjectStaticsVtbl {
         unsafe extern "system" fn CreateFromIdAsync<Impl: IPnpObjectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: PnpObjectType, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, requestedproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIdAsync(r#type, &*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&requestedproperties as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -122,22 +125,25 @@ impl IPnpObjectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObjectStatics>, ::windows::core::GetTrustLevel, CreateFromIdAsync::<Impl, OFFSET>, FindAllAsync::<Impl, OFFSET>, FindAllAsyncAqsFilter::<Impl, OFFSET>, CreateWatcher::<Impl, OFFSET>, CreateWatcherAqsFilter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObjectStatics>, ::windows::core::GetTrustLevel, CreateFromIdAsync::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>, FindAllAsyncAqsFilter::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>, CreateWatcherAqsFilter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPnpObjectStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPnpObjectUpdateImpl: Sized {
     fn Type(&self) -> ::windows::core::Result<PnpObjectType>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPnpObjectUpdateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectUpdateImpl, const OFFSET: isize>() -> IPnpObjectUpdateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectUpdateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPnpObjectUpdateVtbl {
         unsafe extern "system" fn Type<Impl: IPnpObjectUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PnpObjectType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -171,10 +177,13 @@ impl IPnpObjectUpdateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObjectUpdate>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, Id::<Impl, OFFSET>, Properties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPnpObjectUpdate>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPnpObjectUpdate as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPnpObjectWatcherImpl: Sized {
     fn Added(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -190,13 +199,13 @@ pub trait IPnpObjectWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPnpObjectWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectWatcherImpl, const OFFSET: isize>() -> IPnpObjectWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPnpObjectWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPnpObjectWatcherVtbl {
         unsafe extern "system" fn Added<Impl: IPnpObjectWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject> as ::windows::core::DefaultType>::DefaultType)) {
@@ -292,25 +301,28 @@ impl IPnpObjectWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPnpObjectWatcher>,
             ::windows::core::GetTrustLevel,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            Updated::<Impl, OFFSET>,
-            RemoveUpdated::<Impl, OFFSET>,
-            Removed::<Impl, OFFSET>,
-            RemoveRemoved::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPnpObjectWatcher as ::windows::core::Interface>::IID
     }
 }

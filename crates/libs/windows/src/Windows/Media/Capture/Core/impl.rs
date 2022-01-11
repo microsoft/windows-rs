@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVariablePhotoCapturedEventArgsImpl: Sized {
     fn Frame(&self) -> ::windows::core::Result<super::CapturedFrame>;
     fn CaptureTimeOffset(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn UsedFrameControllerIndex(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
     fn CapturedFrameControlValues(&self) -> ::windows::core::Result<super::CapturedFrameControlValues>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVariablePhotoCapturedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoCapturedEventArgsImpl, const OFFSET: isize>() -> IVariablePhotoCapturedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoCapturedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoCapturedEventArgsVtbl {
         unsafe extern "system" fn Frame<Impl: IVariablePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
@@ -56,10 +56,13 @@ impl IVariablePhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoCapturedEventArgs>, ::windows::core::GetTrustLevel, Frame::<Impl, OFFSET>, CaptureTimeOffset::<Impl, OFFSET>, UsedFrameControllerIndex::<Impl, OFFSET>, CapturedFrameControlValues::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoCapturedEventArgs>, ::windows::core::GetTrustLevel, Frame::<Impl, IMPL_OFFSET>, CaptureTimeOffset::<Impl, IMPL_OFFSET>, UsedFrameControllerIndex::<Impl, IMPL_OFFSET>, CapturedFrameControlValues::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVariablePhotoCapturedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVariablePhotoSequenceCaptureImpl: Sized {
     fn StartAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn StopAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -69,13 +72,13 @@ pub trait IVariablePhotoSequenceCaptureImpl: Sized {
     fn Stopped(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveStopped(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.IVariablePhotoSequenceCapture";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVariablePhotoSequenceCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>() -> IVariablePhotoSequenceCaptureVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceCaptureVtbl {
         unsafe extern "system" fn StartAsync<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
@@ -139,20 +142,37 @@ impl IVariablePhotoSequenceCaptureVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceCapture>, ::windows::core::GetTrustLevel, StartAsync::<Impl, OFFSET>, StopAsync::<Impl, OFFSET>, FinishAsync::<Impl, OFFSET>, PhotoCaptured::<Impl, OFFSET>, RemovePhotoCaptured::<Impl, OFFSET>, Stopped::<Impl, OFFSET>, RemoveStopped::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceCapture>,
+            ::windows::core::GetTrustLevel,
+            StartAsync::<Impl, IMPL_OFFSET>,
+            StopAsync::<Impl, IMPL_OFFSET>,
+            FinishAsync::<Impl, IMPL_OFFSET>,
+            PhotoCaptured::<Impl, IMPL_OFFSET>,
+            RemovePhotoCaptured::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVariablePhotoSequenceCapture as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVariablePhotoSequenceCapture2Impl: Sized {
     fn UpdateSettingsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVariablePhotoSequenceCapture2 {
     const NAME: &'static str = "Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVariablePhotoSequenceCapture2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCapture2Impl, const OFFSET: isize>() -> IVariablePhotoSequenceCapture2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCapture2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceCapture2Vtbl {
         unsafe extern "system" fn UpdateSettingsAsync<Impl: IVariablePhotoSequenceCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateSettingsAsync() {
@@ -164,6 +184,9 @@ impl IVariablePhotoSequenceCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceCapture2>, ::windows::core::GetTrustLevel, UpdateSettingsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVariablePhotoSequenceCapture2>, ::windows::core::GetTrustLevel, UpdateSettingsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVariablePhotoSequenceCapture2 as ::windows::core::Interface>::IID
     }
 }

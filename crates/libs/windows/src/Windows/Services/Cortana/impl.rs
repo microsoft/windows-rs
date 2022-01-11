@@ -1,4 +1,4 @@
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsImpl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
     fn IsAvailableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -9,13 +9,13 @@ pub trait ICortanaActionableInsightsImpl: Sized {
     fn ShowInsightsAsync(&self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ShowInsightsWithOptionsAsync(&self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaActionableInsights {
     const NAME: &'static str = "Windows.Services.Cortana.ICortanaActionableInsights";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaActionableInsightsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaActionableInsightsImpl, const OFFSET: isize>() -> ICortanaActionableInsightsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaActionableInsightsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaActionableInsightsVtbl {
         unsafe extern "system" fn User<Impl: ICortanaActionableInsightsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -105,37 +105,40 @@ impl ICortanaActionableInsightsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICortanaActionableInsights>,
             ::windows::core::GetTrustLevel,
-            User::<Impl, OFFSET>,
-            IsAvailableAsync::<Impl, OFFSET>,
-            ShowInsightsForImageAsync::<Impl, OFFSET>,
-            ShowInsightsForImageWithOptionsAsync::<Impl, OFFSET>,
-            ShowInsightsForTextAsync::<Impl, OFFSET>,
-            ShowInsightsForTextWithOptionsAsync::<Impl, OFFSET>,
-            ShowInsightsAsync::<Impl, OFFSET>,
-            ShowInsightsWithOptionsAsync::<Impl, OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+            IsAvailableAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForImageAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForImageWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForTextAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsForTextWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsAsync::<Impl, IMPL_OFFSET>,
+            ShowInsightsWithOptionsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaActionableInsights as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsOptionsImpl: Sized {
     fn ContentSourceWebLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetContentSourceWebLink(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn SurroundingText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetSurroundingText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaActionableInsightsOptions {
     const NAME: &'static str = "Windows.Services.Cortana.ICortanaActionableInsightsOptions";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaActionableInsightsOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: isize>() -> ICortanaActionableInsightsOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaActionableInsightsOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaActionableInsightsOptionsVtbl {
         unsafe extern "system" fn ContentSourceWebLink<Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceWebLink() {
@@ -166,21 +169,24 @@ impl ICortanaActionableInsightsOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSurroundingText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsOptions>, ::windows::core::GetTrustLevel, ContentSourceWebLink::<Impl, OFFSET>, SetContentSourceWebLink::<Impl, OFFSET>, SurroundingText::<Impl, OFFSET>, SetSurroundingText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsOptions>, ::windows::core::GetTrustLevel, ContentSourceWebLink::<Impl, IMPL_OFFSET>, SetContentSourceWebLink::<Impl, IMPL_OFFSET>, SurroundingText::<Impl, IMPL_OFFSET>, SetSurroundingText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaActionableInsightsOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<CortanaActionableInsights>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<CortanaActionableInsights>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaActionableInsightsStatics {
     const NAME: &'static str = "Windows.Services.Cortana.ICortanaActionableInsightsStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaActionableInsightsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaActionableInsightsStaticsImpl, const OFFSET: isize>() -> ICortanaActionableInsightsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaActionableInsightsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaActionableInsightsStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: ICortanaActionableInsightsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -203,23 +209,26 @@ impl ICortanaActionableInsightsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaActionableInsightsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaPermissionsManagerImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn ArePermissionsGrantedAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn GrantPermissionsAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
     fn RevokePermissionsAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaPermissionsManager {
     const NAME: &'static str = "Windows.Services.Cortana.ICortanaPermissionsManager";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaPermissionsManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaPermissionsManagerImpl, const OFFSET: isize>() -> ICortanaPermissionsManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaPermissionsManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaPermissionsManagerVtbl {
         unsafe extern "system" fn IsSupported<Impl: ICortanaPermissionsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -264,7 +273,10 @@ impl ICortanaPermissionsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManager>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, ArePermissionsGrantedAsync::<Impl, OFFSET>, GrantPermissionsAsync::<Impl, OFFSET>, RevokePermissionsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManager>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, ArePermissionsGrantedAsync::<Impl, IMPL_OFFSET>, GrantPermissionsAsync::<Impl, IMPL_OFFSET>, RevokePermissionsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaPermissionsManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -277,7 +289,7 @@ impl ::windows::core::RuntimeName for ICortanaPermissionsManagerStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaPermissionsManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaPermissionsManagerStaticsImpl, const OFFSET: isize>() -> ICortanaPermissionsManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaPermissionsManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaPermissionsManagerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: ICortanaPermissionsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -289,7 +301,10 @@ impl ICortanaPermissionsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaPermissionsManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -304,7 +319,7 @@ impl ::windows::core::RuntimeName for ICortanaSettings {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaSettingsImpl, const OFFSET: isize>() -> ICortanaSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaSettingsVtbl {
         unsafe extern "system" fn HasUserConsentToVoiceActivation<Impl: ICortanaSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasUserConsentToVoiceActivation() {
@@ -331,7 +346,10 @@ impl ICortanaSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsVoiceActivationEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaSettings>, ::windows::core::GetTrustLevel, HasUserConsentToVoiceActivation::<Impl, OFFSET>, IsVoiceActivationEnabled::<Impl, OFFSET>, SetIsVoiceActivationEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaSettings>, ::windows::core::GetTrustLevel, HasUserConsentToVoiceActivation::<Impl, IMPL_OFFSET>, IsVoiceActivationEnabled::<Impl, IMPL_OFFSET>, SetIsVoiceActivationEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -345,7 +363,7 @@ impl ::windows::core::RuntimeName for ICortanaSettingsStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ICortanaSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaSettingsStaticsImpl, const OFFSET: isize>() -> ICortanaSettingsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaSettingsStaticsVtbl {
         unsafe extern "system" fn IsSupported<Impl: ICortanaSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -368,6 +386,9 @@ impl ICortanaSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaSettingsStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICortanaSettingsStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaSettingsStatics as ::windows::core::Interface>::IID
     }
 }

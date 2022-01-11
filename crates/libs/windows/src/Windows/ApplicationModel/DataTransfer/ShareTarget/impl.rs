@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IQuickLinkImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -9,13 +9,13 @@ pub trait IQuickLinkImpl: Sized {
     fn SupportedDataFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn SupportedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IQuickLinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuickLinkImpl, const OFFSET: isize>() -> IQuickLinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuickLinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuickLinkVtbl {
         unsafe extern "system" fn Title<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -83,7 +83,25 @@ impl IQuickLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQuickLink>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, Thumbnail::<Impl, OFFSET>, SetThumbnail::<Impl, OFFSET>, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, SupportedDataFormats::<Impl, OFFSET>, SupportedFileTypes::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IQuickLink>,
+            ::windows::core::GetTrustLevel,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            SupportedDataFormats::<Impl, IMPL_OFFSET>,
+            SupportedFileTypes::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQuickLink as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -104,7 +122,7 @@ impl ::windows::core::RuntimeName for IShareOperation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShareOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperationImpl, const OFFSET: isize>() -> IShareOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperationVtbl {
         unsafe extern "system" fn Data<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -156,22 +174,25 @@ impl IShareOperationVtbl {
             (*this).ReportError(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IShareOperation>,
             ::windows::core::GetTrustLevel,
-            Data::<Impl, OFFSET>,
-            QuickLinkId::<Impl, OFFSET>,
-            RemoveThisQuickLink::<Impl, OFFSET>,
-            ReportStarted::<Impl, OFFSET>,
-            ReportDataRetrieved::<Impl, OFFSET>,
-            ReportSubmittedBackgroundTask::<Impl, OFFSET>,
-            ReportCompletedWithQuickLink::<Impl, OFFSET>,
-            ReportCompleted::<Impl, OFFSET>,
-            ReportError::<Impl, OFFSET>,
+            Data::<Impl, IMPL_OFFSET>,
+            QuickLinkId::<Impl, IMPL_OFFSET>,
+            RemoveThisQuickLink::<Impl, IMPL_OFFSET>,
+            ReportStarted::<Impl, IMPL_OFFSET>,
+            ReportDataRetrieved::<Impl, IMPL_OFFSET>,
+            ReportSubmittedBackgroundTask::<Impl, IMPL_OFFSET>,
+            ReportCompletedWithQuickLink::<Impl, IMPL_OFFSET>,
+            ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportError::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShareOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -184,25 +205,28 @@ impl ::windows::core::RuntimeName for IShareOperation2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShareOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation2Impl, const OFFSET: isize>() -> IShareOperation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation2Vtbl {
         unsafe extern "system" fn DismissUI<Impl: IShareOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareOperation2>, ::windows::core::GetTrustLevel, DismissUI::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareOperation2>, ::windows::core::GetTrustLevel, DismissUI::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShareOperation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IShareOperation3Impl: Sized {
     fn Contacts(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShareOperation3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IShareOperation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation3Impl, const OFFSET: isize>() -> IShareOperation3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation3Vtbl {
         unsafe extern "system" fn Contacts<Impl: IShareOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contacts() {
@@ -214,6 +238,9 @@ impl IShareOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareOperation3>, ::windows::core::GetTrustLevel, Contacts::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareOperation3>, ::windows::core::GetTrustLevel, Contacts::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShareOperation3 as ::windows::core::Interface>::IID
     }
 }

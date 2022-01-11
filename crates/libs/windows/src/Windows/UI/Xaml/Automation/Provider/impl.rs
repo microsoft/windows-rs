@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IAnnotationProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IAnnotationProvider";
 }
 impl IAnnotationProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationProviderImpl, const OFFSET: isize>() -> IAnnotationProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnnotationProviderVtbl {
         unsafe extern "system" fn AnnotationTypeId<Impl: IAnnotationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnnotationTypeId() {
@@ -65,17 +65,23 @@ impl IAnnotationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationProvider>, ::windows::core::GetTrustLevel, AnnotationTypeId::<Impl, OFFSET>, AnnotationTypeName::<Impl, OFFSET>, Author::<Impl, OFFSET>, DateTime::<Impl, OFFSET>, Target::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationProvider>, ::windows::core::GetTrustLevel, AnnotationTypeId::<Impl, IMPL_OFFSET>, AnnotationTypeName::<Impl, IMPL_OFFSET>, Author::<Impl, IMPL_OFFSET>, DateTime::<Impl, IMPL_OFFSET>, Target::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAnnotationProvider as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "UI_Xaml_Automation_Peers")]
 pub trait ICustomNavigationProviderImpl: Sized {
     fn NavigateCustom(&self, direction: super::Peers::AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
+#[cfg(feature = "UI_Xaml_Automation_Peers")]
 impl ::windows::core::RuntimeName for ICustomNavigationProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ICustomNavigationProvider";
 }
+#[cfg(feature = "UI_Xaml_Automation_Peers")]
 impl ICustomNavigationProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomNavigationProviderImpl, const OFFSET: isize>() -> ICustomNavigationProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomNavigationProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomNavigationProviderVtbl {
         unsafe extern "system" fn NavigateCustom<Impl: ICustomNavigationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: super::Peers::AutomationNavigationDirection, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NavigateCustom(direction) {
@@ -87,7 +93,10 @@ impl ICustomNavigationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomNavigationProvider>, ::windows::core::GetTrustLevel, NavigateCustom::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomNavigationProvider>, ::windows::core::GetTrustLevel, NavigateCustom::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomNavigationProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IDockProviderImpl: Sized {
@@ -98,7 +107,7 @@ impl ::windows::core::RuntimeName for IDockProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IDockProvider";
 }
 impl IDockProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockProviderImpl, const OFFSET: isize>() -> IDockProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDockProviderVtbl {
         unsafe extern "system" fn DockPosition<Impl: IDockProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DockPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DockPosition() {
@@ -114,7 +123,10 @@ impl IDockProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDockPosition(dockposition).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockProvider>, ::windows::core::GetTrustLevel, DockPosition::<Impl, OFFSET>, SetDockPosition::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockProvider>, ::windows::core::GetTrustLevel, DockPosition::<Impl, IMPL_OFFSET>, SetDockPosition::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDockProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IDragProviderImpl: Sized {
@@ -127,7 +139,7 @@ impl ::windows::core::RuntimeName for IDragProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IDragProvider";
 }
 impl IDragProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragProviderImpl, const OFFSET: isize>() -> IDragProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragProviderVtbl {
         unsafe extern "system" fn IsGrabbed<Impl: IDragProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGrabbed() {
@@ -174,7 +186,10 @@ impl IDragProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragProvider>, ::windows::core::GetTrustLevel, IsGrabbed::<Impl, OFFSET>, DropEffect::<Impl, OFFSET>, DropEffects::<Impl, OFFSET>, GetGrabbedItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragProvider>, ::windows::core::GetTrustLevel, IsGrabbed::<Impl, IMPL_OFFSET>, DropEffect::<Impl, IMPL_OFFSET>, DropEffects::<Impl, IMPL_OFFSET>, GetGrabbedItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IDropTargetProviderImpl: Sized {
@@ -185,7 +200,7 @@ impl ::windows::core::RuntimeName for IDropTargetProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IDropTargetProvider";
 }
 impl IDropTargetProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetProviderImpl, const OFFSET: isize>() -> IDropTargetProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetProviderVtbl {
         unsafe extern "system" fn DropEffect<Impl: IDropTargetProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropEffect() {
@@ -209,7 +224,10 @@ impl IDropTargetProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetProvider>, ::windows::core::GetTrustLevel, DropEffect::<Impl, OFFSET>, DropEffects::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetProvider>, ::windows::core::GetTrustLevel, DropEffect::<Impl, IMPL_OFFSET>, DropEffects::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDropTargetProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IExpandCollapseProviderImpl: Sized {
@@ -221,7 +239,7 @@ impl ::windows::core::RuntimeName for IExpandCollapseProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IExpandCollapseProvider";
 }
 impl IExpandCollapseProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapseProviderImpl, const OFFSET: isize>() -> IExpandCollapseProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapseProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpandCollapseProviderVtbl {
         unsafe extern "system" fn ExpandCollapseState<Impl: IExpandCollapseProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::ExpandCollapseState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpandCollapseState() {
@@ -241,7 +259,10 @@ impl IExpandCollapseProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Expand().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapseProvider>, ::windows::core::GetTrustLevel, ExpandCollapseState::<Impl, OFFSET>, Collapse::<Impl, OFFSET>, Expand::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapseProvider>, ::windows::core::GetTrustLevel, ExpandCollapseState::<Impl, IMPL_OFFSET>, Collapse::<Impl, IMPL_OFFSET>, Expand::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExpandCollapseProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IGridItemProviderImpl: Sized {
@@ -255,7 +276,7 @@ impl ::windows::core::RuntimeName for IGridItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IGridItemProvider";
 }
 impl IGridItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemProviderImpl, const OFFSET: isize>() -> IGridItemProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridItemProviderVtbl {
         unsafe extern "system" fn Column<Impl: IGridItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Column() {
@@ -311,7 +332,10 @@ impl IGridItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemProvider>, ::windows::core::GetTrustLevel, Column::<Impl, OFFSET>, ColumnSpan::<Impl, OFFSET>, ContainingGrid::<Impl, OFFSET>, Row::<Impl, OFFSET>, RowSpan::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemProvider>, ::windows::core::GetTrustLevel, Column::<Impl, IMPL_OFFSET>, ColumnSpan::<Impl, IMPL_OFFSET>, ContainingGrid::<Impl, IMPL_OFFSET>, Row::<Impl, IMPL_OFFSET>, RowSpan::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGridItemProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IGridProviderImpl: Sized {
@@ -323,7 +347,7 @@ impl ::windows::core::RuntimeName for IGridProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IGridProvider";
 }
 impl IGridProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridProviderImpl, const OFFSET: isize>() -> IGridProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridProviderVtbl {
         unsafe extern "system" fn ColumnCount<Impl: IGridProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnCount() {
@@ -357,7 +381,10 @@ impl IGridProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridProvider>, ::windows::core::GetTrustLevel, ColumnCount::<Impl, OFFSET>, RowCount::<Impl, OFFSET>, GetItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridProvider>, ::windows::core::GetTrustLevel, ColumnCount::<Impl, IMPL_OFFSET>, RowCount::<Impl, IMPL_OFFSET>, GetItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGridProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -368,8 +395,11 @@ impl ::windows::core::RuntimeName for IIRawElementProviderSimple {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIRawElementProviderSimpleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIRawElementProviderSimpleImpl, const OFFSET: isize>() -> IIRawElementProviderSimpleVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIRawElementProviderSimple>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIRawElementProviderSimpleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIRawElementProviderSimpleVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIRawElementProviderSimple>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIRawElementProviderSimple as ::windows::core::Interface>::IID
     }
 }
 pub trait IInvokeProviderImpl: Sized {
@@ -379,12 +409,15 @@ impl ::windows::core::RuntimeName for IInvokeProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IInvokeProvider";
 }
 impl IInvokeProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInvokeProviderImpl, const OFFSET: isize>() -> IInvokeProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInvokeProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInvokeProviderVtbl {
         unsafe extern "system" fn Invoke<Impl: IInvokeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Invoke().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInvokeProvider>, ::windows::core::GetTrustLevel, Invoke::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInvokeProvider>, ::windows::core::GetTrustLevel, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInvokeProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IItemContainerProviderImpl: Sized {
@@ -394,7 +427,7 @@ impl ::windows::core::RuntimeName for IItemContainerProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IItemContainerProvider";
 }
 impl IItemContainerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerProviderImpl, const OFFSET: isize>() -> IItemContainerProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemContainerProviderVtbl {
         unsafe extern "system" fn FindItemByProperty<Impl: IItemContainerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startafter: ::windows::core::RawPtr, automationproperty: ::windows::core::RawPtr, value: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindItemByProperty(
@@ -410,7 +443,10 @@ impl IItemContainerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemContainerProvider>, ::windows::core::GetTrustLevel, FindItemByProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemContainerProvider>, ::windows::core::GetTrustLevel, FindItemByProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IItemContainerProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IMultipleViewProviderImpl: Sized {
@@ -423,7 +459,7 @@ impl ::windows::core::RuntimeName for IMultipleViewProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IMultipleViewProvider";
 }
 impl IMultipleViewProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewProviderImpl, const OFFSET: isize>() -> IMultipleViewProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleViewProviderVtbl {
         unsafe extern "system" fn CurrentView<Impl: IMultipleViewProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentView() {
@@ -462,7 +498,10 @@ impl IMultipleViewProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrentView(viewid).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewProvider>, ::windows::core::GetTrustLevel, CurrentView::<Impl, OFFSET>, GetSupportedViews::<Impl, OFFSET>, GetViewName::<Impl, OFFSET>, SetCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewProvider>, ::windows::core::GetTrustLevel, CurrentView::<Impl, IMPL_OFFSET>, GetSupportedViews::<Impl, IMPL_OFFSET>, GetViewName::<Impl, IMPL_OFFSET>, SetCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMultipleViewProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IObjectModelProviderImpl: Sized {
@@ -472,7 +511,7 @@ impl ::windows::core::RuntimeName for IObjectModelProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IObjectModelProvider";
 }
 impl IObjectModelProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectModelProviderImpl, const OFFSET: isize>() -> IObjectModelProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectModelProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectModelProviderVtbl {
         unsafe extern "system" fn GetUnderlyingObjectModel<Impl: IObjectModelProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUnderlyingObjectModel() {
@@ -484,7 +523,10 @@ impl IObjectModelProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectModelProvider>, ::windows::core::GetTrustLevel, GetUnderlyingObjectModel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObjectModelProvider>, ::windows::core::GetTrustLevel, GetUnderlyingObjectModel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectModelProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IRangeValueProviderImpl: Sized {
@@ -500,7 +542,7 @@ impl ::windows::core::RuntimeName for IRangeValueProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IRangeValueProvider";
 }
 impl IRangeValueProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValueProviderImpl, const OFFSET: isize>() -> IRangeValueProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValueProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeValueProviderVtbl {
         unsafe extern "system" fn IsReadOnly<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
@@ -571,7 +613,24 @@ impl IRangeValueProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeValueProvider>, ::windows::core::GetTrustLevel, IsReadOnly::<Impl, OFFSET>, LargeChange::<Impl, OFFSET>, Maximum::<Impl, OFFSET>, Minimum::<Impl, OFFSET>, SmallChange::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRangeValueProvider>,
+            ::windows::core::GetTrustLevel,
+            IsReadOnly::<Impl, IMPL_OFFSET>,
+            LargeChange::<Impl, IMPL_OFFSET>,
+            Maximum::<Impl, IMPL_OFFSET>,
+            Minimum::<Impl, IMPL_OFFSET>,
+            SmallChange::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRangeValueProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IScrollItemProviderImpl: Sized {
@@ -581,12 +640,15 @@ impl ::windows::core::RuntimeName for IScrollItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IScrollItemProvider";
 }
 impl IScrollItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollItemProviderImpl, const OFFSET: isize>() -> IScrollItemProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollItemProviderVtbl {
         unsafe extern "system" fn ScrollIntoView<Impl: IScrollItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollIntoView().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollItemProvider>, ::windows::core::GetTrustLevel, ScrollIntoView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollItemProvider>, ::windows::core::GetTrustLevel, ScrollIntoView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScrollItemProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IScrollProviderImpl: Sized {
@@ -603,7 +665,7 @@ impl ::windows::core::RuntimeName for IScrollProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IScrollProvider";
 }
 impl IScrollProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollProviderImpl, const OFFSET: isize>() -> IScrollProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollProviderVtbl {
         unsafe extern "system" fn HorizontallyScrollable<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontallyScrollable() {
@@ -679,21 +741,24 @@ impl IScrollProviderVtbl {
             (*this).SetScrollPercent(horizontalpercent, verticalpercent).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IScrollProvider>,
             ::windows::core::GetTrustLevel,
-            HorizontallyScrollable::<Impl, OFFSET>,
-            HorizontalScrollPercent::<Impl, OFFSET>,
-            HorizontalViewSize::<Impl, OFFSET>,
-            VerticallyScrollable::<Impl, OFFSET>,
-            VerticalScrollPercent::<Impl, OFFSET>,
-            VerticalViewSize::<Impl, OFFSET>,
-            Scroll::<Impl, OFFSET>,
-            SetScrollPercent::<Impl, OFFSET>,
+            HorizontallyScrollable::<Impl, IMPL_OFFSET>,
+            HorizontalScrollPercent::<Impl, IMPL_OFFSET>,
+            HorizontalViewSize::<Impl, IMPL_OFFSET>,
+            VerticallyScrollable::<Impl, IMPL_OFFSET>,
+            VerticalScrollPercent::<Impl, IMPL_OFFSET>,
+            VerticalViewSize::<Impl, IMPL_OFFSET>,
+            Scroll::<Impl, IMPL_OFFSET>,
+            SetScrollPercent::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScrollProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ISelectionItemProviderImpl: Sized {
@@ -707,7 +772,7 @@ impl ::windows::core::RuntimeName for ISelectionItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISelectionItemProvider";
 }
 impl ISelectionItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemProviderImpl, const OFFSET: isize>() -> ISelectionItemProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionItemProviderVtbl {
         unsafe extern "system" fn IsSelected<Impl: ISelectionItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelected() {
@@ -742,7 +807,10 @@ impl ISelectionItemProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemProvider>, ::windows::core::GetTrustLevel, IsSelected::<Impl, OFFSET>, SelectionContainer::<Impl, OFFSET>, AddToSelection::<Impl, OFFSET>, RemoveFromSelection::<Impl, OFFSET>, Select::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemProvider>, ::windows::core::GetTrustLevel, IsSelected::<Impl, IMPL_OFFSET>, SelectionContainer::<Impl, IMPL_OFFSET>, AddToSelection::<Impl, IMPL_OFFSET>, RemoveFromSelection::<Impl, IMPL_OFFSET>, Select::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectionItemProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ISelectionProviderImpl: Sized {
@@ -754,7 +822,7 @@ impl ::windows::core::RuntimeName for ISelectionProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISelectionProvider";
 }
 impl ISelectionProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProviderImpl, const OFFSET: isize>() -> ISelectionProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionProviderVtbl {
         unsafe extern "system" fn CanSelectMultiple<Impl: ISelectionProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSelectMultiple() {
@@ -789,7 +857,10 @@ impl ISelectionProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionProvider>, ::windows::core::GetTrustLevel, CanSelectMultiple::<Impl, OFFSET>, IsSelectionRequired::<Impl, OFFSET>, GetSelection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionProvider>, ::windows::core::GetTrustLevel, CanSelectMultiple::<Impl, IMPL_OFFSET>, IsSelectionRequired::<Impl, IMPL_OFFSET>, GetSelection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectionProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpreadsheetItemProviderImpl: Sized {
@@ -801,7 +872,7 @@ impl ::windows::core::RuntimeName for ISpreadsheetItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISpreadsheetItemProvider";
 }
 impl ISpreadsheetItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemProviderImpl, const OFFSET: isize>() -> ISpreadsheetItemProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetItemProviderVtbl {
         unsafe extern "system" fn Formula<Impl: ISpreadsheetItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Formula() {
@@ -837,7 +908,10 @@ impl ISpreadsheetItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemProvider>, ::windows::core::GetTrustLevel, Formula::<Impl, OFFSET>, GetAnnotationObjects::<Impl, OFFSET>, GetAnnotationTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemProvider>, ::windows::core::GetTrustLevel, Formula::<Impl, IMPL_OFFSET>, GetAnnotationObjects::<Impl, IMPL_OFFSET>, GetAnnotationTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpreadsheetItemProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpreadsheetProviderImpl: Sized {
@@ -847,7 +921,7 @@ impl ::windows::core::RuntimeName for ISpreadsheetProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISpreadsheetProvider";
 }
 impl ISpreadsheetProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProviderImpl, const OFFSET: isize>() -> ISpreadsheetProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetProviderVtbl {
         unsafe extern "system" fn GetItemByName<Impl: ISpreadsheetProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemByName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -859,7 +933,10 @@ impl ISpreadsheetProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetProvider>, ::windows::core::GetTrustLevel, GetItemByName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetProvider>, ::windows::core::GetTrustLevel, GetItemByName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpreadsheetProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IStylesProviderImpl: Sized {
@@ -875,7 +952,7 @@ impl ::windows::core::RuntimeName for IStylesProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IStylesProvider";
 }
 impl IStylesProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesProviderImpl, const OFFSET: isize>() -> IStylesProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStylesProviderVtbl {
         unsafe extern "system" fn ExtendedProperties<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedProperties() {
@@ -953,7 +1030,24 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStylesProvider>, ::windows::core::GetTrustLevel, ExtendedProperties::<Impl, OFFSET>, FillColor::<Impl, OFFSET>, FillPatternColor::<Impl, OFFSET>, FillPatternStyle::<Impl, OFFSET>, Shape::<Impl, OFFSET>, StyleId::<Impl, OFFSET>, StyleName::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IStylesProvider>,
+            ::windows::core::GetTrustLevel,
+            ExtendedProperties::<Impl, IMPL_OFFSET>,
+            FillColor::<Impl, IMPL_OFFSET>,
+            FillPatternColor::<Impl, IMPL_OFFSET>,
+            FillPatternStyle::<Impl, IMPL_OFFSET>,
+            Shape::<Impl, IMPL_OFFSET>,
+            StyleId::<Impl, IMPL_OFFSET>,
+            StyleName::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStylesProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ISynchronizedInputProviderImpl: Sized {
@@ -964,7 +1058,7 @@ impl ::windows::core::RuntimeName for ISynchronizedInputProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISynchronizedInputProvider";
 }
 impl ISynchronizedInputProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizedInputProviderImpl, const OFFSET: isize>() -> ISynchronizedInputProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizedInputProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISynchronizedInputProviderVtbl {
         unsafe extern "system" fn Cancel<Impl: ISynchronizedInputProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
@@ -973,7 +1067,10 @@ impl ISynchronizedInputProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartListening(inputtype).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISynchronizedInputProvider>, ::windows::core::GetTrustLevel, Cancel::<Impl, OFFSET>, StartListening::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISynchronizedInputProvider>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, StartListening::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISynchronizedInputProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ITableItemProviderImpl: Sized {
@@ -984,7 +1081,7 @@ impl ::windows::core::RuntimeName for ITableItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITableItemProvider";
 }
 impl ITableItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemProviderImpl, const OFFSET: isize>() -> ITableItemProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableItemProviderVtbl {
         unsafe extern "system" fn GetColumnHeaderItems<Impl: ITableItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetColumnHeaderItems() {
@@ -1009,7 +1106,10 @@ impl ITableItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemProvider>, ::windows::core::GetTrustLevel, GetColumnHeaderItems::<Impl, OFFSET>, GetRowHeaderItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemProvider>, ::windows::core::GetTrustLevel, GetColumnHeaderItems::<Impl, IMPL_OFFSET>, GetRowHeaderItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableItemProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ITableProviderImpl: Sized {
@@ -1021,7 +1121,7 @@ impl ::windows::core::RuntimeName for ITableProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITableProvider";
 }
 impl ITableProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableProviderImpl, const OFFSET: isize>() -> ITableProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableProviderVtbl {
         unsafe extern "system" fn RowOrColumnMajor<Impl: ITableProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::RowOrColumnMajor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RowOrColumnMajor() {
@@ -1057,7 +1157,10 @@ impl ITableProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableProvider>, ::windows::core::GetTrustLevel, RowOrColumnMajor::<Impl, OFFSET>, GetColumnHeaders::<Impl, OFFSET>, GetRowHeaders::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableProvider>, ::windows::core::GetTrustLevel, RowOrColumnMajor::<Impl, IMPL_OFFSET>, GetColumnHeaders::<Impl, IMPL_OFFSET>, GetRowHeaders::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ITextChildProviderImpl: Sized {
@@ -1068,7 +1171,7 @@ impl ::windows::core::RuntimeName for ITextChildProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextChildProvider";
 }
 impl ITextChildProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextChildProviderImpl, const OFFSET: isize>() -> ITextChildProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextChildProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextChildProviderVtbl {
         unsafe extern "system" fn TextContainer<Impl: ITextChildProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextContainer() {
@@ -1091,18 +1194,24 @@ impl ITextChildProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextChildProvider>, ::windows::core::GetTrustLevel, TextContainer::<Impl, OFFSET>, TextRange::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextChildProvider>, ::windows::core::GetTrustLevel, TextContainer::<Impl, IMPL_OFFSET>, TextRange::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextChildProvider as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait ITextEditProviderImpl: Sized + ITextProviderImpl {
     fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider>;
     fn GetConversionTarget(&self) -> ::windows::core::Result<ITextRangeProvider>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ITextEditProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextEditProvider";
 }
+#[cfg(feature = "Foundation")]
 impl ITextEditProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextEditProviderImpl, const OFFSET: isize>() -> ITextEditProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextEditProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextEditProviderVtbl {
         unsafe extern "system" fn GetActiveComposition<Impl: ITextEditProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActiveComposition() {
@@ -1125,9 +1234,13 @@ impl ITextEditProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextEditProvider>, ::windows::core::GetTrustLevel, GetActiveComposition::<Impl, OFFSET>, GetConversionTarget::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextEditProvider>, ::windows::core::GetTrustLevel, GetActiveComposition::<Impl, IMPL_OFFSET>, GetConversionTarget::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextEditProvider as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait ITextProviderImpl: Sized {
     fn DocumentRange(&self) -> ::windows::core::Result<ITextRangeProvider>;
     fn SupportedTextSelection(&self) -> ::windows::core::Result<super::SupportedTextSelection>;
@@ -1136,11 +1249,13 @@ pub trait ITextProviderImpl: Sized {
     fn RangeFromChild(&self, childelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
     fn RangeFromPoint(&self, screenlocation: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<ITextRangeProvider>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ITextProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextProvider";
 }
+#[cfg(feature = "Foundation")]
 impl ITextProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProviderImpl, const OFFSET: isize>() -> ITextProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextProviderVtbl {
         unsafe extern "system" fn DocumentRange<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentRange() {
@@ -1209,18 +1324,37 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextProvider>, ::windows::core::GetTrustLevel, DocumentRange::<Impl, OFFSET>, SupportedTextSelection::<Impl, OFFSET>, GetSelection::<Impl, OFFSET>, GetVisibleRanges::<Impl, OFFSET>, RangeFromChild::<Impl, OFFSET>, RangeFromPoint::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ITextProvider>,
+            ::windows::core::GetTrustLevel,
+            DocumentRange::<Impl, IMPL_OFFSET>,
+            SupportedTextSelection::<Impl, IMPL_OFFSET>,
+            GetSelection::<Impl, IMPL_OFFSET>,
+            GetVisibleRanges::<Impl, IMPL_OFFSET>,
+            RangeFromChild::<Impl, IMPL_OFFSET>,
+            RangeFromPoint::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextProvider as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait ITextProvider2Impl: Sized + ITextProviderImpl {
     fn RangeFromAnnotation(&self, annotationelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
     fn GetCaretRange(&self, isactive: &mut bool) -> ::windows::core::Result<ITextRangeProvider>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ITextProvider2 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextProvider2";
 }
+#[cfg(feature = "Foundation")]
 impl ITextProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider2Impl, const OFFSET: isize>() -> ITextProvider2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextProvider2Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Impl: ITextProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationelement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromAnnotation(&*(&annotationelement as *const <IRawElementProviderSimple as ::windows::core::Abi>::Abi as *const <IRawElementProviderSimple as ::windows::core::DefaultType>::DefaultType)) {
@@ -1243,9 +1377,13 @@ impl ITextProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextProvider2>, ::windows::core::GetTrustLevel, RangeFromAnnotation::<Impl, OFFSET>, GetCaretRange::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextProvider2>, ::windows::core::GetTrustLevel, RangeFromAnnotation::<Impl, IMPL_OFFSET>, GetCaretRange::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextProvider2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "UI_Xaml_Automation_Text")]
 pub trait ITextRangeProviderImpl: Sized {
     fn Clone(&self) -> ::windows::core::Result<ITextRangeProvider>;
     fn Compare(&self, textrangeprovider: &::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<bool>;
@@ -1266,11 +1404,13 @@ pub trait ITextRangeProviderImpl: Sized {
     fn ScrollIntoView(&self, aligntotop: bool) -> ::windows::core::Result<()>;
     fn GetChildren(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
 }
+#[cfg(feature = "UI_Xaml_Automation_Text")]
 impl ::windows::core::RuntimeName for ITextRangeProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextRangeProvider";
 }
+#[cfg(feature = "UI_Xaml_Automation_Text")]
 impl ITextRangeProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProviderImpl, const OFFSET: isize>() -> ITextRangeProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeProviderVtbl {
         unsafe extern "system" fn Clone<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
@@ -1422,46 +1562,55 @@ impl ITextRangeProviderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextRangeProvider>,
             ::windows::core::GetTrustLevel,
-            Clone::<Impl, OFFSET>,
-            Compare::<Impl, OFFSET>,
-            CompareEndpoints::<Impl, OFFSET>,
-            ExpandToEnclosingUnit::<Impl, OFFSET>,
-            FindAttribute::<Impl, OFFSET>,
-            FindText::<Impl, OFFSET>,
-            GetAttributeValue::<Impl, OFFSET>,
-            GetBoundingRectangles::<Impl, OFFSET>,
-            GetEnclosingElement::<Impl, OFFSET>,
-            GetText::<Impl, OFFSET>,
-            Move::<Impl, OFFSET>,
-            MoveEndpointByUnit::<Impl, OFFSET>,
-            MoveEndpointByRange::<Impl, OFFSET>,
-            Select::<Impl, OFFSET>,
-            AddToSelection::<Impl, OFFSET>,
-            RemoveFromSelection::<Impl, OFFSET>,
-            ScrollIntoView::<Impl, OFFSET>,
-            GetChildren::<Impl, OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            Compare::<Impl, IMPL_OFFSET>,
+            CompareEndpoints::<Impl, IMPL_OFFSET>,
+            ExpandToEnclosingUnit::<Impl, IMPL_OFFSET>,
+            FindAttribute::<Impl, IMPL_OFFSET>,
+            FindText::<Impl, IMPL_OFFSET>,
+            GetAttributeValue::<Impl, IMPL_OFFSET>,
+            GetBoundingRectangles::<Impl, IMPL_OFFSET>,
+            GetEnclosingElement::<Impl, IMPL_OFFSET>,
+            GetText::<Impl, IMPL_OFFSET>,
+            Move::<Impl, IMPL_OFFSET>,
+            MoveEndpointByUnit::<Impl, IMPL_OFFSET>,
+            MoveEndpointByRange::<Impl, IMPL_OFFSET>,
+            Select::<Impl, IMPL_OFFSET>,
+            AddToSelection::<Impl, IMPL_OFFSET>,
+            RemoveFromSelection::<Impl, IMPL_OFFSET>,
+            ScrollIntoView::<Impl, IMPL_OFFSET>,
+            GetChildren::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextRangeProvider as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "UI_Xaml_Automation_Text")]
 pub trait ITextRangeProvider2Impl: Sized + ITextRangeProviderImpl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "UI_Xaml_Automation_Text")]
 impl ::windows::core::RuntimeName for ITextRangeProvider2 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextRangeProvider2";
 }
+#[cfg(feature = "UI_Xaml_Automation_Text")]
 impl ITextRangeProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider2Impl, const OFFSET: isize>() -> ITextRangeProvider2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeProvider2Vtbl {
         unsafe extern "system" fn ShowContextMenu<Impl: ITextRangeProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContextMenu().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextRangeProvider2>, ::windows::core::GetTrustLevel, ShowContextMenu::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextRangeProvider2>, ::windows::core::GetTrustLevel, ShowContextMenu::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextRangeProvider2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IToggleProviderImpl: Sized {
@@ -1472,7 +1621,7 @@ impl ::windows::core::RuntimeName for IToggleProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IToggleProvider";
 }
 impl IToggleProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleProviderImpl, const OFFSET: isize>() -> IToggleProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToggleProviderVtbl {
         unsafe extern "system" fn ToggleState<Impl: IToggleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::ToggleState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleState() {
@@ -1488,7 +1637,10 @@ impl IToggleProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Toggle().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleProvider>, ::windows::core::GetTrustLevel, ToggleState::<Impl, OFFSET>, Toggle::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToggleProvider>, ::windows::core::GetTrustLevel, ToggleState::<Impl, IMPL_OFFSET>, Toggle::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToggleProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ITransformProviderImpl: Sized {
@@ -1503,7 +1655,7 @@ impl ::windows::core::RuntimeName for ITransformProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITransformProvider";
 }
 impl ITransformProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProviderImpl, const OFFSET: isize>() -> ITransformProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformProviderVtbl {
         unsafe extern "system" fn CanMove<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMove() {
@@ -1549,7 +1701,10 @@ impl ITransformProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Rotate(degrees).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformProvider>, ::windows::core::GetTrustLevel, CanMove::<Impl, OFFSET>, CanResize::<Impl, OFFSET>, CanRotate::<Impl, OFFSET>, Move::<Impl, OFFSET>, Resize::<Impl, OFFSET>, Rotate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformProvider>, ::windows::core::GetTrustLevel, CanMove::<Impl, IMPL_OFFSET>, CanResize::<Impl, IMPL_OFFSET>, CanRotate::<Impl, IMPL_OFFSET>, Move::<Impl, IMPL_OFFSET>, Resize::<Impl, IMPL_OFFSET>, Rotate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransformProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ITransformProvider2Impl: Sized + ITransformProviderImpl {
@@ -1564,7 +1719,7 @@ impl ::windows::core::RuntimeName for ITransformProvider2 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITransformProvider2";
 }
 impl ITransformProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider2Impl, const OFFSET: isize>() -> ITransformProvider2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformProvider2Vtbl {
         unsafe extern "system" fn CanZoom<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanZoom() {
@@ -1617,7 +1772,10 @@ impl ITransformProvider2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ZoomByUnit(zoomunit).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformProvider2>, ::windows::core::GetTrustLevel, CanZoom::<Impl, OFFSET>, ZoomLevel::<Impl, OFFSET>, MaxZoom::<Impl, OFFSET>, MinZoom::<Impl, OFFSET>, Zoom::<Impl, OFFSET>, ZoomByUnit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformProvider2>, ::windows::core::GetTrustLevel, CanZoom::<Impl, IMPL_OFFSET>, ZoomLevel::<Impl, IMPL_OFFSET>, MaxZoom::<Impl, IMPL_OFFSET>, MinZoom::<Impl, IMPL_OFFSET>, Zoom::<Impl, IMPL_OFFSET>, ZoomByUnit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransformProvider2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IValueProviderImpl: Sized {
@@ -1629,7 +1787,7 @@ impl ::windows::core::RuntimeName for IValueProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IValueProvider";
 }
 impl IValueProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueProviderImpl, const OFFSET: isize>() -> IValueProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueProviderVtbl {
         unsafe extern "system" fn IsReadOnly<Impl: IValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
@@ -1656,7 +1814,10 @@ impl IValueProviderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValueProvider>, ::windows::core::GetTrustLevel, IsReadOnly::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValueProvider>, ::windows::core::GetTrustLevel, IsReadOnly::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IValueProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IVirtualizedItemProviderImpl: Sized {
@@ -1666,12 +1827,15 @@ impl ::windows::core::RuntimeName for IVirtualizedItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IVirtualizedItemProvider";
 }
 impl IVirtualizedItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizedItemProviderImpl, const OFFSET: isize>() -> IVirtualizedItemProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizedItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVirtualizedItemProviderVtbl {
         unsafe extern "system" fn Realize<Impl: IVirtualizedItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Realize().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVirtualizedItemProvider>, ::windows::core::GetTrustLevel, Realize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVirtualizedItemProvider>, ::windows::core::GetTrustLevel, Realize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVirtualizedItemProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IWindowProviderImpl: Sized {
@@ -1689,7 +1853,7 @@ impl ::windows::core::RuntimeName for IWindowProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IWindowProvider";
 }
 impl IWindowProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowProviderImpl, const OFFSET: isize>() -> IWindowProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowProviderVtbl {
         unsafe extern "system" fn IsModal<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsModal() {
@@ -1776,21 +1940,24 @@ impl IWindowProviderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWindowProvider>,
             ::windows::core::GetTrustLevel,
-            IsModal::<Impl, OFFSET>,
-            IsTopmost::<Impl, OFFSET>,
-            Maximizable::<Impl, OFFSET>,
-            Minimizable::<Impl, OFFSET>,
-            InteractionState::<Impl, OFFSET>,
-            VisualState::<Impl, OFFSET>,
-            Close::<Impl, OFFSET>,
-            SetVisualState::<Impl, OFFSET>,
-            WaitForInputIdle::<Impl, OFFSET>,
+            IsModal::<Impl, IMPL_OFFSET>,
+            IsTopmost::<Impl, IMPL_OFFSET>,
+            Maximizable::<Impl, IMPL_OFFSET>,
+            Minimizable::<Impl, IMPL_OFFSET>,
+            InteractionState::<Impl, IMPL_OFFSET>,
+            VisualState::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            SetVisualState::<Impl, IMPL_OFFSET>,
+            WaitForInputIdle::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowProvider as ::windows::core::Interface>::IID
     }
 }

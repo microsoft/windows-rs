@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DWorkflowImpl: Sized {
     fn DeviceID(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetPrintModelPackage(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -7,13 +7,13 @@ pub trait IPrint3DWorkflowImpl: Sized {
     fn PrintRequested(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemovePrintRequested(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DWorkflow {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.IPrint3DWorkflow";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrint3DWorkflowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflowImpl, const OFFSET: isize>() -> IPrint3DWorkflowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DWorkflowVtbl {
         unsafe extern "system" fn DeviceID<Impl: IPrint3DWorkflowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceID() {
@@ -66,21 +66,37 @@ impl IPrint3DWorkflowVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrintRequested(&*(&eventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflow>, ::windows::core::GetTrustLevel, DeviceID::<Impl, OFFSET>, GetPrintModelPackage::<Impl, OFFSET>, IsPrintReady::<Impl, OFFSET>, SetIsPrintReady::<Impl, OFFSET>, PrintRequested::<Impl, OFFSET>, RemovePrintRequested::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrint3DWorkflow>,
+            ::windows::core::GetTrustLevel,
+            DeviceID::<Impl, IMPL_OFFSET>,
+            GetPrintModelPackage::<Impl, IMPL_OFFSET>,
+            IsPrintReady::<Impl, IMPL_OFFSET>,
+            SetIsPrintReady::<Impl, IMPL_OFFSET>,
+            PrintRequested::<Impl, IMPL_OFFSET>,
+            RemovePrintRequested::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DWorkflow as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DWorkflow2Impl: Sized {
     fn PrinterChanged(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemovePrinterChanged(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DWorkflow2 {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.IPrint3DWorkflow2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrint3DWorkflow2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflow2Impl, const OFFSET: isize>() -> IPrint3DWorkflow2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflow2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DWorkflow2Vtbl {
         unsafe extern "system" fn PrinterChanged<Impl: IPrint3DWorkflow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrinterChanged(&*(&eventhandler as *const <super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -96,7 +112,10 @@ impl IPrint3DWorkflow2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrinterChanged(&*(&eventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflow2>, ::windows::core::GetTrustLevel, PrinterChanged::<Impl, OFFSET>, RemovePrinterChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflow2>, ::windows::core::GetTrustLevel, PrinterChanged::<Impl, IMPL_OFFSET>, RemovePrinterChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DWorkflow2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -112,7 +131,7 @@ impl ::windows::core::RuntimeName for IPrint3DWorkflowPrintRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DWorkflowPrintRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflowPrintRequestedEventArgsImpl, const OFFSET: isize>() -> IPrint3DWorkflowPrintRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflowPrintRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DWorkflowPrintRequestedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IPrint3DWorkflowPrintRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Print3DWorkflowStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -136,7 +155,10 @@ impl IPrint3DWorkflowPrintRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceChanged(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflowPrintRequestedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, SetExtendedStatus::<Impl, OFFSET>, SetSource::<Impl, OFFSET>, SetSourceChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflowPrintRequestedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, SetExtendedStatus::<Impl, IMPL_OFFSET>, SetSource::<Impl, IMPL_OFFSET>, SetSourceChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DWorkflowPrintRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -149,7 +171,7 @@ impl ::windows::core::RuntimeName for IPrint3DWorkflowPrinterChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DWorkflowPrinterChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflowPrinterChangedEventArgsImpl, const OFFSET: isize>() -> IPrint3DWorkflowPrinterChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DWorkflowPrinterChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DWorkflowPrinterChangedEventArgsVtbl {
         unsafe extern "system" fn NewDeviceId<Impl: IPrint3DWorkflowPrinterChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewDeviceId() {
@@ -161,7 +183,10 @@ impl IPrint3DWorkflowPrinterChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflowPrinterChangedEventArgs>, ::windows::core::GetTrustLevel, NewDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DWorkflowPrinterChangedEventArgs>, ::windows::core::GetTrustLevel, NewDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DWorkflowPrinterChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -174,7 +199,7 @@ impl ::windows::core::RuntimeName for IPrintExtensionContextStatic {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintExtensionContextStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintExtensionContextStaticImpl, const OFFSET: isize>() -> IPrintExtensionContextStaticVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintExtensionContextStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintExtensionContextStaticVtbl {
         unsafe extern "system" fn FromDeviceId<Impl: IPrintExtensionContextStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromDeviceId(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -186,7 +211,10 @@ impl IPrintExtensionContextStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintExtensionContextStatic>, ::windows::core::GetTrustLevel, FromDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintExtensionContextStatic>, ::windows::core::GetTrustLevel, FromDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintExtensionContextStatic as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -201,7 +229,7 @@ impl ::windows::core::RuntimeName for IPrintNotificationEventDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintNotificationEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintNotificationEventDetailsImpl, const OFFSET: isize>() -> IPrintNotificationEventDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintNotificationEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintNotificationEventDetailsVtbl {
         unsafe extern "system" fn PrinterName<Impl: IPrintNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrinterName() {
@@ -228,22 +256,25 @@ impl IPrintNotificationEventDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEventData(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintNotificationEventDetails>, ::windows::core::GetTrustLevel, PrinterName::<Impl, OFFSET>, EventData::<Impl, OFFSET>, SetEventData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintNotificationEventDetails>, ::windows::core::GetTrustLevel, PrinterName::<Impl, IMPL_OFFSET>, EventData::<Impl, IMPL_OFFSET>, SetEventData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintNotificationEventDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintTaskConfigurationImpl: Sized {
     fn PrinterExtensionContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SaveRequested(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSaveRequested(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTaskConfiguration {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.IPrintTaskConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintTaskConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationImpl, const OFFSET: isize>() -> IPrintTaskConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskConfigurationVtbl {
         unsafe extern "system" fn PrinterExtensionContext<Impl: IPrintTaskConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrinterExtensionContext() {
@@ -270,23 +301,26 @@ impl IPrintTaskConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSaveRequested(&*(&eventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfiguration>, ::windows::core::GetTrustLevel, PrinterExtensionContext::<Impl, OFFSET>, SaveRequested::<Impl, OFFSET>, RemoveSaveRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfiguration>, ::windows::core::GetTrustLevel, PrinterExtensionContext::<Impl, IMPL_OFFSET>, SaveRequested::<Impl, IMPL_OFFSET>, RemoveSaveRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintTaskConfigurationSaveRequestImpl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn Save(&self, printerextensioncontext: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequestedDeferral>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTaskConfigurationSaveRequest {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrintTaskConfigurationSaveRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationSaveRequestImpl, const OFFSET: isize>() -> IPrintTaskConfigurationSaveRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationSaveRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskConfigurationSaveRequestVtbl {
         unsafe extern "system" fn Cancel<Impl: IPrintTaskConfigurationSaveRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
@@ -317,7 +351,10 @@ impl IPrintTaskConfigurationSaveRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfigurationSaveRequest>, ::windows::core::GetTrustLevel, Cancel::<Impl, OFFSET>, Save::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>, Deadline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfigurationSaveRequest>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, Save::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskConfigurationSaveRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -330,12 +367,15 @@ impl ::windows::core::RuntimeName for IPrintTaskConfigurationSaveRequestedDeferr
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintTaskConfigurationSaveRequestedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationSaveRequestedDeferralImpl, const OFFSET: isize>() -> IPrintTaskConfigurationSaveRequestedDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationSaveRequestedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskConfigurationSaveRequestedDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IPrintTaskConfigurationSaveRequestedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfigurationSaveRequestedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfigurationSaveRequestedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskConfigurationSaveRequestedDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -348,7 +388,7 @@ impl ::windows::core::RuntimeName for IPrintTaskConfigurationSaveRequestedEventA
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintTaskConfigurationSaveRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationSaveRequestedEventArgsImpl, const OFFSET: isize>() -> IPrintTaskConfigurationSaveRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskConfigurationSaveRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskConfigurationSaveRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IPrintTaskConfigurationSaveRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -360,6 +400,9 @@ impl IPrintTaskConfigurationSaveRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfigurationSaveRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskConfigurationSaveRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskConfigurationSaveRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

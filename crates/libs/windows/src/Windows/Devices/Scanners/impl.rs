@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IImageScannerImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DefaultScanSource(&self) -> ::windows::core::Result<ImageScannerScanSource>;
@@ -10,13 +10,13 @@ pub trait IImageScannerImpl: Sized {
     fn ScanPreviewToStreamAsync(&self, scansource: ImageScannerScanSource, targetstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>;
     fn ScanFilesToFolderAsync(&self, scansource: ImageScannerScanSource, storagefolder: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScanner";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IImageScannerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerImpl, const OFFSET: isize>() -> IImageScannerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerVtbl {
         unsafe extern "system" fn DeviceId<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -117,25 +117,28 @@ impl IImageScannerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IImageScanner>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            DefaultScanSource::<Impl, OFFSET>,
-            IsScanSourceSupported::<Impl, OFFSET>,
-            FlatbedConfiguration::<Impl, OFFSET>,
-            FeederConfiguration::<Impl, OFFSET>,
-            AutoConfiguration::<Impl, OFFSET>,
-            IsPreviewSupported::<Impl, OFFSET>,
-            ScanPreviewToStreamAsync::<Impl, OFFSET>,
-            ScanFilesToFolderAsync::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            DefaultScanSource::<Impl, IMPL_OFFSET>,
+            IsScanSourceSupported::<Impl, IMPL_OFFSET>,
+            FlatbedConfiguration::<Impl, IMPL_OFFSET>,
+            FeederConfiguration::<Impl, IMPL_OFFSET>,
+            AutoConfiguration::<Impl, IMPL_OFFSET>,
+            IsPreviewSupported::<Impl, IMPL_OFFSET>,
+            ScanPreviewToStreamAsync::<Impl, IMPL_OFFSET>,
+            ScanFilesToFolderAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScanner as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IImageScannerFeederConfigurationImpl: Sized + IImageScannerFormatConfigurationImpl + IImageScannerSourceConfigurationImpl {
     fn CanAutoDetectPageSize(&self) -> ::windows::core::Result<bool>;
     fn AutoDetectPageSize(&self) -> ::windows::core::Result<bool>;
@@ -155,13 +158,13 @@ pub trait IImageScannerFeederConfigurationImpl: Sized + IImageScannerFormatConfi
     fn ScanAhead(&self) -> ::windows::core::Result<bool>;
     fn SetScanAhead(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFeederConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl IImageScannerFeederConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>() -> IImageScannerFeederConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFeederConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerFeederConfigurationVtbl {
         unsafe extern "system" fn CanAutoDetectPageSize<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanAutoDetectPageSize() {
@@ -308,30 +311,33 @@ impl IImageScannerFeederConfigurationVtbl {
             (*this).SetScanAhead(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IImageScannerFeederConfiguration>,
             ::windows::core::GetTrustLevel,
-            CanAutoDetectPageSize::<Impl, OFFSET>,
-            AutoDetectPageSize::<Impl, OFFSET>,
-            SetAutoDetectPageSize::<Impl, OFFSET>,
-            PageSize::<Impl, OFFSET>,
-            SetPageSize::<Impl, OFFSET>,
-            PageOrientation::<Impl, OFFSET>,
-            SetPageOrientation::<Impl, OFFSET>,
-            PageSizeDimensions::<Impl, OFFSET>,
-            IsPageSizeSupported::<Impl, OFFSET>,
-            MaxNumberOfPages::<Impl, OFFSET>,
-            SetMaxNumberOfPages::<Impl, OFFSET>,
-            CanScanDuplex::<Impl, OFFSET>,
-            Duplex::<Impl, OFFSET>,
-            SetDuplex::<Impl, OFFSET>,
-            CanScanAhead::<Impl, OFFSET>,
-            ScanAhead::<Impl, OFFSET>,
-            SetScanAhead::<Impl, OFFSET>,
+            CanAutoDetectPageSize::<Impl, IMPL_OFFSET>,
+            AutoDetectPageSize::<Impl, IMPL_OFFSET>,
+            SetAutoDetectPageSize::<Impl, IMPL_OFFSET>,
+            PageSize::<Impl, IMPL_OFFSET>,
+            SetPageSize::<Impl, IMPL_OFFSET>,
+            PageOrientation::<Impl, IMPL_OFFSET>,
+            SetPageOrientation::<Impl, IMPL_OFFSET>,
+            PageSizeDimensions::<Impl, IMPL_OFFSET>,
+            IsPageSizeSupported::<Impl, IMPL_OFFSET>,
+            MaxNumberOfPages::<Impl, IMPL_OFFSET>,
+            SetMaxNumberOfPages::<Impl, IMPL_OFFSET>,
+            CanScanDuplex::<Impl, IMPL_OFFSET>,
+            Duplex::<Impl, IMPL_OFFSET>,
+            SetDuplex::<Impl, IMPL_OFFSET>,
+            CanScanAhead::<Impl, IMPL_OFFSET>,
+            ScanAhead::<Impl, IMPL_OFFSET>,
+            SetScanAhead::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScannerFeederConfiguration as ::windows::core::Interface>::IID
     }
 }
 pub trait IImageScannerFormatConfigurationImpl: Sized {
@@ -344,7 +350,7 @@ impl ::windows::core::RuntimeName for IImageScannerFormatConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFormatConfiguration";
 }
 impl IImageScannerFormatConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFormatConfigurationImpl, const OFFSET: isize>() -> IImageScannerFormatConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFormatConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerFormatConfigurationVtbl {
         unsafe extern "system" fn DefaultFormat<Impl: IImageScannerFormatConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultFormat() {
@@ -382,7 +388,10 @@ impl IImageScannerFormatConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerFormatConfiguration>, ::windows::core::GetTrustLevel, DefaultFormat::<Impl, OFFSET>, Format::<Impl, OFFSET>, SetFormat::<Impl, OFFSET>, IsFormatSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerFormatConfiguration>, ::windows::core::GetTrustLevel, DefaultFormat::<Impl, IMPL_OFFSET>, Format::<Impl, IMPL_OFFSET>, SetFormat::<Impl, IMPL_OFFSET>, IsFormatSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScannerFormatConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -396,7 +405,7 @@ impl ::windows::core::RuntimeName for IImageScannerPreviewResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IImageScannerPreviewResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerPreviewResultImpl, const OFFSET: isize>() -> IImageScannerPreviewResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerPreviewResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerPreviewResultVtbl {
         unsafe extern "system" fn Succeeded<Impl: IImageScannerPreviewResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
@@ -419,20 +428,23 @@ impl IImageScannerPreviewResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerPreviewResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, OFFSET>, Format::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerPreviewResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, Format::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScannerPreviewResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IImageScannerScanResultImpl: Sized {
     fn ScannedFiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerScanResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IImageScannerScanResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerScanResultImpl, const OFFSET: isize>() -> IImageScannerScanResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerScanResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerScanResultVtbl {
         unsafe extern "system" fn ScannedFiles<Impl: IImageScannerScanResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScannedFiles() {
@@ -444,9 +456,13 @@ impl IImageScannerScanResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerScanResult>, ::windows::core::GetTrustLevel, ScannedFiles::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerScanResult>, ::windows::core::GetTrustLevel, ScannedFiles::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScannerScanResult as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IImageScannerSourceConfigurationImpl: Sized + IImageScannerFormatConfigurationImpl {
     fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
@@ -478,11 +494,13 @@ pub trait IImageScannerSourceConfigurationImpl: Sized + IImageScannerFormatConfi
     fn Contrast(&self) -> ::windows::core::Result<i32>;
     fn SetContrast(&self, value: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IImageScannerSourceConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerSourceConfiguration";
 }
+#[cfg(feature = "Foundation")]
 impl IImageScannerSourceConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>() -> IImageScannerSourceConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerSourceConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerSourceConfigurationVtbl {
         unsafe extern "system" fn MinScanArea<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinScanArea() {
@@ -761,56 +779,59 @@ impl IImageScannerSourceConfigurationVtbl {
             (*this).SetContrast(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IImageScannerSourceConfiguration>,
             ::windows::core::GetTrustLevel,
-            MinScanArea::<Impl, OFFSET>,
-            MaxScanArea::<Impl, OFFSET>,
-            SelectedScanRegion::<Impl, OFFSET>,
-            SetSelectedScanRegion::<Impl, OFFSET>,
-            AutoCroppingMode::<Impl, OFFSET>,
-            SetAutoCroppingMode::<Impl, OFFSET>,
-            IsAutoCroppingModeSupported::<Impl, OFFSET>,
-            MinResolution::<Impl, OFFSET>,
-            MaxResolution::<Impl, OFFSET>,
-            OpticalResolution::<Impl, OFFSET>,
-            DesiredResolution::<Impl, OFFSET>,
-            SetDesiredResolution::<Impl, OFFSET>,
-            ActualResolution::<Impl, OFFSET>,
-            DefaultColorMode::<Impl, OFFSET>,
-            ColorMode::<Impl, OFFSET>,
-            SetColorMode::<Impl, OFFSET>,
-            IsColorModeSupported::<Impl, OFFSET>,
-            MinBrightness::<Impl, OFFSET>,
-            MaxBrightness::<Impl, OFFSET>,
-            BrightnessStep::<Impl, OFFSET>,
-            DefaultBrightness::<Impl, OFFSET>,
-            Brightness::<Impl, OFFSET>,
-            SetBrightness::<Impl, OFFSET>,
-            MinContrast::<Impl, OFFSET>,
-            MaxContrast::<Impl, OFFSET>,
-            ContrastStep::<Impl, OFFSET>,
-            DefaultContrast::<Impl, OFFSET>,
-            Contrast::<Impl, OFFSET>,
-            SetContrast::<Impl, OFFSET>,
+            MinScanArea::<Impl, IMPL_OFFSET>,
+            MaxScanArea::<Impl, IMPL_OFFSET>,
+            SelectedScanRegion::<Impl, IMPL_OFFSET>,
+            SetSelectedScanRegion::<Impl, IMPL_OFFSET>,
+            AutoCroppingMode::<Impl, IMPL_OFFSET>,
+            SetAutoCroppingMode::<Impl, IMPL_OFFSET>,
+            IsAutoCroppingModeSupported::<Impl, IMPL_OFFSET>,
+            MinResolution::<Impl, IMPL_OFFSET>,
+            MaxResolution::<Impl, IMPL_OFFSET>,
+            OpticalResolution::<Impl, IMPL_OFFSET>,
+            DesiredResolution::<Impl, IMPL_OFFSET>,
+            SetDesiredResolution::<Impl, IMPL_OFFSET>,
+            ActualResolution::<Impl, IMPL_OFFSET>,
+            DefaultColorMode::<Impl, IMPL_OFFSET>,
+            ColorMode::<Impl, IMPL_OFFSET>,
+            SetColorMode::<Impl, IMPL_OFFSET>,
+            IsColorModeSupported::<Impl, IMPL_OFFSET>,
+            MinBrightness::<Impl, IMPL_OFFSET>,
+            MaxBrightness::<Impl, IMPL_OFFSET>,
+            BrightnessStep::<Impl, IMPL_OFFSET>,
+            DefaultBrightness::<Impl, IMPL_OFFSET>,
+            Brightness::<Impl, IMPL_OFFSET>,
+            SetBrightness::<Impl, IMPL_OFFSET>,
+            MinContrast::<Impl, IMPL_OFFSET>,
+            MaxContrast::<Impl, IMPL_OFFSET>,
+            ContrastStep::<Impl, IMPL_OFFSET>,
+            DefaultContrast::<Impl, IMPL_OFFSET>,
+            Contrast::<Impl, IMPL_OFFSET>,
+            SetContrast::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScannerSourceConfiguration as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IImageScannerStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScannerStatics {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IImageScannerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerStaticsImpl, const OFFSET: isize>() -> IImageScannerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IImageScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -833,6 +854,9 @@ impl IImageScannerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageScannerStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageScannerStatics as ::windows::core::Interface>::IID
     }
 }

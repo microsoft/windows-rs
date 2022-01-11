@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IControlChannelTriggerImpl: Sized + IClosableImpl {
     fn ControlChannelTriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ServerKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32>;
@@ -12,13 +12,13 @@ pub trait IControlChannelTriggerImpl: Sized + IClosableImpl {
     fn DecreaseNetworkKeepAliveInterval(&self) -> ::windows::core::Result<()>;
     fn FlushTransport(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTrigger";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
 impl IControlChannelTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerImpl, const OFFSET: isize>() -> IControlChannelTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerVtbl {
         unsafe extern "system" fn ControlChannelTriggerId<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlChannelTriggerId() {
@@ -113,24 +113,27 @@ impl IControlChannelTriggerVtbl {
             (*this).FlushTransport().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IControlChannelTrigger>,
             ::windows::core::GetTrustLevel,
-            ControlChannelTriggerId::<Impl, OFFSET>,
-            ServerKeepAliveIntervalInMinutes::<Impl, OFFSET>,
-            SetServerKeepAliveIntervalInMinutes::<Impl, OFFSET>,
-            CurrentKeepAliveIntervalInMinutes::<Impl, OFFSET>,
-            TransportObject::<Impl, OFFSET>,
-            KeepAliveTrigger::<Impl, OFFSET>,
-            PushNotificationTrigger::<Impl, OFFSET>,
-            UsingTransport::<Impl, OFFSET>,
-            WaitForPushEnabled::<Impl, OFFSET>,
-            DecreaseNetworkKeepAliveInterval::<Impl, OFFSET>,
-            FlushTransport::<Impl, OFFSET>,
+            ControlChannelTriggerId::<Impl, IMPL_OFFSET>,
+            ServerKeepAliveIntervalInMinutes::<Impl, IMPL_OFFSET>,
+            SetServerKeepAliveIntervalInMinutes::<Impl, IMPL_OFFSET>,
+            CurrentKeepAliveIntervalInMinutes::<Impl, IMPL_OFFSET>,
+            TransportObject::<Impl, IMPL_OFFSET>,
+            KeepAliveTrigger::<Impl, IMPL_OFFSET>,
+            PushNotificationTrigger::<Impl, IMPL_OFFSET>,
+            UsingTransport::<Impl, IMPL_OFFSET>,
+            WaitForPushEnabled::<Impl, IMPL_OFFSET>,
+            DecreaseNetworkKeepAliveInterval::<Impl, IMPL_OFFSET>,
+            FlushTransport::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlChannelTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -143,7 +146,7 @@ impl ::windows::core::RuntimeName for IControlChannelTrigger2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IControlChannelTrigger2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTrigger2Impl, const OFFSET: isize>() -> IControlChannelTrigger2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTrigger2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTrigger2Vtbl {
         unsafe extern "system" fn IsWakeFromLowPowerSupported<Impl: IControlChannelTrigger2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWakeFromLowPowerSupported() {
@@ -155,7 +158,10 @@ impl IControlChannelTrigger2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTrigger2>, ::windows::core::GetTrustLevel, IsWakeFromLowPowerSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTrigger2>, ::windows::core::GetTrustLevel, IsWakeFromLowPowerSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlChannelTrigger2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IControlChannelTriggerEventDetailsImpl: Sized {
@@ -165,7 +171,7 @@ impl ::windows::core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
 }
 impl IControlChannelTriggerEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerEventDetailsImpl, const OFFSET: isize>() -> IControlChannelTriggerEventDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerEventDetailsVtbl {
         unsafe extern "system" fn ControlChannelTrigger<Impl: IControlChannelTriggerEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlChannelTrigger() {
@@ -177,7 +183,10 @@ impl IControlChannelTriggerEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTriggerEventDetails>, ::windows::core::GetTrustLevel, ControlChannelTrigger::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTriggerEventDetails>, ::windows::core::GetTrustLevel, ControlChannelTrigger::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlChannelTriggerEventDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -191,7 +200,7 @@ impl ::windows::core::RuntimeName for IControlChannelTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IControlChannelTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerFactoryImpl, const OFFSET: isize>() -> IControlChannelTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerFactoryVtbl {
         unsafe extern "system" fn CreateControlChannelTrigger<Impl: IControlChannelTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateControlChannelTrigger(&*(&channelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), serverkeepaliveintervalinminutes) {
@@ -214,7 +223,10 @@ impl IControlChannelTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTriggerFactory>, ::windows::core::GetTrustLevel, CreateControlChannelTrigger::<Impl, OFFSET>, CreateControlChannelTriggerEx::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTriggerFactory>, ::windows::core::GetTrustLevel, CreateControlChannelTrigger::<Impl, IMPL_OFFSET>, CreateControlChannelTriggerEx::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlChannelTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 pub trait IControlChannelTriggerResetEventDetailsImpl: Sized {
@@ -226,7 +238,7 @@ impl ::windows::core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
 }
 impl IControlChannelTriggerResetEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerResetEventDetailsImpl, const OFFSET: isize>() -> IControlChannelTriggerResetEventDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerResetEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerResetEventDetailsVtbl {
         unsafe extern "system" fn ResetReason<Impl: IControlChannelTriggerResetEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ControlChannelTriggerResetReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetReason() {
@@ -260,10 +272,13 @@ impl IControlChannelTriggerResetEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTriggerResetEventDetails>, ::windows::core::GetTrustLevel, ResetReason::<Impl, OFFSET>, HardwareSlotReset::<Impl, OFFSET>, SoftwareSlotReset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IControlChannelTriggerResetEventDetails>, ::windows::core::GetTrustLevel, ResetReason::<Impl, IMPL_OFFSET>, HardwareSlotReset::<Impl, IMPL_OFFSET>, SoftwareSlotReset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlChannelTriggerResetEventDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDatagramSocketImpl: Sized + IClosableImpl {
     fn Control(&self) -> ::windows::core::Result<DatagramSocketControl>;
     fn Information(&self) -> ::windows::core::Result<DatagramSocketInformation>;
@@ -278,13 +293,13 @@ pub trait IDatagramSocketImpl: Sized + IClosableImpl {
     fn MessageReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IDatagramSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketImpl, const OFFSET: isize>() -> IDatagramSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketVtbl {
         unsafe extern "system" fn Control<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
@@ -404,38 +419,41 @@ impl IDatagramSocketVtbl {
             (*this).RemoveMessageReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDatagramSocket>,
             ::windows::core::GetTrustLevel,
-            Control::<Impl, OFFSET>,
-            Information::<Impl, OFFSET>,
-            OutputStream::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
-            ConnectWithEndpointPairAsync::<Impl, OFFSET>,
-            BindServiceNameAsync::<Impl, OFFSET>,
-            BindEndpointAsync::<Impl, OFFSET>,
-            JoinMulticastGroup::<Impl, OFFSET>,
-            GetOutputStreamAsync::<Impl, OFFSET>,
-            GetOutputStreamWithEndpointPairAsync::<Impl, OFFSET>,
-            MessageReceived::<Impl, OFFSET>,
-            RemoveMessageReceived::<Impl, OFFSET>,
+            Control::<Impl, IMPL_OFFSET>,
+            Information::<Impl, IMPL_OFFSET>,
+            OutputStream::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithEndpointPairAsync::<Impl, IMPL_OFFSET>,
+            BindServiceNameAsync::<Impl, IMPL_OFFSET>,
+            BindEndpointAsync::<Impl, IMPL_OFFSET>,
+            JoinMulticastGroup::<Impl, IMPL_OFFSET>,
+            GetOutputStreamAsync::<Impl, IMPL_OFFSET>,
+            GetOutputStreamWithEndpointPairAsync::<Impl, IMPL_OFFSET>,
+            MessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceived::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocket as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IDatagramSocket2Impl: Sized + IClosableImpl {
     fn BindServiceNameAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocket2";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl IDatagramSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket2Impl, const OFFSET: isize>() -> IDatagramSocket2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket2Vtbl {
         unsafe extern "system" fn BindServiceNameAndAdapterAsync<Impl: IDatagramSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameAndAdapterAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&adapter as *const <super::Connectivity::NetworkAdapter as ::windows::core::Abi>::Abi as *const <super::Connectivity::NetworkAdapter as ::windows::core::DefaultType>::DefaultType)) {
@@ -447,10 +465,13 @@ impl IDatagramSocket2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocket2>, ::windows::core::GetTrustLevel, BindServiceNameAndAdapterAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocket2>, ::windows::core::GetTrustLevel, BindServiceNameAndAdapterAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocket2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDatagramSocket3Impl: Sized {
     fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn EnableTransferOwnership(&self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -459,13 +480,13 @@ pub trait IDatagramSocket3Impl: Sized {
     fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
     fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>, keepalivetime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocket3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocket3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDatagramSocket3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket3Impl, const OFFSET: isize>() -> IDatagramSocket3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket3Vtbl {
         unsafe extern "system" fn CancelIOAsync<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelIOAsync() {
@@ -504,19 +525,22 @@ impl IDatagramSocket3Vtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDatagramSocket3>,
             ::windows::core::GetTrustLevel,
-            CancelIOAsync::<Impl, OFFSET>,
-            EnableTransferOwnership::<Impl, OFFSET>,
-            EnableTransferOwnershipWithConnectedStandbyAction::<Impl, OFFSET>,
-            TransferOwnership::<Impl, OFFSET>,
-            TransferOwnershipWithContext::<Impl, OFFSET>,
-            TransferOwnershipWithContextAndKeepAliveTime::<Impl, OFFSET>,
+            CancelIOAsync::<Impl, IMPL_OFFSET>,
+            EnableTransferOwnership::<Impl, IMPL_OFFSET>,
+            EnableTransferOwnershipWithConnectedStandbyAction::<Impl, IMPL_OFFSET>,
+            TransferOwnership::<Impl, IMPL_OFFSET>,
+            TransferOwnershipWithContext::<Impl, IMPL_OFFSET>,
+            TransferOwnershipWithContextAndKeepAliveTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocket3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -532,7 +556,7 @@ impl ::windows::core::RuntimeName for IDatagramSocketControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDatagramSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControlImpl, const OFFSET: isize>() -> IDatagramSocketControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControlVtbl {
         unsafe extern "system" fn QualityOfService<Impl: IDatagramSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualityOfService() {
@@ -563,7 +587,10 @@ impl IDatagramSocketControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundUnicastHopLimit(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketControl>, ::windows::core::GetTrustLevel, QualityOfService::<Impl, OFFSET>, SetQualityOfService::<Impl, OFFSET>, OutboundUnicastHopLimit::<Impl, OFFSET>, SetOutboundUnicastHopLimit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketControl>, ::windows::core::GetTrustLevel, QualityOfService::<Impl, IMPL_OFFSET>, SetQualityOfService::<Impl, IMPL_OFFSET>, OutboundUnicastHopLimit::<Impl, IMPL_OFFSET>, SetOutboundUnicastHopLimit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocketControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -579,7 +606,7 @@ impl ::windows::core::RuntimeName for IDatagramSocketControl2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDatagramSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl2Impl, const OFFSET: isize>() -> IDatagramSocketControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl2Vtbl {
         unsafe extern "system" fn InboundBufferSizeInBytes<Impl: IDatagramSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundBufferSizeInBytes() {
@@ -610,7 +637,10 @@ impl IDatagramSocketControl2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDontFragment(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketControl2>, ::windows::core::GetTrustLevel, InboundBufferSizeInBytes::<Impl, OFFSET>, SetInboundBufferSizeInBytes::<Impl, OFFSET>, DontFragment::<Impl, OFFSET>, SetDontFragment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketControl2>, ::windows::core::GetTrustLevel, InboundBufferSizeInBytes::<Impl, IMPL_OFFSET>, SetInboundBufferSizeInBytes::<Impl, IMPL_OFFSET>, DontFragment::<Impl, IMPL_OFFSET>, SetDontFragment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocketControl2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -624,7 +654,7 @@ impl ::windows::core::RuntimeName for IDatagramSocketControl3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDatagramSocketControl3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl3Impl, const OFFSET: isize>() -> IDatagramSocketControl3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl3Vtbl {
         unsafe extern "system" fn MulticastOnly<Impl: IDatagramSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MulticastOnly() {
@@ -640,7 +670,10 @@ impl IDatagramSocketControl3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMulticastOnly(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketControl3>, ::windows::core::GetTrustLevel, MulticastOnly::<Impl, OFFSET>, SetMulticastOnly::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketControl3>, ::windows::core::GetTrustLevel, MulticastOnly::<Impl, IMPL_OFFSET>, SetMulticastOnly::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocketControl3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -656,7 +689,7 @@ impl ::windows::core::RuntimeName for IDatagramSocketInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDatagramSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketInformationImpl, const OFFSET: isize>() -> IDatagramSocketInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketInformationVtbl {
         unsafe extern "system" fn LocalAddress<Impl: IDatagramSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
@@ -701,10 +734,13 @@ impl IDatagramSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketInformation>, ::windows::core::GetTrustLevel, LocalAddress::<Impl, OFFSET>, LocalPort::<Impl, OFFSET>, RemoteAddress::<Impl, OFFSET>, RemotePort::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketInformation>, ::windows::core::GetTrustLevel, LocalAddress::<Impl, IMPL_OFFSET>, LocalPort::<Impl, IMPL_OFFSET>, RemoteAddress::<Impl, IMPL_OFFSET>, RemotePort::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocketInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDatagramSocketMessageReceivedEventArgsImpl: Sized {
     fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName>;
     fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -712,13 +748,13 @@ pub trait IDatagramSocketMessageReceivedEventArgsImpl: Sized {
     fn GetDataReader(&self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
     fn GetDataStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IDatagramSocketMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>() -> IDatagramSocketMessageReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketMessageReceivedEventArgsVtbl {
         unsafe extern "system" fn RemoteAddress<Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteAddress() {
@@ -774,21 +810,24 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, RemoteAddress::<Impl, OFFSET>, RemotePort::<Impl, OFFSET>, LocalAddress::<Impl, OFFSET>, GetDataReader::<Impl, OFFSET>, GetDataStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, RemoteAddress::<Impl, IMPL_OFFSET>, RemotePort::<Impl, IMPL_OFFSET>, LocalAddress::<Impl, IMPL_OFFSET>, GetDataReader::<Impl, IMPL_OFFSET>, GetDataStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDatagramSocketStaticsImpl: Sized {
     fn GetEndpointPairsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
     fn GetEndpointPairsWithSortOptionsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocketStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDatagramSocketStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketStaticsImpl, const OFFSET: isize>() -> IDatagramSocketStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketStaticsVtbl {
         unsafe extern "system" fn GetEndpointPairsAsync<Impl: IDatagramSocketStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndpointPairsAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -811,23 +850,26 @@ impl IDatagramSocketStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketStatics>, ::windows::core::GetTrustLevel, GetEndpointPairsAsync::<Impl, OFFSET>, GetEndpointPairsWithSortOptionsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDatagramSocketStatics>, ::windows::core::GetTrustLevel, GetEndpointPairsAsync::<Impl, IMPL_OFFSET>, GetEndpointPairsWithSortOptionsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDatagramSocketStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketImpl: Sized + IClosableImpl + IWebSocketImpl {
     fn Control(&self) -> ::windows::core::Result<MessageWebSocketControl>;
     fn Information(&self) -> ::windows::core::Result<MessageWebSocketInformation>;
     fn MessageReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMessageWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketImpl, const OFFSET: isize>() -> IMessageWebSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketVtbl {
         unsafe extern "system" fn Control<Impl: IMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
@@ -865,21 +907,24 @@ impl IMessageWebSocketVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocket>, ::windows::core::GetTrustLevel, Control::<Impl, OFFSET>, Information::<Impl, OFFSET>, MessageReceived::<Impl, OFFSET>, RemoveMessageReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocket>, ::windows::core::GetTrustLevel, Control::<Impl, IMPL_OFFSET>, Information::<Impl, IMPL_OFFSET>, MessageReceived::<Impl, IMPL_OFFSET>, RemoveMessageReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocket as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocket2Impl: Sized + IClosableImpl + IMessageWebSocketImpl + IWebSocketImpl {
     fn ServerCustomValidationRequested(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServerCustomValidationRequested(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocket2";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMessageWebSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket2Impl, const OFFSET: isize>() -> IMessageWebSocket2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket2Vtbl {
         unsafe extern "system" fn ServerCustomValidationRequested<Impl: IMessageWebSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCustomValidationRequested(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -895,21 +940,24 @@ impl IMessageWebSocket2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServerCustomValidationRequested(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocket2>, ::windows::core::GetTrustLevel, ServerCustomValidationRequested::<Impl, OFFSET>, RemoveServerCustomValidationRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocket2>, ::windows::core::GetTrustLevel, ServerCustomValidationRequested::<Impl, IMPL_OFFSET>, RemoveServerCustomValidationRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocket2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocket3Impl: Sized {
     fn SendNonfinalFrameAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
     fn SendFinalFrameAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocket3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocket3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMessageWebSocket3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket3Impl, const OFFSET: isize>() -> IMessageWebSocket3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket3Vtbl {
         unsafe extern "system" fn SendNonfinalFrameAsync<Impl: IMessageWebSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendNonfinalFrameAsync(&*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -932,23 +980,26 @@ impl IMessageWebSocket3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocket3>, ::windows::core::GetTrustLevel, SendNonfinalFrameAsync::<Impl, OFFSET>, SendFinalFrameAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocket3>, ::windows::core::GetTrustLevel, SendNonfinalFrameAsync::<Impl, IMPL_OFFSET>, SendFinalFrameAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocket3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketControlImpl: Sized + IWebSocketControlImpl {
     fn MaxMessageSize(&self) -> ::windows::core::Result<u32>;
     fn SetMaxMessageSize(&self, value: u32) -> ::windows::core::Result<()>;
     fn MessageType(&self) -> ::windows::core::Result<SocketMessageType>;
     fn SetMessageType(&self, value: SocketMessageType) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IMessageWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControlImpl, const OFFSET: isize>() -> IMessageWebSocketControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketControlVtbl {
         unsafe extern "system" fn MaxMessageSize<Impl: IMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxMessageSize() {
@@ -979,10 +1030,13 @@ impl IMessageWebSocketControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMessageType(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocketControl>, ::windows::core::GetTrustLevel, MaxMessageSize::<Impl, OFFSET>, SetMaxMessageSize::<Impl, OFFSET>, MessageType::<Impl, OFFSET>, SetMessageType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocketControl>, ::windows::core::GetTrustLevel, MaxMessageSize::<Impl, IMPL_OFFSET>, SetMaxMessageSize::<Impl, IMPL_OFFSET>, MessageType::<Impl, IMPL_OFFSET>, SetMessageType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocketControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketControl2Impl: Sized {
     fn DesiredUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetDesiredUnsolicitedPongInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -992,13 +1046,13 @@ pub trait IMessageWebSocketControl2Impl: Sized {
     fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn SetClientCertificate(&self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketControl2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IMessageWebSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>() -> IMessageWebSocketControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketControl2Vtbl {
         unsafe extern "system" fn DesiredUnsolicitedPongInterval<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredUnsolicitedPongInterval() {
@@ -1056,35 +1110,38 @@ impl IMessageWebSocketControl2Vtbl {
             (*this).SetClientCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMessageWebSocketControl2>,
             ::windows::core::GetTrustLevel,
-            DesiredUnsolicitedPongInterval::<Impl, OFFSET>,
-            SetDesiredUnsolicitedPongInterval::<Impl, OFFSET>,
-            ActualUnsolicitedPongInterval::<Impl, OFFSET>,
-            ReceiveMode::<Impl, OFFSET>,
-            SetReceiveMode::<Impl, OFFSET>,
-            ClientCertificate::<Impl, OFFSET>,
-            SetClientCertificate::<Impl, OFFSET>,
+            DesiredUnsolicitedPongInterval::<Impl, IMPL_OFFSET>,
+            SetDesiredUnsolicitedPongInterval::<Impl, IMPL_OFFSET>,
+            ActualUnsolicitedPongInterval::<Impl, IMPL_OFFSET>,
+            ReceiveMode::<Impl, IMPL_OFFSET>,
+            SetReceiveMode::<Impl, IMPL_OFFSET>,
+            ClientCertificate::<Impl, IMPL_OFFSET>,
+            SetClientCertificate::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocketControl2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketMessageReceivedEventArgsImpl: Sized {
     fn MessageType(&self) -> ::windows::core::Result<SocketMessageType>;
     fn GetDataReader(&self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
     fn GetDataStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMessageWebSocketMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgsVtbl {
         unsafe extern "system" fn MessageType<Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
@@ -1118,20 +1175,23 @@ impl IMessageWebSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocketMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, MessageType::<Impl, OFFSET>, GetDataReader::<Impl, OFFSET>, GetDataStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocketMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, MessageType::<Impl, IMPL_OFFSET>, GetDataReader::<Impl, IMPL_OFFSET>, GetDataStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketMessageReceivedEventArgs2Impl: Sized + IMessageWebSocketMessageReceivedEventArgsImpl {
     fn IsMessageComplete(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketMessageReceivedEventArgs2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMessageWebSocketMessageReceivedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgs2Impl, const OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgs2Vtbl {
         unsafe extern "system" fn IsMessageComplete<Impl: IMessageWebSocketMessageReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMessageComplete() {
@@ -1143,10 +1203,13 @@ impl IMessageWebSocketMessageReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocketMessageReceivedEventArgs2>, ::windows::core::GetTrustLevel, IsMessageComplete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessageWebSocketMessageReceivedEventArgs2>, ::windows::core::GetTrustLevel, IsMessageComplete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageWebSocketMessageReceivedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IServerMessageWebSocketImpl: Sized + IClosableImpl {
     fn MessageReceived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1157,13 +1220,13 @@ pub trait IServerMessageWebSocketImpl: Sized + IClosableImpl {
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerMessageWebSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IServerMessageWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketImpl, const OFFSET: isize>() -> IServerMessageWebSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketVtbl {
         unsafe extern "system" fn MessageReceived<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&value as *const <super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1232,21 +1295,24 @@ impl IServerMessageWebSocketVtbl {
             (*this).CloseWithStatus(code, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IServerMessageWebSocket>,
             ::windows::core::GetTrustLevel,
-            MessageReceived::<Impl, OFFSET>,
-            RemoveMessageReceived::<Impl, OFFSET>,
-            Control::<Impl, OFFSET>,
-            Information::<Impl, OFFSET>,
-            OutputStream::<Impl, OFFSET>,
-            Closed::<Impl, OFFSET>,
-            RemoveClosed::<Impl, OFFSET>,
-            CloseWithStatus::<Impl, OFFSET>,
+            MessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveMessageReceived::<Impl, IMPL_OFFSET>,
+            Control::<Impl, IMPL_OFFSET>,
+            Information::<Impl, IMPL_OFFSET>,
+            OutputStream::<Impl, IMPL_OFFSET>,
+            Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed::<Impl, IMPL_OFFSET>,
+            CloseWithStatus::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServerMessageWebSocket as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1260,7 +1326,7 @@ impl ::windows::core::RuntimeName for IServerMessageWebSocketControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IServerMessageWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketControlImpl, const OFFSET: isize>() -> IServerMessageWebSocketControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketControlVtbl {
         unsafe extern "system" fn MessageType<Impl: IServerMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
@@ -1276,7 +1342,10 @@ impl IServerMessageWebSocketControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMessageType(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerMessageWebSocketControl>, ::windows::core::GetTrustLevel, MessageType::<Impl, OFFSET>, SetMessageType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerMessageWebSocketControl>, ::windows::core::GetTrustLevel, MessageType::<Impl, IMPL_OFFSET>, SetMessageType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServerMessageWebSocketControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1291,7 +1360,7 @@ impl ::windows::core::RuntimeName for IServerMessageWebSocketInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IServerMessageWebSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketInformationImpl, const OFFSET: isize>() -> IServerMessageWebSocketInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketInformationVtbl {
         unsafe extern "system" fn BandwidthStatistics<Impl: IServerMessageWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthStatistics() {
@@ -1325,10 +1394,13 @@ impl IServerMessageWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerMessageWebSocketInformation>, ::windows::core::GetTrustLevel, BandwidthStatistics::<Impl, OFFSET>, Protocol::<Impl, OFFSET>, LocalAddress::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerMessageWebSocketInformation>, ::windows::core::GetTrustLevel, BandwidthStatistics::<Impl, IMPL_OFFSET>, Protocol::<Impl, IMPL_OFFSET>, LocalAddress::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServerMessageWebSocketInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IServerStreamWebSocketImpl: Sized + IClosableImpl {
     fn Information(&self) -> ::windows::core::Result<ServerStreamWebSocketInformation>;
     fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
@@ -1337,13 +1409,13 @@ pub trait IServerStreamWebSocketImpl: Sized + IClosableImpl {
     fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerStreamWebSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IServerStreamWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketImpl, const OFFSET: isize>() -> IServerStreamWebSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerStreamWebSocketVtbl {
         unsafe extern "system" fn Information<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
@@ -1396,7 +1468,23 @@ impl IServerStreamWebSocketVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseWithStatus(code, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerStreamWebSocket>, ::windows::core::GetTrustLevel, Information::<Impl, OFFSET>, InputStream::<Impl, OFFSET>, OutputStream::<Impl, OFFSET>, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>, CloseWithStatus::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IServerStreamWebSocket>,
+            ::windows::core::GetTrustLevel,
+            Information::<Impl, IMPL_OFFSET>,
+            InputStream::<Impl, IMPL_OFFSET>,
+            OutputStream::<Impl, IMPL_OFFSET>,
+            Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed::<Impl, IMPL_OFFSET>,
+            CloseWithStatus::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServerStreamWebSocket as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1411,7 +1499,7 @@ impl ::windows::core::RuntimeName for IServerStreamWebSocketInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IServerStreamWebSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketInformationImpl, const OFFSET: isize>() -> IServerStreamWebSocketInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerStreamWebSocketInformationVtbl {
         unsafe extern "system" fn BandwidthStatistics<Impl: IServerStreamWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthStatistics() {
@@ -1445,20 +1533,23 @@ impl IServerStreamWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerStreamWebSocketInformation>, ::windows::core::GetTrustLevel, BandwidthStatistics::<Impl, OFFSET>, Protocol::<Impl, OFFSET>, LocalAddress::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServerStreamWebSocketInformation>, ::windows::core::GetTrustLevel, BandwidthStatistics::<Impl, IMPL_OFFSET>, Protocol::<Impl, IMPL_OFFSET>, LocalAddress::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IServerStreamWebSocketInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISocketActivityContextImpl: Sized {
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityContext";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISocketActivityContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextImpl, const OFFSET: isize>() -> ISocketActivityContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityContextVtbl {
         unsafe extern "system" fn Data<Impl: ISocketActivityContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -1470,20 +1561,23 @@ impl ISocketActivityContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityContext>, ::windows::core::GetTrustLevel, Data::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityContext>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketActivityContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISocketActivityContextFactoryImpl: Sized {
     fn Create(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SocketActivityContext>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocketActivityContextFactory {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityContextFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISocketActivityContextFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextFactoryImpl, const OFFSET: isize>() -> ISocketActivityContextFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityContextFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISocketActivityContextFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -1495,7 +1589,10 @@ impl ISocketActivityContextFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityContextFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityContextFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketActivityContextFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1514,7 +1611,7 @@ impl ::windows::core::RuntimeName for ISocketActivityInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISocketActivityInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationImpl, const OFFSET: isize>() -> ISocketActivityInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityInformationVtbl {
         unsafe extern "system" fn TaskId<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TaskId() {
@@ -1592,20 +1689,37 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityInformation>, ::windows::core::GetTrustLevel, TaskId::<Impl, OFFSET>, Id::<Impl, OFFSET>, SocketKind::<Impl, OFFSET>, Context::<Impl, OFFSET>, DatagramSocket::<Impl, OFFSET>, StreamSocket::<Impl, OFFSET>, StreamSocketListener::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISocketActivityInformation>,
+            ::windows::core::GetTrustLevel,
+            TaskId::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SocketKind::<Impl, IMPL_OFFSET>,
+            Context::<Impl, IMPL_OFFSET>,
+            DatagramSocket::<Impl, IMPL_OFFSET>,
+            StreamSocket::<Impl, IMPL_OFFSET>,
+            StreamSocketListener::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketActivityInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISocketActivityInformationStaticsImpl: Sized {
     fn AllSockets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SocketActivityInformation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocketActivityInformationStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityInformationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISocketActivityInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationStaticsImpl, const OFFSET: isize>() -> ISocketActivityInformationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityInformationStaticsVtbl {
         unsafe extern "system" fn AllSockets<Impl: ISocketActivityInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllSockets() {
@@ -1617,7 +1731,10 @@ impl ISocketActivityInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityInformationStatics>, ::windows::core::GetTrustLevel, AllSockets::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityInformationStatics>, ::windows::core::GetTrustLevel, AllSockets::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketActivityInformationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1631,7 +1748,7 @@ impl ::windows::core::RuntimeName for ISocketActivityTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISocketActivityTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityTriggerDetailsImpl, const OFFSET: isize>() -> ISocketActivityTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityTriggerDetailsVtbl {
         unsafe extern "system" fn Reason<Impl: ISocketActivityTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketActivityTriggerReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -1654,7 +1771,10 @@ impl ISocketActivityTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityTriggerDetails>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>, SocketInformation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityTriggerDetails>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>, SocketInformation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketActivityTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1667,7 +1787,7 @@ impl ::windows::core::RuntimeName for ISocketErrorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISocketErrorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketErrorStaticsImpl, const OFFSET: isize>() -> ISocketErrorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketErrorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketErrorStaticsVtbl {
         unsafe extern "system" fn GetStatus<Impl: ISocketErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut SocketErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus(hresult) {
@@ -1679,10 +1799,13 @@ impl ISocketErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketErrorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamSocketImpl: Sized + IClosableImpl {
     fn Control(&self) -> ::windows::core::Result<StreamSocketControl>;
     fn Information(&self) -> ::windows::core::Result<StreamSocketInformation>;
@@ -1694,13 +1817,13 @@ pub trait IStreamSocketImpl: Sized + IClosableImpl {
     fn ConnectWithProtectionLevelAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn UpgradeToSslAsync(&self, protectionlevel: SocketProtectionLevel, validationhostname: &::core::option::Option<super::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IStreamSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketImpl, const OFFSET: isize>() -> IStreamSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketVtbl {
         unsafe extern "system" fn Control<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
@@ -1801,35 +1924,38 @@ impl IStreamSocketVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamSocket>,
             ::windows::core::GetTrustLevel,
-            Control::<Impl, OFFSET>,
-            Information::<Impl, OFFSET>,
-            InputStream::<Impl, OFFSET>,
-            OutputStream::<Impl, OFFSET>,
-            ConnectWithEndpointPairAsync::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
-            ConnectWithEndpointPairAndProtectionLevelAsync::<Impl, OFFSET>,
-            ConnectWithProtectionLevelAsync::<Impl, OFFSET>,
-            UpgradeToSslAsync::<Impl, OFFSET>,
+            Control::<Impl, IMPL_OFFSET>,
+            Information::<Impl, IMPL_OFFSET>,
+            InputStream::<Impl, IMPL_OFFSET>,
+            OutputStream::<Impl, IMPL_OFFSET>,
+            ConnectWithEndpointPairAsync::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithEndpointPairAndProtectionLevelAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithProtectionLevelAsync::<Impl, IMPL_OFFSET>,
+            UpgradeToSslAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocket as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IStreamSocket2Impl: Sized + IClosableImpl {
     fn ConnectWithProtectionLevelAndAdapterAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocket2";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl IStreamSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket2Impl, const OFFSET: isize>() -> IStreamSocket2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket2Vtbl {
         unsafe extern "system" fn ConnectWithProtectionLevelAndAdapterAsync<Impl: IStreamSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithProtectionLevelAndAdapterAsync(
@@ -1846,10 +1972,13 @@ impl IStreamSocket2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocket2>, ::windows::core::GetTrustLevel, ConnectWithProtectionLevelAndAdapterAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocket2>, ::windows::core::GetTrustLevel, ConnectWithProtectionLevelAndAdapterAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocket2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStreamSocket3Impl: Sized {
     fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn EnableTransferOwnership(&self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1858,13 +1987,13 @@ pub trait IStreamSocket3Impl: Sized {
     fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
     fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>, keepalivetime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocket3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocket3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStreamSocket3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket3Impl, const OFFSET: isize>() -> IStreamSocket3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket3Vtbl {
         unsafe extern "system" fn CancelIOAsync<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelIOAsync() {
@@ -1903,19 +2032,22 @@ impl IStreamSocket3Vtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamSocket3>,
             ::windows::core::GetTrustLevel,
-            CancelIOAsync::<Impl, OFFSET>,
-            EnableTransferOwnership::<Impl, OFFSET>,
-            EnableTransferOwnershipWithConnectedStandbyAction::<Impl, OFFSET>,
-            TransferOwnership::<Impl, OFFSET>,
-            TransferOwnershipWithContext::<Impl, OFFSET>,
-            TransferOwnershipWithContextAndKeepAliveTime::<Impl, OFFSET>,
+            CancelIOAsync::<Impl, IMPL_OFFSET>,
+            EnableTransferOwnership::<Impl, IMPL_OFFSET>,
+            EnableTransferOwnershipWithConnectedStandbyAction::<Impl, IMPL_OFFSET>,
+            TransferOwnership::<Impl, IMPL_OFFSET>,
+            TransferOwnershipWithContext::<Impl, IMPL_OFFSET>,
+            TransferOwnershipWithContextAndKeepAliveTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocket3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1937,7 +2069,7 @@ impl ::windows::core::RuntimeName for IStreamSocketControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreamSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControlImpl, const OFFSET: isize>() -> IStreamSocketControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControlVtbl {
         unsafe extern "system" fn NoDelay<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoDelay() {
@@ -2014,36 +2146,39 @@ impl IStreamSocketControlVtbl {
             (*this).SetOutboundUnicastHopLimit(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamSocketControl>,
             ::windows::core::GetTrustLevel,
-            NoDelay::<Impl, OFFSET>,
-            SetNoDelay::<Impl, OFFSET>,
-            KeepAlive::<Impl, OFFSET>,
-            SetKeepAlive::<Impl, OFFSET>,
-            OutboundBufferSizeInBytes::<Impl, OFFSET>,
-            SetOutboundBufferSizeInBytes::<Impl, OFFSET>,
-            QualityOfService::<Impl, OFFSET>,
-            SetQualityOfService::<Impl, OFFSET>,
-            OutboundUnicastHopLimit::<Impl, OFFSET>,
-            SetOutboundUnicastHopLimit::<Impl, OFFSET>,
+            NoDelay::<Impl, IMPL_OFFSET>,
+            SetNoDelay::<Impl, IMPL_OFFSET>,
+            KeepAlive::<Impl, IMPL_OFFSET>,
+            SetKeepAlive::<Impl, IMPL_OFFSET>,
+            OutboundBufferSizeInBytes::<Impl, IMPL_OFFSET>,
+            SetOutboundBufferSizeInBytes::<Impl, IMPL_OFFSET>,
+            QualityOfService::<Impl, IMPL_OFFSET>,
+            SetQualityOfService::<Impl, IMPL_OFFSET>,
+            OutboundUnicastHopLimit::<Impl, IMPL_OFFSET>,
+            SetOutboundUnicastHopLimit::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketControl as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamSocketControl2Impl: Sized {
     fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketControl2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IStreamSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl2Impl, const OFFSET: isize>() -> IStreamSocketControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl2Vtbl {
         unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IStreamSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IgnorableServerCertificateErrors() {
@@ -2055,23 +2190,26 @@ impl IStreamSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketControl2>, ::windows::core::GetTrustLevel, IgnorableServerCertificateErrors::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketControl2>, ::windows::core::GetTrustLevel, IgnorableServerCertificateErrors::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketControl2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamSocketControl3Impl: Sized {
     fn SerializeConnectionAttempts(&self) -> ::windows::core::Result<bool>;
     fn SetSerializeConnectionAttempts(&self, value: bool) -> ::windows::core::Result<()>;
     fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn SetClientCertificate(&self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketControl3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketControl3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IStreamSocketControl3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl3Impl, const OFFSET: isize>() -> IStreamSocketControl3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl3Vtbl {
         unsafe extern "system" fn SerializeConnectionAttempts<Impl: IStreamSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerializeConnectionAttempts() {
@@ -2102,7 +2240,10 @@ impl IStreamSocketControl3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClientCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketControl3>, ::windows::core::GetTrustLevel, SerializeConnectionAttempts::<Impl, OFFSET>, SetSerializeConnectionAttempts::<Impl, OFFSET>, ClientCertificate::<Impl, OFFSET>, SetClientCertificate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketControl3>, ::windows::core::GetTrustLevel, SerializeConnectionAttempts::<Impl, IMPL_OFFSET>, SetSerializeConnectionAttempts::<Impl, IMPL_OFFSET>, ClientCertificate::<Impl, IMPL_OFFSET>, SetClientCertificate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketControl3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2116,7 +2257,7 @@ impl ::windows::core::RuntimeName for IStreamSocketControl4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreamSocketControl4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl4Impl, const OFFSET: isize>() -> IStreamSocketControl4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl4Vtbl {
         unsafe extern "system" fn MinProtectionLevel<Impl: IStreamSocketControl4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinProtectionLevel() {
@@ -2132,10 +2273,13 @@ impl IStreamSocketControl4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinProtectionLevel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketControl4>, ::windows::core::GetTrustLevel, MinProtectionLevel::<Impl, OFFSET>, SetMinProtectionLevel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketControl4>, ::windows::core::GetTrustLevel, MinProtectionLevel::<Impl, IMPL_OFFSET>, SetMinProtectionLevel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketControl4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamSocketInformationImpl: Sized {
     fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
     fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2148,13 +2292,13 @@ pub trait IStreamSocketInformationImpl: Sized {
     fn ProtectionLevel(&self) -> ::windows::core::Result<SocketProtectionLevel>;
     fn SessionKey(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IStreamSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformationImpl, const OFFSET: isize>() -> IStreamSocketInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketInformationVtbl {
         unsafe extern "system" fn LocalAddress<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
@@ -2266,39 +2410,42 @@ impl IStreamSocketInformationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamSocketInformation>,
             ::windows::core::GetTrustLevel,
-            LocalAddress::<Impl, OFFSET>,
-            LocalPort::<Impl, OFFSET>,
-            RemoteHostName::<Impl, OFFSET>,
-            RemoteAddress::<Impl, OFFSET>,
-            RemoteServiceName::<Impl, OFFSET>,
-            RemotePort::<Impl, OFFSET>,
-            RoundTripTimeStatistics::<Impl, OFFSET>,
-            BandwidthStatistics::<Impl, OFFSET>,
-            ProtectionLevel::<Impl, OFFSET>,
-            SessionKey::<Impl, OFFSET>,
+            LocalAddress::<Impl, IMPL_OFFSET>,
+            LocalPort::<Impl, IMPL_OFFSET>,
+            RemoteHostName::<Impl, IMPL_OFFSET>,
+            RemoteAddress::<Impl, IMPL_OFFSET>,
+            RemoteServiceName::<Impl, IMPL_OFFSET>,
+            RemotePort::<Impl, IMPL_OFFSET>,
+            RoundTripTimeStatistics::<Impl, IMPL_OFFSET>,
+            BandwidthStatistics::<Impl, IMPL_OFFSET>,
+            ProtectionLevel::<Impl, IMPL_OFFSET>,
+            SessionKey::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketInformation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamSocketInformation2Impl: Sized {
     fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
     fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
     fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketInformation2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketInformation2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IStreamSocketInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformation2Impl, const OFFSET: isize>() -> IStreamSocketInformation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketInformation2Vtbl {
         unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IStreamSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrorSeverity() {
@@ -2343,7 +2490,10 @@ impl IStreamSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketInformation2>, ::windows::core::GetTrustLevel, ServerCertificateErrorSeverity::<Impl, OFFSET>, ServerCertificateErrors::<Impl, OFFSET>, ServerCertificate::<Impl, OFFSET>, ServerIntermediateCertificates::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketInformation2>, ::windows::core::GetTrustLevel, ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>, ServerCertificateErrors::<Impl, IMPL_OFFSET>, ServerCertificate::<Impl, IMPL_OFFSET>, ServerIntermediateCertificates::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketInformation2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -2361,7 +2511,7 @@ impl ::windows::core::RuntimeName for IStreamSocketListener {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStreamSocketListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerImpl, const OFFSET: isize>() -> IStreamSocketListenerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerVtbl {
         unsafe extern "system" fn Control<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
@@ -2421,21 +2571,37 @@ impl IStreamSocketListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListener>, ::windows::core::GetTrustLevel, Control::<Impl, OFFSET>, Information::<Impl, OFFSET>, BindServiceNameAsync::<Impl, OFFSET>, BindEndpointAsync::<Impl, OFFSET>, ConnectionReceived::<Impl, OFFSET>, RemoveConnectionReceived::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IStreamSocketListener>,
+            ::windows::core::GetTrustLevel,
+            Control::<Impl, IMPL_OFFSET>,
+            Information::<Impl, IMPL_OFFSET>,
+            BindServiceNameAsync::<Impl, IMPL_OFFSET>,
+            BindEndpointAsync::<Impl, IMPL_OFFSET>,
+            ConnectionReceived::<Impl, IMPL_OFFSET>,
+            RemoveConnectionReceived::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListener as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IStreamSocketListener2Impl: Sized + IClosableImpl {
     fn BindServiceNameWithProtectionLevelAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn BindServiceNameWithProtectionLevelAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketListener2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListener2";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl IStreamSocketListener2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener2Impl, const OFFSET: isize>() -> IStreamSocketListener2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener2Vtbl {
         unsafe extern "system" fn BindServiceNameWithProtectionLevelAsync<Impl: IStreamSocketListener2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameWithProtectionLevelAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), protectionlevel) {
@@ -2458,10 +2624,13 @@ impl IStreamSocketListener2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListener2>, ::windows::core::GetTrustLevel, BindServiceNameWithProtectionLevelAsync::<Impl, OFFSET>, BindServiceNameWithProtectionLevelAndAdapterAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListener2>, ::windows::core::GetTrustLevel, BindServiceNameWithProtectionLevelAsync::<Impl, IMPL_OFFSET>, BindServiceNameWithProtectionLevelAndAdapterAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListener2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStreamSocketListener3Impl: Sized {
     fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn EnableTransferOwnership(&self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -2469,13 +2638,13 @@ pub trait IStreamSocketListener3Impl: Sized {
     fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketListener3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListener3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStreamSocketListener3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener3Impl, const OFFSET: isize>() -> IStreamSocketListener3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener3Vtbl {
         unsafe extern "system" fn CancelIOAsync<Impl: IStreamSocketListener3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelIOAsync() {
@@ -2504,18 +2673,21 @@ impl IStreamSocketListener3Vtbl {
             (*this).TransferOwnershipWithContext(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <SocketActivityContext as ::windows::core::Abi>::Abi as *const <SocketActivityContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamSocketListener3>,
             ::windows::core::GetTrustLevel,
-            CancelIOAsync::<Impl, OFFSET>,
-            EnableTransferOwnership::<Impl, OFFSET>,
-            EnableTransferOwnershipWithConnectedStandbyAction::<Impl, OFFSET>,
-            TransferOwnership::<Impl, OFFSET>,
-            TransferOwnershipWithContext::<Impl, OFFSET>,
+            CancelIOAsync::<Impl, IMPL_OFFSET>,
+            EnableTransferOwnership::<Impl, IMPL_OFFSET>,
+            EnableTransferOwnershipWithConnectedStandbyAction::<Impl, IMPL_OFFSET>,
+            TransferOwnership::<Impl, IMPL_OFFSET>,
+            TransferOwnershipWithContext::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListener3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2528,7 +2700,7 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerConnectionReceivedEve
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreamSocketListenerConnectionReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerConnectionReceivedEventArgsImpl, const OFFSET: isize>() -> IStreamSocketListenerConnectionReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerConnectionReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerConnectionReceivedEventArgsVtbl {
         unsafe extern "system" fn Socket<Impl: IStreamSocketListenerConnectionReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Socket() {
@@ -2540,7 +2712,10 @@ impl IStreamSocketListenerConnectionReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListenerConnectionReceivedEventArgs>, ::windows::core::GetTrustLevel, Socket::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListenerConnectionReceivedEventArgs>, ::windows::core::GetTrustLevel, Socket::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListenerConnectionReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2554,7 +2729,7 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreamSocketListenerControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControlImpl, const OFFSET: isize>() -> IStreamSocketListenerControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerControlVtbl {
         unsafe extern "system" fn QualityOfService<Impl: IStreamSocketListenerControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualityOfService() {
@@ -2570,7 +2745,10 @@ impl IStreamSocketListenerControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQualityOfService(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListenerControl>, ::windows::core::GetTrustLevel, QualityOfService::<Impl, OFFSET>, SetQualityOfService::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListenerControl>, ::windows::core::GetTrustLevel, QualityOfService::<Impl, IMPL_OFFSET>, SetQualityOfService::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListenerControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2590,7 +2768,7 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerControl2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreamSocketListenerControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>() -> IStreamSocketListenerControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerControl2Vtbl {
         unsafe extern "system" fn NoDelay<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoDelay() {
@@ -2652,21 +2830,24 @@ impl IStreamSocketListenerControl2Vtbl {
             (*this).SetOutboundUnicastHopLimit(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamSocketListenerControl2>,
             ::windows::core::GetTrustLevel,
-            NoDelay::<Impl, OFFSET>,
-            SetNoDelay::<Impl, OFFSET>,
-            KeepAlive::<Impl, OFFSET>,
-            SetKeepAlive::<Impl, OFFSET>,
-            OutboundBufferSizeInBytes::<Impl, OFFSET>,
-            SetOutboundBufferSizeInBytes::<Impl, OFFSET>,
-            OutboundUnicastHopLimit::<Impl, OFFSET>,
-            SetOutboundUnicastHopLimit::<Impl, OFFSET>,
+            NoDelay::<Impl, IMPL_OFFSET>,
+            SetNoDelay::<Impl, IMPL_OFFSET>,
+            KeepAlive::<Impl, IMPL_OFFSET>,
+            SetKeepAlive::<Impl, IMPL_OFFSET>,
+            OutboundBufferSizeInBytes::<Impl, IMPL_OFFSET>,
+            SetOutboundBufferSizeInBytes::<Impl, IMPL_OFFSET>,
+            OutboundUnicastHopLimit::<Impl, IMPL_OFFSET>,
+            SetOutboundUnicastHopLimit::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListenerControl2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2679,7 +2860,7 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStreamSocketListenerInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerInformationImpl, const OFFSET: isize>() -> IStreamSocketListenerInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerInformationVtbl {
         unsafe extern "system" fn LocalPort<Impl: IStreamSocketListenerInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPort() {
@@ -2691,21 +2872,24 @@ impl IStreamSocketListenerInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListenerInformation>, ::windows::core::GetTrustLevel, LocalPort::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketListenerInformation>, ::windows::core::GetTrustLevel, LocalPort::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketListenerInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStreamSocketStaticsImpl: Sized {
     fn GetEndpointPairsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
     fn GetEndpointPairsWithSortOptionsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStreamSocketStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketStaticsImpl, const OFFSET: isize>() -> IStreamSocketStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketStaticsVtbl {
         unsafe extern "system" fn GetEndpointPairsAsync<Impl: IStreamSocketStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndpointPairsAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2728,22 +2912,25 @@ impl IStreamSocketStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketStatics>, ::windows::core::GetTrustLevel, GetEndpointPairsAsync::<Impl, OFFSET>, GetEndpointPairsWithSortOptionsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamSocketStatics>, ::windows::core::GetTrustLevel, GetEndpointPairsAsync::<Impl, IMPL_OFFSET>, GetEndpointPairsWithSortOptionsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamSocketStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamWebSocketImpl: Sized + IClosableImpl + IWebSocketImpl {
     fn Control(&self) -> ::windows::core::Result<StreamWebSocketControl>;
     fn Information(&self) -> ::windows::core::Result<StreamWebSocketInformation>;
     fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocket";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IStreamWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketImpl, const OFFSET: isize>() -> IStreamWebSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketVtbl {
         unsafe extern "system" fn Control<Impl: IStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
@@ -2777,21 +2964,24 @@ impl IStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamWebSocket>, ::windows::core::GetTrustLevel, Control::<Impl, OFFSET>, Information::<Impl, OFFSET>, InputStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamWebSocket>, ::windows::core::GetTrustLevel, Control::<Impl, IMPL_OFFSET>, Information::<Impl, IMPL_OFFSET>, InputStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamWebSocket as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamWebSocket2Impl: Sized + IClosableImpl + IStreamWebSocketImpl + IWebSocketImpl {
     fn ServerCustomValidationRequested(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServerCustomValidationRequested(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocket2";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IStreamWebSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocket2Impl, const OFFSET: isize>() -> IStreamWebSocket2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocket2Vtbl {
         unsafe extern "system" fn ServerCustomValidationRequested<Impl: IStreamWebSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCustomValidationRequested(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2807,21 +2997,24 @@ impl IStreamWebSocket2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServerCustomValidationRequested(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamWebSocket2>, ::windows::core::GetTrustLevel, ServerCustomValidationRequested::<Impl, OFFSET>, RemoveServerCustomValidationRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamWebSocket2>, ::windows::core::GetTrustLevel, ServerCustomValidationRequested::<Impl, IMPL_OFFSET>, RemoveServerCustomValidationRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamWebSocket2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IStreamWebSocketControlImpl: Sized + IWebSocketControlImpl {
     fn NoDelay(&self) -> ::windows::core::Result<bool>;
     fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocketControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IStreamWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControlImpl, const OFFSET: isize>() -> IStreamWebSocketControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketControlVtbl {
         unsafe extern "system" fn NoDelay<Impl: IStreamWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoDelay() {
@@ -2837,10 +3030,13 @@ impl IStreamWebSocketControlVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNoDelay(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamWebSocketControl>, ::windows::core::GetTrustLevel, NoDelay::<Impl, OFFSET>, SetNoDelay::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStreamWebSocketControl>, ::windows::core::GetTrustLevel, NoDelay::<Impl, IMPL_OFFSET>, SetNoDelay::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamWebSocketControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamWebSocketControl2Impl: Sized {
     fn DesiredUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetDesiredUnsolicitedPongInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -2848,13 +3044,13 @@ pub trait IStreamWebSocketControl2Impl: Sized {
     fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn SetClientCertificate(&self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocketControl2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IStreamWebSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>() -> IStreamWebSocketControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketControl2Vtbl {
         unsafe extern "system" fn DesiredUnsolicitedPongInterval<Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredUnsolicitedPongInterval() {
@@ -2897,21 +3093,24 @@ impl IStreamWebSocketControl2Vtbl {
             (*this).SetClientCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStreamWebSocketControl2>,
             ::windows::core::GetTrustLevel,
-            DesiredUnsolicitedPongInterval::<Impl, OFFSET>,
-            SetDesiredUnsolicitedPongInterval::<Impl, OFFSET>,
-            ActualUnsolicitedPongInterval::<Impl, OFFSET>,
-            ClientCertificate::<Impl, OFFSET>,
-            SetClientCertificate::<Impl, OFFSET>,
+            DesiredUnsolicitedPongInterval::<Impl, IMPL_OFFSET>,
+            SetDesiredUnsolicitedPongInterval::<Impl, IMPL_OFFSET>,
+            ActualUnsolicitedPongInterval::<Impl, IMPL_OFFSET>,
+            ClientCertificate::<Impl, IMPL_OFFSET>,
+            SetClientCertificate::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStreamWebSocketControl2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IWebSocketImpl: Sized + IClosableImpl {
     fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
     fn ConnectAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -2920,13 +3119,13 @@ pub trait IWebSocketImpl: Sized + IClosableImpl {
     fn RemoveClosed(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocket";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl IWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketImpl, const OFFSET: isize>() -> IWebSocketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketVtbl {
         unsafe extern "system" fn OutputStream<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
@@ -2972,7 +3171,10 @@ impl IWebSocketVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseWithStatus(code, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocket>, ::windows::core::GetTrustLevel, OutputStream::<Impl, OFFSET>, ConnectAsync::<Impl, OFFSET>, SetRequestHeader::<Impl, OFFSET>, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>, CloseWithStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocket>, ::windows::core::GetTrustLevel, OutputStream::<Impl, IMPL_OFFSET>, ConnectAsync::<Impl, IMPL_OFFSET>, SetRequestHeader::<Impl, IMPL_OFFSET>, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>, CloseWithStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocket as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2986,7 +3188,7 @@ impl ::windows::core::RuntimeName for IWebSocketClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebSocketClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketClosedEventArgsImpl, const OFFSET: isize>() -> IWebSocketClosedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketClosedEventArgsVtbl {
         unsafe extern "system" fn Code<Impl: IWebSocketClosedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
@@ -3009,9 +3211,13 @@ impl IWebSocketClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketClosedEventArgs>, ::windows::core::GetTrustLevel, Code::<Impl, OFFSET>, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketClosedEventArgs>, ::windows::core::GetTrustLevel, Code::<Impl, IMPL_OFFSET>, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 pub trait IWebSocketControlImpl: Sized {
     fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
     fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
@@ -3021,11 +3227,13 @@ pub trait IWebSocketControlImpl: Sized {
     fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for IWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 impl IWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControlImpl, const OFFSET: isize>() -> IWebSocketControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketControlVtbl {
         unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundBufferSizeInBytes() {
@@ -3083,30 +3291,36 @@ impl IWebSocketControlVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebSocketControl>,
             ::windows::core::GetTrustLevel,
-            OutboundBufferSizeInBytes::<Impl, OFFSET>,
-            SetOutboundBufferSizeInBytes::<Impl, OFFSET>,
-            ServerCredential::<Impl, OFFSET>,
-            SetServerCredential::<Impl, OFFSET>,
-            ProxyCredential::<Impl, OFFSET>,
-            SetProxyCredential::<Impl, OFFSET>,
-            SupportedProtocols::<Impl, OFFSET>,
+            OutboundBufferSizeInBytes::<Impl, IMPL_OFFSET>,
+            SetOutboundBufferSizeInBytes::<Impl, IMPL_OFFSET>,
+            ServerCredential::<Impl, IMPL_OFFSET>,
+            SetServerCredential::<Impl, IMPL_OFFSET>,
+            ProxyCredential::<Impl, IMPL_OFFSET>,
+            SetProxyCredential::<Impl, IMPL_OFFSET>,
+            SupportedProtocols::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketControl as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketControl2Impl: Sized + IWebSocketControlImpl {
     fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl2";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl IWebSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControl2Impl, const OFFSET: isize>() -> IWebSocketControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketControl2Vtbl {
         unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IgnorableServerCertificateErrors() {
@@ -3118,20 +3332,23 @@ impl IWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketControl2>, ::windows::core::GetTrustLevel, IgnorableServerCertificateErrors::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketControl2>, ::windows::core::GetTrustLevel, IgnorableServerCertificateErrors::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketControl2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web", feature = "implement_exclusive"))]
 pub trait IWebSocketErrorStaticsImpl: Sized {
     fn GetStatus(&self, hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebSocketErrorStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketErrorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web", feature = "implement_exclusive"))]
 impl IWebSocketErrorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketErrorStaticsImpl, const OFFSET: isize>() -> IWebSocketErrorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketErrorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketErrorStaticsVtbl {
         unsafe extern "system" fn GetStatus<Impl: IWebSocketErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus(hresult) {
@@ -3143,7 +3360,10 @@ impl IWebSocketErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketErrorStatics as ::windows::core::Interface>::IID
     }
 }
 pub trait IWebSocketInformationImpl: Sized {
@@ -3155,7 +3375,7 @@ impl ::windows::core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
 }
 impl IWebSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformationImpl, const OFFSET: isize>() -> IWebSocketInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketInformationVtbl {
         unsafe extern "system" fn LocalAddress<Impl: IWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
@@ -3189,20 +3409,26 @@ impl IWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketInformation>, ::windows::core::GetTrustLevel, LocalAddress::<Impl, OFFSET>, BandwidthStatistics::<Impl, OFFSET>, Protocol::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketInformation>, ::windows::core::GetTrustLevel, LocalAddress::<Impl, IMPL_OFFSET>, BandwidthStatistics::<Impl, IMPL_OFFSET>, Protocol::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketInformation as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketInformation2Impl: Sized + IWebSocketInformationImpl {
     fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
     fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
     fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IWebSocketInformation2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation2";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 impl IWebSocketInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformation2Impl, const OFFSET: isize>() -> IWebSocketInformation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketInformation2Vtbl {
         unsafe extern "system" fn ServerCertificate<Impl: IWebSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
@@ -3247,10 +3473,13 @@ impl IWebSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketInformation2>, ::windows::core::GetTrustLevel, ServerCertificate::<Impl, OFFSET>, ServerCertificateErrorSeverity::<Impl, OFFSET>, ServerCertificateErrors::<Impl, OFFSET>, ServerIntermediateCertificates::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebSocketInformation2>, ::windows::core::GetTrustLevel, ServerCertificate::<Impl, IMPL_OFFSET>, ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>, ServerCertificateErrors::<Impl, IMPL_OFFSET>, ServerIntermediateCertificates::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketInformation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IWebSocketServerCustomValidationRequestedEventArgsImpl: Sized {
     fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
@@ -3259,13 +3488,13 @@ pub trait IWebSocketServerCustomValidationRequestedEventArgsImpl: Sized {
     fn Reject(&self) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>() -> IWebSocketServerCustomValidationRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketServerCustomValidationRequestedEventArgsVtbl {
         unsafe extern "system" fn ServerCertificate<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
@@ -3326,18 +3555,21 @@ impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebSocketServerCustomValidationRequestedEventArgs>,
             ::windows::core::GetTrustLevel,
-            ServerCertificate::<Impl, OFFSET>,
-            ServerCertificateErrorSeverity::<Impl, OFFSET>,
-            ServerCertificateErrors::<Impl, OFFSET>,
-            ServerIntermediateCertificates::<Impl, OFFSET>,
-            Reject::<Impl, OFFSET>,
-            GetDeferral::<Impl, OFFSET>,
+            ServerCertificate::<Impl, IMPL_OFFSET>,
+            ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
+            ServerCertificateErrors::<Impl, IMPL_OFFSET>,
+            ServerIntermediateCertificates::<Impl, IMPL_OFFSET>,
+            Reject::<Impl, IMPL_OFFSET>,
+            GetDeferral::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebSocketServerCustomValidationRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

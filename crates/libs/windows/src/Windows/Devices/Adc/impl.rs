@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IAdcChannel {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAdcChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcChannelImpl, const OFFSET: isize>() -> IAdcChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcChannelVtbl {
         unsafe extern "system" fn Controller<Impl: IAdcChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Controller() {
@@ -44,7 +44,10 @@ impl IAdcChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcChannel>, ::windows::core::GetTrustLevel, Controller::<Impl, OFFSET>, ReadValue::<Impl, OFFSET>, ReadRatio::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcChannel>, ::windows::core::GetTrustLevel, Controller::<Impl, IMPL_OFFSET>, ReadValue::<Impl, IMPL_OFFSET>, ReadRatio::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdcChannel as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -64,7 +67,7 @@ impl ::windows::core::RuntimeName for IAdcController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAdcControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerImpl, const OFFSET: isize>() -> IAdcControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcControllerVtbl {
         unsafe extern "system" fn ChannelCount<Impl: IAdcControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelCount() {
@@ -147,34 +150,37 @@ impl IAdcControllerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAdcController>,
             ::windows::core::GetTrustLevel,
-            ChannelCount::<Impl, OFFSET>,
-            ResolutionInBits::<Impl, OFFSET>,
-            MinValue::<Impl, OFFSET>,
-            MaxValue::<Impl, OFFSET>,
-            ChannelMode::<Impl, OFFSET>,
-            SetChannelMode::<Impl, OFFSET>,
-            IsChannelModeSupported::<Impl, OFFSET>,
-            OpenChannel::<Impl, OFFSET>,
+            ChannelCount::<Impl, IMPL_OFFSET>,
+            ResolutionInBits::<Impl, IMPL_OFFSET>,
+            MinValue::<Impl, IMPL_OFFSET>,
+            MaxValue::<Impl, IMPL_OFFSET>,
+            ChannelMode::<Impl, IMPL_OFFSET>,
+            SetChannelMode::<Impl, IMPL_OFFSET>,
+            IsChannelModeSupported::<Impl, IMPL_OFFSET>,
+            OpenChannel::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdcController as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAdcControllerStaticsImpl: Sized {
     fn GetControllersAsync(&self, provider: &::core::option::Option<Provider::IAdcProvider>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdcControllerStatics {
     const NAME: &'static str = "Windows.Devices.Adc.IAdcControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAdcControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerStaticsImpl, const OFFSET: isize>() -> IAdcControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcControllerStaticsVtbl {
         unsafe extern "system" fn GetControllersAsync<Impl: IAdcControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllersAsync(&*(&provider as *const <Provider::IAdcProvider as ::windows::core::Abi>::Abi as *const <Provider::IAdcProvider as ::windows::core::DefaultType>::DefaultType)) {
@@ -186,20 +192,23 @@ impl IAdcControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdcControllerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAdcControllerStatics2Impl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdcController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdcControllerStatics2 {
     const NAME: &'static str = "Windows.Devices.Adc.IAdcControllerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAdcControllerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerStatics2Impl, const OFFSET: isize>() -> IAdcControllerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcControllerStatics2Vtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: IAdcControllerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -211,6 +220,9 @@ impl IAdcControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcControllerStatics2>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdcControllerStatics2>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdcControllerStatics2 as ::windows::core::Interface>::IID
     }
 }

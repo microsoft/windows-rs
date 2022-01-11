@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAuthenticationBrokerStaticsImpl: Sized {
     fn AuthenticateWithCallbackUriAsync(&self, options: WebAuthenticationOptions, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
     fn AuthenticateWithoutCallbackUriAsync(&self, options: WebAuthenticationOptions, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
     fn GetCurrentApplicationCallbackUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationBrokerStatics {
     const NAME: &'static str = "Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebAuthenticationBrokerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationBrokerStaticsImpl, const OFFSET: isize>() -> IWebAuthenticationBrokerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationBrokerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationBrokerStaticsVtbl {
         unsafe extern "system" fn AuthenticateWithCallbackUriAsync<Impl: IWebAuthenticationBrokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: WebAuthenticationOptions, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticateWithCallbackUriAsync(options, &*(&requesturi as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&callbackuri as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -44,10 +44,13 @@ impl IWebAuthenticationBrokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationBrokerStatics>, ::windows::core::GetTrustLevel, AuthenticateWithCallbackUriAsync::<Impl, OFFSET>, AuthenticateWithoutCallbackUriAsync::<Impl, OFFSET>, GetCurrentApplicationCallbackUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationBrokerStatics>, ::windows::core::GetTrustLevel, AuthenticateWithCallbackUriAsync::<Impl, IMPL_OFFSET>, AuthenticateWithoutCallbackUriAsync::<Impl, IMPL_OFFSET>, GetCurrentApplicationCallbackUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAuthenticationBrokerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWebAuthenticationBrokerStatics2Impl: Sized {
     fn AuthenticateAndContinue(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn AuthenticateWithCallbackUriAndContinue(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -55,13 +58,13 @@ pub trait IWebAuthenticationBrokerStatics2Impl: Sized {
     fn AuthenticateSilentlyAsync(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
     fn AuthenticateSilentlyWithOptionsAsync(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationBrokerStatics2 {
     const NAME: &'static str = "Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWebAuthenticationBrokerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationBrokerStatics2Impl, const OFFSET: isize>() -> IWebAuthenticationBrokerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationBrokerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationBrokerStatics2Vtbl {
         unsafe extern "system" fn AuthenticateAndContinue<Impl: IWebAuthenticationBrokerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AuthenticateAndContinue(&*(&requesturi as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
@@ -104,18 +107,21 @@ impl IWebAuthenticationBrokerStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebAuthenticationBrokerStatics2>,
             ::windows::core::GetTrustLevel,
-            AuthenticateAndContinue::<Impl, OFFSET>,
-            AuthenticateWithCallbackUriAndContinue::<Impl, OFFSET>,
-            AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue::<Impl, OFFSET>,
-            AuthenticateSilentlyAsync::<Impl, OFFSET>,
-            AuthenticateSilentlyWithOptionsAsync::<Impl, OFFSET>,
+            AuthenticateAndContinue::<Impl, IMPL_OFFSET>,
+            AuthenticateWithCallbackUriAndContinue::<Impl, IMPL_OFFSET>,
+            AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue::<Impl, IMPL_OFFSET>,
+            AuthenticateSilentlyAsync::<Impl, IMPL_OFFSET>,
+            AuthenticateSilentlyWithOptionsAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAuthenticationBrokerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -130,7 +136,7 @@ impl ::windows::core::RuntimeName for IWebAuthenticationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebAuthenticationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationResultImpl, const OFFSET: isize>() -> IWebAuthenticationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationResultVtbl {
         unsafe extern "system" fn ResponseData<Impl: IWebAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseData() {
@@ -164,6 +170,9 @@ impl IWebAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationResult>, ::windows::core::GetTrustLevel, ResponseData::<Impl, OFFSET>, ResponseStatus::<Impl, OFFSET>, ResponseErrorDetail::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationResult>, ::windows::core::GetTrustLevel, ResponseData::<Impl, IMPL_OFFSET>, ResponseStatus::<Impl, IMPL_OFFSET>, ResponseErrorDetail::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAuthenticationResult as ::windows::core::Interface>::IID
     }
 }

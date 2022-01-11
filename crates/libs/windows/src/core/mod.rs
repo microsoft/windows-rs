@@ -82,7 +82,7 @@ pub type RawPtr = *mut core::ffi::c_void;
 pub use windows_macros::{build, build_legacy, generate, implement, include_bindings};
 
 #[cfg(feature = "implement")]
-pub use windows_macros::{implement2};
+pub use windows_macros::implement;
 
 // TODO: remove this
 #[cfg(feature = "build")]

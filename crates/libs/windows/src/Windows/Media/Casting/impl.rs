@@ -17,7 +17,7 @@ impl ::windows::core::RuntimeName for ICastingConnection {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICastingConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingConnectionImpl, const OFFSET: isize>() -> ICastingConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingConnectionVtbl {
         unsafe extern "system" fn State<Impl: ICastingConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CastingConnectionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -108,23 +108,26 @@ impl ICastingConnectionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICastingConnection>,
             ::windows::core::GetTrustLevel,
-            State::<Impl, OFFSET>,
-            Device::<Impl, OFFSET>,
-            Source::<Impl, OFFSET>,
-            SetSource::<Impl, OFFSET>,
-            StateChanged::<Impl, OFFSET>,
-            RemoveStateChanged::<Impl, OFFSET>,
-            ErrorOccurred::<Impl, OFFSET>,
-            RemoveErrorOccurred::<Impl, OFFSET>,
-            RequestStartCastingAsync::<Impl, OFFSET>,
-            DisconnectAsync::<Impl, OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            Device::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            SetSource::<Impl, IMPL_OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            ErrorOccurred::<Impl, IMPL_OFFSET>,
+            RemoveErrorOccurred::<Impl, IMPL_OFFSET>,
+            RequestStartCastingAsync::<Impl, IMPL_OFFSET>,
+            DisconnectAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingConnection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -138,7 +141,7 @@ impl ::windows::core::RuntimeName for ICastingConnectionErrorOccurredEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICastingConnectionErrorOccurredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingConnectionErrorOccurredEventArgsImpl, const OFFSET: isize>() -> ICastingConnectionErrorOccurredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingConnectionErrorOccurredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingConnectionErrorOccurredEventArgsVtbl {
         unsafe extern "system" fn ErrorStatus<Impl: ICastingConnectionErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CastingConnectionErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorStatus() {
@@ -161,10 +164,13 @@ impl ICastingConnectionErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingConnectionErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, ErrorStatus::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingConnectionErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, ErrorStatus::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingConnectionErrorOccurredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICastingDeviceImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -172,13 +178,13 @@ pub trait ICastingDeviceImpl: Sized {
     fn GetSupportedCastingPlaybackTypesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>>;
     fn CreateCastingConnection(&self) -> ::windows::core::Result<CastingConnection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.ICastingDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICastingDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDeviceImpl, const OFFSET: isize>() -> ICastingDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingDeviceVtbl {
         unsafe extern "system" fn Id<Impl: ICastingDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -234,10 +240,13 @@ impl ICastingDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDevice>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, FriendlyName::<Impl, OFFSET>, Icon::<Impl, OFFSET>, GetSupportedCastingPlaybackTypesAsync::<Impl, OFFSET>, CreateCastingConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDevice>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, FriendlyName::<Impl, IMPL_OFFSET>, Icon::<Impl, IMPL_OFFSET>, GetSupportedCastingPlaybackTypesAsync::<Impl, IMPL_OFFSET>, CreateCastingConnection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ICastingDevicePickerImpl: Sized {
     fn Filter(&self) -> ::windows::core::Result<CastingDevicePickerFilter>;
     fn Appearance(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DevicePickerAppearance>;
@@ -249,13 +258,13 @@ pub trait ICastingDevicePickerImpl: Sized {
     fn ShowWithPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
     fn Hide(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.ICastingDevicePicker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ICastingDevicePickerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDevicePickerImpl, const OFFSET: isize>() -> ICastingDevicePickerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDevicePickerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingDevicePickerVtbl {
         unsafe extern "system" fn Filter<Impl: ICastingDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Filter() {
@@ -321,25 +330,28 @@ impl ICastingDevicePickerVtbl {
             (*this).Hide().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICastingDevicePicker>,
             ::windows::core::GetTrustLevel,
-            Filter::<Impl, OFFSET>,
-            Appearance::<Impl, OFFSET>,
-            CastingDeviceSelected::<Impl, OFFSET>,
-            RemoveCastingDeviceSelected::<Impl, OFFSET>,
-            CastingDevicePickerDismissed::<Impl, OFFSET>,
-            RemoveCastingDevicePickerDismissed::<Impl, OFFSET>,
-            Show::<Impl, OFFSET>,
-            ShowWithPlacement::<Impl, OFFSET>,
-            Hide::<Impl, OFFSET>,
+            Filter::<Impl, IMPL_OFFSET>,
+            Appearance::<Impl, IMPL_OFFSET>,
+            CastingDeviceSelected::<Impl, IMPL_OFFSET>,
+            RemoveCastingDeviceSelected::<Impl, IMPL_OFFSET>,
+            CastingDevicePickerDismissed::<Impl, IMPL_OFFSET>,
+            RemoveCastingDevicePickerDismissed::<Impl, IMPL_OFFSET>,
+            Show::<Impl, IMPL_OFFSET>,
+            ShowWithPlacement::<Impl, IMPL_OFFSET>,
+            Hide::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingDevicePicker as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICastingDevicePickerFilterImpl: Sized {
     fn SupportsAudio(&self) -> ::windows::core::Result<bool>;
     fn SetSupportsAudio(&self, value: bool) -> ::windows::core::Result<()>;
@@ -349,13 +361,13 @@ pub trait ICastingDevicePickerFilterImpl: Sized {
     fn SetSupportsPictures(&self, value: bool) -> ::windows::core::Result<()>;
     fn SupportedCastingSources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CastingSource>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.ICastingDevicePickerFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICastingDevicePickerFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDevicePickerFilterImpl, const OFFSET: isize>() -> ICastingDevicePickerFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDevicePickerFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingDevicePickerFilterVtbl {
         unsafe extern "system" fn SupportsAudio<Impl: ICastingDevicePickerFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportsAudio() {
@@ -413,20 +425,23 @@ impl ICastingDevicePickerFilterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICastingDevicePickerFilter>,
             ::windows::core::GetTrustLevel,
-            SupportsAudio::<Impl, OFFSET>,
-            SetSupportsAudio::<Impl, OFFSET>,
-            SupportsVideo::<Impl, OFFSET>,
-            SetSupportsVideo::<Impl, OFFSET>,
-            SupportsPictures::<Impl, OFFSET>,
-            SetSupportsPictures::<Impl, OFFSET>,
-            SupportedCastingSources::<Impl, OFFSET>,
+            SupportsAudio::<Impl, IMPL_OFFSET>,
+            SetSupportsAudio::<Impl, IMPL_OFFSET>,
+            SupportsVideo::<Impl, IMPL_OFFSET>,
+            SetSupportsVideo::<Impl, IMPL_OFFSET>,
+            SupportsPictures::<Impl, IMPL_OFFSET>,
+            SetSupportsPictures::<Impl, IMPL_OFFSET>,
+            SupportedCastingSources::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingDevicePickerFilter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -439,7 +454,7 @@ impl ::windows::core::RuntimeName for ICastingDeviceSelectedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICastingDeviceSelectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDeviceSelectedEventArgsImpl, const OFFSET: isize>() -> ICastingDeviceSelectedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDeviceSelectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingDeviceSelectedEventArgsVtbl {
         unsafe extern "system" fn SelectedCastingDevice<Impl: ICastingDeviceSelectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedCastingDevice() {
@@ -451,23 +466,26 @@ impl ICastingDeviceSelectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDeviceSelectedEventArgs>, ::windows::core::GetTrustLevel, SelectedCastingDevice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDeviceSelectedEventArgs>, ::windows::core::GetTrustLevel, SelectedCastingDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingDeviceSelectedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICastingDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self, r#type: CastingPlaybackTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromCastingSourceAsync(&self, castingsource: &::core::option::Option<CastingSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn FromIdAsync(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>>;
     fn DeviceInfoSupportsCastingAsync(&self, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDeviceStatics {
     const NAME: &'static str = "Windows.Media.Casting.ICastingDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ICastingDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDeviceStaticsImpl, const OFFSET: isize>() -> ICastingDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ICastingDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: CastingPlaybackTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector(r#type) {
@@ -512,21 +530,24 @@ impl ICastingDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromCastingSourceAsync::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, DeviceInfoSupportsCastingAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromCastingSourceAsync::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, DeviceInfoSupportsCastingAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICastingSourceImpl: Sized {
     fn PreferredSourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetPreferredSourceUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingSource {
     const NAME: &'static str = "Windows.Media.Casting.ICastingSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICastingSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingSourceImpl, const OFFSET: isize>() -> ICastingSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingSourceVtbl {
         unsafe extern "system" fn PreferredSourceUri<Impl: ICastingSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredSourceUri() {
@@ -542,6 +563,9 @@ impl ICastingSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredSourceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingSource>, ::windows::core::GetTrustLevel, PreferredSourceUri::<Impl, OFFSET>, SetPreferredSourceUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICastingSource>, ::windows::core::GetTrustLevel, PreferredSourceUri::<Impl, IMPL_OFFSET>, SetPreferredSourceUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICastingSource as ::windows::core::Interface>::IID
     }
 }

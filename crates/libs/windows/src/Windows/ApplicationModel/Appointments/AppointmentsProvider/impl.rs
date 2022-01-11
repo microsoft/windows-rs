@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for IAddAppointmentOperation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAddAppointmentOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddAppointmentOperationImpl, const OFFSET: isize>() -> IAddAppointmentOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddAppointmentOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddAppointmentOperationVtbl {
         unsafe extern "system" fn AppointmentInformation<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentInformation() {
@@ -52,7 +52,23 @@ impl IAddAppointmentOperationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAddAppointmentOperation>, ::windows::core::GetTrustLevel, AppointmentInformation::<Impl, OFFSET>, SourcePackageFamilyName::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>, ReportCanceled::<Impl, OFFSET>, ReportError::<Impl, OFFSET>, DismissUI::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAddAppointmentOperation>,
+            ::windows::core::GetTrustLevel,
+            AppointmentInformation::<Impl, IMPL_OFFSET>,
+            SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
+            ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportCanceled::<Impl, IMPL_OFFSET>,
+            ReportError::<Impl, IMPL_OFFSET>,
+            DismissUI::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAddAppointmentOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -68,7 +84,7 @@ impl ::windows::core::RuntimeName for IAppointmentsProviderLaunchActionVerbsStat
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
         unsafe extern "system" fn AddAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAppointment() {
@@ -113,7 +129,10 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderLaunchActionVerbsStatics>, ::windows::core::GetTrustLevel, AddAppointment::<Impl, OFFSET>, ReplaceAppointment::<Impl, OFFSET>, RemoveAppointment::<Impl, OFFSET>, ShowTimeFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderLaunchActionVerbsStatics>, ::windows::core::GetTrustLevel, AddAppointment::<Impl, IMPL_OFFSET>, ReplaceAppointment::<Impl, IMPL_OFFSET>, RemoveAppointment::<Impl, IMPL_OFFSET>, ShowTimeFrame::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentsProviderLaunchActionVerbsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -126,7 +145,7 @@ impl ::windows::core::RuntimeName for IAppointmentsProviderLaunchActionVerbsStat
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStatics2Impl, const OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
         unsafe extern "system" fn ShowAppointmentDetails<Impl: IAppointmentsProviderLaunchActionVerbsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowAppointmentDetails() {
@@ -138,10 +157,13 @@ impl IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderLaunchActionVerbsStatics2>, ::windows::core::GetTrustLevel, ShowAppointmentDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentsProviderLaunchActionVerbsStatics2>, ::windows::core::GetTrustLevel, ShowAppointmentDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentsProviderLaunchActionVerbsStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoveAppointmentOperationImpl: Sized {
     fn AppointmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
@@ -151,13 +173,13 @@ pub trait IRemoveAppointmentOperationImpl: Sized {
     fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DismissUI(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoveAppointmentOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>() -> IRemoveAppointmentOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoveAppointmentOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoveAppointmentOperationVtbl {
         unsafe extern "system" fn AppointmentId<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentId() {
@@ -208,23 +230,26 @@ impl IRemoveAppointmentOperationVtbl {
             (*this).DismissUI().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRemoveAppointmentOperation>,
             ::windows::core::GetTrustLevel,
-            AppointmentId::<Impl, OFFSET>,
-            InstanceStartDate::<Impl, OFFSET>,
-            SourcePackageFamilyName::<Impl, OFFSET>,
-            ReportCompleted::<Impl, OFFSET>,
-            ReportCanceled::<Impl, OFFSET>,
-            ReportError::<Impl, OFFSET>,
-            DismissUI::<Impl, OFFSET>,
+            AppointmentId::<Impl, IMPL_OFFSET>,
+            InstanceStartDate::<Impl, IMPL_OFFSET>,
+            SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
+            ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportCanceled::<Impl, IMPL_OFFSET>,
+            ReportError::<Impl, IMPL_OFFSET>,
+            DismissUI::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoveAppointmentOperation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IReplaceAppointmentOperationImpl: Sized {
     fn AppointmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppointmentInformation(&self) -> ::windows::core::Result<super::Appointment>;
@@ -235,13 +260,13 @@ pub trait IReplaceAppointmentOperationImpl: Sized {
     fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DismissUI(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IReplaceAppointmentOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>() -> IReplaceAppointmentOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReplaceAppointmentOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReplaceAppointmentOperationVtbl {
         unsafe extern "system" fn AppointmentId<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentId() {
@@ -303,20 +328,23 @@ impl IReplaceAppointmentOperationVtbl {
             (*this).DismissUI().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IReplaceAppointmentOperation>,
             ::windows::core::GetTrustLevel,
-            AppointmentId::<Impl, OFFSET>,
-            AppointmentInformation::<Impl, OFFSET>,
-            InstanceStartDate::<Impl, OFFSET>,
-            SourcePackageFamilyName::<Impl, OFFSET>,
-            ReportCompleted::<Impl, OFFSET>,
-            ReportCanceled::<Impl, OFFSET>,
-            ReportError::<Impl, OFFSET>,
-            DismissUI::<Impl, OFFSET>,
+            AppointmentId::<Impl, IMPL_OFFSET>,
+            AppointmentInformation::<Impl, IMPL_OFFSET>,
+            InstanceStartDate::<Impl, IMPL_OFFSET>,
+            SourcePackageFamilyName::<Impl, IMPL_OFFSET>,
+            ReportCompleted::<Impl, IMPL_OFFSET>,
+            ReportCanceled::<Impl, IMPL_OFFSET>,
+            ReportError::<Impl, IMPL_OFFSET>,
+            DismissUI::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReplaceAppointmentOperation as ::windows::core::Interface>::IID
     }
 }

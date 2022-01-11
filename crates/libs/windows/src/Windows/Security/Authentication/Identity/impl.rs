@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationInfoVtbl {
         unsafe extern "system" fn TenantId<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TenantId() {
@@ -68,20 +68,23 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationInfo>, ::windows::core::GetTrustLevel, TenantId::<Impl, OFFSET>, TenantName::<Impl, OFFSET>, Subject::<Impl, OFFSET>, KeyId::<Impl, OFFSET>, KeyName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationInfo>, ::windows::core::GetTrustLevel, TenantId::<Impl, IMPL_OFFSET>, TenantName::<Impl, IMPL_OFFSET>, Subject::<Impl, IMPL_OFFSET>, KeyId::<Impl, IMPL_OFFSET>, KeyName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnterpriseKeyCredentialRegistrationInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEnterpriseKeyCredentialRegistrationManagerImpl: Sized {
     fn GetRegistrationsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEnterpriseKeyCredentialRegistrationManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationManagerVtbl {
         unsafe extern "system" fn GetRegistrationsAsync<Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRegistrationsAsync() {
@@ -93,7 +96,10 @@ impl IEnterpriseKeyCredentialRegistrationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManager>, ::windows::core::GetTrustLevel, GetRegistrationsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManager>, ::windows::core::GetTrustLevel, GetRegistrationsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnterpriseKeyCredentialRegistrationManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -106,7 +112,7 @@ impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationManage
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -118,6 +124,9 @@ impl IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnterpriseKeyCredentialRegistrationManagerStatics as ::windows::core::Interface>::IID
     }
 }

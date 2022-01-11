@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IExtendedExecutionForegroundRevokedEventAr
 }
 #[cfg(feature = "implement_exclusive")]
 impl IExtendedExecutionForegroundRevokedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionForegroundRevokedEventArgsImpl, const OFFSET: isize>() -> IExtendedExecutionForegroundRevokedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionForegroundRevokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExtendedExecutionForegroundRevokedEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IExtendedExecutionForegroundRevokedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionForegroundRevokedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -20,7 +20,10 @@ impl IExtendedExecutionForegroundRevokedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExtendedExecutionForegroundRevokedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExtendedExecutionForegroundRevokedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExtendedExecutionForegroundRevokedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -39,7 +42,7 @@ impl ::windows::core::RuntimeName for IExtendedExecutionForegroundSession {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IExtendedExecutionForegroundSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionForegroundSessionImpl, const OFFSET: isize>() -> IExtendedExecutionForegroundSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionForegroundSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExtendedExecutionForegroundSessionVtbl {
         unsafe extern "system" fn Description<Impl: IExtendedExecutionForegroundSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
@@ -97,19 +100,22 @@ impl IExtendedExecutionForegroundSessionVtbl {
             (*this).SetReason(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IExtendedExecutionForegroundSession>,
             ::windows::core::GetTrustLevel,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
-            Revoked::<Impl, OFFSET>,
-            RemoveRevoked::<Impl, OFFSET>,
-            RequestExtensionAsync::<Impl, OFFSET>,
-            Reason::<Impl, OFFSET>,
-            SetReason::<Impl, OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            Revoked::<Impl, IMPL_OFFSET>,
+            RemoveRevoked::<Impl, IMPL_OFFSET>,
+            RequestExtensionAsync::<Impl, IMPL_OFFSET>,
+            Reason::<Impl, IMPL_OFFSET>,
+            SetReason::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExtendedExecutionForegroundSession as ::windows::core::Interface>::IID
     }
 }

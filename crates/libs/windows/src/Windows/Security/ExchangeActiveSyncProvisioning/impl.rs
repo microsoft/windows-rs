@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for IEasClientDeviceInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasClientDeviceInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>() -> IEasClientDeviceInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientDeviceInformationVtbl {
         unsafe extern "system" fn Id<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -80,7 +80,23 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasClientDeviceInformation>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, OperatingSystem::<Impl, OFFSET>, FriendlyName::<Impl, OFFSET>, SystemManufacturer::<Impl, OFFSET>, SystemProductName::<Impl, OFFSET>, SystemSku::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEasClientDeviceInformation>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, IMPL_OFFSET>,
+            OperatingSystem::<Impl, IMPL_OFFSET>,
+            FriendlyName::<Impl, IMPL_OFFSET>,
+            SystemManufacturer::<Impl, IMPL_OFFSET>,
+            SystemProductName::<Impl, IMPL_OFFSET>,
+            SystemSku::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasClientDeviceInformation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -94,7 +110,7 @@ impl ::windows::core::RuntimeName for IEasClientDeviceInformation2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasClientDeviceInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformation2Impl, const OFFSET: isize>() -> IEasClientDeviceInformation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientDeviceInformation2Vtbl {
         unsafe extern "system" fn SystemHardwareVersion<Impl: IEasClientDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemHardwareVersion() {
@@ -117,10 +133,13 @@ impl IEasClientDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasClientDeviceInformation2>, ::windows::core::GetTrustLevel, SystemHardwareVersion::<Impl, OFFSET>, SystemFirmwareVersion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasClientDeviceInformation2>, ::windows::core::GetTrustLevel, SystemHardwareVersion::<Impl, IMPL_OFFSET>, SystemFirmwareVersion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasClientDeviceInformation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEasClientSecurityPolicyImpl: Sized {
     fn RequireEncryption(&self) -> ::windows::core::Result<bool>;
     fn SetRequireEncryption(&self, value: bool) -> ::windows::core::Result<()>;
@@ -141,13 +160,13 @@ pub trait IEasClientSecurityPolicyImpl: Sized {
     fn CheckCompliance(&self) -> ::windows::core::Result<EasComplianceResults>;
     fn ApplyAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEasClientSecurityPolicyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>() -> IEasClientSecurityPolicyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientSecurityPolicyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientSecurityPolicyVtbl {
         unsafe extern "system" fn RequireEncryption<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireEncryption() {
@@ -291,31 +310,34 @@ impl IEasClientSecurityPolicyVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEasClientSecurityPolicy>,
             ::windows::core::GetTrustLevel,
-            RequireEncryption::<Impl, OFFSET>,
-            SetRequireEncryption::<Impl, OFFSET>,
-            MinPasswordLength::<Impl, OFFSET>,
-            SetMinPasswordLength::<Impl, OFFSET>,
-            DisallowConvenienceLogon::<Impl, OFFSET>,
-            SetDisallowConvenienceLogon::<Impl, OFFSET>,
-            MinPasswordComplexCharacters::<Impl, OFFSET>,
-            SetMinPasswordComplexCharacters::<Impl, OFFSET>,
-            PasswordExpiration::<Impl, OFFSET>,
-            SetPasswordExpiration::<Impl, OFFSET>,
-            PasswordHistory::<Impl, OFFSET>,
-            SetPasswordHistory::<Impl, OFFSET>,
-            MaxPasswordFailedAttempts::<Impl, OFFSET>,
-            SetMaxPasswordFailedAttempts::<Impl, OFFSET>,
-            MaxInactivityTimeLock::<Impl, OFFSET>,
-            SetMaxInactivityTimeLock::<Impl, OFFSET>,
-            CheckCompliance::<Impl, OFFSET>,
-            ApplyAsync::<Impl, OFFSET>,
+            RequireEncryption::<Impl, IMPL_OFFSET>,
+            SetRequireEncryption::<Impl, IMPL_OFFSET>,
+            MinPasswordLength::<Impl, IMPL_OFFSET>,
+            SetMinPasswordLength::<Impl, IMPL_OFFSET>,
+            DisallowConvenienceLogon::<Impl, IMPL_OFFSET>,
+            SetDisallowConvenienceLogon::<Impl, IMPL_OFFSET>,
+            MinPasswordComplexCharacters::<Impl, IMPL_OFFSET>,
+            SetMinPasswordComplexCharacters::<Impl, IMPL_OFFSET>,
+            PasswordExpiration::<Impl, IMPL_OFFSET>,
+            SetPasswordExpiration::<Impl, IMPL_OFFSET>,
+            PasswordHistory::<Impl, IMPL_OFFSET>,
+            SetPasswordHistory::<Impl, IMPL_OFFSET>,
+            MaxPasswordFailedAttempts::<Impl, IMPL_OFFSET>,
+            SetMaxPasswordFailedAttempts::<Impl, IMPL_OFFSET>,
+            MaxInactivityTimeLock::<Impl, IMPL_OFFSET>,
+            SetMaxInactivityTimeLock::<Impl, IMPL_OFFSET>,
+            CheckCompliance::<Impl, IMPL_OFFSET>,
+            ApplyAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasClientSecurityPolicy as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -336,7 +358,7 @@ impl ::windows::core::RuntimeName for IEasComplianceResults {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasComplianceResultsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResultsImpl, const OFFSET: isize>() -> IEasComplianceResultsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasComplianceResultsVtbl {
         unsafe extern "system" fn Compliant<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compliant() {
@@ -437,22 +459,25 @@ impl IEasComplianceResultsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEasComplianceResults>,
             ::windows::core::GetTrustLevel,
-            Compliant::<Impl, OFFSET>,
-            RequireEncryptionResult::<Impl, OFFSET>,
-            MinPasswordLengthResult::<Impl, OFFSET>,
-            DisallowConvenienceLogonResult::<Impl, OFFSET>,
-            MinPasswordComplexCharactersResult::<Impl, OFFSET>,
-            PasswordExpirationResult::<Impl, OFFSET>,
-            PasswordHistoryResult::<Impl, OFFSET>,
-            MaxPasswordFailedAttemptsResult::<Impl, OFFSET>,
-            MaxInactivityTimeLockResult::<Impl, OFFSET>,
+            Compliant::<Impl, IMPL_OFFSET>,
+            RequireEncryptionResult::<Impl, IMPL_OFFSET>,
+            MinPasswordLengthResult::<Impl, IMPL_OFFSET>,
+            DisallowConvenienceLogonResult::<Impl, IMPL_OFFSET>,
+            MinPasswordComplexCharactersResult::<Impl, IMPL_OFFSET>,
+            PasswordExpirationResult::<Impl, IMPL_OFFSET>,
+            PasswordHistoryResult::<Impl, IMPL_OFFSET>,
+            MaxPasswordFailedAttemptsResult::<Impl, IMPL_OFFSET>,
+            MaxInactivityTimeLockResult::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasComplianceResults as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -465,7 +490,7 @@ impl ::windows::core::RuntimeName for IEasComplianceResults2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEasComplianceResults2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResults2Impl, const OFFSET: isize>() -> IEasComplianceResults2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResults2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasComplianceResults2Vtbl {
         unsafe extern "system" fn EncryptionProviderType<Impl: IEasComplianceResults2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncryptionProviderType() {
@@ -477,6 +502,9 @@ impl IEasComplianceResults2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasComplianceResults2>, ::windows::core::GetTrustLevel, EncryptionProviderType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEasComplianceResults2>, ::windows::core::GetTrustLevel, EncryptionProviderType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEasComplianceResults2 as ::windows::core::Interface>::IID
     }
 }

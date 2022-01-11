@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IAlternateWordForm {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAlternateWordFormVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlternateWordFormImpl, const OFFSET: isize>() -> IAlternateWordFormVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlternateWordFormImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlternateWordFormVtbl {
         unsafe extern "system" fn SourceTextSegment<Impl: IAlternateWordFormImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceTextSegment() {
@@ -44,7 +44,10 @@ impl IAlternateWordFormVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlternateWordForm>, ::windows::core::GetTrustLevel, SourceTextSegment::<Impl, OFFSET>, AlternateText::<Impl, OFFSET>, NormalizationFormat::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlternateWordForm>, ::windows::core::GetTrustLevel, SourceTextSegment::<Impl, IMPL_OFFSET>, AlternateText::<Impl, IMPL_OFFSET>, NormalizationFormat::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlternateWordForm as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,7 +61,7 @@ impl ::windows::core::RuntimeName for ISelectableWordSegment {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectableWordSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordSegmentImpl, const OFFSET: isize>() -> ISelectableWordSegmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectableWordSegmentVtbl {
         unsafe extern "system" fn Text<Impl: ISelectableWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
@@ -81,23 +84,26 @@ impl ISelectableWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SourceTextSegment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SourceTextSegment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectableWordSegment as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISelectableWordsSegmenterImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetTokenAt(&self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<SelectableWordSegment>;
     fn GetTokens(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>;
     fn Tokenize(&self, text: &::windows::core::HSTRING, startindex: u32, handler: &::core::option::Option<SelectableWordSegmentsTokenizingHandler>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.ISelectableWordsSegmenter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISelectableWordsSegmenterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>() -> ISelectableWordsSegmenterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordsSegmenterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectableWordsSegmenterVtbl {
         unsafe extern "system" fn ResolvedLanguage<Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
@@ -135,7 +141,10 @@ impl ISelectableWordsSegmenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Tokenize(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex, &*(&handler as *const <SelectableWordSegmentsTokenizingHandler as ::windows::core::Abi>::Abi as *const <SelectableWordSegmentsTokenizingHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, GetTokenAt::<Impl, OFFSET>, GetTokens::<Impl, OFFSET>, Tokenize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, GetTokenAt::<Impl, IMPL_OFFSET>, GetTokens::<Impl, IMPL_OFFSET>, Tokenize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectableWordsSegmenter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -148,7 +157,7 @@ impl ::windows::core::RuntimeName for ISelectableWordsSegmenterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectableWordsSegmenterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordsSegmenterFactoryImpl, const OFFSET: isize>() -> ISelectableWordsSegmenterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordsSegmenterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectableWordsSegmenterFactoryVtbl {
         unsafe extern "system" fn CreateWithLanguage<Impl: ISelectableWordsSegmenterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithLanguage(&*(&language as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -160,21 +169,24 @@ impl ISelectableWordsSegmenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectableWordsSegmenterFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISemanticTextQueryImpl: Sized {
     fn Find(&self, content: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>>;
     fn FindInProperty(&self, propertycontent: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.ISemanticTextQuery";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISemanticTextQueryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticTextQueryImpl, const OFFSET: isize>() -> ISemanticTextQueryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticTextQueryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISemanticTextQueryVtbl {
         unsafe extern "system" fn Find<Impl: ISemanticTextQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Find(&*(&content as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -197,7 +209,10 @@ impl ISemanticTextQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQuery>, ::windows::core::GetTrustLevel, Find::<Impl, OFFSET>, FindInProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQuery>, ::windows::core::GetTrustLevel, Find::<Impl, IMPL_OFFSET>, FindInProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISemanticTextQuery as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -211,7 +226,7 @@ impl ::windows::core::RuntimeName for ISemanticTextQueryFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISemanticTextQueryFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticTextQueryFactoryImpl, const OFFSET: isize>() -> ISemanticTextQueryFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticTextQueryFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISemanticTextQueryFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISemanticTextQueryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -234,23 +249,26 @@ impl ISemanticTextQueryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQueryFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQueryFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithLanguage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISemanticTextQueryFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITextConversionGeneratorImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool>;
     fn GetCandidatesAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn GetCandidatesWithMaxCountAsync(&self, input: &::windows::core::HSTRING, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.ITextConversionGenerator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITextConversionGeneratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConversionGeneratorImpl, const OFFSET: isize>() -> ITextConversionGeneratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConversionGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextConversionGeneratorVtbl {
         unsafe extern "system" fn ResolvedLanguage<Impl: ITextConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
@@ -295,7 +313,10 @@ impl ITextConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, GetCandidatesAsync::<Impl, OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>, GetCandidatesAsync::<Impl, IMPL_OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextConversionGenerator as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -308,7 +329,7 @@ impl ::windows::core::RuntimeName for ITextConversionGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextConversionGeneratorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConversionGeneratorFactoryImpl, const OFFSET: isize>() -> ITextConversionGeneratorFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConversionGeneratorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextConversionGeneratorFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ITextConversionGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -320,7 +341,10 @@ impl ITextConversionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextConversionGeneratorFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -334,7 +358,7 @@ impl ::windows::core::RuntimeName for ITextPhoneme {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextPhonemeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPhonemeImpl, const OFFSET: isize>() -> ITextPhonemeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPhonemeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextPhonemeVtbl {
         unsafe extern "system" fn DisplayText<Impl: ITextPhonemeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
@@ -357,23 +381,26 @@ impl ITextPhonemeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, OFFSET>, ReadingText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, IMPL_OFFSET>, ReadingText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextPhoneme as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITextPredictionGeneratorImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool>;
     fn GetCandidatesAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn GetCandidatesWithMaxCountAsync(&self, input: &::windows::core::HSTRING, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.ITextPredictionGenerator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITextPredictionGeneratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>() -> ITextPredictionGeneratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextPredictionGeneratorVtbl {
         unsafe extern "system" fn ResolvedLanguage<Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
@@ -418,23 +445,26 @@ impl ITextPredictionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, GetCandidatesAsync::<Impl, OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>, GetCandidatesAsync::<Impl, IMPL_OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextPredictionGenerator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Text_Core", feature = "implement_exclusive"))]
 pub trait ITextPredictionGenerator2Impl: Sized {
     fn GetCandidatesWithParametersAsync(&self, input: &::windows::core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn GetNextWordCandidatesAsync(&self, maxcandidates: u32, previousstrings: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn InputScope(&self) -> ::windows::core::Result<super::super::UI::Text::Core::CoreTextInputScope>;
     fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Text_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextPredictionGenerator2 {
     const NAME: &'static str = "Windows.Data.Text.ITextPredictionGenerator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Text_Core", feature = "implement_exclusive"))]
 impl ITextPredictionGenerator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>() -> ITextPredictionGenerator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGenerator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextPredictionGenerator2Vtbl {
         unsafe extern "system" fn GetCandidatesWithParametersAsync<Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCandidatesWithParametersAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), maxcandidates, predictionoptions, &*(&previousstrings as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -472,7 +502,10 @@ impl ITextPredictionGenerator2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputScope(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator2>, ::windows::core::GetTrustLevel, GetCandidatesWithParametersAsync::<Impl, OFFSET>, GetNextWordCandidatesAsync::<Impl, OFFSET>, InputScope::<Impl, OFFSET>, SetInputScope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator2>, ::windows::core::GetTrustLevel, GetCandidatesWithParametersAsync::<Impl, IMPL_OFFSET>, GetNextWordCandidatesAsync::<Impl, IMPL_OFFSET>, InputScope::<Impl, IMPL_OFFSET>, SetInputScope::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextPredictionGenerator2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -485,7 +518,7 @@ impl ::windows::core::RuntimeName for ITextPredictionGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextPredictionGeneratorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGeneratorFactoryImpl, const OFFSET: isize>() -> ITextPredictionGeneratorFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGeneratorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextPredictionGeneratorFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ITextPredictionGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -497,22 +530,25 @@ impl ITextPredictionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextPredictionGeneratorFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITextReverseConversionGeneratorImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool>;
     fn ConvertBackAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.ITextReverseConversionGenerator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITextReverseConversionGeneratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGeneratorImpl, const OFFSET: isize>() -> ITextReverseConversionGeneratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextReverseConversionGeneratorVtbl {
         unsafe extern "system" fn ResolvedLanguage<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
@@ -546,20 +582,23 @@ impl ITextReverseConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, ConvertBackAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, LanguageAvailableButNotInstalled::<Impl, IMPL_OFFSET>, ConvertBackAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextReverseConversionGenerator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITextReverseConversionGenerator2Impl: Sized {
     fn GetPhonemesAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextReverseConversionGenerator2 {
     const NAME: &'static str = "Windows.Data.Text.ITextReverseConversionGenerator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITextReverseConversionGenerator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGenerator2Impl, const OFFSET: isize>() -> ITextReverseConversionGenerator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGenerator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextReverseConversionGenerator2Vtbl {
         unsafe extern "system" fn GetPhonemesAsync<Impl: ITextReverseConversionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPhonemesAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -571,7 +610,10 @@ impl ITextReverseConversionGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator2>, ::windows::core::GetTrustLevel, GetPhonemesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator2>, ::windows::core::GetTrustLevel, GetPhonemesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextReverseConversionGenerator2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -584,7 +626,7 @@ impl ::windows::core::RuntimeName for ITextReverseConversionGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextReverseConversionGeneratorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGeneratorFactoryImpl, const OFFSET: isize>() -> ITextReverseConversionGeneratorFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGeneratorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextReverseConversionGeneratorFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ITextReverseConversionGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -596,7 +638,10 @@ impl ITextReverseConversionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextReverseConversionGeneratorFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -625,7 +670,7 @@ impl ::windows::core::RuntimeName for IUnicodeCharactersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUnicodeCharactersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>() -> IUnicodeCharactersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnicodeCharactersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnicodeCharactersStaticsVtbl {
         unsafe extern "system" fn GetCodepointFromSurrogatePair<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, highsurrogate: u32, lowsurrogate: u32, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodepointFromSurrogatePair(highsurrogate, lowsurrogate) {
@@ -807,45 +852,48 @@ impl IUnicodeCharactersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUnicodeCharactersStatics>,
             ::windows::core::GetTrustLevel,
-            GetCodepointFromSurrogatePair::<Impl, OFFSET>,
-            GetSurrogatePairFromCodepoint::<Impl, OFFSET>,
-            IsHighSurrogate::<Impl, OFFSET>,
-            IsLowSurrogate::<Impl, OFFSET>,
-            IsSupplementary::<Impl, OFFSET>,
-            IsNoncharacter::<Impl, OFFSET>,
-            IsWhitespace::<Impl, OFFSET>,
-            IsAlphabetic::<Impl, OFFSET>,
-            IsCased::<Impl, OFFSET>,
-            IsUppercase::<Impl, OFFSET>,
-            IsLowercase::<Impl, OFFSET>,
-            IsIdStart::<Impl, OFFSET>,
-            IsIdContinue::<Impl, OFFSET>,
-            IsGraphemeBase::<Impl, OFFSET>,
-            IsGraphemeExtend::<Impl, OFFSET>,
-            GetNumericType::<Impl, OFFSET>,
-            GetGeneralCategory::<Impl, OFFSET>,
+            GetCodepointFromSurrogatePair::<Impl, IMPL_OFFSET>,
+            GetSurrogatePairFromCodepoint::<Impl, IMPL_OFFSET>,
+            IsHighSurrogate::<Impl, IMPL_OFFSET>,
+            IsLowSurrogate::<Impl, IMPL_OFFSET>,
+            IsSupplementary::<Impl, IMPL_OFFSET>,
+            IsNoncharacter::<Impl, IMPL_OFFSET>,
+            IsWhitespace::<Impl, IMPL_OFFSET>,
+            IsAlphabetic::<Impl, IMPL_OFFSET>,
+            IsCased::<Impl, IMPL_OFFSET>,
+            IsUppercase::<Impl, IMPL_OFFSET>,
+            IsLowercase::<Impl, IMPL_OFFSET>,
+            IsIdStart::<Impl, IMPL_OFFSET>,
+            IsIdContinue::<Impl, IMPL_OFFSET>,
+            IsGraphemeBase::<Impl, IMPL_OFFSET>,
+            IsGraphemeExtend::<Impl, IMPL_OFFSET>,
+            GetNumericType::<Impl, IMPL_OFFSET>,
+            GetGeneralCategory::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUnicodeCharactersStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWordSegmentImpl: Sized {
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment>;
     fn AlternateForms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWordSegment {
     const NAME: &'static str = "Windows.Data.Text.IWordSegment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWordSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordSegmentImpl, const OFFSET: isize>() -> IWordSegmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWordSegmentVtbl {
         unsafe extern "system" fn Text<Impl: IWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
@@ -879,23 +927,26 @@ impl IWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SourceTextSegment::<Impl, OFFSET>, AlternateForms::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SourceTextSegment::<Impl, IMPL_OFFSET>, AlternateForms::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWordSegment as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWordsSegmenterImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetTokenAt(&self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<WordSegment>;
     fn GetTokens(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>>;
     fn Tokenize(&self, text: &::windows::core::HSTRING, startindex: u32, handler: &::core::option::Option<WordSegmentsTokenizingHandler>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.IWordsSegmenter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWordsSegmenterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordsSegmenterImpl, const OFFSET: isize>() -> IWordsSegmenterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordsSegmenterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWordsSegmenterVtbl {
         unsafe extern "system" fn ResolvedLanguage<Impl: IWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
@@ -933,7 +984,10 @@ impl IWordsSegmenterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Tokenize(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex, &*(&handler as *const <WordSegmentsTokenizingHandler as ::windows::core::Abi>::Abi as *const <WordSegmentsTokenizingHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, GetTokenAt::<Impl, OFFSET>, GetTokens::<Impl, OFFSET>, Tokenize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, IMPL_OFFSET>, GetTokenAt::<Impl, IMPL_OFFSET>, GetTokens::<Impl, IMPL_OFFSET>, Tokenize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWordsSegmenter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -946,7 +1000,7 @@ impl ::windows::core::RuntimeName for IWordsSegmenterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWordsSegmenterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordsSegmenterFactoryImpl, const OFFSET: isize>() -> IWordsSegmenterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordsSegmenterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWordsSegmenterFactoryVtbl {
         unsafe extern "system" fn CreateWithLanguage<Impl: IWordsSegmenterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithLanguage(&*(&language as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -958,6 +1012,9 @@ impl IWordsSegmenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWordsSegmenterFactory as ::windows::core::Interface>::IID
     }
 }

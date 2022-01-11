@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentLinkInfoImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn SetId(&self, value: u32) -> ::windows::core::Result<()>;
@@ -11,13 +11,13 @@ pub trait IContentLinkInfoImpl: Sized {
     fn LinkContentKind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLinkContentKind(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentLinkInfo {
     const NAME: &'static str = "Windows.UI.Text.IContentLinkInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContentLinkInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentLinkInfoImpl, const OFFSET: isize>() -> IContentLinkInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentLinkInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentLinkInfoVtbl {
         unsafe extern "system" fn Id<Impl: IContentLinkInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -94,23 +94,26 @@ impl IContentLinkInfoVtbl {
             (*this).SetLinkContentKind(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContentLinkInfo>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            SetId::<Impl, OFFSET>,
-            DisplayText::<Impl, OFFSET>,
-            SetDisplayText::<Impl, OFFSET>,
-            SecondaryText::<Impl, OFFSET>,
-            SetSecondaryText::<Impl, OFFSET>,
-            Uri::<Impl, OFFSET>,
-            SetUri::<Impl, OFFSET>,
-            LinkContentKind::<Impl, OFFSET>,
-            SetLinkContentKind::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            DisplayText::<Impl, IMPL_OFFSET>,
+            SetDisplayText::<Impl, IMPL_OFFSET>,
+            SecondaryText::<Impl, IMPL_OFFSET>,
+            SetSecondaryText::<Impl, IMPL_OFFSET>,
+            Uri::<Impl, IMPL_OFFSET>,
+            SetUri::<Impl, IMPL_OFFSET>,
+            LinkContentKind::<Impl, IMPL_OFFSET>,
+            SetLinkContentKind::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentLinkInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -121,8 +124,11 @@ impl ::windows::core::RuntimeName for IFontWeights {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFontWeightsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFontWeightsImpl, const OFFSET: isize>() -> IFontWeightsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFontWeights>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFontWeightsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFontWeightsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFontWeights>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFontWeights as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -145,7 +151,7 @@ impl ::windows::core::RuntimeName for IFontWeightsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFontWeightsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFontWeightsStaticsImpl, const OFFSET: isize>() -> IFontWeightsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFontWeightsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFontWeightsStaticsVtbl {
         unsafe extern "system" fn Black<Impl: IFontWeightsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FontWeight) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Black() {
@@ -268,24 +274,27 @@ impl IFontWeightsStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFontWeightsStatics>,
             ::windows::core::GetTrustLevel,
-            Black::<Impl, OFFSET>,
-            Bold::<Impl, OFFSET>,
-            ExtraBlack::<Impl, OFFSET>,
-            ExtraBold::<Impl, OFFSET>,
-            ExtraLight::<Impl, OFFSET>,
-            Light::<Impl, OFFSET>,
-            Medium::<Impl, OFFSET>,
-            Normal::<Impl, OFFSET>,
-            SemiBold::<Impl, OFFSET>,
-            SemiLight::<Impl, OFFSET>,
-            Thin::<Impl, OFFSET>,
+            Black::<Impl, IMPL_OFFSET>,
+            Bold::<Impl, IMPL_OFFSET>,
+            ExtraBlack::<Impl, IMPL_OFFSET>,
+            ExtraBold::<Impl, IMPL_OFFSET>,
+            ExtraLight::<Impl, IMPL_OFFSET>,
+            Light::<Impl, IMPL_OFFSET>,
+            Medium::<Impl, IMPL_OFFSET>,
+            Normal::<Impl, IMPL_OFFSET>,
+            SemiBold::<Impl, IMPL_OFFSET>,
+            SemiLight::<Impl, IMPL_OFFSET>,
+            Thin::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFontWeightsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -299,7 +308,7 @@ impl ::windows::core::RuntimeName for IRichEditTextRange {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRichEditTextRangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditTextRangeImpl, const OFFSET: isize>() -> IRichEditTextRangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditTextRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichEditTextRangeVtbl {
         unsafe extern "system" fn ContentLinkInfo<Impl: IRichEditTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentLinkInfo() {
@@ -315,7 +324,10 @@ impl IRichEditTextRangeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentLinkInfo(&*(&value as *const <ContentLinkInfo as ::windows::core::Abi>::Abi as *const <ContentLinkInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichEditTextRange>, ::windows::core::GetTrustLevel, ContentLinkInfo::<Impl, OFFSET>, SetContentLinkInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRichEditTextRange>, ::windows::core::GetTrustLevel, ContentLinkInfo::<Impl, IMPL_OFFSET>, SetContentLinkInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRichEditTextRange as ::windows::core::Interface>::IID
     }
 }
 pub trait ITextCharacterFormatImpl: Sized {
@@ -374,7 +386,7 @@ impl ::windows::core::RuntimeName for ITextCharacterFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextCharacterFormat";
 }
 impl ITextCharacterFormatVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextCharacterFormatImpl, const OFFSET: isize>() -> ITextCharacterFormatVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextCharacterFormatImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextCharacterFormatVtbl {
         unsafe extern "system" fn AllCaps<Impl: ITextCharacterFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FormatEffect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllCaps() {
@@ -758,63 +770,66 @@ impl ITextCharacterFormatVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextCharacterFormat>,
             ::windows::core::GetTrustLevel,
-            AllCaps::<Impl, OFFSET>,
-            SetAllCaps::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            SetBackgroundColor::<Impl, OFFSET>,
-            Bold::<Impl, OFFSET>,
-            SetBold::<Impl, OFFSET>,
-            FontStretch::<Impl, OFFSET>,
-            SetFontStretch::<Impl, OFFSET>,
-            FontStyle::<Impl, OFFSET>,
-            SetFontStyle::<Impl, OFFSET>,
-            ForegroundColor::<Impl, OFFSET>,
-            SetForegroundColor::<Impl, OFFSET>,
-            Hidden::<Impl, OFFSET>,
-            SetHidden::<Impl, OFFSET>,
-            Italic::<Impl, OFFSET>,
-            SetItalic::<Impl, OFFSET>,
-            Kerning::<Impl, OFFSET>,
-            SetKerning::<Impl, OFFSET>,
-            LanguageTag::<Impl, OFFSET>,
-            SetLanguageTag::<Impl, OFFSET>,
-            LinkType::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            SetName::<Impl, OFFSET>,
-            Outline::<Impl, OFFSET>,
-            SetOutline::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            SetPosition::<Impl, OFFSET>,
-            ProtectedText::<Impl, OFFSET>,
-            SetProtectedText::<Impl, OFFSET>,
-            Size::<Impl, OFFSET>,
-            SetSize::<Impl, OFFSET>,
-            SmallCaps::<Impl, OFFSET>,
-            SetSmallCaps::<Impl, OFFSET>,
-            Spacing::<Impl, OFFSET>,
-            SetSpacing::<Impl, OFFSET>,
-            Strikethrough::<Impl, OFFSET>,
-            SetStrikethrough::<Impl, OFFSET>,
-            Subscript::<Impl, OFFSET>,
-            SetSubscript::<Impl, OFFSET>,
-            Superscript::<Impl, OFFSET>,
-            SetSuperscript::<Impl, OFFSET>,
-            TextScript::<Impl, OFFSET>,
-            SetTextScript::<Impl, OFFSET>,
-            Underline::<Impl, OFFSET>,
-            SetUnderline::<Impl, OFFSET>,
-            Weight::<Impl, OFFSET>,
-            SetWeight::<Impl, OFFSET>,
-            SetClone::<Impl, OFFSET>,
-            GetClone::<Impl, OFFSET>,
-            IsEqual::<Impl, OFFSET>,
+            AllCaps::<Impl, IMPL_OFFSET>,
+            SetAllCaps::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            Bold::<Impl, IMPL_OFFSET>,
+            SetBold::<Impl, IMPL_OFFSET>,
+            FontStretch::<Impl, IMPL_OFFSET>,
+            SetFontStretch::<Impl, IMPL_OFFSET>,
+            FontStyle::<Impl, IMPL_OFFSET>,
+            SetFontStyle::<Impl, IMPL_OFFSET>,
+            ForegroundColor::<Impl, IMPL_OFFSET>,
+            SetForegroundColor::<Impl, IMPL_OFFSET>,
+            Hidden::<Impl, IMPL_OFFSET>,
+            SetHidden::<Impl, IMPL_OFFSET>,
+            Italic::<Impl, IMPL_OFFSET>,
+            SetItalic::<Impl, IMPL_OFFSET>,
+            Kerning::<Impl, IMPL_OFFSET>,
+            SetKerning::<Impl, IMPL_OFFSET>,
+            LanguageTag::<Impl, IMPL_OFFSET>,
+            SetLanguageTag::<Impl, IMPL_OFFSET>,
+            LinkType::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            Outline::<Impl, IMPL_OFFSET>,
+            SetOutline::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            SetPosition::<Impl, IMPL_OFFSET>,
+            ProtectedText::<Impl, IMPL_OFFSET>,
+            SetProtectedText::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            SetSize::<Impl, IMPL_OFFSET>,
+            SmallCaps::<Impl, IMPL_OFFSET>,
+            SetSmallCaps::<Impl, IMPL_OFFSET>,
+            Spacing::<Impl, IMPL_OFFSET>,
+            SetSpacing::<Impl, IMPL_OFFSET>,
+            Strikethrough::<Impl, IMPL_OFFSET>,
+            SetStrikethrough::<Impl, IMPL_OFFSET>,
+            Subscript::<Impl, IMPL_OFFSET>,
+            SetSubscript::<Impl, IMPL_OFFSET>,
+            Superscript::<Impl, IMPL_OFFSET>,
+            SetSuperscript::<Impl, IMPL_OFFSET>,
+            TextScript::<Impl, IMPL_OFFSET>,
+            SetTextScript::<Impl, IMPL_OFFSET>,
+            Underline::<Impl, IMPL_OFFSET>,
+            SetUnderline::<Impl, IMPL_OFFSET>,
+            Weight::<Impl, IMPL_OFFSET>,
+            SetWeight::<Impl, IMPL_OFFSET>,
+            SetClone::<Impl, IMPL_OFFSET>,
+            GetClone::<Impl, IMPL_OFFSET>,
+            IsEqual::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextCharacterFormat as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -834,7 +849,7 @@ impl ::windows::core::RuntimeName for ITextConstantsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextConstantsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConstantsStaticsImpl, const OFFSET: isize>() -> ITextConstantsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConstantsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextConstantsStaticsVtbl {
         unsafe extern "system" fn AutoColor<Impl: ITextConstantsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoColor() {
@@ -924,23 +939,27 @@ impl ITextConstantsStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextConstantsStatics>,
             ::windows::core::GetTrustLevel,
-            AutoColor::<Impl, OFFSET>,
-            MinUnitCount::<Impl, OFFSET>,
-            MaxUnitCount::<Impl, OFFSET>,
-            UndefinedColor::<Impl, OFFSET>,
-            UndefinedFloatValue::<Impl, OFFSET>,
-            UndefinedInt32Value::<Impl, OFFSET>,
-            UndefinedFontStretch::<Impl, OFFSET>,
-            UndefinedFontStyle::<Impl, OFFSET>,
+            AutoColor::<Impl, IMPL_OFFSET>,
+            MinUnitCount::<Impl, IMPL_OFFSET>,
+            MaxUnitCount::<Impl, IMPL_OFFSET>,
+            UndefinedColor::<Impl, IMPL_OFFSET>,
+            UndefinedFloatValue::<Impl, IMPL_OFFSET>,
+            UndefinedInt32Value::<Impl, IMPL_OFFSET>,
+            UndefinedFontStretch::<Impl, IMPL_OFFSET>,
+            UndefinedFontStyle::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextConstantsStatics as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextDocumentImpl: Sized {
     fn CaretType(&self) -> ::windows::core::Result<CaretType>;
     fn SetCaretType(&self, value: CaretType) -> ::windows::core::Result<()>;
@@ -970,11 +989,13 @@ pub trait ITextDocumentImpl: Sized {
     fn SetText(&self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Undo(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for ITextDocument {
     const NAME: &'static str = "Windows.UI.Text.ITextDocument";
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ITextDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocumentImpl, const OFFSET: isize>() -> ITextDocumentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextDocumentVtbl {
         unsafe extern "system" fn CaretType<Impl: ITextDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CaretType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaretType() {
@@ -1182,40 +1203,43 @@ impl ITextDocumentVtbl {
             (*this).Undo().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextDocument>,
             ::windows::core::GetTrustLevel,
-            CaretType::<Impl, OFFSET>,
-            SetCaretType::<Impl, OFFSET>,
-            DefaultTabStop::<Impl, OFFSET>,
-            SetDefaultTabStop::<Impl, OFFSET>,
-            Selection::<Impl, OFFSET>,
-            UndoLimit::<Impl, OFFSET>,
-            SetUndoLimit::<Impl, OFFSET>,
-            CanCopy::<Impl, OFFSET>,
-            CanPaste::<Impl, OFFSET>,
-            CanRedo::<Impl, OFFSET>,
-            CanUndo::<Impl, OFFSET>,
-            ApplyDisplayUpdates::<Impl, OFFSET>,
-            BatchDisplayUpdates::<Impl, OFFSET>,
-            BeginUndoGroup::<Impl, OFFSET>,
-            EndUndoGroup::<Impl, OFFSET>,
-            GetDefaultCharacterFormat::<Impl, OFFSET>,
-            GetDefaultParagraphFormat::<Impl, OFFSET>,
-            GetRange::<Impl, OFFSET>,
-            GetRangeFromPoint::<Impl, OFFSET>,
-            GetText::<Impl, OFFSET>,
-            LoadFromStream::<Impl, OFFSET>,
-            Redo::<Impl, OFFSET>,
-            SaveToStream::<Impl, OFFSET>,
-            SetDefaultCharacterFormat::<Impl, OFFSET>,
-            SetDefaultParagraphFormat::<Impl, OFFSET>,
-            SetText::<Impl, OFFSET>,
-            Undo::<Impl, OFFSET>,
+            CaretType::<Impl, IMPL_OFFSET>,
+            SetCaretType::<Impl, IMPL_OFFSET>,
+            DefaultTabStop::<Impl, IMPL_OFFSET>,
+            SetDefaultTabStop::<Impl, IMPL_OFFSET>,
+            Selection::<Impl, IMPL_OFFSET>,
+            UndoLimit::<Impl, IMPL_OFFSET>,
+            SetUndoLimit::<Impl, IMPL_OFFSET>,
+            CanCopy::<Impl, IMPL_OFFSET>,
+            CanPaste::<Impl, IMPL_OFFSET>,
+            CanRedo::<Impl, IMPL_OFFSET>,
+            CanUndo::<Impl, IMPL_OFFSET>,
+            ApplyDisplayUpdates::<Impl, IMPL_OFFSET>,
+            BatchDisplayUpdates::<Impl, IMPL_OFFSET>,
+            BeginUndoGroup::<Impl, IMPL_OFFSET>,
+            EndUndoGroup::<Impl, IMPL_OFFSET>,
+            GetDefaultCharacterFormat::<Impl, IMPL_OFFSET>,
+            GetDefaultParagraphFormat::<Impl, IMPL_OFFSET>,
+            GetRange::<Impl, IMPL_OFFSET>,
+            GetRangeFromPoint::<Impl, IMPL_OFFSET>,
+            GetText::<Impl, IMPL_OFFSET>,
+            LoadFromStream::<Impl, IMPL_OFFSET>,
+            Redo::<Impl, IMPL_OFFSET>,
+            SaveToStream::<Impl, IMPL_OFFSET>,
+            SetDefaultCharacterFormat::<Impl, IMPL_OFFSET>,
+            SetDefaultParagraphFormat::<Impl, IMPL_OFFSET>,
+            SetText::<Impl, IMPL_OFFSET>,
+            Undo::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextDocument as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1231,7 +1255,7 @@ impl ::windows::core::RuntimeName for ITextDocument2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextDocument2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocument2Impl, const OFFSET: isize>() -> ITextDocument2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocument2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextDocument2Vtbl {
         unsafe extern "system" fn AlignmentIncludesTrailingWhitespace<Impl: ITextDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlignmentIncludesTrailingWhitespace() {
@@ -1262,7 +1286,21 @@ impl ITextDocument2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIgnoreTrailingCharacterSpacing(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextDocument2>, ::windows::core::GetTrustLevel, AlignmentIncludesTrailingWhitespace::<Impl, OFFSET>, SetAlignmentIncludesTrailingWhitespace::<Impl, OFFSET>, IgnoreTrailingCharacterSpacing::<Impl, OFFSET>, SetIgnoreTrailingCharacterSpacing::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ITextDocument2>,
+            ::windows::core::GetTrustLevel,
+            AlignmentIncludesTrailingWhitespace::<Impl, IMPL_OFFSET>,
+            SetAlignmentIncludesTrailingWhitespace::<Impl, IMPL_OFFSET>,
+            IgnoreTrailingCharacterSpacing::<Impl, IMPL_OFFSET>,
+            SetIgnoreTrailingCharacterSpacing::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextDocument2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1275,12 +1313,15 @@ impl ::windows::core::RuntimeName for ITextDocument3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextDocument3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocument3Impl, const OFFSET: isize>() -> ITextDocument3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocument3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextDocument3Vtbl {
         unsafe extern "system" fn ClearUndoRedoHistory<Impl: ITextDocument3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearUndoRedoHistory().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextDocument3>, ::windows::core::GetTrustLevel, ClearUndoRedoHistory::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextDocument3>, ::windows::core::GetTrustLevel, ClearUndoRedoHistory::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextDocument3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1295,7 +1336,7 @@ impl ::windows::core::RuntimeName for ITextDocument4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextDocument4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocument4Impl, const OFFSET: isize>() -> ITextDocument4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDocument4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextDocument4Vtbl {
         unsafe extern "system" fn SetMath<Impl: ITextDocument4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMath(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1308,7 +1349,10 @@ impl ITextDocument4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMathMode(mode).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextDocument4>, ::windows::core::GetTrustLevel, SetMath::<Impl, OFFSET>, GetMath::<Impl, OFFSET>, SetMathMode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextDocument4>, ::windows::core::GetTrustLevel, SetMath::<Impl, IMPL_OFFSET>, GetMath::<Impl, IMPL_OFFSET>, SetMathMode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextDocument4 as ::windows::core::Interface>::IID
     }
 }
 pub trait ITextParagraphFormatImpl: Sized {
@@ -1365,7 +1409,7 @@ impl ::windows::core::RuntimeName for ITextParagraphFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextParagraphFormat";
 }
 impl ITextParagraphFormatVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextParagraphFormatImpl, const OFFSET: isize>() -> ITextParagraphFormatVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextParagraphFormatImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextParagraphFormatVtbl {
         unsafe extern "system" fn Alignment<Impl: ITextParagraphFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ParagraphAlignment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Alignment() {
@@ -1727,63 +1771,67 @@ impl ITextParagraphFormatVtbl {
             (*this).SetLineSpacing(rule, spacing).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextParagraphFormat>,
             ::windows::core::GetTrustLevel,
-            Alignment::<Impl, OFFSET>,
-            SetAlignment::<Impl, OFFSET>,
-            FirstLineIndent::<Impl, OFFSET>,
-            KeepTogether::<Impl, OFFSET>,
-            SetKeepTogether::<Impl, OFFSET>,
-            KeepWithNext::<Impl, OFFSET>,
-            SetKeepWithNext::<Impl, OFFSET>,
-            LeftIndent::<Impl, OFFSET>,
-            LineSpacing::<Impl, OFFSET>,
-            LineSpacingRule::<Impl, OFFSET>,
-            ListAlignment::<Impl, OFFSET>,
-            SetListAlignment::<Impl, OFFSET>,
-            ListLevelIndex::<Impl, OFFSET>,
-            SetListLevelIndex::<Impl, OFFSET>,
-            ListStart::<Impl, OFFSET>,
-            SetListStart::<Impl, OFFSET>,
-            ListStyle::<Impl, OFFSET>,
-            SetListStyle::<Impl, OFFSET>,
-            ListTab::<Impl, OFFSET>,
-            SetListTab::<Impl, OFFSET>,
-            ListType::<Impl, OFFSET>,
-            SetListType::<Impl, OFFSET>,
-            NoLineNumber::<Impl, OFFSET>,
-            SetNoLineNumber::<Impl, OFFSET>,
-            PageBreakBefore::<Impl, OFFSET>,
-            SetPageBreakBefore::<Impl, OFFSET>,
-            RightIndent::<Impl, OFFSET>,
-            SetRightIndent::<Impl, OFFSET>,
-            RightToLeft::<Impl, OFFSET>,
-            SetRightToLeft::<Impl, OFFSET>,
-            Style::<Impl, OFFSET>,
-            SetStyle::<Impl, OFFSET>,
-            SpaceAfter::<Impl, OFFSET>,
-            SetSpaceAfter::<Impl, OFFSET>,
-            SpaceBefore::<Impl, OFFSET>,
-            SetSpaceBefore::<Impl, OFFSET>,
-            WidowControl::<Impl, OFFSET>,
-            SetWidowControl::<Impl, OFFSET>,
-            TabCount::<Impl, OFFSET>,
-            AddTab::<Impl, OFFSET>,
-            ClearAllTabs::<Impl, OFFSET>,
-            DeleteTab::<Impl, OFFSET>,
-            GetClone::<Impl, OFFSET>,
-            GetTab::<Impl, OFFSET>,
-            IsEqual::<Impl, OFFSET>,
-            SetClone::<Impl, OFFSET>,
-            SetIndents::<Impl, OFFSET>,
-            SetLineSpacing::<Impl, OFFSET>,
+            Alignment::<Impl, IMPL_OFFSET>,
+            SetAlignment::<Impl, IMPL_OFFSET>,
+            FirstLineIndent::<Impl, IMPL_OFFSET>,
+            KeepTogether::<Impl, IMPL_OFFSET>,
+            SetKeepTogether::<Impl, IMPL_OFFSET>,
+            KeepWithNext::<Impl, IMPL_OFFSET>,
+            SetKeepWithNext::<Impl, IMPL_OFFSET>,
+            LeftIndent::<Impl, IMPL_OFFSET>,
+            LineSpacing::<Impl, IMPL_OFFSET>,
+            LineSpacingRule::<Impl, IMPL_OFFSET>,
+            ListAlignment::<Impl, IMPL_OFFSET>,
+            SetListAlignment::<Impl, IMPL_OFFSET>,
+            ListLevelIndex::<Impl, IMPL_OFFSET>,
+            SetListLevelIndex::<Impl, IMPL_OFFSET>,
+            ListStart::<Impl, IMPL_OFFSET>,
+            SetListStart::<Impl, IMPL_OFFSET>,
+            ListStyle::<Impl, IMPL_OFFSET>,
+            SetListStyle::<Impl, IMPL_OFFSET>,
+            ListTab::<Impl, IMPL_OFFSET>,
+            SetListTab::<Impl, IMPL_OFFSET>,
+            ListType::<Impl, IMPL_OFFSET>,
+            SetListType::<Impl, IMPL_OFFSET>,
+            NoLineNumber::<Impl, IMPL_OFFSET>,
+            SetNoLineNumber::<Impl, IMPL_OFFSET>,
+            PageBreakBefore::<Impl, IMPL_OFFSET>,
+            SetPageBreakBefore::<Impl, IMPL_OFFSET>,
+            RightIndent::<Impl, IMPL_OFFSET>,
+            SetRightIndent::<Impl, IMPL_OFFSET>,
+            RightToLeft::<Impl, IMPL_OFFSET>,
+            SetRightToLeft::<Impl, IMPL_OFFSET>,
+            Style::<Impl, IMPL_OFFSET>,
+            SetStyle::<Impl, IMPL_OFFSET>,
+            SpaceAfter::<Impl, IMPL_OFFSET>,
+            SetSpaceAfter::<Impl, IMPL_OFFSET>,
+            SpaceBefore::<Impl, IMPL_OFFSET>,
+            SetSpaceBefore::<Impl, IMPL_OFFSET>,
+            WidowControl::<Impl, IMPL_OFFSET>,
+            SetWidowControl::<Impl, IMPL_OFFSET>,
+            TabCount::<Impl, IMPL_OFFSET>,
+            AddTab::<Impl, IMPL_OFFSET>,
+            ClearAllTabs::<Impl, IMPL_OFFSET>,
+            DeleteTab::<Impl, IMPL_OFFSET>,
+            GetClone::<Impl, IMPL_OFFSET>,
+            GetTab::<Impl, IMPL_OFFSET>,
+            IsEqual::<Impl, IMPL_OFFSET>,
+            SetClone::<Impl, IMPL_OFFSET>,
+            SetIndents::<Impl, IMPL_OFFSET>,
+            SetLineSpacing::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextParagraphFormat as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextRangeImpl: Sized {
     fn Character(&self) -> ::windows::core::Result<u16>;
     fn SetCharacter(&self, value: u16) -> ::windows::core::Result<()>;
@@ -1838,11 +1886,13 @@ pub trait ITextRangeImpl: Sized {
     fn SetTextViaStream(&self, options: TextSetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
     fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for ITextRange {
     const NAME: &'static str = "Windows.UI.Text.ITextRange";
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ITextRangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeImpl, const OFFSET: isize>() -> ITextRangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeVtbl {
         unsafe extern "system" fn Character<Impl: ITextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Character() {
@@ -2227,67 +2277,71 @@ impl ITextRangeVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextRange>,
             ::windows::core::GetTrustLevel,
-            Character::<Impl, OFFSET>,
-            SetCharacter::<Impl, OFFSET>,
-            CharacterFormat::<Impl, OFFSET>,
-            SetCharacterFormat::<Impl, OFFSET>,
-            FormattedText::<Impl, OFFSET>,
-            SetFormattedText::<Impl, OFFSET>,
-            EndPosition::<Impl, OFFSET>,
-            SetEndPosition::<Impl, OFFSET>,
-            Gravity::<Impl, OFFSET>,
-            SetGravity::<Impl, OFFSET>,
-            Length::<Impl, OFFSET>,
-            Link::<Impl, OFFSET>,
-            SetLink::<Impl, OFFSET>,
-            ParagraphFormat::<Impl, OFFSET>,
-            SetParagraphFormat::<Impl, OFFSET>,
-            StartPosition::<Impl, OFFSET>,
-            SetStartPosition::<Impl, OFFSET>,
-            StoryLength::<Impl, OFFSET>,
-            Text::<Impl, OFFSET>,
-            SetText::<Impl, OFFSET>,
-            CanPaste::<Impl, OFFSET>,
-            ChangeCase::<Impl, OFFSET>,
-            Collapse::<Impl, OFFSET>,
-            Copy::<Impl, OFFSET>,
-            Cut::<Impl, OFFSET>,
-            Delete::<Impl, OFFSET>,
-            EndOf::<Impl, OFFSET>,
-            Expand::<Impl, OFFSET>,
-            FindText::<Impl, OFFSET>,
-            GetCharacterUtf32::<Impl, OFFSET>,
-            GetClone::<Impl, OFFSET>,
-            GetIndex::<Impl, OFFSET>,
-            GetPoint::<Impl, OFFSET>,
-            GetRect::<Impl, OFFSET>,
-            GetText::<Impl, OFFSET>,
-            GetTextViaStream::<Impl, OFFSET>,
-            InRange::<Impl, OFFSET>,
-            InsertImage::<Impl, OFFSET>,
-            InStory::<Impl, OFFSET>,
-            IsEqual::<Impl, OFFSET>,
-            Move::<Impl, OFFSET>,
-            MoveEnd::<Impl, OFFSET>,
-            MoveStart::<Impl, OFFSET>,
-            Paste::<Impl, OFFSET>,
-            ScrollIntoView::<Impl, OFFSET>,
-            MatchSelection::<Impl, OFFSET>,
-            SetIndex::<Impl, OFFSET>,
-            SetPoint::<Impl, OFFSET>,
-            SetRange::<Impl, OFFSET>,
-            SetText::<Impl, OFFSET>,
-            SetTextViaStream::<Impl, OFFSET>,
-            StartOf::<Impl, OFFSET>,
+            Character::<Impl, IMPL_OFFSET>,
+            SetCharacter::<Impl, IMPL_OFFSET>,
+            CharacterFormat::<Impl, IMPL_OFFSET>,
+            SetCharacterFormat::<Impl, IMPL_OFFSET>,
+            FormattedText::<Impl, IMPL_OFFSET>,
+            SetFormattedText::<Impl, IMPL_OFFSET>,
+            EndPosition::<Impl, IMPL_OFFSET>,
+            SetEndPosition::<Impl, IMPL_OFFSET>,
+            Gravity::<Impl, IMPL_OFFSET>,
+            SetGravity::<Impl, IMPL_OFFSET>,
+            Length::<Impl, IMPL_OFFSET>,
+            Link::<Impl, IMPL_OFFSET>,
+            SetLink::<Impl, IMPL_OFFSET>,
+            ParagraphFormat::<Impl, IMPL_OFFSET>,
+            SetParagraphFormat::<Impl, IMPL_OFFSET>,
+            StartPosition::<Impl, IMPL_OFFSET>,
+            SetStartPosition::<Impl, IMPL_OFFSET>,
+            StoryLength::<Impl, IMPL_OFFSET>,
+            Text::<Impl, IMPL_OFFSET>,
+            SetText::<Impl, IMPL_OFFSET>,
+            CanPaste::<Impl, IMPL_OFFSET>,
+            ChangeCase::<Impl, IMPL_OFFSET>,
+            Collapse::<Impl, IMPL_OFFSET>,
+            Copy::<Impl, IMPL_OFFSET>,
+            Cut::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+            EndOf::<Impl, IMPL_OFFSET>,
+            Expand::<Impl, IMPL_OFFSET>,
+            FindText::<Impl, IMPL_OFFSET>,
+            GetCharacterUtf32::<Impl, IMPL_OFFSET>,
+            GetClone::<Impl, IMPL_OFFSET>,
+            GetIndex::<Impl, IMPL_OFFSET>,
+            GetPoint::<Impl, IMPL_OFFSET>,
+            GetRect::<Impl, IMPL_OFFSET>,
+            GetText::<Impl, IMPL_OFFSET>,
+            GetTextViaStream::<Impl, IMPL_OFFSET>,
+            InRange::<Impl, IMPL_OFFSET>,
+            InsertImage::<Impl, IMPL_OFFSET>,
+            InStory::<Impl, IMPL_OFFSET>,
+            IsEqual::<Impl, IMPL_OFFSET>,
+            Move::<Impl, IMPL_OFFSET>,
+            MoveEnd::<Impl, IMPL_OFFSET>,
+            MoveStart::<Impl, IMPL_OFFSET>,
+            Paste::<Impl, IMPL_OFFSET>,
+            ScrollIntoView::<Impl, IMPL_OFFSET>,
+            MatchSelection::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            SetPoint::<Impl, IMPL_OFFSET>,
+            SetRange::<Impl, IMPL_OFFSET>,
+            SetText::<Impl, IMPL_OFFSET>,
+            SetTextViaStream::<Impl, IMPL_OFFSET>,
+            StartOf::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextRange as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextSelectionImpl: Sized + ITextRangeImpl {
     fn Options(&self) -> ::windows::core::Result<SelectionOptions>;
     fn SetOptions(&self, value: SelectionOptions) -> ::windows::core::Result<()>;
@@ -2300,11 +2354,13 @@ pub trait ITextSelectionImpl: Sized + ITextRangeImpl {
     fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
     fn TypeText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for ITextSelection {
     const NAME: &'static str = "Windows.UI.Text.ITextSelection";
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ITextSelectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextSelectionImpl, const OFFSET: isize>() -> ITextSelectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextSelectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextSelectionVtbl {
         unsafe extern "system" fn Options<Impl: ITextSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SelectionOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
@@ -2402,22 +2458,25 @@ impl ITextSelectionVtbl {
             (*this).TypeText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITextSelection>,
             ::windows::core::GetTrustLevel,
-            Options::<Impl, OFFSET>,
-            SetOptions::<Impl, OFFSET>,
-            Type::<Impl, OFFSET>,
-            EndKey::<Impl, OFFSET>,
-            HomeKey::<Impl, OFFSET>,
-            MoveDown::<Impl, OFFSET>,
-            MoveLeft::<Impl, OFFSET>,
-            MoveRight::<Impl, OFFSET>,
-            MoveUp::<Impl, OFFSET>,
-            TypeText::<Impl, OFFSET>,
+            Options::<Impl, IMPL_OFFSET>,
+            SetOptions::<Impl, IMPL_OFFSET>,
+            Type::<Impl, IMPL_OFFSET>,
+            EndKey::<Impl, IMPL_OFFSET>,
+            HomeKey::<Impl, IMPL_OFFSET>,
+            MoveDown::<Impl, IMPL_OFFSET>,
+            MoveLeft::<Impl, IMPL_OFFSET>,
+            MoveRight::<Impl, IMPL_OFFSET>,
+            MoveUp::<Impl, IMPL_OFFSET>,
+            TypeText::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextSelection as ::windows::core::Interface>::IID
     }
 }

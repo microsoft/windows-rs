@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IConditionForceEffectImpl: Sized + IForceFeedbackEffectImpl {
     fn Kind(&self) -> ::windows::core::Result<ConditionForceEffectKind>;
     fn SetParameters(&self, direction: &super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IConditionForceEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IConditionForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectImpl, const OFFSET: isize>() -> IConditionForceEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionForceEffectVtbl {
         unsafe extern "system" fn Kind<Impl: IConditionForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConditionForceEffectKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -25,7 +25,10 @@ impl IConditionForceEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParameters(&*(&direction as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConditionForceEffect>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>, SetParameters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConditionForceEffect>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, SetParameters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConditionForceEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -38,7 +41,7 @@ impl ::windows::core::RuntimeName for IConditionForceEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConditionForceEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectFactoryImpl, const OFFSET: isize>() -> IConditionForceEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionForceEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IConditionForceEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectkind: ConditionForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(effectkind) {
@@ -50,21 +53,24 @@ impl IConditionForceEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConditionForceEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConditionForceEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConditionForceEffectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IConstantForceEffectImpl: Sized + IForceFeedbackEffectImpl {
     fn SetParameters(&self, vector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SetParametersWithEnvelope(&self, vector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IConstantForceEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IConstantForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConstantForceEffectImpl, const OFFSET: isize>() -> IConstantForceEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConstantForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConstantForceEffectVtbl {
         unsafe extern "system" fn SetParameters<Impl: IConstantForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParameters(&*(&vector as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&duration as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
@@ -85,7 +91,10 @@ impl IConstantForceEffectVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConstantForceEffect>, ::windows::core::GetTrustLevel, SetParameters::<Impl, OFFSET>, SetParametersWithEnvelope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConstantForceEffect>, ::windows::core::GetTrustLevel, SetParameters::<Impl, IMPL_OFFSET>, SetParametersWithEnvelope::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConstantForceEffect as ::windows::core::Interface>::IID
     }
 }
 pub trait IForceFeedbackEffectImpl: Sized {
@@ -99,7 +108,7 @@ impl ::windows::core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
 }
 impl IForceFeedbackEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackEffectImpl, const OFFSET: isize>() -> IForceFeedbackEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForceFeedbackEffectVtbl {
         unsafe extern "system" fn Gain<Impl: IForceFeedbackEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gain() {
@@ -134,10 +143,13 @@ impl IForceFeedbackEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IForceFeedbackEffect>, ::windows::core::GetTrustLevel, Gain::<Impl, OFFSET>, SetGain::<Impl, OFFSET>, State::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IForceFeedbackEffect>, ::windows::core::GetTrustLevel, Gain::<Impl, IMPL_OFFSET>, SetGain::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IForceFeedbackEffect as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IForceFeedbackMotorImpl: Sized {
     fn AreEffectsPaused(&self) -> ::windows::core::Result<bool>;
     fn MasterGain(&self) -> ::windows::core::Result<f64>;
@@ -153,13 +165,13 @@ pub trait IForceFeedbackMotorImpl: Sized {
     fn TryResetAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
     fn TryUnloadEffectAsync(&self, effect: &::core::option::Option<IForceFeedbackEffect>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IForceFeedbackMotorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackMotorImpl, const OFFSET: isize>() -> IForceFeedbackMotorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackMotorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForceFeedbackMotorVtbl {
         unsafe extern "system" fn AreEffectsPaused<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreEffectsPaused() {
@@ -276,41 +288,44 @@ impl IForceFeedbackMotorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IForceFeedbackMotor>,
             ::windows::core::GetTrustLevel,
-            AreEffectsPaused::<Impl, OFFSET>,
-            MasterGain::<Impl, OFFSET>,
-            SetMasterGain::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SupportedAxes::<Impl, OFFSET>,
-            LoadEffectAsync::<Impl, OFFSET>,
-            PauseAllEffects::<Impl, OFFSET>,
-            ResumeAllEffects::<Impl, OFFSET>,
-            StopAllEffects::<Impl, OFFSET>,
-            TryDisableAsync::<Impl, OFFSET>,
-            TryEnableAsync::<Impl, OFFSET>,
-            TryResetAsync::<Impl, OFFSET>,
-            TryUnloadEffectAsync::<Impl, OFFSET>,
+            AreEffectsPaused::<Impl, IMPL_OFFSET>,
+            MasterGain::<Impl, IMPL_OFFSET>,
+            SetMasterGain::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SupportedAxes::<Impl, IMPL_OFFSET>,
+            LoadEffectAsync::<Impl, IMPL_OFFSET>,
+            PauseAllEffects::<Impl, IMPL_OFFSET>,
+            ResumeAllEffects::<Impl, IMPL_OFFSET>,
+            StopAllEffects::<Impl, IMPL_OFFSET>,
+            TryDisableAsync::<Impl, IMPL_OFFSET>,
+            TryEnableAsync::<Impl, IMPL_OFFSET>,
+            TryResetAsync::<Impl, IMPL_OFFSET>,
+            TryUnloadEffectAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IForceFeedbackMotor as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IPeriodicForceEffectImpl: Sized + IForceFeedbackEffectImpl {
     fn Kind(&self) -> ::windows::core::Result<PeriodicForceEffectKind>;
     fn SetParameters(&self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SetParametersWithEnvelope(&self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IPeriodicForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectImpl, const OFFSET: isize>() -> IPeriodicForceEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeriodicForceEffectVtbl {
         unsafe extern "system" fn Kind<Impl: IPeriodicForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PeriodicForceEffectKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -345,7 +360,10 @@ impl IPeriodicForceEffectVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeriodicForceEffect>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>, SetParameters::<Impl, OFFSET>, SetParametersWithEnvelope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeriodicForceEffect>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, SetParameters::<Impl, IMPL_OFFSET>, SetParametersWithEnvelope::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeriodicForceEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -358,7 +376,7 @@ impl ::windows::core::RuntimeName for IPeriodicForceEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPeriodicForceEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectFactoryImpl, const OFFSET: isize>() -> IPeriodicForceEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeriodicForceEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IPeriodicForceEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectkind: PeriodicForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(effectkind) {
@@ -370,21 +388,24 @@ impl IPeriodicForceEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeriodicForceEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeriodicForceEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeriodicForceEffectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IRampForceEffectImpl: Sized + IForceFeedbackEffectImpl {
     fn SetParameters(&self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SetParametersWithEnvelope(&self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IRampForceEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IRampForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRampForceEffectImpl, const OFFSET: isize>() -> IRampForceEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRampForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRampForceEffectVtbl {
         unsafe extern "system" fn SetParameters<Impl: IRampForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
@@ -412,6 +433,9 @@ impl IRampForceEffectVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRampForceEffect>, ::windows::core::GetTrustLevel, SetParameters::<Impl, OFFSET>, SetParametersWithEnvelope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRampForceEffect>, ::windows::core::GetTrustLevel, SetParameters::<Impl, IMPL_OFFSET>, SetParametersWithEnvelope::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRampForceEffect as ::windows::core::Interface>::IID
     }
 }

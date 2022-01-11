@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceImpl: Sized {
     fn RemoteServiceInfo(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn SupportedConfigurationMethods(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>>;
@@ -13,13 +13,13 @@ pub trait IWiFiDirectServiceImpl: Sized {
     fn ConnectAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>;
     fn ConnectAsyncWithPin(&self, pin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectService {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectService";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceImpl, const OFFSET: isize>() -> IWiFiDirectServiceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceVtbl {
         unsafe extern "system" fn RemoteServiceInfo<Impl: IWiFiDirectServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteServiceInfo() {
@@ -132,28 +132,31 @@ impl IWiFiDirectServiceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWiFiDirectService>,
             ::windows::core::GetTrustLevel,
-            RemoteServiceInfo::<Impl, OFFSET>,
-            SupportedConfigurationMethods::<Impl, OFFSET>,
-            PreferGroupOwnerMode::<Impl, OFFSET>,
-            SetPreferGroupOwnerMode::<Impl, OFFSET>,
-            SessionInfo::<Impl, OFFSET>,
-            SetSessionInfo::<Impl, OFFSET>,
-            ServiceError::<Impl, OFFSET>,
-            SessionDeferred::<Impl, OFFSET>,
-            RemoveSessionDeferred::<Impl, OFFSET>,
-            GetProvisioningInfoAsync::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
-            ConnectAsyncWithPin::<Impl, OFFSET>,
+            RemoteServiceInfo::<Impl, IMPL_OFFSET>,
+            SupportedConfigurationMethods::<Impl, IMPL_OFFSET>,
+            PreferGroupOwnerMode::<Impl, IMPL_OFFSET>,
+            SetPreferGroupOwnerMode::<Impl, IMPL_OFFSET>,
+            SessionInfo::<Impl, IMPL_OFFSET>,
+            SetSessionInfo::<Impl, IMPL_OFFSET>,
+            ServiceError::<Impl, IMPL_OFFSET>,
+            SessionDeferred::<Impl, IMPL_OFFSET>,
+            RemoveSessionDeferred::<Impl, IMPL_OFFSET>,
+            GetProvisioningInfoAsync::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
+            ConnectAsyncWithPin::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectService as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceAdvertiserImpl: Sized {
     fn ServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ServiceNamePrefixes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -183,13 +186,13 @@ pub trait IWiFiDirectServiceAdvertiserImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceAdvertiser {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceAdvertiserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceAdvertiserImpl, const OFFSET: isize>() -> IWiFiDirectServiceAdvertiserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceAdvertiserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceAdvertiserVtbl {
         unsafe extern "system" fn ServiceName<Impl: IWiFiDirectServiceAdvertiserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceName() {
@@ -411,40 +414,43 @@ impl IWiFiDirectServiceAdvertiserVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceAdvertiser>,
             ::windows::core::GetTrustLevel,
-            ServiceName::<Impl, OFFSET>,
-            ServiceNamePrefixes::<Impl, OFFSET>,
-            ServiceInfo::<Impl, OFFSET>,
-            SetServiceInfo::<Impl, OFFSET>,
-            AutoAcceptSession::<Impl, OFFSET>,
-            SetAutoAcceptSession::<Impl, OFFSET>,
-            PreferGroupOwnerMode::<Impl, OFFSET>,
-            SetPreferGroupOwnerMode::<Impl, OFFSET>,
-            PreferredConfigurationMethods::<Impl, OFFSET>,
-            ServiceStatus::<Impl, OFFSET>,
-            SetServiceStatus::<Impl, OFFSET>,
-            CustomServiceStatusCode::<Impl, OFFSET>,
-            SetCustomServiceStatusCode::<Impl, OFFSET>,
-            DeferredSessionInfo::<Impl, OFFSET>,
-            SetDeferredSessionInfo::<Impl, OFFSET>,
-            AdvertisementStatus::<Impl, OFFSET>,
-            ServiceError::<Impl, OFFSET>,
-            SessionRequested::<Impl, OFFSET>,
-            RemoveSessionRequested::<Impl, OFFSET>,
-            AutoAcceptSessionConnected::<Impl, OFFSET>,
-            RemoveAutoAcceptSessionConnected::<Impl, OFFSET>,
-            AdvertisementStatusChanged::<Impl, OFFSET>,
-            RemoveAdvertisementStatusChanged::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
-            ConnectAsyncWithPin::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            ServiceName::<Impl, IMPL_OFFSET>,
+            ServiceNamePrefixes::<Impl, IMPL_OFFSET>,
+            ServiceInfo::<Impl, IMPL_OFFSET>,
+            SetServiceInfo::<Impl, IMPL_OFFSET>,
+            AutoAcceptSession::<Impl, IMPL_OFFSET>,
+            SetAutoAcceptSession::<Impl, IMPL_OFFSET>,
+            PreferGroupOwnerMode::<Impl, IMPL_OFFSET>,
+            SetPreferGroupOwnerMode::<Impl, IMPL_OFFSET>,
+            PreferredConfigurationMethods::<Impl, IMPL_OFFSET>,
+            ServiceStatus::<Impl, IMPL_OFFSET>,
+            SetServiceStatus::<Impl, IMPL_OFFSET>,
+            CustomServiceStatusCode::<Impl, IMPL_OFFSET>,
+            SetCustomServiceStatusCode::<Impl, IMPL_OFFSET>,
+            DeferredSessionInfo::<Impl, IMPL_OFFSET>,
+            SetDeferredSessionInfo::<Impl, IMPL_OFFSET>,
+            AdvertisementStatus::<Impl, IMPL_OFFSET>,
+            ServiceError::<Impl, IMPL_OFFSET>,
+            SessionRequested::<Impl, IMPL_OFFSET>,
+            RemoveSessionRequested::<Impl, IMPL_OFFSET>,
+            AutoAcceptSessionConnected::<Impl, IMPL_OFFSET>,
+            RemoveAutoAcceptSessionConnected::<Impl, IMPL_OFFSET>,
+            AdvertisementStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveAdvertisementStatusChanged::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
+            ConnectAsyncWithPin::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceAdvertiser as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -457,7 +463,7 @@ impl ::windows::core::RuntimeName for IWiFiDirectServiceAdvertiserFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWiFiDirectServiceAdvertiserFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceAdvertiserFactoryImpl, const OFFSET: isize>() -> IWiFiDirectServiceAdvertiserFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceAdvertiserFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceAdvertiserFactoryVtbl {
         unsafe extern "system" fn CreateWiFiDirectServiceAdvertiser<Impl: IWiFiDirectServiceAdvertiserFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWiFiDirectServiceAdvertiser(&*(&servicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -469,21 +475,24 @@ impl IWiFiDirectServiceAdvertiserFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceAdvertiserFactory>, ::windows::core::GetTrustLevel, CreateWiFiDirectServiceAdvertiser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceAdvertiserFactory>, ::windows::core::GetTrustLevel, CreateWiFiDirectServiceAdvertiser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceAdvertiserFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsImpl: Sized {
     fn Session(&self) -> ::windows::core::Result<WiFiDirectServiceSession>;
     fn SessionInfo(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsImpl, const OFFSET: isize>() -> IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl {
         unsafe extern "system" fn Session<Impl: IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -506,7 +515,10 @@ impl IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>, SessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -520,7 +532,7 @@ impl ::windows::core::RuntimeName for IWiFiDirectServiceProvisioningInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWiFiDirectServiceProvisioningInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceProvisioningInfoImpl, const OFFSET: isize>() -> IWiFiDirectServiceProvisioningInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceProvisioningInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceProvisioningInfoVtbl {
         unsafe extern "system" fn SelectedConfigurationMethod<Impl: IWiFiDirectServiceProvisioningInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiDirectServiceConfigurationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedConfigurationMethod() {
@@ -543,21 +555,24 @@ impl IWiFiDirectServiceProvisioningInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceProvisioningInfo>, ::windows::core::GetTrustLevel, SelectedConfigurationMethod::<Impl, OFFSET>, IsGroupFormationNeeded::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceProvisioningInfo>, ::windows::core::GetTrustLevel, SelectedConfigurationMethod::<Impl, IMPL_OFFSET>, IsGroupFormationNeeded::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceProvisioningInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceRemotePortAddedEventArgsImpl: Sized {
     fn EndpointPairs(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>>;
     fn Protocol(&self) -> ::windows::core::Result<WiFiDirectServiceIPProtocol>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceRemotePortAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceRemotePortAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceRemotePortAddedEventArgsImpl, const OFFSET: isize>() -> IWiFiDirectServiceRemotePortAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceRemotePortAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceRemotePortAddedEventArgsVtbl {
         unsafe extern "system" fn EndpointPairs<Impl: IWiFiDirectServiceRemotePortAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointPairs() {
@@ -580,10 +595,13 @@ impl IWiFiDirectServiceRemotePortAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceRemotePortAddedEventArgs>, ::windows::core::GetTrustLevel, EndpointPairs::<Impl, OFFSET>, Protocol::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceRemotePortAddedEventArgs>, ::windows::core::GetTrustLevel, EndpointPairs::<Impl, IMPL_OFFSET>, Protocol::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceRemotePortAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceSessionImpl: Sized + IClosableImpl {
     fn ServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Status(&self) -> ::windows::core::Result<WiFiDirectServiceSessionStatus>;
@@ -600,13 +618,13 @@ pub trait IWiFiDirectServiceSessionImpl: Sized + IClosableImpl {
     fn RemotePortAdded(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceSession, WiFiDirectServiceRemotePortAddedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveRemotePortAdded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceSession {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionImpl, const OFFSET: isize>() -> IWiFiDirectServiceSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceSessionVtbl {
         unsafe extern "system" fn ServiceName<Impl: IWiFiDirectServiceSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceName() {
@@ -748,40 +766,43 @@ impl IWiFiDirectServiceSessionVtbl {
             (*this).RemoveRemotePortAdded(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSession>,
             ::windows::core::GetTrustLevel,
-            ServiceName::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            ErrorStatus::<Impl, OFFSET>,
-            SessionId::<Impl, OFFSET>,
-            AdvertisementId::<Impl, OFFSET>,
-            ServiceAddress::<Impl, OFFSET>,
-            SessionAddress::<Impl, OFFSET>,
-            GetConnectionEndpointPairs::<Impl, OFFSET>,
-            SessionStatusChanged::<Impl, OFFSET>,
-            RemoveSessionStatusChanged::<Impl, OFFSET>,
-            AddStreamSocketListenerAsync::<Impl, OFFSET>,
-            AddDatagramSocketAsync::<Impl, OFFSET>,
-            RemotePortAdded::<Impl, OFFSET>,
-            RemoveRemotePortAdded::<Impl, OFFSET>,
+            ServiceName::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            ErrorStatus::<Impl, IMPL_OFFSET>,
+            SessionId::<Impl, IMPL_OFFSET>,
+            AdvertisementId::<Impl, IMPL_OFFSET>,
+            ServiceAddress::<Impl, IMPL_OFFSET>,
+            SessionAddress::<Impl, IMPL_OFFSET>,
+            GetConnectionEndpointPairs::<Impl, IMPL_OFFSET>,
+            SessionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSessionStatusChanged::<Impl, IMPL_OFFSET>,
+            AddStreamSocketListenerAsync::<Impl, IMPL_OFFSET>,
+            AddDatagramSocketAsync::<Impl, IMPL_OFFSET>,
+            RemotePortAdded::<Impl, IMPL_OFFSET>,
+            RemoveRemotePortAdded::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceSession as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceSessionDeferredEventArgsImpl: Sized {
     fn DeferredSessionInfo(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceSessionDeferredEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionDeferredEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceSessionDeferredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionDeferredEventArgsImpl, const OFFSET: isize>() -> IWiFiDirectServiceSessionDeferredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionDeferredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceSessionDeferredEventArgsVtbl {
         unsafe extern "system" fn DeferredSessionInfo<Impl: IWiFiDirectServiceSessionDeferredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeferredSessionInfo() {
@@ -793,22 +814,25 @@ impl IWiFiDirectServiceSessionDeferredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSessionDeferredEventArgs>, ::windows::core::GetTrustLevel, DeferredSessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSessionDeferredEventArgs>, ::windows::core::GetTrustLevel, DeferredSessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceSessionDeferredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceSessionRequestImpl: Sized + IClosableImpl {
     fn DeviceInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceInformation>;
     fn ProvisioningInfo(&self) -> ::windows::core::Result<WiFiDirectServiceProvisioningInfo>;
     fn SessionInfo(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceSessionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceSessionRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionRequestImpl, const OFFSET: isize>() -> IWiFiDirectServiceSessionRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceSessionRequestVtbl {
         unsafe extern "system" fn DeviceInformation<Impl: IWiFiDirectServiceSessionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
@@ -842,7 +866,10 @@ impl IWiFiDirectServiceSessionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSessionRequest>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, OFFSET>, ProvisioningInfo::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSessionRequest>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>, ProvisioningInfo::<Impl, IMPL_OFFSET>, SessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceSessionRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -855,7 +882,7 @@ impl ::windows::core::RuntimeName for IWiFiDirectServiceSessionRequestedEventArg
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWiFiDirectServiceSessionRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionRequestedEventArgsImpl, const OFFSET: isize>() -> IWiFiDirectServiceSessionRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceSessionRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceSessionRequestedEventArgsVtbl {
         unsafe extern "system" fn GetSessionRequest<Impl: IWiFiDirectServiceSessionRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSessionRequest() {
@@ -867,22 +894,25 @@ impl IWiFiDirectServiceSessionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSessionRequestedEventArgs>, ::windows::core::GetTrustLevel, GetSessionRequest::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceSessionRequestedEventArgs>, ::windows::core::GetTrustLevel, GetSessionRequest::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceSessionRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWiFiDirectServiceStaticsImpl: Sized {
     fn GetSelector(&self, servicename: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetSelectorWithFilter(&self, servicename: &::windows::core::HSTRING, serviceinfofilter: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectService>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiDirectServiceStatics {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IWiFiDirectServiceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceStaticsImpl, const OFFSET: isize>() -> IWiFiDirectServiceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiDirectServiceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiDirectServiceStaticsVtbl {
         unsafe extern "system" fn GetSelector<Impl: IWiFiDirectServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelector(&*(&servicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -916,6 +946,9 @@ impl IWiFiDirectServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceStatics>, ::windows::core::GetTrustLevel, GetSelector::<Impl, OFFSET>, GetSelectorWithFilter::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiDirectServiceStatics>, ::windows::core::GetTrustLevel, GetSelector::<Impl, IMPL_OFFSET>, GetSelectorWithFilter::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiDirectServiceStatics as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAccessoryManagerImpl: Sized {
     fn RegisterAccessoryApp(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetNextTriggerDetails(&self) -> ::windows::core::Result<IAccessoryNotificationTriggerDetails>;
@@ -45,13 +45,13 @@ pub trait IAccessoryManagerImpl: Sized {
     fn GetUserConsent(&self) -> ::windows::core::Result<bool>;
     fn GetAppIcon(&self, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccessoryManager {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IAccessoryManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManagerImpl, const OFFSET: isize>() -> IAccessoryManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessoryManagerVtbl {
         unsafe extern "system" fn RegisterAccessoryApp<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterAccessoryApp() {
@@ -348,60 +348,63 @@ impl IAccessoryManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAccessoryManager>,
             ::windows::core::GetTrustLevel,
-            RegisterAccessoryApp::<Impl, OFFSET>,
-            GetNextTriggerDetails::<Impl, OFFSET>,
-            ProcessTriggerDetails::<Impl, OFFSET>,
-            PhoneLineDetails::<Impl, OFFSET>,
-            GetPhoneLineDetails::<Impl, OFFSET>,
-            AcceptPhoneCall::<Impl, OFFSET>,
-            AcceptPhoneCallOnEndpoint::<Impl, OFFSET>,
-            AcceptPhoneCallWithVideo::<Impl, OFFSET>,
-            AcceptPhoneCallWithVideoOnAudioEndpoint::<Impl, OFFSET>,
-            RejectPhoneCall::<Impl, OFFSET>,
-            RejectPhoneCallWithText::<Impl, OFFSET>,
-            MakePhoneCall::<Impl, OFFSET>,
-            MakePhoneCallOnAudioEndpoint::<Impl, OFFSET>,
-            MakePhoneCallWithVideo::<Impl, OFFSET>,
-            MakePhoneCallWithVideoOnAudioEndpoint::<Impl, OFFSET>,
-            SwapPhoneCalls::<Impl, OFFSET>,
-            HoldPhoneCall::<Impl, OFFSET>,
-            EndPhoneCall::<Impl, OFFSET>,
-            SetPhoneMute::<Impl, OFFSET>,
-            PhoneMute::<Impl, OFFSET>,
-            SetPhoneCallAudioEndpoint::<Impl, OFFSET>,
-            PhoneCallAudioEndpoint::<Impl, OFFSET>,
-            SnoozeAlarm::<Impl, OFFSET>,
-            SnoozeAlarmForSpecifiedTime::<Impl, OFFSET>,
-            DismissAlarm::<Impl, OFFSET>,
-            SnoozeReminder::<Impl, OFFSET>,
-            SnoozeReminderForSpecifiedTime::<Impl, OFFSET>,
-            DismissReminder::<Impl, OFFSET>,
-            GetMediaMetadata::<Impl, OFFSET>,
-            MediaPlaybackCapabilities::<Impl, OFFSET>,
-            MediaPlaybackStatus::<Impl, OFFSET>,
-            PerformMediaPlaybackCommand::<Impl, OFFSET>,
-            DoNotDisturbEnabled::<Impl, OFFSET>,
-            DrivingModeEnabled::<Impl, OFFSET>,
-            BatterySaverState::<Impl, OFFSET>,
-            GetApps::<Impl, OFFSET>,
-            EnableNotificationsForApplication::<Impl, OFFSET>,
-            DisableNotificationsForApplication::<Impl, OFFSET>,
-            IsNotificationEnabledForApplication::<Impl, OFFSET>,
-            GetEnabledAccessoryNotificationTypes::<Impl, OFFSET>,
-            EnableAccessoryNotificationTypes::<Impl, OFFSET>,
-            DisableAllAccessoryNotificationTypes::<Impl, OFFSET>,
-            GetUserConsent::<Impl, OFFSET>,
-            GetAppIcon::<Impl, OFFSET>,
+            RegisterAccessoryApp::<Impl, IMPL_OFFSET>,
+            GetNextTriggerDetails::<Impl, IMPL_OFFSET>,
+            ProcessTriggerDetails::<Impl, IMPL_OFFSET>,
+            PhoneLineDetails::<Impl, IMPL_OFFSET>,
+            GetPhoneLineDetails::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCall::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCallOnEndpoint::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCallWithVideo::<Impl, IMPL_OFFSET>,
+            AcceptPhoneCallWithVideoOnAudioEndpoint::<Impl, IMPL_OFFSET>,
+            RejectPhoneCall::<Impl, IMPL_OFFSET>,
+            RejectPhoneCallWithText::<Impl, IMPL_OFFSET>,
+            MakePhoneCall::<Impl, IMPL_OFFSET>,
+            MakePhoneCallOnAudioEndpoint::<Impl, IMPL_OFFSET>,
+            MakePhoneCallWithVideo::<Impl, IMPL_OFFSET>,
+            MakePhoneCallWithVideoOnAudioEndpoint::<Impl, IMPL_OFFSET>,
+            SwapPhoneCalls::<Impl, IMPL_OFFSET>,
+            HoldPhoneCall::<Impl, IMPL_OFFSET>,
+            EndPhoneCall::<Impl, IMPL_OFFSET>,
+            SetPhoneMute::<Impl, IMPL_OFFSET>,
+            PhoneMute::<Impl, IMPL_OFFSET>,
+            SetPhoneCallAudioEndpoint::<Impl, IMPL_OFFSET>,
+            PhoneCallAudioEndpoint::<Impl, IMPL_OFFSET>,
+            SnoozeAlarm::<Impl, IMPL_OFFSET>,
+            SnoozeAlarmForSpecifiedTime::<Impl, IMPL_OFFSET>,
+            DismissAlarm::<Impl, IMPL_OFFSET>,
+            SnoozeReminder::<Impl, IMPL_OFFSET>,
+            SnoozeReminderForSpecifiedTime::<Impl, IMPL_OFFSET>,
+            DismissReminder::<Impl, IMPL_OFFSET>,
+            GetMediaMetadata::<Impl, IMPL_OFFSET>,
+            MediaPlaybackCapabilities::<Impl, IMPL_OFFSET>,
+            MediaPlaybackStatus::<Impl, IMPL_OFFSET>,
+            PerformMediaPlaybackCommand::<Impl, IMPL_OFFSET>,
+            DoNotDisturbEnabled::<Impl, IMPL_OFFSET>,
+            DrivingModeEnabled::<Impl, IMPL_OFFSET>,
+            BatterySaverState::<Impl, IMPL_OFFSET>,
+            GetApps::<Impl, IMPL_OFFSET>,
+            EnableNotificationsForApplication::<Impl, IMPL_OFFSET>,
+            DisableNotificationsForApplication::<Impl, IMPL_OFFSET>,
+            IsNotificationEnabledForApplication::<Impl, IMPL_OFFSET>,
+            GetEnabledAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
+            EnableAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
+            DisableAllAccessoryNotificationTypes::<Impl, IMPL_OFFSET>,
+            GetUserConsent::<Impl, IMPL_OFFSET>,
+            GetAppIcon::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAccessoryManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAccessoryManager2Impl: Sized {
     fn RingDevice(&self) -> ::windows::core::Result<()>;
     fn SpeedDialList(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>>;
@@ -419,13 +422,13 @@ pub trait IAccessoryManager2Impl: Sized {
     fn EnableEmailNotificationFolderFilter(&self, emailaccount: &::windows::core::HSTRING, folders: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
     fn UpdateEmailReadStatus(&self, messageentryid: &::core::option::Option<BinaryId>, isread: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccessoryManager2 {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAccessoryManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManager2Impl, const OFFSET: isize>() -> IAccessoryManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessoryManager2Vtbl {
         unsafe extern "system" fn RingDevice<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RingDevice().into()
@@ -524,28 +527,31 @@ impl IAccessoryManager2Vtbl {
             (*this).UpdateEmailReadStatus(&*(&messageentryid as *const <BinaryId as ::windows::core::Abi>::Abi as *const <BinaryId as ::windows::core::DefaultType>::DefaultType), isread).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAccessoryManager2>,
             ::windows::core::GetTrustLevel,
-            RingDevice::<Impl, OFFSET>,
-            SpeedDialList::<Impl, OFFSET>,
-            ClearToast::<Impl, OFFSET>,
-            IsPhonePinLocked::<Impl, OFFSET>,
-            IncreaseVolume::<Impl, OFFSET>,
-            DecreaseVolume::<Impl, OFFSET>,
-            SetMute::<Impl, OFFSET>,
-            SetRingerVibrate::<Impl, OFFSET>,
-            VolumeInfo::<Impl, OFFSET>,
-            GetAllEmailAccounts::<Impl, OFFSET>,
-            GetFolders::<Impl, OFFSET>,
-            EnableEmailNotificationEmailAccount::<Impl, OFFSET>,
-            DisableEmailNotificationEmailAccount::<Impl, OFFSET>,
-            EnableEmailNotificationFolderFilter::<Impl, OFFSET>,
-            UpdateEmailReadStatus::<Impl, OFFSET>,
+            RingDevice::<Impl, IMPL_OFFSET>,
+            SpeedDialList::<Impl, IMPL_OFFSET>,
+            ClearToast::<Impl, IMPL_OFFSET>,
+            IsPhonePinLocked::<Impl, IMPL_OFFSET>,
+            IncreaseVolume::<Impl, IMPL_OFFSET>,
+            DecreaseVolume::<Impl, IMPL_OFFSET>,
+            SetMute::<Impl, IMPL_OFFSET>,
+            SetRingerVibrate::<Impl, IMPL_OFFSET>,
+            VolumeInfo::<Impl, IMPL_OFFSET>,
+            GetAllEmailAccounts::<Impl, IMPL_OFFSET>,
+            GetFolders::<Impl, IMPL_OFFSET>,
+            EnableEmailNotificationEmailAccount::<Impl, IMPL_OFFSET>,
+            DisableEmailNotificationEmailAccount::<Impl, IMPL_OFFSET>,
+            EnableEmailNotificationFolderFilter::<Impl, IMPL_OFFSET>,
+            UpdateEmailReadStatus::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAccessoryManager2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -561,7 +567,7 @@ impl ::windows::core::RuntimeName for IAccessoryManager3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAccessoryManager3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManager3Impl, const OFFSET: isize>() -> IAccessoryManager3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManager3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessoryManager3Vtbl {
         unsafe extern "system" fn SnoozeAlarmByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeAlarmByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -578,9 +584,13 @@ impl IAccessoryManager3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissReminderByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessoryManager3>, ::windows::core::GetTrustLevel, SnoozeAlarmByInstanceId::<Impl, OFFSET>, DismissAlarmByInstanceId::<Impl, OFFSET>, SnoozeReminderByInstanceId::<Impl, OFFSET>, DismissReminderByInstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessoryManager3>, ::windows::core::GetTrustLevel, SnoozeAlarmByInstanceId::<Impl, IMPL_OFFSET>, DismissAlarmByInstanceId::<Impl, IMPL_OFFSET>, SnoozeReminderByInstanceId::<Impl, IMPL_OFFSET>, DismissReminderByInstanceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAccessoryManager3 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IAccessoryNotificationTriggerDetailsImpl: Sized {
     fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
     fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -589,11 +599,13 @@ pub trait IAccessoryNotificationTriggerDetailsImpl: Sized {
     fn StartedProcessing(&self) -> ::windows::core::Result<bool>;
     fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IAccessoryNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryNotificationTriggerDetails";
 }
+#[cfg(feature = "Foundation")]
 impl IAccessoryNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IAccessoryNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessoryNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn TimeCreated<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeCreated() {
@@ -653,23 +665,39 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartedProcessing(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessoryNotificationTriggerDetails>, ::windows::core::GetTrustLevel, TimeCreated::<Impl, OFFSET>, AppDisplayName::<Impl, OFFSET>, AppId::<Impl, OFFSET>, AccessoryNotificationType::<Impl, OFFSET>, StartedProcessing::<Impl, OFFSET>, SetStartedProcessing::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAccessoryNotificationTriggerDetails>,
+            ::windows::core::GetTrustLevel,
+            TimeCreated::<Impl, IMPL_OFFSET>,
+            AppDisplayName::<Impl, IMPL_OFFSET>,
+            AppId::<Impl, IMPL_OFFSET>,
+            AccessoryNotificationType::<Impl, IMPL_OFFSET>,
+            StartedProcessing::<Impl, IMPL_OFFSET>,
+            SetStartedProcessing::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAccessoryNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAlarmNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn AlarmId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
     fn ReminderState(&self) -> ::windows::core::Result<ReminderState>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAlarmNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAlarmNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAlarmNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IAlarmNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlarmNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn AlarmId<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlarmId() {
@@ -714,7 +742,10 @@ impl IAlarmNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AlarmId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, ReminderState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AlarmId::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, ReminderState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlarmNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -727,7 +758,7 @@ impl ::windows::core::RuntimeName for IAlarmNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAlarmNotificationTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IAlarmNotificationTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmNotificationTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlarmNotificationTriggerDetails2Vtbl {
         unsafe extern "system" fn InstanceId<Impl: IAlarmNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
@@ -739,7 +770,10 @@ impl IAlarmNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlarmNotificationTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -753,7 +787,7 @@ impl ::windows::core::RuntimeName for IAppNotificationInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppNotificationInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppNotificationInfoImpl, const OFFSET: isize>() -> IAppNotificationInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppNotificationInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppNotificationInfoVtbl {
         unsafe extern "system" fn Id<Impl: IAppNotificationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -776,7 +810,10 @@ impl IAppNotificationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppNotificationInfo>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Name::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppNotificationInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppNotificationInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -790,7 +827,7 @@ impl ::windows::core::RuntimeName for IBinaryId {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBinaryIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBinaryIdImpl, const OFFSET: isize>() -> IBinaryIdVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBinaryIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBinaryIdVtbl {
         unsafe extern "system" fn Id<Impl: IBinaryIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -813,21 +850,24 @@ impl IBinaryIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBinaryId>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Length::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBinaryId>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Length::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBinaryId as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICalendarChangedNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn EventType(&self) -> ::windows::core::Result<CalendarChangedEvent>;
     fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarChangedNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ICalendarChangedNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICalendarChangedNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: isize>() -> ICalendarChangedNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarChangedNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarChangedNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn EventType<Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CalendarChangedEvent) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventType() {
@@ -850,10 +890,13 @@ impl ICalendarChangedNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarChangedNotificationTriggerDetails>, ::windows::core::GetTrustLevel, EventType::<Impl, OFFSET>, ItemId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarChangedNotificationTriggerDetails>, ::windows::core::GetTrustLevel, EventType::<Impl, IMPL_OFFSET>, ItemId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendarChangedNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICortanaTileNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Content(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -866,13 +909,13 @@ pub trait ICortanaTileNotificationTriggerDetailsImpl: Sized + IAccessoryNotifica
     fn NonWrappedSmallContent4(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaTileNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ICortanaTileNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICortanaTileNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>() -> ICortanaTileNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaTileNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICortanaTileNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn TileId<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TileId() {
@@ -984,23 +1027,26 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICortanaTileNotificationTriggerDetails>,
             ::windows::core::GetTrustLevel,
-            TileId::<Impl, OFFSET>,
-            Content::<Impl, OFFSET>,
-            LargeContent1::<Impl, OFFSET>,
-            LargeContent2::<Impl, OFFSET>,
-            EmphasizedText::<Impl, OFFSET>,
-            NonWrappedSmallContent1::<Impl, OFFSET>,
-            NonWrappedSmallContent2::<Impl, OFFSET>,
-            NonWrappedSmallContent3::<Impl, OFFSET>,
-            NonWrappedSmallContent4::<Impl, OFFSET>,
-            Source::<Impl, OFFSET>,
+            TileId::<Impl, IMPL_OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            LargeContent1::<Impl, IMPL_OFFSET>,
+            LargeContent2::<Impl, IMPL_OFFSET>,
+            EmphasizedText::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent1::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent2::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent3::<Impl, IMPL_OFFSET>,
+            NonWrappedSmallContent4::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICortanaTileNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1014,7 +1060,7 @@ impl ::windows::core::RuntimeName for IEmailAccountInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailAccountInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAccountInfoImpl, const OFFSET: isize>() -> IEmailAccountInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAccountInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailAccountInfoVtbl {
         unsafe extern "system" fn DisplayName<Impl: IEmailAccountInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -1037,7 +1083,10 @@ impl IEmailAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAccountInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, IsNotificationEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAccountInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, IsNotificationEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailAccountInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1051,7 +1100,7 @@ impl ::windows::core::RuntimeName for IEmailFolderInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailFolderInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailFolderInfoImpl, const OFFSET: isize>() -> IEmailFolderInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailFolderInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailFolderInfoVtbl {
         unsafe extern "system" fn DisplayName<Impl: IEmailFolderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -1074,10 +1123,13 @@ impl IEmailFolderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailFolderInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, IsNotificationEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailFolderInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, IsNotificationEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailFolderInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn AccountName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ParentFolderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1086,13 +1138,13 @@ pub trait IEmailNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTr
     fn EmailMessage(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Email::EmailMessage>;
     fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IEmailNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IEmailNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn AccountName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountName() {
@@ -1159,20 +1211,36 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AccountName::<Impl, OFFSET>, ParentFolderName::<Impl, OFFSET>, SenderName::<Impl, OFFSET>, SenderAddress::<Impl, OFFSET>, EmailMessage::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails>,
+            ::windows::core::GetTrustLevel,
+            AccountName::<Impl, IMPL_OFFSET>,
+            ParentFolderName::<Impl, IMPL_OFFSET>,
+            SenderName::<Impl, IMPL_OFFSET>,
+            SenderAddress::<Impl, IMPL_OFFSET>,
+            EmailMessage::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailNotificationTriggerDetails2Impl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn MessageEntryId(&self) -> ::windows::core::Result<BinaryId>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailNotificationTriggerDetails2 {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IEmailNotificationTriggerDetails2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailNotificationTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IEmailNotificationTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailNotificationTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailNotificationTriggerDetails2Vtbl {
         unsafe extern "system" fn MessageEntryId<Impl: IEmailNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageEntryId() {
@@ -1184,23 +1252,26 @@ impl IEmailNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, MessageEntryId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, MessageEntryId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailNotificationTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailReadNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn AccountName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ParentFolderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MessageEntryId(&self) -> ::windows::core::Result<BinaryId>;
     fn IsRead(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailReadNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IEmailReadNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailReadNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IEmailReadNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailReadNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailReadNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn AccountName<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountName() {
@@ -1245,21 +1316,24 @@ impl IEmailReadNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailReadNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AccountName::<Impl, OFFSET>, ParentFolderName::<Impl, OFFSET>, MessageEntryId::<Impl, OFFSET>, IsRead::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailReadNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AccountName::<Impl, IMPL_OFFSET>, ParentFolderName::<Impl, IMPL_OFFSET>, MessageEntryId::<Impl, IMPL_OFFSET>, IsRead::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailReadNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaControlsTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn PlaybackStatus(&self) -> ::windows::core::Result<PlaybackStatus>;
     fn MediaMetadata(&self) -> ::windows::core::Result<MediaMetadata>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaControlsTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IMediaControlsTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMediaControlsTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: isize>() -> IMediaControlsTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaControlsTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaControlsTriggerDetailsVtbl {
         unsafe extern "system" fn PlaybackStatus<Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackStatus() {
@@ -1282,10 +1356,13 @@ impl IMediaControlsTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaControlsTriggerDetails>, ::windows::core::GetTrustLevel, PlaybackStatus::<Impl, OFFSET>, MediaMetadata::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaControlsTriggerDetails>, ::windows::core::GetTrustLevel, PlaybackStatus::<Impl, IMPL_OFFSET>, MediaMetadata::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaControlsTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaMetadataImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1295,13 +1372,13 @@ pub trait IMediaMetadataImpl: Sized {
     fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn Thumbnail(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaMetadata {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IMediaMetadata";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMediaMetadataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMetadataImpl, const OFFSET: isize>() -> IMediaMetadataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMetadataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaMetadataVtbl {
         unsafe extern "system" fn Title<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -1379,10 +1456,13 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMetadata>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, Subtitle::<Impl, OFFSET>, Artist::<Impl, OFFSET>, Album::<Impl, OFFSET>, Track::<Impl, OFFSET>, Duration::<Impl, OFFSET>, Thumbnail::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMetadata>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Subtitle::<Impl, IMPL_OFFSET>, Artist::<Impl, IMPL_OFFSET>, Album::<Impl, IMPL_OFFSET>, Track::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>, Thumbnail::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaMetadata as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallDetailsImpl: Sized {
     fn PhoneLine(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CallId(&self) -> ::windows::core::Result<u32>;
@@ -1397,13 +1477,13 @@ pub trait IPhoneCallDetailsImpl: Sized {
     fn ContactName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PresetTextResponses(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<TextResponse>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IPhoneCallDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPhoneCallDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallDetailsImpl, const OFFSET: isize>() -> IPhoneCallDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallDetailsVtbl {
         unsafe extern "system" fn PhoneLine<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneLine() {
@@ -1537,25 +1617,28 @@ impl IPhoneCallDetailsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneCallDetails>,
             ::windows::core::GetTrustLevel,
-            PhoneLine::<Impl, OFFSET>,
-            CallId::<Impl, OFFSET>,
-            CallTransport::<Impl, OFFSET>,
-            CallMediaType::<Impl, OFFSET>,
-            CallDirection::<Impl, OFFSET>,
-            State::<Impl, OFFSET>,
-            ConferenceCallId::<Impl, OFFSET>,
-            StartTime::<Impl, OFFSET>,
-            EndTime::<Impl, OFFSET>,
-            PhoneNumber::<Impl, OFFSET>,
-            ContactName::<Impl, OFFSET>,
-            PresetTextResponses::<Impl, OFFSET>,
+            PhoneLine::<Impl, IMPL_OFFSET>,
+            CallId::<Impl, IMPL_OFFSET>,
+            CallTransport::<Impl, IMPL_OFFSET>,
+            CallMediaType::<Impl, IMPL_OFFSET>,
+            CallDirection::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            ConferenceCallId::<Impl, IMPL_OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            EndTime::<Impl, IMPL_OFFSET>,
+            PhoneNumber::<Impl, IMPL_OFFSET>,
+            ContactName::<Impl, IMPL_OFFSET>,
+            PresetTextResponses::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1573,7 +1656,7 @@ impl ::windows::core::RuntimeName for IPhoneLineDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDetailsImpl, const OFFSET: isize>() -> IPhoneLineDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineDetailsVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -1640,7 +1723,23 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, LineNumber::<Impl, OFFSET>, DefaultOutgoingLine::<Impl, OFFSET>, VoicemailCount::<Impl, OFFSET>, RegistrationState::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhoneLineDetails>,
+            ::windows::core::GetTrustLevel,
+            LineId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            LineNumber::<Impl, IMPL_OFFSET>,
+            DefaultOutgoingLine::<Impl, IMPL_OFFSET>,
+            VoicemailCount::<Impl, IMPL_OFFSET>,
+            RegistrationState::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1653,7 +1752,7 @@ impl ::windows::core::RuntimeName for IPhoneLineDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDetails2Impl, const OFFSET: isize>() -> IPhoneLineDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineDetails2Vtbl {
         unsafe extern "system" fn MissedCallCount<Impl: IPhoneLineDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MissedCallCount() {
@@ -1665,22 +1764,25 @@ impl IPhoneLineDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails2>, ::windows::core::GetTrustLevel, MissedCallCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails2>, ::windows::core::GetTrustLevel, MissedCallCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineDetails2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn PhoneNotificationType(&self) -> ::windows::core::Result<PhoneNotificationType>;
     fn CallDetails(&self) -> ::windows::core::Result<PhoneCallDetails>;
     fn PhoneLineChangedId(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IPhoneNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn PhoneNotificationType<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneNotificationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNotificationType() {
@@ -1714,10 +1816,13 @@ impl IPhoneNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNotificationTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNotificationType::<Impl, OFFSET>, CallDetails::<Impl, OFFSET>, PhoneLineChangedId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNotificationTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNotificationType::<Impl, IMPL_OFFSET>, CallDetails::<Impl, IMPL_OFFSET>, PhoneLineChangedId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IReminderNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn ReminderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1727,13 +1832,13 @@ pub trait IReminderNotificationTriggerDetailsImpl: Sized + IAccessoryNotificatio
     fn Appointment(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Appointments::Appointment>;
     fn ReminderState(&self) -> ::windows::core::Result<ReminderState>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IReminderNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IReminderNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 impl IReminderNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IReminderNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReminderNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReminderNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn ReminderId<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReminderId() {
@@ -1811,7 +1916,24 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails>, ::windows::core::GetTrustLevel, ReminderId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Description::<Impl, OFFSET>, Details::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, Appointment::<Impl, OFFSET>, ReminderState::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails>,
+            ::windows::core::GetTrustLevel,
+            ReminderId::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Details::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            Appointment::<Impl, IMPL_OFFSET>,
+            ReminderState::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReminderNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1824,7 +1946,7 @@ impl ::windows::core::RuntimeName for IReminderNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReminderNotificationTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReminderNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IReminderNotificationTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReminderNotificationTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReminderNotificationTriggerDetails2Vtbl {
         unsafe extern "system" fn InstanceId<Impl: IReminderNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
@@ -1836,7 +1958,10 @@ impl IReminderNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReminderNotificationTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1851,7 +1976,7 @@ impl ::windows::core::RuntimeName for ISpeedDialEntry {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeedDialEntryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeedDialEntryImpl, const OFFSET: isize>() -> ISpeedDialEntryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeedDialEntryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeedDialEntryVtbl {
         unsafe extern "system" fn PhoneNumber<Impl: ISpeedDialEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
@@ -1885,7 +2010,10 @@ impl ISpeedDialEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeedDialEntry>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, OFFSET>, NumberType::<Impl, OFFSET>, ContactName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeedDialEntry>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, IMPL_OFFSET>, NumberType::<Impl, IMPL_OFFSET>, ContactName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeedDialEntry as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1899,7 +2027,7 @@ impl ::windows::core::RuntimeName for ITextResponse {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextResponseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextResponseImpl, const OFFSET: isize>() -> ITextResponseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextResponseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextResponseVtbl {
         unsafe extern "system" fn Id<Impl: ITextResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1922,10 +2050,13 @@ impl ITextResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextResponse>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Content::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextResponse>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Content::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITextResponse as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTriggerDetailsImpl {
     fn Text1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Text2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1933,13 +2064,13 @@ pub trait IToastNotificationTriggerDetailsImpl: Sized + IAccessoryNotificationTr
     fn Text4(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SuppressPopup(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IToastNotificationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IToastNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IToastNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn Text1<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text1() {
@@ -1995,7 +2126,10 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails>, ::windows::core::GetTrustLevel, Text1::<Impl, OFFSET>, Text2::<Impl, OFFSET>, Text3::<Impl, OFFSET>, Text4::<Impl, OFFSET>, SuppressPopup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails>, ::windows::core::GetTrustLevel, Text1::<Impl, IMPL_OFFSET>, Text2::<Impl, IMPL_OFFSET>, Text3::<Impl, IMPL_OFFSET>, Text4::<Impl, IMPL_OFFSET>, SuppressPopup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2008,7 +2142,7 @@ impl ::windows::core::RuntimeName for IToastNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IToastNotificationTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationTriggerDetails2Vtbl {
         unsafe extern "system" fn InstanceId<Impl: IToastNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
@@ -2020,7 +2154,10 @@ impl IToastNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2037,7 +2174,7 @@ impl ::windows::core::RuntimeName for IVolumeInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVolumeInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVolumeInfoImpl, const OFFSET: isize>() -> IVolumeInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVolumeInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVolumeInfoVtbl {
         unsafe extern "system" fn SystemVolume<Impl: IVolumeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemVolume() {
@@ -2093,6 +2230,9 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeInfo>, ::windows::core::GetTrustLevel, SystemVolume::<Impl, OFFSET>, CallVolume::<Impl, OFFSET>, MediaVolume::<Impl, OFFSET>, IsMuted::<Impl, OFFSET>, IsVibrateEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeInfo>, ::windows::core::GetTrustLevel, SystemVolume::<Impl, IMPL_OFFSET>, CallVolume::<Impl, IMPL_OFFSET>, MediaVolume::<Impl, IMPL_OFFSET>, IsMuted::<Impl, IMPL_OFFSET>, IsVibrateEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVolumeInfo as ::windows::core::Interface>::IID
     }
 }

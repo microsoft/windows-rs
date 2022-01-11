@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IDesktopWindowTarget {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDesktopWindowTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowTargetImpl, const OFFSET: isize>() -> IDesktopWindowTargetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesktopWindowTargetVtbl {
         unsafe extern "system" fn IsTopmost<Impl: IDesktopWindowTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTopmost() {
@@ -20,6 +20,9 @@ impl IDesktopWindowTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesktopWindowTarget>, ::windows::core::GetTrustLevel, IsTopmost::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesktopWindowTarget>, ::windows::core::GetTrustLevel, IsTopmost::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDesktopWindowTarget as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOnlineIdAuthenticatorImpl: Sized {
     fn AuthenticateUserAsync(&self, request: &::core::option::Option<OnlineIdServiceTicketRequest>) -> ::windows::core::Result<UserAuthenticationOperation>;
     fn AuthenticateUserAsyncAdvanced(&self, requests: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>;
@@ -8,13 +8,13 @@ pub trait IOnlineIdAuthenticatorImpl: Sized {
     fn CanSignOut(&self) -> ::windows::core::Result<bool>;
     fn AuthenticatedSafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IOnlineIdAuthenticatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>() -> IOnlineIdAuthenticatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdAuthenticatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdAuthenticatorVtbl {
         unsafe extern "system" fn AuthenticateUserAsync<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticateUserAsync(&*(&request as *const <OnlineIdServiceTicketRequest as ::windows::core::Abi>::Abi as *const <OnlineIdServiceTicketRequest as ::windows::core::DefaultType>::DefaultType)) {
@@ -86,20 +86,23 @@ impl IOnlineIdAuthenticatorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IOnlineIdAuthenticator>,
             ::windows::core::GetTrustLevel,
-            AuthenticateUserAsync::<Impl, OFFSET>,
-            AuthenticateUserAsyncAdvanced::<Impl, OFFSET>,
-            SignOutUserAsync::<Impl, OFFSET>,
-            SetApplicationId::<Impl, OFFSET>,
-            ApplicationId::<Impl, OFFSET>,
-            CanSignOut::<Impl, OFFSET>,
-            AuthenticatedSafeCustomerId::<Impl, OFFSET>,
+            AuthenticateUserAsync::<Impl, IMPL_OFFSET>,
+            AuthenticateUserAsyncAdvanced::<Impl, IMPL_OFFSET>,
+            SignOutUserAsync::<Impl, IMPL_OFFSET>,
+            SetApplicationId::<Impl, IMPL_OFFSET>,
+            ApplicationId::<Impl, IMPL_OFFSET>,
+            CanSignOut::<Impl, IMPL_OFFSET>,
+            AuthenticatedSafeCustomerId::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdAuthenticator as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -114,7 +117,7 @@ impl ::windows::core::RuntimeName for IOnlineIdServiceTicket {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdServiceTicketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketImpl, const OFFSET: isize>() -> IOnlineIdServiceTicketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdServiceTicketVtbl {
         unsafe extern "system" fn Value<Impl: IOnlineIdServiceTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -148,7 +151,10 @@ impl IOnlineIdServiceTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicket>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, Request::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicket>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, Request::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdServiceTicket as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -162,7 +168,7 @@ impl ::windows::core::RuntimeName for IOnlineIdServiceTicketRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdServiceTicketRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: isize>() -> IOnlineIdServiceTicketRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdServiceTicketRequestVtbl {
         unsafe extern "system" fn Service<Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Service() {
@@ -185,7 +191,10 @@ impl IOnlineIdServiceTicketRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequest>, ::windows::core::GetTrustLevel, Service::<Impl, OFFSET>, Policy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequest>, ::windows::core::GetTrustLevel, Service::<Impl, IMPL_OFFSET>, Policy::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdServiceTicketRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -199,7 +208,7 @@ impl ::windows::core::RuntimeName for IOnlineIdServiceTicketRequestFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdServiceTicketRequestFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: isize>() -> IOnlineIdServiceTicketRequestFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketRequestFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdServiceTicketRequestFactoryVtbl {
         unsafe extern "system" fn CreateOnlineIdServiceTicketRequest<Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOnlineIdServiceTicketRequest(&*(&service as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&policy as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -222,23 +231,26 @@ impl IOnlineIdServiceTicketRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequestFactory>, ::windows::core::GetTrustLevel, CreateOnlineIdServiceTicketRequest::<Impl, OFFSET>, CreateOnlineIdServiceTicketRequestAdvanced::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequestFactory>, ::windows::core::GetTrustLevel, CreateOnlineIdServiceTicketRequest::<Impl, IMPL_OFFSET>, CreateOnlineIdServiceTicketRequestAdvanced::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdServiceTicketRequestFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IOnlineIdSystemAuthenticatorForUserImpl: Sized {
     fn GetTicketAsync(&self, request: &::core::option::Option<OnlineIdServiceTicketRequest>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>;
     fn SetApplicationId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn User(&self) -> ::windows::core::Result<super::super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IOnlineIdSystemAuthenticatorForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>() -> IOnlineIdSystemAuthenticatorForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemAuthenticatorForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdSystemAuthenticatorForUserVtbl {
         unsafe extern "system" fn GetTicketAsync<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTicketAsync(&*(&request as *const <OnlineIdServiceTicketRequest as ::windows::core::Abi>::Abi as *const <OnlineIdServiceTicketRequest as ::windows::core::DefaultType>::DefaultType)) {
@@ -276,21 +288,24 @@ impl IOnlineIdSystemAuthenticatorForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorForUser>, ::windows::core::GetTrustLevel, GetTicketAsync::<Impl, OFFSET>, SetApplicationId::<Impl, OFFSET>, ApplicationId::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorForUser>, ::windows::core::GetTrustLevel, GetTicketAsync::<Impl, IMPL_OFFSET>, SetApplicationId::<Impl, IMPL_OFFSET>, ApplicationId::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdSystemAuthenticatorForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IOnlineIdSystemAuthenticatorStaticsImpl: Sized {
     fn Default(&self) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOnlineIdSystemAuthenticatorStatics {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IOnlineIdSystemAuthenticatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: isize>() -> IOnlineIdSystemAuthenticatorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdSystemAuthenticatorStaticsVtbl {
         unsafe extern "system" fn Default<Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Default() {
@@ -313,7 +328,10 @@ impl IOnlineIdSystemAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorStatics>, ::windows::core::GetTrustLevel, Default::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorStatics>, ::windows::core::GetTrustLevel, Default::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdSystemAuthenticatorStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -327,7 +345,7 @@ impl ::windows::core::RuntimeName for IOnlineIdSystemIdentity {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdSystemIdentityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemIdentityImpl, const OFFSET: isize>() -> IOnlineIdSystemIdentityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemIdentityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdSystemIdentityVtbl {
         unsafe extern "system" fn Ticket<Impl: IOnlineIdSystemIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ticket() {
@@ -350,7 +368,10 @@ impl IOnlineIdSystemIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemIdentity>, ::windows::core::GetTrustLevel, Ticket::<Impl, OFFSET>, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemIdentity>, ::windows::core::GetTrustLevel, Ticket::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdSystemIdentity as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -365,7 +386,7 @@ impl ::windows::core::RuntimeName for IOnlineIdSystemTicketResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdSystemTicketResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: isize>() -> IOnlineIdSystemTicketResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemTicketResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOnlineIdSystemTicketResultVtbl {
         unsafe extern "system" fn Identity<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Identity() {
@@ -399,10 +420,13 @@ impl IOnlineIdSystemTicketResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemTicketResult>, ::windows::core::GetTrustLevel, Identity::<Impl, OFFSET>, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemTicketResult>, ::windows::core::GetTrustLevel, Identity::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOnlineIdSystemTicketResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserIdentityImpl: Sized {
     fn Tickets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -413,13 +437,13 @@ pub trait IUserIdentityImpl: Sized {
     fn IsBetaAccount(&self) -> ::windows::core::Result<bool>;
     fn IsConfirmedPC(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.IUserIdentity";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserIdentityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserIdentityImpl, const OFFSET: isize>() -> IUserIdentityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserIdentityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserIdentityVtbl {
         unsafe extern "system" fn Tickets<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tickets() {
@@ -508,6 +532,24 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserIdentity>, ::windows::core::GetTrustLevel, Tickets::<Impl, OFFSET>, Id::<Impl, OFFSET>, SafeCustomerId::<Impl, OFFSET>, SignInName::<Impl, OFFSET>, FirstName::<Impl, OFFSET>, LastName::<Impl, OFFSET>, IsBetaAccount::<Impl, OFFSET>, IsConfirmedPC::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUserIdentity>,
+            ::windows::core::GetTrustLevel,
+            Tickets::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SafeCustomerId::<Impl, IMPL_OFFSET>,
+            SignInName::<Impl, IMPL_OFFSET>,
+            FirstName::<Impl, IMPL_OFFSET>,
+            LastName::<Impl, IMPL_OFFSET>,
+            IsBetaAccount::<Impl, IMPL_OFFSET>,
+            IsConfirmedPC::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserIdentity as ::windows::core::Interface>::IID
     }
 }

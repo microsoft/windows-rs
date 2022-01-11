@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for ICardAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICardAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardAddedEventArgsImpl, const OFFSET: isize>() -> ICardAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICardAddedEventArgsVtbl {
         unsafe extern "system" fn SmartCard<Impl: ICardAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
@@ -20,7 +20,10 @@ impl ICardAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICardAddedEventArgs>, ::windows::core::GetTrustLevel, SmartCard::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICardAddedEventArgs>, ::windows::core::GetTrustLevel, SmartCard::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICardAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,7 +36,7 @@ impl ::windows::core::RuntimeName for ICardRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICardRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardRemovedEventArgsImpl, const OFFSET: isize>() -> ICardRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICardRemovedEventArgsVtbl {
         unsafe extern "system" fn SmartCard<Impl: ICardRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
@@ -45,21 +48,24 @@ impl ICardRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICardRemovedEventArgs>, ::windows::core::GetTrustLevel, SmartCard::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICardRemovedEventArgs>, ::windows::core::GetTrustLevel, SmartCard::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICardRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKnownSmartCardAppletIdsImpl: Sized {
     fn PaymentSystemEnvironment(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ProximityPaymentSystemEnvironment(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownSmartCardAppletIds {
     const NAME: &'static str = "Windows.Devices.SmartCards.IKnownSmartCardAppletIds";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKnownSmartCardAppletIdsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSmartCardAppletIdsImpl, const OFFSET: isize>() -> IKnownSmartCardAppletIdsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSmartCardAppletIdsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSmartCardAppletIdsVtbl {
         unsafe extern "system" fn PaymentSystemEnvironment<Impl: IKnownSmartCardAppletIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaymentSystemEnvironment() {
@@ -82,22 +88,25 @@ impl IKnownSmartCardAppletIdsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSmartCardAppletIds>, ::windows::core::GetTrustLevel, PaymentSystemEnvironment::<Impl, OFFSET>, ProximityPaymentSystemEnvironment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSmartCardAppletIds>, ::windows::core::GetTrustLevel, PaymentSystemEnvironment::<Impl, IMPL_OFFSET>, ProximityPaymentSystemEnvironment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownSmartCardAppletIds as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardImpl: Sized {
     fn Reader(&self) -> ::windows::core::Result<SmartCardReader>;
     fn GetStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardStatus>>;
     fn GetAnswerToResetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCard";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardImpl, const OFFSET: isize>() -> ISmartCardVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardVtbl {
         unsafe extern "system" fn Reader<Impl: ISmartCardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reader() {
@@ -131,10 +140,13 @@ impl ISmartCardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCard>, ::windows::core::GetTrustLevel, Reader::<Impl, OFFSET>, GetStatusAsync::<Impl, OFFSET>, GetAnswerToResetAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCard>, ::windows::core::GetTrustLevel, Reader::<Impl, IMPL_OFFSET>, GetStatusAsync::<Impl, IMPL_OFFSET>, GetAnswerToResetAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCard as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -146,13 +158,13 @@ pub trait ISmartCardAppletIdGroupImpl: Sized {
     fn AutomaticEnablement(&self) -> ::windows::core::Result<bool>;
     fn SetAutomaticEnablement(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardAppletIdGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>() -> ISmartCardAppletIdGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupVtbl {
         unsafe extern "system" fn DisplayName<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -225,25 +237,28 @@ impl ISmartCardAppletIdGroupVtbl {
             (*this).SetAutomaticEnablement(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroup>,
             ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            AppletIds::<Impl, OFFSET>,
-            SmartCardEmulationCategory::<Impl, OFFSET>,
-            SetSmartCardEmulationCategory::<Impl, OFFSET>,
-            SmartCardEmulationType::<Impl, OFFSET>,
-            SetSmartCardEmulationType::<Impl, OFFSET>,
-            AutomaticEnablement::<Impl, OFFSET>,
-            SetAutomaticEnablement::<Impl, OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            AppletIds::<Impl, IMPL_OFFSET>,
+            SmartCardEmulationCategory::<Impl, IMPL_OFFSET>,
+            SetSmartCardEmulationCategory::<Impl, IMPL_OFFSET>,
+            SmartCardEmulationType::<Impl, IMPL_OFFSET>,
+            SetSmartCardEmulationType::<Impl, IMPL_OFFSET>,
+            AutomaticEnablement::<Impl, IMPL_OFFSET>,
+            SetAutomaticEnablement::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAppletIdGroup as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroup2Impl: Sized {
     fn Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetLogo(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
@@ -253,13 +268,13 @@ pub trait ISmartCardAppletIdGroup2Impl: Sized {
     fn SecureUserAuthenticationRequired(&self) -> ::windows::core::Result<bool>;
     fn SetSecureUserAuthenticationRequired(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroup2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroup2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardAppletIdGroup2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>() -> ISmartCardAppletIdGroup2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroup2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroup2Vtbl {
         unsafe extern "system" fn Logo<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Logo() {
@@ -317,33 +332,36 @@ impl ISmartCardAppletIdGroup2Vtbl {
             (*this).SetSecureUserAuthenticationRequired(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroup2>,
             ::windows::core::GetTrustLevel,
-            Logo::<Impl, OFFSET>,
-            SetLogo::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            SecureUserAuthenticationRequired::<Impl, OFFSET>,
-            SetSecureUserAuthenticationRequired::<Impl, OFFSET>,
+            Logo::<Impl, IMPL_OFFSET>,
+            SetLogo::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            SecureUserAuthenticationRequired::<Impl, IMPL_OFFSET>,
+            SetSecureUserAuthenticationRequired::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAppletIdGroup2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupFactoryImpl: Sized {
     fn Create(&self, displayname: &::windows::core::HSTRING, appletids: &::core::option::Option<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows::core::Result<SmartCardAppletIdGroup>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupFactory {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardAppletIdGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupFactoryImpl, const OFFSET: isize>() -> ISmartCardAppletIdGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISmartCardAppletIdGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appletids: ::windows::core::RawPtr, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
@@ -360,10 +378,13 @@ impl ISmartCardAppletIdGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAppletIdGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupRegistrationImpl: Sized {
     fn ActivationPolicy(&self) -> ::windows::core::Result<SmartCardAppletIdGroupActivationPolicy>;
     fn AppletIdGroup(&self) -> ::windows::core::Result<SmartCardAppletIdGroup>;
@@ -371,13 +392,13 @@ pub trait ISmartCardAppletIdGroupRegistrationImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetAutomaticResponseApdusAsync(&self, apdus: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupRegistration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardAppletIdGroupRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>() -> ISmartCardAppletIdGroupRegistrationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupRegistrationVtbl {
         unsafe extern "system" fn ActivationPolicy<Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivationPolicy() {
@@ -433,21 +454,36 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupRegistration>, ::windows::core::GetTrustLevel, ActivationPolicy::<Impl, OFFSET>, AppletIdGroup::<Impl, OFFSET>, RequestActivationPolicyChangeAsync::<Impl, OFFSET>, Id::<Impl, OFFSET>, SetAutomaticResponseApdusAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupRegistration>,
+            ::windows::core::GetTrustLevel,
+            ActivationPolicy::<Impl, IMPL_OFFSET>,
+            AppletIdGroup::<Impl, IMPL_OFFSET>,
+            RequestActivationPolicyChangeAsync::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetAutomaticResponseApdusAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAppletIdGroupRegistration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupRegistration2Impl: Sized {
     fn SmartCardReaderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPropertiesAsync(&self, props: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupRegistration2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupRegistration2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardAppletIdGroupRegistration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistration2Impl, const OFFSET: isize>() -> ISmartCardAppletIdGroupRegistration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupRegistration2Vtbl {
         unsafe extern "system" fn SmartCardReaderId<Impl: ISmartCardAppletIdGroupRegistration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCardReaderId() {
@@ -470,7 +506,10 @@ impl ISmartCardAppletIdGroupRegistration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupRegistration2>, ::windows::core::GetTrustLevel, SmartCardReaderId::<Impl, OFFSET>, SetPropertiesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupRegistration2>, ::windows::core::GetTrustLevel, SmartCardReaderId::<Impl, IMPL_OFFSET>, SetPropertiesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAppletIdGroupRegistration2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -483,7 +522,7 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardAppletIdGroupStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupStaticsImpl, const OFFSET: isize>() -> ISmartCardAppletIdGroupStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupStaticsVtbl {
         unsafe extern "system" fn MaxAppletIds<Impl: ISmartCardAppletIdGroupStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAppletIds() {
@@ -495,10 +534,13 @@ impl ISmartCardAppletIdGroupStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupStatics>, ::windows::core::GetTrustLevel, MaxAppletIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAppletIdGroupStatics>, ::windows::core::GetTrustLevel, MaxAppletIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAppletIdGroupStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAutomaticResponseApduImpl: Sized {
     fn CommandApdu(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn SetCommandApdu(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
@@ -511,13 +553,13 @@ pub trait ISmartCardAutomaticResponseApduImpl: Sized {
     fn ResponseApdu(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn SetResponseApdu(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardAutomaticResponseApduVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>() -> ISmartCardAutomaticResponseApduVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApduVtbl {
         unsafe extern "system" fn CommandApdu<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandApdu() {
@@ -594,39 +636,42 @@ impl ISmartCardAutomaticResponseApduVtbl {
             (*this).SetResponseApdu(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu>,
             ::windows::core::GetTrustLevel,
-            CommandApdu::<Impl, OFFSET>,
-            SetCommandApdu::<Impl, OFFSET>,
-            CommandApduBitMask::<Impl, OFFSET>,
-            SetCommandApduBitMask::<Impl, OFFSET>,
-            ShouldMatchLength::<Impl, OFFSET>,
-            SetShouldMatchLength::<Impl, OFFSET>,
-            AppletId::<Impl, OFFSET>,
-            SetAppletId::<Impl, OFFSET>,
-            ResponseApdu::<Impl, OFFSET>,
-            SetResponseApdu::<Impl, OFFSET>,
+            CommandApdu::<Impl, IMPL_OFFSET>,
+            SetCommandApdu::<Impl, IMPL_OFFSET>,
+            CommandApduBitMask::<Impl, IMPL_OFFSET>,
+            SetCommandApduBitMask::<Impl, IMPL_OFFSET>,
+            ShouldMatchLength::<Impl, IMPL_OFFSET>,
+            SetShouldMatchLength::<Impl, IMPL_OFFSET>,
+            AppletId::<Impl, IMPL_OFFSET>,
+            SetAppletId::<Impl, IMPL_OFFSET>,
+            ResponseApdu::<Impl, IMPL_OFFSET>,
+            SetResponseApdu::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAutomaticResponseApdu as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardAutomaticResponseApdu2Impl: Sized {
     fn InputState(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn SetInputState(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
     fn OutputState(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn SetOutputState(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardAutomaticResponseApdu2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu2Impl, const OFFSET: isize>() -> ISmartCardAutomaticResponseApdu2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu2Vtbl {
         unsafe extern "system" fn InputState<Impl: ISmartCardAutomaticResponseApdu2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputState() {
@@ -657,7 +702,10 @@ impl ISmartCardAutomaticResponseApdu2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutputState(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu2>, ::windows::core::GetTrustLevel, InputState::<Impl, OFFSET>, SetInputState::<Impl, OFFSET>, OutputState::<Impl, OFFSET>, SetOutputState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu2>, ::windows::core::GetTrustLevel, InputState::<Impl, IMPL_OFFSET>, SetInputState::<Impl, IMPL_OFFSET>, OutputState::<Impl, IMPL_OFFSET>, SetOutputState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAutomaticResponseApdu2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -671,7 +719,7 @@ impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardAutomaticResponseApdu3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu3Impl, const OFFSET: isize>() -> ISmartCardAutomaticResponseApdu3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu3Vtbl {
         unsafe extern "system" fn AllowWhenCryptogramGeneratorNotPrepared<Impl: ISmartCardAutomaticResponseApdu3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowWhenCryptogramGeneratorNotPrepared() {
@@ -687,20 +735,23 @@ impl ISmartCardAutomaticResponseApdu3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWhenCryptogramGeneratorNotPrepared(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu3>, ::windows::core::GetTrustLevel, AllowWhenCryptogramGeneratorNotPrepared::<Impl, OFFSET>, SetAllowWhenCryptogramGeneratorNotPrepared::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApdu3>, ::windows::core::GetTrustLevel, AllowWhenCryptogramGeneratorNotPrepared::<Impl, IMPL_OFFSET>, SetAllowWhenCryptogramGeneratorNotPrepared::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAutomaticResponseApdu3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAutomaticResponseApduFactoryImpl: Sized {
     fn Create(&self, commandapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SmartCardAutomaticResponseApdu>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApduFactory {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApduFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardAutomaticResponseApduFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduFactoryImpl, const OFFSET: isize>() -> ISmartCardAutomaticResponseApduFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApduFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISmartCardAutomaticResponseApduFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandapdu: ::windows::core::RawPtr, responseapdu: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&commandapdu as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&responseapdu as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -712,10 +763,13 @@ impl ISmartCardAutomaticResponseApduFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApduFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardAutomaticResponseApduFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardAutomaticResponseApduFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardChallengeContextImpl: Sized + IClosableImpl {
     fn Challenge(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn VerifyResponseAsync(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -723,13 +777,13 @@ pub trait ISmartCardChallengeContextImpl: Sized + IClosableImpl {
     fn ProvisionAsyncWithNewCardId(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, formatcard: bool, newcardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ChangeAdministrativeKeyAsync(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, newadministrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardChallengeContext";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardChallengeContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>() -> ISmartCardChallengeContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardChallengeContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardChallengeContextVtbl {
         unsafe extern "system" fn Challenge<Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Challenge() {
@@ -785,20 +839,35 @@ impl ISmartCardChallengeContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardChallengeContext>, ::windows::core::GetTrustLevel, Challenge::<Impl, OFFSET>, VerifyResponseAsync::<Impl, OFFSET>, ProvisionAsync::<Impl, OFFSET>, ProvisionAsyncWithNewCardId::<Impl, OFFSET>, ChangeAdministrativeKeyAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmartCardChallengeContext>,
+            ::windows::core::GetTrustLevel,
+            Challenge::<Impl, IMPL_OFFSET>,
+            VerifyResponseAsync::<Impl, IMPL_OFFSET>,
+            ProvisionAsync::<Impl, IMPL_OFFSET>,
+            ProvisionAsyncWithNewCardId::<Impl, IMPL_OFFSET>,
+            ChangeAdministrativeKeyAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardChallengeContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardConnectImpl: Sized {
     fn ConnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardConnect {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardConnect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardConnectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnectImpl, const OFFSET: isize>() -> ISmartCardConnectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardConnectVtbl {
         unsafe extern "system" fn ConnectAsync<Impl: ISmartCardConnectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectAsync() {
@@ -810,20 +879,23 @@ impl ISmartCardConnectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardConnect>, ::windows::core::GetTrustLevel, ConnectAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardConnect>, ::windows::core::GetTrustLevel, ConnectAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardConnect as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardConnectionImpl: Sized + IClosableImpl {
     fn TransmitAsync(&self, command: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardConnection";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnectionImpl, const OFFSET: isize>() -> ISmartCardConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardConnectionVtbl {
         unsafe extern "system" fn TransmitAsync<Impl: ISmartCardConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitAsync(&*(&command as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -835,10 +907,13 @@ impl ISmartCardConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardConnection>, ::windows::core::GetTrustLevel, TransmitAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardConnection>, ::windows::core::GetTrustLevel, TransmitAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardConnection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGeneratorImpl: Sized {
     fn SupportedCryptogramMaterialTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialType>>;
     fn SupportedCryptogramAlgorithms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
@@ -853,13 +928,13 @@ pub trait ISmartCardCryptogramGeneratorImpl: Sized {
     fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
     fn DeleteCryptogramMaterialPackageAsync(&self, materialpackagename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGenerator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramGeneratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>() -> ISmartCardCryptogramGeneratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorVtbl {
         unsafe extern "system" fn SupportedCryptogramMaterialTypes<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCryptogramMaterialTypes() {
@@ -1004,28 +1079,31 @@ impl ISmartCardCryptogramGeneratorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGenerator>,
             ::windows::core::GetTrustLevel,
-            SupportedCryptogramMaterialTypes::<Impl, OFFSET>,
-            SupportedCryptogramAlgorithms::<Impl, OFFSET>,
-            SupportedCryptogramMaterialPackageFormats::<Impl, OFFSET>,
-            SupportedCryptogramMaterialPackageConfirmationResponseFormats::<Impl, OFFSET>,
-            SupportedSmartCardCryptogramStorageKeyCapabilities::<Impl, OFFSET>,
-            DeleteCryptogramMaterialStorageKeyAsync::<Impl, OFFSET>,
-            CreateCryptogramMaterialStorageKeyAsync::<Impl, OFFSET>,
-            RequestCryptogramMaterialStorageKeyInfoAsync::<Impl, OFFSET>,
-            ImportCryptogramMaterialPackageAsync::<Impl, OFFSET>,
-            TryProvePossessionOfCryptogramMaterialPackageAsync::<Impl, OFFSET>,
-            RequestUnlockCryptogramMaterialForUseAsync::<Impl, OFFSET>,
-            DeleteCryptogramMaterialPackageAsync::<Impl, OFFSET>,
+            SupportedCryptogramMaterialTypes::<Impl, IMPL_OFFSET>,
+            SupportedCryptogramAlgorithms::<Impl, IMPL_OFFSET>,
+            SupportedCryptogramMaterialPackageFormats::<Impl, IMPL_OFFSET>,
+            SupportedCryptogramMaterialPackageConfirmationResponseFormats::<Impl, IMPL_OFFSET>,
+            SupportedSmartCardCryptogramStorageKeyCapabilities::<Impl, IMPL_OFFSET>,
+            DeleteCryptogramMaterialStorageKeyAsync::<Impl, IMPL_OFFSET>,
+            CreateCryptogramMaterialStorageKeyAsync::<Impl, IMPL_OFFSET>,
+            RequestCryptogramMaterialStorageKeyInfoAsync::<Impl, IMPL_OFFSET>,
+            ImportCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
+            TryProvePossessionOfCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
+            RequestUnlockCryptogramMaterialForUseAsync::<Impl, IMPL_OFFSET>,
+            DeleteCryptogramMaterialPackageAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGenerator as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGenerator2Impl: Sized {
     fn ValidateRequestApduAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
     fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>>;
@@ -1033,13 +1111,13 @@ pub trait ISmartCardCryptogramGenerator2Impl: Sized {
     fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&self, storagekeyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>;
     fn GetAllCryptogramMaterialCharacteristicsAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGenerator2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGenerator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramGenerator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>() -> ISmartCardCryptogramGenerator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGenerator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGenerator2Vtbl {
         unsafe extern "system" fn ValidateRequestApduAsync<Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValidateRequestApduAsync(
@@ -1100,31 +1178,34 @@ impl ISmartCardCryptogramGenerator2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGenerator2>,
             ::windows::core::GetTrustLevel,
-            ValidateRequestApduAsync::<Impl, OFFSET>,
-            GetAllCryptogramStorageKeyCharacteristicsAsync::<Impl, OFFSET>,
-            GetAllCryptogramMaterialPackageCharacteristicsAsync::<Impl, OFFSET>,
-            GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync::<Impl, OFFSET>,
-            GetAllCryptogramMaterialCharacteristicsAsync::<Impl, OFFSET>,
+            ValidateRequestApduAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramStorageKeyCharacteristicsAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramMaterialPackageCharacteristicsAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync::<Impl, IMPL_OFFSET>,
+            GetAllCryptogramMaterialCharacteristicsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGenerator2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGeneratorStaticsImpl: Sized {
     fn GetSmartCardCryptogramGeneratorAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGenerator>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGeneratorStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGeneratorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramGeneratorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStaticsImpl, const OFFSET: isize>() -> ISmartCardCryptogramGeneratorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorStaticsVtbl {
         unsafe extern "system" fn GetSmartCardCryptogramGeneratorAsync<Impl: ISmartCardCryptogramGeneratorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSmartCardCryptogramGeneratorAsync() {
@@ -1136,7 +1217,10 @@ impl ISmartCardCryptogramGeneratorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGeneratorStatics>, ::windows::core::GetTrustLevel, GetSmartCardCryptogramGeneratorAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGeneratorStatics>, ::windows::core::GetTrustLevel, GetSmartCardCryptogramGeneratorAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGeneratorStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1149,7 +1233,7 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGeneratorStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardCryptogramGeneratorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStatics2Impl, const OFFSET: isize>() -> ISmartCardCryptogramGeneratorStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorStatics2Vtbl {
         unsafe extern "system" fn IsSupported<Impl: ISmartCardCryptogramGeneratorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -1161,21 +1245,24 @@ impl ISmartCardCryptogramGeneratorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGeneratorStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGeneratorStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGeneratorStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl: Sized {
     fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Characteristics(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl, const OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
         unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
@@ -1198,21 +1285,24 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, OFFSET>, Characteristics::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl: Sized {
     fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Characteristics(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl, const OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl {
         unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
@@ -1235,21 +1325,24 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtb
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, OFFSET>, Characteristics::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl: Sized {
     fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Characteristics(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl, const OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
         unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
@@ -1272,10 +1365,13 @@ impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, OFFSET>, Characteristics::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Characteristics::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramMaterialCharacteristicsImpl: Sized {
     fn MaterialName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AllowedAlgorithms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
@@ -1286,13 +1382,13 @@ pub trait ISmartCardCryptogramMaterialCharacteristicsImpl: Sized {
     fn ProtectionVersion(&self) -> ::windows::core::Result<i32>;
     fn MaterialLength(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>() -> ISmartCardCryptogramMaterialCharacteristicsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialCharacteristicsVtbl {
         unsafe extern "system" fn MaterialName<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaterialName() {
@@ -1382,37 +1478,40 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialCharacteristics>,
             ::windows::core::GetTrustLevel,
-            MaterialName::<Impl, OFFSET>,
-            AllowedAlgorithms::<Impl, OFFSET>,
-            AllowedProofOfPossessionAlgorithms::<Impl, OFFSET>,
-            AllowedValidations::<Impl, OFFSET>,
-            MaterialType::<Impl, OFFSET>,
-            ProtectionMethod::<Impl, OFFSET>,
-            ProtectionVersion::<Impl, OFFSET>,
-            MaterialLength::<Impl, OFFSET>,
+            MaterialName::<Impl, IMPL_OFFSET>,
+            AllowedAlgorithms::<Impl, IMPL_OFFSET>,
+            AllowedProofOfPossessionAlgorithms::<Impl, IMPL_OFFSET>,
+            AllowedValidations::<Impl, IMPL_OFFSET>,
+            MaterialType::<Impl, IMPL_OFFSET>,
+            ProtectionMethod::<Impl, IMPL_OFFSET>,
+            ProtectionVersion::<Impl, IMPL_OFFSET>,
+            MaterialLength::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramMaterialCharacteristics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramMaterialPackageCharacteristicsImpl: Sized {
     fn PackageName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn StorageKeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DateImported(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn PackageFormat(&self) -> ::windows::core::Result<SmartCardCryptogramMaterialPackageFormat>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const OFFSET: isize>() -> ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
         unsafe extern "system" fn PackageName<Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageName() {
@@ -1457,21 +1556,24 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialPackageCharacteristics>, ::windows::core::GetTrustLevel, PackageName::<Impl, OFFSET>, StorageKeyName::<Impl, OFFSET>, DateImported::<Impl, OFFSET>, PackageFormat::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialPackageCharacteristics>, ::windows::core::GetTrustLevel, PackageName::<Impl, IMPL_OFFSET>, StorageKeyName::<Impl, IMPL_OFFSET>, DateImported::<Impl, IMPL_OFFSET>, PackageFormat::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramMaterialPackageCharacteristics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramMaterialPossessionProofImpl: Sized {
     fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Proof(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPossessionProof";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramMaterialPossessionProofVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPossessionProofImpl, const OFFSET: isize>() -> ISmartCardCryptogramMaterialPossessionProofVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPossessionProofImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialPossessionProofVtbl {
         unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramMaterialPossessionProofImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
@@ -1494,10 +1596,13 @@ impl ISmartCardCryptogramMaterialPossessionProofVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialPossessionProof>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, OFFSET>, Proof::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramMaterialPossessionProof>, ::windows::core::GetTrustLevel, OperationStatus::<Impl, IMPL_OFFSET>, Proof::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramMaterialPossessionProof as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramPlacementStepImpl: Sized {
     fn Algorithm(&self) -> ::windows::core::Result<SmartCardCryptogramAlgorithm>;
     fn SetAlgorithm(&self, value: SmartCardCryptogramAlgorithm) -> ::windows::core::Result<()>;
@@ -1518,13 +1623,13 @@ pub trait ISmartCardCryptogramPlacementStepImpl: Sized {
     fn ChainedOutputStep(&self) -> ::windows::core::Result<SmartCardCryptogramPlacementStep>;
     fn SetChainedOutputStep(&self, value: &::core::option::Option<SmartCardCryptogramPlacementStep>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramPlacementStepVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>() -> ISmartCardCryptogramPlacementStepVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramPlacementStepImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramPlacementStepVtbl {
         unsafe extern "system" fn Algorithm<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Algorithm() {
@@ -1661,47 +1766,50 @@ impl ISmartCardCryptogramPlacementStepVtbl {
             (*this).SetChainedOutputStep(&*(&value as *const <SmartCardCryptogramPlacementStep as ::windows::core::Abi>::Abi as *const <SmartCardCryptogramPlacementStep as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramPlacementStep>,
             ::windows::core::GetTrustLevel,
-            Algorithm::<Impl, OFFSET>,
-            SetAlgorithm::<Impl, OFFSET>,
-            SourceData::<Impl, OFFSET>,
-            SetSourceData::<Impl, OFFSET>,
-            CryptogramMaterialPackageName::<Impl, OFFSET>,
-            SetCryptogramMaterialPackageName::<Impl, OFFSET>,
-            CryptogramMaterialName::<Impl, OFFSET>,
-            SetCryptogramMaterialName::<Impl, OFFSET>,
-            TemplateOffset::<Impl, OFFSET>,
-            SetTemplateOffset::<Impl, OFFSET>,
-            CryptogramOffset::<Impl, OFFSET>,
-            SetCryptogramOffset::<Impl, OFFSET>,
-            CryptogramLength::<Impl, OFFSET>,
-            SetCryptogramLength::<Impl, OFFSET>,
-            CryptogramPlacementOptions::<Impl, OFFSET>,
-            SetCryptogramPlacementOptions::<Impl, OFFSET>,
-            ChainedOutputStep::<Impl, OFFSET>,
-            SetChainedOutputStep::<Impl, OFFSET>,
+            Algorithm::<Impl, IMPL_OFFSET>,
+            SetAlgorithm::<Impl, IMPL_OFFSET>,
+            SourceData::<Impl, IMPL_OFFSET>,
+            SetSourceData::<Impl, IMPL_OFFSET>,
+            CryptogramMaterialPackageName::<Impl, IMPL_OFFSET>,
+            SetCryptogramMaterialPackageName::<Impl, IMPL_OFFSET>,
+            CryptogramMaterialName::<Impl, IMPL_OFFSET>,
+            SetCryptogramMaterialName::<Impl, IMPL_OFFSET>,
+            TemplateOffset::<Impl, IMPL_OFFSET>,
+            SetTemplateOffset::<Impl, IMPL_OFFSET>,
+            CryptogramOffset::<Impl, IMPL_OFFSET>,
+            SetCryptogramOffset::<Impl, IMPL_OFFSET>,
+            CryptogramLength::<Impl, IMPL_OFFSET>,
+            SetCryptogramLength::<Impl, IMPL_OFFSET>,
+            CryptogramPlacementOptions::<Impl, IMPL_OFFSET>,
+            SetCryptogramPlacementOptions::<Impl, IMPL_OFFSET>,
+            ChainedOutputStep::<Impl, IMPL_OFFSET>,
+            SetChainedOutputStep::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramPlacementStep as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramStorageKeyCharacteristicsImpl: Sized {
     fn StorageKeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DateCreated(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn Algorithm(&self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyAlgorithm>;
     fn Capabilities(&self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyCapabilities>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const OFFSET: isize>() -> ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
         unsafe extern "system" fn StorageKeyName<Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageKeyName() {
@@ -1746,10 +1854,13 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyCharacteristics>, ::windows::core::GetTrustLevel, StorageKeyName::<Impl, OFFSET>, DateCreated::<Impl, OFFSET>, Algorithm::<Impl, OFFSET>, Capabilities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyCharacteristics>, ::windows::core::GetTrustLevel, StorageKeyName::<Impl, IMPL_OFFSET>, DateCreated::<Impl, IMPL_OFFSET>, Algorithm::<Impl, IMPL_OFFSET>, Capabilities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramStorageKeyCharacteristics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramStorageKeyInfoImpl: Sized {
     fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn PublicKeyBlobType(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType>;
@@ -1759,13 +1870,13 @@ pub trait ISmartCardCryptogramStorageKeyInfoImpl: Sized {
     fn AttestationCertificateChain(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Capabilities(&self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyCapabilities>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardCryptogramStorageKeyInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfoVtbl {
         unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
@@ -1844,20 +1955,23 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyInfo>,
             ::windows::core::GetTrustLevel,
-            OperationStatus::<Impl, OFFSET>,
-            PublicKeyBlobType::<Impl, OFFSET>,
-            PublicKey::<Impl, OFFSET>,
-            AttestationStatus::<Impl, OFFSET>,
-            Attestation::<Impl, OFFSET>,
-            AttestationCertificateChain::<Impl, OFFSET>,
-            Capabilities::<Impl, OFFSET>,
+            OperationStatus::<Impl, IMPL_OFFSET>,
+            PublicKeyBlobType::<Impl, IMPL_OFFSET>,
+            PublicKey::<Impl, IMPL_OFFSET>,
+            AttestationStatus::<Impl, IMPL_OFFSET>,
+            Attestation::<Impl, IMPL_OFFSET>,
+            AttestationCertificateChain::<Impl, IMPL_OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramStorageKeyInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1870,7 +1984,7 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardCryptogramStorageKeyInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfo2Impl, const OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfo2Vtbl {
         unsafe extern "system" fn OperationalRequirements<Impl: ISmartCardCryptogramStorageKeyInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationalRequirements() {
@@ -1882,7 +1996,10 @@ impl ISmartCardCryptogramStorageKeyInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyInfo2>, ::windows::core::GetTrustLevel, OperationalRequirements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardCryptogramStorageKeyInfo2>, ::windows::core::GetTrustLevel, OperationalRequirements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardCryptogramStorageKeyInfo2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1895,7 +2012,7 @@ impl ::windows::core::RuntimeName for ISmartCardEmulator {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardEmulatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorImpl, const OFFSET: isize>() -> ISmartCardEmulatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorVtbl {
         unsafe extern "system" fn EnablementPolicy<Impl: ISmartCardEmulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnablementPolicy() {
@@ -1907,10 +2024,13 @@ impl ISmartCardEmulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulator>, ::windows::core::GetTrustLevel, EnablementPolicy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulator>, ::windows::core::GetTrustLevel, EnablementPolicy::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulator2Impl: Sized {
     fn ApduReceived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveApduReceived(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1919,13 +2039,13 @@ pub trait ISmartCardEmulator2Impl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn IsHostCardEmulationSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulator2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardEmulator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulator2Impl, const OFFSET: isize>() -> ISmartCardEmulator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulator2Vtbl {
         unsafe extern "system" fn ApduReceived<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApduReceived(&*(&value as *const <super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1971,23 +2091,39 @@ impl ISmartCardEmulator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulator2>, ::windows::core::GetTrustLevel, ApduReceived::<Impl, OFFSET>, RemoveApduReceived::<Impl, OFFSET>, ConnectionDeactivated::<Impl, OFFSET>, RemoveConnectionDeactivated::<Impl, OFFSET>, Start::<Impl, OFFSET>, IsHostCardEmulationSupported::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmartCardEmulator2>,
+            ::windows::core::GetTrustLevel,
+            ApduReceived::<Impl, IMPL_OFFSET>,
+            RemoveApduReceived::<Impl, IMPL_OFFSET>,
+            ConnectionDeactivated::<Impl, IMPL_OFFSET>,
+            RemoveConnectionDeactivated::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            IsHostCardEmulationSupported::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulator2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorApduReceivedEventArgsImpl: Sized {
     fn CommandApdu(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ConnectionProperties(&self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
     fn TryRespondAsync(&self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn AutomaticResponseStatus(&self) -> ::windows::core::Result<SmartCardAutomaticResponseStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsVtbl {
         unsafe extern "system" fn CommandApdu<Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandApdu() {
@@ -2032,21 +2168,24 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgs>, ::windows::core::GetTrustLevel, CommandApdu::<Impl, OFFSET>, ConnectionProperties::<Impl, OFFSET>, TryRespondAsync::<Impl, OFFSET>, AutomaticResponseStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgs>, ::windows::core::GetTrustLevel, CommandApdu::<Impl, IMPL_OFFSET>, ConnectionProperties::<Impl, IMPL_OFFSET>, TryRespondAsync::<Impl, IMPL_OFFSET>, AutomaticResponseStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorApduReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorApduReceivedEventArgs2Impl: Sized {
     fn State(&self) -> ::windows::core::Result<u32>;
     fn TryRespondWithStateAsync(&self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgs2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgs2Impl, const OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
         unsafe extern "system" fn State<Impl: ISmartCardEmulatorApduReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -2069,21 +2208,24 @@ impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgs2>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, TryRespondWithStateAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgs2>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, TryRespondWithStateAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorApduReceivedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl: Sized {
     fn TryRespondWithCryptogramsAsync(&self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
     fn TryRespondWithCryptogramsAndStateAsync(&self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgsWithCryptograms";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl, const OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
         unsafe extern "system" fn TryRespondWithCryptogramsAsync<Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responsetemplate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRespondWithCryptogramsAsync(
@@ -2113,7 +2255,10 @@ impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>, ::windows::core::GetTrustLevel, TryRespondWithCryptogramsAsync::<Impl, OFFSET>, TryRespondWithCryptogramsAndStateAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>, ::windows::core::GetTrustLevel, TryRespondWithCryptogramsAsync::<Impl, IMPL_OFFSET>, TryRespondWithCryptogramsAndStateAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2127,7 +2272,7 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorConnectionDeactivatedEve
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionDeactivatedEventArgsImpl, const OFFSET: isize>() -> ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionDeactivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
         unsafe extern "system" fn ConnectionProperties<Impl: ISmartCardEmulatorConnectionDeactivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionProperties() {
@@ -2150,7 +2295,10 @@ impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorConnectionDeactivatedEventArgs>, ::windows::core::GetTrustLevel, ConnectionProperties::<Impl, OFFSET>, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorConnectionDeactivatedEventArgs>, ::windows::core::GetTrustLevel, ConnectionProperties::<Impl, IMPL_OFFSET>, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorConnectionDeactivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2164,7 +2312,7 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorConnectionProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardEmulatorConnectionPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionPropertiesImpl, const OFFSET: isize>() -> ISmartCardEmulatorConnectionPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorConnectionPropertiesVtbl {
         unsafe extern "system" fn Id<Impl: ISmartCardEmulatorConnectionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -2187,20 +2335,23 @@ impl ISmartCardEmulatorConnectionPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorConnectionProperties>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Source::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorConnectionProperties>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Source::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorConnectionProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardEmulator>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardEmulatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStaticsImpl, const OFFSET: isize>() -> ISmartCardEmulatorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStaticsVtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: ISmartCardEmulatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -2212,23 +2363,26 @@ impl ISmartCardEmulatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorStatics2Impl: Sized {
     fn GetAppletIdGroupRegistrationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCardAppletIdGroupRegistration>>>;
     fn RegisterAppletIdGroupAsync(&self, appletidgroup: &::core::option::Option<SmartCardAppletIdGroup>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>;
     fn UnregisterAppletIdGroupAsync(&self, registration: &::core::option::Option<SmartCardAppletIdGroupRegistration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn MaxAppletIdGroupRegistrations(&self) -> ::windows::core::Result<u16>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmartCardEmulatorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics2Impl, const OFFSET: isize>() -> ISmartCardEmulatorStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics2Vtbl {
         unsafe extern "system" fn GetAppletIdGroupRegistrationsAsync<Impl: ISmartCardEmulatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppletIdGroupRegistrationsAsync() {
@@ -2273,7 +2427,21 @@ impl ISmartCardEmulatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics2>, ::windows::core::GetTrustLevel, GetAppletIdGroupRegistrationsAsync::<Impl, OFFSET>, RegisterAppletIdGroupAsync::<Impl, OFFSET>, UnregisterAppletIdGroupAsync::<Impl, OFFSET>, MaxAppletIdGroupRegistrations::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics2>,
+            ::windows::core::GetTrustLevel,
+            GetAppletIdGroupRegistrationsAsync::<Impl, IMPL_OFFSET>,
+            RegisterAppletIdGroupAsync::<Impl, IMPL_OFFSET>,
+            UnregisterAppletIdGroupAsync::<Impl, IMPL_OFFSET>,
+            MaxAppletIdGroupRegistrations::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2286,7 +2454,7 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardEmulatorStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics3Impl, const OFFSET: isize>() -> ISmartCardEmulatorStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics3Vtbl {
         unsafe extern "system" fn IsSupported<Impl: ISmartCardEmulatorStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -2298,7 +2466,10 @@ impl ISmartCardEmulatorStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics3>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardEmulatorStatics3>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardEmulatorStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2322,7 +2493,7 @@ impl ::windows::core::RuntimeName for ISmartCardPinPolicy {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardPinPolicyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>() -> ISmartCardPinPolicyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinPolicyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinPolicyVtbl {
         unsafe extern "system" fn MinLength<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinLength() {
@@ -2414,25 +2585,28 @@ impl ISmartCardPinPolicyVtbl {
             (*this).SetSpecialCharacters(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardPinPolicy>,
             ::windows::core::GetTrustLevel,
-            MinLength::<Impl, OFFSET>,
-            SetMinLength::<Impl, OFFSET>,
-            MaxLength::<Impl, OFFSET>,
-            SetMaxLength::<Impl, OFFSET>,
-            UppercaseLetters::<Impl, OFFSET>,
-            SetUppercaseLetters::<Impl, OFFSET>,
-            LowercaseLetters::<Impl, OFFSET>,
-            SetLowercaseLetters::<Impl, OFFSET>,
-            Digits::<Impl, OFFSET>,
-            SetDigits::<Impl, OFFSET>,
-            SpecialCharacters::<Impl, OFFSET>,
-            SetSpecialCharacters::<Impl, OFFSET>,
+            MinLength::<Impl, IMPL_OFFSET>,
+            SetMinLength::<Impl, IMPL_OFFSET>,
+            MaxLength::<Impl, IMPL_OFFSET>,
+            SetMaxLength::<Impl, IMPL_OFFSET>,
+            UppercaseLetters::<Impl, IMPL_OFFSET>,
+            SetUppercaseLetters::<Impl, IMPL_OFFSET>,
+            LowercaseLetters::<Impl, IMPL_OFFSET>,
+            SetLowercaseLetters::<Impl, IMPL_OFFSET>,
+            Digits::<Impl, IMPL_OFFSET>,
+            SetDigits::<Impl, IMPL_OFFSET>,
+            SpecialCharacters::<Impl, IMPL_OFFSET>,
+            SetSpecialCharacters::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardPinPolicy as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2445,28 +2619,31 @@ impl ::windows::core::RuntimeName for ISmartCardPinResetDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardPinResetDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetDeferralImpl, const OFFSET: isize>() -> ISmartCardPinResetDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinResetDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ISmartCardPinResetDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardPinResetDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardPinResetDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardPinResetDeferral as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardPinResetRequestImpl: Sized {
     fn Challenge(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn GetDeferral(&self) -> ::windows::core::Result<SmartCardPinResetDeferral>;
     fn SetResponse(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardPinResetRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardPinResetRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetRequestImpl, const OFFSET: isize>() -> ISmartCardPinResetRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinResetRequestVtbl {
         unsafe extern "system" fn Challenge<Impl: ISmartCardPinResetRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Challenge() {
@@ -2504,10 +2681,13 @@ impl ISmartCardPinResetRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResponse(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardPinResetRequest>, ::windows::core::GetTrustLevel, Challenge::<Impl, OFFSET>, Deadline::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>, SetResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardPinResetRequest>, ::windows::core::GetTrustLevel, Challenge::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, SetResponse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardPinResetRequest as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioningImpl: Sized {
     fn SmartCard(&self) -> ::windows::core::Result<SmartCard>;
     fn GetIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
@@ -2516,13 +2696,13 @@ pub trait ISmartCardProvisioningImpl: Sized {
     fn RequestPinChangeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RequestPinResetAsync(&self, handler: &::core::option::Option<SmartCardPinResetHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioning";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardProvisioningVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningImpl, const OFFSET: isize>() -> ISmartCardProvisioningVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningVtbl {
         unsafe extern "system" fn SmartCard<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
@@ -2589,20 +2769,36 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioning>, ::windows::core::GetTrustLevel, SmartCard::<Impl, OFFSET>, GetIdAsync::<Impl, OFFSET>, GetNameAsync::<Impl, OFFSET>, GetChallengeContextAsync::<Impl, OFFSET>, RequestPinChangeAsync::<Impl, OFFSET>, RequestPinResetAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmartCardProvisioning>,
+            ::windows::core::GetTrustLevel,
+            SmartCard::<Impl, IMPL_OFFSET>,
+            GetIdAsync::<Impl, IMPL_OFFSET>,
+            GetNameAsync::<Impl, IMPL_OFFSET>,
+            GetChallengeContextAsync::<Impl, IMPL_OFFSET>,
+            RequestPinChangeAsync::<Impl, IMPL_OFFSET>,
+            RequestPinResetAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardProvisioning as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioning2Impl: Sized {
     fn GetAuthorityKeyContainerNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioning2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioning2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardProvisioning2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioning2Impl, const OFFSET: isize>() -> ISmartCardProvisioning2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioning2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioning2Vtbl {
         unsafe extern "system" fn GetAuthorityKeyContainerNameAsync<Impl: ISmartCardProvisioning2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAuthorityKeyContainerNameAsync() {
@@ -2614,23 +2810,26 @@ impl ISmartCardProvisioning2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioning2>, ::windows::core::GetTrustLevel, GetAuthorityKeyContainerNameAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioning2>, ::windows::core::GetTrustLevel, GetAuthorityKeyContainerNameAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardProvisioning2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioningStaticsImpl: Sized {
     fn FromSmartCardAsync(&self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestVirtualSmartCardCreationAsync(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestVirtualSmartCardCreationAsyncWithCardId(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestVirtualSmartCardDeletionAsync(&self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioningStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioningStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardProvisioningStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStaticsImpl, const OFFSET: isize>() -> ISmartCardProvisioningStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningStaticsVtbl {
         unsafe extern "system" fn FromSmartCardAsync<Impl: ISmartCardProvisioningStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, card: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromSmartCardAsync(&*(&card as *const <SmartCard as ::windows::core::Abi>::Abi as *const <SmartCard as ::windows::core::DefaultType>::DefaultType)) {
@@ -2684,21 +2883,35 @@ impl ISmartCardProvisioningStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioningStatics>, ::windows::core::GetTrustLevel, FromSmartCardAsync::<Impl, OFFSET>, RequestVirtualSmartCardCreationAsync::<Impl, OFFSET>, RequestVirtualSmartCardCreationAsyncWithCardId::<Impl, OFFSET>, RequestVirtualSmartCardDeletionAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmartCardProvisioningStatics>,
+            ::windows::core::GetTrustLevel,
+            FromSmartCardAsync::<Impl, IMPL_OFFSET>,
+            RequestVirtualSmartCardCreationAsync::<Impl, IMPL_OFFSET>,
+            RequestVirtualSmartCardCreationAsyncWithCardId::<Impl, IMPL_OFFSET>,
+            RequestVirtualSmartCardDeletionAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardProvisioningStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioningStatics2Impl: Sized {
     fn RequestAttestedVirtualSmartCardCreationAsync(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioningStatics2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioningStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardProvisioningStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStatics2Impl, const OFFSET: isize>() -> ISmartCardProvisioningStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningStatics2Vtbl {
         unsafe extern "system" fn RequestAttestedVirtualSmartCardCreationAsync<Impl: ISmartCardProvisioningStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAttestedVirtualSmartCardCreationAsync(
@@ -2730,10 +2943,13 @@ impl ISmartCardProvisioningStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioningStatics2>, ::windows::core::GetTrustLevel, RequestAttestedVirtualSmartCardCreationAsync::<Impl, OFFSET>, RequestAttestedVirtualSmartCardCreationAsyncWithCardId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardProvisioningStatics2>, ::windows::core::GetTrustLevel, RequestAttestedVirtualSmartCardCreationAsync::<Impl, IMPL_OFFSET>, RequestAttestedVirtualSmartCardCreationAsyncWithCardId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardProvisioningStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardReaderImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2745,13 +2961,13 @@ pub trait ISmartCardReaderImpl: Sized {
     fn CardRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCardRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderImpl, const OFFSET: isize>() -> ISmartCardReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardReaderVtbl {
         unsafe extern "system" fn DeviceId<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -2838,37 +3054,40 @@ impl ISmartCardReaderVtbl {
             (*this).RemoveCardRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmartCardReader>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            GetStatusAsync::<Impl, OFFSET>,
-            FindAllCardsAsync::<Impl, OFFSET>,
-            CardAdded::<Impl, OFFSET>,
-            RemoveCardAdded::<Impl, OFFSET>,
-            CardRemoved::<Impl, OFFSET>,
-            RemoveCardRemoved::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            GetStatusAsync::<Impl, IMPL_OFFSET>,
+            FindAllCardsAsync::<Impl, IMPL_OFFSET>,
+            CardAdded::<Impl, IMPL_OFFSET>,
+            RemoveCardAdded::<Impl, IMPL_OFFSET>,
+            CardRemoved::<Impl, IMPL_OFFSET>,
+            RemoveCardRemoved::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardReader as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardReaderStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorWithKind(&self, kind: SmartCardReaderKind) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardReaderStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardReaderStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardReaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderStaticsImpl, const OFFSET: isize>() -> ISmartCardReaderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardReaderStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ISmartCardReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -2902,22 +3121,25 @@ impl ISmartCardReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardReaderStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorWithKind::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardReaderStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorWithKind::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardReaderStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerDetailsImpl: Sized {
     fn TriggerType(&self) -> ::windows::core::Result<SmartCardTriggerType>;
     fn SourceAppletId(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn TriggerData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmartCardTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetailsImpl, const OFFSET: isize>() -> ISmartCardTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetailsVtbl {
         unsafe extern "system" fn TriggerType<Impl: ISmartCardTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardTriggerType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerType() {
@@ -2951,22 +3173,25 @@ impl ISmartCardTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails>, ::windows::core::GetTrustLevel, TriggerType::<Impl, OFFSET>, SourceAppletId::<Impl, OFFSET>, TriggerData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails>, ::windows::core::GetTrustLevel, TriggerType::<Impl, IMPL_OFFSET>, SourceAppletId::<Impl, IMPL_OFFSET>, TriggerData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerDetails2Impl: Sized {
     fn Emulator(&self) -> ::windows::core::Result<SmartCardEmulator>;
     fn TryLaunchCurrentAppAsync(&self, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryLaunchCurrentAppWithBehaviorAsync(&self, arguments: &::windows::core::HSTRING, behavior: SmartCardLaunchBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTriggerDetails2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardTriggerDetails2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmartCardTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails2Impl, const OFFSET: isize>() -> ISmartCardTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails2Vtbl {
         unsafe extern "system" fn Emulator<Impl: ISmartCardTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Emulator() {
@@ -3000,7 +3225,10 @@ impl ISmartCardTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails2>, ::windows::core::GetTrustLevel, Emulator::<Impl, OFFSET>, TryLaunchCurrentAppAsync::<Impl, OFFSET>, TryLaunchCurrentAppWithBehaviorAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails2>, ::windows::core::GetTrustLevel, Emulator::<Impl, IMPL_OFFSET>, TryLaunchCurrentAppAsync::<Impl, IMPL_OFFSET>, TryLaunchCurrentAppWithBehaviorAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3013,7 +3241,7 @@ impl ::windows::core::RuntimeName for ISmartCardTriggerDetails3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmartCardTriggerDetails3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails3Impl, const OFFSET: isize>() -> ISmartCardTriggerDetails3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails3Vtbl {
         unsafe extern "system" fn SmartCard<Impl: ISmartCardTriggerDetails3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
@@ -3025,6 +3253,9 @@ impl ISmartCardTriggerDetails3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails3>, ::windows::core::GetTrustLevel, SmartCard::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerDetails3>, ::windows::core::GetTrustLevel, SmartCard::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardTriggerDetails3 as ::windows::core::Interface>::IID
     }
 }

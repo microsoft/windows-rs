@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileInformationFactoryImpl: Sized {
     fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
     fn GetItemsAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
@@ -10,13 +10,13 @@ pub trait IFileInformationFactoryImpl: Sized {
     fn GetVirtualizedFilesVector(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetVirtualizedFoldersVector(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IFileInformationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileInformationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryImpl, const OFFSET: isize>() -> IFileInformationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileInformationFactoryVtbl {
         unsafe extern "system" fn GetItemsAsync<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsync(startindex, maxitemstoretrieve) {
@@ -117,38 +117,41 @@ impl IFileInformationFactoryVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileInformationFactory>,
             ::windows::core::GetTrustLevel,
-            GetItemsAsync::<Impl, OFFSET>,
-            GetItemsAsyncDefaultStartAndCount::<Impl, OFFSET>,
-            GetFilesAsync::<Impl, OFFSET>,
-            GetFilesAsyncDefaultStartAndCount::<Impl, OFFSET>,
-            GetFoldersAsync::<Impl, OFFSET>,
-            GetFoldersAsyncDefaultStartAndCount::<Impl, OFFSET>,
-            GetVirtualizedItemsVector::<Impl, OFFSET>,
-            GetVirtualizedFilesVector::<Impl, OFFSET>,
-            GetVirtualizedFoldersVector::<Impl, OFFSET>,
+            GetItemsAsync::<Impl, IMPL_OFFSET>,
+            GetItemsAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetFilesAsync::<Impl, IMPL_OFFSET>,
+            GetFilesAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetFoldersAsync::<Impl, IMPL_OFFSET>,
+            GetFoldersAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetVirtualizedItemsVector::<Impl, IMPL_OFFSET>,
+            GetVirtualizedFilesVector::<Impl, IMPL_OFFSET>,
+            GetVirtualizedFoldersVector::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileInformationFactory as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
 pub trait IFileInformationFactoryFactoryImpl: Sized {
     fn CreateWithMode(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory>;
     fn CreateWithModeAndSize(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory>;
     fn CreateWithModeAndSizeAndOptions(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory>;
     fn CreateWithModeAndSizeAndOptionsAndFlags(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> ::windows::core::Result<FileInformationFactory>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileInformationFactoryFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IFileInformationFactoryFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
 impl IFileInformationFactoryFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryFactoryImpl, const OFFSET: isize>() -> IFileInformationFactoryFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileInformationFactoryFactoryVtbl {
         unsafe extern "system" fn CreateWithMode<Impl: IFileInformationFactoryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithMode(&*(&queryresult as *const <super::Search::IStorageQueryResultBase as ::windows::core::Abi>::Abi as *const <super::Search::IStorageQueryResultBase as ::windows::core::DefaultType>::DefaultType), mode) {
@@ -193,9 +196,24 @@ impl IFileInformationFactoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileInformationFactoryFactory>, ::windows::core::GetTrustLevel, CreateWithMode::<Impl, OFFSET>, CreateWithModeAndSize::<Impl, OFFSET>, CreateWithModeAndSizeAndOptions::<Impl, OFFSET>, CreateWithModeAndSizeAndOptionsAndFlags::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IFileInformationFactoryFactory>,
+            ::windows::core::GetTrustLevel,
+            CreateWithMode::<Impl, IMPL_OFFSET>,
+            CreateWithModeAndSize::<Impl, IMPL_OFFSET>,
+            CreateWithModeAndSizeAndOptions::<Impl, IMPL_OFFSET>,
+            CreateWithModeAndSizeAndOptionsAndFlags::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileInformationFactoryFactory as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemInformationImpl: Sized {
     fn MusicProperties(&self) -> ::windows::core::Result<super::FileProperties::MusicProperties>;
     fn VideoProperties(&self) -> ::windows::core::Result<super::FileProperties::VideoProperties>;
@@ -208,11 +226,13 @@ pub trait IStorageItemInformationImpl: Sized {
     fn PropertiesUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePropertiesUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IStorageItemInformation";
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageItemInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemInformationImpl, const OFFSET: isize>() -> IStorageItemInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemInformationVtbl {
         unsafe extern "system" fn MusicProperties<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MusicProperties() {
@@ -310,22 +330,25 @@ impl IStorageItemInformationVtbl {
             (*this).RemovePropertiesUpdated(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStorageItemInformation>,
             ::windows::core::GetTrustLevel,
-            MusicProperties::<Impl, OFFSET>,
-            VideoProperties::<Impl, OFFSET>,
-            ImageProperties::<Impl, OFFSET>,
-            DocumentProperties::<Impl, OFFSET>,
-            BasicProperties::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            ThumbnailUpdated::<Impl, OFFSET>,
-            RemoveThumbnailUpdated::<Impl, OFFSET>,
-            PropertiesUpdated::<Impl, OFFSET>,
-            RemovePropertiesUpdated::<Impl, OFFSET>,
+            MusicProperties::<Impl, IMPL_OFFSET>,
+            VideoProperties::<Impl, IMPL_OFFSET>,
+            ImageProperties::<Impl, IMPL_OFFSET>,
+            DocumentProperties::<Impl, IMPL_OFFSET>,
+            BasicProperties::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            ThumbnailUpdated::<Impl, IMPL_OFFSET>,
+            RemoveThumbnailUpdated::<Impl, IMPL_OFFSET>,
+            PropertiesUpdated::<Impl, IMPL_OFFSET>,
+            RemovePropertiesUpdated::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemInformation as ::windows::core::Interface>::IID
     }
 }

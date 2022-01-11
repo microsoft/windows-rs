@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAttributedNetworkUsageImpl: Sized {
     fn BytesSent(&self) -> ::windows::core::Result<u64>;
     fn BytesReceived(&self) -> ::windows::core::Result<u64>;
@@ -6,13 +6,13 @@ pub trait IAttributedNetworkUsageImpl: Sized {
     fn AttributionName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AttributionThumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.IAttributedNetworkUsage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IAttributedNetworkUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttributedNetworkUsageImpl, const OFFSET: isize>() -> IAttributedNetworkUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttributedNetworkUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttributedNetworkUsageVtbl {
         unsafe extern "system" fn BytesSent<Impl: IAttributedNetworkUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesSent() {
@@ -68,7 +68,10 @@ impl IAttributedNetworkUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttributedNetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, OFFSET>, BytesReceived::<Impl, OFFSET>, AttributionId::<Impl, OFFSET>, AttributionName::<Impl, OFFSET>, AttributionThumbnail::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttributedNetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>, AttributionId::<Impl, IMPL_OFFSET>, AttributionName::<Impl, IMPL_OFFSET>, AttributionThumbnail::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAttributedNetworkUsage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -92,7 +95,7 @@ impl ::windows::core::RuntimeName for ICellularApnContext {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICellularApnContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICellularApnContextImpl, const OFFSET: isize>() -> ICellularApnContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICellularApnContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICellularApnContextVtbl {
         unsafe extern "system" fn ProviderId<Impl: ICellularApnContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
@@ -184,25 +187,28 @@ impl ICellularApnContextVtbl {
             (*this).SetAuthenticationType(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICellularApnContext>,
             ::windows::core::GetTrustLevel,
-            ProviderId::<Impl, OFFSET>,
-            SetProviderId::<Impl, OFFSET>,
-            AccessPointName::<Impl, OFFSET>,
-            SetAccessPointName::<Impl, OFFSET>,
-            UserName::<Impl, OFFSET>,
-            SetUserName::<Impl, OFFSET>,
-            Password::<Impl, OFFSET>,
-            SetPassword::<Impl, OFFSET>,
-            IsCompressionEnabled::<Impl, OFFSET>,
-            SetIsCompressionEnabled::<Impl, OFFSET>,
-            AuthenticationType::<Impl, OFFSET>,
-            SetAuthenticationType::<Impl, OFFSET>,
+            ProviderId::<Impl, IMPL_OFFSET>,
+            SetProviderId::<Impl, IMPL_OFFSET>,
+            AccessPointName::<Impl, IMPL_OFFSET>,
+            SetAccessPointName::<Impl, IMPL_OFFSET>,
+            UserName::<Impl, IMPL_OFFSET>,
+            SetUserName::<Impl, IMPL_OFFSET>,
+            Password::<Impl, IMPL_OFFSET>,
+            SetPassword::<Impl, IMPL_OFFSET>,
+            IsCompressionEnabled::<Impl, IMPL_OFFSET>,
+            SetIsCompressionEnabled::<Impl, IMPL_OFFSET>,
+            AuthenticationType::<Impl, IMPL_OFFSET>,
+            SetAuthenticationType::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICellularApnContext as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -216,7 +222,7 @@ impl ::windows::core::RuntimeName for ICellularApnContext2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICellularApnContext2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICellularApnContext2Impl, const OFFSET: isize>() -> ICellularApnContext2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICellularApnContext2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICellularApnContext2Vtbl {
         unsafe extern "system" fn ProfileName<Impl: ICellularApnContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileName() {
@@ -232,7 +238,10 @@ impl ICellularApnContext2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProfileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICellularApnContext2>, ::windows::core::GetTrustLevel, ProfileName::<Impl, OFFSET>, SetProfileName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICellularApnContext2>, ::windows::core::GetTrustLevel, ProfileName::<Impl, IMPL_OFFSET>, SetProfileName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICellularApnContext2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -248,7 +257,7 @@ impl ::windows::core::RuntimeName for IConnectionCost {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectionCostVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionCostImpl, const OFFSET: isize>() -> IConnectionCostVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionCostImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionCostVtbl {
         unsafe extern "system" fn NetworkCostType<Impl: IConnectionCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkCostType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkCostType() {
@@ -293,7 +302,10 @@ impl IConnectionCostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionCost>, ::windows::core::GetTrustLevel, NetworkCostType::<Impl, OFFSET>, Roaming::<Impl, OFFSET>, OverDataLimit::<Impl, OFFSET>, ApproachingDataLimit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionCost>, ::windows::core::GetTrustLevel, NetworkCostType::<Impl, IMPL_OFFSET>, Roaming::<Impl, IMPL_OFFSET>, OverDataLimit::<Impl, IMPL_OFFSET>, ApproachingDataLimit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionCost as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -306,7 +318,7 @@ impl ::windows::core::RuntimeName for IConnectionCost2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectionCost2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionCost2Impl, const OFFSET: isize>() -> IConnectionCost2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionCost2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionCost2Vtbl {
         unsafe extern "system" fn BackgroundDataUsageRestricted<Impl: IConnectionCost2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundDataUsageRestricted() {
@@ -318,10 +330,13 @@ impl IConnectionCost2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionCost2>, ::windows::core::GetTrustLevel, BackgroundDataUsageRestricted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionCost2>, ::windows::core::GetTrustLevel, BackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionCost2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConnectionProfileImpl: Sized {
     fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetNetworkConnectivityLevel(&self) -> ::windows::core::Result<NetworkConnectivityLevel>;
@@ -333,13 +348,13 @@ pub trait IConnectionProfileImpl: Sized {
     fn GetLocalUsagePerRoamingStates(&self, starttime: &super::super::Foundation::DateTime, endtime: &super::super::Foundation::DateTime, states: RoamingStates) -> ::windows::core::Result<DataUsage>;
     fn NetworkSecuritySettings(&self) -> ::windows::core::Result<NetworkSecuritySettings>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfile";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IConnectionProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileImpl, const OFFSET: isize>() -> IConnectionProfileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfileVtbl {
         unsafe extern "system" fn ProfileName<Impl: IConnectionProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileName() {
@@ -440,25 +455,28 @@ impl IConnectionProfileVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConnectionProfile>,
             ::windows::core::GetTrustLevel,
-            ProfileName::<Impl, OFFSET>,
-            GetNetworkConnectivityLevel::<Impl, OFFSET>,
-            GetNetworkNames::<Impl, OFFSET>,
-            GetConnectionCost::<Impl, OFFSET>,
-            GetDataPlanStatus::<Impl, OFFSET>,
-            NetworkAdapter::<Impl, OFFSET>,
-            GetLocalUsage::<Impl, OFFSET>,
-            GetLocalUsagePerRoamingStates::<Impl, OFFSET>,
-            NetworkSecuritySettings::<Impl, OFFSET>,
+            ProfileName::<Impl, IMPL_OFFSET>,
+            GetNetworkConnectivityLevel::<Impl, IMPL_OFFSET>,
+            GetNetworkNames::<Impl, IMPL_OFFSET>,
+            GetConnectionCost::<Impl, IMPL_OFFSET>,
+            GetDataPlanStatus::<Impl, IMPL_OFFSET>,
+            NetworkAdapter::<Impl, IMPL_OFFSET>,
+            GetLocalUsage::<Impl, IMPL_OFFSET>,
+            GetLocalUsagePerRoamingStates::<Impl, IMPL_OFFSET>,
+            NetworkSecuritySettings::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfile as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConnectionProfile2Impl: Sized {
     fn IsWwanConnectionProfile(&self) -> ::windows::core::Result<bool>;
     fn IsWlanConnectionProfile(&self) -> ::windows::core::Result<bool>;
@@ -470,13 +488,13 @@ pub trait IConnectionProfile2Impl: Sized {
     fn GetNetworkUsageAsync(&self, starttime: &super::super::Foundation::DateTime, endtime: &super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: &NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>;
     fn GetConnectivityIntervalsAsync(&self, starttime: &super::super::Foundation::DateTime, endtime: &super::super::Foundation::DateTime, states: &NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfile2 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfile2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IConnectionProfile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile2Impl, const OFFSET: isize>() -> IConnectionProfile2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfile2Vtbl {
         unsafe extern "system" fn IsWwanConnectionProfile<Impl: IConnectionProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWwanConnectionProfile() {
@@ -586,35 +604,38 @@ impl IConnectionProfile2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConnectionProfile2>,
             ::windows::core::GetTrustLevel,
-            IsWwanConnectionProfile::<Impl, OFFSET>,
-            IsWlanConnectionProfile::<Impl, OFFSET>,
-            WwanConnectionProfileDetails::<Impl, OFFSET>,
-            WlanConnectionProfileDetails::<Impl, OFFSET>,
-            ServiceProviderGuid::<Impl, OFFSET>,
-            GetSignalBars::<Impl, OFFSET>,
-            GetDomainConnectivityLevel::<Impl, OFFSET>,
-            GetNetworkUsageAsync::<Impl, OFFSET>,
-            GetConnectivityIntervalsAsync::<Impl, OFFSET>,
+            IsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
+            IsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
+            WwanConnectionProfileDetails::<Impl, IMPL_OFFSET>,
+            WlanConnectionProfileDetails::<Impl, IMPL_OFFSET>,
+            ServiceProviderGuid::<Impl, IMPL_OFFSET>,
+            GetSignalBars::<Impl, IMPL_OFFSET>,
+            GetDomainConnectivityLevel::<Impl, IMPL_OFFSET>,
+            GetNetworkUsageAsync::<Impl, IMPL_OFFSET>,
+            GetConnectivityIntervalsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfile2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConnectionProfile3Impl: Sized {
     fn GetAttributedNetworkUsageAsync(&self, starttime: &super::super::Foundation::DateTime, endtime: &super::super::Foundation::DateTime, states: &NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfile3 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfile3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IConnectionProfile3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile3Impl, const OFFSET: isize>() -> IConnectionProfile3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfile3Vtbl {
         unsafe extern "system" fn GetAttributedNetworkUsageAsync<Impl: IConnectionProfile3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributedNetworkUsageAsync(
@@ -630,20 +651,23 @@ impl IConnectionProfile3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile3>, ::windows::core::GetTrustLevel, GetAttributedNetworkUsageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile3>, ::windows::core::GetTrustLevel, GetAttributedNetworkUsageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfile3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConnectionProfile4Impl: Sized {
     fn GetProviderNetworkUsageAsync(&self, starttime: &super::super::Foundation::DateTime, endtime: &super::super::Foundation::DateTime, states: &NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfile4 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfile4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IConnectionProfile4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile4Impl, const OFFSET: isize>() -> IConnectionProfile4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfile4Vtbl {
         unsafe extern "system" fn GetProviderNetworkUsageAsync<Impl: IConnectionProfile4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProviderNetworkUsageAsync(
@@ -659,21 +683,24 @@ impl IConnectionProfile4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile4>, ::windows::core::GetTrustLevel, GetProviderNetworkUsageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile4>, ::windows::core::GetTrustLevel, GetProviderNetworkUsageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfile4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectionProfile5Impl: Sized {
     fn CanDelete(&self) -> ::windows::core::Result<bool>;
     fn TryDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfile5 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfile5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectionProfile5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile5Impl, const OFFSET: isize>() -> IConnectionProfile5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfile5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfile5Vtbl {
         unsafe extern "system" fn CanDelete<Impl: IConnectionProfile5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanDelete() {
@@ -696,10 +723,13 @@ impl IConnectionProfile5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile5>, ::windows::core::GetTrustLevel, CanDelete::<Impl, OFFSET>, TryDeleteAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfile5>, ::windows::core::GetTrustLevel, CanDelete::<Impl, IMPL_OFFSET>, TryDeleteAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfile5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectionProfileFilterImpl: Sized {
     fn SetIsConnected(&self, value: bool) -> ::windows::core::Result<()>;
     fn IsConnected(&self) -> ::windows::core::Result<bool>;
@@ -712,13 +742,13 @@ pub trait IConnectionProfileFilterImpl: Sized {
     fn SetServiceProviderGuid(&self, value: &::core::option::Option<super::super::Foundation::IReference<::windows::core::GUID>>) -> ::windows::core::Result<()>;
     fn ServiceProviderGuid(&self) -> ::windows::core::Result<super::super::Foundation::IReference<::windows::core::GUID>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfileFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectionProfileFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileFilterImpl, const OFFSET: isize>() -> IConnectionProfileFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfileFilterVtbl {
         unsafe extern "system" fn SetIsConnected<Impl: IConnectionProfileFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsConnected(value).into()
@@ -795,26 +825,29 @@ impl IConnectionProfileFilterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter>,
             ::windows::core::GetTrustLevel,
-            SetIsConnected::<Impl, OFFSET>,
-            IsConnected::<Impl, OFFSET>,
-            SetIsWwanConnectionProfile::<Impl, OFFSET>,
-            IsWwanConnectionProfile::<Impl, OFFSET>,
-            SetIsWlanConnectionProfile::<Impl, OFFSET>,
-            IsWlanConnectionProfile::<Impl, OFFSET>,
-            SetNetworkCostType::<Impl, OFFSET>,
-            NetworkCostType::<Impl, OFFSET>,
-            SetServiceProviderGuid::<Impl, OFFSET>,
-            ServiceProviderGuid::<Impl, OFFSET>,
+            SetIsConnected::<Impl, IMPL_OFFSET>,
+            IsConnected::<Impl, IMPL_OFFSET>,
+            SetIsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
+            IsWwanConnectionProfile::<Impl, IMPL_OFFSET>,
+            SetIsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
+            IsWlanConnectionProfile::<Impl, IMPL_OFFSET>,
+            SetNetworkCostType::<Impl, IMPL_OFFSET>,
+            NetworkCostType::<Impl, IMPL_OFFSET>,
+            SetServiceProviderGuid::<Impl, IMPL_OFFSET>,
+            ServiceProviderGuid::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfileFilter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IConnectionProfileFilter2Impl: Sized {
     fn SetIsRoaming(&self, value: &::core::option::Option<super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
     fn IsRoaming(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
@@ -824,13 +857,13 @@ pub trait IConnectionProfileFilter2Impl: Sized {
     fn IsBackgroundDataUsageRestricted(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
     fn RawData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfileFilter2 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfileFilter2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IConnectionProfileFilter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileFilter2Impl, const OFFSET: isize>() -> IConnectionProfileFilter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileFilter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfileFilter2Vtbl {
         unsafe extern "system" fn SetIsRoaming<Impl: IConnectionProfileFilter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsRoaming(&*(&value as *const <super::super::Foundation::IReference<bool> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<bool> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -888,34 +921,37 @@ impl IConnectionProfileFilter2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter2>,
             ::windows::core::GetTrustLevel,
-            SetIsRoaming::<Impl, OFFSET>,
-            IsRoaming::<Impl, OFFSET>,
-            SetIsOverDataLimit::<Impl, OFFSET>,
-            IsOverDataLimit::<Impl, OFFSET>,
-            SetIsBackgroundDataUsageRestricted::<Impl, OFFSET>,
-            IsBackgroundDataUsageRestricted::<Impl, OFFSET>,
-            RawData::<Impl, OFFSET>,
+            SetIsRoaming::<Impl, IMPL_OFFSET>,
+            IsRoaming::<Impl, IMPL_OFFSET>,
+            SetIsOverDataLimit::<Impl, IMPL_OFFSET>,
+            IsOverDataLimit::<Impl, IMPL_OFFSET>,
+            SetIsBackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
+            IsBackgroundDataUsageRestricted::<Impl, IMPL_OFFSET>,
+            RawData::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfileFilter2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectionProfileFilter3Impl: Sized {
     fn SetPurposeGuid(&self, value: &::core::option::Option<super::super::Foundation::IReference<::windows::core::GUID>>) -> ::windows::core::Result<()>;
     fn PurposeGuid(&self) -> ::windows::core::Result<super::super::Foundation::IReference<::windows::core::GUID>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectionProfileFilter3 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectionProfileFilter3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectionProfileFilter3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileFilter3Impl, const OFFSET: isize>() -> IConnectionProfileFilter3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionProfileFilter3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionProfileFilter3Vtbl {
         unsafe extern "system" fn SetPurposeGuid<Impl: IConnectionProfileFilter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPurposeGuid(&*(&value as *const <super::super::Foundation::IReference<::windows::core::GUID> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<::windows::core::GUID> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -931,7 +967,10 @@ impl IConnectionProfileFilter3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter3>, ::windows::core::GetTrustLevel, SetPurposeGuid::<Impl, OFFSET>, PurposeGuid::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionProfileFilter3>, ::windows::core::GetTrustLevel, SetPurposeGuid::<Impl, IMPL_OFFSET>, PurposeGuid::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionProfileFilter3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -944,7 +983,7 @@ impl ::windows::core::RuntimeName for IConnectionSession {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectionSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionSessionImpl, const OFFSET: isize>() -> IConnectionSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionSessionVtbl {
         unsafe extern "system" fn ConnectionProfile<Impl: IConnectionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionProfile() {
@@ -956,21 +995,24 @@ impl IConnectionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionSession>, ::windows::core::GetTrustLevel, ConnectionProfile::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionSession>, ::windows::core::GetTrustLevel, ConnectionProfile::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionSession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectivityIntervalImpl: Sized {
     fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn ConnectionDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectivityInterval";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectivityIntervalVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectivityIntervalImpl, const OFFSET: isize>() -> IConnectivityIntervalVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectivityIntervalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectivityIntervalVtbl {
         unsafe extern "system" fn StartTime<Impl: IConnectivityIntervalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
@@ -993,22 +1035,25 @@ impl IConnectivityIntervalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectivityInterval>, ::windows::core::GetTrustLevel, StartTime::<Impl, OFFSET>, ConnectionDuration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectivityInterval>, ::windows::core::GetTrustLevel, StartTime::<Impl, IMPL_OFFSET>, ConnectionDuration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectivityInterval as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectivityManagerStaticsImpl: Sized {
     fn AcquireConnectionAsync(&self, cellularapncontext: &::core::option::Option<CellularApnContext>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>;
     fn AddHttpRoutePolicy(&self, routepolicy: &::core::option::Option<RoutePolicy>) -> ::windows::core::Result<()>;
     fn RemoveHttpRoutePolicy(&self, routepolicy: &::core::option::Option<RoutePolicy>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectivityManagerStatics {
     const NAME: &'static str = "Windows.Networking.Connectivity.IConnectivityManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConnectivityManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectivityManagerStaticsImpl, const OFFSET: isize>() -> IConnectivityManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectivityManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectivityManagerStaticsVtbl {
         unsafe extern "system" fn AcquireConnectionAsync<Impl: IConnectivityManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cellularapncontext: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcquireConnectionAsync(&*(&cellularapncontext as *const <CellularApnContext as ::windows::core::Abi>::Abi as *const <CellularApnContext as ::windows::core::DefaultType>::DefaultType)) {
@@ -1028,10 +1073,13 @@ impl IConnectivityManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHttpRoutePolicy(&*(&routepolicy as *const <RoutePolicy as ::windows::core::Abi>::Abi as *const <RoutePolicy as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectivityManagerStatics>, ::windows::core::GetTrustLevel, AcquireConnectionAsync::<Impl, OFFSET>, AddHttpRoutePolicy::<Impl, OFFSET>, RemoveHttpRoutePolicy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectivityManagerStatics>, ::windows::core::GetTrustLevel, AcquireConnectionAsync::<Impl, IMPL_OFFSET>, AddHttpRoutePolicy::<Impl, IMPL_OFFSET>, RemoveHttpRoutePolicy::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectivityManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDataPlanStatusImpl: Sized {
     fn DataPlanUsage(&self) -> ::windows::core::Result<DataPlanUsage>;
     fn DataLimitInMegabytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
@@ -1040,13 +1088,13 @@ pub trait IDataPlanStatusImpl: Sized {
     fn NextBillingCycle(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
     fn MaxTransferSizeInMegabytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.IDataPlanStatus";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDataPlanStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPlanStatusImpl, const OFFSET: isize>() -> IDataPlanStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPlanStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPlanStatusVtbl {
         unsafe extern "system" fn DataPlanUsage<Impl: IDataPlanStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataPlanUsage() {
@@ -1114,33 +1162,36 @@ impl IDataPlanStatusVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDataPlanStatus>,
             ::windows::core::GetTrustLevel,
-            DataPlanUsage::<Impl, OFFSET>,
-            DataLimitInMegabytes::<Impl, OFFSET>,
-            InboundBitsPerSecond::<Impl, OFFSET>,
-            OutboundBitsPerSecond::<Impl, OFFSET>,
-            NextBillingCycle::<Impl, OFFSET>,
-            MaxTransferSizeInMegabytes::<Impl, OFFSET>,
+            DataPlanUsage::<Impl, IMPL_OFFSET>,
+            DataLimitInMegabytes::<Impl, IMPL_OFFSET>,
+            InboundBitsPerSecond::<Impl, IMPL_OFFSET>,
+            OutboundBitsPerSecond::<Impl, IMPL_OFFSET>,
+            NextBillingCycle::<Impl, IMPL_OFFSET>,
+            MaxTransferSizeInMegabytes::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataPlanStatus as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDataPlanUsageImpl: Sized {
     fn MegabytesUsed(&self) -> ::windows::core::Result<u32>;
     fn LastSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.IDataPlanUsage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDataPlanUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPlanUsageImpl, const OFFSET: isize>() -> IDataPlanUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPlanUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPlanUsageVtbl {
         unsafe extern "system" fn MegabytesUsed<Impl: IDataPlanUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MegabytesUsed() {
@@ -1163,7 +1214,10 @@ impl IDataPlanUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataPlanUsage>, ::windows::core::GetTrustLevel, MegabytesUsed::<Impl, OFFSET>, LastSyncTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataPlanUsage>, ::windows::core::GetTrustLevel, MegabytesUsed::<Impl, IMPL_OFFSET>, LastSyncTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataPlanUsage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1177,7 +1231,7 @@ impl ::windows::core::RuntimeName for IDataUsage {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IDataUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataUsageImpl, const OFFSET: isize>() -> IDataUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataUsageVtbl {
         unsafe extern "system" fn BytesSent<Impl: IDataUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesSent() {
@@ -1200,21 +1254,24 @@ impl IDataUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, OFFSET>, BytesReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDataUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataUsage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IIPInformationImpl: Sized {
     fn NetworkAdapter(&self) -> ::windows::core::Result<NetworkAdapter>;
     fn PrefixLength(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u8>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IIPInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IIPInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIPInformationImpl, const OFFSET: isize>() -> IIPInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIPInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIPInformationVtbl {
         unsafe extern "system" fn NetworkAdapter<Impl: IIPInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAdapter() {
@@ -1237,7 +1294,10 @@ impl IIPInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIPInformation>, ::windows::core::GetTrustLevel, NetworkAdapter::<Impl, OFFSET>, PrefixLength::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIPInformation>, ::windows::core::GetTrustLevel, NetworkAdapter::<Impl, IMPL_OFFSET>, PrefixLength::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIPInformation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1252,7 +1312,7 @@ impl ::windows::core::RuntimeName for ILanIdentifier {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanIdentifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanIdentifierImpl, const OFFSET: isize>() -> ILanIdentifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanIdentifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanIdentifierVtbl {
         unsafe extern "system" fn InfrastructureId<Impl: ILanIdentifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InfrastructureId() {
@@ -1286,21 +1346,24 @@ impl ILanIdentifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanIdentifier>, ::windows::core::GetTrustLevel, InfrastructureId::<Impl, OFFSET>, PortId::<Impl, OFFSET>, NetworkAdapterId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanIdentifier>, ::windows::core::GetTrustLevel, InfrastructureId::<Impl, IMPL_OFFSET>, PortId::<Impl, IMPL_OFFSET>, NetworkAdapterId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanIdentifier as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILanIdentifierDataImpl: Sized {
     fn Type(&self) -> ::windows::core::Result<u32>;
     fn Value(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u8>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.ILanIdentifierData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ILanIdentifierDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanIdentifierDataImpl, const OFFSET: isize>() -> ILanIdentifierDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanIdentifierDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanIdentifierDataVtbl {
         unsafe extern "system" fn Type<Impl: ILanIdentifierDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -1323,10 +1386,13 @@ impl ILanIdentifierDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanIdentifierData>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanIdentifierData>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanIdentifierData as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INetworkAdapterImpl: Sized {
     fn OutboundMaxBitsPerSecond(&self) -> ::windows::core::Result<u64>;
     fn InboundMaxBitsPerSecond(&self) -> ::windows::core::Result<u64>;
@@ -1335,13 +1401,13 @@ pub trait INetworkAdapterImpl: Sized {
     fn NetworkAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetConnectedProfileAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.INetworkAdapter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl INetworkAdapterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkAdapterImpl, const OFFSET: isize>() -> INetworkAdapterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkAdapterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkAdapterVtbl {
         unsafe extern "system" fn OutboundMaxBitsPerSecond<Impl: INetworkAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundMaxBitsPerSecond() {
@@ -1408,10 +1474,26 @@ impl INetworkAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkAdapter>, ::windows::core::GetTrustLevel, OutboundMaxBitsPerSecond::<Impl, OFFSET>, InboundMaxBitsPerSecond::<Impl, OFFSET>, IanaInterfaceType::<Impl, OFFSET>, NetworkItem::<Impl, OFFSET>, NetworkAdapterId::<Impl, OFFSET>, GetConnectedProfileAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<INetworkAdapter>,
+            ::windows::core::GetTrustLevel,
+            OutboundMaxBitsPerSecond::<Impl, IMPL_OFFSET>,
+            InboundMaxBitsPerSecond::<Impl, IMPL_OFFSET>,
+            IanaInterfaceType::<Impl, IMPL_OFFSET>,
+            NetworkItem::<Impl, IMPL_OFFSET>,
+            NetworkAdapterId::<Impl, IMPL_OFFSET>,
+            GetConnectedProfileAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkAdapter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INetworkInformationStaticsImpl: Sized {
     fn GetConnectionProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>;
     fn GetInternetConnectionProfile(&self) -> ::windows::core::Result<ConnectionProfile>;
@@ -1422,13 +1504,13 @@ pub trait INetworkInformationStaticsImpl: Sized {
     fn NetworkStatusChanged(&self, networkstatushandler: &::core::option::Option<NetworkStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveNetworkStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkInformationStatics {
     const NAME: &'static str = "Windows.Networking.Connectivity.INetworkInformationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INetworkInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkInformationStaticsImpl, const OFFSET: isize>() -> INetworkInformationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkInformationStaticsVtbl {
         unsafe extern "system" fn GetConnectionProfiles<Impl: INetworkInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConnectionProfiles() {
@@ -1511,34 +1593,37 @@ impl INetworkInformationStaticsVtbl {
             (*this).RemoveNetworkStatusChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INetworkInformationStatics>,
             ::windows::core::GetTrustLevel,
-            GetConnectionProfiles::<Impl, OFFSET>,
-            GetInternetConnectionProfile::<Impl, OFFSET>,
-            GetLanIdentifiers::<Impl, OFFSET>,
-            GetHostNames::<Impl, OFFSET>,
-            GetProxyConfigurationAsync::<Impl, OFFSET>,
-            GetSortedEndpointPairs::<Impl, OFFSET>,
-            NetworkStatusChanged::<Impl, OFFSET>,
-            RemoveNetworkStatusChanged::<Impl, OFFSET>,
+            GetConnectionProfiles::<Impl, IMPL_OFFSET>,
+            GetInternetConnectionProfile::<Impl, IMPL_OFFSET>,
+            GetLanIdentifiers::<Impl, IMPL_OFFSET>,
+            GetHostNames::<Impl, IMPL_OFFSET>,
+            GetProxyConfigurationAsync::<Impl, IMPL_OFFSET>,
+            GetSortedEndpointPairs::<Impl, IMPL_OFFSET>,
+            NetworkStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveNetworkStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkInformationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INetworkInformationStatics2Impl: Sized {
     fn FindConnectionProfilesAsync(&self, pprofilefilter: &::core::option::Option<ConnectionProfileFilter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkInformationStatics2 {
     const NAME: &'static str = "Windows.Networking.Connectivity.INetworkInformationStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INetworkInformationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkInformationStatics2Impl, const OFFSET: isize>() -> INetworkInformationStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkInformationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkInformationStatics2Vtbl {
         unsafe extern "system" fn FindConnectionProfilesAsync<Impl: INetworkInformationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprofilefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindConnectionProfilesAsync(&*(&pprofilefilter as *const <ConnectionProfileFilter as ::windows::core::Abi>::Abi as *const <ConnectionProfileFilter as ::windows::core::DefaultType>::DefaultType)) {
@@ -1550,7 +1635,10 @@ impl INetworkInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkInformationStatics2>, ::windows::core::GetTrustLevel, FindConnectionProfilesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkInformationStatics2>, ::windows::core::GetTrustLevel, FindConnectionProfilesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkInformationStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1564,7 +1652,7 @@ impl ::windows::core::RuntimeName for INetworkItem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkItemImpl, const OFFSET: isize>() -> INetworkItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkItemVtbl {
         unsafe extern "system" fn NetworkId<Impl: INetworkItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkId() {
@@ -1587,7 +1675,10 @@ impl INetworkItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkItem>, ::windows::core::GetTrustLevel, NetworkId::<Impl, OFFSET>, GetNetworkTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkItem>, ::windows::core::GetTrustLevel, NetworkId::<Impl, IMPL_OFFSET>, GetNetworkTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1601,7 +1692,7 @@ impl ::windows::core::RuntimeName for INetworkSecuritySettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkSecuritySettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkSecuritySettingsImpl, const OFFSET: isize>() -> INetworkSecuritySettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkSecuritySettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkSecuritySettingsVtbl {
         unsafe extern "system" fn NetworkAuthenticationType<Impl: INetworkSecuritySettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkAuthenticationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAuthenticationType() {
@@ -1624,7 +1715,10 @@ impl INetworkSecuritySettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkSecuritySettings>, ::windows::core::GetTrustLevel, NetworkAuthenticationType::<Impl, OFFSET>, NetworkEncryptionType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkSecuritySettings>, ::windows::core::GetTrustLevel, NetworkAuthenticationType::<Impl, IMPL_OFFSET>, NetworkEncryptionType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkSecuritySettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1642,7 +1736,7 @@ impl ::windows::core::RuntimeName for INetworkStateChangeEventDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkStateChangeEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkStateChangeEventDetailsImpl, const OFFSET: isize>() -> INetworkStateChangeEventDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkStateChangeEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkStateChangeEventDetailsVtbl {
         unsafe extern "system" fn HasNewInternetConnectionProfile<Impl: INetworkStateChangeEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasNewInternetConnectionProfile() {
@@ -1710,19 +1804,22 @@ impl INetworkStateChangeEventDetailsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INetworkStateChangeEventDetails>,
             ::windows::core::GetTrustLevel,
-            HasNewInternetConnectionProfile::<Impl, OFFSET>,
-            HasNewConnectionCost::<Impl, OFFSET>,
-            HasNewNetworkConnectivityLevel::<Impl, OFFSET>,
-            HasNewDomainConnectivityLevel::<Impl, OFFSET>,
-            HasNewHostNameList::<Impl, OFFSET>,
-            HasNewWwanRegistrationState::<Impl, OFFSET>,
+            HasNewInternetConnectionProfile::<Impl, IMPL_OFFSET>,
+            HasNewConnectionCost::<Impl, IMPL_OFFSET>,
+            HasNewNetworkConnectivityLevel::<Impl, IMPL_OFFSET>,
+            HasNewDomainConnectivityLevel::<Impl, IMPL_OFFSET>,
+            HasNewHostNameList::<Impl, IMPL_OFFSET>,
+            HasNewWwanRegistrationState::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkStateChangeEventDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1736,7 +1833,7 @@ impl ::windows::core::RuntimeName for INetworkStateChangeEventDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkStateChangeEventDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkStateChangeEventDetails2Impl, const OFFSET: isize>() -> INetworkStateChangeEventDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkStateChangeEventDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkStateChangeEventDetails2Vtbl {
         unsafe extern "system" fn HasNewTetheringOperationalState<Impl: INetworkStateChangeEventDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasNewTetheringOperationalState() {
@@ -1759,22 +1856,25 @@ impl INetworkStateChangeEventDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkStateChangeEventDetails2>, ::windows::core::GetTrustLevel, HasNewTetheringOperationalState::<Impl, OFFSET>, HasNewTetheringClientCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkStateChangeEventDetails2>, ::windows::core::GetTrustLevel, HasNewTetheringOperationalState::<Impl, IMPL_OFFSET>, HasNewTetheringClientCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkStateChangeEventDetails2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INetworkUsageImpl: Sized {
     fn BytesSent(&self) -> ::windows::core::Result<u64>;
     fn BytesReceived(&self) -> ::windows::core::Result<u64>;
     fn ConnectionDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.INetworkUsage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl INetworkUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkUsageImpl, const OFFSET: isize>() -> INetworkUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkUsageVtbl {
         unsafe extern "system" fn BytesSent<Impl: INetworkUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesSent() {
@@ -1808,7 +1908,10 @@ impl INetworkUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, OFFSET>, BytesReceived::<Impl, OFFSET>, ConnectionDuration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>, ConnectionDuration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkUsage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1823,7 +1926,7 @@ impl ::windows::core::RuntimeName for IProviderNetworkUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProviderNetworkUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderNetworkUsageImpl, const OFFSET: isize>() -> IProviderNetworkUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderNetworkUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderNetworkUsageVtbl {
         unsafe extern "system" fn BytesSent<Impl: IProviderNetworkUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesSent() {
@@ -1857,21 +1960,24 @@ impl IProviderNetworkUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProviderNetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, OFFSET>, BytesReceived::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProviderNetworkUsage>, ::windows::core::GetTrustLevel, BytesSent::<Impl, IMPL_OFFSET>, BytesReceived::<Impl, IMPL_OFFSET>, ProviderId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProviderNetworkUsage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProxyConfigurationImpl: Sized {
     fn ProxyUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
     fn CanConnectDirectly(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.IProxyConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IProxyConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyConfigurationImpl, const OFFSET: isize>() -> IProxyConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProxyConfigurationVtbl {
         unsafe extern "system" fn ProxyUris<Impl: IProxyConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyUris() {
@@ -1894,7 +2000,10 @@ impl IProxyConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProxyConfiguration>, ::windows::core::GetTrustLevel, ProxyUris::<Impl, OFFSET>, CanConnectDirectly::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProxyConfiguration>, ::windows::core::GetTrustLevel, ProxyUris::<Impl, IMPL_OFFSET>, CanConnectDirectly::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProxyConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1909,7 +2018,7 @@ impl ::windows::core::RuntimeName for IRoutePolicy {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRoutePolicyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoutePolicyImpl, const OFFSET: isize>() -> IRoutePolicyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoutePolicyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRoutePolicyVtbl {
         unsafe extern "system" fn ConnectionProfile<Impl: IRoutePolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionProfile() {
@@ -1943,7 +2052,10 @@ impl IRoutePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRoutePolicy>, ::windows::core::GetTrustLevel, ConnectionProfile::<Impl, OFFSET>, HostName::<Impl, OFFSET>, HostNameType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRoutePolicy>, ::windows::core::GetTrustLevel, ConnectionProfile::<Impl, IMPL_OFFSET>, HostName::<Impl, IMPL_OFFSET>, HostNameType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRoutePolicy as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1956,7 +2068,7 @@ impl ::windows::core::RuntimeName for IRoutePolicyFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRoutePolicyFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoutePolicyFactoryImpl, const OFFSET: isize>() -> IRoutePolicyFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoutePolicyFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRoutePolicyFactoryVtbl {
         unsafe extern "system" fn CreateRoutePolicy<Impl: IRoutePolicyFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionprofile: ::windows::core::RawPtr, hostname: ::windows::core::RawPtr, r#type: super::DomainNameType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRoutePolicy(&*(&connectionprofile as *const <ConnectionProfile as ::windows::core::Abi>::Abi as *const <ConnectionProfile as ::windows::core::DefaultType>::DefaultType), &*(&hostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), r#type) {
@@ -1968,7 +2080,10 @@ impl IRoutePolicyFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRoutePolicyFactory>, ::windows::core::GetTrustLevel, CreateRoutePolicy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRoutePolicyFactory>, ::windows::core::GetTrustLevel, CreateRoutePolicy::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRoutePolicyFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1981,7 +2096,7 @@ impl ::windows::core::RuntimeName for IWlanConnectionProfileDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWlanConnectionProfileDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWlanConnectionProfileDetailsImpl, const OFFSET: isize>() -> IWlanConnectionProfileDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWlanConnectionProfileDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWlanConnectionProfileDetailsVtbl {
         unsafe extern "system" fn GetConnectedSsid<Impl: IWlanConnectionProfileDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConnectedSsid() {
@@ -1993,7 +2108,10 @@ impl IWlanConnectionProfileDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWlanConnectionProfileDetails>, ::windows::core::GetTrustLevel, GetConnectedSsid::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWlanConnectionProfileDetails>, ::windows::core::GetTrustLevel, GetConnectedSsid::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWlanConnectionProfileDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2009,7 +2127,7 @@ impl ::windows::core::RuntimeName for IWwanConnectionProfileDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWwanConnectionProfileDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWwanConnectionProfileDetailsImpl, const OFFSET: isize>() -> IWwanConnectionProfileDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWwanConnectionProfileDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWwanConnectionProfileDetailsVtbl {
         unsafe extern "system" fn HomeProviderId<Impl: IWwanConnectionProfileDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HomeProviderId() {
@@ -2054,21 +2172,24 @@ impl IWwanConnectionProfileDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwanConnectionProfileDetails>, ::windows::core::GetTrustLevel, HomeProviderId::<Impl, OFFSET>, AccessPointName::<Impl, OFFSET>, GetNetworkRegistrationState::<Impl, OFFSET>, GetCurrentDataClass::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwanConnectionProfileDetails>, ::windows::core::GetTrustLevel, HomeProviderId::<Impl, IMPL_OFFSET>, AccessPointName::<Impl, IMPL_OFFSET>, GetNetworkRegistrationState::<Impl, IMPL_OFFSET>, GetCurrentDataClass::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWwanConnectionProfileDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWwanConnectionProfileDetails2Impl: Sized {
     fn IPKind(&self) -> ::windows::core::Result<WwanNetworkIPKind>;
     fn PurposeGuids(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWwanConnectionProfileDetails2 {
     const NAME: &'static str = "Windows.Networking.Connectivity.IWwanConnectionProfileDetails2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWwanConnectionProfileDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWwanConnectionProfileDetails2Impl, const OFFSET: isize>() -> IWwanConnectionProfileDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWwanConnectionProfileDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWwanConnectionProfileDetails2Vtbl {
         unsafe extern "system" fn IPKind<Impl: IWwanConnectionProfileDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WwanNetworkIPKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IPKind() {
@@ -2091,6 +2212,9 @@ impl IWwanConnectionProfileDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwanConnectionProfileDetails2>, ::windows::core::GetTrustLevel, IPKind::<Impl, OFFSET>, PurposeGuids::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwanConnectionProfileDetails2>, ::windows::core::GetTrustLevel, IPKind::<Impl, IMPL_OFFSET>, PurposeGuids::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWwanConnectionProfileDetails2 as ::windows::core::Interface>::IID
     }
 }

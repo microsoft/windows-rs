@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Radios", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothAdapterImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn BluetoothAddress(&self) -> ::windows::core::Result<u64>;
@@ -9,13 +9,13 @@ pub trait IBluetoothAdapterImpl: Sized {
     fn IsAdvertisementOffloadSupported(&self) -> ::windows::core::Result<bool>;
     fn GetRadioAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Radios::Radio>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Radios", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothAdapter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Radios", feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothAdapterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapterImpl, const OFFSET: isize>() -> IBluetoothAdapterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothAdapterVtbl {
         unsafe extern "system" fn DeviceId<Impl: IBluetoothAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -105,21 +105,24 @@ impl IBluetoothAdapterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothAdapter>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            BluetoothAddress::<Impl, OFFSET>,
-            IsClassicSupported::<Impl, OFFSET>,
-            IsLowEnergySupported::<Impl, OFFSET>,
-            IsPeripheralRoleSupported::<Impl, OFFSET>,
-            IsCentralRoleSupported::<Impl, OFFSET>,
-            IsAdvertisementOffloadSupported::<Impl, OFFSET>,
-            GetRadioAsync::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            BluetoothAddress::<Impl, IMPL_OFFSET>,
+            IsClassicSupported::<Impl, IMPL_OFFSET>,
+            IsLowEnergySupported::<Impl, IMPL_OFFSET>,
+            IsPeripheralRoleSupported::<Impl, IMPL_OFFSET>,
+            IsCentralRoleSupported::<Impl, IMPL_OFFSET>,
+            IsAdvertisementOffloadSupported::<Impl, IMPL_OFFSET>,
+            GetRadioAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothAdapter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -133,7 +136,7 @@ impl ::windows::core::RuntimeName for IBluetoothAdapter2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothAdapter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapter2Impl, const OFFSET: isize>() -> IBluetoothAdapter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothAdapter2Vtbl {
         unsafe extern "system" fn AreClassicSecureConnectionsSupported<Impl: IBluetoothAdapter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreClassicSecureConnectionsSupported() {
@@ -156,7 +159,10 @@ impl IBluetoothAdapter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapter2>, ::windows::core::GetTrustLevel, AreClassicSecureConnectionsSupported::<Impl, OFFSET>, AreLowEnergySecureConnectionsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapter2>, ::windows::core::GetTrustLevel, AreClassicSecureConnectionsSupported::<Impl, IMPL_OFFSET>, AreLowEnergySecureConnectionsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothAdapter2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -170,7 +176,7 @@ impl ::windows::core::RuntimeName for IBluetoothAdapter3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothAdapter3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapter3Impl, const OFFSET: isize>() -> IBluetoothAdapter3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapter3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothAdapter3Vtbl {
         unsafe extern "system" fn IsExtendedAdvertisingSupported<Impl: IBluetoothAdapter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExtendedAdvertisingSupported() {
@@ -193,22 +199,25 @@ impl IBluetoothAdapter3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapter3>, ::windows::core::GetTrustLevel, IsExtendedAdvertisingSupported::<Impl, OFFSET>, MaxAdvertisementDataLength::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapter3>, ::windows::core::GetTrustLevel, IsExtendedAdvertisingSupported::<Impl, IMPL_OFFSET>, MaxAdvertisementDataLength::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothAdapter3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothAdapterStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>>;
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothAdapterStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothAdapterStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothAdapterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapterStaticsImpl, const OFFSET: isize>() -> IBluetoothAdapterStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothAdapterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothAdapterStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: IBluetoothAdapterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -242,7 +251,10 @@ impl IBluetoothAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapterStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothAdapterStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothAdapterStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -258,7 +270,7 @@ impl ::windows::core::RuntimeName for IBluetoothClassOfDevice {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothClassOfDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothClassOfDeviceImpl, const OFFSET: isize>() -> IBluetoothClassOfDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothClassOfDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothClassOfDeviceVtbl {
         unsafe extern "system" fn RawValue<Impl: IBluetoothClassOfDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawValue() {
@@ -303,7 +315,10 @@ impl IBluetoothClassOfDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothClassOfDevice>, ::windows::core::GetTrustLevel, RawValue::<Impl, OFFSET>, MajorClass::<Impl, OFFSET>, MinorClass::<Impl, OFFSET>, ServiceCapabilities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothClassOfDevice>, ::windows::core::GetTrustLevel, RawValue::<Impl, IMPL_OFFSET>, MajorClass::<Impl, IMPL_OFFSET>, MinorClass::<Impl, IMPL_OFFSET>, ServiceCapabilities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothClassOfDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -317,7 +332,7 @@ impl ::windows::core::RuntimeName for IBluetoothClassOfDeviceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothClassOfDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothClassOfDeviceStaticsImpl, const OFFSET: isize>() -> IBluetoothClassOfDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothClassOfDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothClassOfDeviceStaticsVtbl {
         unsafe extern "system" fn FromRawValue<Impl: IBluetoothClassOfDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rawvalue: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromRawValue(rawvalue) {
@@ -340,10 +355,13 @@ impl IBluetoothClassOfDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothClassOfDeviceStatics>, ::windows::core::GetTrustLevel, FromRawValue::<Impl, OFFSET>, FromParts::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothClassOfDeviceStatics>, ::windows::core::GetTrustLevel, FromRawValue::<Impl, IMPL_OFFSET>, FromParts::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothClassOfDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothDeviceImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HostName(&self) -> ::windows::core::Result<super::super::Networking::HostName>;
@@ -360,13 +378,13 @@ pub trait IBluetoothDeviceImpl: Sized {
     fn ConnectionStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveConnectionStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBluetoothDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceImpl, const OFFSET: isize>() -> IBluetoothDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDeviceVtbl {
         unsafe extern "system" fn DeviceId<Impl: IBluetoothDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -501,40 +519,43 @@ impl IBluetoothDeviceVtbl {
             (*this).RemoveConnectionStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothDevice>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            HostName::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            ClassOfDevice::<Impl, OFFSET>,
-            SdpRecords::<Impl, OFFSET>,
-            RfcommServices::<Impl, OFFSET>,
-            ConnectionStatus::<Impl, OFFSET>,
-            BluetoothAddress::<Impl, OFFSET>,
-            NameChanged::<Impl, OFFSET>,
-            RemoveNameChanged::<Impl, OFFSET>,
-            SdpRecordsChanged::<Impl, OFFSET>,
-            RemoveSdpRecordsChanged::<Impl, OFFSET>,
-            ConnectionStatusChanged::<Impl, OFFSET>,
-            RemoveConnectionStatusChanged::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            HostName::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            ClassOfDevice::<Impl, IMPL_OFFSET>,
+            SdpRecords::<Impl, IMPL_OFFSET>,
+            RfcommServices::<Impl, IMPL_OFFSET>,
+            ConnectionStatus::<Impl, IMPL_OFFSET>,
+            BluetoothAddress::<Impl, IMPL_OFFSET>,
+            NameChanged::<Impl, IMPL_OFFSET>,
+            RemoveNameChanged::<Impl, IMPL_OFFSET>,
+            SdpRecordsChanged::<Impl, IMPL_OFFSET>,
+            RemoveSdpRecordsChanged::<Impl, IMPL_OFFSET>,
+            ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 pub trait IBluetoothDevice2Impl: Sized {
     fn DeviceInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceInformation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothDevice2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothDevice2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 impl IBluetoothDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice2Impl, const OFFSET: isize>() -> IBluetoothDevice2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDevice2Vtbl {
         unsafe extern "system" fn DeviceInformation<Impl: IBluetoothDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
@@ -546,10 +567,13 @@ impl IBluetoothDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice2>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice2>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDevice2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothDevice3Impl: Sized {
     fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceAccessInformation>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>>;
@@ -558,13 +582,13 @@ pub trait IBluetoothDevice3Impl: Sized {
     fn GetRfcommServicesForIdAsync(&self, serviceid: &::core::option::Option<Rfcomm::RfcommServiceId>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>;
     fn GetRfcommServicesForIdWithCacheModeAsync(&self, serviceid: &::core::option::Option<Rfcomm::RfcommServiceId>, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothDevice3 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothDevice3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothDevice3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice3Impl, const OFFSET: isize>() -> IBluetoothDevice3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDevice3Vtbl {
         unsafe extern "system" fn DeviceAccessInformation<Impl: IBluetoothDevice3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAccessInformation() {
@@ -632,19 +656,22 @@ impl IBluetoothDevice3Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothDevice3>,
             ::windows::core::GetTrustLevel,
-            DeviceAccessInformation::<Impl, OFFSET>,
-            RequestAccessAsync::<Impl, OFFSET>,
-            GetRfcommServicesAsync::<Impl, OFFSET>,
-            GetRfcommServicesWithCacheModeAsync::<Impl, OFFSET>,
-            GetRfcommServicesForIdAsync::<Impl, OFFSET>,
-            GetRfcommServicesForIdWithCacheModeAsync::<Impl, OFFSET>,
+            DeviceAccessInformation::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesForIdAsync::<Impl, IMPL_OFFSET>,
+            GetRfcommServicesForIdWithCacheModeAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDevice3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -657,7 +684,7 @@ impl ::windows::core::RuntimeName for IBluetoothDevice4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothDevice4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice4Impl, const OFFSET: isize>() -> IBluetoothDevice4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDevice4Vtbl {
         unsafe extern "system" fn BluetoothDeviceId<Impl: IBluetoothDevice4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BluetoothDeviceId() {
@@ -669,7 +696,10 @@ impl IBluetoothDevice4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice4>, ::windows::core::GetTrustLevel, BluetoothDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice4>, ::windows::core::GetTrustLevel, BluetoothDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDevice4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -682,7 +712,7 @@ impl ::windows::core::RuntimeName for IBluetoothDevice5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothDevice5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice5Impl, const OFFSET: isize>() -> IBluetoothDevice5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDevice5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDevice5Vtbl {
         unsafe extern "system" fn WasSecureConnectionUsedForPairing<Impl: IBluetoothDevice5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WasSecureConnectionUsedForPairing() {
@@ -694,7 +724,10 @@ impl IBluetoothDevice5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice5>, ::windows::core::GetTrustLevel, WasSecureConnectionUsedForPairing::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDevice5>, ::windows::core::GetTrustLevel, WasSecureConnectionUsedForPairing::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDevice5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -709,7 +742,7 @@ impl ::windows::core::RuntimeName for IBluetoothDeviceId {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothDeviceIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceIdImpl, const OFFSET: isize>() -> IBluetoothDeviceIdVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDeviceIdVtbl {
         unsafe extern "system" fn Id<Impl: IBluetoothDeviceIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -743,7 +776,10 @@ impl IBluetoothDeviceIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceId>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, IsClassicDevice::<Impl, OFFSET>, IsLowEnergyDevice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceId>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, IsClassicDevice::<Impl, IMPL_OFFSET>, IsLowEnergyDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDeviceId as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -756,7 +792,7 @@ impl ::windows::core::RuntimeName for IBluetoothDeviceIdStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothDeviceIdStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceIdStaticsImpl, const OFFSET: isize>() -> IBluetoothDeviceIdStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceIdStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDeviceIdStaticsVtbl {
         unsafe extern "system" fn FromId<Impl: IBluetoothDeviceIdStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromId(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -768,23 +804,26 @@ impl IBluetoothDeviceIdStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceIdStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceIdStatics>, ::windows::core::GetTrustLevel, FromId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDeviceIdStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IBluetoothDeviceStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>>;
     fn FromHostNameAsync(&self, hostname: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>>;
     fn FromBluetoothAddressAsync(&self, address: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 impl IBluetoothDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceStaticsImpl, const OFFSET: isize>() -> IBluetoothDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDeviceStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IBluetoothDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -829,7 +868,10 @@ impl IBluetoothDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, FromHostNameAsync::<Impl, OFFSET>, FromBluetoothAddressAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, FromHostNameAsync::<Impl, IMPL_OFFSET>, FromBluetoothAddressAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDeviceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -846,7 +888,7 @@ impl ::windows::core::RuntimeName for IBluetoothDeviceStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothDeviceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceStatics2Impl, const OFFSET: isize>() -> IBluetoothDeviceStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothDeviceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothDeviceStatics2Vtbl {
         unsafe extern "system" fn GetDeviceSelectorFromPairingState<Impl: IBluetoothDeviceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingstate: bool, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorFromPairingState(pairingstate) {
@@ -903,18 +945,21 @@ impl IBluetoothDeviceStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothDeviceStatics2>,
             ::windows::core::GetTrustLevel,
-            GetDeviceSelectorFromPairingState::<Impl, OFFSET>,
-            GetDeviceSelectorFromConnectionStatus::<Impl, OFFSET>,
-            GetDeviceSelectorFromDeviceName::<Impl, OFFSET>,
-            GetDeviceSelectorFromBluetoothAddress::<Impl, OFFSET>,
-            GetDeviceSelectorFromClassOfDevice::<Impl, OFFSET>,
+            GetDeviceSelectorFromPairingState::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromConnectionStatus::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromDeviceName::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromBluetoothAddress::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromClassOfDevice::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothDeviceStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -929,7 +974,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEAppearance {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAppearanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceImpl, const OFFSET: isize>() -> IBluetoothLEAppearanceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAppearanceVtbl {
         unsafe extern "system" fn RawValue<Impl: IBluetoothLEAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawValue() {
@@ -963,7 +1008,10 @@ impl IBluetoothLEAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearance>, ::windows::core::GetTrustLevel, RawValue::<Impl, OFFSET>, Category::<Impl, OFFSET>, SubCategory::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearance>, ::windows::core::GetTrustLevel, RawValue::<Impl, IMPL_OFFSET>, Category::<Impl, IMPL_OFFSET>, SubCategory::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAppearance as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -997,7 +1045,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEAppearanceCategoriesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAppearanceCategoriesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceCategoriesStaticsImpl, const OFFSET: isize>() -> IBluetoothLEAppearanceCategoriesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceCategoriesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAppearanceCategoriesStaticsVtbl {
         unsafe extern "system" fn Uncategorized<Impl: IBluetoothLEAppearanceCategoriesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uncategorized() {
@@ -1241,35 +1289,38 @@ impl IBluetoothLEAppearanceCategoriesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceCategoriesStatics>,
             ::windows::core::GetTrustLevel,
-            Uncategorized::<Impl, OFFSET>,
-            Phone::<Impl, OFFSET>,
-            Computer::<Impl, OFFSET>,
-            Watch::<Impl, OFFSET>,
-            Clock::<Impl, OFFSET>,
-            Display::<Impl, OFFSET>,
-            RemoteControl::<Impl, OFFSET>,
-            EyeGlasses::<Impl, OFFSET>,
-            Tag::<Impl, OFFSET>,
-            Keyring::<Impl, OFFSET>,
-            MediaPlayer::<Impl, OFFSET>,
-            BarcodeScanner::<Impl, OFFSET>,
-            Thermometer::<Impl, OFFSET>,
-            HeartRate::<Impl, OFFSET>,
-            BloodPressure::<Impl, OFFSET>,
-            HumanInterfaceDevice::<Impl, OFFSET>,
-            GlucoseMeter::<Impl, OFFSET>,
-            RunningWalking::<Impl, OFFSET>,
-            Cycling::<Impl, OFFSET>,
-            PulseOximeter::<Impl, OFFSET>,
-            WeightScale::<Impl, OFFSET>,
-            OutdoorSportActivity::<Impl, OFFSET>,
+            Uncategorized::<Impl, IMPL_OFFSET>,
+            Phone::<Impl, IMPL_OFFSET>,
+            Computer::<Impl, IMPL_OFFSET>,
+            Watch::<Impl, IMPL_OFFSET>,
+            Clock::<Impl, IMPL_OFFSET>,
+            Display::<Impl, IMPL_OFFSET>,
+            RemoteControl::<Impl, IMPL_OFFSET>,
+            EyeGlasses::<Impl, IMPL_OFFSET>,
+            Tag::<Impl, IMPL_OFFSET>,
+            Keyring::<Impl, IMPL_OFFSET>,
+            MediaPlayer::<Impl, IMPL_OFFSET>,
+            BarcodeScanner::<Impl, IMPL_OFFSET>,
+            Thermometer::<Impl, IMPL_OFFSET>,
+            HeartRate::<Impl, IMPL_OFFSET>,
+            BloodPressure::<Impl, IMPL_OFFSET>,
+            HumanInterfaceDevice::<Impl, IMPL_OFFSET>,
+            GlucoseMeter::<Impl, IMPL_OFFSET>,
+            RunningWalking::<Impl, IMPL_OFFSET>,
+            Cycling::<Impl, IMPL_OFFSET>,
+            PulseOximeter::<Impl, IMPL_OFFSET>,
+            WeightScale::<Impl, IMPL_OFFSET>,
+            OutdoorSportActivity::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAppearanceCategoriesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1283,7 +1334,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEAppearanceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAppearanceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceStaticsImpl, const OFFSET: isize>() -> IBluetoothLEAppearanceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAppearanceStaticsVtbl {
         unsafe extern "system" fn FromRawValue<Impl: IBluetoothLEAppearanceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rawvalue: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromRawValue(rawvalue) {
@@ -1306,7 +1357,10 @@ impl IBluetoothLEAppearanceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceStatics>, ::windows::core::GetTrustLevel, FromRawValue::<Impl, OFFSET>, FromParts::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceStatics>, ::windows::core::GetTrustLevel, FromRawValue::<Impl, IMPL_OFFSET>, FromParts::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAppearanceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1346,7 +1400,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEAppearanceSubcategoriesStatics
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAppearanceSubcategoriesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceSubcategoriesStaticsImpl, const OFFSET: isize>() -> IBluetoothLEAppearanceSubcategoriesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAppearanceSubcategoriesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAppearanceSubcategoriesStaticsVtbl {
         unsafe extern "system" fn Generic<Impl: IBluetoothLEAppearanceSubcategoriesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Generic() {
@@ -1656,41 +1710,44 @@ impl IBluetoothLEAppearanceSubcategoriesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEAppearanceSubcategoriesStatics>,
             ::windows::core::GetTrustLevel,
-            Generic::<Impl, OFFSET>,
-            SportsWatch::<Impl, OFFSET>,
-            ThermometerEar::<Impl, OFFSET>,
-            HeartRateBelt::<Impl, OFFSET>,
-            BloodPressureArm::<Impl, OFFSET>,
-            BloodPressureWrist::<Impl, OFFSET>,
-            Keyboard::<Impl, OFFSET>,
-            Mouse::<Impl, OFFSET>,
-            Joystick::<Impl, OFFSET>,
-            Gamepad::<Impl, OFFSET>,
-            DigitizerTablet::<Impl, OFFSET>,
-            CardReader::<Impl, OFFSET>,
-            DigitalPen::<Impl, OFFSET>,
-            BarcodeScanner::<Impl, OFFSET>,
-            RunningWalkingInShoe::<Impl, OFFSET>,
-            RunningWalkingOnShoe::<Impl, OFFSET>,
-            RunningWalkingOnHip::<Impl, OFFSET>,
-            CyclingComputer::<Impl, OFFSET>,
-            CyclingSpeedSensor::<Impl, OFFSET>,
-            CyclingCadenceSensor::<Impl, OFFSET>,
-            CyclingPowerSensor::<Impl, OFFSET>,
-            CyclingSpeedCadenceSensor::<Impl, OFFSET>,
-            OximeterFingertip::<Impl, OFFSET>,
-            OximeterWristWorn::<Impl, OFFSET>,
-            LocationDisplay::<Impl, OFFSET>,
-            LocationNavigationDisplay::<Impl, OFFSET>,
-            LocationPod::<Impl, OFFSET>,
-            LocationNavigationPod::<Impl, OFFSET>,
+            Generic::<Impl, IMPL_OFFSET>,
+            SportsWatch::<Impl, IMPL_OFFSET>,
+            ThermometerEar::<Impl, IMPL_OFFSET>,
+            HeartRateBelt::<Impl, IMPL_OFFSET>,
+            BloodPressureArm::<Impl, IMPL_OFFSET>,
+            BloodPressureWrist::<Impl, IMPL_OFFSET>,
+            Keyboard::<Impl, IMPL_OFFSET>,
+            Mouse::<Impl, IMPL_OFFSET>,
+            Joystick::<Impl, IMPL_OFFSET>,
+            Gamepad::<Impl, IMPL_OFFSET>,
+            DigitizerTablet::<Impl, IMPL_OFFSET>,
+            CardReader::<Impl, IMPL_OFFSET>,
+            DigitalPen::<Impl, IMPL_OFFSET>,
+            BarcodeScanner::<Impl, IMPL_OFFSET>,
+            RunningWalkingInShoe::<Impl, IMPL_OFFSET>,
+            RunningWalkingOnShoe::<Impl, IMPL_OFFSET>,
+            RunningWalkingOnHip::<Impl, IMPL_OFFSET>,
+            CyclingComputer::<Impl, IMPL_OFFSET>,
+            CyclingSpeedSensor::<Impl, IMPL_OFFSET>,
+            CyclingCadenceSensor::<Impl, IMPL_OFFSET>,
+            CyclingPowerSensor::<Impl, IMPL_OFFSET>,
+            CyclingSpeedCadenceSensor::<Impl, IMPL_OFFSET>,
+            OximeterFingertip::<Impl, IMPL_OFFSET>,
+            OximeterWristWorn::<Impl, IMPL_OFFSET>,
+            LocationDisplay::<Impl, IMPL_OFFSET>,
+            LocationNavigationDisplay::<Impl, IMPL_OFFSET>,
+            LocationPod::<Impl, IMPL_OFFSET>,
+            LocationNavigationPod::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAppearanceSubcategoriesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1705,7 +1762,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEConnectionParameters {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEConnectionParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEConnectionParametersImpl, const OFFSET: isize>() -> IBluetoothLEConnectionParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEConnectionParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEConnectionParametersVtbl {
         unsafe extern "system" fn LinkTimeout<Impl: IBluetoothLEConnectionParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkTimeout() {
@@ -1739,7 +1796,10 @@ impl IBluetoothLEConnectionParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionParameters>, ::windows::core::GetTrustLevel, LinkTimeout::<Impl, OFFSET>, ConnectionLatency::<Impl, OFFSET>, ConnectionInterval::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionParameters>, ::windows::core::GetTrustLevel, LinkTimeout::<Impl, IMPL_OFFSET>, ConnectionLatency::<Impl, IMPL_OFFSET>, ConnectionInterval::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEConnectionParameters as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1753,7 +1813,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEConnectionPhy {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEConnectionPhyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEConnectionPhyImpl, const OFFSET: isize>() -> IBluetoothLEConnectionPhyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEConnectionPhyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEConnectionPhyVtbl {
         unsafe extern "system" fn TransmitInfo<Impl: IBluetoothLEConnectionPhyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitInfo() {
@@ -1776,7 +1836,10 @@ impl IBluetoothLEConnectionPhyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionPhy>, ::windows::core::GetTrustLevel, TransmitInfo::<Impl, OFFSET>, ReceiveInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionPhy>, ::windows::core::GetTrustLevel, TransmitInfo::<Impl, IMPL_OFFSET>, ReceiveInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEConnectionPhy as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1791,7 +1854,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEConnectionPhyInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEConnectionPhyInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEConnectionPhyInfoImpl, const OFFSET: isize>() -> IBluetoothLEConnectionPhyInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEConnectionPhyInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEConnectionPhyInfoVtbl {
         unsafe extern "system" fn IsUncoded1MPhy<Impl: IBluetoothLEConnectionPhyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUncoded1MPhy() {
@@ -1825,10 +1888,13 @@ impl IBluetoothLEConnectionPhyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionPhyInfo>, ::windows::core::GetTrustLevel, IsUncoded1MPhy::<Impl, OFFSET>, IsUncoded2MPhy::<Impl, OFFSET>, IsCodedPhy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEConnectionPhyInfo>, ::windows::core::GetTrustLevel, IsUncoded1MPhy::<Impl, IMPL_OFFSET>, IsUncoded2MPhy::<Impl, IMPL_OFFSET>, IsCodedPhy::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEConnectionPhyInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBluetoothLEDeviceImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1843,13 +1909,13 @@ pub trait IBluetoothLEDeviceImpl: Sized {
     fn ConnectionStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveConnectionStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothLEDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBluetoothLEDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDeviceImpl, const OFFSET: isize>() -> IBluetoothLEDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDeviceVtbl {
         unsafe extern "system" fn DeviceId<Impl: IBluetoothLEDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -1962,40 +2028,43 @@ impl IBluetoothLEDeviceVtbl {
             (*this).RemoveConnectionStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            GattServices::<Impl, OFFSET>,
-            ConnectionStatus::<Impl, OFFSET>,
-            BluetoothAddress::<Impl, OFFSET>,
-            GetGattService::<Impl, OFFSET>,
-            NameChanged::<Impl, OFFSET>,
-            RemoveNameChanged::<Impl, OFFSET>,
-            GattServicesChanged::<Impl, OFFSET>,
-            RemoveGattServicesChanged::<Impl, OFFSET>,
-            ConnectionStatusChanged::<Impl, OFFSET>,
-            RemoveConnectionStatusChanged::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            GattServices::<Impl, IMPL_OFFSET>,
+            ConnectionStatus::<Impl, IMPL_OFFSET>,
+            BluetoothAddress::<Impl, IMPL_OFFSET>,
+            GetGattService::<Impl, IMPL_OFFSET>,
+            NameChanged::<Impl, IMPL_OFFSET>,
+            RemoveNameChanged::<Impl, IMPL_OFFSET>,
+            GattServicesChanged::<Impl, IMPL_OFFSET>,
+            RemoveGattServicesChanged::<Impl, IMPL_OFFSET>,
+            ConnectionStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 pub trait IBluetoothLEDevice2Impl: Sized {
     fn DeviceInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceInformation>;
     fn Appearance(&self) -> ::windows::core::Result<BluetoothLEAppearance>;
     fn BluetoothAddressType(&self) -> ::windows::core::Result<BluetoothAddressType>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEDevice2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothLEDevice2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 impl IBluetoothLEDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice2Impl, const OFFSET: isize>() -> IBluetoothLEDevice2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDevice2Vtbl {
         unsafe extern "system" fn DeviceInformation<Impl: IBluetoothLEDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
@@ -2029,10 +2098,13 @@ impl IBluetoothLEDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice2>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, OFFSET>, Appearance::<Impl, OFFSET>, BluetoothAddressType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice2>, ::windows::core::GetTrustLevel, DeviceInformation::<Impl, IMPL_OFFSET>, Appearance::<Impl, IMPL_OFFSET>, BluetoothAddressType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDevice2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEDevice3Impl: Sized {
     fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceAccessInformation>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>>;
@@ -2041,13 +2113,13 @@ pub trait IBluetoothLEDevice3Impl: Sized {
     fn GetGattServicesForUuidAsync(&self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>;
     fn GetGattServicesForUuidWithCacheModeAsync(&self, serviceuuid: &::windows::core::GUID, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEDevice3 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothLEDevice3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothLEDevice3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice3Impl, const OFFSET: isize>() -> IBluetoothLEDevice3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDevice3Vtbl {
         unsafe extern "system" fn DeviceAccessInformation<Impl: IBluetoothLEDevice3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAccessInformation() {
@@ -2115,19 +2187,22 @@ impl IBluetoothLEDevice3Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice3>,
             ::windows::core::GetTrustLevel,
-            DeviceAccessInformation::<Impl, OFFSET>,
-            RequestAccessAsync::<Impl, OFFSET>,
-            GetGattServicesAsync::<Impl, OFFSET>,
-            GetGattServicesWithCacheModeAsync::<Impl, OFFSET>,
-            GetGattServicesForUuidAsync::<Impl, OFFSET>,
-            GetGattServicesForUuidWithCacheModeAsync::<Impl, OFFSET>,
+            DeviceAccessInformation::<Impl, IMPL_OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesWithCacheModeAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesForUuidAsync::<Impl, IMPL_OFFSET>,
+            GetGattServicesForUuidWithCacheModeAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDevice3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2140,7 +2215,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEDevice4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEDevice4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice4Impl, const OFFSET: isize>() -> IBluetoothLEDevice4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDevice4Vtbl {
         unsafe extern "system" fn BluetoothDeviceId<Impl: IBluetoothLEDevice4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BluetoothDeviceId() {
@@ -2152,7 +2227,10 @@ impl IBluetoothLEDevice4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice4>, ::windows::core::GetTrustLevel, BluetoothDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice4>, ::windows::core::GetTrustLevel, BluetoothDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDevice4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2165,7 +2243,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEDevice5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEDevice5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice5Impl, const OFFSET: isize>() -> IBluetoothLEDevice5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDevice5Vtbl {
         unsafe extern "system" fn WasSecureConnectionUsedForPairing<Impl: IBluetoothLEDevice5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WasSecureConnectionUsedForPairing() {
@@ -2177,10 +2255,13 @@ impl IBluetoothLEDevice5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice5>, ::windows::core::GetTrustLevel, WasSecureConnectionUsedForPairing::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice5>, ::windows::core::GetTrustLevel, WasSecureConnectionUsedForPairing::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDevice5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEDevice6Impl: Sized {
     fn GetConnectionParameters(&self) -> ::windows::core::Result<BluetoothLEConnectionParameters>;
     fn GetConnectionPhy(&self) -> ::windows::core::Result<BluetoothLEConnectionPhy>;
@@ -2190,13 +2271,13 @@ pub trait IBluetoothLEDevice6Impl: Sized {
     fn ConnectionPhyChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveConnectionPhyChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEDevice6 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothLEDevice6";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothLEDevice6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice6Impl, const OFFSET: isize>() -> IBluetoothLEDevice6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDevice6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDevice6Vtbl {
         unsafe extern "system" fn GetConnectionParameters<Impl: IBluetoothLEDevice6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConnectionParameters() {
@@ -2261,35 +2342,38 @@ impl IBluetoothLEDevice6Vtbl {
             (*this).RemoveConnectionPhyChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEDevice6>,
             ::windows::core::GetTrustLevel,
-            GetConnectionParameters::<Impl, OFFSET>,
-            GetConnectionPhy::<Impl, OFFSET>,
-            RequestPreferredConnectionParameters::<Impl, OFFSET>,
-            ConnectionParametersChanged::<Impl, OFFSET>,
-            RemoveConnectionParametersChanged::<Impl, OFFSET>,
-            ConnectionPhyChanged::<Impl, OFFSET>,
-            RemoveConnectionPhyChanged::<Impl, OFFSET>,
+            GetConnectionParameters::<Impl, IMPL_OFFSET>,
+            GetConnectionPhy::<Impl, IMPL_OFFSET>,
+            RequestPreferredConnectionParameters::<Impl, IMPL_OFFSET>,
+            ConnectionParametersChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionParametersChanged::<Impl, IMPL_OFFSET>,
+            ConnectionPhyChanged::<Impl, IMPL_OFFSET>,
+            RemoveConnectionPhyChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDevice6 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEDeviceStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>;
     fn FromBluetoothAddressAsync(&self, bluetoothaddress: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothLEDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDeviceStaticsImpl, const OFFSET: isize>() -> IBluetoothLEDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDeviceStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IBluetoothLEDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2323,10 +2407,13 @@ impl IBluetoothLEDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, FromBluetoothAddressAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, FromBluetoothAddressAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEDeviceStatics2Impl: Sized {
     fn GetDeviceSelectorFromPairingState(&self, pairingstate: bool) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromConnectionStatus(&self, connectionstatus: BluetoothConnectionStatus) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2336,13 +2423,13 @@ pub trait IBluetoothLEDeviceStatics2Impl: Sized {
     fn GetDeviceSelectorFromAppearance(&self, appearance: &::core::option::Option<BluetoothLEAppearance>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromBluetoothAddressWithBluetoothAddressTypeAsync(&self, bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEDeviceStatics2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothLEDeviceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDeviceStatics2Impl, const OFFSET: isize>() -> IBluetoothLEDeviceStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEDeviceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEDeviceStatics2Vtbl {
         unsafe extern "system" fn GetDeviceSelectorFromPairingState<Impl: IBluetoothLEDeviceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingstate: bool, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorFromPairingState(pairingstate) {
@@ -2421,20 +2508,23 @@ impl IBluetoothLEDeviceStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEDeviceStatics2>,
             ::windows::core::GetTrustLevel,
-            GetDeviceSelectorFromPairingState::<Impl, OFFSET>,
-            GetDeviceSelectorFromConnectionStatus::<Impl, OFFSET>,
-            GetDeviceSelectorFromDeviceName::<Impl, OFFSET>,
-            GetDeviceSelectorFromBluetoothAddress::<Impl, OFFSET>,
-            GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType::<Impl, OFFSET>,
-            GetDeviceSelectorFromAppearance::<Impl, OFFSET>,
-            FromBluetoothAddressWithBluetoothAddressTypeAsync::<Impl, OFFSET>,
+            GetDeviceSelectorFromPairingState::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromConnectionStatus::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromDeviceName::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromBluetoothAddress::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType::<Impl, IMPL_OFFSET>,
+            GetDeviceSelectorFromAppearance::<Impl, IMPL_OFFSET>,
+            FromBluetoothAddressWithBluetoothAddressTypeAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEDeviceStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2450,7 +2540,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEPreferredConnectionParameters 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEPreferredConnectionParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEPreferredConnectionParametersImpl, const OFFSET: isize>() -> IBluetoothLEPreferredConnectionParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEPreferredConnectionParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEPreferredConnectionParametersVtbl {
         unsafe extern "system" fn LinkTimeout<Impl: IBluetoothLEPreferredConnectionParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkTimeout() {
@@ -2495,7 +2585,10 @@ impl IBluetoothLEPreferredConnectionParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParameters>, ::windows::core::GetTrustLevel, LinkTimeout::<Impl, OFFSET>, ConnectionLatency::<Impl, OFFSET>, MinConnectionInterval::<Impl, OFFSET>, MaxConnectionInterval::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParameters>, ::windows::core::GetTrustLevel, LinkTimeout::<Impl, IMPL_OFFSET>, ConnectionLatency::<Impl, IMPL_OFFSET>, MinConnectionInterval::<Impl, IMPL_OFFSET>, MaxConnectionInterval::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEPreferredConnectionParameters as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2508,7 +2601,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEPreferredConnectionParametersR
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEPreferredConnectionParametersRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEPreferredConnectionParametersRequestImpl, const OFFSET: isize>() -> IBluetoothLEPreferredConnectionParametersRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEPreferredConnectionParametersRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEPreferredConnectionParametersRequestVtbl {
         unsafe extern "system" fn Status<Impl: IBluetoothLEPreferredConnectionParametersRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEPreferredConnectionParametersRequestStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2520,7 +2613,10 @@ impl IBluetoothLEPreferredConnectionParametersRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParametersRequest>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParametersRequest>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEPreferredConnectionParametersRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2535,7 +2631,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEPreferredConnectionParametersS
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEPreferredConnectionParametersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEPreferredConnectionParametersStaticsImpl, const OFFSET: isize>() -> IBluetoothLEPreferredConnectionParametersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEPreferredConnectionParametersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEPreferredConnectionParametersStaticsVtbl {
         unsafe extern "system" fn Balanced<Impl: IBluetoothLEPreferredConnectionParametersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Balanced() {
@@ -2569,10 +2665,13 @@ impl IBluetoothLEPreferredConnectionParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParametersStatics>, ::windows::core::GetTrustLevel, Balanced::<Impl, OFFSET>, ThroughputOptimized::<Impl, OFFSET>, PowerOptimized::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEPreferredConnectionParametersStatics>, ::windows::core::GetTrustLevel, Balanced::<Impl, IMPL_OFFSET>, ThroughputOptimized::<Impl, IMPL_OFFSET>, PowerOptimized::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEPreferredConnectionParametersStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothSignalStrengthFilterImpl: Sized {
     fn InRangeThresholdInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i16>>;
     fn SetInRangeThresholdInDBm(&self, value: &::core::option::Option<super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
@@ -2583,13 +2682,13 @@ pub trait IBluetoothSignalStrengthFilterImpl: Sized {
     fn SamplingInterval(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
     fn SetSamplingInterval(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothSignalStrengthFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothSignalStrengthFilterImpl, const OFFSET: isize>() -> IBluetoothSignalStrengthFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothSignalStrengthFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothSignalStrengthFilterVtbl {
         unsafe extern "system" fn InRangeThresholdInDBm<Impl: IBluetoothSignalStrengthFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InRangeThresholdInDBm() {
@@ -2651,35 +2750,38 @@ impl IBluetoothSignalStrengthFilterVtbl {
             (*this).SetSamplingInterval(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothSignalStrengthFilter>,
             ::windows::core::GetTrustLevel,
-            InRangeThresholdInDBm::<Impl, OFFSET>,
-            SetInRangeThresholdInDBm::<Impl, OFFSET>,
-            OutOfRangeThresholdInDBm::<Impl, OFFSET>,
-            SetOutOfRangeThresholdInDBm::<Impl, OFFSET>,
-            OutOfRangeTimeout::<Impl, OFFSET>,
-            SetOutOfRangeTimeout::<Impl, OFFSET>,
-            SamplingInterval::<Impl, OFFSET>,
-            SetSamplingInterval::<Impl, OFFSET>,
+            InRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            SetInRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            OutOfRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            SetOutOfRangeThresholdInDBm::<Impl, IMPL_OFFSET>,
+            OutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            SetOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            SamplingInterval::<Impl, IMPL_OFFSET>,
+            SetSamplingInterval::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothSignalStrengthFilter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothUuidHelperStaticsImpl: Sized {
     fn FromShortId(&self, shortid: u32) -> ::windows::core::Result<::windows::core::GUID>;
     fn TryGetShortId(&self, uuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothUuidHelperStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.IBluetoothUuidHelperStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothUuidHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothUuidHelperStaticsImpl, const OFFSET: isize>() -> IBluetoothUuidHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothUuidHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothUuidHelperStaticsVtbl {
         unsafe extern "system" fn FromShortId<Impl: IBluetoothUuidHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u32, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromShortId(shortid) {
@@ -2702,6 +2804,9 @@ impl IBluetoothUuidHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothUuidHelperStatics>, ::windows::core::GetTrustLevel, FromShortId::<Impl, OFFSET>, TryGetShortId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothUuidHelperStatics>, ::windows::core::GetTrustLevel, FromShortId::<Impl, IMPL_OFFSET>, TryGetShortId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothUuidHelperStatics as ::windows::core::Interface>::IID
     }
 }

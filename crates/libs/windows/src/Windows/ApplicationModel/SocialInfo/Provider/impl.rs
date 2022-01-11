@@ -1,4 +1,4 @@
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialDashboardItemUpdaterImpl: Sized {
     fn OwnerRemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Content(&self) -> ::windows::core::Result<super::SocialFeedContent>;
@@ -10,13 +10,13 @@ pub trait ISocialDashboardItemUpdaterImpl: Sized {
     fn TargetUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn SetTargetUri(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialDashboardItemUpdater {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.ISocialDashboardItemUpdater";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialDashboardItemUpdaterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialDashboardItemUpdaterImpl, const OFFSET: isize>() -> ISocialDashboardItemUpdaterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialDashboardItemUpdaterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialDashboardItemUpdaterVtbl {
         unsafe extern "system" fn OwnerRemoteId<Impl: ISocialDashboardItemUpdaterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OwnerRemoteId() {
@@ -96,38 +96,41 @@ impl ISocialDashboardItemUpdaterVtbl {
             (*this).SetTargetUri(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISocialDashboardItemUpdater>,
             ::windows::core::GetTrustLevel,
-            OwnerRemoteId::<Impl, OFFSET>,
-            Content::<Impl, OFFSET>,
-            Timestamp::<Impl, OFFSET>,
-            SetTimestamp::<Impl, OFFSET>,
-            SetThumbnail::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            CommitAsync::<Impl, OFFSET>,
-            TargetUri::<Impl, OFFSET>,
-            SetTargetUri::<Impl, OFFSET>,
+            OwnerRemoteId::<Impl, IMPL_OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            CommitAsync::<Impl, IMPL_OFFSET>,
+            TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialDashboardItemUpdater as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialFeedUpdaterImpl: Sized {
     fn OwnerRemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Kind(&self) -> ::windows::core::Result<super::SocialFeedKind>;
     fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::SocialFeedItem>>;
     fn CommitAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialFeedUpdater {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialFeedUpdaterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedUpdaterImpl, const OFFSET: isize>() -> ISocialFeedUpdaterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedUpdaterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialFeedUpdaterVtbl {
         unsafe extern "system" fn OwnerRemoteId<Impl: ISocialFeedUpdaterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OwnerRemoteId() {
@@ -172,10 +175,13 @@ impl ISocialFeedUpdaterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialFeedUpdater>, ::windows::core::GetTrustLevel, OwnerRemoteId::<Impl, OFFSET>, Kind::<Impl, OFFSET>, Items::<Impl, OFFSET>, CommitAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialFeedUpdater>, ::windows::core::GetTrustLevel, OwnerRemoteId::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, Items::<Impl, IMPL_OFFSET>, CommitAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialFeedUpdater as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialInfoProviderManagerStaticsImpl: Sized {
     fn CreateSocialFeedUpdaterAsync(&self, kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>;
     fn CreateDashboardItemUpdaterAsync(&self, ownerremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>;
@@ -184,13 +190,13 @@ pub trait ISocialInfoProviderManagerStaticsImpl: Sized {
     fn ProvisionAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
     fn DeprovisionAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialInfoProviderManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.ISocialInfoProviderManagerStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialInfoProviderManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialInfoProviderManagerStaticsImpl, const OFFSET: isize>() -> ISocialInfoProviderManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialInfoProviderManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialInfoProviderManagerStaticsVtbl {
         unsafe extern "system" fn CreateSocialFeedUpdaterAsync<Impl: ISocialInfoProviderManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerremoteid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSocialFeedUpdaterAsync(kind, mode, &*(&ownerremoteid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -244,18 +250,21 @@ impl ISocialInfoProviderManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISocialInfoProviderManagerStatics>,
             ::windows::core::GetTrustLevel,
-            CreateSocialFeedUpdaterAsync::<Impl, OFFSET>,
-            CreateDashboardItemUpdaterAsync::<Impl, OFFSET>,
-            UpdateBadgeCountValue::<Impl, OFFSET>,
-            ReportNewContentAvailable::<Impl, OFFSET>,
-            ProvisionAsync::<Impl, OFFSET>,
-            DeprovisionAsync::<Impl, OFFSET>,
+            CreateSocialFeedUpdaterAsync::<Impl, IMPL_OFFSET>,
+            CreateDashboardItemUpdaterAsync::<Impl, IMPL_OFFSET>,
+            UpdateBadgeCountValue::<Impl, IMPL_OFFSET>,
+            ReportNewContentAvailable::<Impl, IMPL_OFFSET>,
+            ProvisionAsync::<Impl, IMPL_OFFSET>,
+            DeprovisionAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialInfoProviderManagerStatics as ::windows::core::Interface>::IID
     }
 }

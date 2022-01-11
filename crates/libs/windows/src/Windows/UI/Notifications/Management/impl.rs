@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserNotificationListenerImpl: Sized {
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>;
     fn GetAccessStatus(&self) -> ::windows::core::Result<UserNotificationListenerAccessStatus>;
@@ -9,13 +9,13 @@ pub trait IUserNotificationListenerImpl: Sized {
     fn ClearNotifications(&self) -> ::windows::core::Result<()>;
     fn RemoveNotification(&self, notificationid: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.IUserNotificationListener";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserNotificationListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerImpl, const OFFSET: isize>() -> IUserNotificationListenerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationListenerVtbl {
         unsafe extern "system" fn RequestAccessAsync<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
@@ -84,21 +84,24 @@ impl IUserNotificationListenerVtbl {
             (*this).RemoveNotification(notificationid).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserNotificationListener>,
             ::windows::core::GetTrustLevel,
-            RequestAccessAsync::<Impl, OFFSET>,
-            GetAccessStatus::<Impl, OFFSET>,
-            NotificationChanged::<Impl, OFFSET>,
-            RemoveNotificationChanged::<Impl, OFFSET>,
-            GetNotificationsAsync::<Impl, OFFSET>,
-            GetNotification::<Impl, OFFSET>,
-            ClearNotifications::<Impl, OFFSET>,
-            RemoveNotification::<Impl, OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            GetAccessStatus::<Impl, IMPL_OFFSET>,
+            NotificationChanged::<Impl, IMPL_OFFSET>,
+            RemoveNotificationChanged::<Impl, IMPL_OFFSET>,
+            GetNotificationsAsync::<Impl, IMPL_OFFSET>,
+            GetNotification::<Impl, IMPL_OFFSET>,
+            ClearNotifications::<Impl, IMPL_OFFSET>,
+            RemoveNotification::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserNotificationListener as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -111,7 +114,7 @@ impl ::windows::core::RuntimeName for IUserNotificationListenerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserNotificationListenerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerStaticsImpl, const OFFSET: isize>() -> IUserNotificationListenerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationListenerStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IUserNotificationListenerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -123,6 +126,9 @@ impl IUserNotificationListenerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationListenerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationListenerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserNotificationListenerStatics as ::windows::core::Interface>::IID
     }
 }

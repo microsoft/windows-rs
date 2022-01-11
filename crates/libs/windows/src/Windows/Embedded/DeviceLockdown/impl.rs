@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IDeviceLockdownProfileInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDeviceLockdownProfileInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceLockdownProfileInformationImpl, const OFFSET: isize>() -> IDeviceLockdownProfileInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceLockdownProfileInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceLockdownProfileInformationVtbl {
         unsafe extern "system" fn Name<Impl: IDeviceLockdownProfileInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -20,23 +20,26 @@ impl IDeviceLockdownProfileInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceLockdownProfileInformation>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceLockdownProfileInformation>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceLockdownProfileInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceLockdownProfileStaticsImpl: Sized {
     fn GetSupportedLockdownProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>;
     fn GetCurrentLockdownProfile(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn ApplyLockdownProfileAsync(&self, profileid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn GetLockdownProfileInformation(&self, profileid: &::windows::core::GUID) -> ::windows::core::Result<DeviceLockdownProfileInformation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceLockdownProfileStatics {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.IDeviceLockdownProfileStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDeviceLockdownProfileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceLockdownProfileStaticsImpl, const OFFSET: isize>() -> IDeviceLockdownProfileStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceLockdownProfileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceLockdownProfileStaticsVtbl {
         unsafe extern "system" fn GetSupportedLockdownProfiles<Impl: IDeviceLockdownProfileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedLockdownProfiles() {
@@ -81,6 +84,20 @@ impl IDeviceLockdownProfileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceLockdownProfileStatics>, ::windows::core::GetTrustLevel, GetSupportedLockdownProfiles::<Impl, OFFSET>, GetCurrentLockdownProfile::<Impl, OFFSET>, ApplyLockdownProfileAsync::<Impl, OFFSET>, GetLockdownProfileInformation::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IDeviceLockdownProfileStatics>,
+            ::windows::core::GetTrustLevel,
+            GetSupportedLockdownProfiles::<Impl, IMPL_OFFSET>,
+            GetCurrentLockdownProfile::<Impl, IMPL_OFFSET>,
+            ApplyLockdownProfileAsync::<Impl, IMPL_OFFSET>,
+            GetLockdownProfileInformation::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceLockdownProfileStatics as ::windows::core::Interface>::IID
     }
 }

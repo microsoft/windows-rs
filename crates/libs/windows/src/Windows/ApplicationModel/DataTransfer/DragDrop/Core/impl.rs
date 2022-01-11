@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDragDropManagerImpl: Sized {
     fn TargetRequested(&self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveTargetRequested(&self, value: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn AreConcurrentOperationsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetAreConcurrentOperationsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreDragDropManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerImpl, const OFFSET: isize>() -> ICoreDragDropManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragDropManagerVtbl {
         unsafe extern "system" fn TargetRequested<Impl: ICoreDragDropManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetRequested(&*(&value as *const <super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -42,7 +42,10 @@ impl ICoreDragDropManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAreConcurrentOperationsEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragDropManager>, ::windows::core::GetTrustLevel, TargetRequested::<Impl, OFFSET>, RemoveTargetRequested::<Impl, OFFSET>, AreConcurrentOperationsEnabled::<Impl, OFFSET>, SetAreConcurrentOperationsEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragDropManager>, ::windows::core::GetTrustLevel, TargetRequested::<Impl, IMPL_OFFSET>, RemoveTargetRequested::<Impl, IMPL_OFFSET>, AreConcurrentOperationsEnabled::<Impl, IMPL_OFFSET>, SetAreConcurrentOperationsEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragDropManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -55,7 +58,7 @@ impl ::windows::core::RuntimeName for ICoreDragDropManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreDragDropManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerStaticsImpl, const OFFSET: isize>() -> ICoreDragDropManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragDropManagerStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: ICoreDragDropManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -67,22 +70,25 @@ impl ICoreDragDropManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragDropManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragDropManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragDropManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDragInfoImpl: Sized {
     fn Data(&self) -> ::windows::core::Result<super::super::DataPackageView>;
     fn Modifiers(&self) -> ::windows::core::Result<super::DragDropModifiers>;
     fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreDragInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfoImpl, const OFFSET: isize>() -> ICoreDragInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragInfoVtbl {
         unsafe extern "system" fn Data<Impl: ICoreDragInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -116,20 +122,23 @@ impl ICoreDragInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragInfo>, ::windows::core::GetTrustLevel, Data::<Impl, OFFSET>, Modifiers::<Impl, OFFSET>, Position::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragInfo>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, Modifiers::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDragInfo2Impl: Sized + ICoreDragInfoImpl {
     fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragInfo2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICoreDragInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfo2Impl, const OFFSET: isize>() -> ICoreDragInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragInfo2Vtbl {
         unsafe extern "system" fn AllowedOperations<Impl: ICoreDragInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedOperations() {
@@ -141,10 +150,13 @@ impl ICoreDragInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragInfo2>, ::windows::core::GetTrustLevel, AllowedOperations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragInfo2>, ::windows::core::GetTrustLevel, AllowedOperations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragInfo2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICoreDragOperationImpl: Sized {
     fn Data(&self) -> ::windows::core::Result<super::super::DataPackage>;
     fn SetPointerId(&self, pointerid: u32) -> ::windows::core::Result<()>;
@@ -154,13 +166,13 @@ pub trait ICoreDragOperationImpl: Sized {
     fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> ::windows::core::Result<()>;
     fn StartAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ICoreDragOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperationImpl, const OFFSET: isize>() -> ICoreDragOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragOperationVtbl {
         unsafe extern "system" fn Data<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -213,34 +225,37 @@ impl ICoreDragOperationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreDragOperation>,
             ::windows::core::GetTrustLevel,
-            Data::<Impl, OFFSET>,
-            SetPointerId::<Impl, OFFSET>,
-            SetDragUIContentFromSoftwareBitmap::<Impl, OFFSET>,
-            SetDragUIContentFromSoftwareBitmapWithAnchorPoint::<Impl, OFFSET>,
-            DragUIContentMode::<Impl, OFFSET>,
-            SetDragUIContentMode::<Impl, OFFSET>,
-            StartAsync::<Impl, OFFSET>,
+            Data::<Impl, IMPL_OFFSET>,
+            SetPointerId::<Impl, IMPL_OFFSET>,
+            SetDragUIContentFromSoftwareBitmap::<Impl, IMPL_OFFSET>,
+            SetDragUIContentFromSoftwareBitmapWithAnchorPoint::<Impl, IMPL_OFFSET>,
+            DragUIContentMode::<Impl, IMPL_OFFSET>,
+            SetDragUIContentMode::<Impl, IMPL_OFFSET>,
+            StartAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragOperation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICoreDragOperation2Impl: Sized + ICoreDragOperationImpl {
     fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation>;
     fn SetAllowedOperations(&self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragOperation2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ICoreDragOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperation2Impl, const OFFSET: isize>() -> ICoreDragOperation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragOperation2Vtbl {
         unsafe extern "system" fn AllowedOperations<Impl: ICoreDragOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedOperations() {
@@ -256,10 +271,13 @@ impl ICoreDragOperation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowedOperations(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragOperation2>, ::windows::core::GetTrustLevel, AllowedOperations::<Impl, OFFSET>, SetAllowedOperations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDragOperation2>, ::windows::core::GetTrustLevel, AllowedOperations::<Impl, IMPL_OFFSET>, SetAllowedOperations::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragOperation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICoreDragUIOverrideImpl: Sized {
     fn SetContentFromSoftwareBitmap(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
     fn SetContentFromSoftwareBitmapWithAnchorPoint(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>, anchorpoint: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
@@ -273,13 +291,13 @@ pub trait ICoreDragUIOverrideImpl: Sized {
     fn SetIsGlyphVisible(&self, value: bool) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ICoreDragUIOverrideVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>() -> ICoreDragUIOverrideVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragUIOverrideImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragUIOverrideVtbl {
         unsafe extern "system" fn SetContentFromSoftwareBitmap<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentFromSoftwareBitmap(&*(&softwarebitmap as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
@@ -355,37 +373,43 @@ impl ICoreDragUIOverrideVtbl {
             (*this).Clear().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICoreDragUIOverride>,
             ::windows::core::GetTrustLevel,
-            SetContentFromSoftwareBitmap::<Impl, OFFSET>,
-            SetContentFromSoftwareBitmapWithAnchorPoint::<Impl, OFFSET>,
-            IsContentVisible::<Impl, OFFSET>,
-            SetIsContentVisible::<Impl, OFFSET>,
-            Caption::<Impl, OFFSET>,
-            SetCaption::<Impl, OFFSET>,
-            IsCaptionVisible::<Impl, OFFSET>,
-            SetIsCaptionVisible::<Impl, OFFSET>,
-            IsGlyphVisible::<Impl, OFFSET>,
-            SetIsGlyphVisible::<Impl, OFFSET>,
-            Clear::<Impl, OFFSET>,
+            SetContentFromSoftwareBitmap::<Impl, IMPL_OFFSET>,
+            SetContentFromSoftwareBitmapWithAnchorPoint::<Impl, IMPL_OFFSET>,
+            IsContentVisible::<Impl, IMPL_OFFSET>,
+            SetIsContentVisible::<Impl, IMPL_OFFSET>,
+            Caption::<Impl, IMPL_OFFSET>,
+            SetCaption::<Impl, IMPL_OFFSET>,
+            IsCaptionVisible::<Impl, IMPL_OFFSET>,
+            SetIsCaptionVisible::<Impl, IMPL_OFFSET>,
+            IsGlyphVisible::<Impl, IMPL_OFFSET>,
+            SetIsGlyphVisible::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDragUIOverride as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation")]
 pub trait ICoreDropOperationTargetImpl: Sized {
     fn EnterAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
     fn OverAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
     fn LeaveAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn DropAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
+#[cfg(feature = "Foundation")]
 impl ICoreDropOperationTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetImpl, const OFFSET: isize>() -> ICoreDropOperationTargetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDropOperationTargetVtbl {
         unsafe extern "system" fn EnterAsync<Impl: ICoreDropOperationTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, draguioverride: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterAsync(&*(&draginfo as *const <CoreDragInfo as ::windows::core::Abi>::Abi as *const <CoreDragInfo as ::windows::core::DefaultType>::DefaultType), &*(&draguioverride as *const <CoreDragUIOverride as ::windows::core::Abi>::Abi as *const <CoreDragUIOverride as ::windows::core::DefaultType>::DefaultType)) {
@@ -430,7 +454,10 @@ impl ICoreDropOperationTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDropOperationTarget>, ::windows::core::GetTrustLevel, EnterAsync::<Impl, OFFSET>, OverAsync::<Impl, OFFSET>, LeaveAsync::<Impl, OFFSET>, DropAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDropOperationTarget>, ::windows::core::GetTrustLevel, EnterAsync::<Impl, IMPL_OFFSET>, OverAsync::<Impl, IMPL_OFFSET>, LeaveAsync::<Impl, IMPL_OFFSET>, DropAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDropOperationTarget as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -443,11 +470,14 @@ impl ::windows::core::RuntimeName for ICoreDropOperationTargetRequestedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreDropOperationTargetRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetRequestedEventArgsImpl, const OFFSET: isize>() -> ICoreDropOperationTargetRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDropOperationTargetRequestedEventArgsVtbl {
         unsafe extern "system" fn SetTarget<Impl: ICoreDropOperationTargetRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTarget(&*(&target as *const <ICoreDropOperationTarget as ::windows::core::Abi>::Abi as *const <ICoreDropOperationTarget as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDropOperationTargetRequestedEventArgs>, ::windows::core::GetTrustLevel, SetTarget::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreDropOperationTargetRequestedEventArgs>, ::windows::core::GetTrustLevel, SetTarget::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreDropOperationTargetRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

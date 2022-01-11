@@ -1,4 +1,4 @@
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorAuthenticationImpl: Sized {
     fn ServiceAuthenticationHmac(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer>;
     fn SessionNonce(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer>;
@@ -7,13 +7,13 @@ pub trait ISecondaryAuthenticationFactorAuthenticationImpl: Sized {
     fn FinishAuthenticationAsync(&self, devicehmac: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>, sessionhmac: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>>;
     fn AbortAuthenticationAsync(&self, errorlogmessage: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthentication {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationVtbl {
         unsafe extern "system" fn ServiceAuthenticationHmac<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceAuthenticationHmac() {
@@ -81,19 +81,22 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthentication>,
             ::windows::core::GetTrustLevel,
-            ServiceAuthenticationHmac::<Impl, OFFSET>,
-            SessionNonce::<Impl, OFFSET>,
-            DeviceNonce::<Impl, OFFSET>,
-            DeviceConfigurationData::<Impl, OFFSET>,
-            FinishAuthenticationAsync::<Impl, OFFSET>,
-            AbortAuthenticationAsync::<Impl, OFFSET>,
+            ServiceAuthenticationHmac::<Impl, IMPL_OFFSET>,
+            SessionNonce::<Impl, IMPL_OFFSET>,
+            DeviceNonce::<Impl, IMPL_OFFSET>,
+            DeviceConfigurationData::<Impl, IMPL_OFFSET>,
+            FinishAuthenticationAsync::<Impl, IMPL_OFFSET>,
+            AbortAuthenticationAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorAuthentication as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -107,7 +110,7 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationResultImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationResultVtbl {
         unsafe extern "system" fn Status<Impl: ISecondaryAuthenticationFactorAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -130,7 +133,10 @@ impl ISecondaryAuthenticationFactorAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Authentication::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Authentication::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorAuthenticationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -143,7 +149,7 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
         unsafe extern "system" fn StageInfo<Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StageInfo() {
@@ -155,7 +161,10 @@ impl ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>, ::windows::core::GetTrustLevel, StageInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>, ::windows::core::GetTrustLevel, StageInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -170,7 +179,7 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
         unsafe extern "system" fn Stage<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStage) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stage() {
@@ -204,10 +213,13 @@ impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStageInfo>, ::windows::core::GetTrustLevel, Stage::<Impl, OFFSET>, Scenario::<Impl, OFFSET>, DeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStageInfo>, ::windows::core::GetTrustLevel, Stage::<Impl, IMPL_OFFSET>, Scenario::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorAuthenticationStageInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorAuthenticationStaticsImpl: Sized {
     fn ShowNotificationMessageAsync(&self, devicename: &::windows::core::HSTRING, message: SecondaryAuthenticationFactorAuthenticationMessage) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn StartAuthenticationAsync(&self, deviceid: &::windows::core::HSTRING, serviceauthenticationnonce: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>>;
@@ -215,13 +227,13 @@ pub trait ISecondaryAuthenticationFactorAuthenticationStaticsImpl: Sized {
     fn RemoveAuthenticationStageChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GetAuthenticationStageInfoAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationStageInfo>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticationStatics {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
         unsafe extern "system" fn ShowNotificationMessageAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: SecondaryAuthenticationFactorAuthenticationMessage, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowNotificationMessageAsync(&*(&devicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), message) {
@@ -271,34 +283,37 @@ impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationStatics>,
             ::windows::core::GetTrustLevel,
-            ShowNotificationMessageAsync::<Impl, OFFSET>,
-            StartAuthenticationAsync::<Impl, OFFSET>,
-            AuthenticationStageChanged::<Impl, OFFSET>,
-            RemoveAuthenticationStageChanged::<Impl, OFFSET>,
-            GetAuthenticationStageInfoAsync::<Impl, OFFSET>,
+            ShowNotificationMessageAsync::<Impl, IMPL_OFFSET>,
+            StartAuthenticationAsync::<Impl, IMPL_OFFSET>,
+            AuthenticationStageChanged::<Impl, IMPL_OFFSET>,
+            RemoveAuthenticationStageChanged::<Impl, IMPL_OFFSET>,
+            GetAuthenticationStageInfoAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorAuthenticationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl: Sized {
     fn RegisterDevicePresenceMonitoringAsync(&self, deviceid: &::windows::core::HSTRING, deviceinstancepath: &::windows::core::HSTRING, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>;
     fn RegisterDevicePresenceMonitoringWithNewDeviceAsync(&self, deviceid: &::windows::core::HSTRING, deviceinstancepath: &::windows::core::HSTRING, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, devicefriendlyname: &::windows::core::HSTRING, devicemodelnumber: &::windows::core::HSTRING, deviceconfigurationdata: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>;
     fn UnregisterDevicePresenceMonitoringAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn IsDevicePresenceMonitoringSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVtbl {
         unsafe extern "system" fn RegisterDevicePresenceMonitoringAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterDevicePresenceMonitoringAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&deviceinstancepath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), monitoringmode) {
@@ -351,33 +366,36 @@ impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVt
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics>,
             ::windows::core::GetTrustLevel,
-            RegisterDevicePresenceMonitoringAsync::<Impl, OFFSET>,
-            RegisterDevicePresenceMonitoringWithNewDeviceAsync::<Impl, OFFSET>,
-            UnregisterDevicePresenceMonitoringAsync::<Impl, OFFSET>,
-            IsDevicePresenceMonitoringSupported::<Impl, OFFSET>,
+            RegisterDevicePresenceMonitoringAsync::<Impl, IMPL_OFFSET>,
+            RegisterDevicePresenceMonitoringWithNewDeviceAsync::<Impl, IMPL_OFFSET>,
+            UnregisterDevicePresenceMonitoringAsync::<Impl, IMPL_OFFSET>,
+            IsDevicePresenceMonitoringSupported::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorInfoImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DeviceFriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DeviceModelNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DeviceConfigurationData(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfoImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorInfoVtbl {
         unsafe extern "system" fn DeviceId<Impl: ISecondaryAuthenticationFactorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -422,22 +440,25 @@ impl ISecondaryAuthenticationFactorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorInfo>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, DeviceFriendlyName::<Impl, OFFSET>, DeviceModelNumber::<Impl, OFFSET>, DeviceConfigurationData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorInfo>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, DeviceFriendlyName::<Impl, IMPL_OFFSET>, DeviceModelNumber::<Impl, IMPL_OFFSET>, DeviceConfigurationData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorInfo2Impl: Sized + ISecondaryAuthenticationFactorInfoImpl {
     fn PresenceMonitoringMode(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorDevicePresenceMonitoringMode>;
     fn UpdateDevicePresenceAsync(&self, presencestate: SecondaryAuthenticationFactorDevicePresence) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn IsAuthenticationSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorInfo2 {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo2";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfo2Impl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorInfo2Vtbl {
         unsafe extern "system" fn PresenceMonitoringMode<Impl: ISecondaryAuthenticationFactorInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresenceMonitoringMode() {
@@ -471,21 +492,24 @@ impl ISecondaryAuthenticationFactorInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorInfo2>, ::windows::core::GetTrustLevel, PresenceMonitoringMode::<Impl, OFFSET>, UpdateDevicePresenceAsync::<Impl, OFFSET>, IsAuthenticationSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorInfo2>, ::windows::core::GetTrustLevel, PresenceMonitoringMode::<Impl, IMPL_OFFSET>, UpdateDevicePresenceAsync::<Impl, IMPL_OFFSET>, IsAuthenticationSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorInfo2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorRegistrationImpl: Sized {
     fn FinishRegisteringDeviceAsync(&self, deviceconfigurationdata: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn AbortRegisteringDeviceAsync(&self, errorlogmessage: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorRegistration {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationVtbl {
         unsafe extern "system" fn FinishRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishRegisteringDeviceAsync(&*(&deviceconfigurationdata as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -508,7 +532,10 @@ impl ISecondaryAuthenticationFactorRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistration>, ::windows::core::GetTrustLevel, FinishRegisteringDeviceAsync::<Impl, OFFSET>, AbortRegisteringDeviceAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistration>, ::windows::core::GetTrustLevel, FinishRegisteringDeviceAsync::<Impl, IMPL_OFFSET>, AbortRegisteringDeviceAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorRegistration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -522,7 +549,7 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorRegistration
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorRegistrationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationResultImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationResultVtbl {
         unsafe extern "system" fn Status<Impl: ISecondaryAuthenticationFactorRegistrationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorRegistrationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -545,23 +572,26 @@ impl ISecondaryAuthenticationFactorRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Registration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Registration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorRegistrationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISecondaryAuthenticationFactorRegistrationStaticsImpl: Sized {
     fn RequestStartRegisteringDeviceAsync(&self, deviceid: &::windows::core::HSTRING, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: &::windows::core::HSTRING, devicemodelnumber: &::windows::core::HSTRING, devicekey: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>, mutualauthenticationkey: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>>;
     fn FindAllRegisteredDeviceInfoAsync(&self, querytype: SecondaryAuthenticationFactorDeviceFindScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>>;
     fn UnregisterDeviceAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn UpdateDeviceConfigurationDataAsync(&self, deviceid: &::windows::core::HSTRING, deviceconfigurationdata: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorRegistrationStatics {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
         unsafe extern "system" fn RequestStartRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicemodelnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicekey: ::windows::core::RawPtr, mutualauthenticationkey: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStartRegisteringDeviceAsync(
@@ -614,16 +644,19 @@ impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorRegistrationStatics>,
             ::windows::core::GetTrustLevel,
-            RequestStartRegisteringDeviceAsync::<Impl, OFFSET>,
-            FindAllRegisteredDeviceInfoAsync::<Impl, OFFSET>,
-            UnregisterDeviceAsync::<Impl, OFFSET>,
-            UpdateDeviceConfigurationDataAsync::<Impl, OFFSET>,
+            RequestStartRegisteringDeviceAsync::<Impl, IMPL_OFFSET>,
+            FindAllRegisteredDeviceInfoAsync::<Impl, IMPL_OFFSET>,
+            UnregisterDeviceAsync::<Impl, IMPL_OFFSET>,
+            UpdateDeviceConfigurationDataAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorRegistrationStatics as ::windows::core::Interface>::IID
     }
 }

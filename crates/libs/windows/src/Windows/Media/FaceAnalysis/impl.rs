@@ -1,14 +1,14 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IDetectedFaceImpl: Sized {
     fn FaceBox(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapBounds>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IDetectedFace";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IDetectedFaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectedFaceImpl, const OFFSET: isize>() -> IDetectedFaceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectedFaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectedFaceVtbl {
         unsafe extern "system" fn FaceBox<Impl: IDetectedFaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FaceBox() {
@@ -20,10 +20,13 @@ impl IDetectedFaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectedFace>, ::windows::core::GetTrustLevel, FaceBox::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectedFace>, ::windows::core::GetTrustLevel, FaceBox::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDetectedFace as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceDetectorImpl: Sized {
     fn DetectFacesAsync(&self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
     fn DetectFacesWithSearchAreaAsync(&self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>, searcharea: &super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
@@ -32,13 +35,13 @@ pub trait IFaceDetectorImpl: Sized {
     fn MaxDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
     fn SetMaxDetectableFaceSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceDetector";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IFaceDetectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorImpl, const OFFSET: isize>() -> IFaceDetectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceDetectorVtbl {
         unsafe extern "system" fn DetectFacesAsync<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectFacesAsync(&*(&image as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
@@ -92,35 +95,38 @@ impl IFaceDetectorVtbl {
             (*this).SetMaxDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFaceDetector>,
             ::windows::core::GetTrustLevel,
-            DetectFacesAsync::<Impl, OFFSET>,
-            DetectFacesWithSearchAreaAsync::<Impl, OFFSET>,
-            MinDetectableFaceSize::<Impl, OFFSET>,
-            SetMinDetectableFaceSize::<Impl, OFFSET>,
-            MaxDetectableFaceSize::<Impl, OFFSET>,
-            SetMaxDetectableFaceSize::<Impl, OFFSET>,
+            DetectFacesAsync::<Impl, IMPL_OFFSET>,
+            DetectFacesWithSearchAreaAsync::<Impl, IMPL_OFFSET>,
+            MinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            MaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaceDetector as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceDetectorStaticsImpl: Sized {
     fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceDetector>>;
     fn GetSupportedBitmapPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
     fn IsBitmapPixelFormatSupported(&self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetectorStatics {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceDetectorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IFaceDetectorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorStaticsImpl, const OFFSET: isize>() -> IFaceDetectorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceDetectorStaticsVtbl {
         unsafe extern "system" fn CreateAsync<Impl: IFaceDetectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
@@ -165,10 +171,13 @@ impl IFaceDetectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceDetectorStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, OFFSET>, GetSupportedBitmapPixelFormats::<Impl, OFFSET>, IsBitmapPixelFormatSupported::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceDetectorStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, GetSupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>, IsBitmapPixelFormatSupported::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaceDetectorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceTrackerImpl: Sized {
     fn ProcessNextFrameAsync(&self, videoframe: &::core::option::Option<super::VideoFrame>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
     fn MinDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
@@ -176,13 +185,13 @@ pub trait IFaceTrackerImpl: Sized {
     fn MaxDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
     fn SetMaxDetectableFaceSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceTracker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IFaceTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerImpl, const OFFSET: isize>() -> IFaceTrackerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceTrackerVtbl {
         unsafe extern "system" fn ProcessNextFrameAsync<Impl: IFaceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoframe: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessNextFrameAsync(&*(&videoframe as *const <super::VideoFrame as ::windows::core::Abi>::Abi as *const <super::VideoFrame as ::windows::core::DefaultType>::DefaultType)) {
@@ -224,23 +233,38 @@ impl IFaceTrackerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceTracker>, ::windows::core::GetTrustLevel, ProcessNextFrameAsync::<Impl, OFFSET>, MinDetectableFaceSize::<Impl, OFFSET>, SetMinDetectableFaceSize::<Impl, OFFSET>, MaxDetectableFaceSize::<Impl, OFFSET>, SetMaxDetectableFaceSize::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IFaceTracker>,
+            ::windows::core::GetTrustLevel,
+            ProcessNextFrameAsync::<Impl, IMPL_OFFSET>,
+            MinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMinDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            MaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+            SetMaxDetectableFaceSize::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaceTracker as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceTrackerStaticsImpl: Sized {
     fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceTracker>>;
     fn GetSupportedBitmapPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
     fn IsBitmapPixelFormatSupported(&self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceTrackerStatics {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceTrackerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl IFaceTrackerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerStaticsImpl, const OFFSET: isize>() -> IFaceTrackerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceTrackerStaticsVtbl {
         unsafe extern "system" fn CreateAsync<Impl: IFaceTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
@@ -285,6 +309,9 @@ impl IFaceTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceTrackerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, OFFSET>, GetSupportedBitmapPixelFormats::<Impl, OFFSET>, IsBitmapPixelFormatSupported::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFaceTrackerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, GetSupportedBitmapPixelFormats::<Impl, IMPL_OFFSET>, IsBitmapPixelFormatSupported::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaceTrackerStatics as ::windows::core::Interface>::IID
     }
 }

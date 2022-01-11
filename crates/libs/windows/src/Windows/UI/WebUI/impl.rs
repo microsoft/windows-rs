@@ -8,12 +8,15 @@ impl ::windows::core::RuntimeName for IActivatedDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IActivatedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivatedDeferralImpl, const OFFSET: isize>() -> IActivatedDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivatedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivatedDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IActivatedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivatedDeferral as ::windows::core::Interface>::IID
     }
 }
 pub trait IActivatedEventArgsDeferralImpl: Sized {
@@ -23,7 +26,7 @@ impl ::windows::core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
 }
 impl IActivatedEventArgsDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivatedEventArgsDeferralImpl, const OFFSET: isize>() -> IActivatedEventArgsDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivatedEventArgsDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivatedEventArgsDeferralVtbl {
         unsafe extern "system" fn ActivatedOperation<Impl: IActivatedEventArgsDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivatedOperation() {
@@ -35,7 +38,10 @@ impl IActivatedEventArgsDeferralVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedEventArgsDeferral>, ::windows::core::GetTrustLevel, ActivatedOperation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedEventArgsDeferral>, ::windows::core::GetTrustLevel, ActivatedOperation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivatedEventArgsDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -48,7 +54,7 @@ impl ::windows::core::RuntimeName for IActivatedOperation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IActivatedOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivatedOperationImpl, const OFFSET: isize>() -> IActivatedOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivatedOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivatedOperationVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IActivatedOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -60,7 +66,10 @@ impl IActivatedOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivatedOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivatedOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
@@ -90,7 +99,7 @@ impl ::windows::core::RuntimeName for IHtmlPrintDocumentSource {
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl IHtmlPrintDocumentSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHtmlPrintDocumentSourceImpl, const OFFSET: isize>() -> IHtmlPrintDocumentSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHtmlPrintDocumentSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHtmlPrintDocumentSourceVtbl {
         unsafe extern "system" fn Content<Impl: IHtmlPrintDocumentSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintContent) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -234,47 +243,50 @@ impl IHtmlPrintDocumentSourceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHtmlPrintDocumentSource>,
             ::windows::core::GetTrustLevel,
-            Content::<Impl, OFFSET>,
-            SetContent::<Impl, OFFSET>,
-            LeftMargin::<Impl, OFFSET>,
-            SetLeftMargin::<Impl, OFFSET>,
-            TopMargin::<Impl, OFFSET>,
-            SetTopMargin::<Impl, OFFSET>,
-            RightMargin::<Impl, OFFSET>,
-            SetRightMargin::<Impl, OFFSET>,
-            BottomMargin::<Impl, OFFSET>,
-            SetBottomMargin::<Impl, OFFSET>,
-            EnableHeaderFooter::<Impl, OFFSET>,
-            SetEnableHeaderFooter::<Impl, OFFSET>,
-            ShrinkToFit::<Impl, OFFSET>,
-            SetShrinkToFit::<Impl, OFFSET>,
-            PercentScale::<Impl, OFFSET>,
-            SetPercentScale::<Impl, OFFSET>,
-            PageRange::<Impl, OFFSET>,
-            TrySetPageRange::<Impl, OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            SetContent::<Impl, IMPL_OFFSET>,
+            LeftMargin::<Impl, IMPL_OFFSET>,
+            SetLeftMargin::<Impl, IMPL_OFFSET>,
+            TopMargin::<Impl, IMPL_OFFSET>,
+            SetTopMargin::<Impl, IMPL_OFFSET>,
+            RightMargin::<Impl, IMPL_OFFSET>,
+            SetRightMargin::<Impl, IMPL_OFFSET>,
+            BottomMargin::<Impl, IMPL_OFFSET>,
+            SetBottomMargin::<Impl, IMPL_OFFSET>,
+            EnableHeaderFooter::<Impl, IMPL_OFFSET>,
+            SetEnableHeaderFooter::<Impl, IMPL_OFFSET>,
+            ShrinkToFit::<Impl, IMPL_OFFSET>,
+            SetShrinkToFit::<Impl, IMPL_OFFSET>,
+            PercentScale::<Impl, IMPL_OFFSET>,
+            SetPercentScale::<Impl, IMPL_OFFSET>,
+            PageRange::<Impl, IMPL_OFFSET>,
+            TrySetPageRange::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHtmlPrintDocumentSource as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INewWebUIViewCreatedEventArgsImpl: Sized {
     fn WebUIView(&self) -> ::windows::core::Result<WebUIView>;
     fn ActivatedEventArgs(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::IActivatedEventArgs>;
     fn HasPendingNavigate(&self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.INewWebUIViewCreatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl INewWebUIViewCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INewWebUIViewCreatedEventArgsImpl, const OFFSET: isize>() -> INewWebUIViewCreatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INewWebUIViewCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INewWebUIViewCreatedEventArgsVtbl {
         unsafe extern "system" fn WebUIView<Impl: INewWebUIViewCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebUIView() {
@@ -319,10 +331,13 @@ impl INewWebUIViewCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INewWebUIViewCreatedEventArgs>, ::windows::core::GetTrustLevel, WebUIView::<Impl, OFFSET>, ActivatedEventArgs::<Impl, OFFSET>, HasPendingNavigate::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INewWebUIViewCreatedEventArgs>, ::windows::core::GetTrustLevel, WebUIView::<Impl, IMPL_OFFSET>, ActivatedEventArgs::<Impl, IMPL_OFFSET>, HasPendingNavigate::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INewWebUIViewCreatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStaticsImpl: Sized {
     fn Activated(&self, handler: &::core::option::Option<ActivatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -333,13 +348,13 @@ pub trait IWebUIActivationStaticsImpl: Sized {
     fn Navigated(&self, handler: &::core::option::Option<NavigatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveNavigated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIActivationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUIActivationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStaticsImpl, const OFFSET: isize>() -> IWebUIActivationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIActivationStaticsVtbl {
         unsafe extern "system" fn Activated<Impl: IWebUIActivationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Activated(&*(&handler as *const <ActivatedEventHandler as ::windows::core::Abi>::Abi as *const <ActivatedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -401,24 +416,27 @@ impl IWebUIActivationStaticsVtbl {
             (*this).RemoveNavigated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics>,
             ::windows::core::GetTrustLevel,
-            Activated::<Impl, OFFSET>,
-            RemoveActivated::<Impl, OFFSET>,
-            Suspending::<Impl, OFFSET>,
-            RemoveSuspending::<Impl, OFFSET>,
-            Resuming::<Impl, OFFSET>,
-            RemoveResuming::<Impl, OFFSET>,
-            Navigated::<Impl, OFFSET>,
-            RemoveNavigated::<Impl, OFFSET>,
+            Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated::<Impl, IMPL_OFFSET>,
+            Suspending::<Impl, IMPL_OFFSET>,
+            RemoveSuspending::<Impl, IMPL_OFFSET>,
+            Resuming::<Impl, IMPL_OFFSET>,
+            RemoveResuming::<Impl, IMPL_OFFSET>,
+            Navigated::<Impl, IMPL_OFFSET>,
+            RemoveNavigated::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIActivationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStatics2Impl: Sized {
     fn LeavingBackground(&self, handler: &::core::option::Option<LeavingBackgroundEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveLeavingBackground(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -426,13 +444,13 @@ pub trait IWebUIActivationStatics2Impl: Sized {
     fn RemoveEnteredBackground(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn EnablePrelaunch(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics2 {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIActivationStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUIActivationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStatics2Impl, const OFFSET: isize>() -> IWebUIActivationStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIActivationStatics2Vtbl {
         unsafe extern "system" fn LeavingBackground<Impl: IWebUIActivationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeavingBackground(&*(&handler as *const <LeavingBackgroundEventHandler as ::windows::core::Abi>::Abi as *const <LeavingBackgroundEventHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -467,21 +485,36 @@ impl IWebUIActivationStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnablePrelaunch(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics2>, ::windows::core::GetTrustLevel, LeavingBackground::<Impl, OFFSET>, RemoveLeavingBackground::<Impl, OFFSET>, EnteredBackground::<Impl, OFFSET>, RemoveEnteredBackground::<Impl, OFFSET>, EnablePrelaunch::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics2>,
+            ::windows::core::GetTrustLevel,
+            LeavingBackground::<Impl, IMPL_OFFSET>,
+            RemoveLeavingBackground::<Impl, IMPL_OFFSET>,
+            EnteredBackground::<Impl, IMPL_OFFSET>,
+            RemoveEnteredBackground::<Impl, IMPL_OFFSET>,
+            EnablePrelaunch::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIActivationStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStatics3Impl: Sized {
     fn RequestRestartAsync(&self, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>;
     fn RequestRestartForUserAsync(&self, user: &::core::option::Option<super::super::System::User>, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics3 {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIActivationStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IWebUIActivationStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStatics3Impl, const OFFSET: isize>() -> IWebUIActivationStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIActivationStatics3Vtbl {
         unsafe extern "system" fn RequestRestartAsync<Impl: IWebUIActivationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestRestartAsync(&*(&launcharguments as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -504,23 +537,26 @@ impl IWebUIActivationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics3>, ::windows::core::GetTrustLevel, RequestRestartAsync::<Impl, OFFSET>, RequestRestartForUserAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics3>, ::windows::core::GetTrustLevel, RequestRestartAsync::<Impl, IMPL_OFFSET>, RequestRestartForUserAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIActivationStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStatics4Impl: Sized {
     fn NewWebUIViewCreated(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveNewWebUIViewCreated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn BackgroundActivated(&self, handler: &::core::option::Option<BackgroundActivatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveBackgroundActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics4 {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIActivationStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUIActivationStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStatics4Impl, const OFFSET: isize>() -> IWebUIActivationStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIActivationStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIActivationStatics4Vtbl {
         unsafe extern "system" fn NewWebUIViewCreated<Impl: IWebUIActivationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewWebUIViewCreated(&*(&handler as *const <super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -551,7 +587,10 @@ impl IWebUIActivationStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBackgroundActivated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics4>, ::windows::core::GetTrustLevel, NewWebUIViewCreated::<Impl, OFFSET>, RemoveNewWebUIViewCreated::<Impl, OFFSET>, BackgroundActivated::<Impl, OFFSET>, RemoveBackgroundActivated::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIActivationStatics4>, ::windows::core::GetTrustLevel, NewWebUIViewCreated::<Impl, IMPL_OFFSET>, RemoveNewWebUIViewCreated::<Impl, IMPL_OFFSET>, BackgroundActivated::<Impl, IMPL_OFFSET>, RemoveBackgroundActivated::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIActivationStatics4 as ::windows::core::Interface>::IID
     }
 }
 pub trait IWebUIBackgroundTaskInstanceImpl: Sized {
@@ -562,7 +601,7 @@ impl ::windows::core::RuntimeName for IWebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
 }
 impl IWebUIBackgroundTaskInstanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIBackgroundTaskInstanceImpl, const OFFSET: isize>() -> IWebUIBackgroundTaskInstanceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIBackgroundTaskInstanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIBackgroundTaskInstanceVtbl {
         unsafe extern "system" fn Succeeded<Impl: IWebUIBackgroundTaskInstanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
@@ -578,7 +617,10 @@ impl IWebUIBackgroundTaskInstanceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSucceeded(succeeded).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIBackgroundTaskInstance>, ::windows::core::GetTrustLevel, Succeeded::<Impl, OFFSET>, SetSucceeded::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIBackgroundTaskInstance>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, SetSucceeded::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIBackgroundTaskInstance as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -591,7 +633,7 @@ impl ::windows::core::RuntimeName for IWebUIBackgroundTaskInstanceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUIBackgroundTaskInstanceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIBackgroundTaskInstanceStaticsImpl, const OFFSET: isize>() -> IWebUIBackgroundTaskInstanceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIBackgroundTaskInstanceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIBackgroundTaskInstanceStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IWebUIBackgroundTaskInstanceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -603,7 +645,10 @@ impl IWebUIBackgroundTaskInstanceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIBackgroundTaskInstanceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIBackgroundTaskInstanceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIBackgroundTaskInstanceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -616,12 +661,15 @@ impl ::windows::core::RuntimeName for IWebUINavigatedDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUINavigatedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUINavigatedDeferralImpl, const OFFSET: isize>() -> IWebUINavigatedDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUINavigatedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUINavigatedDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IWebUINavigatedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUINavigatedDeferral as ::windows::core::Interface>::IID
     }
 }
 pub trait IWebUINavigatedEventArgsImpl: Sized {
@@ -631,7 +679,7 @@ impl ::windows::core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
 }
 impl IWebUINavigatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUINavigatedEventArgsImpl, const OFFSET: isize>() -> IWebUINavigatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUINavigatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUINavigatedEventArgsVtbl {
         unsafe extern "system" fn NavigatedOperation<Impl: IWebUINavigatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NavigatedOperation() {
@@ -643,7 +691,10 @@ impl IWebUINavigatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedEventArgs>, ::windows::core::GetTrustLevel, NavigatedOperation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedEventArgs>, ::windows::core::GetTrustLevel, NavigatedOperation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUINavigatedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -656,7 +707,7 @@ impl ::windows::core::RuntimeName for IWebUINavigatedOperation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWebUINavigatedOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUINavigatedOperationImpl, const OFFSET: isize>() -> IWebUINavigatedOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUINavigatedOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUINavigatedOperationVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IWebUINavigatedOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -668,10 +719,13 @@ impl IWebUINavigatedOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUINavigatedOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUINavigatedOperation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIViewImpl: Sized {
     fn ApplicationViewId(&self) -> ::windows::core::Result<i32>;
     fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WebUIView, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -681,13 +735,13 @@ pub trait IWebUIViewImpl: Sized {
     fn IgnoreApplicationContentUriRulesNavigationRestrictions(&self) -> ::windows::core::Result<bool>;
     fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIView {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIView";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUIViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIViewImpl, const OFFSET: isize>() -> IWebUIViewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIViewVtbl {
         unsafe extern "system" fn ApplicationViewId<Impl: IWebUIViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationViewId() {
@@ -745,34 +799,37 @@ impl IWebUIViewVtbl {
             (*this).SetIgnoreApplicationContentUriRulesNavigationRestrictions(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWebUIView>,
             ::windows::core::GetTrustLevel,
-            ApplicationViewId::<Impl, OFFSET>,
-            Closed::<Impl, OFFSET>,
-            RemoveClosed::<Impl, OFFSET>,
-            Activated::<Impl, OFFSET>,
-            RemoveActivated::<Impl, OFFSET>,
-            IgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, OFFSET>,
-            SetIgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, OFFSET>,
+            ApplicationViewId::<Impl, IMPL_OFFSET>,
+            Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed::<Impl, IMPL_OFFSET>,
+            Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated::<Impl, IMPL_OFFSET>,
+            IgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, IMPL_OFFSET>,
+            SetIgnoreApplicationContentUriRulesNavigationRestrictions::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIView as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIViewStaticsImpl: Sized {
     fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>;
     fn CreateWithUriAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIViewStatics {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIViewStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IWebUIViewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIViewStaticsImpl, const OFFSET: isize>() -> IWebUIViewStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUIViewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUIViewStaticsVtbl {
         unsafe extern "system" fn CreateAsync<Impl: IWebUIViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
@@ -795,6 +852,9 @@ impl IWebUIViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIViewStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, OFFSET>, CreateWithUriAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebUIViewStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, CreateWithUriAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebUIViewStatics as ::windows::core::Interface>::IID
     }
 }

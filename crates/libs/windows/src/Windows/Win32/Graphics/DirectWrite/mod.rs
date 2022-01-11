@@ -2919,12 +2919,12 @@ pub const DWRITE_WORD_WRAPPING_WHOLE_WORD: DWRITE_WORD_WRAPPING = 3i32;
 pub const DWRITE_WORD_WRAPPING_CHARACTER: DWRITE_WORD_WRAPPING = 4i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 #[inline]
-pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: &::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         DWriteCreateFactory(::core::mem::transmute(factorytype), ::core::mem::transmute(iid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -7688,12 +7688,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontDownloadListener {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontDownloadListenerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadqueue: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void, downloadresult: ::windows::core::HRESULT),
-);
+pub struct IDWriteFontDownloadListenerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadqueue: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void, downloadresult: ::windows::core::HRESULT));
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 #[repr(transparent)]
 pub struct IDWriteFontDownloadQueue(::windows::core::IUnknown);
@@ -14030,7 +14025,7 @@ impl IDWriteRemoteFontFileStream {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
-    pub unsafe fn BeginDownload(&self, downloadoperationid: &::windows::core::GUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: u32) -> ::windows::core::Result<IDWriteAsyncResult> {
+    pub unsafe fn BeginDownload(&self, downloadoperationid: *const ::windows::core::GUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: u32) -> ::windows::core::Result<IDWriteAsyncResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(downloadoperationid), ::core::mem::transmute(filefragments), ::core::mem::transmute(fragmentcount), ::core::mem::transmute(&mut result__)).from_abi::<IDWriteAsyncResult>(result__)
     }
@@ -14109,7 +14104,7 @@ pub struct IDWriteRemoteFontFileStreamVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileoffset: u64, fragmentsize: u64, islocal: *mut super::super::Foundation::BOOL, partialsize: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_LOCALITY,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadoperationid: &::windows::core::GUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: u32, asyncresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadoperationid: *const ::windows::core::GUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: u32, asyncresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 #[repr(transparent)]

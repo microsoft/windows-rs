@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for II2cConnectionSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl II2cConnectionSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cConnectionSettingsImpl, const OFFSET: isize>() -> II2cConnectionSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cConnectionSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cConnectionSettingsVtbl {
         unsafe extern "system" fn SlaveAddress<Impl: II2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlaveAddress() {
@@ -59,7 +59,23 @@ impl II2cConnectionSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cConnectionSettings>, ::windows::core::GetTrustLevel, SlaveAddress::<Impl, OFFSET>, SetSlaveAddress::<Impl, OFFSET>, BusSpeed::<Impl, OFFSET>, SetBusSpeed::<Impl, OFFSET>, SharingMode::<Impl, OFFSET>, SetSharingMode::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<II2cConnectionSettings>,
+            ::windows::core::GetTrustLevel,
+            SlaveAddress::<Impl, IMPL_OFFSET>,
+            SetSlaveAddress::<Impl, IMPL_OFFSET>,
+            BusSpeed::<Impl, IMPL_OFFSET>,
+            SetBusSpeed::<Impl, IMPL_OFFSET>,
+            SharingMode::<Impl, IMPL_OFFSET>,
+            SetSharingMode::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<II2cConnectionSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -72,7 +88,7 @@ impl ::windows::core::RuntimeName for II2cConnectionSettingsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl II2cConnectionSettingsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cConnectionSettingsFactoryImpl, const OFFSET: isize>() -> II2cConnectionSettingsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cConnectionSettingsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cConnectionSettingsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: II2cConnectionSettingsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slaveaddress: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(slaveaddress) {
@@ -84,7 +100,10 @@ impl II2cConnectionSettingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<II2cConnectionSettingsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -97,7 +116,7 @@ impl ::windows::core::RuntimeName for II2cController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl II2cControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cControllerImpl, const OFFSET: isize>() -> II2cControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cControllerVtbl {
         unsafe extern "system" fn GetDevice<Impl: II2cControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDevice(&*(&settings as *const <I2cConnectionSettings as ::windows::core::Abi>::Abi as *const <I2cConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
@@ -109,21 +128,24 @@ impl II2cControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cController>, ::windows::core::GetTrustLevel, GetDevice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cController>, ::windows::core::GetTrustLevel, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<II2cController as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait II2cControllerStaticsImpl: Sized {
     fn GetControllersAsync(&self, provider: &::core::option::Option<Provider::II2cProvider>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>;
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for II2cControllerStatics {
     const NAME: &'static str = "Windows.Devices.I2c.II2cControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl II2cControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cControllerStaticsImpl, const OFFSET: isize>() -> II2cControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cControllerStaticsVtbl {
         unsafe extern "system" fn GetControllersAsync<Impl: II2cControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllersAsync(&*(&provider as *const <Provider::II2cProvider as ::windows::core::Abi>::Abi as *const <Provider::II2cProvider as ::windows::core::DefaultType>::DefaultType)) {
@@ -146,7 +168,10 @@ impl II2cControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<II2cControllerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -166,7 +191,7 @@ impl ::windows::core::RuntimeName for II2cDevice {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl II2cDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cDeviceImpl, const OFFSET: isize>() -> II2cDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cDeviceVtbl {
         unsafe extern "system" fn DeviceId<Impl: II2cDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -234,19 +259,40 @@ impl II2cDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cDevice>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, ConnectionSettings::<Impl, OFFSET>, Write::<Impl, OFFSET>, WritePartial::<Impl, OFFSET>, Read::<Impl, OFFSET>, ReadPartial::<Impl, OFFSET>, WriteRead::<Impl, OFFSET>, WriteReadPartial::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<II2cDevice>,
+            ::windows::core::GetTrustLevel,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            ConnectionSettings::<Impl, IMPL_OFFSET>,
+            Write::<Impl, IMPL_OFFSET>,
+            WritePartial::<Impl, IMPL_OFFSET>,
+            Read::<Impl, IMPL_OFFSET>,
+            ReadPartial::<Impl, IMPL_OFFSET>,
+            WriteRead::<Impl, IMPL_OFFSET>,
+            WriteReadPartial::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<II2cDevice as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait II2cDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, settings: &::core::option::Option<I2cConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for II2cDeviceStatics {
     const NAME: &'static str = "Windows.Devices.I2c.II2cDeviceStatics";
 }
+#[cfg(feature = "Foundation")]
 impl II2cDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cDeviceStaticsImpl, const OFFSET: isize>() -> II2cDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: II2cDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -280,6 +326,9 @@ impl II2cDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<II2cDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<II2cDeviceStatics as ::windows::core::Interface>::IID
     }
 }

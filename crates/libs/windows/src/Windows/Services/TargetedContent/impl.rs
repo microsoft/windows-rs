@@ -1,14 +1,14 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentActionImpl: Sized {
     fn InvokeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentAction";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentActionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentActionImpl, const OFFSET: isize>() -> ITargetedContentActionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentActionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentActionVtbl {
         unsafe extern "system" fn InvokeAsync<Impl: ITargetedContentActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvokeAsync() {
@@ -20,20 +20,23 @@ impl ITargetedContentActionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentAction>, ::windows::core::GetTrustLevel, InvokeAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentAction>, ::windows::core::GetTrustLevel, InvokeAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentAction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentAvailabilityChangedEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentAvailabilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentAvailabilityChangedEventArgsImpl, const OFFSET: isize>() -> ITargetedContentAvailabilityChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentAvailabilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentAvailabilityChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ITargetedContentAvailabilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -45,21 +48,24 @@ impl ITargetedContentAvailabilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentAvailabilityChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentChangedEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
     fn HasPreviousContentExpired(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentChangedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentChangedEventArgsImpl, const OFFSET: isize>() -> ITargetedContentChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ITargetedContentChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -82,10 +88,13 @@ impl ITargetedContentChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>, HasPreviousContentExpired::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, HasPreviousContentExpired::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITargetedContentCollectionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
@@ -95,13 +104,13 @@ pub trait ITargetedContentCollectionImpl: Sized {
     fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>;
     fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentCollection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITargetedContentCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentCollectionImpl, const OFFSET: isize>() -> ITargetedContentCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentCollectionVtbl {
         unsafe extern "system" fn Id<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -165,10 +174,27 @@ impl ITargetedContentCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentCollection>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, ReportInteraction::<Impl, OFFSET>, ReportCustomInteraction::<Impl, OFFSET>, Path::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Collections::<Impl, OFFSET>, Items::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ITargetedContentCollection>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, IMPL_OFFSET>,
+            ReportInteraction::<Impl, IMPL_OFFSET>,
+            ReportCustomInteraction::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            Collections::<Impl, IMPL_OFFSET>,
+            Items::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentContainerImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -176,13 +202,13 @@ pub trait ITargetedContentContainerImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<TargetedContentCollection>;
     fn SelectSingleObject(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentObject>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentContainer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentContainerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerImpl, const OFFSET: isize>() -> ITargetedContentContainerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentContainerVtbl {
         unsafe extern "system" fn Id<Impl: ITargetedContentContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -238,20 +264,23 @@ impl ITargetedContentContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentContainer>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, Availability::<Impl, OFFSET>, Content::<Impl, OFFSET>, SelectSingleObject::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentContainer>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>, Availability::<Impl, IMPL_OFFSET>, Content::<Impl, IMPL_OFFSET>, SelectSingleObject::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentContainer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentContainerStaticsImpl: Sized {
     fn GetAsync(&self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentContainerStatics {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentContainerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentContainerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerStaticsImpl, const OFFSET: isize>() -> ITargetedContentContainerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentContainerStaticsVtbl {
         unsafe extern "system" fn GetAsync<Impl: ITargetedContentContainerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsync(&*(&contentid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -263,21 +292,24 @@ impl ITargetedContentContainerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentContainerStatics>, ::windows::core::GetTrustLevel, GetAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentContainerStatics>, ::windows::core::GetTrustLevel, GetAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentContainerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ITargetedContentImageImpl: Sized + IRandomAccessStreamReferenceImpl {
     fn Height(&self) -> ::windows::core::Result<u32>;
     fn Width(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentImage";
 }
-#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ITargetedContentImageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentImageImpl, const OFFSET: isize>() -> ITargetedContentImageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentImageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentImageVtbl {
         unsafe extern "system" fn Height<Impl: ITargetedContentImageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Height() {
@@ -300,10 +332,13 @@ impl ITargetedContentImageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentImage>, ::windows::core::GetTrustLevel, Height::<Impl, OFFSET>, Width::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentImage>, ::windows::core::GetTrustLevel, Height::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentImage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITargetedContentItemImpl: Sized {
     fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
@@ -312,13 +347,13 @@ pub trait ITargetedContentItemImpl: Sized {
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>;
     fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITargetedContentItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemImpl, const OFFSET: isize>() -> ITargetedContentItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentItemVtbl {
         unsafe extern "system" fn Path<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
@@ -371,7 +406,23 @@ impl ITargetedContentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentItem>, ::windows::core::GetTrustLevel, Path::<Impl, OFFSET>, ReportInteraction::<Impl, OFFSET>, ReportCustomInteraction::<Impl, OFFSET>, State::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Collections::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ITargetedContentItem>,
+            ::windows::core::GetTrustLevel,
+            Path::<Impl, IMPL_OFFSET>,
+            ReportInteraction::<Impl, IMPL_OFFSET>,
+            ReportCustomInteraction::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            Collections::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -385,7 +436,7 @@ impl ::windows::core::RuntimeName for ITargetedContentItemState {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITargetedContentItemStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemStateImpl, const OFFSET: isize>() -> ITargetedContentItemStateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentItemStateVtbl {
         unsafe extern "system" fn ShouldDisplay<Impl: ITargetedContentItemStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldDisplay() {
@@ -408,7 +459,10 @@ impl ITargetedContentItemStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentItemState>, ::windows::core::GetTrustLevel, ShouldDisplay::<Impl, OFFSET>, AppInstallationState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentItemState>, ::windows::core::GetTrustLevel, ShouldDisplay::<Impl, IMPL_OFFSET>, AppInstallationState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentItemState as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -424,7 +478,7 @@ impl ::windows::core::RuntimeName for ITargetedContentObject {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITargetedContentObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentObjectImpl, const OFFSET: isize>() -> ITargetedContentObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentObjectVtbl {
         unsafe extern "system" fn ObjectKind<Impl: ITargetedContentObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentObjectKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ObjectKind() {
@@ -469,20 +523,23 @@ impl ITargetedContentObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentObject>, ::windows::core::GetTrustLevel, ObjectKind::<Impl, OFFSET>, Collection::<Impl, OFFSET>, Item::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentObject>, ::windows::core::GetTrustLevel, ObjectKind::<Impl, IMPL_OFFSET>, Collection::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentObject as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentStateChangedEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentStateChangedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentStateChangedEventArgsImpl, const OFFSET: isize>() -> ITargetedContentStateChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentStateChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ITargetedContentStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -494,10 +551,13 @@ impl ITargetedContentStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentStateChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentStateChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentStateChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentSubscriptionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetContentContainerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
@@ -508,13 +568,13 @@ pub trait ITargetedContentSubscriptionImpl: Sized {
     fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStateChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentSubscription";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentSubscriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>() -> ITargetedContentSubscriptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionVtbl {
         unsafe extern "system" fn Id<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -583,24 +643,27 @@ impl ITargetedContentSubscriptionVtbl {
             (*this).RemoveStateChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITargetedContentSubscription>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            GetContentContainerAsync::<Impl, OFFSET>,
-            ContentChanged::<Impl, OFFSET>,
-            RemoveContentChanged::<Impl, OFFSET>,
-            AvailabilityChanged::<Impl, OFFSET>,
-            RemoveAvailabilityChanged::<Impl, OFFSET>,
-            StateChanged::<Impl, OFFSET>,
-            RemoveStateChanged::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            GetContentContainerAsync::<Impl, IMPL_OFFSET>,
+            ContentChanged::<Impl, IMPL_OFFSET>,
+            RemoveContentChanged::<Impl, IMPL_OFFSET>,
+            AvailabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentSubscription as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITargetedContentSubscriptionOptionsImpl: Sized {
     fn SubscriptionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AllowPartialContentAvailability(&self) -> ::windows::core::Result<bool>;
@@ -609,13 +672,13 @@ pub trait ITargetedContentSubscriptionOptionsImpl: Sized {
     fn LocalFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn Update(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentSubscriptionOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITargetedContentSubscriptionOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>() -> ITargetedContentSubscriptionOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionOptionsVtbl {
         unsafe extern "system" fn SubscriptionId<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriptionId() {
@@ -669,33 +732,36 @@ impl ITargetedContentSubscriptionOptionsVtbl {
             (*this).Update().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITargetedContentSubscriptionOptions>,
             ::windows::core::GetTrustLevel,
-            SubscriptionId::<Impl, OFFSET>,
-            AllowPartialContentAvailability::<Impl, OFFSET>,
-            SetAllowPartialContentAvailability::<Impl, OFFSET>,
-            CloudQueryParameters::<Impl, OFFSET>,
-            LocalFilters::<Impl, OFFSET>,
-            Update::<Impl, OFFSET>,
+            SubscriptionId::<Impl, IMPL_OFFSET>,
+            AllowPartialContentAvailability::<Impl, IMPL_OFFSET>,
+            SetAllowPartialContentAvailability::<Impl, IMPL_OFFSET>,
+            CloudQueryParameters::<Impl, IMPL_OFFSET>,
+            LocalFilters::<Impl, IMPL_OFFSET>,
+            Update::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentSubscriptionOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentSubscriptionStaticsImpl: Sized {
     fn GetAsync(&self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>;
     fn GetOptions(&self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentSubscriptionOptions>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentSubscriptionStatics {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentSubscriptionStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITargetedContentSubscriptionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionStaticsImpl, const OFFSET: isize>() -> ITargetedContentSubscriptionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionStaticsVtbl {
         unsafe extern "system" fn GetAsync<Impl: ITargetedContentSubscriptionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriptionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsync(&*(&subscriptionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -718,10 +784,13 @@ impl ITargetedContentSubscriptionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentSubscriptionStatics>, ::windows::core::GetTrustLevel, GetAsync::<Impl, OFFSET>, GetOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITargetedContentSubscriptionStatics>, ::windows::core::GetTrustLevel, GetAsync::<Impl, IMPL_OFFSET>, GetOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentSubscriptionStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ITargetedContentValueImpl: Sized {
     fn ValueKind(&self) -> ::windows::core::Result<TargetedContentValueKind>;
     fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -740,13 +809,13 @@ pub trait ITargetedContentValueImpl: Sized {
     fn ImageFiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>;
     fn Actions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentValue";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ITargetedContentValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentValueImpl, const OFFSET: isize>() -> ITargetedContentValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentValueVtbl {
         unsafe extern "system" fn ValueKind<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentValueKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueKind() {
@@ -924,28 +993,31 @@ impl ITargetedContentValueVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITargetedContentValue>,
             ::windows::core::GetTrustLevel,
-            ValueKind::<Impl, OFFSET>,
-            Path::<Impl, OFFSET>,
-            String::<Impl, OFFSET>,
-            Uri::<Impl, OFFSET>,
-            Number::<Impl, OFFSET>,
-            Boolean::<Impl, OFFSET>,
-            File::<Impl, OFFSET>,
-            ImageFile::<Impl, OFFSET>,
-            Action::<Impl, OFFSET>,
-            Strings::<Impl, OFFSET>,
-            Uris::<Impl, OFFSET>,
-            Numbers::<Impl, OFFSET>,
-            Booleans::<Impl, OFFSET>,
-            Files::<Impl, OFFSET>,
-            ImageFiles::<Impl, OFFSET>,
-            Actions::<Impl, OFFSET>,
+            ValueKind::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            String::<Impl, IMPL_OFFSET>,
+            Uri::<Impl, IMPL_OFFSET>,
+            Number::<Impl, IMPL_OFFSET>,
+            Boolean::<Impl, IMPL_OFFSET>,
+            File::<Impl, IMPL_OFFSET>,
+            ImageFile::<Impl, IMPL_OFFSET>,
+            Action::<Impl, IMPL_OFFSET>,
+            Strings::<Impl, IMPL_OFFSET>,
+            Uris::<Impl, IMPL_OFFSET>,
+            Numbers::<Impl, IMPL_OFFSET>,
+            Booleans::<Impl, IMPL_OFFSET>,
+            Files::<Impl, IMPL_OFFSET>,
+            ImageFiles::<Impl, IMPL_OFFSET>,
+            Actions::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITargetedContentValue as ::windows::core::Interface>::IID
     }
 }

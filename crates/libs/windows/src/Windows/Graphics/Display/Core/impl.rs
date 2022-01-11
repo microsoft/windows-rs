@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHdmiDisplayInformationImpl: Sized {
     fn GetSupportedDisplayModes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>>;
     fn GetCurrentDisplayMode(&self) -> ::windows::core::Result<HdmiDisplayMode>;
@@ -9,13 +9,13 @@ pub trait IHdmiDisplayInformationImpl: Sized {
     fn DisplayModesChanged(&self, value: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveDisplayModesChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.IHdmiDisplayInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHdmiDisplayInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>() -> IHdmiDisplayInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayInformationVtbl {
         unsafe extern "system" fn GetSupportedDisplayModes<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedDisplayModes() {
@@ -98,21 +98,24 @@ impl IHdmiDisplayInformationVtbl {
             (*this).RemoveDisplayModesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHdmiDisplayInformation>,
             ::windows::core::GetTrustLevel,
-            GetSupportedDisplayModes::<Impl, OFFSET>,
-            GetCurrentDisplayMode::<Impl, OFFSET>,
-            SetDefaultDisplayModeAsync::<Impl, OFFSET>,
-            RequestSetCurrentDisplayModeAsync::<Impl, OFFSET>,
-            RequestSetCurrentDisplayModeWithHdrAsync::<Impl, OFFSET>,
-            RequestSetCurrentDisplayModeWithHdrAndMetadataAsync::<Impl, OFFSET>,
-            DisplayModesChanged::<Impl, OFFSET>,
-            RemoveDisplayModesChanged::<Impl, OFFSET>,
+            GetSupportedDisplayModes::<Impl, IMPL_OFFSET>,
+            GetCurrentDisplayMode::<Impl, IMPL_OFFSET>,
+            SetDefaultDisplayModeAsync::<Impl, IMPL_OFFSET>,
+            RequestSetCurrentDisplayModeAsync::<Impl, IMPL_OFFSET>,
+            RequestSetCurrentDisplayModeWithHdrAsync::<Impl, IMPL_OFFSET>,
+            RequestSetCurrentDisplayModeWithHdrAndMetadataAsync::<Impl, IMPL_OFFSET>,
+            DisplayModesChanged::<Impl, IMPL_OFFSET>,
+            RemoveDisplayModesChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHdmiDisplayInformation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -125,7 +128,7 @@ impl ::windows::core::RuntimeName for IHdmiDisplayInformationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHdmiDisplayInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationStaticsImpl, const OFFSET: isize>() -> IHdmiDisplayInformationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayInformationStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IHdmiDisplayInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -137,7 +140,10 @@ impl IHdmiDisplayInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdmiDisplayInformationStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdmiDisplayInformationStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHdmiDisplayInformationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -160,7 +166,7 @@ impl ::windows::core::RuntimeName for IHdmiDisplayMode {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHdmiDisplayModeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayModeImpl, const OFFSET: isize>() -> IHdmiDisplayModeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayModeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayModeVtbl {
         unsafe extern "system" fn ResolutionWidthInRawPixels<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolutionWidthInRawPixels() {
@@ -283,24 +289,27 @@ impl IHdmiDisplayModeVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHdmiDisplayMode>,
             ::windows::core::GetTrustLevel,
-            ResolutionWidthInRawPixels::<Impl, OFFSET>,
-            ResolutionHeightInRawPixels::<Impl, OFFSET>,
-            RefreshRate::<Impl, OFFSET>,
-            StereoEnabled::<Impl, OFFSET>,
-            BitsPerPixel::<Impl, OFFSET>,
-            IsEqual::<Impl, OFFSET>,
-            ColorSpace::<Impl, OFFSET>,
-            PixelEncoding::<Impl, OFFSET>,
-            IsSdrLuminanceSupported::<Impl, OFFSET>,
-            IsSmpte2084Supported::<Impl, OFFSET>,
-            Is2086MetadataSupported::<Impl, OFFSET>,
+            ResolutionWidthInRawPixels::<Impl, IMPL_OFFSET>,
+            ResolutionHeightInRawPixels::<Impl, IMPL_OFFSET>,
+            RefreshRate::<Impl, IMPL_OFFSET>,
+            StereoEnabled::<Impl, IMPL_OFFSET>,
+            BitsPerPixel::<Impl, IMPL_OFFSET>,
+            IsEqual::<Impl, IMPL_OFFSET>,
+            ColorSpace::<Impl, IMPL_OFFSET>,
+            PixelEncoding::<Impl, IMPL_OFFSET>,
+            IsSdrLuminanceSupported::<Impl, IMPL_OFFSET>,
+            IsSmpte2084Supported::<Impl, IMPL_OFFSET>,
+            Is2086MetadataSupported::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHdmiDisplayMode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -313,7 +322,7 @@ impl ::windows::core::RuntimeName for IHdmiDisplayMode2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHdmiDisplayMode2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayMode2Impl, const OFFSET: isize>() -> IHdmiDisplayMode2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayMode2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayMode2Vtbl {
         unsafe extern "system" fn IsDolbyVisionLowLatencySupported<Impl: IHdmiDisplayMode2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDolbyVisionLowLatencySupported() {
@@ -325,6 +334,9 @@ impl IHdmiDisplayMode2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdmiDisplayMode2>, ::windows::core::GetTrustLevel, IsDolbyVisionLowLatencySupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdmiDisplayMode2>, ::windows::core::GetTrustLevel, IsDolbyVisionLowLatencySupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHdmiDisplayMode2 as ::windows::core::Interface>::IID
     }
 }

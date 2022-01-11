@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityImpl: Sized {
     fn State(&self) -> ::windows::core::Result<UserActivityState>;
     fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -16,13 +16,13 @@ pub trait IUserActivityImpl: Sized {
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn CreateSession(&self) -> ::windows::core::Result<UserActivitySession>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivity";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityImpl, const OFFSET: isize>() -> IUserActivityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityVtbl {
         unsafe extern "system" fn State<Impl: IUserActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserActivityState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -154,28 +154,31 @@ impl IUserActivityVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserActivity>,
             ::windows::core::GetTrustLevel,
-            State::<Impl, OFFSET>,
-            ActivityId::<Impl, OFFSET>,
-            VisualElements::<Impl, OFFSET>,
-            ContentUri::<Impl, OFFSET>,
-            SetContentUri::<Impl, OFFSET>,
-            ContentType::<Impl, OFFSET>,
-            SetContentType::<Impl, OFFSET>,
-            FallbackUri::<Impl, OFFSET>,
-            SetFallbackUri::<Impl, OFFSET>,
-            ActivationUri::<Impl, OFFSET>,
-            SetActivationUri::<Impl, OFFSET>,
-            ContentInfo::<Impl, OFFSET>,
-            SetContentInfo::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
-            CreateSession::<Impl, OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            ActivityId::<Impl, IMPL_OFFSET>,
+            VisualElements::<Impl, IMPL_OFFSET>,
+            ContentUri::<Impl, IMPL_OFFSET>,
+            SetContentUri::<Impl, IMPL_OFFSET>,
+            ContentType::<Impl, IMPL_OFFSET>,
+            SetContentType::<Impl, IMPL_OFFSET>,
+            FallbackUri::<Impl, IMPL_OFFSET>,
+            SetFallbackUri::<Impl, IMPL_OFFSET>,
+            ActivationUri::<Impl, IMPL_OFFSET>,
+            SetActivationUri::<Impl, IMPL_OFFSET>,
+            ContentInfo::<Impl, IMPL_OFFSET>,
+            SetContentInfo::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            CreateSession::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivity as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -188,7 +191,7 @@ impl ::windows::core::RuntimeName for IUserActivity2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivity2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivity2Impl, const OFFSET: isize>() -> IUserActivity2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivity2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivity2Vtbl {
         unsafe extern "system" fn ToJson<Impl: IUserActivity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToJson() {
@@ -200,7 +203,10 @@ impl IUserActivity2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivity2>, ::windows::core::GetTrustLevel, ToJson::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivity2>, ::windows::core::GetTrustLevel, ToJson::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivity2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -214,7 +220,7 @@ impl ::windows::core::RuntimeName for IUserActivity3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivity3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivity3Impl, const OFFSET: isize>() -> IUserActivity3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivity3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivity3Vtbl {
         unsafe extern "system" fn IsRoamable<Impl: IUserActivity3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRoamable() {
@@ -230,10 +236,13 @@ impl IUserActivity3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsRoamable(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivity3>, ::windows::core::GetTrustLevel, IsRoamable::<Impl, OFFSET>, SetIsRoamable::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivity3>, ::windows::core::GetTrustLevel, IsRoamable::<Impl, IMPL_OFFSET>, SetIsRoamable::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivity3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityAttributionImpl: Sized {
     fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetIconUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -242,13 +251,13 @@ pub trait IUserActivityAttributionImpl: Sized {
     fn AddImageQuery(&self) -> ::windows::core::Result<bool>;
     fn SetAddImageQuery(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityAttribution";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivityAttributionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityAttributionImpl, const OFFSET: isize>() -> IUserActivityAttributionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityAttributionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityAttributionVtbl {
         unsafe extern "system" fn IconUri<Impl: IUserActivityAttributionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IconUri() {
@@ -294,20 +303,36 @@ impl IUserActivityAttributionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddImageQuery(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityAttribution>, ::windows::core::GetTrustLevel, IconUri::<Impl, OFFSET>, SetIconUri::<Impl, OFFSET>, AlternateText::<Impl, OFFSET>, SetAlternateText::<Impl, OFFSET>, AddImageQuery::<Impl, OFFSET>, SetAddImageQuery::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUserActivityAttribution>,
+            ::windows::core::GetTrustLevel,
+            IconUri::<Impl, IMPL_OFFSET>,
+            SetIconUri::<Impl, IMPL_OFFSET>,
+            AlternateText::<Impl, IMPL_OFFSET>,
+            SetAlternateText::<Impl, IMPL_OFFSET>,
+            AddImageQuery::<Impl, IMPL_OFFSET>,
+            SetAddImageQuery::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityAttribution as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityAttributionFactoryImpl: Sized {
     fn CreateWithUri(&self, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<UserActivityAttribution>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityAttributionFactory {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityAttributionFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivityAttributionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityAttributionFactoryImpl, const OFFSET: isize>() -> IUserActivityAttributionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityAttributionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityAttributionFactoryVtbl {
         unsafe extern "system" fn CreateWithUri<Impl: IUserActivityAttributionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iconuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithUri(&*(&iconuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -319,22 +344,25 @@ impl IUserActivityAttributionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityAttributionFactory>, ::windows::core::GetTrustLevel, CreateWithUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityAttributionFactory>, ::windows::core::GetTrustLevel, CreateWithUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityAttributionFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityChannelImpl: Sized {
     fn GetOrCreateUserActivityAsync(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>>;
     fn DeleteActivityAsync(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn DeleteAllActivitiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityChannel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivityChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelImpl, const OFFSET: isize>() -> IUserActivityChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityChannelVtbl {
         unsafe extern "system" fn GetOrCreateUserActivityAsync<Impl: IUserActivityChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOrCreateUserActivityAsync(&*(&activityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -368,21 +396,24 @@ impl IUserActivityChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannel>, ::windows::core::GetTrustLevel, GetOrCreateUserActivityAsync::<Impl, OFFSET>, DeleteActivityAsync::<Impl, OFFSET>, DeleteAllActivitiesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannel>, ::windows::core::GetTrustLevel, GetOrCreateUserActivityAsync::<Impl, IMPL_OFFSET>, DeleteActivityAsync::<Impl, IMPL_OFFSET>, DeleteAllActivitiesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityChannel as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserActivityChannel2Impl: Sized {
     fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>;
     fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &::windows::core::HSTRING, starttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannel2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityChannel2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserActivityChannel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannel2Impl, const OFFSET: isize>() -> IUserActivityChannel2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityChannel2Vtbl {
         unsafe extern "system" fn GetRecentUserActivitiesAsync<Impl: IUserActivityChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxuniqueactivities: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRecentUserActivitiesAsync(maxuniqueactivities) {
@@ -405,7 +436,10 @@ impl IUserActivityChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannel2>, ::windows::core::GetTrustLevel, GetRecentUserActivitiesAsync::<Impl, OFFSET>, GetSessionHistoryItemsForUserActivityAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannel2>, ::windows::core::GetTrustLevel, GetRecentUserActivitiesAsync::<Impl, IMPL_OFFSET>, GetSessionHistoryItemsForUserActivityAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityChannel2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -418,7 +452,7 @@ impl ::windows::core::RuntimeName for IUserActivityChannelStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivityChannelStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelStaticsImpl, const OFFSET: isize>() -> IUserActivityChannelStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityChannelStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IUserActivityChannelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -430,21 +464,24 @@ impl IUserActivityChannelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityChannelStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IUserActivityChannelStatics2Impl: Sized {
     fn DisableAutoSessionCreation(&self) -> ::windows::core::Result<()>;
     fn TryGetForWebAccount(&self, account: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<UserActivityChannel>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannelStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IUserActivityChannelStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelStatics2Impl, const OFFSET: isize>() -> IUserActivityChannelStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityChannelStatics2Vtbl {
         unsafe extern "system" fn DisableAutoSessionCreation<Impl: IUserActivityChannelStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableAutoSessionCreation().into()
@@ -460,20 +497,23 @@ impl IUserActivityChannelStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics2>, ::windows::core::GetTrustLevel, DisableAutoSessionCreation::<Impl, OFFSET>, TryGetForWebAccount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics2>, ::windows::core::GetTrustLevel, DisableAutoSessionCreation::<Impl, IMPL_OFFSET>, TryGetForWebAccount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityChannelStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IUserActivityChannelStatics3Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserActivityChannel>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannelStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IUserActivityChannelStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelStatics3Impl, const OFFSET: isize>() -> IUserActivityChannelStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityChannelStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityChannelStatics3Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IUserActivityChannelStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -485,7 +525,10 @@ impl IUserActivityChannelStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics3>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityChannelStatics3>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityChannelStatics3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IUserActivityContentInfoImpl: Sized {
@@ -495,7 +538,7 @@ impl ::windows::core::RuntimeName for IUserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityContentInfo";
 }
 impl IUserActivityContentInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityContentInfoImpl, const OFFSET: isize>() -> IUserActivityContentInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityContentInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityContentInfoVtbl {
         unsafe extern "system" fn ToJson<Impl: IUserActivityContentInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToJson() {
@@ -507,7 +550,10 @@ impl IUserActivityContentInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityContentInfo>, ::windows::core::GetTrustLevel, ToJson::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityContentInfo>, ::windows::core::GetTrustLevel, ToJson::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityContentInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -520,7 +566,7 @@ impl ::windows::core::RuntimeName for IUserActivityContentInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivityContentInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityContentInfoStaticsImpl, const OFFSET: isize>() -> IUserActivityContentInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityContentInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityContentInfoStaticsVtbl {
         unsafe extern "system" fn FromJson<Impl: IUserActivityContentInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromJson(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -532,7 +578,10 @@ impl IUserActivityContentInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityContentInfoStatics>, ::windows::core::GetTrustLevel, FromJson::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityContentInfoStatics>, ::windows::core::GetTrustLevel, FromJson::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityContentInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -545,7 +594,7 @@ impl ::windows::core::RuntimeName for IUserActivityFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivityFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityFactoryImpl, const OFFSET: isize>() -> IUserActivityFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityFactoryVtbl {
         unsafe extern "system" fn CreateWithActivityId<Impl: IUserActivityFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithActivityId(&*(&activityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -557,7 +606,10 @@ impl IUserActivityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityFactory>, ::windows::core::GetTrustLevel, CreateWithActivityId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityFactory>, ::windows::core::GetTrustLevel, CreateWithActivityId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -570,26 +622,29 @@ impl ::windows::core::RuntimeName for IUserActivityRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivityRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestImpl, const OFFSET: isize>() -> IUserActivityRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityRequestVtbl {
         unsafe extern "system" fn SetUserActivity<Impl: IUserActivityRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activity: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserActivity(&*(&activity as *const <UserActivity as ::windows::core::Abi>::Abi as *const <UserActivity as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequest>, ::windows::core::GetTrustLevel, SetUserActivity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequest>, ::windows::core::GetTrustLevel, SetUserActivity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityRequest as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityRequestManagerImpl: Sized {
     fn UserActivityRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUserActivityRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityRequestManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivityRequestManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerImpl, const OFFSET: isize>() -> IUserActivityRequestManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityRequestManagerVtbl {
         unsafe extern "system" fn UserActivityRequested<Impl: IUserActivityRequestManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserActivityRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -605,7 +660,10 @@ impl IUserActivityRequestManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUserActivityRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestManager>, ::windows::core::GetTrustLevel, UserActivityRequested::<Impl, OFFSET>, RemoveUserActivityRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestManager>, ::windows::core::GetTrustLevel, UserActivityRequested::<Impl, IMPL_OFFSET>, RemoveUserActivityRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityRequestManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -618,7 +676,7 @@ impl ::windows::core::RuntimeName for IUserActivityRequestManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivityRequestManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerStaticsImpl, const OFFSET: isize>() -> IUserActivityRequestManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityRequestManagerStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IUserActivityRequestManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -630,21 +688,24 @@ impl IUserActivityRequestManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityRequestManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityRequestedEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<UserActivityRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivityRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestedEventArgsImpl, const OFFSET: isize>() -> IUserActivityRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityRequestedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IUserActivityRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -667,7 +728,10 @@ impl IUserActivityRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -680,7 +744,7 @@ impl ::windows::core::RuntimeName for IUserActivitySession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivitySessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySessionImpl, const OFFSET: isize>() -> IUserActivitySessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivitySessionVtbl {
         unsafe extern "system" fn ActivityId<Impl: IUserActivitySessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
@@ -692,22 +756,25 @@ impl IUserActivitySessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivitySession>, ::windows::core::GetTrustLevel, ActivityId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivitySession>, ::windows::core::GetTrustLevel, ActivityId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivitySession as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivitySessionHistoryItemImpl: Sized {
     fn UserActivity(&self) -> ::windows::core::Result<UserActivity>;
     fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivitySessionHistoryItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserActivitySessionHistoryItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySessionHistoryItemImpl, const OFFSET: isize>() -> IUserActivitySessionHistoryItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySessionHistoryItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivitySessionHistoryItemVtbl {
         unsafe extern "system" fn UserActivity<Impl: IUserActivitySessionHistoryItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserActivity() {
@@ -741,22 +808,25 @@ impl IUserActivitySessionHistoryItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivitySessionHistoryItem>, ::windows::core::GetTrustLevel, UserActivity::<Impl, OFFSET>, StartTime::<Impl, OFFSET>, EndTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivitySessionHistoryItem>, ::windows::core::GetTrustLevel, UserActivity::<Impl, IMPL_OFFSET>, StartTime::<Impl, IMPL_OFFSET>, EndTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivitySessionHistoryItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserActivityStaticsImpl: Sized {
     fn TryParseFromJson(&self, json: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity>;
     fn TryParseFromJsonArray(&self, json: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>>;
     fn ToJsonArray(&self, activities: &::core::option::Option<super::super::Foundation::Collections::IIterable<UserActivity>>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityStatics {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserActivityStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityStaticsImpl, const OFFSET: isize>() -> IUserActivityStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityStaticsVtbl {
         unsafe extern "system" fn TryParseFromJson<Impl: IUserActivityStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseFromJson(&*(&json as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -790,10 +860,13 @@ impl IUserActivityStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityStatics>, ::windows::core::GetTrustLevel, TryParseFromJson::<Impl, OFFSET>, TryParseFromJsonArray::<Impl, OFFSET>, ToJsonArray::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityStatics>, ::windows::core::GetTrustLevel, TryParseFromJson::<Impl, IMPL_OFFSET>, TryParseFromJsonArray::<Impl, IMPL_OFFSET>, ToJsonArray::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "UI_Shell", feature = "implement_exclusive"))]
 pub trait IUserActivityVisualElementsImpl: Sized {
     fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -806,13 +879,13 @@ pub trait IUserActivityVisualElementsImpl: Sized {
     fn SetContent(&self, value: &::core::option::Option<super::super::UI::Shell::IAdaptiveCard>) -> ::windows::core::Result<()>;
     fn Content(&self) -> ::windows::core::Result<super::super::UI::Shell::IAdaptiveCard>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "UI_Shell", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityVisualElements";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "UI_Shell", feature = "implement_exclusive"))]
 impl IUserActivityVisualElementsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityVisualElementsImpl, const OFFSET: isize>() -> IUserActivityVisualElementsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityVisualElementsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityVisualElementsVtbl {
         unsafe extern "system" fn DisplayText<Impl: IUserActivityVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
@@ -889,23 +962,26 @@ impl IUserActivityVisualElementsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserActivityVisualElements>,
             ::windows::core::GetTrustLevel,
-            DisplayText::<Impl, OFFSET>,
-            SetDisplayText::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
-            BackgroundColor::<Impl, OFFSET>,
-            SetBackgroundColor::<Impl, OFFSET>,
-            Attribution::<Impl, OFFSET>,
-            SetAttribution::<Impl, OFFSET>,
-            SetContent::<Impl, OFFSET>,
-            Content::<Impl, OFFSET>,
+            DisplayText::<Impl, IMPL_OFFSET>,
+            SetDisplayText::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            BackgroundColor::<Impl, IMPL_OFFSET>,
+            SetBackgroundColor::<Impl, IMPL_OFFSET>,
+            Attribution::<Impl, IMPL_OFFSET>,
+            SetAttribution::<Impl, IMPL_OFFSET>,
+            SetContent::<Impl, IMPL_OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityVisualElements as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -919,7 +995,7 @@ impl ::windows::core::RuntimeName for IUserActivityVisualElements2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserActivityVisualElements2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityVisualElements2Impl, const OFFSET: isize>() -> IUserActivityVisualElements2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityVisualElements2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityVisualElements2Vtbl {
         unsafe extern "system" fn AttributionDisplayText<Impl: IUserActivityVisualElements2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttributionDisplayText() {
@@ -935,6 +1011,9 @@ impl IUserActivityVisualElements2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAttributionDisplayText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityVisualElements2>, ::windows::core::GetTrustLevel, AttributionDisplayText::<Impl, OFFSET>, SetAttributionDisplayText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserActivityVisualElements2>, ::windows::core::GetTrustLevel, AttributionDisplayText::<Impl, IMPL_OFFSET>, SetAttributionDisplayText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserActivityVisualElements2 as ::windows::core::Interface>::IID
     }
 }

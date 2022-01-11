@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppInstallItemImpl: Sized {
     fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -13,13 +13,13 @@ pub trait IAppInstallItemImpl: Sized {
     fn StatusChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallItem {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppInstallItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItemImpl, const OFFSET: isize>() -> IAppInstallItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallItemVtbl {
         unsafe extern "system" fn ProductId<Impl: IAppInstallItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
@@ -118,25 +118,28 @@ impl IAppInstallItemVtbl {
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallItem>,
             ::windows::core::GetTrustLevel,
-            ProductId::<Impl, OFFSET>,
-            PackageFamilyName::<Impl, OFFSET>,
-            InstallType::<Impl, OFFSET>,
-            IsUserInitiated::<Impl, OFFSET>,
-            GetCurrentStatus::<Impl, OFFSET>,
-            Cancel::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            Restart::<Impl, OFFSET>,
-            Completed::<Impl, OFFSET>,
-            RemoveCompleted::<Impl, OFFSET>,
-            StatusChanged::<Impl, OFFSET>,
-            RemoveStatusChanged::<Impl, OFFSET>,
+            ProductId::<Impl, IMPL_OFFSET>,
+            PackageFamilyName::<Impl, IMPL_OFFSET>,
+            InstallType::<Impl, IMPL_OFFSET>,
+            IsUserInitiated::<Impl, IMPL_OFFSET>,
+            GetCurrentStatus::<Impl, IMPL_OFFSET>,
+            Cancel::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Restart::<Impl, IMPL_OFFSET>,
+            Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted::<Impl, IMPL_OFFSET>,
+            StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -151,7 +154,7 @@ impl ::windows::core::RuntimeName for IAppInstallItem2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallItem2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem2Impl, const OFFSET: isize>() -> IAppInstallItem2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallItem2Vtbl {
         unsafe extern "system" fn CancelWithTelemetry<Impl: IAppInstallItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, correlationvector: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CancelWithTelemetry(&*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -164,21 +167,24 @@ impl IAppInstallItem2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartWithTelemetry(&*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem2>, ::windows::core::GetTrustLevel, CancelWithTelemetry::<Impl, OFFSET>, PauseWithTelemetry::<Impl, OFFSET>, RestartWithTelemetry::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem2>, ::windows::core::GetTrustLevel, CancelWithTelemetry::<Impl, IMPL_OFFSET>, PauseWithTelemetry::<Impl, IMPL_OFFSET>, RestartWithTelemetry::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallItem2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallItem3Impl: Sized {
     fn Children(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
     fn ItemOperationsMightAffectOtherItems(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallItem3 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppInstallItem3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem3Impl, const OFFSET: isize>() -> IAppInstallItem3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallItem3Vtbl {
         unsafe extern "system" fn Children<Impl: IAppInstallItem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
@@ -201,7 +207,10 @@ impl IAppInstallItem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem3>, ::windows::core::GetTrustLevel, Children::<Impl, OFFSET>, ItemOperationsMightAffectOtherItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem3>, ::windows::core::GetTrustLevel, Children::<Impl, IMPL_OFFSET>, ItemOperationsMightAffectOtherItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallItem3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -215,7 +224,7 @@ impl ::windows::core::RuntimeName for IAppInstallItem4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallItem4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem4Impl, const OFFSET: isize>() -> IAppInstallItem4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallItem4Vtbl {
         unsafe extern "system" fn LaunchAfterInstall<Impl: IAppInstallItem4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchAfterInstall() {
@@ -231,7 +240,10 @@ impl IAppInstallItem4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLaunchAfterInstall(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem4>, ::windows::core::GetTrustLevel, LaunchAfterInstall::<Impl, OFFSET>, SetLaunchAfterInstall::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallItem4>, ::windows::core::GetTrustLevel, LaunchAfterInstall::<Impl, IMPL_OFFSET>, SetLaunchAfterInstall::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallItem4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -253,7 +265,7 @@ impl ::windows::core::RuntimeName for IAppInstallItem5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallItem5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem5Impl, const OFFSET: isize>() -> IAppInstallItem5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallItem5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallItem5Vtbl {
         unsafe extern "system" fn PinToDesktopAfterInstall<Impl: IAppInstallItem5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinToDesktopAfterInstall() {
@@ -330,26 +342,29 @@ impl IAppInstallItem5Vtbl {
             (*this).SetInstallInProgressToastNotificationMode(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallItem5>,
             ::windows::core::GetTrustLevel,
-            PinToDesktopAfterInstall::<Impl, OFFSET>,
-            SetPinToDesktopAfterInstall::<Impl, OFFSET>,
-            PinToStartAfterInstall::<Impl, OFFSET>,
-            SetPinToStartAfterInstall::<Impl, OFFSET>,
-            PinToTaskbarAfterInstall::<Impl, OFFSET>,
-            SetPinToTaskbarAfterInstall::<Impl, OFFSET>,
-            CompletedInstallToastNotificationMode::<Impl, OFFSET>,
-            SetCompletedInstallToastNotificationMode::<Impl, OFFSET>,
-            InstallInProgressToastNotificationMode::<Impl, OFFSET>,
-            SetInstallInProgressToastNotificationMode::<Impl, OFFSET>,
+            PinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            CompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetCompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            InstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetInstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallItem5 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallManagerImpl: Sized {
     fn AppInstallItems(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
     fn Cancel(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -371,13 +386,13 @@ pub trait IAppInstallManagerImpl: Sized {
     fn IsStoreBlockedByPolicyAsync(&self, storeclientname: &::windows::core::HSTRING, storeclientpublisher: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
     fn GetIsAppAllowedToInstallAsync(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppInstallManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManagerImpl, const OFFSET: isize>() -> IAppInstallManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManagerVtbl {
         unsafe extern "system" fn AppInstallItems<Impl: IAppInstallManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppInstallItems() {
@@ -539,35 +554,38 @@ impl IAppInstallManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallManager>,
             ::windows::core::GetTrustLevel,
-            AppInstallItems::<Impl, OFFSET>,
-            Cancel::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            Restart::<Impl, OFFSET>,
-            ItemCompleted::<Impl, OFFSET>,
-            RemoveItemCompleted::<Impl, OFFSET>,
-            ItemStatusChanged::<Impl, OFFSET>,
-            RemoveItemStatusChanged::<Impl, OFFSET>,
-            AutoUpdateSetting::<Impl, OFFSET>,
-            SetAutoUpdateSetting::<Impl, OFFSET>,
-            AcquisitionIdentity::<Impl, OFFSET>,
-            SetAcquisitionIdentity::<Impl, OFFSET>,
-            GetIsApplicableAsync::<Impl, OFFSET>,
-            StartAppInstallAsync::<Impl, OFFSET>,
-            UpdateAppByPackageFamilyNameAsync::<Impl, OFFSET>,
-            SearchForUpdatesAsync::<Impl, OFFSET>,
-            SearchForAllUpdatesAsync::<Impl, OFFSET>,
-            IsStoreBlockedByPolicyAsync::<Impl, OFFSET>,
-            GetIsAppAllowedToInstallAsync::<Impl, OFFSET>,
+            AppInstallItems::<Impl, IMPL_OFFSET>,
+            Cancel::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Restart::<Impl, IMPL_OFFSET>,
+            ItemCompleted::<Impl, IMPL_OFFSET>,
+            RemoveItemCompleted::<Impl, IMPL_OFFSET>,
+            ItemStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveItemStatusChanged::<Impl, IMPL_OFFSET>,
+            AutoUpdateSetting::<Impl, IMPL_OFFSET>,
+            SetAutoUpdateSetting::<Impl, IMPL_OFFSET>,
+            AcquisitionIdentity::<Impl, IMPL_OFFSET>,
+            SetAcquisitionIdentity::<Impl, IMPL_OFFSET>,
+            GetIsApplicableAsync::<Impl, IMPL_OFFSET>,
+            StartAppInstallAsync::<Impl, IMPL_OFFSET>,
+            UpdateAppByPackageFamilyNameAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesAsync::<Impl, IMPL_OFFSET>,
+            IsStoreBlockedByPolicyAsync::<Impl, IMPL_OFFSET>,
+            GetIsAppAllowedToInstallAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppInstallManager2Impl: Sized {
     fn StartAppInstallWithTelemetryAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, catalogid: &::windows::core::HSTRING, bundleid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
     fn UpdateAppByPackageFamilyNameWithTelemetryAsync(&self, packagefamilyname: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
@@ -578,13 +596,13 @@ pub trait IAppInstallManager2Impl: Sized {
     fn PauseWithTelemetry(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn RestartWithTelemetry(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppInstallManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager2Impl, const OFFSET: isize>() -> IAppInstallManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManager2Vtbl {
         unsafe extern "system" fn StartAppInstallWithTelemetryAsync<Impl: IAppInstallManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, skuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, repair: bool, forceuseofnonremovablestorage: bool, catalogid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, bundleid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, correlationvector: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAppInstallWithTelemetryAsync(
@@ -671,24 +689,27 @@ impl IAppInstallManager2Vtbl {
             (*this).RestartWithTelemetry(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallManager2>,
             ::windows::core::GetTrustLevel,
-            StartAppInstallWithTelemetryAsync::<Impl, OFFSET>,
-            UpdateAppByPackageFamilyNameWithTelemetryAsync::<Impl, OFFSET>,
-            SearchForUpdatesWithTelemetryAsync::<Impl, OFFSET>,
-            SearchForAllUpdatesWithTelemetryAsync::<Impl, OFFSET>,
-            GetIsAppAllowedToInstallWithTelemetryAsync::<Impl, OFFSET>,
-            CancelWithTelemetry::<Impl, OFFSET>,
-            PauseWithTelemetry::<Impl, OFFSET>,
-            RestartWithTelemetry::<Impl, OFFSET>,
+            StartAppInstallWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            UpdateAppByPackageFamilyNameWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            GetIsAppAllowedToInstallWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            CancelWithTelemetry::<Impl, IMPL_OFFSET>,
+            PauseWithTelemetry::<Impl, IMPL_OFFSET>,
+            RestartWithTelemetry::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallManager3Impl: Sized {
     fn StartProductInstallAsync(&self, productid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows::core::HSTRING, targetvolume: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
     fn StartProductInstallForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows::core::HSTRING, targetvolume: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
@@ -699,13 +720,13 @@ pub trait IAppInstallManager3Impl: Sized {
     fn GetIsApplicableForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
     fn MoveToFrontOfDownloadQueue(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager3 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System", feature = "implement_exclusive"))]
 impl IAppInstallManager3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager3Impl, const OFFSET: isize>() -> IAppInstallManager3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManager3Vtbl {
         unsafe extern "system" fn StartProductInstallAsync<Impl: IAppInstallManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, catalogid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, flightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, clientid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetvolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartProductInstallAsync(
@@ -827,36 +848,39 @@ impl IAppInstallManager3Vtbl {
             (*this).MoveToFrontOfDownloadQueue(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&correlationvector as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallManager3>,
             ::windows::core::GetTrustLevel,
-            StartProductInstallAsync::<Impl, OFFSET>,
-            StartProductInstallForUserAsync::<Impl, OFFSET>,
-            UpdateAppByPackageFamilyNameForUserAsync::<Impl, OFFSET>,
-            SearchForUpdatesForUserAsync::<Impl, OFFSET>,
-            SearchForAllUpdatesForUserAsync::<Impl, OFFSET>,
-            GetIsAppAllowedToInstallForUserAsync::<Impl, OFFSET>,
-            GetIsApplicableForUserAsync::<Impl, OFFSET>,
-            MoveToFrontOfDownloadQueue::<Impl, OFFSET>,
+            StartProductInstallAsync::<Impl, IMPL_OFFSET>,
+            StartProductInstallForUserAsync::<Impl, IMPL_OFFSET>,
+            UpdateAppByPackageFamilyNameForUserAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesForUserAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesForUserAsync::<Impl, IMPL_OFFSET>,
+            GetIsAppAllowedToInstallForUserAsync::<Impl, IMPL_OFFSET>,
+            GetIsApplicableForUserAsync::<Impl, IMPL_OFFSET>,
+            MoveToFrontOfDownloadQueue::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallManager4Impl: Sized {
     fn GetFreeUserEntitlementAsync(&self, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
     fn GetFreeUserEntitlementForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
     fn GetFreeDeviceEntitlementAsync(&self, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager4 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IAppInstallManager4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager4Impl, const OFFSET: isize>() -> IAppInstallManager4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManager4Vtbl {
         unsafe extern "system" fn GetFreeUserEntitlementAsync<Impl: IAppInstallManager4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storeid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, campaignid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, correlationvector: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFreeUserEntitlementAsync(
@@ -903,20 +927,23 @@ impl IAppInstallManager4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager4>, ::windows::core::GetTrustLevel, GetFreeUserEntitlementAsync::<Impl, OFFSET>, GetFreeUserEntitlementForUserAsync::<Impl, OFFSET>, GetFreeDeviceEntitlementAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager4>, ::windows::core::GetTrustLevel, GetFreeUserEntitlementAsync::<Impl, IMPL_OFFSET>, GetFreeUserEntitlementForUserAsync::<Impl, IMPL_OFFSET>, GetFreeDeviceEntitlementAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallManager5Impl: Sized {
     fn AppInstallItemsWithGroupSupport(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager5 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppInstallManager5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager5Impl, const OFFSET: isize>() -> IAppInstallManager5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManager5Vtbl {
         unsafe extern "system" fn AppInstallItemsWithGroupSupport<Impl: IAppInstallManager5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppInstallItemsWithGroupSupport() {
@@ -928,10 +955,13 @@ impl IAppInstallManager5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager5>, ::windows::core::GetTrustLevel, AppInstallItemsWithGroupSupport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager5>, ::windows::core::GetTrustLevel, AppInstallItemsWithGroupSupport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallManager6Impl: Sized {
     fn SearchForAllUpdatesWithUpdateOptionsAsync(&self, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
     fn SearchForAllUpdatesWithUpdateOptionsForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
@@ -942,13 +972,13 @@ pub trait IAppInstallManager6Impl: Sized {
     fn GetIsPackageIdentityAllowedToInstallAsync(&self, correlationvector: &::windows::core::HSTRING, packageidentityname: &::windows::core::HSTRING, publishercertificatename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
     fn GetIsPackageIdentityAllowedToInstallForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING, packageidentityname: &::windows::core::HSTRING, publishercertificatename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager6 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager6";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IAppInstallManager6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager6Impl, const OFFSET: isize>() -> IAppInstallManager6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManager6Vtbl {
         unsafe extern "system" fn SearchForAllUpdatesWithUpdateOptionsAsync<Impl: IAppInstallManager6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, correlationvector: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, clientid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, updateoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchForAllUpdatesWithUpdateOptionsAsync(
@@ -1082,21 +1112,24 @@ impl IAppInstallManager6Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallManager6>,
             ::windows::core::GetTrustLevel,
-            SearchForAllUpdatesWithUpdateOptionsAsync::<Impl, OFFSET>,
-            SearchForAllUpdatesWithUpdateOptionsForUserAsync::<Impl, OFFSET>,
-            SearchForUpdatesWithUpdateOptionsAsync::<Impl, OFFSET>,
-            SearchForUpdatesWithUpdateOptionsForUserAsync::<Impl, OFFSET>,
-            StartProductInstallWithOptionsAsync::<Impl, OFFSET>,
-            StartProductInstallWithOptionsForUserAsync::<Impl, OFFSET>,
-            GetIsPackageIdentityAllowedToInstallAsync::<Impl, OFFSET>,
-            GetIsPackageIdentityAllowedToInstallForUserAsync::<Impl, OFFSET>,
+            SearchForAllUpdatesWithUpdateOptionsAsync::<Impl, IMPL_OFFSET>,
+            SearchForAllUpdatesWithUpdateOptionsForUserAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesWithUpdateOptionsAsync::<Impl, IMPL_OFFSET>,
+            SearchForUpdatesWithUpdateOptionsForUserAsync::<Impl, IMPL_OFFSET>,
+            StartProductInstallWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            StartProductInstallWithOptionsForUserAsync::<Impl, IMPL_OFFSET>,
+            GetIsPackageIdentityAllowedToInstallAsync::<Impl, IMPL_OFFSET>,
+            GetIsPackageIdentityAllowedToInstallForUserAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1109,7 +1142,7 @@ impl ::windows::core::RuntimeName for IAppInstallManager7 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallManager7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager7Impl, const OFFSET: isize>() -> IAppInstallManager7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManager7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManager7Vtbl {
         unsafe extern "system" fn CanInstallForAllUsers<Impl: IAppInstallManager7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanInstallForAllUsers() {
@@ -1121,7 +1154,10 @@ impl IAppInstallManager7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager7>, ::windows::core::GetTrustLevel, CanInstallForAllUsers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManager7>, ::windows::core::GetTrustLevel, CanInstallForAllUsers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManager7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1134,7 +1170,7 @@ impl ::windows::core::RuntimeName for IAppInstallManagerItemEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallManagerItemEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManagerItemEventArgsImpl, const OFFSET: isize>() -> IAppInstallManagerItemEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallManagerItemEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallManagerItemEventArgsVtbl {
         unsafe extern "system" fn Item<Impl: IAppInstallManagerItemEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item() {
@@ -1146,10 +1182,13 @@ impl IAppInstallManagerItemEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManagerItemEventArgs>, ::windows::core::GetTrustLevel, Item::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallManagerItemEventArgs>, ::windows::core::GetTrustLevel, Item::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallManagerItemEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 pub trait IAppInstallOptionsImpl: Sized {
     fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCatalogId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1164,13 +1203,13 @@ pub trait IAppInstallOptionsImpl: Sized {
     fn LaunchAfterInstall(&self) -> ::windows::core::Result<bool>;
     fn SetLaunchAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 impl IAppInstallOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallOptionsImpl, const OFFSET: isize>() -> IAppInstallOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallOptionsVtbl {
         unsafe extern "system" fn CatalogId<Impl: IAppInstallOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CatalogId() {
@@ -1262,25 +1301,28 @@ impl IAppInstallOptionsVtbl {
             (*this).SetLaunchAfterInstall(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallOptions>,
             ::windows::core::GetTrustLevel,
-            CatalogId::<Impl, OFFSET>,
-            SetCatalogId::<Impl, OFFSET>,
-            ForceUseOfNonRemovableStorage::<Impl, OFFSET>,
-            SetForceUseOfNonRemovableStorage::<Impl, OFFSET>,
-            AllowForcedAppRestart::<Impl, OFFSET>,
-            SetAllowForcedAppRestart::<Impl, OFFSET>,
-            Repair::<Impl, OFFSET>,
-            SetRepair::<Impl, OFFSET>,
-            TargetVolume::<Impl, OFFSET>,
-            SetTargetVolume::<Impl, OFFSET>,
-            LaunchAfterInstall::<Impl, OFFSET>,
-            SetLaunchAfterInstall::<Impl, OFFSET>,
+            CatalogId::<Impl, IMPL_OFFSET>,
+            SetCatalogId::<Impl, IMPL_OFFSET>,
+            ForceUseOfNonRemovableStorage::<Impl, IMPL_OFFSET>,
+            SetForceUseOfNonRemovableStorage::<Impl, IMPL_OFFSET>,
+            AllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+            SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>,
+            Repair::<Impl, IMPL_OFFSET>,
+            SetRepair::<Impl, IMPL_OFFSET>,
+            TargetVolume::<Impl, IMPL_OFFSET>,
+            SetTargetVolume::<Impl, IMPL_OFFSET>,
+            LaunchAfterInstall::<Impl, IMPL_OFFSET>,
+            SetLaunchAfterInstall::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1310,7 +1352,7 @@ impl ::windows::core::RuntimeName for IAppInstallOptions2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallOptions2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallOptions2Impl, const OFFSET: isize>() -> IAppInstallOptions2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallOptions2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallOptions2Vtbl {
         unsafe extern "system" fn PinToDesktopAfterInstall<Impl: IAppInstallOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinToDesktopAfterInstall() {
@@ -1447,31 +1489,34 @@ impl IAppInstallOptions2Vtbl {
             (*this).SetExtendedCampaignId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallOptions2>,
             ::windows::core::GetTrustLevel,
-            PinToDesktopAfterInstall::<Impl, OFFSET>,
-            SetPinToDesktopAfterInstall::<Impl, OFFSET>,
-            PinToStartAfterInstall::<Impl, OFFSET>,
-            SetPinToStartAfterInstall::<Impl, OFFSET>,
-            PinToTaskbarAfterInstall::<Impl, OFFSET>,
-            SetPinToTaskbarAfterInstall::<Impl, OFFSET>,
-            CompletedInstallToastNotificationMode::<Impl, OFFSET>,
-            SetCompletedInstallToastNotificationMode::<Impl, OFFSET>,
-            InstallInProgressToastNotificationMode::<Impl, OFFSET>,
-            SetInstallInProgressToastNotificationMode::<Impl, OFFSET>,
-            InstallForAllUsers::<Impl, OFFSET>,
-            SetInstallForAllUsers::<Impl, OFFSET>,
-            StageButDoNotInstall::<Impl, OFFSET>,
-            SetStageButDoNotInstall::<Impl, OFFSET>,
-            CampaignId::<Impl, OFFSET>,
-            SetCampaignId::<Impl, OFFSET>,
-            ExtendedCampaignId::<Impl, OFFSET>,
-            SetExtendedCampaignId::<Impl, OFFSET>,
+            PinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToDesktopAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToStartAfterInstall::<Impl, IMPL_OFFSET>,
+            PinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            SetPinToTaskbarAfterInstall::<Impl, IMPL_OFFSET>,
+            CompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetCompletedInstallToastNotificationMode::<Impl, IMPL_OFFSET>,
+            InstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+            SetInstallInProgressToastNotificationMode::<Impl, IMPL_OFFSET>,
+            InstallForAllUsers::<Impl, IMPL_OFFSET>,
+            SetInstallForAllUsers::<Impl, IMPL_OFFSET>,
+            StageButDoNotInstall::<Impl, IMPL_OFFSET>,
+            SetStageButDoNotInstall::<Impl, IMPL_OFFSET>,
+            CampaignId::<Impl, IMPL_OFFSET>,
+            SetCampaignId::<Impl, IMPL_OFFSET>,
+            ExtendedCampaignId::<Impl, IMPL_OFFSET>,
+            SetExtendedCampaignId::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallOptions2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1488,7 +1533,7 @@ impl ::windows::core::RuntimeName for IAppInstallStatus {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallStatusImpl, const OFFSET: isize>() -> IAppInstallStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallStatusVtbl {
         unsafe extern "system" fn InstallState<Impl: IAppInstallStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppInstallState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstallState() {
@@ -1544,21 +1589,24 @@ impl IAppInstallStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus>, ::windows::core::GetTrustLevel, InstallState::<Impl, OFFSET>, DownloadSizeInBytes::<Impl, OFFSET>, BytesDownloaded::<Impl, OFFSET>, PercentComplete::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus>, ::windows::core::GetTrustLevel, InstallState::<Impl, IMPL_OFFSET>, DownloadSizeInBytes::<Impl, IMPL_OFFSET>, BytesDownloaded::<Impl, IMPL_OFFSET>, PercentComplete::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallStatus as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallStatus2Impl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::super::super::System::User>;
     fn ReadyForLaunch(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallStatus2 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IAppInstallStatus2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallStatus2Impl, const OFFSET: isize>() -> IAppInstallStatus2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallStatus2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallStatus2Vtbl {
         unsafe extern "system" fn User<Impl: IAppInstallStatus2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -1581,7 +1629,10 @@ impl IAppInstallStatus2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus2>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>, ReadyForLaunch::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus2>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, ReadyForLaunch::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallStatus2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1594,7 +1645,7 @@ impl ::windows::core::RuntimeName for IAppInstallStatus3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstallStatus3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallStatus3Impl, const OFFSET: isize>() -> IAppInstallStatus3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallStatus3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallStatus3Vtbl {
         unsafe extern "system" fn IsStaged<Impl: IAppInstallStatus3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaged() {
@@ -1606,7 +1657,10 @@ impl IAppInstallStatus3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus3>, ::windows::core::GetTrustLevel, IsStaged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallStatus3>, ::windows::core::GetTrustLevel, IsStaged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallStatus3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1622,7 +1676,7 @@ impl ::windows::core::RuntimeName for IAppUpdateOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppUpdateOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppUpdateOptionsImpl, const OFFSET: isize>() -> IAppUpdateOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppUpdateOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppUpdateOptionsVtbl {
         unsafe extern "system" fn CatalogId<Impl: IAppUpdateOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CatalogId() {
@@ -1653,7 +1707,10 @@ impl IAppUpdateOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowForcedAppRestart(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppUpdateOptions>, ::windows::core::GetTrustLevel, CatalogId::<Impl, OFFSET>, SetCatalogId::<Impl, OFFSET>, AllowForcedAppRestart::<Impl, OFFSET>, SetAllowForcedAppRestart::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppUpdateOptions>, ::windows::core::GetTrustLevel, CatalogId::<Impl, IMPL_OFFSET>, SetCatalogId::<Impl, IMPL_OFFSET>, AllowForcedAppRestart::<Impl, IMPL_OFFSET>, SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppUpdateOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1667,7 +1724,7 @@ impl ::windows::core::RuntimeName for IAppUpdateOptions2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppUpdateOptions2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppUpdateOptions2Impl, const OFFSET: isize>() -> IAppUpdateOptions2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppUpdateOptions2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppUpdateOptions2Vtbl {
         unsafe extern "system" fn AutomaticallyDownloadAndInstallUpdateIfFound<Impl: IAppUpdateOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomaticallyDownloadAndInstallUpdateIfFound() {
@@ -1683,7 +1740,10 @@ impl IAppUpdateOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomaticallyDownloadAndInstallUpdateIfFound(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppUpdateOptions2>, ::windows::core::GetTrustLevel, AutomaticallyDownloadAndInstallUpdateIfFound::<Impl, OFFSET>, SetAutomaticallyDownloadAndInstallUpdateIfFound::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppUpdateOptions2>, ::windows::core::GetTrustLevel, AutomaticallyDownloadAndInstallUpdateIfFound::<Impl, IMPL_OFFSET>, SetAutomaticallyDownloadAndInstallUpdateIfFound::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppUpdateOptions2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1696,7 +1756,7 @@ impl ::windows::core::RuntimeName for IGetEntitlementResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGetEntitlementResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetEntitlementResultImpl, const OFFSET: isize>() -> IGetEntitlementResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetEntitlementResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetEntitlementResultVtbl {
         unsafe extern "system" fn Status<Impl: IGetEntitlementResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GetEntitlementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1708,6 +1768,9 @@ impl IGetEntitlementResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetEntitlementResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetEntitlementResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetEntitlementResult as ::windows::core::Interface>::IID
     }
 }

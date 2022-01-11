@@ -3160,12 +3160,12 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: &::windows::core::GUID, rgguidinterfaces: &::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
+pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: &::windows::core::GUID, rgguidinterfaces: &::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
+            fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
         ::core::mem::transmute(SCardIntroduceCardTypeA(::core::mem::transmute(hcontext), szcardname.into_param().abi(), ::core::mem::transmute(pguidprimaryprovider), ::core::mem::transmute(rgguidinterfaces), ::core::mem::transmute(dwinterfacecount), ::core::mem::transmute(pbatr), ::core::mem::transmute(pbatrmask), ::core::mem::transmute(cbatrlen)))
     }
@@ -3175,12 +3175,12 @@ pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: &::windows::core::GUID, rgguidinterfaces: &::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
+pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: &::windows::core::GUID, rgguidinterfaces: &::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
+            fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
         ::core::mem::transmute(SCardIntroduceCardTypeW(::core::mem::transmute(hcontext), szcardname.into_param().abi(), ::core::mem::transmute(pguidprimaryprovider), ::core::mem::transmute(rgguidinterfaces), ::core::mem::transmute(dwinterfacecount), ::core::mem::transmute(pbatr), ::core::mem::transmute(pbatrmask), ::core::mem::transmute(cbatrlen)))
     }
@@ -3264,12 +3264,12 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: &::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: &::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32;
+            fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardListCardsA(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(rgquidinterfaces), ::core::mem::transmute(cguidinterfacecount), ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
     }
@@ -3279,12 +3279,12 @@ pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterface
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: &::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: &::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32;
+            fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardListCardsW(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(rgquidinterfaces), ::core::mem::transmute(cguidinterfacecount), ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
     }
@@ -3474,12 +3474,12 @@ pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
+pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReadCacheA(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *mut u8, datalen: *mut u32) -> i32;
+            fn SCardReadCacheA(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardReadCacheA(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -3489,12 +3489,12 @@ pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
+pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReadCacheW(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *mut u8, datalen: *mut u32) -> i32;
+            fn SCardReadCacheW(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardReadCacheW(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -3708,12 +3708,12 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
+pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardWriteCacheA(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;
+            fn SCardWriteCacheA(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;
         }
         ::core::mem::transmute(SCardWriteCacheA(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -3723,12 +3723,12 @@ pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
+pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardWriteCacheW(hcontext: usize, cardidentifier: &::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
+            fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
         }
         ::core::mem::transmute(SCardWriteCacheW(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }

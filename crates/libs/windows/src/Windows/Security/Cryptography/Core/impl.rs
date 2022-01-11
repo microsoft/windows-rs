@@ -25,7 +25,7 @@ impl ::windows::core::RuntimeName for IAsymmetricAlgorithmNamesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAsymmetricAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>() -> IAsymmetricAlgorithmNamesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricAlgorithmNamesStaticsVtbl {
         unsafe extern "system" fn RsaPkcs1<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaPkcs1() {
@@ -225,31 +225,34 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAsymmetricAlgorithmNamesStatics>,
             ::windows::core::GetTrustLevel,
-            RsaPkcs1::<Impl, OFFSET>,
-            RsaOaepSha1::<Impl, OFFSET>,
-            RsaOaepSha256::<Impl, OFFSET>,
-            RsaOaepSha384::<Impl, OFFSET>,
-            RsaOaepSha512::<Impl, OFFSET>,
-            EcdsaP256Sha256::<Impl, OFFSET>,
-            EcdsaP384Sha384::<Impl, OFFSET>,
-            EcdsaP521Sha512::<Impl, OFFSET>,
-            DsaSha1::<Impl, OFFSET>,
-            DsaSha256::<Impl, OFFSET>,
-            RsaSignPkcs1Sha1::<Impl, OFFSET>,
-            RsaSignPkcs1Sha256::<Impl, OFFSET>,
-            RsaSignPkcs1Sha384::<Impl, OFFSET>,
-            RsaSignPkcs1Sha512::<Impl, OFFSET>,
-            RsaSignPssSha1::<Impl, OFFSET>,
-            RsaSignPssSha256::<Impl, OFFSET>,
-            RsaSignPssSha384::<Impl, OFFSET>,
-            RsaSignPssSha512::<Impl, OFFSET>,
+            RsaPkcs1::<Impl, IMPL_OFFSET>,
+            RsaOaepSha1::<Impl, IMPL_OFFSET>,
+            RsaOaepSha256::<Impl, IMPL_OFFSET>,
+            RsaOaepSha384::<Impl, IMPL_OFFSET>,
+            RsaOaepSha512::<Impl, IMPL_OFFSET>,
+            EcdsaP256Sha256::<Impl, IMPL_OFFSET>,
+            EcdsaP384Sha384::<Impl, IMPL_OFFSET>,
+            EcdsaP521Sha512::<Impl, IMPL_OFFSET>,
+            DsaSha1::<Impl, IMPL_OFFSET>,
+            DsaSha256::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha1::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha256::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha384::<Impl, IMPL_OFFSET>,
+            RsaSignPkcs1Sha512::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha1::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha256::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha384::<Impl, IMPL_OFFSET>,
+            RsaSignPssSha512::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsymmetricAlgorithmNamesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -264,7 +267,7 @@ impl ::windows::core::RuntimeName for IAsymmetricAlgorithmNamesStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAsymmetricAlgorithmNamesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStatics2Impl, const OFFSET: isize>() -> IAsymmetricAlgorithmNamesStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricAlgorithmNamesStatics2Vtbl {
         unsafe extern "system" fn EcdsaSha256<Impl: IAsymmetricAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaSha256() {
@@ -298,10 +301,13 @@ impl IAsymmetricAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, EcdsaSha256::<Impl, OFFSET>, EcdsaSha384::<Impl, OFFSET>, EcdsaSha512::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, EcdsaSha256::<Impl, IMPL_OFFSET>, EcdsaSha384::<Impl, IMPL_OFFSET>, EcdsaSha512::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsymmetricAlgorithmNamesStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAsymmetricKeyAlgorithmProviderImpl: Sized {
     fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CreateKeyPair(&self, keysize: u32) -> ::windows::core::Result<CryptographicKey>;
@@ -310,13 +316,13 @@ pub trait IAsymmetricKeyAlgorithmProviderImpl: Sized {
     fn ImportDefaultPublicKeyBlob(&self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
     fn ImportPublicKeyWithBlobType(&self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IAsymmetricKeyAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderVtbl {
         unsafe extern "system" fn AlgorithmName<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
@@ -384,19 +390,22 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProvider>,
             ::windows::core::GetTrustLevel,
-            AlgorithmName::<Impl, OFFSET>,
-            CreateKeyPair::<Impl, OFFSET>,
-            ImportDefaultPrivateKeyBlob::<Impl, OFFSET>,
-            ImportKeyPairWithBlobType::<Impl, OFFSET>,
-            ImportDefaultPublicKeyBlob::<Impl, OFFSET>,
-            ImportPublicKeyWithBlobType::<Impl, OFFSET>,
+            AlgorithmName::<Impl, IMPL_OFFSET>,
+            CreateKeyPair::<Impl, IMPL_OFFSET>,
+            ImportDefaultPrivateKeyBlob::<Impl, IMPL_OFFSET>,
+            ImportKeyPairWithBlobType::<Impl, IMPL_OFFSET>,
+            ImportDefaultPublicKeyBlob::<Impl, IMPL_OFFSET>,
+            ImportPublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsymmetricKeyAlgorithmProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -410,7 +419,7 @@ impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProvider2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAsymmetricKeyAlgorithmProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProvider2Impl, const OFFSET: isize>() -> IAsymmetricKeyAlgorithmProvider2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProvider2Vtbl {
         unsafe extern "system" fn CreateKeyPairWithCurveName<Impl: IAsymmetricKeyAlgorithmProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, curvename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateKeyPairWithCurveName(&*(&curvename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -433,7 +442,10 @@ impl IAsymmetricKeyAlgorithmProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProvider2>, ::windows::core::GetTrustLevel, CreateKeyPairWithCurveName::<Impl, OFFSET>, CreateKeyPairWithCurveParameters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProvider2>, ::windows::core::GetTrustLevel, CreateKeyPairWithCurveName::<Impl, IMPL_OFFSET>, CreateKeyPairWithCurveParameters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsymmetricKeyAlgorithmProvider2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -446,7 +458,7 @@ impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProviderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAsymmetricKeyAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderStaticsImpl, const OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderStaticsVtbl {
         unsafe extern "system" fn OpenAlgorithm<Impl: IAsymmetricKeyAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -458,10 +470,13 @@ impl IAsymmetricKeyAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsymmetricKeyAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsymmetricKeyAlgorithmProviderStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicEngineStaticsImpl: Sized {
     fn Encrypt(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn Decrypt(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
@@ -471,13 +486,13 @@ pub trait ICryptographicEngineStaticsImpl: Sized {
     fn VerifySignature(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
     fn DeriveKeyMaterial(&self, key: &::core::option::Option<CryptographicKey>, parameters: &::core::option::Option<KeyDerivationParameters>, desiredkeysize: u32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicEngineStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ICryptographicEngineStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICryptographicEngineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>() -> ICryptographicEngineStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicEngineStaticsVtbl {
         unsafe extern "system" fn Encrypt<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Encrypt(
@@ -579,23 +594,26 @@ impl ICryptographicEngineStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICryptographicEngineStatics>,
             ::windows::core::GetTrustLevel,
-            Encrypt::<Impl, OFFSET>,
-            Decrypt::<Impl, OFFSET>,
-            EncryptAndAuthenticate::<Impl, OFFSET>,
-            DecryptAndAuthenticate::<Impl, OFFSET>,
-            Sign::<Impl, OFFSET>,
-            VerifySignature::<Impl, OFFSET>,
-            DeriveKeyMaterial::<Impl, OFFSET>,
+            Encrypt::<Impl, IMPL_OFFSET>,
+            Decrypt::<Impl, IMPL_OFFSET>,
+            EncryptAndAuthenticate::<Impl, IMPL_OFFSET>,
+            DecryptAndAuthenticate::<Impl, IMPL_OFFSET>,
+            Sign::<Impl, IMPL_OFFSET>,
+            VerifySignature::<Impl, IMPL_OFFSET>,
+            DeriveKeyMaterial::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICryptographicEngineStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicEngineStatics2Impl: Sized {
     fn SignHashedData(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn VerifySignatureWithHashInput(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
@@ -603,13 +621,13 @@ pub trait ICryptographicEngineStatics2Impl: Sized {
     fn SignAsync(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
     fn SignHashedDataAsync(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicEngineStatics2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ICryptographicEngineStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICryptographicEngineStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>() -> ICryptographicEngineStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicEngineStatics2Vtbl {
         unsafe extern "system" fn SignHashedData<Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignHashedData(&*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -673,10 +691,25 @@ impl ICryptographicEngineStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICryptographicEngineStatics2>, ::windows::core::GetTrustLevel, SignHashedData::<Impl, OFFSET>, VerifySignatureWithHashInput::<Impl, OFFSET>, DecryptAsync::<Impl, OFFSET>, SignAsync::<Impl, OFFSET>, SignHashedDataAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ICryptographicEngineStatics2>,
+            ::windows::core::GetTrustLevel,
+            SignHashedData::<Impl, IMPL_OFFSET>,
+            VerifySignatureWithHashInput::<Impl, IMPL_OFFSET>,
+            DecryptAsync::<Impl, IMPL_OFFSET>,
+            SignAsync::<Impl, IMPL_OFFSET>,
+            SignHashedDataAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICryptographicEngineStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicKeyImpl: Sized {
     fn KeySize(&self) -> ::windows::core::Result<u32>;
     fn ExportDefaultPrivateKeyBlobType(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
@@ -684,13 +717,13 @@ pub trait ICryptographicKeyImpl: Sized {
     fn ExportDefaultPublicKeyBlobType(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ICryptographicKey";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICryptographicKeyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicKeyImpl, const OFFSET: isize>() -> ICryptographicKeyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicKeyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicKeyVtbl {
         unsafe extern "system" fn KeySize<Impl: ICryptographicKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySize() {
@@ -746,10 +779,25 @@ impl ICryptographicKeyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICryptographicKey>, ::windows::core::GetTrustLevel, KeySize::<Impl, OFFSET>, ExportDefaultPrivateKeyBlobType::<Impl, OFFSET>, ExportPrivateKeyWithBlobType::<Impl, OFFSET>, ExportDefaultPublicKeyBlobType::<Impl, OFFSET>, ExportPublicKeyWithBlobType::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ICryptographicKey>,
+            ::windows::core::GetTrustLevel,
+            KeySize::<Impl, IMPL_OFFSET>,
+            ExportDefaultPrivateKeyBlobType::<Impl, IMPL_OFFSET>,
+            ExportPrivateKeyWithBlobType::<Impl, IMPL_OFFSET>,
+            ExportDefaultPublicKeyBlobType::<Impl, IMPL_OFFSET>,
+            ExportPublicKeyWithBlobType::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICryptographicKey as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEccCurveNamesStaticsImpl: Sized {
     fn BrainpoolP160r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn BrainpoolP160t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -798,13 +846,13 @@ pub trait IEccCurveNamesStaticsImpl: Sized {
     fn X962P256v1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AllEccCurveNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEccCurveNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IEccCurveNamesStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEccCurveNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>() -> IEccCurveNamesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEccCurveNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEccCurveNamesStaticsVtbl {
         unsafe extern "system" fn BrainpoolP160r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP160r1() {
@@ -1312,73 +1360,76 @@ impl IEccCurveNamesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEccCurveNamesStatics>,
             ::windows::core::GetTrustLevel,
-            BrainpoolP160r1::<Impl, OFFSET>,
-            BrainpoolP160t1::<Impl, OFFSET>,
-            BrainpoolP192r1::<Impl, OFFSET>,
-            BrainpoolP192t1::<Impl, OFFSET>,
-            BrainpoolP224r1::<Impl, OFFSET>,
-            BrainpoolP224t1::<Impl, OFFSET>,
-            BrainpoolP256r1::<Impl, OFFSET>,
-            BrainpoolP256t1::<Impl, OFFSET>,
-            BrainpoolP320r1::<Impl, OFFSET>,
-            BrainpoolP320t1::<Impl, OFFSET>,
-            BrainpoolP384r1::<Impl, OFFSET>,
-            BrainpoolP384t1::<Impl, OFFSET>,
-            BrainpoolP512r1::<Impl, OFFSET>,
-            BrainpoolP512t1::<Impl, OFFSET>,
-            Curve25519::<Impl, OFFSET>,
-            Ec192wapi::<Impl, OFFSET>,
-            NistP192::<Impl, OFFSET>,
-            NistP224::<Impl, OFFSET>,
-            NistP256::<Impl, OFFSET>,
-            NistP384::<Impl, OFFSET>,
-            NistP521::<Impl, OFFSET>,
-            NumsP256t1::<Impl, OFFSET>,
-            NumsP384t1::<Impl, OFFSET>,
-            NumsP512t1::<Impl, OFFSET>,
-            SecP160k1::<Impl, OFFSET>,
-            SecP160r1::<Impl, OFFSET>,
-            SecP160r2::<Impl, OFFSET>,
-            SecP192k1::<Impl, OFFSET>,
-            SecP192r1::<Impl, OFFSET>,
-            SecP224k1::<Impl, OFFSET>,
-            SecP224r1::<Impl, OFFSET>,
-            SecP256k1::<Impl, OFFSET>,
-            SecP256r1::<Impl, OFFSET>,
-            SecP384r1::<Impl, OFFSET>,
-            SecP521r1::<Impl, OFFSET>,
-            Wtls7::<Impl, OFFSET>,
-            Wtls9::<Impl, OFFSET>,
-            Wtls12::<Impl, OFFSET>,
-            X962P192v1::<Impl, OFFSET>,
-            X962P192v2::<Impl, OFFSET>,
-            X962P192v3::<Impl, OFFSET>,
-            X962P239v1::<Impl, OFFSET>,
-            X962P239v2::<Impl, OFFSET>,
-            X962P239v3::<Impl, OFFSET>,
-            X962P256v1::<Impl, OFFSET>,
-            AllEccCurveNames::<Impl, OFFSET>,
+            BrainpoolP160r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP160t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP192r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP192t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP224r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP224t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP256r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP256t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP320r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP320t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP384r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP384t1::<Impl, IMPL_OFFSET>,
+            BrainpoolP512r1::<Impl, IMPL_OFFSET>,
+            BrainpoolP512t1::<Impl, IMPL_OFFSET>,
+            Curve25519::<Impl, IMPL_OFFSET>,
+            Ec192wapi::<Impl, IMPL_OFFSET>,
+            NistP192::<Impl, IMPL_OFFSET>,
+            NistP224::<Impl, IMPL_OFFSET>,
+            NistP256::<Impl, IMPL_OFFSET>,
+            NistP384::<Impl, IMPL_OFFSET>,
+            NistP521::<Impl, IMPL_OFFSET>,
+            NumsP256t1::<Impl, IMPL_OFFSET>,
+            NumsP384t1::<Impl, IMPL_OFFSET>,
+            NumsP512t1::<Impl, IMPL_OFFSET>,
+            SecP160k1::<Impl, IMPL_OFFSET>,
+            SecP160r1::<Impl, IMPL_OFFSET>,
+            SecP160r2::<Impl, IMPL_OFFSET>,
+            SecP192k1::<Impl, IMPL_OFFSET>,
+            SecP192r1::<Impl, IMPL_OFFSET>,
+            SecP224k1::<Impl, IMPL_OFFSET>,
+            SecP224r1::<Impl, IMPL_OFFSET>,
+            SecP256k1::<Impl, IMPL_OFFSET>,
+            SecP256r1::<Impl, IMPL_OFFSET>,
+            SecP384r1::<Impl, IMPL_OFFSET>,
+            SecP521r1::<Impl, IMPL_OFFSET>,
+            Wtls7::<Impl, IMPL_OFFSET>,
+            Wtls9::<Impl, IMPL_OFFSET>,
+            Wtls12::<Impl, IMPL_OFFSET>,
+            X962P192v1::<Impl, IMPL_OFFSET>,
+            X962P192v2::<Impl, IMPL_OFFSET>,
+            X962P192v3::<Impl, IMPL_OFFSET>,
+            X962P239v1::<Impl, IMPL_OFFSET>,
+            X962P239v2::<Impl, IMPL_OFFSET>,
+            X962P239v3::<Impl, IMPL_OFFSET>,
+            X962P256v1::<Impl, IMPL_OFFSET>,
+            AllEccCurveNames::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEccCurveNamesStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEncryptedAndAuthenticatedDataImpl: Sized {
     fn EncryptedData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn AuthenticationTag(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IEncryptedAndAuthenticatedDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEncryptedAndAuthenticatedDataImpl, const OFFSET: isize>() -> IEncryptedAndAuthenticatedDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEncryptedAndAuthenticatedDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEncryptedAndAuthenticatedDataVtbl {
         unsafe extern "system" fn EncryptedData<Impl: IEncryptedAndAuthenticatedDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncryptedData() {
@@ -1401,7 +1452,10 @@ impl IEncryptedAndAuthenticatedDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEncryptedAndAuthenticatedData>, ::windows::core::GetTrustLevel, EncryptedData::<Impl, OFFSET>, AuthenticationTag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEncryptedAndAuthenticatedData>, ::windows::core::GetTrustLevel, EncryptedData::<Impl, IMPL_OFFSET>, AuthenticationTag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEncryptedAndAuthenticatedData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1418,7 +1472,7 @@ impl ::windows::core::RuntimeName for IHashAlgorithmNamesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHashAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>() -> IHashAlgorithmNamesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmNamesStaticsVtbl {
         unsafe extern "system" fn Md5<Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Md5() {
@@ -1474,23 +1528,26 @@ impl IHashAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmNamesStatics>, ::windows::core::GetTrustLevel, Md5::<Impl, OFFSET>, Sha1::<Impl, OFFSET>, Sha256::<Impl, OFFSET>, Sha384::<Impl, OFFSET>, Sha512::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmNamesStatics>, ::windows::core::GetTrustLevel, Md5::<Impl, IMPL_OFFSET>, Sha1::<Impl, IMPL_OFFSET>, Sha256::<Impl, IMPL_OFFSET>, Sha384::<Impl, IMPL_OFFSET>, Sha512::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHashAlgorithmNamesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHashAlgorithmProviderImpl: Sized {
     fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HashLength(&self) -> ::windows::core::Result<u32>;
     fn HashData(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn CreateHash(&self) -> ::windows::core::Result<CryptographicHash>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IHashAlgorithmProvider";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHashAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderImpl, const OFFSET: isize>() -> IHashAlgorithmProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmProviderVtbl {
         unsafe extern "system" fn AlgorithmName<Impl: IHashAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
@@ -1535,7 +1592,10 @@ impl IHashAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, OFFSET>, HashLength::<Impl, OFFSET>, HashData::<Impl, OFFSET>, CreateHash::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, HashLength::<Impl, IMPL_OFFSET>, HashData::<Impl, IMPL_OFFSET>, CreateHash::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHashAlgorithmProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1548,7 +1608,7 @@ impl ::windows::core::RuntimeName for IHashAlgorithmProviderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHashAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderStaticsImpl, const OFFSET: isize>() -> IHashAlgorithmProviderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmProviderStaticsVtbl {
         unsafe extern "system" fn OpenAlgorithm<Impl: IHashAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1560,21 +1620,24 @@ impl IHashAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHashAlgorithmProviderStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHashComputationImpl: Sized {
     fn Append(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn GetValueAndReset(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHashComputation {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IHashComputation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHashComputationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashComputationImpl, const OFFSET: isize>() -> IHashComputationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashComputationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashComputationVtbl {
         unsafe extern "system" fn Append<Impl: IHashComputationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1590,7 +1653,10 @@ impl IHashComputationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashComputation>, ::windows::core::GetTrustLevel, Append::<Impl, OFFSET>, GetValueAndReset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHashComputation>, ::windows::core::GetTrustLevel, Append::<Impl, IMPL_OFFSET>, GetValueAndReset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHashComputation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1617,7 +1683,7 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmNamesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyDerivationAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStaticsVtbl {
         unsafe extern "system" fn Pbkdf2Md5<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pbkdf2Md5() {
@@ -1784,28 +1850,31 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmNamesStatics>,
             ::windows::core::GetTrustLevel,
-            Pbkdf2Md5::<Impl, OFFSET>,
-            Pbkdf2Sha1::<Impl, OFFSET>,
-            Pbkdf2Sha256::<Impl, OFFSET>,
-            Pbkdf2Sha384::<Impl, OFFSET>,
-            Pbkdf2Sha512::<Impl, OFFSET>,
-            Sp800108CtrHmacMd5::<Impl, OFFSET>,
-            Sp800108CtrHmacSha1::<Impl, OFFSET>,
-            Sp800108CtrHmacSha256::<Impl, OFFSET>,
-            Sp800108CtrHmacSha384::<Impl, OFFSET>,
-            Sp800108CtrHmacSha512::<Impl, OFFSET>,
-            Sp80056aConcatMd5::<Impl, OFFSET>,
-            Sp80056aConcatSha1::<Impl, OFFSET>,
-            Sp80056aConcatSha256::<Impl, OFFSET>,
-            Sp80056aConcatSha384::<Impl, OFFSET>,
-            Sp80056aConcatSha512::<Impl, OFFSET>,
+            Pbkdf2Md5::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha1::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha256::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha384::<Impl, IMPL_OFFSET>,
+            Pbkdf2Sha512::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacMd5::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha1::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha256::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha384::<Impl, IMPL_OFFSET>,
+            Sp800108CtrHmacSha512::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatMd5::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha1::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha256::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha384::<Impl, IMPL_OFFSET>,
+            Sp80056aConcatSha512::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationAlgorithmNamesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1822,7 +1891,7 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmNamesStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStatics2Vtbl {
         unsafe extern "system" fn CapiKdfMd5<Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapiKdfMd5() {
@@ -1878,21 +1947,24 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, CapiKdfMd5::<Impl, OFFSET>, CapiKdfSha1::<Impl, OFFSET>, CapiKdfSha256::<Impl, OFFSET>, CapiKdfSha384::<Impl, OFFSET>, CapiKdfSha512::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmNamesStatics2>, ::windows::core::GetTrustLevel, CapiKdfMd5::<Impl, IMPL_OFFSET>, CapiKdfSha1::<Impl, IMPL_OFFSET>, CapiKdfSha256::<Impl, IMPL_OFFSET>, CapiKdfSha384::<Impl, IMPL_OFFSET>, CapiKdfSha512::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationAlgorithmNamesStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyDerivationAlgorithmProviderImpl: Sized {
     fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CreateKey(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKeyDerivationAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderImpl, const OFFSET: isize>() -> IKeyDerivationAlgorithmProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmProviderVtbl {
         unsafe extern "system" fn AlgorithmName<Impl: IKeyDerivationAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
@@ -1915,7 +1987,10 @@ impl IKeyDerivationAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, OFFSET>, CreateKey::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, CreateKey::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationAlgorithmProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1928,7 +2003,7 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmProviderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyDerivationAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderStaticsImpl, const OFFSET: isize>() -> IKeyDerivationAlgorithmProviderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmProviderStaticsVtbl {
         unsafe extern "system" fn OpenAlgorithm<Impl: IKeyDerivationAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1940,22 +2015,25 @@ impl IKeyDerivationAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationAlgorithmProviderStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyDerivationParametersImpl: Sized {
     fn KdfGenericBinary(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn SetKdfGenericBinary(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn IterationCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationParameters";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKeyDerivationParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersImpl, const OFFSET: isize>() -> IKeyDerivationParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersVtbl {
         unsafe extern "system" fn KdfGenericBinary<Impl: IKeyDerivationParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KdfGenericBinary() {
@@ -1982,7 +2060,10 @@ impl IKeyDerivationParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParameters>, ::windows::core::GetTrustLevel, KdfGenericBinary::<Impl, OFFSET>, SetKdfGenericBinary::<Impl, OFFSET>, IterationCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParameters>, ::windows::core::GetTrustLevel, KdfGenericBinary::<Impl, IMPL_OFFSET>, SetKdfGenericBinary::<Impl, IMPL_OFFSET>, IterationCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationParameters as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1996,7 +2077,7 @@ impl ::windows::core::RuntimeName for IKeyDerivationParameters2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyDerivationParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParameters2Impl, const OFFSET: isize>() -> IKeyDerivationParameters2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParameters2Vtbl {
         unsafe extern "system" fn Capi1KdfTargetAlgorithm<Impl: IKeyDerivationParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capi1KdfTargetAlgorithm() {
@@ -2012,22 +2093,25 @@ impl IKeyDerivationParameters2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCapi1KdfTargetAlgorithm(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParameters2>, ::windows::core::GetTrustLevel, Capi1KdfTargetAlgorithm::<Impl, OFFSET>, SetCapi1KdfTargetAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParameters2>, ::windows::core::GetTrustLevel, Capi1KdfTargetAlgorithm::<Impl, IMPL_OFFSET>, SetCapi1KdfTargetAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationParameters2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyDerivationParametersStaticsImpl: Sized {
     fn BuildForPbkdf2(&self, pbkdf2salt: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters>;
     fn BuildForSP800108(&self, label: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, context: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
     fn BuildForSP80056a(&self, algorithmid: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyuinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyvinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, supppubinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, suppprivinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyDerivationParametersStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IKeyDerivationParametersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStaticsImpl, const OFFSET: isize>() -> IKeyDerivationParametersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersStaticsVtbl {
         unsafe extern "system" fn BuildForPbkdf2<Impl: IKeyDerivationParametersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbkdf2salt: ::windows::core::RawPtr, iterationcount: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildForPbkdf2(&*(&pbkdf2salt as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), iterationcount) {
@@ -2067,7 +2151,10 @@ impl IKeyDerivationParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParametersStatics>, ::windows::core::GetTrustLevel, BuildForPbkdf2::<Impl, OFFSET>, BuildForSP800108::<Impl, OFFSET>, BuildForSP80056a::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParametersStatics>, ::windows::core::GetTrustLevel, BuildForPbkdf2::<Impl, IMPL_OFFSET>, BuildForSP800108::<Impl, IMPL_OFFSET>, BuildForSP80056a::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationParametersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2080,7 +2167,7 @@ impl ::windows::core::RuntimeName for IKeyDerivationParametersStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyDerivationParametersStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStatics2Impl, const OFFSET: isize>() -> IKeyDerivationParametersStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersStatics2Vtbl {
         unsafe extern "system" fn BuildForCapi1Kdf<Impl: IKeyDerivationParametersStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildForCapi1Kdf(capi1kdftargetalgorithm) {
@@ -2092,7 +2179,10 @@ impl IKeyDerivationParametersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParametersStatics2>, ::windows::core::GetTrustLevel, BuildForCapi1Kdf::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyDerivationParametersStatics2>, ::windows::core::GetTrustLevel, BuildForCapi1Kdf::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyDerivationParametersStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2110,7 +2200,7 @@ impl ::windows::core::RuntimeName for IMacAlgorithmNamesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMacAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>() -> IMacAlgorithmNamesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmNamesStaticsVtbl {
         unsafe extern "system" fn HmacMd5<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HmacMd5() {
@@ -2177,22 +2267,25 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmNamesStatics>, ::windows::core::GetTrustLevel, HmacMd5::<Impl, OFFSET>, HmacSha1::<Impl, OFFSET>, HmacSha256::<Impl, OFFSET>, HmacSha384::<Impl, OFFSET>, HmacSha512::<Impl, OFFSET>, AesCmac::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmNamesStatics>, ::windows::core::GetTrustLevel, HmacMd5::<Impl, IMPL_OFFSET>, HmacSha1::<Impl, IMPL_OFFSET>, HmacSha256::<Impl, IMPL_OFFSET>, HmacSha384::<Impl, IMPL_OFFSET>, HmacSha512::<Impl, IMPL_OFFSET>, AesCmac::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMacAlgorithmNamesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMacAlgorithmProviderImpl: Sized {
     fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MacLength(&self) -> ::windows::core::Result<u32>;
     fn CreateKey(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IMacAlgorithmProvider";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMacAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderImpl, const OFFSET: isize>() -> IMacAlgorithmProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProviderVtbl {
         unsafe extern "system" fn AlgorithmName<Impl: IMacAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
@@ -2226,20 +2319,23 @@ impl IMacAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, OFFSET>, MacLength::<Impl, OFFSET>, CreateKey::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, MacLength::<Impl, IMPL_OFFSET>, CreateKey::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMacAlgorithmProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMacAlgorithmProvider2Impl: Sized {
     fn CreateHash(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicHash>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMacAlgorithmProvider2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IMacAlgorithmProvider2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMacAlgorithmProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProvider2Impl, const OFFSET: isize>() -> IMacAlgorithmProvider2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProvider2Vtbl {
         unsafe extern "system" fn CreateHash<Impl: IMacAlgorithmProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHash(&*(&keymaterial as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -2251,7 +2347,10 @@ impl IMacAlgorithmProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProvider2>, ::windows::core::GetTrustLevel, CreateHash::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProvider2>, ::windows::core::GetTrustLevel, CreateHash::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMacAlgorithmProvider2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2264,7 +2363,7 @@ impl ::windows::core::RuntimeName for IMacAlgorithmProviderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMacAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderStaticsImpl, const OFFSET: isize>() -> IMacAlgorithmProviderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProviderStaticsVtbl {
         unsafe extern "system" fn OpenAlgorithm<Impl: IMacAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2276,21 +2375,24 @@ impl IMacAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMacAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMacAlgorithmProviderStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IPersistedKeyProviderStaticsImpl: Sized {
     fn OpenKeyPairFromCertificateAsync(&self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>;
     fn OpenPublicKeyFromCertificate(&self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPersistedKeyProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IPersistedKeyProviderStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IPersistedKeyProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistedKeyProviderStaticsImpl, const OFFSET: isize>() -> IPersistedKeyProviderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistedKeyProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPersistedKeyProviderStaticsVtbl {
         unsafe extern "system" fn OpenKeyPairFromCertificateAsync<Impl: IPersistedKeyProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: ::windows::core::RawPtr, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, padding: CryptographicPadding, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenKeyPairFromCertificateAsync(&*(&certificate as *const <super::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType), &*(&hashalgorithmname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), padding) {
@@ -2313,7 +2415,10 @@ impl IPersistedKeyProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPersistedKeyProviderStatics>, ::windows::core::GetTrustLevel, OpenKeyPairFromCertificateAsync::<Impl, OFFSET>, OpenPublicKeyFromCertificate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPersistedKeyProviderStatics>, ::windows::core::GetTrustLevel, OpenKeyPairFromCertificateAsync::<Impl, IMPL_OFFSET>, OpenPublicKeyFromCertificate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPersistedKeyProviderStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2344,7 +2449,7 @@ impl ::windows::core::RuntimeName for ISymmetricAlgorithmNamesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISymmetricAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>() -> ISymmetricAlgorithmNamesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricAlgorithmNamesStaticsVtbl {
         unsafe extern "system" fn DesCbc<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesCbc() {
@@ -2555,47 +2660,50 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISymmetricAlgorithmNamesStatics>,
             ::windows::core::GetTrustLevel,
-            DesCbc::<Impl, OFFSET>,
-            DesEcb::<Impl, OFFSET>,
-            TripleDesCbc::<Impl, OFFSET>,
-            TripleDesEcb::<Impl, OFFSET>,
-            Rc2Cbc::<Impl, OFFSET>,
-            Rc2Ecb::<Impl, OFFSET>,
-            AesCbc::<Impl, OFFSET>,
-            AesEcb::<Impl, OFFSET>,
-            AesGcm::<Impl, OFFSET>,
-            AesCcm::<Impl, OFFSET>,
-            AesCbcPkcs7::<Impl, OFFSET>,
-            AesEcbPkcs7::<Impl, OFFSET>,
-            DesCbcPkcs7::<Impl, OFFSET>,
-            DesEcbPkcs7::<Impl, OFFSET>,
-            TripleDesCbcPkcs7::<Impl, OFFSET>,
-            TripleDesEcbPkcs7::<Impl, OFFSET>,
-            Rc2CbcPkcs7::<Impl, OFFSET>,
-            Rc2EcbPkcs7::<Impl, OFFSET>,
-            Rc4::<Impl, OFFSET>,
+            DesCbc::<Impl, IMPL_OFFSET>,
+            DesEcb::<Impl, IMPL_OFFSET>,
+            TripleDesCbc::<Impl, IMPL_OFFSET>,
+            TripleDesEcb::<Impl, IMPL_OFFSET>,
+            Rc2Cbc::<Impl, IMPL_OFFSET>,
+            Rc2Ecb::<Impl, IMPL_OFFSET>,
+            AesCbc::<Impl, IMPL_OFFSET>,
+            AesEcb::<Impl, IMPL_OFFSET>,
+            AesGcm::<Impl, IMPL_OFFSET>,
+            AesCcm::<Impl, IMPL_OFFSET>,
+            AesCbcPkcs7::<Impl, IMPL_OFFSET>,
+            AesEcbPkcs7::<Impl, IMPL_OFFSET>,
+            DesCbcPkcs7::<Impl, IMPL_OFFSET>,
+            DesEcbPkcs7::<Impl, IMPL_OFFSET>,
+            TripleDesCbcPkcs7::<Impl, IMPL_OFFSET>,
+            TripleDesEcbPkcs7::<Impl, IMPL_OFFSET>,
+            Rc2CbcPkcs7::<Impl, IMPL_OFFSET>,
+            Rc2EcbPkcs7::<Impl, IMPL_OFFSET>,
+            Rc4::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISymmetricAlgorithmNamesStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISymmetricKeyAlgorithmProviderImpl: Sized {
     fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn BlockLength(&self) -> ::windows::core::Result<u32>;
     fn CreateSymmetricKey(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProvider";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISymmetricKeyAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderVtbl {
         unsafe extern "system" fn AlgorithmName<Impl: ISymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
@@ -2629,7 +2737,10 @@ impl ISymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISymmetricKeyAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, OFFSET>, BlockLength::<Impl, OFFSET>, CreateSymmetricKey::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISymmetricKeyAlgorithmProvider>, ::windows::core::GetTrustLevel, AlgorithmName::<Impl, IMPL_OFFSET>, BlockLength::<Impl, IMPL_OFFSET>, CreateSymmetricKey::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISymmetricKeyAlgorithmProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2642,7 +2753,7 @@ impl ::windows::core::RuntimeName for ISymmetricKeyAlgorithmProviderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISymmetricKeyAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderStaticsImpl, const OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderStaticsVtbl {
         unsafe extern "system" fn OpenAlgorithm<Impl: ISymmetricKeyAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2654,6 +2765,9 @@ impl ISymmetricKeyAlgorithmProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISymmetricKeyAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISymmetricKeyAlgorithmProviderStatics>, ::windows::core::GetTrustLevel, OpenAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISymmetricKeyAlgorithmProviderStatics as ::windows::core::Interface>::IID
     }
 }

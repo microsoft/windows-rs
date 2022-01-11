@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IKnownRemoteSystemCapabilitiesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>() -> IKnownRemoteSystemCapabilitiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownRemoteSystemCapabilitiesStaticsVtbl {
         unsafe extern "system" fn AppService<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppService() {
@@ -56,7 +56,10 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownRemoteSystemCapabilitiesStatics>, ::windows::core::GetTrustLevel, AppService::<Impl, OFFSET>, LaunchUri::<Impl, OFFSET>, RemoteSession::<Impl, OFFSET>, SpatialEntity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownRemoteSystemCapabilitiesStatics>, ::windows::core::GetTrustLevel, AppService::<Impl, IMPL_OFFSET>, LaunchUri::<Impl, IMPL_OFFSET>, RemoteSession::<Impl, IMPL_OFFSET>, SpatialEntity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownRemoteSystemCapabilitiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -73,7 +76,7 @@ impl ::windows::core::RuntimeName for IRemoteSystem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemImpl, const OFFSET: isize>() -> IRemoteSystemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemVtbl {
         unsafe extern "system" fn DisplayName<Impl: IRemoteSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -129,21 +132,24 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Id::<Impl, OFFSET>, Kind::<Impl, OFFSET>, Status::<Impl, OFFSET>, IsAvailableByProximity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, IsAvailableByProximity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystem2Impl: Sized {
     fn IsAvailableBySpatialProximity(&self) -> ::windows::core::Result<bool>;
     fn GetCapabilitySupportedAsync(&self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystem2 {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystem2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystem2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem2Impl, const OFFSET: isize>() -> IRemoteSystem2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystem2Vtbl {
         unsafe extern "system" fn IsAvailableBySpatialProximity<Impl: IRemoteSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailableBySpatialProximity() {
@@ -166,7 +172,10 @@ impl IRemoteSystem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem2>, ::windows::core::GetTrustLevel, IsAvailableBySpatialProximity::<Impl, OFFSET>, GetCapabilitySupportedAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem2>, ::windows::core::GetTrustLevel, IsAvailableBySpatialProximity::<Impl, IMPL_OFFSET>, GetCapabilitySupportedAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystem2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -180,7 +189,7 @@ impl ::windows::core::RuntimeName for IRemoteSystem3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem3Impl, const OFFSET: isize>() -> IRemoteSystem3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystem3Vtbl {
         unsafe extern "system" fn ManufacturerDisplayName<Impl: IRemoteSystem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerDisplayName() {
@@ -203,7 +212,10 @@ impl IRemoteSystem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem3>, ::windows::core::GetTrustLevel, ManufacturerDisplayName::<Impl, OFFSET>, ModelDisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem3>, ::windows::core::GetTrustLevel, ManufacturerDisplayName::<Impl, IMPL_OFFSET>, ModelDisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystem3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -216,7 +228,7 @@ impl ::windows::core::RuntimeName for IRemoteSystem4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem4Impl, const OFFSET: isize>() -> IRemoteSystem4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystem4Vtbl {
         unsafe extern "system" fn Platform<Impl: IRemoteSystem4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemPlatform) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Platform() {
@@ -228,20 +240,23 @@ impl IRemoteSystem4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem4>, ::windows::core::GetTrustLevel, Platform::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem4>, ::windows::core::GetTrustLevel, Platform::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystem4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystem5Impl: Sized {
     fn Apps(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RemoteSystemApp>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystem5 {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystem5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystem5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem5Impl, const OFFSET: isize>() -> IRemoteSystem5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystem5Vtbl {
         unsafe extern "system" fn Apps<Impl: IRemoteSystem5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Apps() {
@@ -253,7 +268,10 @@ impl IRemoteSystem5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem5>, ::windows::core::GetTrustLevel, Apps::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem5>, ::windows::core::GetTrustLevel, Apps::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystem5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -266,7 +284,7 @@ impl ::windows::core::RuntimeName for IRemoteSystem6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem6Impl, const OFFSET: isize>() -> IRemoteSystem6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystem6Vtbl {
         unsafe extern "system" fn User<Impl: IRemoteSystem6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -278,7 +296,10 @@ impl IRemoteSystem6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem6>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem6>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystem6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -291,7 +312,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAddedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemAddedEventArgsVtbl {
         unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
@@ -303,10 +324,13 @@ impl IRemoteSystemAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAddedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAddedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemAppImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -314,13 +338,13 @@ pub trait IRemoteSystemAppImpl: Sized {
     fn IsAvailableBySpatialProximity(&self) -> ::windows::core::Result<bool>;
     fn Attributes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemApp {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemApp";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemAppVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppImpl, const OFFSET: isize>() -> IRemoteSystemAppVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemAppVtbl {
         unsafe extern "system" fn Id<Impl: IRemoteSystemAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -376,7 +400,10 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, IsAvailableByProximity::<Impl, OFFSET>, IsAvailableBySpatialProximity::<Impl, OFFSET>, Attributes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, IsAvailableByProximity::<Impl, IMPL_OFFSET>, IsAvailableBySpatialProximity::<Impl, IMPL_OFFSET>, Attributes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemApp as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -390,7 +417,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemApp2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemApp2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemApp2Impl, const OFFSET: isize>() -> IRemoteSystemApp2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemApp2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemApp2Vtbl {
         unsafe extern "system" fn User<Impl: IRemoteSystemApp2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -413,22 +440,25 @@ impl IRemoteSystemApp2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp2>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>, ConnectionToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp2>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, ConnectionToken::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemApp2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemAppRegistrationImpl: Sized {
     fn User(&self) -> ::windows::core::Result<super::User>;
     fn Attributes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemAppRegistration {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemAppRegistration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemAppRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: isize>() -> IRemoteSystemAppRegistrationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemAppRegistrationVtbl {
         unsafe extern "system" fn User<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -462,7 +492,10 @@ impl IRemoteSystemAppRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistration>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>, Attributes::<Impl, OFFSET>, SaveAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistration>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>, Attributes::<Impl, IMPL_OFFSET>, SaveAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemAppRegistration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -476,7 +509,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemAppRegistrationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAppRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: isize>() -> IRemoteSystemAppRegistrationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemAppRegistrationStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -499,7 +532,10 @@ impl IRemoteSystemAppRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistrationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistrationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemAppRegistrationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,7 +548,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemAuthorizationKindFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAuthorizationKindFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAuthorizationKindFilterImpl, const OFFSET: isize>() -> IRemoteSystemAuthorizationKindFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAuthorizationKindFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemAuthorizationKindFilterVtbl {
         unsafe extern "system" fn RemoteSystemAuthorizationKind<Impl: IRemoteSystemAuthorizationKindFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemAuthorizationKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemAuthorizationKind() {
@@ -524,7 +560,10 @@ impl IRemoteSystemAuthorizationKindFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemAuthorizationKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemAuthorizationKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemAuthorizationKindFilter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -537,7 +576,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemAuthorizationKindFilterFactor
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAuthorizationKindFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemAuthorizationKindFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemAuthorizationKindFilterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemauthorizationkind: RemoteSystemAuthorizationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(remotesystemauthorizationkind) {
@@ -549,7 +588,10 @@ impl IRemoteSystemAuthorizationKindFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemAuthorizationKindFilterFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -562,7 +604,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionInfoImpl, const OFFSET: isize>() -> IRemoteSystemConnectionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionInfoVtbl {
         unsafe extern "system" fn IsProximal<Impl: IRemoteSystemConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsProximal() {
@@ -574,20 +616,23 @@ impl IRemoteSystemConnectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfo>, ::windows::core::GetTrustLevel, IsProximal::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfo>, ::windows::core::GetTrustLevel, IsProximal::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IRemoteSystemConnectionInfoStaticsImpl: Sized {
     fn TryCreateFromAppServiceConnection(&self, connection: &::core::option::Option<super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<RemoteSystemConnectionInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionInfoStatics {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemConnectionInfoStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl IRemoteSystemConnectionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionInfoStaticsImpl, const OFFSET: isize>() -> IRemoteSystemConnectionInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionInfoStaticsVtbl {
         unsafe extern "system" fn TryCreateFromAppServiceConnection<Impl: IRemoteSystemConnectionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFromAppServiceConnection(&*(&connection as *const <super::super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::DefaultType>::DefaultType)) {
@@ -599,7 +644,10 @@ impl IRemoteSystemConnectionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfoStatics>, ::windows::core::GetTrustLevel, TryCreateFromAppServiceConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfoStatics>, ::windows::core::GetTrustLevel, TryCreateFromAppServiceConnection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -612,7 +660,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestImpl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionRequestVtbl {
         unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemConnectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
@@ -624,7 +672,10 @@ impl IRemoteSystemConnectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -637,7 +688,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequest2Impl, const OFFSET: isize>() -> IRemoteSystemConnectionRequest2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionRequest2Vtbl {
         unsafe extern "system" fn RemoteSystemApp<Impl: IRemoteSystemConnectionRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemApp() {
@@ -649,7 +700,10 @@ impl IRemoteSystemConnectionRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest2>, ::windows::core::GetTrustLevel, RemoteSystemApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest2>, ::windows::core::GetTrustLevel, RemoteSystemApp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionRequest2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -662,7 +716,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequest3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequest3Impl, const OFFSET: isize>() -> IRemoteSystemConnectionRequest3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequest3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionRequest3Vtbl {
         unsafe extern "system" fn ConnectionToken<Impl: IRemoteSystemConnectionRequest3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionToken() {
@@ -674,7 +728,10 @@ impl IRemoteSystemConnectionRequest3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest3>, ::windows::core::GetTrustLevel, ConnectionToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest3>, ::windows::core::GetTrustLevel, ConnectionToken::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionRequest3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -687,7 +744,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestFactoryImpl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionRequestFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemConnectionRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&remotesystem as *const <RemoteSystem as ::windows::core::Abi>::Abi as *const <RemoteSystem as ::windows::core::DefaultType>::DefaultType)) {
@@ -699,7 +756,10 @@ impl IRemoteSystemConnectionRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionRequestFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -712,7 +772,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestStaticsImpl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionRequestStaticsVtbl {
         unsafe extern "system" fn CreateForApp<Impl: IRemoteSystemConnectionRequestStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemapp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForApp(&*(&remotesystemapp as *const <RemoteSystemApp as ::windows::core::Abi>::Abi as *const <RemoteSystemApp as ::windows::core::DefaultType>::DefaultType)) {
@@ -724,7 +784,10 @@ impl IRemoteSystemConnectionRequestStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics>, ::windows::core::GetTrustLevel, CreateForApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics>, ::windows::core::GetTrustLevel, CreateForApp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionRequestStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -738,7 +801,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemConnectionRequestStatics2Vtbl {
         unsafe extern "system" fn CreateFromConnectionToken<Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromConnectionToken(&*(&connectiontoken as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -761,7 +824,10 @@ impl IRemoteSystemConnectionRequestStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics2>, ::windows::core::GetTrustLevel, CreateFromConnectionToken::<Impl, OFFSET>, CreateFromConnectionTokenForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics2>, ::windows::core::GetTrustLevel, CreateFromConnectionToken::<Impl, IMPL_OFFSET>, CreateFromConnectionTokenForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemConnectionRequestStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -774,7 +840,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemDiscoveryTypeFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemDiscoveryTypeFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemDiscoveryTypeFilterImpl, const OFFSET: isize>() -> IRemoteSystemDiscoveryTypeFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemDiscoveryTypeFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemDiscoveryTypeFilterVtbl {
         unsafe extern "system" fn RemoteSystemDiscoveryType<Impl: IRemoteSystemDiscoveryTypeFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemDiscoveryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemDiscoveryType() {
@@ -786,7 +852,10 @@ impl IRemoteSystemDiscoveryTypeFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemDiscoveryType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemDiscoveryType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemDiscoveryTypeFilter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -799,7 +868,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemDiscoveryTypeFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discoverytype: RemoteSystemDiscoveryType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(discoverytype) {
@@ -811,7 +880,10 @@ impl IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemDiscoveryTypeFilterFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -822,8 +894,11 @@ impl ::windows::core::RuntimeName for IRemoteSystemEnumerationCompletedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemEnumerationCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemEnumerationCompletedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemEnumerationCompletedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemEnumerationCompletedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemEnumerationCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemEnumerationCompletedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemEnumerationCompletedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemEnumerationCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 pub trait IRemoteSystemFilterImpl: Sized {}
@@ -831,21 +906,24 @@ impl ::windows::core::RuntimeName for IRemoteSystemFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemFilter";
 }
 impl IRemoteSystemFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemFilterImpl, const OFFSET: isize>() -> IRemoteSystemFilterVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemFilter>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemFilterVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemFilter>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemFilter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemKindFilterImpl: Sized {
     fn RemoteSystemKinds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemKindFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemKindFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindFilterImpl, const OFFSET: isize>() -> IRemoteSystemKindFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemKindFilterVtbl {
         unsafe extern "system" fn RemoteSystemKinds<Impl: IRemoteSystemKindFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemKinds() {
@@ -857,20 +935,23 @@ impl IRemoteSystemKindFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemKinds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemKinds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemKindFilter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemKindFilterFactoryImpl: Sized {
     fn Create(&self, remotesystemkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<RemoteSystemKindFilter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemKindFilterFactory {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemKindFilterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemKindFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemKindFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemKindFilterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemKindFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&remotesystemkinds as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -882,7 +963,10 @@ impl IRemoteSystemKindFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemKindFilterFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -899,7 +983,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemKindStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemKindStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>() -> IRemoteSystemKindStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemKindStaticsVtbl {
         unsafe extern "system" fn Phone<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Phone() {
@@ -955,7 +1039,10 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics>, ::windows::core::GetTrustLevel, Phone::<Impl, OFFSET>, Hub::<Impl, OFFSET>, Holographic::<Impl, OFFSET>, Desktop::<Impl, OFFSET>, Xbox::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics>, ::windows::core::GetTrustLevel, Phone::<Impl, IMPL_OFFSET>, Hub::<Impl, IMPL_OFFSET>, Holographic::<Impl, IMPL_OFFSET>, Desktop::<Impl, IMPL_OFFSET>, Xbox::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemKindStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -970,7 +1057,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemKindStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemKindStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindStatics2Impl, const OFFSET: isize>() -> IRemoteSystemKindStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemKindStatics2Vtbl {
         unsafe extern "system" fn Iot<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Iot() {
@@ -1004,7 +1091,10 @@ impl IRemoteSystemKindStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics2>, ::windows::core::GetTrustLevel, Iot::<Impl, OFFSET>, Tablet::<Impl, OFFSET>, Laptop::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics2>, ::windows::core::GetTrustLevel, Iot::<Impl, IMPL_OFFSET>, Tablet::<Impl, IMPL_OFFSET>, Laptop::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemKindStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1017,7 +1107,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemRemovedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemRemovedEventArgsVtbl {
         unsafe extern "system" fn RemoteSystemId<Impl: IRemoteSystemRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemId() {
@@ -1029,10 +1119,13 @@ impl IRemoteSystemRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystemId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystemId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1042,13 +1135,13 @@ pub trait IRemoteSystemSessionImpl: Sized {
     fn CreateParticipantWatcher(&self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcher>;
     fn SendInvitationAsync(&self, invitee: &::core::option::Option<RemoteSystem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSession {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionImpl, const OFFSET: isize>() -> IRemoteSystemSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionVtbl {
         unsafe extern "system" fn Id<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1120,20 +1213,23 @@ impl IRemoteSystemSessionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRemoteSystemSession>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            ControllerDisplayName::<Impl, OFFSET>,
-            Disconnected::<Impl, OFFSET>,
-            RemoveDisconnected::<Impl, OFFSET>,
-            CreateParticipantWatcher::<Impl, OFFSET>,
-            SendInvitationAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            ControllerDisplayName::<Impl, IMPL_OFFSET>,
+            Disconnected::<Impl, IMPL_OFFSET>,
+            RemoveDisconnected::<Impl, IMPL_OFFSET>,
+            CreateParticipantWatcher::<Impl, IMPL_OFFSET>,
+            SendInvitationAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1146,7 +1242,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionAddedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionAddedEventArgsVtbl {
         unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
@@ -1158,23 +1254,26 @@ impl IRemoteSystemSessionAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionAddedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionAddedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionControllerImpl: Sized {
     fn JoinRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveJoinRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn RemoveParticipantAsync(&self, pparticipant: &::core::option::Option<RemoteSystemSessionParticipant>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn CreateSessionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionCreationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionController {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>() -> IRemoteSystemSessionControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionControllerVtbl {
         unsafe extern "system" fn JoinRequested<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JoinRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1212,7 +1311,10 @@ impl IRemoteSystemSessionControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionController>, ::windows::core::GetTrustLevel, JoinRequested::<Impl, OFFSET>, RemoveJoinRequested::<Impl, OFFSET>, RemoveParticipantAsync::<Impl, OFFSET>, CreateSessionAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionController>, ::windows::core::GetTrustLevel, JoinRequested::<Impl, IMPL_OFFSET>, RemoveJoinRequested::<Impl, IMPL_OFFSET>, RemoveParticipantAsync::<Impl, IMPL_OFFSET>, CreateSessionAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionController as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1226,7 +1328,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionControllerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionControllerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: isize>() -> IRemoteSystemSessionControllerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionControllerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionControllerFactoryVtbl {
         unsafe extern "system" fn CreateController<Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateController(&*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1249,7 +1351,10 @@ impl IRemoteSystemSessionControllerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionControllerFactory>, ::windows::core::GetTrustLevel, CreateController::<Impl, OFFSET>, CreateControllerWithSessionOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionControllerFactory>, ::windows::core::GetTrustLevel, CreateController::<Impl, IMPL_OFFSET>, CreateControllerWithSessionOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionControllerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1263,7 +1368,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionCreationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionCreationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: isize>() -> IRemoteSystemSessionCreationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionCreationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionCreationResultVtbl {
         unsafe extern "system" fn Status<Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionCreationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1286,7 +1391,10 @@ impl IRemoteSystemSessionCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Session::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionCreationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1299,7 +1407,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionDisconnectedEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionDisconnectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionDisconnectedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionDisconnectedEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionDisconnectedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -1311,22 +1419,25 @@ impl IRemoteSystemSessionDisconnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionDisconnectedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionInfoImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ControllerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn JoinAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionJoinResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInfoImpl, const OFFSET: isize>() -> IRemoteSystemSessionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionInfoVtbl {
         unsafe extern "system" fn DisplayName<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -1360,7 +1471,10 @@ impl IRemoteSystemSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, ControllerDisplayName::<Impl, OFFSET>, JoinAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, ControllerDisplayName::<Impl, IMPL_OFFSET>, JoinAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1374,7 +1488,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionInvitationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: isize>() -> IRemoteSystemSessionInvitationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionInvitationVtbl {
         unsafe extern "system" fn Sender<Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sender() {
@@ -1397,21 +1511,24 @@ impl IRemoteSystemSessionInvitationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitation>, ::windows::core::GetTrustLevel, Sender::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitation>, ::windows::core::GetTrustLevel, Sender::<Impl, IMPL_OFFSET>, SessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionInvitation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionInvitationListenerImpl: Sized {
     fn InvitationReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInvitationReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitationListener {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionInvitationListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: isize>() -> IRemoteSystemSessionInvitationListenerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionInvitationListenerVtbl {
         unsafe extern "system" fn InvitationReceived<Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvitationReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1427,7 +1544,10 @@ impl IRemoteSystemSessionInvitationListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInvitationReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationListener>, ::windows::core::GetTrustLevel, InvitationReceived::<Impl, OFFSET>, RemoveInvitationReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationListener>, ::windows::core::GetTrustLevel, InvitationReceived::<Impl, IMPL_OFFSET>, RemoveInvitationReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionInvitationListener as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1440,7 +1560,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitationReceivedEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
         unsafe extern "system" fn Invitation<Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Invitation() {
@@ -1452,7 +1572,10 @@ impl IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationReceivedEventArgs>, ::windows::core::GetTrustLevel, Invitation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationReceivedEventArgs>, ::windows::core::GetTrustLevel, Invitation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionInvitationReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1466,7 +1589,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionJoinRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: isize>() -> IRemoteSystemSessionJoinRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionJoinRequestVtbl {
         unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Participant() {
@@ -1482,21 +1605,24 @@ impl IRemoteSystemSessionJoinRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequest>, ::windows::core::GetTrustLevel, Participant::<Impl, OFFSET>, Accept::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequest>, ::windows::core::GetTrustLevel, Participant::<Impl, IMPL_OFFSET>, Accept::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionJoinRequest as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionJoinRequestedEventArgsImpl: Sized {
     fn JoinRequest(&self) -> ::windows::core::Result<RemoteSystemSessionJoinRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionJoinRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionJoinRequestedEventArgsVtbl {
         unsafe extern "system" fn JoinRequest<Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JoinRequest() {
@@ -1519,7 +1645,10 @@ impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequestedEventArgs>, ::windows::core::GetTrustLevel, JoinRequest::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequestedEventArgs>, ::windows::core::GetTrustLevel, JoinRequest::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionJoinRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1533,7 +1662,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionJoinResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: isize>() -> IRemoteSystemSessionJoinResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionJoinResultVtbl {
         unsafe extern "system" fn Status<Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionJoinStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1556,10 +1685,13 @@ impl IRemoteSystemSessionJoinResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Session::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionJoinResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionMessageChannelImpl: Sized {
     fn Session(&self) -> ::windows::core::Result<RemoteSystemSession>;
     fn BroadcastValueSetAsync(&self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -1568,13 +1700,13 @@ pub trait IRemoteSystemSessionMessageChannelImpl: Sized {
     fn ValueSetReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveValueSetReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionMessageChannel {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionMessageChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>() -> IRemoteSystemSessionMessageChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionMessageChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionMessageChannelVtbl {
         unsafe extern "system" fn Session<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -1638,19 +1770,22 @@ impl IRemoteSystemSessionMessageChannelVtbl {
             (*this).RemoveValueSetReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannel>,
             ::windows::core::GetTrustLevel,
-            Session::<Impl, OFFSET>,
-            BroadcastValueSetAsync::<Impl, OFFSET>,
-            SendValueSetAsync::<Impl, OFFSET>,
-            SendValueSetToParticipantsAsync::<Impl, OFFSET>,
-            ValueSetReceived::<Impl, OFFSET>,
-            RemoveValueSetReceived::<Impl, OFFSET>,
+            Session::<Impl, IMPL_OFFSET>,
+            BroadcastValueSetAsync::<Impl, IMPL_OFFSET>,
+            SendValueSetAsync::<Impl, IMPL_OFFSET>,
+            SendValueSetToParticipantsAsync::<Impl, IMPL_OFFSET>,
+            ValueSetReceived::<Impl, IMPL_OFFSET>,
+            RemoveValueSetReceived::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionMessageChannel as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1664,7 +1799,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionMessageChannelFactory 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionMessageChannelFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: isize>() -> IRemoteSystemSessionMessageChannelFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionMessageChannelFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, channelname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&session as *const <RemoteSystemSession as ::windows::core::Abi>::Abi as *const <RemoteSystemSession as ::windows::core::DefaultType>::DefaultType), &*(&channelname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1687,7 +1822,10 @@ impl IRemoteSystemSessionMessageChannelFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannelFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithReliability::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannelFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithReliability::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionMessageChannelFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1701,7 +1839,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: isize>() -> IRemoteSystemSessionOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionOptionsVtbl {
         unsafe extern "system" fn IsInviteOnly<Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInviteOnly() {
@@ -1717,21 +1855,24 @@ impl IRemoteSystemSessionOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsInviteOnly(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionOptions>, ::windows::core::GetTrustLevel, IsInviteOnly::<Impl, OFFSET>, SetIsInviteOnly::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionOptions>, ::windows::core::GetTrustLevel, IsInviteOnly::<Impl, IMPL_OFFSET>, SetIsInviteOnly::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionParticipantImpl: Sized {
     fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem>;
     fn GetHostNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::HostName>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipant {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionParticipant";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionParticipantVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionParticipantVtbl {
         unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
@@ -1754,7 +1895,10 @@ impl IRemoteSystemSessionParticipantVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipant>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>, GetHostNames::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipant>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>, GetHostNames::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionParticipant as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1767,7 +1911,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantAddedEventA
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionParticipantAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionParticipantAddedEventArgsVtbl {
         unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Participant() {
@@ -1779,7 +1923,10 @@ impl IRemoteSystemSessionParticipantAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantAddedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantAddedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionParticipantAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1792,7 +1939,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantRemovedEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
         unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Participant() {
@@ -1804,10 +1951,13 @@ impl IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantRemovedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantRemovedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionParticipantRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionParticipantWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -1819,13 +1969,13 @@ pub trait IRemoteSystemSessionParticipantWatcherImpl: Sized {
     fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionParticipantWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionParticipantWatcherVtbl {
         unsafe extern "system" fn Start<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -1891,22 +2041,25 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantWatcher>,
             ::windows::core::GetTrustLevel,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            Removed::<Impl, OFFSET>,
-            RemoveRemoved::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionParticipantWatcher as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1919,7 +2072,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionRemovedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionRemovedEventArgsVtbl {
         unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
@@ -1931,7 +2084,10 @@ impl IRemoteSystemSessionRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionRemovedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionRemovedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1944,7 +2100,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionStaticsImpl, const OFFSET: isize>() -> IRemoteSystemSessionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionStaticsVtbl {
         unsafe extern "system" fn CreateWatcher<Impl: IRemoteSystemSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
@@ -1956,7 +2112,10 @@ impl IRemoteSystemSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1969,7 +2128,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionUpdatedEventArgsVtbl {
         unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
@@ -1981,21 +2140,24 @@ impl IRemoteSystemSessionUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionUpdatedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionUpdatedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionValueSetReceivedEventArgsImpl: Sized {
     fn Sender(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
     fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionValueSetReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
         unsafe extern "system" fn Sender<Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sender() {
@@ -2018,10 +2180,13 @@ impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionValueSetReceivedEventArgs>, ::windows::core::GetTrustLevel, Sender::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionValueSetReceivedEventArgs>, ::windows::core::GetTrustLevel, Sender::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionValueSetReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -2033,13 +2198,13 @@ pub trait IRemoteSystemSessionWatcherImpl: Sized {
     fn Removed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemSessionWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemSessionWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>() -> IRemoteSystemSessionWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemSessionWatcherVtbl {
         unsafe extern "system" fn Start<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -2105,38 +2270,41 @@ impl IRemoteSystemSessionWatcherVtbl {
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionWatcher>,
             ::windows::core::GetTrustLevel,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            Updated::<Impl, OFFSET>,
-            RemoveUpdated::<Impl, OFFSET>,
-            Removed::<Impl, OFFSET>,
-            RemoveRemoved::<Impl, OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated::<Impl, IMPL_OFFSET>,
+            Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemSessionWatcher as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IRemoteSystemStaticsImpl: Sized {
     fn FindByHostNameAsync(&self, hostname: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>>;
     fn CreateWatcher(&self) -> ::windows::core::Result<RemoteSystemWatcher>;
     fn CreateWatcherWithFilters(&self, filters: &::core::option::Option<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>) -> ::windows::core::Result<RemoteSystemWatcher>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemStatics {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl IRemoteSystemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>() -> IRemoteSystemStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemStaticsVtbl {
         unsafe extern "system" fn FindByHostNameAsync<Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostname: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindByHostNameAsync(&*(&hostname as *const <super::super::Networking::HostName as ::windows::core::Abi>::Abi as *const <super::super::Networking::HostName as ::windows::core::DefaultType>::DefaultType)) {
@@ -2181,7 +2349,10 @@ impl IRemoteSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics>, ::windows::core::GetTrustLevel, FindByHostNameAsync::<Impl, OFFSET>, CreateWatcher::<Impl, OFFSET>, CreateWatcherWithFilters::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics>, ::windows::core::GetTrustLevel, FindByHostNameAsync::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>, CreateWatcherWithFilters::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2194,7 +2365,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatics2Impl, const OFFSET: isize>() -> IRemoteSystemStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemStatics2Vtbl {
         unsafe extern "system" fn IsAuthorizationKindEnabled<Impl: IRemoteSystemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: RemoteSystemAuthorizationKind, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAuthorizationKindEnabled(kind) {
@@ -2206,21 +2377,24 @@ impl IRemoteSystemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics2>, ::windows::core::GetTrustLevel, IsAuthorizationKindEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics2>, ::windows::core::GetTrustLevel, IsAuthorizationKindEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemStatics3Impl: Sized {
     fn CreateWatcherForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<RemoteSystemWatcher>;
     fn CreateWatcherWithFiltersForUser(&self, user: &::core::option::Option<super::User>, filters: &::core::option::Option<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>) -> ::windows::core::Result<RemoteSystemWatcher>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemStatics3 {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRemoteSystemStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatics3Impl, const OFFSET: isize>() -> IRemoteSystemStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemStatics3Vtbl {
         unsafe extern "system" fn CreateWatcherForUser<Impl: IRemoteSystemStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -2243,7 +2417,10 @@ impl IRemoteSystemStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics3>, ::windows::core::GetTrustLevel, CreateWatcherForUser::<Impl, OFFSET>, CreateWatcherWithFiltersForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics3>, ::windows::core::GetTrustLevel, CreateWatcherForUser::<Impl, IMPL_OFFSET>, CreateWatcherWithFiltersForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2256,7 +2433,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatusTypeFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatusTypeFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatusTypeFilterImpl, const OFFSET: isize>() -> IRemoteSystemStatusTypeFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatusTypeFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemStatusTypeFilterVtbl {
         unsafe extern "system" fn RemoteSystemStatusType<Impl: IRemoteSystemStatusTypeFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemStatusType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemStatusType() {
@@ -2268,7 +2445,10 @@ impl IRemoteSystemStatusTypeFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemStatusType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemStatusType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemStatusTypeFilter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2281,7 +2461,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatusTypeFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatusTypeFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemStatusTypeFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemStatusTypeFilterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemstatustype: RemoteSystemStatusType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(remotesystemstatustype) {
@@ -2293,7 +2473,10 @@ impl IRemoteSystemStatusTypeFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemStatusTypeFilterFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2306,7 +2489,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemUpdatedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemUpdatedEventArgsVtbl {
         unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
@@ -2318,10 +2501,13 @@ impl IRemoteSystemUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemUpdatedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemUpdatedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -2332,13 +2518,13 @@ pub trait IRemoteSystemWatcherImpl: Sized {
     fn RemoteSystemRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRemoteSystemRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>() -> IRemoteSystemWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemWatcherVtbl {
         unsafe extern "system" fn Start<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -2393,37 +2579,40 @@ impl IRemoteSystemWatcherVtbl {
             (*this).RemoveRemoteSystemRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher>,
             ::windows::core::GetTrustLevel,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            RemoteSystemAdded::<Impl, OFFSET>,
-            RemoveRemoteSystemAdded::<Impl, OFFSET>,
-            RemoteSystemUpdated::<Impl, OFFSET>,
-            RemoveRemoteSystemUpdated::<Impl, OFFSET>,
-            RemoteSystemRemoved::<Impl, OFFSET>,
-            RemoveRemoteSystemRemoved::<Impl, OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            RemoteSystemAdded::<Impl, IMPL_OFFSET>,
+            RemoveRemoteSystemAdded::<Impl, IMPL_OFFSET>,
+            RemoteSystemUpdated::<Impl, IMPL_OFFSET>,
+            RemoveRemoteSystemUpdated::<Impl, IMPL_OFFSET>,
+            RemoteSystemRemoved::<Impl, IMPL_OFFSET>,
+            RemoveRemoteSystemRemoved::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemWatcher as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWatcher2Impl: Sized {
     fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn ErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWatcher2 {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemWatcher2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRemoteSystemWatcher2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>() -> IRemoteSystemWatcher2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcher2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemWatcher2Vtbl {
         unsafe extern "system" fn EnumerationCompleted<Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2454,7 +2643,10 @@ impl IRemoteSystemWatcher2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher2>, ::windows::core::GetTrustLevel, EnumerationCompleted::<Impl, OFFSET>, RemoveEnumerationCompleted::<Impl, OFFSET>, ErrorOccurred::<Impl, OFFSET>, RemoveErrorOccurred::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher2>, ::windows::core::GetTrustLevel, EnumerationCompleted::<Impl, IMPL_OFFSET>, RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>, ErrorOccurred::<Impl, IMPL_OFFSET>, RemoveErrorOccurred::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemWatcher2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2467,7 +2659,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemWatcher3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWatcher3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcher3Impl, const OFFSET: isize>() -> IRemoteSystemWatcher3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcher3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemWatcher3Vtbl {
         unsafe extern "system" fn User<Impl: IRemoteSystemWatcher3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -2479,7 +2671,10 @@ impl IRemoteSystemWatcher3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher3>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemWatcher3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2492,7 +2687,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemWatcherErrorOccurredEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
         unsafe extern "system" fn Error<Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemWatcherError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
@@ -2504,20 +2699,23 @@ impl IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcherErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcherErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemWatcherErrorOccurredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWebAccountFilterImpl: Sized {
     fn Account(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWebAccountFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemWebAccountFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IRemoteSystemWebAccountFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWebAccountFilterImpl, const OFFSET: isize>() -> IRemoteSystemWebAccountFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWebAccountFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemWebAccountFilterVtbl {
         unsafe extern "system" fn Account<Impl: IRemoteSystemWebAccountFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Account() {
@@ -2529,20 +2727,23 @@ impl IRemoteSystemWebAccountFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilter>, ::windows::core::GetTrustLevel, Account::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilter>, ::windows::core::GetTrustLevel, Account::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemWebAccountFilter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWebAccountFilterFactoryImpl: Sized {
     fn Create(&self, account: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<RemoteSystemWebAccountFilter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWebAccountFilterFactory {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemWebAccountFilterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IRemoteSystemWebAccountFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWebAccountFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemWebAccountFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWebAccountFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteSystemWebAccountFilterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IRemoteSystemWebAccountFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, account: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&account as *const <super::super::Security::Credentials::WebAccount as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::WebAccount as ::windows::core::DefaultType>::DefaultType)) {
@@ -2554,6 +2755,9 @@ impl IRemoteSystemWebAccountFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteSystemWebAccountFilterFactory as ::windows::core::Interface>::IID
     }
 }

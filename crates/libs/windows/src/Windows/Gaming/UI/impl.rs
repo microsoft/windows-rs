@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameBarStaticsImpl: Sized {
     fn VisibilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveVisibilityChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -7,13 +7,13 @@ pub trait IGameBarStaticsImpl: Sized {
     fn Visible(&self) -> ::windows::core::Result<bool>;
     fn IsInputRedirected(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameBarStatics {
     const NAME: &'static str = "Windows.Gaming.UI.IGameBarStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGameBarStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarStaticsImpl, const OFFSET: isize>() -> IGameBarStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarStaticsVtbl {
         unsafe extern "system" fn VisibilityChanged<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisibilityChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -67,19 +67,22 @@ impl IGameBarStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGameBarStatics>,
             ::windows::core::GetTrustLevel,
-            VisibilityChanged::<Impl, OFFSET>,
-            RemoveVisibilityChanged::<Impl, OFFSET>,
-            IsInputRedirectedChanged::<Impl, OFFSET>,
-            RemoveIsInputRedirectedChanged::<Impl, OFFSET>,
-            Visible::<Impl, OFFSET>,
-            IsInputRedirected::<Impl, OFFSET>,
+            VisibilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveVisibilityChanged::<Impl, IMPL_OFFSET>,
+            IsInputRedirectedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsInputRedirectedChanged::<Impl, IMPL_OFFSET>,
+            Visible::<Impl, IMPL_OFFSET>,
+            IsInputRedirected::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameBarStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -96,7 +99,7 @@ impl ::windows::core::RuntimeName for IGameChatMessageReceivedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGameChatMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>() -> IGameChatMessageReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatMessageReceivedEventArgsVtbl {
         unsafe extern "system" fn AppId<Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
@@ -152,7 +155,10 @@ impl IGameChatMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, AppId::<Impl, OFFSET>, AppDisplayName::<Impl, OFFSET>, SenderName::<Impl, OFFSET>, Message::<Impl, OFFSET>, Origin::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, AppId::<Impl, IMPL_OFFSET>, AppDisplayName::<Impl, IMPL_OFFSET>, SenderName::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>, Origin::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameChatMessageReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -167,7 +173,7 @@ impl ::windows::core::RuntimeName for IGameChatOverlay {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGameChatOverlayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayImpl, const OFFSET: isize>() -> IGameChatOverlayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayVtbl {
         unsafe extern "system" fn DesiredPosition<Impl: IGameChatOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameChatOverlayPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredPosition() {
@@ -187,22 +193,25 @@ impl IGameChatOverlayVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddMessage(&*(&sender as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), origin).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlay>, ::windows::core::GetTrustLevel, DesiredPosition::<Impl, OFFSET>, SetDesiredPosition::<Impl, OFFSET>, AddMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlay>, ::windows::core::GetTrustLevel, DesiredPosition::<Impl, IMPL_OFFSET>, SetDesiredPosition::<Impl, IMPL_OFFSET>, AddMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameChatOverlay as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameChatOverlayMessageSourceImpl: Sized {
     fn MessageReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SetDelayBeforeClosingAfterMessageReceived(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.IGameChatOverlayMessageSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGameChatOverlayMessageSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayMessageSourceImpl, const OFFSET: isize>() -> IGameChatOverlayMessageSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayMessageSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayMessageSourceVtbl {
         unsafe extern "system" fn MessageReceived<Impl: IGameChatOverlayMessageSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -222,7 +231,10 @@ impl IGameChatOverlayMessageSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayBeforeClosingAfterMessageReceived(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlayMessageSource>, ::windows::core::GetTrustLevel, MessageReceived::<Impl, OFFSET>, RemoveMessageReceived::<Impl, OFFSET>, SetDelayBeforeClosingAfterMessageReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlayMessageSource>, ::windows::core::GetTrustLevel, MessageReceived::<Impl, IMPL_OFFSET>, RemoveMessageReceived::<Impl, IMPL_OFFSET>, SetDelayBeforeClosingAfterMessageReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameChatOverlayMessageSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -235,7 +247,7 @@ impl ::windows::core::RuntimeName for IGameChatOverlayStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGameChatOverlayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayStaticsImpl, const OFFSET: isize>() -> IGameChatOverlayStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IGameChatOverlayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -247,21 +259,24 @@ impl IGameChatOverlayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlayStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameChatOverlayStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameChatOverlayStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGameUIProviderActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
     fn GameUIArgs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn ReportCompleted(&self, results: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.IGameUIProviderActivatedEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGameUIProviderActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameUIProviderActivatedEventArgsImpl, const OFFSET: isize>() -> IGameUIProviderActivatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameUIProviderActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameUIProviderActivatedEventArgsVtbl {
         unsafe extern "system" fn GameUIArgs<Impl: IGameUIProviderActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GameUIArgs() {
@@ -277,6 +292,9 @@ impl IGameUIProviderActivatedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&results as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameUIProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, GameUIArgs::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameUIProviderActivatedEventArgs>, ::windows::core::GetTrustLevel, GameUIArgs::<Impl, IMPL_OFFSET>, ReportCompleted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameUIProviderActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }

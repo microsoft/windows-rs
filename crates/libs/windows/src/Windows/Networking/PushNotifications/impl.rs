@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -6,13 +6,13 @@ pub trait IPushNotificationChannelImpl: Sized {
     fn PushNotificationReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PushNotificationChannel, PushNotificationReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePushNotificationReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationChannel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPushNotificationChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelImpl, const OFFSET: isize>() -> IPushNotificationChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelVtbl {
         unsafe extern "system" fn Uri<Impl: IPushNotificationChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -54,23 +54,26 @@ impl IPushNotificationChannelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePushNotificationReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannel>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, ExpirationTime::<Impl, OFFSET>, Close::<Impl, OFFSET>, PushNotificationReceived::<Impl, OFFSET>, RemovePushNotificationReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannel>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>, PushNotificationReceived::<Impl, IMPL_OFFSET>, RemovePushNotificationReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannel as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerForUserImpl: Sized {
     fn CreatePushNotificationChannelForApplicationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
     fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
     fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IPushNotificationChannelManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerForUserImpl, const OFFSET: isize>() -> IPushNotificationChannelManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelManagerForUserVtbl {
         unsafe extern "system" fn CreatePushNotificationChannelForApplicationAsync<Impl: IPushNotificationChannelManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePushNotificationChannelForApplicationAsync() {
@@ -116,31 +119,34 @@ impl IPushNotificationChannelManagerForUserVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerForUser>,
             ::windows::core::GetTrustLevel,
-            CreatePushNotificationChannelForApplicationAsync::<Impl, OFFSET>,
-            CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, OFFSET>,
-            CreatePushNotificationChannelForSecondaryTileAsync::<Impl, OFFSET>,
-            User::<Impl, OFFSET>,
+            CreatePushNotificationChannelForApplicationAsync::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForSecondaryTileAsync::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelManagerForUser as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerForUser2Impl: Sized {
     fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync(&self, appserverkey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, channelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
     fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId(&self, appserverkey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, channelid: &::windows::core::HSTRING, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerForUser2 {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPushNotificationChannelManagerForUser2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerForUser2Impl, const OFFSET: isize>() -> IPushNotificationChannelManagerForUser2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerForUser2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelManagerForUser2Vtbl {
         unsafe extern "system" fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<Impl: IPushNotificationChannelManagerForUser2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appserverkey: ::windows::core::RawPtr, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync(&*(&appserverkey as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&channelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -167,22 +173,34 @@ impl IPushNotificationChannelManagerForUser2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerForUser2>, ::windows::core::GetTrustLevel, CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync::<Impl, OFFSET>, CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerForUser2>,
+            ::windows::core::GetTrustLevel,
+            CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync::<Impl, IMPL_OFFSET>,
+            CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelManagerForUser2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerStaticsImpl: Sized {
     fn CreatePushNotificationChannelForApplicationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
     fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
     fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPushNotificationChannelManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStaticsImpl, const OFFSET: isize>() -> IPushNotificationChannelManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelManagerStaticsVtbl {
         unsafe extern "system" fn CreatePushNotificationChannelForApplicationAsync<Impl: IPushNotificationChannelManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePushNotificationChannelForApplicationAsync() {
@@ -217,29 +235,32 @@ impl IPushNotificationChannelManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics>,
             ::windows::core::GetTrustLevel,
-            CreatePushNotificationChannelForApplicationAsync::<Impl, OFFSET>,
-            CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, OFFSET>,
-            CreatePushNotificationChannelForSecondaryTileAsync::<Impl, OFFSET>,
+            CreatePushNotificationChannelForApplicationAsync::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForApplicationAsyncWithId::<Impl, IMPL_OFFSET>,
+            CreatePushNotificationChannelForSecondaryTileAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelManagerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerStatics2Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PushNotificationChannelManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics2 {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IPushNotificationChannelManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStatics2Impl, const OFFSET: isize>() -> IPushNotificationChannelManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelManagerStatics2Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IPushNotificationChannelManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -251,7 +272,10 @@ impl IPushNotificationChannelManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -264,7 +288,7 @@ impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPushNotificationChannelManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStatics3Impl, const OFFSET: isize>() -> IPushNotificationChannelManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelManagerStatics3Vtbl {
         unsafe extern "system" fn GetDefault<Impl: IPushNotificationChannelManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -276,21 +300,24 @@ impl IPushNotificationChannelManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics3>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics3>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelManagerStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerStatics4Impl: Sized {
     fn ChannelsRevoked(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChannelsRevoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics4 {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPushNotificationChannelManagerStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStatics4Impl, const OFFSET: isize>() -> IPushNotificationChannelManagerStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelManagerStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelManagerStatics4Vtbl {
         unsafe extern "system" fn ChannelsRevoked<Impl: IPushNotificationChannelManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelsRevoked(&*(&handler as *const <super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -306,7 +333,10 @@ impl IPushNotificationChannelManagerStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChannelsRevoked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics4>, ::windows::core::GetTrustLevel, ChannelsRevoked::<Impl, OFFSET>, RemoveChannelsRevoked::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelManagerStatics4>, ::windows::core::GetTrustLevel, ChannelsRevoked::<Impl, IMPL_OFFSET>, RemoveChannelsRevoked::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelManagerStatics4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -317,11 +347,14 @@ impl ::windows::core::RuntimeName for IPushNotificationChannelsRevokedEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPushNotificationChannelsRevokedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelsRevokedEventArgsImpl, const OFFSET: isize>() -> IPushNotificationChannelsRevokedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelsRevokedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationChannelsRevokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationChannelsRevokedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationChannelsRevokedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationChannelsRevokedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait IPushNotificationReceivedEventArgsImpl: Sized {
     fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<bool>;
@@ -331,13 +364,13 @@ pub trait IPushNotificationReceivedEventArgsImpl: Sized {
     fn BadgeNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeNotification>;
     fn RawNotification(&self) -> ::windows::core::Result<RawNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IPushNotificationReceivedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl IPushNotificationReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationReceivedEventArgsImpl, const OFFSET: isize>() -> IPushNotificationReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationReceivedEventArgsVtbl {
         unsafe extern "system" fn SetCancel<Impl: IPushNotificationReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCancel(value).into()
@@ -409,20 +442,23 @@ impl IPushNotificationReceivedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPushNotificationReceivedEventArgs>,
             ::windows::core::GetTrustLevel,
-            SetCancel::<Impl, OFFSET>,
-            Cancel::<Impl, OFFSET>,
-            NotificationType::<Impl, OFFSET>,
-            ToastNotification::<Impl, OFFSET>,
-            TileNotification::<Impl, OFFSET>,
-            BadgeNotification::<Impl, OFFSET>,
-            RawNotification::<Impl, OFFSET>,
+            SetCancel::<Impl, IMPL_OFFSET>,
+            Cancel::<Impl, IMPL_OFFSET>,
+            NotificationType::<Impl, IMPL_OFFSET>,
+            ToastNotification::<Impl, IMPL_OFFSET>,
+            TileNotification::<Impl, IMPL_OFFSET>,
+            BadgeNotification::<Impl, IMPL_OFFSET>,
+            RawNotification::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -435,7 +471,7 @@ impl ::windows::core::RuntimeName for IRawNotification {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRawNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawNotificationImpl, const OFFSET: isize>() -> IRawNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawNotificationVtbl {
         unsafe extern "system" fn Content<Impl: IRawNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -447,21 +483,24 @@ impl IRawNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification>, ::windows::core::GetTrustLevel, Content::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRawNotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRawNotification2Impl: Sized {
     fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
     fn ChannelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawNotification2 {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IRawNotification2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRawNotification2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawNotification2Impl, const OFFSET: isize>() -> IRawNotification2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawNotification2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawNotification2Vtbl {
         unsafe extern "system" fn Headers<Impl: IRawNotification2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Headers() {
@@ -484,20 +523,23 @@ impl IRawNotification2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification2>, ::windows::core::GetTrustLevel, Headers::<Impl, OFFSET>, ChannelId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification2>, ::windows::core::GetTrustLevel, Headers::<Impl, IMPL_OFFSET>, ChannelId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRawNotification2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRawNotification3Impl: Sized {
     fn ContentBytes(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawNotification3 {
     const NAME: &'static str = "Windows.Networking.PushNotifications.IRawNotification3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IRawNotification3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawNotification3Impl, const OFFSET: isize>() -> IRawNotification3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawNotification3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawNotification3Vtbl {
         unsafe extern "system" fn ContentBytes<Impl: IRawNotification3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentBytes() {
@@ -509,6 +551,9 @@ impl IRawNotification3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification3>, ::windows::core::GetTrustLevel, ContentBytes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawNotification3>, ::windows::core::GetTrustLevel, ContentBytes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRawNotification3 as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaTranscoderImpl: Sized {
     fn SetTrimStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn TrimStartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -16,13 +16,13 @@ pub trait IMediaTranscoderImpl: Sized {
     fn PrepareFileTranscodeAsync(&self, source: &::core::option::Option<super::super::Storage::IStorageFile>, destination: &::core::option::Option<super::super::Storage::IStorageFile>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
     fn PrepareStreamTranscodeAsync(&self, source: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.IMediaTranscoder";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMediaTranscoderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoderImpl, const OFFSET: isize>() -> IMediaTranscoderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTranscoderVtbl {
         unsafe extern "system" fn SetTrimStartTime<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimStartTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
@@ -134,43 +134,46 @@ impl IMediaTranscoderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMediaTranscoder>,
             ::windows::core::GetTrustLevel,
-            SetTrimStartTime::<Impl, OFFSET>,
-            TrimStartTime::<Impl, OFFSET>,
-            SetTrimStopTime::<Impl, OFFSET>,
-            TrimStopTime::<Impl, OFFSET>,
-            SetAlwaysReencode::<Impl, OFFSET>,
-            AlwaysReencode::<Impl, OFFSET>,
-            SetHardwareAccelerationEnabled::<Impl, OFFSET>,
-            HardwareAccelerationEnabled::<Impl, OFFSET>,
-            AddAudioEffect::<Impl, OFFSET>,
-            AddAudioEffectWithSettings::<Impl, OFFSET>,
-            AddVideoEffect::<Impl, OFFSET>,
-            AddVideoEffectWithSettings::<Impl, OFFSET>,
-            ClearEffects::<Impl, OFFSET>,
-            PrepareFileTranscodeAsync::<Impl, OFFSET>,
-            PrepareStreamTranscodeAsync::<Impl, OFFSET>,
+            SetTrimStartTime::<Impl, IMPL_OFFSET>,
+            TrimStartTime::<Impl, IMPL_OFFSET>,
+            SetTrimStopTime::<Impl, IMPL_OFFSET>,
+            TrimStopTime::<Impl, IMPL_OFFSET>,
+            SetAlwaysReencode::<Impl, IMPL_OFFSET>,
+            AlwaysReencode::<Impl, IMPL_OFFSET>,
+            SetHardwareAccelerationEnabled::<Impl, IMPL_OFFSET>,
+            HardwareAccelerationEnabled::<Impl, IMPL_OFFSET>,
+            AddAudioEffect::<Impl, IMPL_OFFSET>,
+            AddAudioEffectWithSettings::<Impl, IMPL_OFFSET>,
+            AddVideoEffect::<Impl, IMPL_OFFSET>,
+            AddVideoEffectWithSettings::<Impl, IMPL_OFFSET>,
+            ClearEffects::<Impl, IMPL_OFFSET>,
+            PrepareFileTranscodeAsync::<Impl, IMPL_OFFSET>,
+            PrepareStreamTranscodeAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaTranscoder as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaTranscoder2Impl: Sized {
     fn PrepareMediaStreamSourceTranscodeAsync(&self, source: &::core::option::Option<super::Core::IMediaSource>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
     fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()>;
     fn VideoProcessingAlgorithm(&self) -> ::windows::core::Result<MediaVideoProcessingAlgorithm>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTranscoder2 {
     const NAME: &'static str = "Windows.Media.Transcoding.IMediaTranscoder2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMediaTranscoder2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoder2Impl, const OFFSET: isize>() -> IMediaTranscoder2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoder2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTranscoder2Vtbl {
         unsafe extern "system" fn PrepareMediaStreamSourceTranscodeAsync<Impl: IMediaTranscoder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareMediaStreamSourceTranscodeAsync(
@@ -201,22 +204,25 @@ impl IMediaTranscoder2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTranscoder2>, ::windows::core::GetTrustLevel, PrepareMediaStreamSourceTranscodeAsync::<Impl, OFFSET>, SetVideoProcessingAlgorithm::<Impl, OFFSET>, VideoProcessingAlgorithm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaTranscoder2>, ::windows::core::GetTrustLevel, PrepareMediaStreamSourceTranscodeAsync::<Impl, IMPL_OFFSET>, SetVideoProcessingAlgorithm::<Impl, IMPL_OFFSET>, VideoProcessingAlgorithm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaTranscoder2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrepareTranscodeResultImpl: Sized {
     fn CanTranscode(&self) -> ::windows::core::Result<bool>;
     fn FailureReason(&self) -> ::windows::core::Result<TranscodeFailureReason>;
     fn TranscodeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.IPrepareTranscodeResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrepareTranscodeResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareTranscodeResultImpl, const OFFSET: isize>() -> IPrepareTranscodeResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareTranscodeResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareTranscodeResultVtbl {
         unsafe extern "system" fn CanTranscode<Impl: IPrepareTranscodeResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanTranscode() {
@@ -250,6 +256,9 @@ impl IPrepareTranscodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrepareTranscodeResult>, ::windows::core::GetTrustLevel, CanTranscode::<Impl, OFFSET>, FailureReason::<Impl, OFFSET>, TranscodeAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrepareTranscodeResult>, ::windows::core::GetTrustLevel, CanTranscode::<Impl, IMPL_OFFSET>, FailureReason::<Impl, IMPL_OFFSET>, TranscodeAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrepareTranscodeResult as ::windows::core::Interface>::IID
     }
 }

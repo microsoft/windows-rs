@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Effects", feature = "implement_exclusive"))]
 pub trait ISceneLightingEffectImpl: Sized {
     fn AmbientAmount(&self) -> ::windows::core::Result<f32>;
     fn SetAmbientAmount(&self, value: f32) -> ::windows::core::Result<()>;
@@ -11,13 +11,13 @@ pub trait ISceneLightingEffectImpl: Sized {
     fn SpecularShine(&self) -> ::windows::core::Result<f32>;
     fn SetSpecularShine(&self, value: f32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.ISceneLightingEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Effects", feature = "implement_exclusive"))]
 impl ISceneLightingEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneLightingEffectImpl, const OFFSET: isize>() -> ISceneLightingEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneLightingEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneLightingEffectVtbl {
         unsafe extern "system" fn AmbientAmount<Impl: ISceneLightingEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AmbientAmount() {
@@ -94,23 +94,26 @@ impl ISceneLightingEffectVtbl {
             (*this).SetSpecularShine(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISceneLightingEffect>,
             ::windows::core::GetTrustLevel,
-            AmbientAmount::<Impl, OFFSET>,
-            SetAmbientAmount::<Impl, OFFSET>,
-            DiffuseAmount::<Impl, OFFSET>,
-            SetDiffuseAmount::<Impl, OFFSET>,
-            NormalMapSource::<Impl, OFFSET>,
-            SetNormalMapSource::<Impl, OFFSET>,
-            SpecularAmount::<Impl, OFFSET>,
-            SetSpecularAmount::<Impl, OFFSET>,
-            SpecularShine::<Impl, OFFSET>,
-            SetSpecularShine::<Impl, OFFSET>,
+            AmbientAmount::<Impl, IMPL_OFFSET>,
+            SetAmbientAmount::<Impl, IMPL_OFFSET>,
+            DiffuseAmount::<Impl, IMPL_OFFSET>,
+            SetDiffuseAmount::<Impl, IMPL_OFFSET>,
+            NormalMapSource::<Impl, IMPL_OFFSET>,
+            SetNormalMapSource::<Impl, IMPL_OFFSET>,
+            SpecularAmount::<Impl, IMPL_OFFSET>,
+            SetSpecularAmount::<Impl, IMPL_OFFSET>,
+            SpecularShine::<Impl, IMPL_OFFSET>,
+            SetSpecularShine::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISceneLightingEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -124,7 +127,7 @@ impl ::windows::core::RuntimeName for ISceneLightingEffect2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISceneLightingEffect2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneLightingEffect2Impl, const OFFSET: isize>() -> ISceneLightingEffect2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneLightingEffect2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneLightingEffect2Vtbl {
         unsafe extern "system" fn ReflectanceModel<Impl: ISceneLightingEffect2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReflectanceModel() {
@@ -140,6 +143,9 @@ impl ISceneLightingEffect2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReflectanceModel(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneLightingEffect2>, ::windows::core::GetTrustLevel, ReflectanceModel::<Impl, OFFSET>, SetReflectanceModel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISceneLightingEffect2>, ::windows::core::GetTrustLevel, ReflectanceModel::<Impl, IMPL_OFFSET>, SetReflectanceModel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISceneLightingEffect2 as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeofenceImpl: Sized {
     fn StartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
     fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
@@ -8,13 +8,13 @@ pub trait IGeofenceImpl: Sized {
     fn Geoshape(&self) -> ::windows::core::Result<super::IGeoshape>;
     fn SingleUse(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.IGeofence";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGeofenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceImpl, const OFFSET: isize>() -> IGeofenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeofenceVtbl {
         unsafe extern "system" fn StartTime<Impl: IGeofenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
@@ -92,23 +92,40 @@ impl IGeofenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofence>, ::windows::core::GetTrustLevel, StartTime::<Impl, OFFSET>, Duration::<Impl, OFFSET>, DwellTime::<Impl, OFFSET>, Id::<Impl, OFFSET>, MonitoredStates::<Impl, OFFSET>, Geoshape::<Impl, OFFSET>, SingleUse::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGeofence>,
+            ::windows::core::GetTrustLevel,
+            StartTime::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            DwellTime::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            MonitoredStates::<Impl, IMPL_OFFSET>,
+            Geoshape::<Impl, IMPL_OFFSET>,
+            SingleUse::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeofence as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeofenceFactoryImpl: Sized {
     fn Create(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>) -> ::windows::core::Result<Geofence>;
     fn CreateWithMonitorStates(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>;
     fn CreateWithMonitorStatesAndDwellTime(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>;
     fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: &super::super::super::Foundation::TimeSpan, starttime: &super::super::super::Foundation::DateTime, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeofenceFactory {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.IGeofenceFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGeofenceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceFactoryImpl, const OFFSET: isize>() -> IGeofenceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeofenceFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IGeofenceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&geoshape as *const <super::IGeoshape as ::windows::core::Abi>::Abi as *const <super::IGeoshape as ::windows::core::DefaultType>::DefaultType)) {
@@ -167,10 +184,24 @@ impl IGeofenceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithMonitorStates::<Impl, OFFSET>, CreateWithMonitorStatesAndDwellTime::<Impl, OFFSET>, CreateWithMonitorStatesDwellTimeStartTimeAndDuration::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGeofenceFactory>,
+            ::windows::core::GetTrustLevel,
+            Create::<Impl, IMPL_OFFSET>,
+            CreateWithMonitorStates::<Impl, IMPL_OFFSET>,
+            CreateWithMonitorStatesAndDwellTime::<Impl, IMPL_OFFSET>,
+            CreateWithMonitorStatesDwellTimeStartTimeAndDuration::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeofenceFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeofenceMonitorImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<GeofenceMonitorStatus>;
     fn Geofences(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<Geofence>>;
@@ -181,13 +212,13 @@ pub trait IGeofenceMonitorImpl: Sized {
     fn StatusChanged(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGeofenceMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceMonitorImpl, const OFFSET: isize>() -> IGeofenceMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeofenceMonitorVtbl {
         unsafe extern "system" fn Status<Impl: IGeofenceMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GeofenceMonitorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -263,21 +294,24 @@ impl IGeofenceMonitorVtbl {
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGeofenceMonitor>,
             ::windows::core::GetTrustLevel,
-            Status::<Impl, OFFSET>,
-            Geofences::<Impl, OFFSET>,
-            LastKnownGeoposition::<Impl, OFFSET>,
-            GeofenceStateChanged::<Impl, OFFSET>,
-            RemoveGeofenceStateChanged::<Impl, OFFSET>,
-            ReadReports::<Impl, OFFSET>,
-            StatusChanged::<Impl, OFFSET>,
-            RemoveStatusChanged::<Impl, OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Geofences::<Impl, IMPL_OFFSET>,
+            LastKnownGeoposition::<Impl, IMPL_OFFSET>,
+            GeofenceStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveGeofenceStateChanged::<Impl, IMPL_OFFSET>,
+            ReadReports::<Impl, IMPL_OFFSET>,
+            StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeofenceMonitor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -290,7 +324,7 @@ impl ::windows::core::RuntimeName for IGeofenceMonitorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGeofenceMonitorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceMonitorStaticsImpl, const OFFSET: isize>() -> IGeofenceMonitorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceMonitorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeofenceMonitorStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IGeofenceMonitorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -302,7 +336,10 @@ impl IGeofenceMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceMonitorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceMonitorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeofenceMonitorStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -318,7 +355,7 @@ impl ::windows::core::RuntimeName for IGeofenceStateChangeReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGeofenceStateChangeReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceStateChangeReportImpl, const OFFSET: isize>() -> IGeofenceStateChangeReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeofenceStateChangeReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeofenceStateChangeReportVtbl {
         unsafe extern "system" fn NewState<Impl: IGeofenceStateChangeReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GeofenceState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewState() {
@@ -363,6 +400,9 @@ impl IGeofenceStateChangeReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceStateChangeReport>, ::windows::core::GetTrustLevel, NewState::<Impl, OFFSET>, Geofence::<Impl, OFFSET>, Geoposition::<Impl, OFFSET>, RemovalReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeofenceStateChangeReport>, ::windows::core::GetTrustLevel, NewState::<Impl, IMPL_OFFSET>, Geofence::<Impl, IMPL_OFFSET>, Geoposition::<Impl, IMPL_OFFSET>, RemovalReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeofenceStateChangeReport as ::windows::core::Interface>::IID
     }
 }

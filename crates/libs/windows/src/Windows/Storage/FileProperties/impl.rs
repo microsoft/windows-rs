@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBasicPropertiesImpl: Sized {
     fn Size(&self) -> ::windows::core::Result<u64>;
     fn DateModified(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn ItemDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBasicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IBasicProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBasicPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicPropertiesImpl, const OFFSET: isize>() -> IBasicPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicPropertiesVtbl {
         unsafe extern "system" fn Size<Impl: IBasicPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
@@ -44,10 +44,13 @@ impl IBasicPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicProperties>, ::windows::core::GetTrustLevel, Size::<Impl, OFFSET>, DateModified::<Impl, OFFSET>, ItemDate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBasicProperties>, ::windows::core::GetTrustLevel, Size::<Impl, IMPL_OFFSET>, DateModified::<Impl, IMPL_OFFSET>, ItemDate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBasicProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDocumentPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Author(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -56,13 +59,13 @@ pub trait IDocumentPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDocumentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IDocumentProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDocumentPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDocumentPropertiesImpl, const OFFSET: isize>() -> IDocumentPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDocumentPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDocumentPropertiesVtbl {
         unsafe extern "system" fn Author<Impl: IDocumentPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Author() {
@@ -115,22 +118,25 @@ impl IDocumentPropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetComment(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDocumentProperties>, ::windows::core::GetTrustLevel, Author::<Impl, OFFSET>, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, Keywords::<Impl, OFFSET>, Comment::<Impl, OFFSET>, SetComment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDocumentProperties>, ::windows::core::GetTrustLevel, Author::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, Keywords::<Impl, IMPL_OFFSET>, Comment::<Impl, IMPL_OFFSET>, SetComment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDocumentProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeotagHelperStaticsImpl: Sized {
     fn GetGeotagAsync(&self, file: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>;
     fn SetGeotagFromGeolocatorAsync(&self, file: &::core::option::Option<super::IStorageFile>, geolocator: &::core::option::Option<super::super::Devices::Geolocation::Geolocator>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetGeotagAsync(&self, file: &::core::option::Option<super::IStorageFile>, geopoint: &::core::option::Option<super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeotagHelperStatics {
     const NAME: &'static str = "Windows.Storage.FileProperties.IGeotagHelperStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IGeotagHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeotagHelperStaticsImpl, const OFFSET: isize>() -> IGeotagHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeotagHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeotagHelperStaticsVtbl {
         unsafe extern "system" fn GetGeotagAsync<Impl: IGeotagHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeotagAsync(&*(&file as *const <super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -164,10 +170,13 @@ impl IGeotagHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeotagHelperStatics>, ::windows::core::GetTrustLevel, GetGeotagAsync::<Impl, OFFSET>, SetGeotagFromGeolocatorAsync::<Impl, OFFSET>, SetGeotagAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeotagHelperStatics>, ::windows::core::GetTrustLevel, GetGeotagAsync::<Impl, IMPL_OFFSET>, SetGeotagFromGeolocatorAsync::<Impl, IMPL_OFFSET>, SetGeotagAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeotagHelperStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IImagePropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Rating(&self) -> ::windows::core::Result<u32>;
     fn SetRating(&self, value: u32) -> ::windows::core::Result<()>;
@@ -187,13 +196,13 @@ pub trait IImagePropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Orientation(&self) -> ::windows::core::Result<PhotoOrientation>;
     fn PeopleNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IImageProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IImagePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImagePropertiesImpl, const OFFSET: isize>() -> IImagePropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImagePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImagePropertiesVtbl {
         unsafe extern "system" fn Rating<Impl: IImagePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rating() {
@@ -347,33 +356,36 @@ impl IImagePropertiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IImageProperties>,
             ::windows::core::GetTrustLevel,
-            Rating::<Impl, OFFSET>,
-            SetRating::<Impl, OFFSET>,
-            Keywords::<Impl, OFFSET>,
-            DateTaken::<Impl, OFFSET>,
-            SetDateTaken::<Impl, OFFSET>,
-            Width::<Impl, OFFSET>,
-            Height::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            Latitude::<Impl, OFFSET>,
-            Longitude::<Impl, OFFSET>,
-            CameraManufacturer::<Impl, OFFSET>,
-            SetCameraManufacturer::<Impl, OFFSET>,
-            CameraModel::<Impl, OFFSET>,
-            SetCameraModel::<Impl, OFFSET>,
-            Orientation::<Impl, OFFSET>,
-            PeopleNames::<Impl, OFFSET>,
+            Rating::<Impl, IMPL_OFFSET>,
+            SetRating::<Impl, IMPL_OFFSET>,
+            Keywords::<Impl, IMPL_OFFSET>,
+            DateTaken::<Impl, IMPL_OFFSET>,
+            SetDateTaken::<Impl, IMPL_OFFSET>,
+            Width::<Impl, IMPL_OFFSET>,
+            Height::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            Latitude::<Impl, IMPL_OFFSET>,
+            Longitude::<Impl, IMPL_OFFSET>,
+            CameraManufacturer::<Impl, IMPL_OFFSET>,
+            SetCameraManufacturer::<Impl, IMPL_OFFSET>,
+            CameraModel::<Impl, IMPL_OFFSET>,
+            SetCameraModel::<Impl, IMPL_OFFSET>,
+            Orientation::<Impl, IMPL_OFFSET>,
+            PeopleNames::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageProperties as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMusicPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Album(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetAlbum(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -401,13 +413,13 @@ pub trait IMusicPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Year(&self) -> ::windows::core::Result<u32>;
     fn SetYear(&self, value: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMusicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IMusicProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMusicPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicPropertiesImpl, const OFFSET: isize>() -> IMusicPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMusicPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMusicPropertiesVtbl {
         unsafe extern "system" fn Album<Impl: IMusicPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Album() {
@@ -621,54 +633,57 @@ impl IMusicPropertiesVtbl {
             (*this).SetYear(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMusicProperties>,
             ::windows::core::GetTrustLevel,
-            Album::<Impl, OFFSET>,
-            SetAlbum::<Impl, OFFSET>,
-            Artist::<Impl, OFFSET>,
-            SetArtist::<Impl, OFFSET>,
-            Genre::<Impl, OFFSET>,
-            TrackNumber::<Impl, OFFSET>,
-            SetTrackNumber::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            Rating::<Impl, OFFSET>,
-            SetRating::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            Bitrate::<Impl, OFFSET>,
-            AlbumArtist::<Impl, OFFSET>,
-            SetAlbumArtist::<Impl, OFFSET>,
-            Composers::<Impl, OFFSET>,
-            Conductors::<Impl, OFFSET>,
-            Subtitle::<Impl, OFFSET>,
-            SetSubtitle::<Impl, OFFSET>,
-            Producers::<Impl, OFFSET>,
-            Publisher::<Impl, OFFSET>,
-            SetPublisher::<Impl, OFFSET>,
-            Writers::<Impl, OFFSET>,
-            Year::<Impl, OFFSET>,
-            SetYear::<Impl, OFFSET>,
+            Album::<Impl, IMPL_OFFSET>,
+            SetAlbum::<Impl, IMPL_OFFSET>,
+            Artist::<Impl, IMPL_OFFSET>,
+            SetArtist::<Impl, IMPL_OFFSET>,
+            Genre::<Impl, IMPL_OFFSET>,
+            TrackNumber::<Impl, IMPL_OFFSET>,
+            SetTrackNumber::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            Rating::<Impl, IMPL_OFFSET>,
+            SetRating::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            Bitrate::<Impl, IMPL_OFFSET>,
+            AlbumArtist::<Impl, IMPL_OFFSET>,
+            SetAlbumArtist::<Impl, IMPL_OFFSET>,
+            Composers::<Impl, IMPL_OFFSET>,
+            Conductors::<Impl, IMPL_OFFSET>,
+            Subtitle::<Impl, IMPL_OFFSET>,
+            SetSubtitle::<Impl, IMPL_OFFSET>,
+            Producers::<Impl, IMPL_OFFSET>,
+            Publisher::<Impl, IMPL_OFFSET>,
+            SetPublisher::<Impl, IMPL_OFFSET>,
+            Writers::<Impl, IMPL_OFFSET>,
+            Year::<Impl, IMPL_OFFSET>,
+            SetYear::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMusicProperties as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageItemContentPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn GetMusicPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MusicProperties>>;
     fn GetVideoPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VideoProperties>>;
     fn GetImagePropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageProperties>>;
     fn GetDocumentPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DocumentProperties>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageItemContentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IStorageItemContentProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageItemContentPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemContentPropertiesImpl, const OFFSET: isize>() -> IStorageItemContentPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemContentPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemContentPropertiesVtbl {
         unsafe extern "system" fn GetMusicPropertiesAsync<Impl: IStorageItemContentPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMusicPropertiesAsync() {
@@ -713,19 +728,25 @@ impl IStorageItemContentPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemContentProperties>, ::windows::core::GetTrustLevel, GetMusicPropertiesAsync::<Impl, OFFSET>, GetVideoPropertiesAsync::<Impl, OFFSET>, GetImagePropertiesAsync::<Impl, OFFSET>, GetDocumentPropertiesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemContentProperties>, ::windows::core::GetTrustLevel, GetMusicPropertiesAsync::<Impl, IMPL_OFFSET>, GetVideoPropertiesAsync::<Impl, IMPL_OFFSET>, GetImagePropertiesAsync::<Impl, IMPL_OFFSET>, GetDocumentPropertiesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemContentProperties as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IStorageItemExtraPropertiesImpl: Sized {
     fn RetrievePropertiesAsync(&self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>;
     fn SavePropertiesAsync(&self, propertiestosave: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IStorageItemExtraProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IStorageItemExtraProperties";
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IStorageItemExtraPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemExtraPropertiesImpl, const OFFSET: isize>() -> IStorageItemExtraPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemExtraPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemExtraPropertiesVtbl {
         unsafe extern "system" fn RetrievePropertiesAsync<Impl: IStorageItemExtraPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetrievePropertiesAsync(&*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -759,7 +780,10 @@ impl IStorageItemExtraPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemExtraProperties>, ::windows::core::GetTrustLevel, RetrievePropertiesAsync::<Impl, OFFSET>, SavePropertiesAsync::<Impl, OFFSET>, SavePropertiesAsyncOverloadDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemExtraProperties>, ::windows::core::GetTrustLevel, RetrievePropertiesAsync::<Impl, IMPL_OFFSET>, SavePropertiesAsync::<Impl, IMPL_OFFSET>, SavePropertiesAsyncOverloadDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemExtraProperties as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -775,7 +799,7 @@ impl ::windows::core::RuntimeName for IThumbnailProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IThumbnailPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThumbnailPropertiesImpl, const OFFSET: isize>() -> IThumbnailPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThumbnailPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThumbnailPropertiesVtbl {
         unsafe extern "system" fn OriginalWidth<Impl: IThumbnailPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OriginalWidth() {
@@ -820,10 +844,13 @@ impl IThumbnailPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThumbnailProperties>, ::windows::core::GetTrustLevel, OriginalWidth::<Impl, OFFSET>, OriginalHeight::<Impl, OFFSET>, ReturnedSmallerCachedSize::<Impl, OFFSET>, Type::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IThumbnailProperties>, ::windows::core::GetTrustLevel, OriginalWidth::<Impl, IMPL_OFFSET>, OriginalHeight::<Impl, IMPL_OFFSET>, ReturnedSmallerCachedSize::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IThumbnailProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVideoPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Rating(&self) -> ::windows::core::Result<u32>;
     fn SetRating(&self, value: u32) -> ::windows::core::Result<()>;
@@ -847,13 +874,13 @@ pub trait IVideoPropertiesImpl: Sized + IStorageItemExtraPropertiesImpl {
     fn Directors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn Orientation(&self) -> ::windows::core::Result<VideoOrientation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IVideoProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVideoPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoPropertiesImpl, const OFFSET: isize>() -> IVideoPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoPropertiesVtbl {
         unsafe extern "system" fn Rating<Impl: IVideoPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rating() {
@@ -1051,33 +1078,36 @@ impl IVideoPropertiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVideoProperties>,
             ::windows::core::GetTrustLevel,
-            Rating::<Impl, OFFSET>,
-            SetRating::<Impl, OFFSET>,
-            Keywords::<Impl, OFFSET>,
-            Width::<Impl, OFFSET>,
-            Height::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            Latitude::<Impl, OFFSET>,
-            Longitude::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            Subtitle::<Impl, OFFSET>,
-            SetSubtitle::<Impl, OFFSET>,
-            Producers::<Impl, OFFSET>,
-            Publisher::<Impl, OFFSET>,
-            SetPublisher::<Impl, OFFSET>,
-            Writers::<Impl, OFFSET>,
-            Year::<Impl, OFFSET>,
-            SetYear::<Impl, OFFSET>,
-            Bitrate::<Impl, OFFSET>,
-            Directors::<Impl, OFFSET>,
-            Orientation::<Impl, OFFSET>,
+            Rating::<Impl, IMPL_OFFSET>,
+            SetRating::<Impl, IMPL_OFFSET>,
+            Keywords::<Impl, IMPL_OFFSET>,
+            Width::<Impl, IMPL_OFFSET>,
+            Height::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            Latitude::<Impl, IMPL_OFFSET>,
+            Longitude::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            Subtitle::<Impl, IMPL_OFFSET>,
+            SetSubtitle::<Impl, IMPL_OFFSET>,
+            Producers::<Impl, IMPL_OFFSET>,
+            Publisher::<Impl, IMPL_OFFSET>,
+            SetPublisher::<Impl, IMPL_OFFSET>,
+            Writers::<Impl, IMPL_OFFSET>,
+            Year::<Impl, IMPL_OFFSET>,
+            SetYear::<Impl, IMPL_OFFSET>,
+            Bitrate::<Impl, IMPL_OFFSET>,
+            Directors::<Impl, IMPL_OFFSET>,
+            Orientation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVideoProperties as ::windows::core::Interface>::IID
     }
 }

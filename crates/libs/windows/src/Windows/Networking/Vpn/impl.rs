@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IVpnAppId {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnAppIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdImpl, const OFFSET: isize>() -> IVpnAppIdVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnAppIdVtbl {
         unsafe extern "system" fn Type<Impl: IVpnAppIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAppIdType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -42,7 +42,10 @@ impl IVpnAppIdVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnAppId>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, SetType::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnAppId>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnAppId as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -55,7 +58,7 @@ impl ::windows::core::RuntimeName for IVpnAppIdFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnAppIdFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdFactoryImpl, const OFFSET: isize>() -> IVpnAppIdFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnAppIdFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IVpnAppIdFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VpnAppIdType, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(r#type, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -67,10 +70,13 @@ impl IVpnAppIdFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnAppIdFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnAppIdFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnAppIdFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IVpnChannelImpl: Sized {
     fn AssociateTransport(&self, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn Start(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, routescope: &::core::option::Option<VpnRouteAssignment>, namespacescope: &::core::option::Option<VpnNamespaceAssignment>, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
@@ -89,13 +95,13 @@ pub trait IVpnChannelImpl: Sized {
     fn SetErrorMessage(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetAllowedSslTlsVersions(&self, tunneltransport: &::core::option::Option<::windows::core::IInspectable>, usetls12: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IVpnChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelImpl, const OFFSET: isize>() -> IVpnChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelVtbl {
         unsafe extern "system" fn AssociateTransport<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AssociateTransport(&*(&mainoutertunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&optionaloutertunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
@@ -216,32 +222,35 @@ impl IVpnChannelVtbl {
             (*this).SetAllowedSslTlsVersions(&*(&tunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), usetls12).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnChannel>,
             ::windows::core::GetTrustLevel,
-            AssociateTransport::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            RequestCredentials::<Impl, OFFSET>,
-            RequestVpnPacketBuffer::<Impl, OFFSET>,
-            LogDiagnosticMessage::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            Configuration::<Impl, OFFSET>,
-            ActivityChange::<Impl, OFFSET>,
-            RemoveActivityChange::<Impl, OFFSET>,
-            SetPlugInContext::<Impl, OFFSET>,
-            PlugInContext::<Impl, OFFSET>,
-            SystemHealth::<Impl, OFFSET>,
-            RequestCustomPrompt::<Impl, OFFSET>,
-            SetErrorMessage::<Impl, OFFSET>,
-            SetAllowedSslTlsVersions::<Impl, OFFSET>,
+            AssociateTransport::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            RequestCredentials::<Impl, IMPL_OFFSET>,
+            RequestVpnPacketBuffer::<Impl, IMPL_OFFSET>,
+            LogDiagnosticMessage::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Configuration::<Impl, IMPL_OFFSET>,
+            ActivityChange::<Impl, IMPL_OFFSET>,
+            RemoveActivityChange::<Impl, IMPL_OFFSET>,
+            SetPlugInContext::<Impl, IMPL_OFFSET>,
+            PlugInContext::<Impl, IMPL_OFFSET>,
+            SystemHealth::<Impl, IMPL_OFFSET>,
+            RequestCustomPrompt::<Impl, IMPL_OFFSET>,
+            SetErrorMessage::<Impl, IMPL_OFFSET>,
+            SetAllowedSslTlsVersions::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannel as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IVpnChannel2Impl: Sized {
     fn StartWithMainTransport(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn StartExistingTransports(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::Result<()>;
@@ -256,13 +265,13 @@ pub trait IVpnChannel2Impl: Sized {
     fn TerminateConnection(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn StartWithTrafficFilter(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IVpnChannel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel2Impl, const OFFSET: isize>() -> IVpnChannel2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel2Vtbl {
         unsafe extern "system" fn StartWithMainTransport<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assigneddomainname: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
@@ -398,28 +407,31 @@ impl IVpnChannel2Vtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnChannel2>,
             ::windows::core::GetTrustLevel,
-            StartWithMainTransport::<Impl, OFFSET>,
-            StartExistingTransports::<Impl, OFFSET>,
-            ActivityStateChange::<Impl, OFFSET>,
-            RemoveActivityStateChange::<Impl, OFFSET>,
-            GetVpnSendPacketBuffer::<Impl, OFFSET>,
-            GetVpnReceivePacketBuffer::<Impl, OFFSET>,
-            RequestCustomPromptAsync::<Impl, OFFSET>,
-            RequestCredentialsWithCertificateAsync::<Impl, OFFSET>,
-            RequestCredentialsWithOptionsAsync::<Impl, OFFSET>,
-            RequestCredentialsSimpleAsync::<Impl, OFFSET>,
-            TerminateConnection::<Impl, OFFSET>,
-            StartWithTrafficFilter::<Impl, OFFSET>,
+            StartWithMainTransport::<Impl, IMPL_OFFSET>,
+            StartExistingTransports::<Impl, IMPL_OFFSET>,
+            ActivityStateChange::<Impl, IMPL_OFFSET>,
+            RemoveActivityStateChange::<Impl, IMPL_OFFSET>,
+            GetVpnSendPacketBuffer::<Impl, IMPL_OFFSET>,
+            GetVpnReceivePacketBuffer::<Impl, IMPL_OFFSET>,
+            RequestCustomPromptAsync::<Impl, IMPL_OFFSET>,
+            RequestCredentialsWithCertificateAsync::<Impl, IMPL_OFFSET>,
+            RequestCredentialsWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            RequestCredentialsSimpleAsync::<Impl, IMPL_OFFSET>,
+            TerminateConnection::<Impl, IMPL_OFFSET>,
+            StartWithTrafficFilter::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannel2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IVpnChannel4Impl: Sized {
     fn AddAndAssociateTransport(&self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn StartWithMultipleTransports(&self, assignedclientipv4addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, assignedclientipv6addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, transports: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
@@ -428,13 +440,13 @@ pub trait IVpnChannel4Impl: Sized {
     fn GetSlotTypeForTransportContext(&self, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::Sockets::ControlChannelTriggerStatus>;
     fn CurrentRequestTransportContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel4 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl IVpnChannel4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel4Impl, const OFFSET: isize>() -> IVpnChannel4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel4Vtbl {
         unsafe extern "system" fn AddAndAssociateTransport<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAndAssociateTransport(&*(&transport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&context as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
@@ -487,19 +499,22 @@ impl IVpnChannel4Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnChannel4>,
             ::windows::core::GetTrustLevel,
-            AddAndAssociateTransport::<Impl, OFFSET>,
-            StartWithMultipleTransports::<Impl, OFFSET>,
-            ReplaceAndAssociateTransport::<Impl, OFFSET>,
-            StartReconnectingTransport::<Impl, OFFSET>,
-            GetSlotTypeForTransportContext::<Impl, OFFSET>,
-            CurrentRequestTransportContext::<Impl, OFFSET>,
+            AddAndAssociateTransport::<Impl, IMPL_OFFSET>,
+            StartWithMultipleTransports::<Impl, IMPL_OFFSET>,
+            ReplaceAndAssociateTransport::<Impl, IMPL_OFFSET>,
+            StartReconnectingTransport::<Impl, IMPL_OFFSET>,
+            GetSlotTypeForTransportContext::<Impl, IMPL_OFFSET>,
+            CurrentRequestTransportContext::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannel4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -515,7 +530,7 @@ impl ::windows::core::RuntimeName for IVpnChannel5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnChannel5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel5Impl, const OFFSET: isize>() -> IVpnChannel5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel5Vtbl {
         unsafe extern "system" fn AppendVpnReceivePacketBuffer<Impl: IVpnChannel5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, decapsulatedpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendVpnReceivePacketBuffer(&*(&decapsulatedpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
@@ -532,20 +547,23 @@ impl IVpnChannel5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FlushVpnSendPacketBuffers().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannel5>, ::windows::core::GetTrustLevel, AppendVpnReceivePacketBuffer::<Impl, OFFSET>, AppendVpnSendPacketBuffer::<Impl, OFFSET>, FlushVpnReceivePacketBuffers::<Impl, OFFSET>, FlushVpnSendPacketBuffers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannel5>, ::windows::core::GetTrustLevel, AppendVpnReceivePacketBuffer::<Impl, IMPL_OFFSET>, AppendVpnSendPacketBuffer::<Impl, IMPL_OFFSET>, FlushVpnReceivePacketBuffers::<Impl, IMPL_OFFSET>, FlushVpnSendPacketBuffers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannel5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnChannel6Impl: Sized {
     fn ActivateForeground(&self, packagerelativeappid: &::windows::core::HSTRING, sharedcontext: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel6 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel6";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnChannel6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel6Impl, const OFFSET: isize>() -> IVpnChannel6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel6Vtbl {
         unsafe extern "system" fn ActivateForeground<Impl: IVpnChannel6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagerelativeappid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sharedcontext: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivateForeground(&*(&packagerelativeappid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&sharedcontext as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)) {
@@ -557,7 +575,10 @@ impl IVpnChannel6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannel6>, ::windows::core::GetTrustLevel, ActivateForeground::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannel6>, ::windows::core::GetTrustLevel, ActivateForeground::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannel6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -570,7 +591,7 @@ impl ::windows::core::RuntimeName for IVpnChannelActivityEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnChannelActivityEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityEventArgsImpl, const OFFSET: isize>() -> IVpnChannelActivityEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelActivityEventArgsVtbl {
         unsafe extern "system" fn Type<Impl: IVpnChannelActivityEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnChannelActivityEventType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -582,7 +603,10 @@ impl IVpnChannelActivityEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelActivityEventArgs>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelActivityEventArgs>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannelActivityEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -595,7 +619,7 @@ impl ::windows::core::RuntimeName for IVpnChannelActivityStateChangedArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnChannelActivityStateChangedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityStateChangedArgsImpl, const OFFSET: isize>() -> IVpnChannelActivityStateChangedArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityStateChangedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelActivityStateChangedArgsVtbl {
         unsafe extern "system" fn ActivityState<Impl: IVpnChannelActivityStateChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnChannelActivityEventType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityState() {
@@ -607,22 +631,25 @@ impl IVpnChannelActivityStateChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelActivityStateChangedArgs>, ::windows::core::GetTrustLevel, ActivityState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelActivityStateChangedArgs>, ::windows::core::GetTrustLevel, ActivityState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannelActivityStateChangedArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnChannelConfigurationImpl: Sized {
     fn ServerServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ServerHostNameList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>>;
     fn CustomField(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnChannelConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfigurationImpl, const OFFSET: isize>() -> IVpnChannelConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelConfigurationVtbl {
         unsafe extern "system" fn ServerServiceName<Impl: IVpnChannelConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerServiceName() {
@@ -656,20 +683,23 @@ impl IVpnChannelConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelConfiguration>, ::windows::core::GetTrustLevel, ServerServiceName::<Impl, OFFSET>, ServerHostNameList::<Impl, OFFSET>, CustomField::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelConfiguration>, ::windows::core::GetTrustLevel, ServerServiceName::<Impl, IMPL_OFFSET>, ServerHostNameList::<Impl, IMPL_OFFSET>, CustomField::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannelConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnChannelConfiguration2Impl: Sized {
     fn ServerUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannelConfiguration2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelConfiguration2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnChannelConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfiguration2Impl, const OFFSET: isize>() -> IVpnChannelConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelConfiguration2Vtbl {
         unsafe extern "system" fn ServerUris<Impl: IVpnChannelConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerUris() {
@@ -681,7 +711,10 @@ impl IVpnChannelConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelConfiguration2>, ::windows::core::GetTrustLevel, ServerUris::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelConfiguration2>, ::windows::core::GetTrustLevel, ServerUris::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannelConfiguration2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnChannelStaticsImpl: Sized {
@@ -691,25 +724,31 @@ impl ::windows::core::RuntimeName for IVpnChannelStatics {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
 }
 impl IVpnChannelStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelStaticsImpl, const OFFSET: isize>() -> IVpnChannelStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelStaticsVtbl {
         unsafe extern "system" fn ProcessEventAsync<Impl: IVpnChannelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thirdpartyplugin: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessEventAsync(&*(&thirdpartyplugin as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelStatics>, ::windows::core::GetTrustLevel, ProcessEventAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnChannelStatics>, ::windows::core::GetTrustLevel, ProcessEventAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnChannelStatics as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IVpnCredentialImpl: Sized {
     fn PasskeyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn CertificateCredential(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn AdditionalPin(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn OldPasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
 }
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IVpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCredential";
 }
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl IVpnCredentialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCredentialImpl, const OFFSET: isize>() -> IVpnCredentialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCredentialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCredentialVtbl {
         unsafe extern "system" fn PasskeyCredential<Impl: IVpnCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasskeyCredential() {
@@ -754,7 +793,10 @@ impl IVpnCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCredential>, ::windows::core::GetTrustLevel, PasskeyCredential::<Impl, OFFSET>, CertificateCredential::<Impl, OFFSET>, AdditionalPin::<Impl, OFFSET>, OldPasswordCredential::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCredential>, ::windows::core::GetTrustLevel, PasskeyCredential::<Impl, IMPL_OFFSET>, CertificateCredential::<Impl, IMPL_OFFSET>, AdditionalPin::<Impl, IMPL_OFFSET>, OldPasswordCredential::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCredential as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -769,7 +811,7 @@ impl ::windows::core::RuntimeName for IVpnCustomCheckBox {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomCheckBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomCheckBoxImpl, const OFFSET: isize>() -> IVpnCustomCheckBoxVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomCheckBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomCheckBoxVtbl {
         unsafe extern "system" fn SetInitialCheckState<Impl: IVpnCustomCheckBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialCheckState(value).into()
@@ -796,22 +838,25 @@ impl IVpnCustomCheckBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomCheckBox>, ::windows::core::GetTrustLevel, SetInitialCheckState::<Impl, OFFSET>, InitialCheckState::<Impl, OFFSET>, Checked::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomCheckBox>, ::windows::core::GetTrustLevel, SetInitialCheckState::<Impl, IMPL_OFFSET>, InitialCheckState::<Impl, IMPL_OFFSET>, Checked::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomCheckBox as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnCustomComboBoxImpl: Sized + IVpnCustomPromptImpl {
     fn SetOptionsText(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
     fn OptionsText(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn Selected(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomComboBox";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnCustomComboBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomComboBoxImpl, const OFFSET: isize>() -> IVpnCustomComboBoxVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomComboBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomComboBoxVtbl {
         unsafe extern "system" fn SetOptionsText<Impl: IVpnCustomComboBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOptionsText(&*(&value as *const <super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -838,7 +883,10 @@ impl IVpnCustomComboBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomComboBox>, ::windows::core::GetTrustLevel, SetOptionsText::<Impl, OFFSET>, OptionsText::<Impl, OFFSET>, Selected::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomComboBox>, ::windows::core::GetTrustLevel, SetOptionsText::<Impl, IMPL_OFFSET>, OptionsText::<Impl, IMPL_OFFSET>, Selected::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomComboBox as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -855,7 +903,7 @@ impl ::windows::core::RuntimeName for IVpnCustomEditBox {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomEditBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>() -> IVpnCustomEditBoxVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomEditBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomEditBoxVtbl {
         unsafe extern "system" fn SetDefaultText<Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -897,7 +945,10 @@ impl IVpnCustomEditBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomEditBox>, ::windows::core::GetTrustLevel, SetDefaultText::<Impl, OFFSET>, DefaultText::<Impl, OFFSET>, SetNoEcho::<Impl, OFFSET>, NoEcho::<Impl, OFFSET>, Text::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomEditBox>, ::windows::core::GetTrustLevel, SetDefaultText::<Impl, IMPL_OFFSET>, DefaultText::<Impl, IMPL_OFFSET>, SetNoEcho::<Impl, IMPL_OFFSET>, NoEcho::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomEditBox as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -908,8 +959,11 @@ impl ::windows::core::RuntimeName for IVpnCustomErrorBox {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomErrorBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomErrorBoxImpl, const OFFSET: isize>() -> IVpnCustomErrorBoxVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomErrorBox>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomErrorBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomErrorBoxVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomErrorBox>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomErrorBox as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnCustomPromptImpl: Sized {
@@ -924,7 +978,7 @@ impl ::windows::core::RuntimeName for IVpnCustomPrompt {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPrompt";
 }
 impl IVpnCustomPromptVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptImpl, const OFFSET: isize>() -> IVpnCustomPromptVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptVtbl {
         unsafe extern "system" fn SetLabel<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -970,7 +1024,10 @@ impl IVpnCustomPromptVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPrompt>, ::windows::core::GetTrustLevel, SetLabel::<Impl, OFFSET>, Label::<Impl, OFFSET>, SetCompulsory::<Impl, OFFSET>, Compulsory::<Impl, OFFSET>, SetBordered::<Impl, OFFSET>, Bordered::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPrompt>, ::windows::core::GetTrustLevel, SetLabel::<Impl, IMPL_OFFSET>, Label::<Impl, IMPL_OFFSET>, SetCompulsory::<Impl, IMPL_OFFSET>, Compulsory::<Impl, IMPL_OFFSET>, SetBordered::<Impl, IMPL_OFFSET>, Bordered::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomPrompt as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -985,7 +1042,7 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptBooleanInput {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomPromptBooleanInputVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptBooleanInputImpl, const OFFSET: isize>() -> IVpnCustomPromptBooleanInputVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptBooleanInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptBooleanInputVtbl {
         unsafe extern "system" fn SetInitialValue<Impl: IVpnCustomPromptBooleanInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialValue(value).into()
@@ -1012,7 +1069,10 @@ impl IVpnCustomPromptBooleanInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptBooleanInput>, ::windows::core::GetTrustLevel, SetInitialValue::<Impl, OFFSET>, InitialValue::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptBooleanInput>, ::windows::core::GetTrustLevel, SetInitialValue::<Impl, IMPL_OFFSET>, InitialValue::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomPromptBooleanInput as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnCustomPromptElementImpl: Sized {
@@ -1027,7 +1087,7 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptElement {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptElement";
 }
 impl IVpnCustomPromptElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>() -> IVpnCustomPromptElementVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptElementVtbl {
         unsafe extern "system" fn SetDisplayName<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1073,21 +1133,37 @@ impl IVpnCustomPromptElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptElement>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, SetCompulsory::<Impl, OFFSET>, Compulsory::<Impl, OFFSET>, SetEmphasized::<Impl, OFFSET>, Emphasized::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVpnCustomPromptElement>,
+            ::windows::core::GetTrustLevel,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetCompulsory::<Impl, IMPL_OFFSET>,
+            Compulsory::<Impl, IMPL_OFFSET>,
+            SetEmphasized::<Impl, IMPL_OFFSET>,
+            Emphasized::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomPromptElement as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnCustomPromptOptionSelectorImpl: Sized + IVpnCustomPromptElementImpl {
     fn Options(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn SelectedIndex(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptOptionSelector";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnCustomPromptOptionSelectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptOptionSelectorImpl, const OFFSET: isize>() -> IVpnCustomPromptOptionSelectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptOptionSelectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptOptionSelectorVtbl {
         unsafe extern "system" fn Options<Impl: IVpnCustomPromptOptionSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
@@ -1110,7 +1186,10 @@ impl IVpnCustomPromptOptionSelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptOptionSelector>, ::windows::core::GetTrustLevel, Options::<Impl, OFFSET>, SelectedIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptOptionSelector>, ::windows::core::GetTrustLevel, Options::<Impl, IMPL_OFFSET>, SelectedIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomPromptOptionSelector as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1124,7 +1203,7 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptText {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomPromptTextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextImpl, const OFFSET: isize>() -> IVpnCustomPromptTextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptTextVtbl {
         unsafe extern "system" fn SetText<Impl: IVpnCustomPromptTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1140,7 +1219,10 @@ impl IVpnCustomPromptTextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptText>, ::windows::core::GetTrustLevel, SetText::<Impl, OFFSET>, Text::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptText>, ::windows::core::GetTrustLevel, SetText::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomPromptText as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1157,7 +1239,7 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptTextInput {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomPromptTextInputVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>() -> IVpnCustomPromptTextInputVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptTextInputVtbl {
         unsafe extern "system" fn SetPlaceholderText<Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaceholderText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1199,7 +1281,10 @@ impl IVpnCustomPromptTextInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptTextInput>, ::windows::core::GetTrustLevel, SetPlaceholderText::<Impl, OFFSET>, PlaceholderText::<Impl, OFFSET>, SetIsTextHidden::<Impl, OFFSET>, IsTextHidden::<Impl, OFFSET>, Text::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomPromptTextInput>, ::windows::core::GetTrustLevel, SetPlaceholderText::<Impl, IMPL_OFFSET>, PlaceholderText::<Impl, IMPL_OFFSET>, SetIsTextHidden::<Impl, IMPL_OFFSET>, IsTextHidden::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomPromptTextInput as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1213,7 +1298,7 @@ impl ::windows::core::RuntimeName for IVpnCustomTextBox {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnCustomTextBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomTextBoxImpl, const OFFSET: isize>() -> IVpnCustomTextBoxVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomTextBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomTextBoxVtbl {
         unsafe extern "system" fn SetDisplayText<Impl: IVpnCustomTextBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1229,22 +1314,25 @@ impl IVpnCustomTextBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomTextBox>, ::windows::core::GetTrustLevel, SetDisplayText::<Impl, OFFSET>, DisplayText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnCustomTextBox>, ::windows::core::GetTrustLevel, SetDisplayText::<Impl, IMPL_OFFSET>, DisplayText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnCustomTextBox as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnDomainNameAssignmentImpl: Sized {
     fn DomainNameList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
     fn SetProxyAutoConfigurationUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn ProxyAutoConfigurationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameAssignment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnDomainNameAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameAssignmentImpl, const OFFSET: isize>() -> IVpnDomainNameAssignmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameAssignmentVtbl {
         unsafe extern "system" fn DomainNameList<Impl: IVpnDomainNameAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainNameList() {
@@ -1271,10 +1359,13 @@ impl IVpnDomainNameAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameAssignment>, ::windows::core::GetTrustLevel, DomainNameList::<Impl, OFFSET>, SetProxyAutoConfigurationUri::<Impl, OFFSET>, ProxyAutoConfigurationUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameAssignment>, ::windows::core::GetTrustLevel, DomainNameList::<Impl, IMPL_OFFSET>, SetProxyAutoConfigurationUri::<Impl, IMPL_OFFSET>, ProxyAutoConfigurationUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnDomainNameAssignment as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnDomainNameInfoImpl: Sized {
     fn SetDomainName(&self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
     fn DomainName(&self) -> ::windows::core::Result<super::HostName>;
@@ -1283,13 +1374,13 @@ pub trait IVpnDomainNameInfoImpl: Sized {
     fn DnsServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
     fn WebProxyServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnDomainNameInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>() -> IVpnDomainNameInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfoVtbl {
         unsafe extern "system" fn SetDomainName<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDomainName(&*(&value as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1342,20 +1433,36 @@ impl IVpnDomainNameInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfo>, ::windows::core::GetTrustLevel, SetDomainName::<Impl, OFFSET>, DomainName::<Impl, OFFSET>, SetDomainNameType::<Impl, OFFSET>, DomainNameType::<Impl, OFFSET>, DnsServers::<Impl, OFFSET>, WebProxyServers::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfo>,
+            ::windows::core::GetTrustLevel,
+            SetDomainName::<Impl, IMPL_OFFSET>,
+            DomainName::<Impl, IMPL_OFFSET>,
+            SetDomainNameType::<Impl, IMPL_OFFSET>,
+            DomainNameType::<Impl, IMPL_OFFSET>,
+            DnsServers::<Impl, IMPL_OFFSET>,
+            WebProxyServers::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnDomainNameInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnDomainNameInfo2Impl: Sized {
     fn WebProxyUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfo2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfo2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnDomainNameInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfo2Impl, const OFFSET: isize>() -> IVpnDomainNameInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfo2Vtbl {
         unsafe extern "system" fn WebProxyUris<Impl: IVpnDomainNameInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebProxyUris() {
@@ -1367,17 +1474,23 @@ impl IVpnDomainNameInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfo2>, ::windows::core::GetTrustLevel, WebProxyUris::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfo2>, ::windows::core::GetTrustLevel, WebProxyUris::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnDomainNameInfo2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IVpnDomainNameInfoFactoryImpl: Sized {
     fn CreateVpnDomainNameInfo(&self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows::core::Result<VpnDomainNameInfo>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfoFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfoFactory";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IVpnDomainNameInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoFactoryImpl, const OFFSET: isize>() -> IVpnDomainNameInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfoFactoryVtbl {
         unsafe extern "system" fn CreateVpnDomainNameInfo<Impl: IVpnDomainNameInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nametype: VpnDomainNameType, dnsserverlist: ::windows::core::RawPtr, proxyserverlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnDomainNameInfo(
@@ -1394,22 +1507,25 @@ impl IVpnDomainNameInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfoFactory>, ::windows::core::GetTrustLevel, CreateVpnDomainNameInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnDomainNameInfoFactory>, ::windows::core::GetTrustLevel, CreateVpnDomainNameInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnDomainNameInfoFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnForegroundActivatedEventArgsImpl: Sized {
     fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SharedContext(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn ActivationOperation(&self) -> ::windows::core::Result<VpnForegroundActivationOperation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnForegroundActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivatedEventArgsImpl, const OFFSET: isize>() -> IVpnForegroundActivatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnForegroundActivatedEventArgsVtbl {
         unsafe extern "system" fn ProfileName<Impl: IVpnForegroundActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileName() {
@@ -1443,25 +1559,31 @@ impl IVpnForegroundActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnForegroundActivatedEventArgs>, ::windows::core::GetTrustLevel, ProfileName::<Impl, OFFSET>, SharedContext::<Impl, OFFSET>, ActivationOperation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnForegroundActivatedEventArgs>, ::windows::core::GetTrustLevel, ProfileName::<Impl, IMPL_OFFSET>, SharedContext::<Impl, IMPL_OFFSET>, ActivationOperation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnForegroundActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnForegroundActivationOperationImpl: Sized {
     fn Complete(&self, result: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnForegroundActivationOperation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnForegroundActivationOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivationOperationImpl, const OFFSET: isize>() -> IVpnForegroundActivationOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivationOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnForegroundActivationOperationVtbl {
         unsafe extern "system" fn Complete<Impl: IVpnForegroundActivationOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(&*(&result as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnForegroundActivationOperation>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnForegroundActivationOperation>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnForegroundActivationOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1474,12 +1596,15 @@ impl ::windows::core::RuntimeName for IVpnInterfaceId {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnInterfaceIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdImpl, const OFFSET: isize>() -> IVpnInterfaceIdVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnInterfaceIdVtbl {
         unsafe extern "system" fn GetAddressInfo<Impl: IVpnInterfaceIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id_array_size: *mut u32, id: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetAddressInfo(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&id), id_array_size).as_array()).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnInterfaceId>, ::windows::core::GetTrustLevel, GetAddressInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnInterfaceId>, ::windows::core::GetTrustLevel, GetAddressInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnInterfaceId as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnInterfaceIdFactoryImpl: Sized {
@@ -1489,7 +1614,7 @@ impl ::windows::core::RuntimeName for IVpnInterfaceIdFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceIdFactory";
 }
 impl IVpnInterfaceIdFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdFactoryImpl, const OFFSET: isize>() -> IVpnInterfaceIdFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnInterfaceIdFactoryVtbl {
         unsafe extern "system" fn CreateVpnInterfaceId<Impl: IVpnInterfaceIdFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address_array_size: u32, address: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnInterfaceId(::core::slice::from_raw_parts(::core::mem::transmute_copy(&address), address_array_size as _)) {
@@ -1501,10 +1626,13 @@ impl IVpnInterfaceIdFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnInterfaceIdFactory>, ::windows::core::GetTrustLevel, CreateVpnInterfaceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnInterfaceIdFactory>, ::windows::core::GetTrustLevel, CreateVpnInterfaceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnInterfaceIdFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IVpnManagementAgentImpl: Sized {
     fn AddProfileFromXmlAsync(&self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
     fn AddProfileFromObjectAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
@@ -1516,13 +1644,13 @@ pub trait IVpnManagementAgentImpl: Sized {
     fn ConnectProfileWithPasswordCredentialAsync(&self, profile: &::core::option::Option<IVpnProfile>, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
     fn DisconnectProfileAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnManagementAgent";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IVpnManagementAgentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnManagementAgentImpl, const OFFSET: isize>() -> IVpnManagementAgentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnManagementAgentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnManagementAgentVtbl {
         unsafe extern "system" fn AddProfileFromXmlAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddProfileFromXmlAsync(&*(&xml as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1623,38 +1751,41 @@ impl IVpnManagementAgentVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnManagementAgent>,
             ::windows::core::GetTrustLevel,
-            AddProfileFromXmlAsync::<Impl, OFFSET>,
-            AddProfileFromObjectAsync::<Impl, OFFSET>,
-            UpdateProfileFromXmlAsync::<Impl, OFFSET>,
-            UpdateProfileFromObjectAsync::<Impl, OFFSET>,
-            GetProfilesAsync::<Impl, OFFSET>,
-            DeleteProfileAsync::<Impl, OFFSET>,
-            ConnectProfileAsync::<Impl, OFFSET>,
-            ConnectProfileWithPasswordCredentialAsync::<Impl, OFFSET>,
-            DisconnectProfileAsync::<Impl, OFFSET>,
+            AddProfileFromXmlAsync::<Impl, IMPL_OFFSET>,
+            AddProfileFromObjectAsync::<Impl, IMPL_OFFSET>,
+            UpdateProfileFromXmlAsync::<Impl, IMPL_OFFSET>,
+            UpdateProfileFromObjectAsync::<Impl, IMPL_OFFSET>,
+            GetProfilesAsync::<Impl, IMPL_OFFSET>,
+            DeleteProfileAsync::<Impl, IMPL_OFFSET>,
+            ConnectProfileAsync::<Impl, IMPL_OFFSET>,
+            ConnectProfileWithPasswordCredentialAsync::<Impl, IMPL_OFFSET>,
+            DisconnectProfileAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnManagementAgent as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnNamespaceAssignmentImpl: Sized {
     fn SetNamespaceList(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>) -> ::windows::core::Result<()>;
     fn NamespaceList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>;
     fn SetProxyAutoConfigUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn ProxyAutoConfigUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceAssignment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnNamespaceAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceAssignmentImpl, const OFFSET: isize>() -> IVpnNamespaceAssignmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceAssignmentVtbl {
         unsafe extern "system" fn SetNamespaceList<Impl: IVpnNamespaceAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNamespaceList(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnNamespaceInfo> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnNamespaceInfo> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1685,10 +1816,13 @@ impl IVpnNamespaceAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceAssignment>, ::windows::core::GetTrustLevel, SetNamespaceList::<Impl, OFFSET>, NamespaceList::<Impl, OFFSET>, SetProxyAutoConfigUri::<Impl, OFFSET>, ProxyAutoConfigUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceAssignment>, ::windows::core::GetTrustLevel, SetNamespaceList::<Impl, IMPL_OFFSET>, NamespaceList::<Impl, IMPL_OFFSET>, SetProxyAutoConfigUri::<Impl, IMPL_OFFSET>, ProxyAutoConfigUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnNamespaceAssignment as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnNamespaceInfoImpl: Sized {
     fn SetNamespace(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Namespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1697,13 +1831,13 @@ pub trait IVpnNamespaceInfoImpl: Sized {
     fn SetWebProxyServers(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<()>;
     fn WebProxyServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnNamespaceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>() -> IVpnNamespaceInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceInfoVtbl {
         unsafe extern "system" fn SetNamespace<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNamespace(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1749,17 +1883,36 @@ impl IVpnNamespaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceInfo>, ::windows::core::GetTrustLevel, SetNamespace::<Impl, OFFSET>, Namespace::<Impl, OFFSET>, SetDnsServers::<Impl, OFFSET>, DnsServers::<Impl, OFFSET>, SetWebProxyServers::<Impl, OFFSET>, WebProxyServers::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVpnNamespaceInfo>,
+            ::windows::core::GetTrustLevel,
+            SetNamespace::<Impl, IMPL_OFFSET>,
+            Namespace::<Impl, IMPL_OFFSET>,
+            SetDnsServers::<Impl, IMPL_OFFSET>,
+            DnsServers::<Impl, IMPL_OFFSET>,
+            SetWebProxyServers::<Impl, IMPL_OFFSET>,
+            WebProxyServers::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnNamespaceInfo as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IVpnNamespaceInfoFactoryImpl: Sized {
     fn CreateVpnNamespaceInfo(&self, name: &::windows::core::HSTRING, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<VpnNamespaceInfo>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnNamespaceInfoFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceInfoFactory";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IVpnNamespaceInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoFactoryImpl, const OFFSET: isize>() -> IVpnNamespaceInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceInfoFactoryVtbl {
         unsafe extern "system" fn CreateVpnNamespaceInfo<Impl: IVpnNamespaceInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dnsserverlist: ::windows::core::RawPtr, proxyserverlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnNamespaceInfo(
@@ -1775,10 +1928,13 @@ impl IVpnNamespaceInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceInfoFactory>, ::windows::core::GetTrustLevel, CreateVpnNamespaceInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNamespaceInfoFactory>, ::windows::core::GetTrustLevel, CreateVpnNamespaceInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnNamespaceInfoFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnNativeProfileImpl: Sized + IVpnProfileImpl {
     fn Servers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn RoutingPolicyType(&self) -> ::windows::core::Result<VpnRoutingPolicyType>;
@@ -1792,13 +1948,13 @@ pub trait IVpnNativeProfileImpl: Sized + IVpnProfileImpl {
     fn EapConfiguration(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetEapConfiguration(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNativeProfile";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnNativeProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfileImpl, const OFFSET: isize>() -> IVpnNativeProfileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNativeProfileVtbl {
         unsafe extern "system" fn Servers<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Servers() {
@@ -1886,24 +2042,27 @@ impl IVpnNativeProfileVtbl {
             (*this).SetEapConfiguration(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnNativeProfile>,
             ::windows::core::GetTrustLevel,
-            Servers::<Impl, OFFSET>,
-            RoutingPolicyType::<Impl, OFFSET>,
-            SetRoutingPolicyType::<Impl, OFFSET>,
-            NativeProtocolType::<Impl, OFFSET>,
-            SetNativeProtocolType::<Impl, OFFSET>,
-            UserAuthenticationMethod::<Impl, OFFSET>,
-            SetUserAuthenticationMethod::<Impl, OFFSET>,
-            TunnelAuthenticationMethod::<Impl, OFFSET>,
-            SetTunnelAuthenticationMethod::<Impl, OFFSET>,
-            EapConfiguration::<Impl, OFFSET>,
-            SetEapConfiguration::<Impl, OFFSET>,
+            Servers::<Impl, IMPL_OFFSET>,
+            RoutingPolicyType::<Impl, IMPL_OFFSET>,
+            SetRoutingPolicyType::<Impl, IMPL_OFFSET>,
+            NativeProtocolType::<Impl, IMPL_OFFSET>,
+            SetNativeProtocolType::<Impl, IMPL_OFFSET>,
+            UserAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            SetUserAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            TunnelAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            SetTunnelAuthenticationMethod::<Impl, IMPL_OFFSET>,
+            EapConfiguration::<Impl, IMPL_OFFSET>,
+            SetEapConfiguration::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnNativeProfile as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1918,7 +2077,7 @@ impl ::windows::core::RuntimeName for IVpnNativeProfile2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnNativeProfile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfile2Impl, const OFFSET: isize>() -> IVpnNativeProfile2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNativeProfile2Vtbl {
         unsafe extern "system" fn RequireVpnClientAppUI<Impl: IVpnNativeProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireVpnClientAppUI() {
@@ -1945,10 +2104,13 @@ impl IVpnNativeProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNativeProfile2>, ::windows::core::GetTrustLevel, RequireVpnClientAppUI::<Impl, OFFSET>, SetRequireVpnClientAppUI::<Impl, OFFSET>, ConnectionStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnNativeProfile2>, ::windows::core::GetTrustLevel, RequireVpnClientAppUI::<Impl, IMPL_OFFSET>, SetRequireVpnClientAppUI::<Impl, IMPL_OFFSET>, ConnectionStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnNativeProfile2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IVpnPacketBufferImpl: Sized {
     fn Buffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
     fn SetStatus(&self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()>;
@@ -1956,13 +2118,13 @@ pub trait IVpnPacketBufferImpl: Sized {
     fn SetTransportAffinity(&self, value: u32) -> ::windows::core::Result<()>;
     fn TransportAffinity(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBuffer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IVpnPacketBufferVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferImpl, const OFFSET: isize>() -> IVpnPacketBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferVtbl {
         unsafe extern "system" fn Buffer<Impl: IVpnPacketBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Buffer() {
@@ -2004,7 +2166,10 @@ impl IVpnPacketBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer>, ::windows::core::GetTrustLevel, Buffer::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, Status::<Impl, OFFSET>, SetTransportAffinity::<Impl, OFFSET>, TransportAffinity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer>, ::windows::core::GetTrustLevel, Buffer::<Impl, IMPL_OFFSET>, SetStatus::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, SetTransportAffinity::<Impl, IMPL_OFFSET>, TransportAffinity::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPacketBuffer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2017,7 +2182,7 @@ impl ::windows::core::RuntimeName for IVpnPacketBuffer2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnPacketBuffer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer2Impl, const OFFSET: isize>() -> IVpnPacketBuffer2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer2Vtbl {
         unsafe extern "system" fn AppId<Impl: IVpnPacketBuffer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
@@ -2029,7 +2194,10 @@ impl IVpnPacketBuffer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer2>, ::windows::core::GetTrustLevel, AppId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer2>, ::windows::core::GetTrustLevel, AppId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPacketBuffer2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2043,7 +2211,7 @@ impl ::windows::core::RuntimeName for IVpnPacketBuffer3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnPacketBuffer3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer3Impl, const OFFSET: isize>() -> IVpnPacketBuffer3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer3Vtbl {
         unsafe extern "system" fn SetTransportContext<Impl: IVpnPacketBuffer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransportContext(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2059,7 +2227,10 @@ impl IVpnPacketBuffer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer3>, ::windows::core::GetTrustLevel, SetTransportContext::<Impl, OFFSET>, TransportContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBuffer3>, ::windows::core::GetTrustLevel, SetTransportContext::<Impl, IMPL_OFFSET>, TransportContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPacketBuffer3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnPacketBufferFactoryImpl: Sized {
@@ -2069,7 +2240,7 @@ impl ::windows::core::RuntimeName for IVpnPacketBufferFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
 }
 impl IVpnPacketBufferFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferFactoryImpl, const OFFSET: isize>() -> IVpnPacketBufferFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferFactoryVtbl {
         unsafe extern "system" fn CreateVpnPacketBuffer<Impl: IVpnPacketBufferFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentbuffer: ::windows::core::RawPtr, offset: u32, length: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnPacketBuffer(&*(&parentbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType), offset, length) {
@@ -2081,7 +2252,10 @@ impl IVpnPacketBufferFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferFactory>, ::windows::core::GetTrustLevel, CreateVpnPacketBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferFactory>, ::windows::core::GetTrustLevel, CreateVpnPacketBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPacketBufferFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -2101,7 +2275,7 @@ impl ::windows::core::RuntimeName for IVpnPacketBufferList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnPacketBufferListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferListImpl, const OFFSET: isize>() -> IVpnPacketBufferListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferListVtbl {
         unsafe extern "system" fn Append<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&nextvpnpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2162,7 +2336,25 @@ impl IVpnPacketBufferListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferList>, ::windows::core::GetTrustLevel, Append::<Impl, OFFSET>, AddAtBegin::<Impl, OFFSET>, RemoveAtEnd::<Impl, OFFSET>, RemoveAtBegin::<Impl, OFFSET>, Clear::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, Status::<Impl, OFFSET>, Size::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVpnPacketBufferList>,
+            ::windows::core::GetTrustLevel,
+            Append::<Impl, IMPL_OFFSET>,
+            AddAtBegin::<Impl, IMPL_OFFSET>,
+            RemoveAtEnd::<Impl, IMPL_OFFSET>,
+            RemoveAtBegin::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            SetStatus::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPacketBufferList as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -2178,7 +2370,7 @@ impl ::windows::core::RuntimeName for IVpnPacketBufferList2 {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnPacketBufferList2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferList2Impl, const OFFSET: isize>() -> IVpnPacketBufferList2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferList2Vtbl {
         unsafe extern "system" fn AddLeadingPacket<Impl: IVpnPacketBufferList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddLeadingPacket(&*(&nextvpnpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2209,22 +2401,25 @@ impl IVpnPacketBufferList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferList2>, ::windows::core::GetTrustLevel, AddLeadingPacket::<Impl, OFFSET>, RemoveLeadingPacket::<Impl, OFFSET>, AddTrailingPacket::<Impl, OFFSET>, RemoveTrailingPacket::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPacketBufferList2>, ::windows::core::GetTrustLevel, AddLeadingPacket::<Impl, IMPL_OFFSET>, RemoveLeadingPacket::<Impl, IMPL_OFFSET>, AddTrailingPacket::<Impl, IMPL_OFFSET>, RemoveTrailingPacket::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPacketBufferList2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IVpnPickedCredentialImpl: Sized {
     fn PasskeyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn AdditionalPin(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn OldPasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPickedCredential";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IVpnPickedCredentialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPickedCredentialImpl, const OFFSET: isize>() -> IVpnPickedCredentialVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPickedCredentialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPickedCredentialVtbl {
         unsafe extern "system" fn PasskeyCredential<Impl: IVpnPickedCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasskeyCredential() {
@@ -2258,7 +2453,10 @@ impl IVpnPickedCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPickedCredential>, ::windows::core::GetTrustLevel, PasskeyCredential::<Impl, OFFSET>, AdditionalPin::<Impl, OFFSET>, OldPasswordCredential::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPickedCredential>, ::windows::core::GetTrustLevel, PasskeyCredential::<Impl, IMPL_OFFSET>, AdditionalPin::<Impl, IMPL_OFFSET>, OldPasswordCredential::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPickedCredential as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnPlugInImpl: Sized {
@@ -2272,7 +2470,7 @@ impl ::windows::core::RuntimeName for IVpnPlugIn {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugIn";
 }
 impl IVpnPlugInVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInImpl, const OFFSET: isize>() -> IVpnPlugInVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInVtbl {
         unsafe extern "system" fn Connect<Impl: IVpnPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Connect(&*(&channel as *const <VpnChannel as ::windows::core::Abi>::Abi as *const <VpnChannel as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2300,10 +2498,13 @@ impl IVpnPlugInVtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugIn>, ::windows::core::GetTrustLevel, Connect::<Impl, OFFSET>, Disconnect::<Impl, OFFSET>, GetKeepAlivePayload::<Impl, OFFSET>, Encapsulate::<Impl, OFFSET>, Decapsulate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugIn>, ::windows::core::GetTrustLevel, Connect::<Impl, IMPL_OFFSET>, Disconnect::<Impl, IMPL_OFFSET>, GetKeepAlivePayload::<Impl, IMPL_OFFSET>, Encapsulate::<Impl, IMPL_OFFSET>, Decapsulate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPlugIn as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnPlugInProfileImpl: Sized + IVpnProfileImpl {
     fn ServerUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
     fn CustomConfiguration(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2311,13 +2512,13 @@ pub trait IVpnPlugInProfileImpl: Sized + IVpnProfileImpl {
     fn VpnPluginPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetVpnPluginPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInProfile";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnPlugInProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfileImpl, const OFFSET: isize>() -> IVpnPlugInProfileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInProfileVtbl {
         unsafe extern "system" fn ServerUris<Impl: IVpnPlugInProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerUris() {
@@ -2359,22 +2560,37 @@ impl IVpnPlugInProfileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVpnPluginPackageFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugInProfile>, ::windows::core::GetTrustLevel, ServerUris::<Impl, OFFSET>, CustomConfiguration::<Impl, OFFSET>, SetCustomConfiguration::<Impl, OFFSET>, VpnPluginPackageFamilyName::<Impl, OFFSET>, SetVpnPluginPackageFamilyName::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IVpnPlugInProfile>,
+            ::windows::core::GetTrustLevel,
+            ServerUris::<Impl, IMPL_OFFSET>,
+            CustomConfiguration::<Impl, IMPL_OFFSET>,
+            SetCustomConfiguration::<Impl, IMPL_OFFSET>,
+            VpnPluginPackageFamilyName::<Impl, IMPL_OFFSET>,
+            SetVpnPluginPackageFamilyName::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPlugInProfile as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnPlugInProfile2Impl: Sized + IVpnProfileImpl {
     fn RequireVpnClientAppUI(&self) -> ::windows::core::Result<bool>;
     fn SetRequireVpnClientAppUI(&self, value: bool) -> ::windows::core::Result<()>;
     fn ConnectionStatus(&self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPlugInProfile2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInProfile2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnPlugInProfile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfile2Impl, const OFFSET: isize>() -> IVpnPlugInProfile2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInProfile2Vtbl {
         unsafe extern "system" fn RequireVpnClientAppUI<Impl: IVpnPlugInProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireVpnClientAppUI() {
@@ -2401,9 +2617,13 @@ impl IVpnPlugInProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugInProfile2>, ::windows::core::GetTrustLevel, RequireVpnClientAppUI::<Impl, OFFSET>, SetRequireVpnClientAppUI::<Impl, OFFSET>, ConnectionStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnPlugInProfile2>, ::windows::core::GetTrustLevel, RequireVpnClientAppUI::<Impl, IMPL_OFFSET>, SetRequireVpnClientAppUI::<Impl, IMPL_OFFSET>, ConnectionStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnPlugInProfile2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IVpnProfileImpl: Sized {
     fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetProfileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -2416,11 +2636,13 @@ pub trait IVpnProfileImpl: Sized {
     fn AlwaysOn(&self) -> ::windows::core::Result<bool>;
     fn SetAlwaysOn(&self, value: bool) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnProfile";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IVpnProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnProfileImpl, const OFFSET: isize>() -> IVpnProfileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnProfileVtbl {
         unsafe extern "system" fn ProfileName<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileName() {
@@ -2511,23 +2733,26 @@ impl IVpnProfileVtbl {
             (*this).SetAlwaysOn(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnProfile>,
             ::windows::core::GetTrustLevel,
-            ProfileName::<Impl, OFFSET>,
-            SetProfileName::<Impl, OFFSET>,
-            AppTriggers::<Impl, OFFSET>,
-            Routes::<Impl, OFFSET>,
-            DomainNameInfoList::<Impl, OFFSET>,
-            TrafficFilters::<Impl, OFFSET>,
-            RememberCredentials::<Impl, OFFSET>,
-            SetRememberCredentials::<Impl, OFFSET>,
-            AlwaysOn::<Impl, OFFSET>,
-            SetAlwaysOn::<Impl, OFFSET>,
+            ProfileName::<Impl, IMPL_OFFSET>,
+            SetProfileName::<Impl, IMPL_OFFSET>,
+            AppTriggers::<Impl, IMPL_OFFSET>,
+            Routes::<Impl, IMPL_OFFSET>,
+            DomainNameInfoList::<Impl, IMPL_OFFSET>,
+            TrafficFilters::<Impl, IMPL_OFFSET>,
+            RememberCredentials::<Impl, IMPL_OFFSET>,
+            SetRememberCredentials::<Impl, IMPL_OFFSET>,
+            AlwaysOn::<Impl, IMPL_OFFSET>,
+            SetAlwaysOn::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnProfile as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2543,7 +2768,7 @@ impl ::windows::core::RuntimeName for IVpnRoute {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnRouteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteImpl, const OFFSET: isize>() -> IVpnRouteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteVtbl {
         unsafe extern "system" fn SetAddress<Impl: IVpnRouteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddress(&*(&value as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2574,10 +2799,13 @@ impl IVpnRouteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnRoute>, ::windows::core::GetTrustLevel, SetAddress::<Impl, OFFSET>, Address::<Impl, OFFSET>, SetPrefixSize::<Impl, OFFSET>, PrefixSize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnRoute>, ::windows::core::GetTrustLevel, SetAddress::<Impl, IMPL_OFFSET>, Address::<Impl, IMPL_OFFSET>, SetPrefixSize::<Impl, IMPL_OFFSET>, PrefixSize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnRoute as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnRouteAssignmentImpl: Sized {
     fn SetIpv4InclusionRoutes(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
     fn SetIpv6InclusionRoutes(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
@@ -2590,13 +2818,13 @@ pub trait IVpnRouteAssignmentImpl: Sized {
     fn SetExcludeLocalSubnets(&self, value: bool) -> ::windows::core::Result<()>;
     fn ExcludeLocalSubnets(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteAssignment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnRouteAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>() -> IVpnRouteAssignmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteAssignmentVtbl {
         unsafe extern "system" fn SetIpv4InclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIpv4InclusionRoutes(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2673,23 +2901,26 @@ impl IVpnRouteAssignmentVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnRouteAssignment>,
             ::windows::core::GetTrustLevel,
-            SetIpv4InclusionRoutes::<Impl, OFFSET>,
-            SetIpv6InclusionRoutes::<Impl, OFFSET>,
-            Ipv4InclusionRoutes::<Impl, OFFSET>,
-            Ipv6InclusionRoutes::<Impl, OFFSET>,
-            SetIpv4ExclusionRoutes::<Impl, OFFSET>,
-            SetIpv6ExclusionRoutes::<Impl, OFFSET>,
-            Ipv4ExclusionRoutes::<Impl, OFFSET>,
-            Ipv6ExclusionRoutes::<Impl, OFFSET>,
-            SetExcludeLocalSubnets::<Impl, OFFSET>,
-            ExcludeLocalSubnets::<Impl, OFFSET>,
+            SetIpv4InclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetIpv6InclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv4InclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv6InclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetIpv4ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetIpv6ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv4ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            Ipv6ExclusionRoutes::<Impl, IMPL_OFFSET>,
+            SetExcludeLocalSubnets::<Impl, IMPL_OFFSET>,
+            ExcludeLocalSubnets::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnRouteAssignment as ::windows::core::Interface>::IID
     }
 }
 pub trait IVpnRouteFactoryImpl: Sized {
@@ -2699,7 +2930,7 @@ impl ::windows::core::RuntimeName for IVpnRouteFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
 }
 impl IVpnRouteFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteFactoryImpl, const OFFSET: isize>() -> IVpnRouteFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteFactoryVtbl {
         unsafe extern "system" fn CreateVpnRoute<Impl: IVpnRouteFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::windows::core::RawPtr, prefixsize: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnRoute(&*(&address as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), prefixsize) {
@@ -2711,20 +2942,23 @@ impl IVpnRouteFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnRouteFactory>, ::windows::core::GetTrustLevel, CreateVpnRoute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnRouteFactory>, ::windows::core::GetTrustLevel, CreateVpnRoute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnRouteFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IVpnSystemHealthImpl: Sized {
     fn StatementOfHealth(&self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnSystemHealth";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IVpnSystemHealthVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnSystemHealthImpl, const OFFSET: isize>() -> IVpnSystemHealthVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnSystemHealthImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnSystemHealthVtbl {
         unsafe extern "system" fn StatementOfHealth<Impl: IVpnSystemHealthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatementOfHealth() {
@@ -2736,10 +2970,13 @@ impl IVpnSystemHealthVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnSystemHealth>, ::windows::core::GetTrustLevel, StatementOfHealth::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnSystemHealth>, ::windows::core::GetTrustLevel, StatementOfHealth::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnSystemHealth as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnTrafficFilterImpl: Sized {
     fn AppId(&self) -> ::windows::core::Result<VpnAppId>;
     fn SetAppId(&self, value: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<()>;
@@ -2753,13 +2990,13 @@ pub trait IVpnTrafficFilterImpl: Sized {
     fn RoutingPolicyType(&self) -> ::windows::core::Result<VpnRoutingPolicyType>;
     fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnTrafficFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnTrafficFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterImpl, const OFFSET: isize>() -> IVpnTrafficFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterVtbl {
         unsafe extern "system" fn AppId<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
@@ -2861,27 +3098,30 @@ impl IVpnTrafficFilterVtbl {
             (*this).SetRoutingPolicyType(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVpnTrafficFilter>,
             ::windows::core::GetTrustLevel,
-            AppId::<Impl, OFFSET>,
-            SetAppId::<Impl, OFFSET>,
-            AppClaims::<Impl, OFFSET>,
-            Protocol::<Impl, OFFSET>,
-            SetProtocol::<Impl, OFFSET>,
-            LocalPortRanges::<Impl, OFFSET>,
-            RemotePortRanges::<Impl, OFFSET>,
-            LocalAddressRanges::<Impl, OFFSET>,
-            RemoteAddressRanges::<Impl, OFFSET>,
-            RoutingPolicyType::<Impl, OFFSET>,
-            SetRoutingPolicyType::<Impl, OFFSET>,
+            AppId::<Impl, IMPL_OFFSET>,
+            SetAppId::<Impl, IMPL_OFFSET>,
+            AppClaims::<Impl, IMPL_OFFSET>,
+            Protocol::<Impl, IMPL_OFFSET>,
+            SetProtocol::<Impl, IMPL_OFFSET>,
+            LocalPortRanges::<Impl, IMPL_OFFSET>,
+            RemotePortRanges::<Impl, IMPL_OFFSET>,
+            LocalAddressRanges::<Impl, IMPL_OFFSET>,
+            RemoteAddressRanges::<Impl, IMPL_OFFSET>,
+            RoutingPolicyType::<Impl, IMPL_OFFSET>,
+            SetRoutingPolicyType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnTrafficFilter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnTrafficFilterAssignmentImpl: Sized {
     fn TrafficFilterList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
     fn AllowOutbound(&self) -> ::windows::core::Result<bool>;
@@ -2889,13 +3129,13 @@ pub trait IVpnTrafficFilterAssignmentImpl: Sized {
     fn AllowInbound(&self) -> ::windows::core::Result<bool>;
     fn SetAllowInbound(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnTrafficFilterAssignment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IVpnTrafficFilterAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>() -> IVpnTrafficFilterAssignmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterAssignmentVtbl {
         unsafe extern "system" fn TrafficFilterList<Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrafficFilterList() {
@@ -2937,7 +3177,10 @@ impl IVpnTrafficFilterAssignmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowInbound(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnTrafficFilterAssignment>, ::windows::core::GetTrustLevel, TrafficFilterList::<Impl, OFFSET>, AllowOutbound::<Impl, OFFSET>, SetAllowOutbound::<Impl, OFFSET>, AllowInbound::<Impl, OFFSET>, SetAllowInbound::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnTrafficFilterAssignment>, ::windows::core::GetTrustLevel, TrafficFilterList::<Impl, IMPL_OFFSET>, AllowOutbound::<Impl, IMPL_OFFSET>, SetAllowOutbound::<Impl, IMPL_OFFSET>, AllowInbound::<Impl, IMPL_OFFSET>, SetAllowInbound::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnTrafficFilterAssignment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2950,7 +3193,7 @@ impl ::windows::core::RuntimeName for IVpnTrafficFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVpnTrafficFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterFactoryImpl, const OFFSET: isize>() -> IVpnTrafficFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IVpnTrafficFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&appid as *const <VpnAppId as ::windows::core::Abi>::Abi as *const <VpnAppId as ::windows::core::DefaultType>::DefaultType)) {
@@ -2962,6 +3205,9 @@ impl IVpnTrafficFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnTrafficFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVpnTrafficFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVpnTrafficFilterFactory as ::windows::core::Interface>::IID
     }
 }

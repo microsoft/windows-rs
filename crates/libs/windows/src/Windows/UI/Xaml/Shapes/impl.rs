@@ -6,8 +6,11 @@ impl ::windows::core::RuntimeName for IEllipse {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEllipseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEllipseImpl, const OFFSET: isize>() -> IEllipseVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEllipse>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEllipseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEllipseVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEllipse>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEllipse as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -27,7 +30,7 @@ impl ::windows::core::RuntimeName for ILine {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineImpl, const OFFSET: isize>() -> ILineVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineVtbl {
         unsafe extern "system" fn X1<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X1() {
@@ -88,7 +91,10 @@ impl ILineVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetY2(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILine>, ::windows::core::GetTrustLevel, X1::<Impl, OFFSET>, SetX1::<Impl, OFFSET>, Y1::<Impl, OFFSET>, SetY1::<Impl, OFFSET>, X2::<Impl, OFFSET>, SetX2::<Impl, OFFSET>, Y2::<Impl, OFFSET>, SetY2::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILine>, ::windows::core::GetTrustLevel, X1::<Impl, IMPL_OFFSET>, SetX1::<Impl, IMPL_OFFSET>, Y1::<Impl, IMPL_OFFSET>, SetY1::<Impl, IMPL_OFFSET>, X2::<Impl, IMPL_OFFSET>, SetX2::<Impl, IMPL_OFFSET>, Y2::<Impl, IMPL_OFFSET>, SetY2::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILine as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -104,7 +110,7 @@ impl ::windows::core::RuntimeName for ILineStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineStaticsImpl, const OFFSET: isize>() -> ILineStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineStaticsVtbl {
         unsafe extern "system" fn X1Property<Impl: ILineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X1Property() {
@@ -149,21 +155,24 @@ impl ILineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineStatics>, ::windows::core::GetTrustLevel, X1Property::<Impl, OFFSET>, Y1Property::<Impl, OFFSET>, X2Property::<Impl, OFFSET>, Y2Property::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILineStatics>, ::windows::core::GetTrustLevel, X1Property::<Impl, IMPL_OFFSET>, Y1Property::<Impl, IMPL_OFFSET>, X2Property::<Impl, IMPL_OFFSET>, Y2Property::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILineStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IPathImpl: Sized {
     fn Data(&self) -> ::windows::core::Result<super::Media::Geometry>;
     fn SetData(&self, value: &::core::option::Option<super::Media::Geometry>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPath {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPath";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl IPathVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathImpl, const OFFSET: isize>() -> IPathVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathVtbl {
         unsafe extern "system" fn Data<Impl: IPathImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -179,7 +188,10 @@ impl IPathVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <super::Media::Geometry as ::windows::core::Abi>::Abi as *const <super::Media::Geometry as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPath>, ::windows::core::GetTrustLevel, Data::<Impl, OFFSET>, SetData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPath>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPath as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -192,7 +204,7 @@ impl ::windows::core::RuntimeName for IPathFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPathFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathFactoryImpl, const OFFSET: isize>() -> IPathFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IPathFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -204,7 +216,10 @@ impl IPathFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPathFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPathFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPathFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -217,7 +232,7 @@ impl ::windows::core::RuntimeName for IPathStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPathStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathStaticsImpl, const OFFSET: isize>() -> IPathStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathStaticsVtbl {
         unsafe extern "system" fn DataProperty<Impl: IPathStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataProperty() {
@@ -229,23 +244,26 @@ impl IPathStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPathStatics>, ::windows::core::GetTrustLevel, DataProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPathStatics>, ::windows::core::GetTrustLevel, DataProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPathStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IPolygonImpl: Sized {
     fn FillRule(&self) -> ::windows::core::Result<super::Media::FillRule>;
     fn SetFillRule(&self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
     fn Points(&self) -> ::windows::core::Result<super::Media::PointCollection>;
     fn SetPoints(&self, value: &::core::option::Option<super::Media::PointCollection>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPolygon {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPolygon";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl IPolygonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonImpl, const OFFSET: isize>() -> IPolygonVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolygonVtbl {
         unsafe extern "system" fn FillRule<Impl: IPolygonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRule() {
@@ -276,7 +294,10 @@ impl IPolygonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPoints(&*(&value as *const <super::Media::PointCollection as ::windows::core::Abi>::Abi as *const <super::Media::PointCollection as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolygon>, ::windows::core::GetTrustLevel, FillRule::<Impl, OFFSET>, SetFillRule::<Impl, OFFSET>, Points::<Impl, OFFSET>, SetPoints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolygon>, ::windows::core::GetTrustLevel, FillRule::<Impl, IMPL_OFFSET>, SetFillRule::<Impl, IMPL_OFFSET>, Points::<Impl, IMPL_OFFSET>, SetPoints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPolygon as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -290,7 +311,7 @@ impl ::windows::core::RuntimeName for IPolygonStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPolygonStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonStaticsImpl, const OFFSET: isize>() -> IPolygonStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolygonStaticsVtbl {
         unsafe extern "system" fn FillRuleProperty<Impl: IPolygonStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRuleProperty() {
@@ -313,23 +334,26 @@ impl IPolygonStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolygonStatics>, ::windows::core::GetTrustLevel, FillRuleProperty::<Impl, OFFSET>, PointsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolygonStatics>, ::windows::core::GetTrustLevel, FillRuleProperty::<Impl, IMPL_OFFSET>, PointsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPolygonStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IPolylineImpl: Sized {
     fn FillRule(&self) -> ::windows::core::Result<super::Media::FillRule>;
     fn SetFillRule(&self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
     fn Points(&self) -> ::windows::core::Result<super::Media::PointCollection>;
     fn SetPoints(&self, value: &::core::option::Option<super::Media::PointCollection>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPolyline {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPolyline";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl IPolylineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineImpl, const OFFSET: isize>() -> IPolylineVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolylineVtbl {
         unsafe extern "system" fn FillRule<Impl: IPolylineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRule() {
@@ -360,7 +384,10 @@ impl IPolylineVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPoints(&*(&value as *const <super::Media::PointCollection as ::windows::core::Abi>::Abi as *const <super::Media::PointCollection as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolyline>, ::windows::core::GetTrustLevel, FillRule::<Impl, OFFSET>, SetFillRule::<Impl, OFFSET>, Points::<Impl, OFFSET>, SetPoints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolyline>, ::windows::core::GetTrustLevel, FillRule::<Impl, IMPL_OFFSET>, SetFillRule::<Impl, IMPL_OFFSET>, Points::<Impl, IMPL_OFFSET>, SetPoints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPolyline as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -374,7 +401,7 @@ impl ::windows::core::RuntimeName for IPolylineStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPolylineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineStaticsImpl, const OFFSET: isize>() -> IPolylineStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolylineStaticsVtbl {
         unsafe extern "system" fn FillRuleProperty<Impl: IPolylineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRuleProperty() {
@@ -397,7 +424,10 @@ impl IPolylineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolylineStatics>, ::windows::core::GetTrustLevel, FillRuleProperty::<Impl, OFFSET>, PointsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPolylineStatics>, ::windows::core::GetTrustLevel, FillRuleProperty::<Impl, IMPL_OFFSET>, PointsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPolylineStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -413,7 +443,7 @@ impl ::windows::core::RuntimeName for IRectangle {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRectangleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleImpl, const OFFSET: isize>() -> IRectangleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleVtbl {
         unsafe extern "system" fn RadiusX<Impl: IRectangleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadiusX() {
@@ -444,7 +474,10 @@ impl IRectangleVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRadiusY(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRectangle>, ::windows::core::GetTrustLevel, RadiusX::<Impl, OFFSET>, SetRadiusX::<Impl, OFFSET>, RadiusY::<Impl, OFFSET>, SetRadiusY::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRectangle>, ::windows::core::GetTrustLevel, RadiusX::<Impl, IMPL_OFFSET>, SetRadiusX::<Impl, IMPL_OFFSET>, RadiusY::<Impl, IMPL_OFFSET>, SetRadiusY::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRectangle as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -458,7 +491,7 @@ impl ::windows::core::RuntimeName for IRectangleStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRectangleStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleStaticsImpl, const OFFSET: isize>() -> IRectangleStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleStaticsVtbl {
         unsafe extern "system" fn RadiusXProperty<Impl: IRectangleStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadiusXProperty() {
@@ -481,10 +514,13 @@ impl IRectangleStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRectangleStatics>, ::windows::core::GetTrustLevel, RadiusXProperty::<Impl, OFFSET>, RadiusYProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRectangleStatics>, ::windows::core::GetTrustLevel, RadiusXProperty::<Impl, IMPL_OFFSET>, RadiusYProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRectangleStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IShapeImpl: Sized {
     fn Fill(&self) -> ::windows::core::Result<super::Media::Brush>;
     fn SetFill(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
@@ -510,13 +546,13 @@ pub trait IShapeImpl: Sized {
     fn SetStretch(&self, value: super::Media::Stretch) -> ::windows::core::Result<()>;
     fn GeometryTransform(&self) -> ::windows::core::Result<super::Media::Transform>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShape {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IShape";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl IShapeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeImpl, const OFFSET: isize>() -> IShapeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeVtbl {
         unsafe extern "system" fn Fill<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Fill() {
@@ -694,49 +730,52 @@ impl IShapeVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IShape>,
             ::windows::core::GetTrustLevel,
-            Fill::<Impl, OFFSET>,
-            SetFill::<Impl, OFFSET>,
-            Stroke::<Impl, OFFSET>,
-            SetStroke::<Impl, OFFSET>,
-            StrokeMiterLimit::<Impl, OFFSET>,
-            SetStrokeMiterLimit::<Impl, OFFSET>,
-            StrokeThickness::<Impl, OFFSET>,
-            SetStrokeThickness::<Impl, OFFSET>,
-            StrokeStartLineCap::<Impl, OFFSET>,
-            SetStrokeStartLineCap::<Impl, OFFSET>,
-            StrokeEndLineCap::<Impl, OFFSET>,
-            SetStrokeEndLineCap::<Impl, OFFSET>,
-            StrokeLineJoin::<Impl, OFFSET>,
-            SetStrokeLineJoin::<Impl, OFFSET>,
-            StrokeDashOffset::<Impl, OFFSET>,
-            SetStrokeDashOffset::<Impl, OFFSET>,
-            StrokeDashCap::<Impl, OFFSET>,
-            SetStrokeDashCap::<Impl, OFFSET>,
-            StrokeDashArray::<Impl, OFFSET>,
-            SetStrokeDashArray::<Impl, OFFSET>,
-            Stretch::<Impl, OFFSET>,
-            SetStretch::<Impl, OFFSET>,
-            GeometryTransform::<Impl, OFFSET>,
+            Fill::<Impl, IMPL_OFFSET>,
+            SetFill::<Impl, IMPL_OFFSET>,
+            Stroke::<Impl, IMPL_OFFSET>,
+            SetStroke::<Impl, IMPL_OFFSET>,
+            StrokeMiterLimit::<Impl, IMPL_OFFSET>,
+            SetStrokeMiterLimit::<Impl, IMPL_OFFSET>,
+            StrokeThickness::<Impl, IMPL_OFFSET>,
+            SetStrokeThickness::<Impl, IMPL_OFFSET>,
+            StrokeStartLineCap::<Impl, IMPL_OFFSET>,
+            SetStrokeStartLineCap::<Impl, IMPL_OFFSET>,
+            StrokeEndLineCap::<Impl, IMPL_OFFSET>,
+            SetStrokeEndLineCap::<Impl, IMPL_OFFSET>,
+            StrokeLineJoin::<Impl, IMPL_OFFSET>,
+            SetStrokeLineJoin::<Impl, IMPL_OFFSET>,
+            StrokeDashOffset::<Impl, IMPL_OFFSET>,
+            SetStrokeDashOffset::<Impl, IMPL_OFFSET>,
+            StrokeDashCap::<Impl, IMPL_OFFSET>,
+            SetStrokeDashCap::<Impl, IMPL_OFFSET>,
+            StrokeDashArray::<Impl, IMPL_OFFSET>,
+            SetStrokeDashArray::<Impl, IMPL_OFFSET>,
+            Stretch::<Impl, IMPL_OFFSET>,
+            SetStretch::<Impl, IMPL_OFFSET>,
+            GeometryTransform::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShape as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IShape2Impl: Sized {
     fn GetAlphaMask(&self) -> ::windows::core::Result<super::super::Composition::CompositionBrush>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShape2 {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IShape2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl IShape2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShape2Impl, const OFFSET: isize>() -> IShape2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShape2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShape2Vtbl {
         unsafe extern "system" fn GetAlphaMask<Impl: IShape2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAlphaMask() {
@@ -748,7 +787,10 @@ impl IShape2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShape2>, ::windows::core::GetTrustLevel, GetAlphaMask::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShape2>, ::windows::core::GetTrustLevel, GetAlphaMask::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShape2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -761,7 +803,7 @@ impl ::windows::core::RuntimeName for IShapeFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShapeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeFactoryImpl, const OFFSET: isize>() -> IShapeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IShapeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -773,7 +815,10 @@ impl IShapeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShapeFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShapeFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShapeFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -796,7 +841,7 @@ impl ::windows::core::RuntimeName for IShapeStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShapeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeStaticsImpl, const OFFSET: isize>() -> IShapeStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeStaticsVtbl {
         unsafe extern "system" fn FillProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillProperty() {
@@ -919,23 +964,26 @@ impl IShapeStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IShapeStatics>,
             ::windows::core::GetTrustLevel,
-            FillProperty::<Impl, OFFSET>,
-            StrokeProperty::<Impl, OFFSET>,
-            StrokeMiterLimitProperty::<Impl, OFFSET>,
-            StrokeThicknessProperty::<Impl, OFFSET>,
-            StrokeStartLineCapProperty::<Impl, OFFSET>,
-            StrokeEndLineCapProperty::<Impl, OFFSET>,
-            StrokeLineJoinProperty::<Impl, OFFSET>,
-            StrokeDashOffsetProperty::<Impl, OFFSET>,
-            StrokeDashCapProperty::<Impl, OFFSET>,
-            StrokeDashArrayProperty::<Impl, OFFSET>,
-            StretchProperty::<Impl, OFFSET>,
+            FillProperty::<Impl, IMPL_OFFSET>,
+            StrokeProperty::<Impl, IMPL_OFFSET>,
+            StrokeMiterLimitProperty::<Impl, IMPL_OFFSET>,
+            StrokeThicknessProperty::<Impl, IMPL_OFFSET>,
+            StrokeStartLineCapProperty::<Impl, IMPL_OFFSET>,
+            StrokeEndLineCapProperty::<Impl, IMPL_OFFSET>,
+            StrokeLineJoinProperty::<Impl, IMPL_OFFSET>,
+            StrokeDashOffsetProperty::<Impl, IMPL_OFFSET>,
+            StrokeDashCapProperty::<Impl, IMPL_OFFSET>,
+            StrokeDashArrayProperty::<Impl, IMPL_OFFSET>,
+            StretchProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShapeStatics as ::windows::core::Interface>::IID
     }
 }

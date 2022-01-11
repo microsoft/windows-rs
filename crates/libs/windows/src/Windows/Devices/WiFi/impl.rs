@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWiFiAdapterImpl: Sized {
     fn NetworkAdapter(&self) -> ::windows::core::Result<super::super::Networking::Connectivity::NetworkAdapter>;
     fn ScanAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -10,13 +10,13 @@ pub trait IWiFiAdapterImpl: Sized {
     fn ConnectWithPasswordCredentialAndSsidAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAdapter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IWiFiAdapterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterImpl, const OFFSET: isize>() -> IWiFiAdapterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapterVtbl {
         unsafe extern "system" fn NetworkAdapter<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAdapter() {
@@ -108,36 +108,39 @@ impl IWiFiAdapterVtbl {
             (*this).Disconnect().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWiFiAdapter>,
             ::windows::core::GetTrustLevel,
-            NetworkAdapter::<Impl, OFFSET>,
-            ScanAsync::<Impl, OFFSET>,
-            NetworkReport::<Impl, OFFSET>,
-            AvailableNetworksChanged::<Impl, OFFSET>,
-            RemoveAvailableNetworksChanged::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
-            ConnectWithPasswordCredentialAsync::<Impl, OFFSET>,
-            ConnectWithPasswordCredentialAndSsidAsync::<Impl, OFFSET>,
-            Disconnect::<Impl, OFFSET>,
+            NetworkAdapter::<Impl, IMPL_OFFSET>,
+            ScanAsync::<Impl, IMPL_OFFSET>,
+            NetworkReport::<Impl, IMPL_OFFSET>,
+            AvailableNetworksChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailableNetworksChanged::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithPasswordCredentialAsync::<Impl, IMPL_OFFSET>,
+            ConnectWithPasswordCredentialAndSsidAsync::<Impl, IMPL_OFFSET>,
+            Disconnect::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiAdapter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWiFiAdapter2Impl: Sized {
     fn GetWpsConfigurationAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>;
     fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING, connectionmethod: WiFiConnectionMethod) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAdapter2 {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAdapter2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IWiFiAdapter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapter2Impl, const OFFSET: isize>() -> IWiFiAdapter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapter2Vtbl {
         unsafe extern "system" fn GetWpsConfigurationAsync<Impl: IWiFiAdapter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWpsConfigurationAsync(&*(&availablenetwork as *const <WiFiAvailableNetwork as ::windows::core::Abi>::Abi as *const <WiFiAvailableNetwork as ::windows::core::DefaultType>::DefaultType)) {
@@ -166,23 +169,26 @@ impl IWiFiAdapter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiAdapter2>, ::windows::core::GetTrustLevel, GetWpsConfigurationAsync::<Impl, OFFSET>, ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiAdapter2>, ::windows::core::GetTrustLevel, GetWpsConfigurationAsync::<Impl, IMPL_OFFSET>, ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiAdapter2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWiFiAdapterStaticsImpl: Sized {
     fn FindAllAdaptersAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>>;
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAccessStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAdapterStatics {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAdapterStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWiFiAdapterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterStaticsImpl, const OFFSET: isize>() -> IWiFiAdapterStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapterStaticsVtbl {
         unsafe extern "system" fn FindAllAdaptersAsync<Impl: IWiFiAdapterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAdaptersAsync() {
@@ -227,10 +233,13 @@ impl IWiFiAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiAdapterStatics>, ::windows::core::GetTrustLevel, FindAllAdaptersAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiAdapterStatics>, ::windows::core::GetTrustLevel, FindAllAdaptersAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiAdapterStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IWiFiAvailableNetworkImpl: Sized {
     fn Uptime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Ssid(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -244,13 +253,13 @@ pub trait IWiFiAvailableNetworkImpl: Sized {
     fn BeaconInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn IsWiFiDirect(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAvailableNetwork";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl IWiFiAvailableNetworkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>() -> IWiFiAvailableNetworkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAvailableNetworkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAvailableNetworkVtbl {
         unsafe extern "system" fn Uptime<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uptime() {
@@ -373,24 +382,27 @@ impl IWiFiAvailableNetworkVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWiFiAvailableNetwork>,
             ::windows::core::GetTrustLevel,
-            Uptime::<Impl, OFFSET>,
-            Ssid::<Impl, OFFSET>,
-            Bssid::<Impl, OFFSET>,
-            ChannelCenterFrequencyInKilohertz::<Impl, OFFSET>,
-            NetworkRssiInDecibelMilliwatts::<Impl, OFFSET>,
-            SignalBars::<Impl, OFFSET>,
-            NetworkKind::<Impl, OFFSET>,
-            PhyKind::<Impl, OFFSET>,
-            SecuritySettings::<Impl, OFFSET>,
-            BeaconInterval::<Impl, OFFSET>,
-            IsWiFiDirect::<Impl, OFFSET>,
+            Uptime::<Impl, IMPL_OFFSET>,
+            Ssid::<Impl, IMPL_OFFSET>,
+            Bssid::<Impl, IMPL_OFFSET>,
+            ChannelCenterFrequencyInKilohertz::<Impl, IMPL_OFFSET>,
+            NetworkRssiInDecibelMilliwatts::<Impl, IMPL_OFFSET>,
+            SignalBars::<Impl, IMPL_OFFSET>,
+            NetworkKind::<Impl, IMPL_OFFSET>,
+            PhyKind::<Impl, IMPL_OFFSET>,
+            SecuritySettings::<Impl, IMPL_OFFSET>,
+            BeaconInterval::<Impl, IMPL_OFFSET>,
+            IsWiFiDirect::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiAvailableNetwork as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -403,7 +415,7 @@ impl ::windows::core::RuntimeName for IWiFiConnectionResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWiFiConnectionResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiConnectionResultImpl, const OFFSET: isize>() -> IWiFiConnectionResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiConnectionResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiConnectionResultVtbl {
         unsafe extern "system" fn ConnectionStatus<Impl: IWiFiConnectionResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiConnectionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionStatus() {
@@ -415,21 +427,24 @@ impl IWiFiConnectionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiConnectionResult>, ::windows::core::GetTrustLevel, ConnectionStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiConnectionResult>, ::windows::core::GetTrustLevel, ConnectionStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiConnectionResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWiFiNetworkReportImpl: Sized {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn AvailableNetworks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiNetworkReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWiFiNetworkReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiNetworkReportImpl, const OFFSET: isize>() -> IWiFiNetworkReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiNetworkReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiNetworkReportVtbl {
         unsafe extern "system" fn Timestamp<Impl: IWiFiNetworkReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -452,21 +467,24 @@ impl IWiFiNetworkReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiNetworkReport>, ::windows::core::GetTrustLevel, Timestamp::<Impl, OFFSET>, AvailableNetworks::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiNetworkReport>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, AvailableNetworks::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiNetworkReport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWiFiWpsConfigurationResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<WiFiWpsConfigurationStatus>;
     fn SupportedWpsKinds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiWpsKind>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiWpsConfigurationResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IWiFiWpsConfigurationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiWpsConfigurationResultImpl, const OFFSET: isize>() -> IWiFiWpsConfigurationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiWpsConfigurationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiWpsConfigurationResultVtbl {
         unsafe extern "system" fn Status<Impl: IWiFiWpsConfigurationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiWpsConfigurationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -489,6 +507,9 @@ impl IWiFiWpsConfigurationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiWpsConfigurationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, SupportedWpsKinds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWiFiWpsConfigurationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, SupportedWpsKinds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWiFiWpsConfigurationResult as ::windows::core::Interface>::IID
     }
 }

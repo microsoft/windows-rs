@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIndexedResourceCandidateImpl: Sized {
     fn Type(&self) -> ::windows::core::Result<IndexedResourceType>;
     fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
@@ -7,13 +7,13 @@ pub trait IIndexedResourceCandidateImpl: Sized {
     fn ValueAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetQualifierValue(&self, qualifiername: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IIndexedResourceCandidate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIndexedResourceCandidateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>() -> IIndexedResourceCandidateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexedResourceCandidateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndexedResourceCandidateVtbl {
         unsafe extern "system" fn Type<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IndexedResourceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -80,7 +80,10 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceCandidate>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, Uri::<Impl, OFFSET>, Metadata::<Impl, OFFSET>, Qualifiers::<Impl, OFFSET>, ValueAsString::<Impl, OFFSET>, GetQualifierValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceCandidate>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, Metadata::<Impl, IMPL_OFFSET>, Qualifiers::<Impl, IMPL_OFFSET>, ValueAsString::<Impl, IMPL_OFFSET>, GetQualifierValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIndexedResourceCandidate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -94,7 +97,7 @@ impl ::windows::core::RuntimeName for IIndexedResourceQualifier {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIndexedResourceQualifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexedResourceQualifierImpl, const OFFSET: isize>() -> IIndexedResourceQualifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexedResourceQualifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndexedResourceQualifierVtbl {
         unsafe extern "system" fn QualifierName<Impl: IIndexedResourceQualifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualifierName() {
@@ -117,21 +120,24 @@ impl IIndexedResourceQualifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceQualifier>, ::windows::core::GetTrustLevel, QualifierName::<Impl, OFFSET>, QualifierValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceQualifier>, ::windows::core::GetTrustLevel, QualifierName::<Impl, IMPL_OFFSET>, QualifierValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIndexedResourceQualifier as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IResourceIndexerImpl: Sized {
     fn IndexFilePath(&self, filepath: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<IndexedResourceCandidate>;
     fn IndexFileContentsAsync(&self, file: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IResourceIndexer";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IResourceIndexerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerImpl, const OFFSET: isize>() -> IResourceIndexerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceIndexerVtbl {
         unsafe extern "system" fn IndexFilePath<Impl: IResourceIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IndexFilePath(&*(&filepath as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -154,20 +160,23 @@ impl IResourceIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexer>, ::windows::core::GetTrustLevel, IndexFilePath::<Impl, OFFSET>, IndexFileContentsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexer>, ::windows::core::GetTrustLevel, IndexFilePath::<Impl, IMPL_OFFSET>, IndexFileContentsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceIndexer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IResourceIndexerFactoryImpl: Sized {
     fn CreateResourceIndexer(&self, projectroot: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<ResourceIndexer>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceIndexerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IResourceIndexerFactory";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IResourceIndexerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerFactoryImpl, const OFFSET: isize>() -> IResourceIndexerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceIndexerFactoryVtbl {
         unsafe extern "system" fn CreateResourceIndexer<Impl: IResourceIndexerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResourceIndexer(&*(&projectroot as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -179,20 +188,23 @@ impl IResourceIndexerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory>, ::windows::core::GetTrustLevel, CreateResourceIndexer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory>, ::windows::core::GetTrustLevel, CreateResourceIndexer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceIndexerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IResourceIndexerFactory2Impl: Sized {
     fn CreateResourceIndexerWithExtension(&self, projectroot: &::core::option::Option<super::super::super::Foundation::Uri>, extensiondllpath: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<ResourceIndexer>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceIndexerFactory2 {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IResourceIndexerFactory2";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IResourceIndexerFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerFactory2Impl, const OFFSET: isize>() -> IResourceIndexerFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceIndexerFactory2Vtbl {
         unsafe extern "system" fn CreateResourceIndexerWithExtension<Impl: IResourceIndexerFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, extensiondllpath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResourceIndexerWithExtension(&*(&projectroot as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&extensiondllpath as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -204,6 +216,9 @@ impl IResourceIndexerFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory2>, ::windows::core::GetTrustLevel, CreateResourceIndexerWithExtension::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory2>, ::windows::core::GetTrustLevel, CreateResourceIndexerWithExtension::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceIndexerFactory2 as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlatformDiagnosticActionsStaticsImpl: Sized {
     fn IsScenarioEnabled(&self, scenarioid: &::windows::core::GUID) -> ::windows::core::Result<bool>;
     fn TryEscalateScenario(&self, scenarioid: &::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &::windows::core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: &::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
@@ -9,13 +9,13 @@ pub trait IPlatformDiagnosticActionsStaticsImpl: Sized {
     fn GetActiveTraceRuntime(&self, slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<PlatformDiagnosticTraceRuntimeInfo>;
     fn GetKnownTraceList(&self, slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlatformDiagnosticActionsStatics {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticActionsStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPlatformDiagnosticActionsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>() -> IPlatformDiagnosticActionsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticActionsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticActionsStaticsVtbl {
         unsafe extern "system" fn IsScenarioEnabled<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scenarioid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScenarioEnabled(&*(&scenarioid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
@@ -112,21 +112,24 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticActionsStatics>,
             ::windows::core::GetTrustLevel,
-            IsScenarioEnabled::<Impl, OFFSET>,
-            TryEscalateScenario::<Impl, OFFSET>,
-            DownloadLatestSettingsForNamespace::<Impl, OFFSET>,
-            GetActiveScenarioList::<Impl, OFFSET>,
-            ForceUpload::<Impl, OFFSET>,
-            IsTraceRunning::<Impl, OFFSET>,
-            GetActiveTraceRuntime::<Impl, OFFSET>,
-            GetKnownTraceList::<Impl, OFFSET>,
+            IsScenarioEnabled::<Impl, IMPL_OFFSET>,
+            TryEscalateScenario::<Impl, IMPL_OFFSET>,
+            DownloadLatestSettingsForNamespace::<Impl, IMPL_OFFSET>,
+            GetActiveScenarioList::<Impl, IMPL_OFFSET>,
+            ForceUpload::<Impl, IMPL_OFFSET>,
+            IsTraceRunning::<Impl, IMPL_OFFSET>,
+            GetActiveTraceRuntime::<Impl, IMPL_OFFSET>,
+            GetKnownTraceList::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlatformDiagnosticActionsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -144,7 +147,7 @@ impl ::windows::core::RuntimeName for IPlatformDiagnosticTraceInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPlatformDiagnosticTraceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>() -> IPlatformDiagnosticTraceInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticTraceInfoVtbl {
         unsafe extern "system" fn ScenarioId<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScenarioId() {
@@ -211,7 +214,23 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticTraceInfo>, ::windows::core::GetTrustLevel, ScenarioId::<Impl, OFFSET>, ProfileHash::<Impl, OFFSET>, IsExclusive::<Impl, OFFSET>, IsAutoLogger::<Impl, OFFSET>, MaxTraceDurationFileTime::<Impl, OFFSET>, Priority::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticTraceInfo>,
+            ::windows::core::GetTrustLevel,
+            ScenarioId::<Impl, IMPL_OFFSET>,
+            ProfileHash::<Impl, IMPL_OFFSET>,
+            IsExclusive::<Impl, IMPL_OFFSET>,
+            IsAutoLogger::<Impl, IMPL_OFFSET>,
+            MaxTraceDurationFileTime::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlatformDiagnosticTraceInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -225,7 +244,7 @@ impl ::windows::core::RuntimeName for IPlatformDiagnosticTraceRuntimeInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPlatformDiagnosticTraceRuntimeInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceRuntimeInfoImpl, const OFFSET: isize>() -> IPlatformDiagnosticTraceRuntimeInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceRuntimeInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticTraceRuntimeInfoVtbl {
         unsafe extern "system" fn RuntimeFileTime<Impl: IPlatformDiagnosticTraceRuntimeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RuntimeFileTime() {
@@ -248,6 +267,9 @@ impl IPlatformDiagnosticTraceRuntimeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticTraceRuntimeInfo>, ::windows::core::GetTrustLevel, RuntimeFileTime::<Impl, OFFSET>, EtwRuntimeFileTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlatformDiagnosticTraceRuntimeInfo>, ::windows::core::GetTrustLevel, RuntimeFileTime::<Impl, IMPL_OFFSET>, EtwRuntimeFileTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlatformDiagnosticTraceRuntimeInfo as ::windows::core::Interface>::IID
     }
 }

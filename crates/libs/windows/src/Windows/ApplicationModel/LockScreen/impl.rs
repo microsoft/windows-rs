@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockApplicationHostImpl: Sized {
     fn RequestUnlock(&self) -> ::windows::core::Result<()>;
     fn Unlocking(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUnlocking(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockApplicationHost {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.ILockApplicationHost";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILockApplicationHostVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockApplicationHostImpl, const OFFSET: isize>() -> ILockApplicationHostVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockApplicationHostImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockApplicationHostVtbl {
         unsafe extern "system" fn RequestUnlock<Impl: ILockApplicationHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestUnlock().into()
@@ -30,7 +30,10 @@ impl ILockApplicationHostVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUnlocking(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockApplicationHost>, ::windows::core::GetTrustLevel, RequestUnlock::<Impl, OFFSET>, Unlocking::<Impl, OFFSET>, RemoveUnlocking::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockApplicationHost>, ::windows::core::GetTrustLevel, RequestUnlock::<Impl, IMPL_OFFSET>, Unlocking::<Impl, IMPL_OFFSET>, RemoveUnlocking::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockApplicationHost as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -43,7 +46,7 @@ impl ::windows::core::RuntimeName for ILockApplicationHostStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILockApplicationHostStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockApplicationHostStaticsImpl, const OFFSET: isize>() -> ILockApplicationHostStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockApplicationHostStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockApplicationHostStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: ILockApplicationHostStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -55,10 +58,13 @@ impl ILockApplicationHostStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockApplicationHostStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockApplicationHostStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockApplicationHostStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILockScreenBadgeImpl: Sized {
     fn Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
     fn Glyph(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
@@ -66,13 +72,13 @@ pub trait ILockScreenBadgeImpl: Sized {
     fn AutomationName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LaunchApp(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenBadge {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.ILockScreenBadge";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ILockScreenBadgeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenBadgeImpl, const OFFSET: isize>() -> ILockScreenBadgeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenBadgeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenBadgeVtbl {
         unsafe extern "system" fn Logo<Impl: ILockScreenBadgeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Logo() {
@@ -121,10 +127,13 @@ impl ILockScreenBadgeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LaunchApp().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenBadge>, ::windows::core::GetTrustLevel, Logo::<Impl, OFFSET>, Glyph::<Impl, OFFSET>, Number::<Impl, OFFSET>, AutomationName::<Impl, OFFSET>, LaunchApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenBadge>, ::windows::core::GetTrustLevel, Logo::<Impl, IMPL_OFFSET>, Glyph::<Impl, IMPL_OFFSET>, Number::<Impl, IMPL_OFFSET>, AutomationName::<Impl, IMPL_OFFSET>, LaunchApp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenBadge as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILockScreenInfoImpl: Sized {
     fn LockScreenImageChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveLockScreenImageChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -139,13 +148,13 @@ pub trait ILockScreenInfoImpl: Sized {
     fn RemoveAlarmIconChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn AlarmIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenInfo {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.ILockScreenInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ILockScreenInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenInfoImpl, const OFFSET: isize>() -> ILockScreenInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenInfoVtbl {
         unsafe extern "system" fn LockScreenImageChanged<Impl: ILockScreenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LockScreenImageChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -251,25 +260,28 @@ impl ILockScreenInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILockScreenInfo>,
             ::windows::core::GetTrustLevel,
-            LockScreenImageChanged::<Impl, OFFSET>,
-            RemoveLockScreenImageChanged::<Impl, OFFSET>,
-            LockScreenImage::<Impl, OFFSET>,
-            BadgesChanged::<Impl, OFFSET>,
-            RemoveBadgesChanged::<Impl, OFFSET>,
-            Badges::<Impl, OFFSET>,
-            DetailTextChanged::<Impl, OFFSET>,
-            RemoveDetailTextChanged::<Impl, OFFSET>,
-            DetailText::<Impl, OFFSET>,
-            AlarmIconChanged::<Impl, OFFSET>,
-            RemoveAlarmIconChanged::<Impl, OFFSET>,
-            AlarmIcon::<Impl, OFFSET>,
+            LockScreenImageChanged::<Impl, IMPL_OFFSET>,
+            RemoveLockScreenImageChanged::<Impl, IMPL_OFFSET>,
+            LockScreenImage::<Impl, IMPL_OFFSET>,
+            BadgesChanged::<Impl, IMPL_OFFSET>,
+            RemoveBadgesChanged::<Impl, IMPL_OFFSET>,
+            Badges::<Impl, IMPL_OFFSET>,
+            DetailTextChanged::<Impl, IMPL_OFFSET>,
+            RemoveDetailTextChanged::<Impl, IMPL_OFFSET>,
+            DetailText::<Impl, IMPL_OFFSET>,
+            AlarmIconChanged::<Impl, IMPL_OFFSET>,
+            RemoveAlarmIconChanged::<Impl, IMPL_OFFSET>,
+            AlarmIcon::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -282,26 +294,29 @@ impl ::windows::core::RuntimeName for ILockScreenUnlockingDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILockScreenUnlockingDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenUnlockingDeferralImpl, const OFFSET: isize>() -> ILockScreenUnlockingDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenUnlockingDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenUnlockingDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ILockScreenUnlockingDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenUnlockingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenUnlockingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenUnlockingDeferral as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenUnlockingEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<LockScreenUnlockingDeferral>;
     fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenUnlockingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILockScreenUnlockingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenUnlockingEventArgsImpl, const OFFSET: isize>() -> ILockScreenUnlockingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockScreenUnlockingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILockScreenUnlockingEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ILockScreenUnlockingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -324,6 +339,9 @@ impl ILockScreenUnlockingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenUnlockingEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>, Deadline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILockScreenUnlockingEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILockScreenUnlockingEventArgs as ::windows::core::Interface>::IID
     }
 }

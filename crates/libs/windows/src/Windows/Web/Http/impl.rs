@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHttpBufferContentFactoryImpl: Sized {
     fn CreateFromBuffer(&self, content: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<HttpBufferContent>;
     fn CreateFromBufferWithOffset(&self, content: &::core::option::Option<super::super::Storage::Streams::IBuffer>, offset: u32, count: u32) -> ::windows::core::Result<HttpBufferContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpBufferContentFactory {
     const NAME: &'static str = "Windows.Web.Http.IHttpBufferContentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHttpBufferContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBufferContentFactoryImpl, const OFFSET: isize>() -> IHttpBufferContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBufferContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpBufferContentFactoryVtbl {
         unsafe extern "system" fn CreateFromBuffer<Impl: IHttpBufferContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromBuffer(&*(&content as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
@@ -32,10 +32,13 @@ impl IHttpBufferContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBufferContentFactory>, ::windows::core::GetTrustLevel, CreateFromBuffer::<Impl, OFFSET>, CreateFromBufferWithOffset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBufferContentFactory>, ::windows::core::GetTrustLevel, CreateFromBuffer::<Impl, IMPL_OFFSET>, CreateFromBufferWithOffset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpBufferContentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 pub trait IHttpClientImpl: Sized {
     fn DeleteAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>;
     fn GetAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>;
@@ -49,13 +52,13 @@ pub trait IHttpClientImpl: Sized {
     fn SendRequestWithOptionAsync(&self, request: &::core::option::Option<HttpRequestMessage>, completionoption: HttpCompletionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>;
     fn DefaultRequestHeaders(&self) -> ::windows::core::Result<Headers::HttpRequestHeaderCollection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpClient {
     const NAME: &'static str = "Windows.Web.Http.IHttpClient";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 impl IHttpClientVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpClientImpl, const OFFSET: isize>() -> IHttpClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpClientVtbl {
         unsafe extern "system" fn DeleteAsync<Impl: IHttpClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteAsync(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -178,27 +181,30 @@ impl IHttpClientVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpClient>,
             ::windows::core::GetTrustLevel,
-            DeleteAsync::<Impl, OFFSET>,
-            GetAsync::<Impl, OFFSET>,
-            GetWithOptionAsync::<Impl, OFFSET>,
-            GetBufferAsync::<Impl, OFFSET>,
-            GetInputStreamAsync::<Impl, OFFSET>,
-            GetStringAsync::<Impl, OFFSET>,
-            PostAsync::<Impl, OFFSET>,
-            PutAsync::<Impl, OFFSET>,
-            SendRequestAsync::<Impl, OFFSET>,
-            SendRequestWithOptionAsync::<Impl, OFFSET>,
-            DefaultRequestHeaders::<Impl, OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetAsync::<Impl, IMPL_OFFSET>,
+            GetWithOptionAsync::<Impl, IMPL_OFFSET>,
+            GetBufferAsync::<Impl, IMPL_OFFSET>,
+            GetInputStreamAsync::<Impl, IMPL_OFFSET>,
+            GetStringAsync::<Impl, IMPL_OFFSET>,
+            PostAsync::<Impl, IMPL_OFFSET>,
+            PutAsync::<Impl, IMPL_OFFSET>,
+            SendRequestAsync::<Impl, IMPL_OFFSET>,
+            SendRequestWithOptionAsync::<Impl, IMPL_OFFSET>,
+            DefaultRequestHeaders::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpClient as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpClient2Impl: Sized {
     fn TryDeleteAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>;
     fn TryGetAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>;
@@ -211,13 +217,13 @@ pub trait IHttpClient2Impl: Sized {
     fn TrySendRequestAsync(&self, request: &::core::option::Option<HttpRequestMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>;
     fn TrySendRequestAsync2(&self, request: &::core::option::Option<HttpRequestMessage>, completionoption: HttpCompletionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpClient2 {
     const NAME: &'static str = "Windows.Web.Http.IHttpClient2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHttpClient2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpClient2Impl, const OFFSET: isize>() -> IHttpClient2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpClient2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpClient2Vtbl {
         unsafe extern "system" fn TryDeleteAsync<Impl: IHttpClient2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDeleteAsync(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -329,36 +335,39 @@ impl IHttpClient2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpClient2>,
             ::windows::core::GetTrustLevel,
-            TryDeleteAsync::<Impl, OFFSET>,
-            TryGetAsync::<Impl, OFFSET>,
-            TryGetAsync2::<Impl, OFFSET>,
-            TryGetBufferAsync::<Impl, OFFSET>,
-            TryGetInputStreamAsync::<Impl, OFFSET>,
-            TryGetStringAsync::<Impl, OFFSET>,
-            TryPostAsync::<Impl, OFFSET>,
-            TryPutAsync::<Impl, OFFSET>,
-            TrySendRequestAsync::<Impl, OFFSET>,
-            TrySendRequestAsync2::<Impl, OFFSET>,
+            TryDeleteAsync::<Impl, IMPL_OFFSET>,
+            TryGetAsync::<Impl, IMPL_OFFSET>,
+            TryGetAsync2::<Impl, IMPL_OFFSET>,
+            TryGetBufferAsync::<Impl, IMPL_OFFSET>,
+            TryGetInputStreamAsync::<Impl, IMPL_OFFSET>,
+            TryGetStringAsync::<Impl, IMPL_OFFSET>,
+            TryPostAsync::<Impl, IMPL_OFFSET>,
+            TryPutAsync::<Impl, IMPL_OFFSET>,
+            TrySendRequestAsync::<Impl, IMPL_OFFSET>,
+            TrySendRequestAsync2::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpClient2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http_Filters", feature = "implement_exclusive"))]
 pub trait IHttpClientFactoryImpl: Sized {
     fn Create(&self, filter: &::core::option::Option<Filters::IHttpFilter>) -> ::windows::core::Result<HttpClient>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http_Filters", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpClientFactory {
     const NAME: &'static str = "Windows.Web.Http.IHttpClientFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http_Filters", feature = "implement_exclusive"))]
 impl IHttpClientFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpClientFactoryImpl, const OFFSET: isize>() -> IHttpClientFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpClientFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpClientFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHttpClientFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&filter as *const <Filters::IHttpFilter as ::windows::core::Abi>::Abi as *const <Filters::IHttpFilter as ::windows::core::DefaultType>::DefaultType)) {
@@ -370,10 +379,13 @@ impl IHttpClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpClientFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpClientFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpClientFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 pub trait IHttpContentImpl: Sized + IClosableImpl {
     fn Headers(&self) -> ::windows::core::Result<Headers::HttpContentHeaderCollection>;
     fn BufferAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
@@ -383,13 +395,13 @@ pub trait IHttpContentImpl: Sized + IClosableImpl {
     fn TryComputeLength(&self, length: &mut u64) -> ::windows::core::Result<bool>;
     fn WriteToStreamAsync(&self, outputstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl ::windows::core::RuntimeName for IHttpContent {
     const NAME: &'static str = "Windows.Web.Http.IHttpContent";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl IHttpContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentImpl, const OFFSET: isize>() -> IHttpContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentVtbl {
         unsafe extern "system" fn Headers<Impl: IHttpContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Headers() {
@@ -468,23 +480,26 @@ impl IHttpContentVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpContent>,
             ::windows::core::GetTrustLevel,
-            Headers::<Impl, OFFSET>,
-            BufferAllAsync::<Impl, OFFSET>,
-            ReadAsBufferAsync::<Impl, OFFSET>,
-            ReadAsInputStreamAsync::<Impl, OFFSET>,
-            ReadAsStringAsync::<Impl, OFFSET>,
-            TryComputeLength::<Impl, OFFSET>,
-            WriteToStreamAsync::<Impl, OFFSET>,
+            Headers::<Impl, IMPL_OFFSET>,
+            BufferAllAsync::<Impl, IMPL_OFFSET>,
+            ReadAsBufferAsync::<Impl, IMPL_OFFSET>,
+            ReadAsInputStreamAsync::<Impl, IMPL_OFFSET>,
+            ReadAsStringAsync::<Impl, IMPL_OFFSET>,
+            TryComputeLength::<Impl, IMPL_OFFSET>,
+            WriteToStreamAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpContent as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpCookieImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -498,13 +513,13 @@ pub trait IHttpCookieImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpCookie {
     const NAME: &'static str = "Windows.Web.Http.IHttpCookie";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHttpCookieVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookieImpl, const OFFSET: isize>() -> IHttpCookieVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookieImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookieVtbl {
         unsafe extern "system" fn Name<Impl: IHttpCookieImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -599,24 +614,27 @@ impl IHttpCookieVtbl {
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpCookie>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            Domain::<Impl, OFFSET>,
-            Path::<Impl, OFFSET>,
-            Expires::<Impl, OFFSET>,
-            SetExpires::<Impl, OFFSET>,
-            HttpOnly::<Impl, OFFSET>,
-            SetHttpOnly::<Impl, OFFSET>,
-            Secure::<Impl, OFFSET>,
-            SetSecure::<Impl, OFFSET>,
-            Value::<Impl, OFFSET>,
-            SetValue::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Domain::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            Expires::<Impl, IMPL_OFFSET>,
+            SetExpires::<Impl, IMPL_OFFSET>,
+            HttpOnly::<Impl, IMPL_OFFSET>,
+            SetHttpOnly::<Impl, IMPL_OFFSET>,
+            Secure::<Impl, IMPL_OFFSET>,
+            SetSecure::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpCookie as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -629,7 +647,7 @@ impl ::windows::core::RuntimeName for IHttpCookieFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpCookieFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookieFactoryImpl, const OFFSET: isize>() -> IHttpCookieFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookieFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookieFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHttpCookieFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domain: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&domain as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&path as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -641,23 +659,26 @@ impl IHttpCookieFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookieFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookieFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpCookieFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpCookieManagerImpl: Sized {
     fn SetCookie(&self, cookie: &::core::option::Option<HttpCookie>) -> ::windows::core::Result<bool>;
     fn SetCookieWithThirdParty(&self, cookie: &::core::option::Option<HttpCookie>, thirdparty: bool) -> ::windows::core::Result<bool>;
     fn DeleteCookie(&self, cookie: &::core::option::Option<HttpCookie>) -> ::windows::core::Result<()>;
     fn GetCookies(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<HttpCookieCollection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpCookieManager {
     const NAME: &'static str = "Windows.Web.Http.IHttpCookieManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHttpCookieManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookieManagerImpl, const OFFSET: isize>() -> IHttpCookieManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookieManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookieManagerVtbl {
         unsafe extern "system" fn SetCookie<Impl: IHttpCookieManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetCookie(&*(&cookie as *const <HttpCookie as ::windows::core::Abi>::Abi as *const <HttpCookie as ::windows::core::DefaultType>::DefaultType)) {
@@ -695,20 +716,23 @@ impl IHttpCookieManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookieManager>, ::windows::core::GetTrustLevel, SetCookie::<Impl, OFFSET>, SetCookieWithThirdParty::<Impl, OFFSET>, DeleteCookie::<Impl, OFFSET>, GetCookies::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCookieManager>, ::windows::core::GetTrustLevel, SetCookie::<Impl, IMPL_OFFSET>, SetCookieWithThirdParty::<Impl, IMPL_OFFSET>, DeleteCookie::<Impl, IMPL_OFFSET>, GetCookies::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpCookieManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpFormUrlEncodedContentFactoryImpl: Sized {
     fn Create(&self, content: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<HttpFormUrlEncodedContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpFormUrlEncodedContentFactory {
     const NAME: &'static str = "Windows.Web.Http.IHttpFormUrlEncodedContentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHttpFormUrlEncodedContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpFormUrlEncodedContentFactoryImpl, const OFFSET: isize>() -> IHttpFormUrlEncodedContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpFormUrlEncodedContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpFormUrlEncodedContentFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHttpFormUrlEncodedContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&content as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType)) {
@@ -720,10 +744,13 @@ impl IHttpFormUrlEncodedContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpFormUrlEncodedContentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpFormUrlEncodedContentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpFormUrlEncodedContentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHttpGetBufferResultImpl: Sized {
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn RequestMessage(&self) -> ::windows::core::Result<HttpRequestMessage>;
@@ -731,13 +758,13 @@ pub trait IHttpGetBufferResultImpl: Sized {
     fn Succeeded(&self) -> ::windows::core::Result<bool>;
     fn Value(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpGetBufferResult {
     const NAME: &'static str = "Windows.Web.Http.IHttpGetBufferResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHttpGetBufferResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpGetBufferResultImpl, const OFFSET: isize>() -> IHttpGetBufferResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpGetBufferResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpGetBufferResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IHttpGetBufferResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -793,10 +820,13 @@ impl IHttpGetBufferResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetBufferResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, RequestMessage::<Impl, OFFSET>, ResponseMessage::<Impl, OFFSET>, Succeeded::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetBufferResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpGetBufferResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHttpGetInputStreamResultImpl: Sized {
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn RequestMessage(&self) -> ::windows::core::Result<HttpRequestMessage>;
@@ -804,13 +834,13 @@ pub trait IHttpGetInputStreamResultImpl: Sized {
     fn Succeeded(&self) -> ::windows::core::Result<bool>;
     fn Value(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpGetInputStreamResult {
     const NAME: &'static str = "Windows.Web.Http.IHttpGetInputStreamResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHttpGetInputStreamResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpGetInputStreamResultImpl, const OFFSET: isize>() -> IHttpGetInputStreamResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpGetInputStreamResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpGetInputStreamResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IHttpGetInputStreamResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -866,7 +896,10 @@ impl IHttpGetInputStreamResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetInputStreamResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, RequestMessage::<Impl, OFFSET>, ResponseMessage::<Impl, OFFSET>, Succeeded::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetInputStreamResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpGetInputStreamResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -883,7 +916,7 @@ impl ::windows::core::RuntimeName for IHttpGetStringResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpGetStringResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpGetStringResultImpl, const OFFSET: isize>() -> IHttpGetStringResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpGetStringResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpGetStringResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IHttpGetStringResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -939,7 +972,10 @@ impl IHttpGetStringResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetStringResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, RequestMessage::<Impl, OFFSET>, ResponseMessage::<Impl, OFFSET>, Succeeded::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpGetStringResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpGetStringResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -952,7 +988,7 @@ impl ::windows::core::RuntimeName for IHttpMethod {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMethodVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodImpl, const OFFSET: isize>() -> IHttpMethodVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMethodVtbl {
         unsafe extern "system" fn Method<Impl: IHttpMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Method() {
@@ -964,7 +1000,10 @@ impl IHttpMethodVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethod>, ::windows::core::GetTrustLevel, Method::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethod>, ::windows::core::GetTrustLevel, Method::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMethod as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -977,7 +1016,7 @@ impl ::windows::core::RuntimeName for IHttpMethodFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMethodFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodFactoryImpl, const OFFSET: isize>() -> IHttpMethodFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMethodFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHttpMethodFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&method as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -989,7 +1028,10 @@ impl IHttpMethodFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMethodFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1008,7 +1050,7 @@ impl ::windows::core::RuntimeName for IHttpMethodStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMethodStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodStaticsImpl, const OFFSET: isize>() -> IHttpMethodStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMethodStaticsVtbl {
         unsafe extern "system" fn Delete<Impl: IHttpMethodStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Delete() {
@@ -1086,7 +1128,10 @@ impl IHttpMethodStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodStatics>, ::windows::core::GetTrustLevel, Delete::<Impl, OFFSET>, Get::<Impl, OFFSET>, Head::<Impl, OFFSET>, Options::<Impl, OFFSET>, Patch::<Impl, OFFSET>, Post::<Impl, OFFSET>, Put::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMethodStatics>, ::windows::core::GetTrustLevel, Delete::<Impl, IMPL_OFFSET>, Get::<Impl, IMPL_OFFSET>, Head::<Impl, IMPL_OFFSET>, Options::<Impl, IMPL_OFFSET>, Patch::<Impl, IMPL_OFFSET>, Post::<Impl, IMPL_OFFSET>, Put::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMethodStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1099,12 +1144,15 @@ impl ::windows::core::RuntimeName for IHttpMultipartContent {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMultipartContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartContentImpl, const OFFSET: isize>() -> IHttpMultipartContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMultipartContentVtbl {
         unsafe extern "system" fn Add<Impl: IHttpMultipartContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&content as *const <IHttpContent as ::windows::core::Abi>::Abi as *const <IHttpContent as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartContent>, ::windows::core::GetTrustLevel, Add::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartContent>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMultipartContent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1118,7 +1166,7 @@ impl ::windows::core::RuntimeName for IHttpMultipartContentFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMultipartContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartContentFactoryImpl, const OFFSET: isize>() -> IHttpMultipartContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMultipartContentFactoryVtbl {
         unsafe extern "system" fn CreateWithSubtype<Impl: IHttpMultipartContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSubtype(&*(&subtype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1141,7 +1189,10 @@ impl IHttpMultipartContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartContentFactory>, ::windows::core::GetTrustLevel, CreateWithSubtype::<Impl, OFFSET>, CreateWithSubtypeAndBoundary::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartContentFactory>, ::windows::core::GetTrustLevel, CreateWithSubtype::<Impl, IMPL_OFFSET>, CreateWithSubtypeAndBoundary::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMultipartContentFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1156,7 +1207,7 @@ impl ::windows::core::RuntimeName for IHttpMultipartFormDataContent {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMultipartFormDataContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartFormDataContentImpl, const OFFSET: isize>() -> IHttpMultipartFormDataContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartFormDataContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMultipartFormDataContentVtbl {
         unsafe extern "system" fn Add<Impl: IHttpMultipartFormDataContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&content as *const <IHttpContent as ::windows::core::Abi>::Abi as *const <IHttpContent as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1171,7 +1222,10 @@ impl IHttpMultipartFormDataContentVtbl {
                 .AddWithNameAndFileName(&*(&content as *const <IHttpContent as ::windows::core::Abi>::Abi as *const <IHttpContent as ::windows::core::DefaultType>::DefaultType), &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&filename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartFormDataContent>, ::windows::core::GetTrustLevel, Add::<Impl, OFFSET>, AddWithName::<Impl, OFFSET>, AddWithNameAndFileName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartFormDataContent>, ::windows::core::GetTrustLevel, Add::<Impl, IMPL_OFFSET>, AddWithName::<Impl, IMPL_OFFSET>, AddWithNameAndFileName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMultipartFormDataContent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1184,7 +1238,7 @@ impl ::windows::core::RuntimeName for IHttpMultipartFormDataContentFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpMultipartFormDataContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartFormDataContentFactoryImpl, const OFFSET: isize>() -> IHttpMultipartFormDataContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMultipartFormDataContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMultipartFormDataContentFactoryVtbl {
         unsafe extern "system" fn CreateWithBoundary<Impl: IHttpMultipartFormDataContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithBoundary(&*(&boundary as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1196,10 +1250,13 @@ impl IHttpMultipartFormDataContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartFormDataContentFactory>, ::windows::core::GetTrustLevel, CreateWithBoundary::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpMultipartFormDataContentFactory>, ::windows::core::GetTrustLevel, CreateWithBoundary::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpMultipartFormDataContentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 pub trait IHttpRequestMessageImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<IHttpContent>;
     fn SetContent(&self, value: &::core::option::Option<IHttpContent>) -> ::windows::core::Result<()>;
@@ -1211,13 +1268,13 @@ pub trait IHttpRequestMessageImpl: Sized {
     fn SetRequestUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn TransportInformation(&self) -> ::windows::core::Result<HttpTransportInformation>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpRequestMessage {
     const NAME: &'static str = "Windows.Web.Http.IHttpRequestMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 impl IHttpRequestMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestMessageImpl, const OFFSET: isize>() -> IHttpRequestMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpRequestMessageVtbl {
         unsafe extern "system" fn Content<Impl: IHttpRequestMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -1297,35 +1354,38 @@ impl IHttpRequestMessageVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpRequestMessage>,
             ::windows::core::GetTrustLevel,
-            Content::<Impl, OFFSET>,
-            SetContent::<Impl, OFFSET>,
-            Headers::<Impl, OFFSET>,
-            Method::<Impl, OFFSET>,
-            SetMethod::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            RequestUri::<Impl, OFFSET>,
-            SetRequestUri::<Impl, OFFSET>,
-            TransportInformation::<Impl, OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            SetContent::<Impl, IMPL_OFFSET>,
+            Headers::<Impl, IMPL_OFFSET>,
+            Method::<Impl, IMPL_OFFSET>,
+            SetMethod::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            RequestUri::<Impl, IMPL_OFFSET>,
+            SetRequestUri::<Impl, IMPL_OFFSET>,
+            TransportInformation::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpRequestMessage as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpRequestMessageFactoryImpl: Sized {
     fn Create(&self, method: &::core::option::Option<HttpMethod>, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<HttpRequestMessage>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpRequestMessageFactory {
     const NAME: &'static str = "Windows.Web.Http.IHttpRequestMessageFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHttpRequestMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestMessageFactoryImpl, const OFFSET: isize>() -> IHttpRequestMessageFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpRequestMessageFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHttpRequestMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&method as *const <HttpMethod as ::windows::core::Abi>::Abi as *const <HttpMethod as ::windows::core::DefaultType>::DefaultType), &*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -1337,7 +1397,10 @@ impl IHttpRequestMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpRequestMessageFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpRequestMessageFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpRequestMessageFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1353,7 +1416,7 @@ impl ::windows::core::RuntimeName for IHttpRequestResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpRequestResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestResultImpl, const OFFSET: isize>() -> IHttpRequestResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpRequestResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IHttpRequestResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -1398,10 +1461,13 @@ impl IHttpRequestResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpRequestResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, RequestMessage::<Impl, OFFSET>, ResponseMessage::<Impl, OFFSET>, Succeeded::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpRequestResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, RequestMessage::<Impl, IMPL_OFFSET>, ResponseMessage::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpRequestResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 pub trait IHttpResponseMessageImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<IHttpContent>;
     fn SetContent(&self, value: &::core::option::Option<IHttpContent>) -> ::windows::core::Result<()>;
@@ -1419,13 +1485,13 @@ pub trait IHttpResponseMessageImpl: Sized {
     fn SetVersion(&self, value: HttpVersion) -> ::windows::core::Result<()>;
     fn EnsureSuccessStatusCode(&self) -> ::windows::core::Result<HttpResponseMessage>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpResponseMessage {
     const NAME: &'static str = "Windows.Web.Http.IHttpResponseMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http_Headers", feature = "implement_exclusive"))]
 impl IHttpResponseMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpResponseMessageImpl, const OFFSET: isize>() -> IHttpResponseMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpResponseMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpResponseMessageVtbl {
         unsafe extern "system" fn Content<Impl: IHttpResponseMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -1550,28 +1616,31 @@ impl IHttpResponseMessageVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpResponseMessage>,
             ::windows::core::GetTrustLevel,
-            Content::<Impl, OFFSET>,
-            SetContent::<Impl, OFFSET>,
-            Headers::<Impl, OFFSET>,
-            IsSuccessStatusCode::<Impl, OFFSET>,
-            ReasonPhrase::<Impl, OFFSET>,
-            SetReasonPhrase::<Impl, OFFSET>,
-            RequestMessage::<Impl, OFFSET>,
-            SetRequestMessage::<Impl, OFFSET>,
-            Source::<Impl, OFFSET>,
-            SetSource::<Impl, OFFSET>,
-            StatusCode::<Impl, OFFSET>,
-            SetStatusCode::<Impl, OFFSET>,
-            Version::<Impl, OFFSET>,
-            SetVersion::<Impl, OFFSET>,
-            EnsureSuccessStatusCode::<Impl, OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            SetContent::<Impl, IMPL_OFFSET>,
+            Headers::<Impl, IMPL_OFFSET>,
+            IsSuccessStatusCode::<Impl, IMPL_OFFSET>,
+            ReasonPhrase::<Impl, IMPL_OFFSET>,
+            SetReasonPhrase::<Impl, IMPL_OFFSET>,
+            RequestMessage::<Impl, IMPL_OFFSET>,
+            SetRequestMessage::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            SetSource::<Impl, IMPL_OFFSET>,
+            StatusCode::<Impl, IMPL_OFFSET>,
+            SetStatusCode::<Impl, IMPL_OFFSET>,
+            Version::<Impl, IMPL_OFFSET>,
+            SetVersion::<Impl, IMPL_OFFSET>,
+            EnsureSuccessStatusCode::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpResponseMessage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1584,7 +1653,7 @@ impl ::windows::core::RuntimeName for IHttpResponseMessageFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpResponseMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpResponseMessageFactoryImpl, const OFFSET: isize>() -> IHttpResponseMessageFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpResponseMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpResponseMessageFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHttpResponseMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statuscode: HttpStatusCode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(statuscode) {
@@ -1596,20 +1665,23 @@ impl IHttpResponseMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpResponseMessageFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpResponseMessageFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpResponseMessageFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHttpStreamContentFactoryImpl: Sized {
     fn CreateFromInputStream(&self, content: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<HttpStreamContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpStreamContentFactory {
     const NAME: &'static str = "Windows.Web.Http.IHttpStreamContentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHttpStreamContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpStreamContentFactoryImpl, const OFFSET: isize>() -> IHttpStreamContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpStreamContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpStreamContentFactoryVtbl {
         unsafe extern "system" fn CreateFromInputStream<Impl: IHttpStreamContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromInputStream(&*(&content as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -1621,22 +1693,25 @@ impl IHttpStreamContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpStreamContentFactory>, ::windows::core::GetTrustLevel, CreateFromInputStream::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpStreamContentFactory>, ::windows::core::GetTrustLevel, CreateFromInputStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpStreamContentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHttpStringContentFactoryImpl: Sized {
     fn CreateFromString(&self, content: &::windows::core::HSTRING) -> ::windows::core::Result<HttpStringContent>;
     fn CreateFromStringWithEncoding(&self, content: &::windows::core::HSTRING, encoding: super::super::Storage::Streams::UnicodeEncoding) -> ::windows::core::Result<HttpStringContent>;
     fn CreateFromStringWithEncodingAndMediaType(&self, content: &::windows::core::HSTRING, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpStringContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpStringContentFactory {
     const NAME: &'static str = "Windows.Web.Http.IHttpStringContentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHttpStringContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpStringContentFactoryImpl, const OFFSET: isize>() -> IHttpStringContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpStringContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpStringContentFactoryVtbl {
         unsafe extern "system" fn CreateFromString<Impl: IHttpStringContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromString(&*(&content as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1670,23 +1745,26 @@ impl IHttpStringContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpStringContentFactory>, ::windows::core::GetTrustLevel, CreateFromString::<Impl, OFFSET>, CreateFromStringWithEncoding::<Impl, OFFSET>, CreateFromStringWithEncodingAndMediaType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpStringContentFactory>, ::windows::core::GetTrustLevel, CreateFromString::<Impl, IMPL_OFFSET>, CreateFromStringWithEncoding::<Impl, IMPL_OFFSET>, CreateFromStringWithEncodingAndMediaType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpStringContentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IHttpTransportInformationImpl: Sized {
     fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<super::super::Networking::Sockets::SocketSslErrorSeverity>;
     fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
     fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpTransportInformation {
     const NAME: &'static str = "Windows.Web.Http.IHttpTransportInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IHttpTransportInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransportInformationImpl, const OFFSET: isize>() -> IHttpTransportInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransportInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransportInformationVtbl {
         unsafe extern "system" fn ServerCertificate<Impl: IHttpTransportInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
@@ -1731,6 +1809,9 @@ impl IHttpTransportInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransportInformation>, ::windows::core::GetTrustLevel, ServerCertificate::<Impl, OFFSET>, ServerCertificateErrorSeverity::<Impl, OFFSET>, ServerCertificateErrors::<Impl, OFFSET>, ServerIntermediateCertificates::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpTransportInformation>, ::windows::core::GetTrustLevel, ServerCertificate::<Impl, IMPL_OFFSET>, ServerCertificateErrorSeverity::<Impl, IMPL_OFFSET>, ServerCertificateErrors::<Impl, IMPL_OFFSET>, ServerIntermediateCertificates::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpTransportInformation as ::windows::core::Interface>::IID
     }
 }

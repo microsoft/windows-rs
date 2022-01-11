@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationLanguagesStaticsImpl: Sized {
     fn PrimaryLanguageOverride(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPrimaryLanguageOverride(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Languages(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn ManifestLanguages(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationLanguagesStatics {
     const NAME: &'static str = "Windows.Globalization.IApplicationLanguagesStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IApplicationLanguagesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationLanguagesStaticsImpl, const OFFSET: isize>() -> IApplicationLanguagesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationLanguagesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationLanguagesStaticsVtbl {
         unsafe extern "system" fn PrimaryLanguageOverride<Impl: IApplicationLanguagesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryLanguageOverride() {
@@ -49,20 +49,23 @@ impl IApplicationLanguagesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationLanguagesStatics>, ::windows::core::GetTrustLevel, PrimaryLanguageOverride::<Impl, OFFSET>, SetPrimaryLanguageOverride::<Impl, OFFSET>, Languages::<Impl, OFFSET>, ManifestLanguages::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationLanguagesStatics>, ::windows::core::GetTrustLevel, PrimaryLanguageOverride::<Impl, IMPL_OFFSET>, SetPrimaryLanguageOverride::<Impl, IMPL_OFFSET>, Languages::<Impl, IMPL_OFFSET>, ManifestLanguages::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IApplicationLanguagesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IApplicationLanguagesStatics2Impl: Sized {
     fn GetLanguagesForUser(&self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationLanguagesStatics2 {
     const NAME: &'static str = "Windows.Globalization.IApplicationLanguagesStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IApplicationLanguagesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationLanguagesStatics2Impl, const OFFSET: isize>() -> IApplicationLanguagesStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationLanguagesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationLanguagesStatics2Vtbl {
         unsafe extern "system" fn GetLanguagesForUser<Impl: IApplicationLanguagesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLanguagesForUser(&*(&user as *const <super::System::User as ::windows::core::Abi>::Abi as *const <super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -74,10 +77,13 @@ impl IApplicationLanguagesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationLanguagesStatics2>, ::windows::core::GetTrustLevel, GetLanguagesForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationLanguagesStatics2>, ::windows::core::GetTrustLevel, GetLanguagesForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IApplicationLanguagesStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICalendarImpl: Sized {
     fn Clone(&self) -> ::windows::core::Result<Calendar>;
     fn SetToMin(&self) -> ::windows::core::Result<()>;
@@ -178,13 +184,13 @@ pub trait ICalendarImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsDaylightSavingTime(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendar {
     const NAME: &'static str = "Windows.Globalization.ICalendar";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICalendarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarImpl, const OFFSET: isize>() -> ICalendarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarVtbl {
         unsafe extern "system" fn Clone<Impl: ICalendarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
@@ -1075,125 +1081,128 @@ impl ICalendarVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICalendar>,
             ::windows::core::GetTrustLevel,
-            Clone::<Impl, OFFSET>,
-            SetToMin::<Impl, OFFSET>,
-            SetToMax::<Impl, OFFSET>,
-            Languages::<Impl, OFFSET>,
-            NumeralSystem::<Impl, OFFSET>,
-            SetNumeralSystem::<Impl, OFFSET>,
-            GetCalendarSystem::<Impl, OFFSET>,
-            ChangeCalendarSystem::<Impl, OFFSET>,
-            GetClock::<Impl, OFFSET>,
-            ChangeClock::<Impl, OFFSET>,
-            GetDateTime::<Impl, OFFSET>,
-            SetDateTime::<Impl, OFFSET>,
-            SetToNow::<Impl, OFFSET>,
-            FirstEra::<Impl, OFFSET>,
-            LastEra::<Impl, OFFSET>,
-            NumberOfEras::<Impl, OFFSET>,
-            Era::<Impl, OFFSET>,
-            SetEra::<Impl, OFFSET>,
-            AddEras::<Impl, OFFSET>,
-            EraAsFullString::<Impl, OFFSET>,
-            EraAsString::<Impl, OFFSET>,
-            FirstYearInThisEra::<Impl, OFFSET>,
-            LastYearInThisEra::<Impl, OFFSET>,
-            NumberOfYearsInThisEra::<Impl, OFFSET>,
-            Year::<Impl, OFFSET>,
-            SetYear::<Impl, OFFSET>,
-            AddYears::<Impl, OFFSET>,
-            YearAsString::<Impl, OFFSET>,
-            YearAsTruncatedString::<Impl, OFFSET>,
-            YearAsPaddedString::<Impl, OFFSET>,
-            FirstMonthInThisYear::<Impl, OFFSET>,
-            LastMonthInThisYear::<Impl, OFFSET>,
-            NumberOfMonthsInThisYear::<Impl, OFFSET>,
-            Month::<Impl, OFFSET>,
-            SetMonth::<Impl, OFFSET>,
-            AddMonths::<Impl, OFFSET>,
-            MonthAsFullString::<Impl, OFFSET>,
-            MonthAsString::<Impl, OFFSET>,
-            MonthAsFullSoloString::<Impl, OFFSET>,
-            MonthAsSoloString::<Impl, OFFSET>,
-            MonthAsNumericString::<Impl, OFFSET>,
-            MonthAsPaddedNumericString::<Impl, OFFSET>,
-            AddWeeks::<Impl, OFFSET>,
-            FirstDayInThisMonth::<Impl, OFFSET>,
-            LastDayInThisMonth::<Impl, OFFSET>,
-            NumberOfDaysInThisMonth::<Impl, OFFSET>,
-            Day::<Impl, OFFSET>,
-            SetDay::<Impl, OFFSET>,
-            AddDays::<Impl, OFFSET>,
-            DayAsString::<Impl, OFFSET>,
-            DayAsPaddedString::<Impl, OFFSET>,
-            DayOfWeek::<Impl, OFFSET>,
-            DayOfWeekAsFullString::<Impl, OFFSET>,
-            DayOfWeekAsString::<Impl, OFFSET>,
-            DayOfWeekAsFullSoloString::<Impl, OFFSET>,
-            DayOfWeekAsSoloString::<Impl, OFFSET>,
-            FirstPeriodInThisDay::<Impl, OFFSET>,
-            LastPeriodInThisDay::<Impl, OFFSET>,
-            NumberOfPeriodsInThisDay::<Impl, OFFSET>,
-            Period::<Impl, OFFSET>,
-            SetPeriod::<Impl, OFFSET>,
-            AddPeriods::<Impl, OFFSET>,
-            PeriodAsFullString::<Impl, OFFSET>,
-            PeriodAsString::<Impl, OFFSET>,
-            FirstHourInThisPeriod::<Impl, OFFSET>,
-            LastHourInThisPeriod::<Impl, OFFSET>,
-            NumberOfHoursInThisPeriod::<Impl, OFFSET>,
-            Hour::<Impl, OFFSET>,
-            SetHour::<Impl, OFFSET>,
-            AddHours::<Impl, OFFSET>,
-            HourAsString::<Impl, OFFSET>,
-            HourAsPaddedString::<Impl, OFFSET>,
-            Minute::<Impl, OFFSET>,
-            SetMinute::<Impl, OFFSET>,
-            AddMinutes::<Impl, OFFSET>,
-            MinuteAsString::<Impl, OFFSET>,
-            MinuteAsPaddedString::<Impl, OFFSET>,
-            Second::<Impl, OFFSET>,
-            SetSecond::<Impl, OFFSET>,
-            AddSeconds::<Impl, OFFSET>,
-            SecondAsString::<Impl, OFFSET>,
-            SecondAsPaddedString::<Impl, OFFSET>,
-            Nanosecond::<Impl, OFFSET>,
-            SetNanosecond::<Impl, OFFSET>,
-            AddNanoseconds::<Impl, OFFSET>,
-            NanosecondAsString::<Impl, OFFSET>,
-            NanosecondAsPaddedString::<Impl, OFFSET>,
-            Compare::<Impl, OFFSET>,
-            CompareDateTime::<Impl, OFFSET>,
-            CopyTo::<Impl, OFFSET>,
-            FirstMinuteInThisHour::<Impl, OFFSET>,
-            LastMinuteInThisHour::<Impl, OFFSET>,
-            NumberOfMinutesInThisHour::<Impl, OFFSET>,
-            FirstSecondInThisMinute::<Impl, OFFSET>,
-            LastSecondInThisMinute::<Impl, OFFSET>,
-            NumberOfSecondsInThisMinute::<Impl, OFFSET>,
-            ResolvedLanguage::<Impl, OFFSET>,
-            IsDaylightSavingTime::<Impl, OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            SetToMin::<Impl, IMPL_OFFSET>,
+            SetToMax::<Impl, IMPL_OFFSET>,
+            Languages::<Impl, IMPL_OFFSET>,
+            NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            GetCalendarSystem::<Impl, IMPL_OFFSET>,
+            ChangeCalendarSystem::<Impl, IMPL_OFFSET>,
+            GetClock::<Impl, IMPL_OFFSET>,
+            ChangeClock::<Impl, IMPL_OFFSET>,
+            GetDateTime::<Impl, IMPL_OFFSET>,
+            SetDateTime::<Impl, IMPL_OFFSET>,
+            SetToNow::<Impl, IMPL_OFFSET>,
+            FirstEra::<Impl, IMPL_OFFSET>,
+            LastEra::<Impl, IMPL_OFFSET>,
+            NumberOfEras::<Impl, IMPL_OFFSET>,
+            Era::<Impl, IMPL_OFFSET>,
+            SetEra::<Impl, IMPL_OFFSET>,
+            AddEras::<Impl, IMPL_OFFSET>,
+            EraAsFullString::<Impl, IMPL_OFFSET>,
+            EraAsString::<Impl, IMPL_OFFSET>,
+            FirstYearInThisEra::<Impl, IMPL_OFFSET>,
+            LastYearInThisEra::<Impl, IMPL_OFFSET>,
+            NumberOfYearsInThisEra::<Impl, IMPL_OFFSET>,
+            Year::<Impl, IMPL_OFFSET>,
+            SetYear::<Impl, IMPL_OFFSET>,
+            AddYears::<Impl, IMPL_OFFSET>,
+            YearAsString::<Impl, IMPL_OFFSET>,
+            YearAsTruncatedString::<Impl, IMPL_OFFSET>,
+            YearAsPaddedString::<Impl, IMPL_OFFSET>,
+            FirstMonthInThisYear::<Impl, IMPL_OFFSET>,
+            LastMonthInThisYear::<Impl, IMPL_OFFSET>,
+            NumberOfMonthsInThisYear::<Impl, IMPL_OFFSET>,
+            Month::<Impl, IMPL_OFFSET>,
+            SetMonth::<Impl, IMPL_OFFSET>,
+            AddMonths::<Impl, IMPL_OFFSET>,
+            MonthAsFullString::<Impl, IMPL_OFFSET>,
+            MonthAsString::<Impl, IMPL_OFFSET>,
+            MonthAsFullSoloString::<Impl, IMPL_OFFSET>,
+            MonthAsSoloString::<Impl, IMPL_OFFSET>,
+            MonthAsNumericString::<Impl, IMPL_OFFSET>,
+            MonthAsPaddedNumericString::<Impl, IMPL_OFFSET>,
+            AddWeeks::<Impl, IMPL_OFFSET>,
+            FirstDayInThisMonth::<Impl, IMPL_OFFSET>,
+            LastDayInThisMonth::<Impl, IMPL_OFFSET>,
+            NumberOfDaysInThisMonth::<Impl, IMPL_OFFSET>,
+            Day::<Impl, IMPL_OFFSET>,
+            SetDay::<Impl, IMPL_OFFSET>,
+            AddDays::<Impl, IMPL_OFFSET>,
+            DayAsString::<Impl, IMPL_OFFSET>,
+            DayAsPaddedString::<Impl, IMPL_OFFSET>,
+            DayOfWeek::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsFullString::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsString::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsFullSoloString::<Impl, IMPL_OFFSET>,
+            DayOfWeekAsSoloString::<Impl, IMPL_OFFSET>,
+            FirstPeriodInThisDay::<Impl, IMPL_OFFSET>,
+            LastPeriodInThisDay::<Impl, IMPL_OFFSET>,
+            NumberOfPeriodsInThisDay::<Impl, IMPL_OFFSET>,
+            Period::<Impl, IMPL_OFFSET>,
+            SetPeriod::<Impl, IMPL_OFFSET>,
+            AddPeriods::<Impl, IMPL_OFFSET>,
+            PeriodAsFullString::<Impl, IMPL_OFFSET>,
+            PeriodAsString::<Impl, IMPL_OFFSET>,
+            FirstHourInThisPeriod::<Impl, IMPL_OFFSET>,
+            LastHourInThisPeriod::<Impl, IMPL_OFFSET>,
+            NumberOfHoursInThisPeriod::<Impl, IMPL_OFFSET>,
+            Hour::<Impl, IMPL_OFFSET>,
+            SetHour::<Impl, IMPL_OFFSET>,
+            AddHours::<Impl, IMPL_OFFSET>,
+            HourAsString::<Impl, IMPL_OFFSET>,
+            HourAsPaddedString::<Impl, IMPL_OFFSET>,
+            Minute::<Impl, IMPL_OFFSET>,
+            SetMinute::<Impl, IMPL_OFFSET>,
+            AddMinutes::<Impl, IMPL_OFFSET>,
+            MinuteAsString::<Impl, IMPL_OFFSET>,
+            MinuteAsPaddedString::<Impl, IMPL_OFFSET>,
+            Second::<Impl, IMPL_OFFSET>,
+            SetSecond::<Impl, IMPL_OFFSET>,
+            AddSeconds::<Impl, IMPL_OFFSET>,
+            SecondAsString::<Impl, IMPL_OFFSET>,
+            SecondAsPaddedString::<Impl, IMPL_OFFSET>,
+            Nanosecond::<Impl, IMPL_OFFSET>,
+            SetNanosecond::<Impl, IMPL_OFFSET>,
+            AddNanoseconds::<Impl, IMPL_OFFSET>,
+            NanosecondAsString::<Impl, IMPL_OFFSET>,
+            NanosecondAsPaddedString::<Impl, IMPL_OFFSET>,
+            Compare::<Impl, IMPL_OFFSET>,
+            CompareDateTime::<Impl, IMPL_OFFSET>,
+            CopyTo::<Impl, IMPL_OFFSET>,
+            FirstMinuteInThisHour::<Impl, IMPL_OFFSET>,
+            LastMinuteInThisHour::<Impl, IMPL_OFFSET>,
+            NumberOfMinutesInThisHour::<Impl, IMPL_OFFSET>,
+            FirstSecondInThisMinute::<Impl, IMPL_OFFSET>,
+            LastSecondInThisMinute::<Impl, IMPL_OFFSET>,
+            NumberOfSecondsInThisMinute::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            IsDaylightSavingTime::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendar as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICalendarFactoryImpl: Sized {
     fn CreateCalendarDefaultCalendarAndClock(&self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<Calendar>;
     fn CreateCalendar(&self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarFactory {
     const NAME: &'static str = "Windows.Globalization.ICalendarFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICalendarFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarFactoryImpl, const OFFSET: isize>() -> ICalendarFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarFactoryVtbl {
         unsafe extern "system" fn CreateCalendarDefaultCalendarAndClock<Impl: ICalendarFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCalendarDefaultCalendarAndClock(&*(&languages as *const <super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1220,20 +1229,23 @@ impl ICalendarFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarFactory>, ::windows::core::GetTrustLevel, CreateCalendarDefaultCalendarAndClock::<Impl, OFFSET>, CreateCalendar::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarFactory>, ::windows::core::GetTrustLevel, CreateCalendarDefaultCalendarAndClock::<Impl, IMPL_OFFSET>, CreateCalendar::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendarFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICalendarFactory2Impl: Sized {
     fn CreateCalendarWithTimeZone(&self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarFactory2 {
     const NAME: &'static str = "Windows.Globalization.ICalendarFactory2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICalendarFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarFactory2Impl, const OFFSET: isize>() -> ICalendarFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarFactory2Vtbl {
         unsafe extern "system" fn CreateCalendarWithTimeZone<Impl: ICalendarFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, calendar: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, clock: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, timezoneid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCalendarWithTimeZone(
@@ -1250,7 +1262,10 @@ impl ICalendarFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarFactory2>, ::windows::core::GetTrustLevel, CreateCalendarWithTimeZone::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarFactory2>, ::windows::core::GetTrustLevel, CreateCalendarWithTimeZone::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendarFactory2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1271,7 +1286,7 @@ impl ::windows::core::RuntimeName for ICalendarIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICalendarIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarIdentifiersStaticsImpl, const OFFSET: isize>() -> ICalendarIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarIdentifiersStaticsVtbl {
         unsafe extern "system" fn Gregorian<Impl: ICalendarIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gregorian() {
@@ -1372,22 +1387,25 @@ impl ICalendarIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            Gregorian::<Impl, OFFSET>,
-            Hebrew::<Impl, OFFSET>,
-            Hijri::<Impl, OFFSET>,
-            Japanese::<Impl, OFFSET>,
-            Julian::<Impl, OFFSET>,
-            Korean::<Impl, OFFSET>,
-            Taiwan::<Impl, OFFSET>,
-            Thai::<Impl, OFFSET>,
-            UmAlQura::<Impl, OFFSET>,
+            Gregorian::<Impl, IMPL_OFFSET>,
+            Hebrew::<Impl, IMPL_OFFSET>,
+            Hijri::<Impl, IMPL_OFFSET>,
+            Japanese::<Impl, IMPL_OFFSET>,
+            Julian::<Impl, IMPL_OFFSET>,
+            Korean::<Impl, IMPL_OFFSET>,
+            Taiwan::<Impl, IMPL_OFFSET>,
+            Thai::<Impl, IMPL_OFFSET>,
+            UmAlQura::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendarIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1400,7 +1418,7 @@ impl ::windows::core::RuntimeName for ICalendarIdentifiersStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICalendarIdentifiersStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarIdentifiersStatics2Impl, const OFFSET: isize>() -> ICalendarIdentifiersStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarIdentifiersStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarIdentifiersStatics2Vtbl {
         unsafe extern "system" fn Persian<Impl: ICalendarIdentifiersStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Persian() {
@@ -1412,7 +1430,10 @@ impl ICalendarIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics2>, ::windows::core::GetTrustLevel, Persian::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics2>, ::windows::core::GetTrustLevel, Persian::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendarIdentifiersStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1429,7 +1450,7 @@ impl ::windows::core::RuntimeName for ICalendarIdentifiersStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICalendarIdentifiersStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarIdentifiersStatics3Impl, const OFFSET: isize>() -> ICalendarIdentifiersStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarIdentifiersStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICalendarIdentifiersStatics3Vtbl {
         unsafe extern "system" fn ChineseLunar<Impl: ICalendarIdentifiersStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChineseLunar() {
@@ -1485,7 +1506,10 @@ impl ICalendarIdentifiersStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics3>, ::windows::core::GetTrustLevel, ChineseLunar::<Impl, OFFSET>, JapaneseLunar::<Impl, OFFSET>, KoreanLunar::<Impl, OFFSET>, TaiwanLunar::<Impl, OFFSET>, VietnameseLunar::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarIdentifiersStatics3>, ::windows::core::GetTrustLevel, ChineseLunar::<Impl, IMPL_OFFSET>, JapaneseLunar::<Impl, IMPL_OFFSET>, KoreanLunar::<Impl, IMPL_OFFSET>, TaiwanLunar::<Impl, IMPL_OFFSET>, VietnameseLunar::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICalendarIdentifiersStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1499,7 +1523,7 @@ impl ::windows::core::RuntimeName for IClockIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IClockIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClockIdentifiersStaticsImpl, const OFFSET: isize>() -> IClockIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClockIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClockIdentifiersStaticsVtbl {
         unsafe extern "system" fn TwelveHour<Impl: IClockIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TwelveHour() {
@@ -1522,7 +1546,10 @@ impl IClockIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClockIdentifiersStatics>, ::windows::core::GetTrustLevel, TwelveHour::<Impl, OFFSET>, TwentyFourHour::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClockIdentifiersStatics>, ::windows::core::GetTrustLevel, TwelveHour::<Impl, IMPL_OFFSET>, TwentyFourHour::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClockIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1536,7 +1563,7 @@ impl ::windows::core::RuntimeName for ICurrencyAmount {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrencyAmountVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyAmountImpl, const OFFSET: isize>() -> ICurrencyAmountVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyAmountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyAmountVtbl {
         unsafe extern "system" fn Amount<Impl: ICurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Amount() {
@@ -1559,7 +1586,10 @@ impl ICurrencyAmountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyAmount>, ::windows::core::GetTrustLevel, Amount::<Impl, OFFSET>, Currency::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyAmount>, ::windows::core::GetTrustLevel, Amount::<Impl, IMPL_OFFSET>, Currency::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyAmount as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1572,7 +1602,7 @@ impl ::windows::core::RuntimeName for ICurrencyAmountFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrencyAmountFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyAmountFactoryImpl, const OFFSET: isize>() -> ICurrencyAmountFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyAmountFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyAmountFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ICurrencyAmountFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, amount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&amount as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&currency as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1584,7 +1614,10 @@ impl ICurrencyAmountFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyAmountFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyAmountFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyAmountFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1753,7 +1786,7 @@ impl ::windows::core::RuntimeName for ICurrencyIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrencyIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyIdentifiersStaticsImpl, const OFFSET: isize>() -> ICurrencyIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyIdentifiersStaticsVtbl {
         unsafe extern "system" fn AED<Impl: ICurrencyIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AED() {
@@ -3482,170 +3515,173 @@ impl ICurrencyIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            AED::<Impl, OFFSET>,
-            AFN::<Impl, OFFSET>,
-            ALL::<Impl, OFFSET>,
-            AMD::<Impl, OFFSET>,
-            ANG::<Impl, OFFSET>,
-            AOA::<Impl, OFFSET>,
-            ARS::<Impl, OFFSET>,
-            AUD::<Impl, OFFSET>,
-            AWG::<Impl, OFFSET>,
-            AZN::<Impl, OFFSET>,
-            BAM::<Impl, OFFSET>,
-            BBD::<Impl, OFFSET>,
-            BDT::<Impl, OFFSET>,
-            BGN::<Impl, OFFSET>,
-            BHD::<Impl, OFFSET>,
-            BIF::<Impl, OFFSET>,
-            BMD::<Impl, OFFSET>,
-            BND::<Impl, OFFSET>,
-            BOB::<Impl, OFFSET>,
-            BRL::<Impl, OFFSET>,
-            BSD::<Impl, OFFSET>,
-            BTN::<Impl, OFFSET>,
-            BWP::<Impl, OFFSET>,
-            BYR::<Impl, OFFSET>,
-            BZD::<Impl, OFFSET>,
-            CAD::<Impl, OFFSET>,
-            CDF::<Impl, OFFSET>,
-            CHF::<Impl, OFFSET>,
-            CLP::<Impl, OFFSET>,
-            CNY::<Impl, OFFSET>,
-            COP::<Impl, OFFSET>,
-            CRC::<Impl, OFFSET>,
-            CUP::<Impl, OFFSET>,
-            CVE::<Impl, OFFSET>,
-            CZK::<Impl, OFFSET>,
-            DJF::<Impl, OFFSET>,
-            DKK::<Impl, OFFSET>,
-            DOP::<Impl, OFFSET>,
-            DZD::<Impl, OFFSET>,
-            EGP::<Impl, OFFSET>,
-            ERN::<Impl, OFFSET>,
-            ETB::<Impl, OFFSET>,
-            EUR::<Impl, OFFSET>,
-            FJD::<Impl, OFFSET>,
-            FKP::<Impl, OFFSET>,
-            GBP::<Impl, OFFSET>,
-            GEL::<Impl, OFFSET>,
-            GHS::<Impl, OFFSET>,
-            GIP::<Impl, OFFSET>,
-            GMD::<Impl, OFFSET>,
-            GNF::<Impl, OFFSET>,
-            GTQ::<Impl, OFFSET>,
-            GYD::<Impl, OFFSET>,
-            HKD::<Impl, OFFSET>,
-            HNL::<Impl, OFFSET>,
-            HRK::<Impl, OFFSET>,
-            HTG::<Impl, OFFSET>,
-            HUF::<Impl, OFFSET>,
-            IDR::<Impl, OFFSET>,
-            ILS::<Impl, OFFSET>,
-            INR::<Impl, OFFSET>,
-            IQD::<Impl, OFFSET>,
-            IRR::<Impl, OFFSET>,
-            ISK::<Impl, OFFSET>,
-            JMD::<Impl, OFFSET>,
-            JOD::<Impl, OFFSET>,
-            JPY::<Impl, OFFSET>,
-            KES::<Impl, OFFSET>,
-            KGS::<Impl, OFFSET>,
-            KHR::<Impl, OFFSET>,
-            KMF::<Impl, OFFSET>,
-            KPW::<Impl, OFFSET>,
-            KRW::<Impl, OFFSET>,
-            KWD::<Impl, OFFSET>,
-            KYD::<Impl, OFFSET>,
-            KZT::<Impl, OFFSET>,
-            LAK::<Impl, OFFSET>,
-            LBP::<Impl, OFFSET>,
-            LKR::<Impl, OFFSET>,
-            LRD::<Impl, OFFSET>,
-            LSL::<Impl, OFFSET>,
-            LTL::<Impl, OFFSET>,
-            LVL::<Impl, OFFSET>,
-            LYD::<Impl, OFFSET>,
-            MAD::<Impl, OFFSET>,
-            MDL::<Impl, OFFSET>,
-            MGA::<Impl, OFFSET>,
-            MKD::<Impl, OFFSET>,
-            MMK::<Impl, OFFSET>,
-            MNT::<Impl, OFFSET>,
-            MOP::<Impl, OFFSET>,
-            MRO::<Impl, OFFSET>,
-            MUR::<Impl, OFFSET>,
-            MVR::<Impl, OFFSET>,
-            MWK::<Impl, OFFSET>,
-            MXN::<Impl, OFFSET>,
-            MYR::<Impl, OFFSET>,
-            MZN::<Impl, OFFSET>,
-            NAD::<Impl, OFFSET>,
-            NGN::<Impl, OFFSET>,
-            NIO::<Impl, OFFSET>,
-            NOK::<Impl, OFFSET>,
-            NPR::<Impl, OFFSET>,
-            NZD::<Impl, OFFSET>,
-            OMR::<Impl, OFFSET>,
-            PAB::<Impl, OFFSET>,
-            PEN::<Impl, OFFSET>,
-            PGK::<Impl, OFFSET>,
-            PHP::<Impl, OFFSET>,
-            PKR::<Impl, OFFSET>,
-            PLN::<Impl, OFFSET>,
-            PYG::<Impl, OFFSET>,
-            QAR::<Impl, OFFSET>,
-            RON::<Impl, OFFSET>,
-            RSD::<Impl, OFFSET>,
-            RUB::<Impl, OFFSET>,
-            RWF::<Impl, OFFSET>,
-            SAR::<Impl, OFFSET>,
-            SBD::<Impl, OFFSET>,
-            SCR::<Impl, OFFSET>,
-            SDG::<Impl, OFFSET>,
-            SEK::<Impl, OFFSET>,
-            SGD::<Impl, OFFSET>,
-            SHP::<Impl, OFFSET>,
-            SLL::<Impl, OFFSET>,
-            SOS::<Impl, OFFSET>,
-            SRD::<Impl, OFFSET>,
-            STD::<Impl, OFFSET>,
-            SYP::<Impl, OFFSET>,
-            SZL::<Impl, OFFSET>,
-            THB::<Impl, OFFSET>,
-            TJS::<Impl, OFFSET>,
-            TMT::<Impl, OFFSET>,
-            TND::<Impl, OFFSET>,
-            TOP::<Impl, OFFSET>,
-            TRY::<Impl, OFFSET>,
-            TTD::<Impl, OFFSET>,
-            TWD::<Impl, OFFSET>,
-            TZS::<Impl, OFFSET>,
-            UAH::<Impl, OFFSET>,
-            UGX::<Impl, OFFSET>,
-            USD::<Impl, OFFSET>,
-            UYU::<Impl, OFFSET>,
-            UZS::<Impl, OFFSET>,
-            VEF::<Impl, OFFSET>,
-            VND::<Impl, OFFSET>,
-            VUV::<Impl, OFFSET>,
-            WST::<Impl, OFFSET>,
-            XAF::<Impl, OFFSET>,
-            XCD::<Impl, OFFSET>,
-            XOF::<Impl, OFFSET>,
-            XPF::<Impl, OFFSET>,
-            XXX::<Impl, OFFSET>,
-            YER::<Impl, OFFSET>,
-            ZAR::<Impl, OFFSET>,
-            ZMW::<Impl, OFFSET>,
-            ZWL::<Impl, OFFSET>,
+            AED::<Impl, IMPL_OFFSET>,
+            AFN::<Impl, IMPL_OFFSET>,
+            ALL::<Impl, IMPL_OFFSET>,
+            AMD::<Impl, IMPL_OFFSET>,
+            ANG::<Impl, IMPL_OFFSET>,
+            AOA::<Impl, IMPL_OFFSET>,
+            ARS::<Impl, IMPL_OFFSET>,
+            AUD::<Impl, IMPL_OFFSET>,
+            AWG::<Impl, IMPL_OFFSET>,
+            AZN::<Impl, IMPL_OFFSET>,
+            BAM::<Impl, IMPL_OFFSET>,
+            BBD::<Impl, IMPL_OFFSET>,
+            BDT::<Impl, IMPL_OFFSET>,
+            BGN::<Impl, IMPL_OFFSET>,
+            BHD::<Impl, IMPL_OFFSET>,
+            BIF::<Impl, IMPL_OFFSET>,
+            BMD::<Impl, IMPL_OFFSET>,
+            BND::<Impl, IMPL_OFFSET>,
+            BOB::<Impl, IMPL_OFFSET>,
+            BRL::<Impl, IMPL_OFFSET>,
+            BSD::<Impl, IMPL_OFFSET>,
+            BTN::<Impl, IMPL_OFFSET>,
+            BWP::<Impl, IMPL_OFFSET>,
+            BYR::<Impl, IMPL_OFFSET>,
+            BZD::<Impl, IMPL_OFFSET>,
+            CAD::<Impl, IMPL_OFFSET>,
+            CDF::<Impl, IMPL_OFFSET>,
+            CHF::<Impl, IMPL_OFFSET>,
+            CLP::<Impl, IMPL_OFFSET>,
+            CNY::<Impl, IMPL_OFFSET>,
+            COP::<Impl, IMPL_OFFSET>,
+            CRC::<Impl, IMPL_OFFSET>,
+            CUP::<Impl, IMPL_OFFSET>,
+            CVE::<Impl, IMPL_OFFSET>,
+            CZK::<Impl, IMPL_OFFSET>,
+            DJF::<Impl, IMPL_OFFSET>,
+            DKK::<Impl, IMPL_OFFSET>,
+            DOP::<Impl, IMPL_OFFSET>,
+            DZD::<Impl, IMPL_OFFSET>,
+            EGP::<Impl, IMPL_OFFSET>,
+            ERN::<Impl, IMPL_OFFSET>,
+            ETB::<Impl, IMPL_OFFSET>,
+            EUR::<Impl, IMPL_OFFSET>,
+            FJD::<Impl, IMPL_OFFSET>,
+            FKP::<Impl, IMPL_OFFSET>,
+            GBP::<Impl, IMPL_OFFSET>,
+            GEL::<Impl, IMPL_OFFSET>,
+            GHS::<Impl, IMPL_OFFSET>,
+            GIP::<Impl, IMPL_OFFSET>,
+            GMD::<Impl, IMPL_OFFSET>,
+            GNF::<Impl, IMPL_OFFSET>,
+            GTQ::<Impl, IMPL_OFFSET>,
+            GYD::<Impl, IMPL_OFFSET>,
+            HKD::<Impl, IMPL_OFFSET>,
+            HNL::<Impl, IMPL_OFFSET>,
+            HRK::<Impl, IMPL_OFFSET>,
+            HTG::<Impl, IMPL_OFFSET>,
+            HUF::<Impl, IMPL_OFFSET>,
+            IDR::<Impl, IMPL_OFFSET>,
+            ILS::<Impl, IMPL_OFFSET>,
+            INR::<Impl, IMPL_OFFSET>,
+            IQD::<Impl, IMPL_OFFSET>,
+            IRR::<Impl, IMPL_OFFSET>,
+            ISK::<Impl, IMPL_OFFSET>,
+            JMD::<Impl, IMPL_OFFSET>,
+            JOD::<Impl, IMPL_OFFSET>,
+            JPY::<Impl, IMPL_OFFSET>,
+            KES::<Impl, IMPL_OFFSET>,
+            KGS::<Impl, IMPL_OFFSET>,
+            KHR::<Impl, IMPL_OFFSET>,
+            KMF::<Impl, IMPL_OFFSET>,
+            KPW::<Impl, IMPL_OFFSET>,
+            KRW::<Impl, IMPL_OFFSET>,
+            KWD::<Impl, IMPL_OFFSET>,
+            KYD::<Impl, IMPL_OFFSET>,
+            KZT::<Impl, IMPL_OFFSET>,
+            LAK::<Impl, IMPL_OFFSET>,
+            LBP::<Impl, IMPL_OFFSET>,
+            LKR::<Impl, IMPL_OFFSET>,
+            LRD::<Impl, IMPL_OFFSET>,
+            LSL::<Impl, IMPL_OFFSET>,
+            LTL::<Impl, IMPL_OFFSET>,
+            LVL::<Impl, IMPL_OFFSET>,
+            LYD::<Impl, IMPL_OFFSET>,
+            MAD::<Impl, IMPL_OFFSET>,
+            MDL::<Impl, IMPL_OFFSET>,
+            MGA::<Impl, IMPL_OFFSET>,
+            MKD::<Impl, IMPL_OFFSET>,
+            MMK::<Impl, IMPL_OFFSET>,
+            MNT::<Impl, IMPL_OFFSET>,
+            MOP::<Impl, IMPL_OFFSET>,
+            MRO::<Impl, IMPL_OFFSET>,
+            MUR::<Impl, IMPL_OFFSET>,
+            MVR::<Impl, IMPL_OFFSET>,
+            MWK::<Impl, IMPL_OFFSET>,
+            MXN::<Impl, IMPL_OFFSET>,
+            MYR::<Impl, IMPL_OFFSET>,
+            MZN::<Impl, IMPL_OFFSET>,
+            NAD::<Impl, IMPL_OFFSET>,
+            NGN::<Impl, IMPL_OFFSET>,
+            NIO::<Impl, IMPL_OFFSET>,
+            NOK::<Impl, IMPL_OFFSET>,
+            NPR::<Impl, IMPL_OFFSET>,
+            NZD::<Impl, IMPL_OFFSET>,
+            OMR::<Impl, IMPL_OFFSET>,
+            PAB::<Impl, IMPL_OFFSET>,
+            PEN::<Impl, IMPL_OFFSET>,
+            PGK::<Impl, IMPL_OFFSET>,
+            PHP::<Impl, IMPL_OFFSET>,
+            PKR::<Impl, IMPL_OFFSET>,
+            PLN::<Impl, IMPL_OFFSET>,
+            PYG::<Impl, IMPL_OFFSET>,
+            QAR::<Impl, IMPL_OFFSET>,
+            RON::<Impl, IMPL_OFFSET>,
+            RSD::<Impl, IMPL_OFFSET>,
+            RUB::<Impl, IMPL_OFFSET>,
+            RWF::<Impl, IMPL_OFFSET>,
+            SAR::<Impl, IMPL_OFFSET>,
+            SBD::<Impl, IMPL_OFFSET>,
+            SCR::<Impl, IMPL_OFFSET>,
+            SDG::<Impl, IMPL_OFFSET>,
+            SEK::<Impl, IMPL_OFFSET>,
+            SGD::<Impl, IMPL_OFFSET>,
+            SHP::<Impl, IMPL_OFFSET>,
+            SLL::<Impl, IMPL_OFFSET>,
+            SOS::<Impl, IMPL_OFFSET>,
+            SRD::<Impl, IMPL_OFFSET>,
+            STD::<Impl, IMPL_OFFSET>,
+            SYP::<Impl, IMPL_OFFSET>,
+            SZL::<Impl, IMPL_OFFSET>,
+            THB::<Impl, IMPL_OFFSET>,
+            TJS::<Impl, IMPL_OFFSET>,
+            TMT::<Impl, IMPL_OFFSET>,
+            TND::<Impl, IMPL_OFFSET>,
+            TOP::<Impl, IMPL_OFFSET>,
+            TRY::<Impl, IMPL_OFFSET>,
+            TTD::<Impl, IMPL_OFFSET>,
+            TWD::<Impl, IMPL_OFFSET>,
+            TZS::<Impl, IMPL_OFFSET>,
+            UAH::<Impl, IMPL_OFFSET>,
+            UGX::<Impl, IMPL_OFFSET>,
+            USD::<Impl, IMPL_OFFSET>,
+            UYU::<Impl, IMPL_OFFSET>,
+            UZS::<Impl, IMPL_OFFSET>,
+            VEF::<Impl, IMPL_OFFSET>,
+            VND::<Impl, IMPL_OFFSET>,
+            VUV::<Impl, IMPL_OFFSET>,
+            WST::<Impl, IMPL_OFFSET>,
+            XAF::<Impl, IMPL_OFFSET>,
+            XCD::<Impl, IMPL_OFFSET>,
+            XOF::<Impl, IMPL_OFFSET>,
+            XPF::<Impl, IMPL_OFFSET>,
+            XXX::<Impl, IMPL_OFFSET>,
+            YER::<Impl, IMPL_OFFSET>,
+            ZAR::<Impl, IMPL_OFFSET>,
+            ZMW::<Impl, IMPL_OFFSET>,
+            ZWL::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3658,7 +3694,7 @@ impl ::windows::core::RuntimeName for ICurrencyIdentifiersStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrencyIdentifiersStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyIdentifiersStatics2Impl, const OFFSET: isize>() -> ICurrencyIdentifiersStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyIdentifiersStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyIdentifiersStatics2Vtbl {
         unsafe extern "system" fn BYN<Impl: ICurrencyIdentifiersStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BYN() {
@@ -3670,7 +3706,10 @@ impl ICurrencyIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics2>, ::windows::core::GetTrustLevel, BYN::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics2>, ::windows::core::GetTrustLevel, BYN::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyIdentifiersStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3686,7 +3725,7 @@ impl ::windows::core::RuntimeName for ICurrencyIdentifiersStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrencyIdentifiersStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyIdentifiersStatics3Impl, const OFFSET: isize>() -> ICurrencyIdentifiersStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyIdentifiersStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyIdentifiersStatics3Vtbl {
         unsafe extern "system" fn MRU<Impl: ICurrencyIdentifiersStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MRU() {
@@ -3731,10 +3770,13 @@ impl ICurrencyIdentifiersStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics3>, ::windows::core::GetTrustLevel, MRU::<Impl, OFFSET>, SSP::<Impl, OFFSET>, STN::<Impl, OFFSET>, VES::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrencyIdentifiersStatics3>, ::windows::core::GetTrustLevel, MRU::<Impl, IMPL_OFFSET>, SSP::<Impl, IMPL_OFFSET>, STN::<Impl, IMPL_OFFSET>, VES::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrencyIdentifiersStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeographicRegionImpl: Sized {
     fn Code(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CodeTwoLetter(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -3744,13 +3786,13 @@ pub trait IGeographicRegionImpl: Sized {
     fn NativeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CurrenciesInUse(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeographicRegion {
     const NAME: &'static str = "Windows.Globalization.IGeographicRegion";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGeographicRegionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeographicRegionImpl, const OFFSET: isize>() -> IGeographicRegionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeographicRegionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeographicRegionVtbl {
         unsafe extern "system" fn Code<Impl: IGeographicRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
@@ -3828,7 +3870,24 @@ impl IGeographicRegionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegion>, ::windows::core::GetTrustLevel, Code::<Impl, OFFSET>, CodeTwoLetter::<Impl, OFFSET>, CodeThreeLetter::<Impl, OFFSET>, CodeThreeDigit::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, NativeName::<Impl, OFFSET>, CurrenciesInUse::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGeographicRegion>,
+            ::windows::core::GetTrustLevel,
+            Code::<Impl, IMPL_OFFSET>,
+            CodeTwoLetter::<Impl, IMPL_OFFSET>,
+            CodeThreeLetter::<Impl, IMPL_OFFSET>,
+            CodeThreeDigit::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            NativeName::<Impl, IMPL_OFFSET>,
+            CurrenciesInUse::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeographicRegion as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3841,7 +3900,7 @@ impl ::windows::core::RuntimeName for IGeographicRegionFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGeographicRegionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeographicRegionFactoryImpl, const OFFSET: isize>() -> IGeographicRegionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeographicRegionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeographicRegionFactoryVtbl {
         unsafe extern "system" fn CreateGeographicRegion<Impl: IGeographicRegionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geographicregioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGeographicRegion(&*(&geographicregioncode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3853,7 +3912,10 @@ impl IGeographicRegionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegionFactory>, ::windows::core::GetTrustLevel, CreateGeographicRegion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegionFactory>, ::windows::core::GetTrustLevel, CreateGeographicRegion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeographicRegionFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3866,7 +3928,7 @@ impl ::windows::core::RuntimeName for IGeographicRegionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGeographicRegionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeographicRegionStaticsImpl, const OFFSET: isize>() -> IGeographicRegionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeographicRegionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeographicRegionStaticsVtbl {
         unsafe extern "system" fn IsSupported<Impl: IGeographicRegionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geographicregioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported(&*(&geographicregioncode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3878,7 +3940,10 @@ impl IGeographicRegionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegionStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeographicRegionStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeographicRegionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3893,7 +3958,7 @@ impl ::windows::core::RuntimeName for IJapanesePhoneme {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJapanesePhonemeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJapanesePhonemeImpl, const OFFSET: isize>() -> IJapanesePhonemeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJapanesePhonemeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJapanesePhonemeVtbl {
         unsafe extern "system" fn DisplayText<Impl: IJapanesePhonemeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
@@ -3927,21 +3992,24 @@ impl IJapanesePhonemeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJapanesePhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, OFFSET>, YomiText::<Impl, OFFSET>, IsPhraseStart::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJapanesePhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, IMPL_OFFSET>, YomiText::<Impl, IMPL_OFFSET>, IsPhraseStart::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJapanesePhoneme as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IJapanesePhoneticAnalyzerStaticsImpl: Sized {
     fn GetWords(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>>;
     fn GetWordsWithMonoRubyOption(&self, input: &::windows::core::HSTRING, monoruby: bool) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJapanesePhoneticAnalyzerStatics {
     const NAME: &'static str = "Windows.Globalization.IJapanesePhoneticAnalyzerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IJapanesePhoneticAnalyzerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJapanesePhoneticAnalyzerStaticsImpl, const OFFSET: isize>() -> IJapanesePhoneticAnalyzerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJapanesePhoneticAnalyzerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJapanesePhoneticAnalyzerStaticsVtbl {
         unsafe extern "system" fn GetWords<Impl: IJapanesePhoneticAnalyzerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWords(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3964,7 +4032,10 @@ impl IJapanesePhoneticAnalyzerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJapanesePhoneticAnalyzerStatics>, ::windows::core::GetTrustLevel, GetWords::<Impl, OFFSET>, GetWordsWithMonoRubyOption::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJapanesePhoneticAnalyzerStatics>, ::windows::core::GetTrustLevel, GetWords::<Impl, IMPL_OFFSET>, GetWordsWithMonoRubyOption::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJapanesePhoneticAnalyzerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3980,7 +4051,7 @@ impl ::windows::core::RuntimeName for ILanguage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanguageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageImpl, const OFFSET: isize>() -> ILanguageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageVtbl {
         unsafe extern "system" fn LanguageTag<Impl: ILanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LanguageTag() {
@@ -4025,7 +4096,10 @@ impl ILanguageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage>, ::windows::core::GetTrustLevel, LanguageTag::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, NativeName::<Impl, OFFSET>, Script::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage>, ::windows::core::GetTrustLevel, LanguageTag::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>, NativeName::<Impl, IMPL_OFFSET>, Script::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4038,7 +4112,7 @@ impl ::windows::core::RuntimeName for ILanguage2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanguage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguage2Impl, const OFFSET: isize>() -> ILanguage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguage2Vtbl {
         unsafe extern "system" fn LayoutDirection<Impl: ILanguage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LanguageLayoutDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LayoutDirection() {
@@ -4050,7 +4124,10 @@ impl ILanguage2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage2>, ::windows::core::GetTrustLevel, LayoutDirection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage2>, ::windows::core::GetTrustLevel, LayoutDirection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguage2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4063,7 +4140,7 @@ impl ::windows::core::RuntimeName for ILanguage3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanguage3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguage3Impl, const OFFSET: isize>() -> ILanguage3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguage3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguage3Vtbl {
         unsafe extern "system" fn AbbreviatedName<Impl: ILanguage3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbbreviatedName() {
@@ -4075,20 +4152,23 @@ impl ILanguage3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage3>, ::windows::core::GetTrustLevel, AbbreviatedName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguage3>, ::windows::core::GetTrustLevel, AbbreviatedName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguage3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILanguageExtensionSubtagsImpl: Sized {
     fn GetExtensionSubtags(&self, singleton: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILanguageExtensionSubtags {
     const NAME: &'static str = "Windows.Globalization.ILanguageExtensionSubtags";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ILanguageExtensionSubtagsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExtensionSubtagsImpl, const OFFSET: isize>() -> ILanguageExtensionSubtagsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExtensionSubtagsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageExtensionSubtagsVtbl {
         unsafe extern "system" fn GetExtensionSubtags<Impl: ILanguageExtensionSubtagsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, singleton: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetExtensionSubtags(&*(&singleton as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4100,7 +4180,10 @@ impl ILanguageExtensionSubtagsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageExtensionSubtags>, ::windows::core::GetTrustLevel, GetExtensionSubtags::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageExtensionSubtags>, ::windows::core::GetTrustLevel, GetExtensionSubtags::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguageExtensionSubtags as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4113,7 +4196,7 @@ impl ::windows::core::RuntimeName for ILanguageFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanguageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFactoryImpl, const OFFSET: isize>() -> ILanguageFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFactoryVtbl {
         unsafe extern "system" fn CreateLanguage<Impl: ILanguageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLanguage(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4125,7 +4208,10 @@ impl ILanguageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageFactory>, ::windows::core::GetTrustLevel, CreateLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageFactory>, ::windows::core::GetTrustLevel, CreateLanguage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguageFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4139,7 +4225,7 @@ impl ::windows::core::RuntimeName for ILanguageStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanguageStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageStaticsImpl, const OFFSET: isize>() -> ILanguageStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageStaticsVtbl {
         unsafe extern "system" fn IsWellFormed<Impl: ILanguageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWellFormed(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4162,7 +4248,10 @@ impl ILanguageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics>, ::windows::core::GetTrustLevel, IsWellFormed::<Impl, OFFSET>, CurrentInputMethodLanguageTag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics>, ::windows::core::GetTrustLevel, IsWellFormed::<Impl, IMPL_OFFSET>, CurrentInputMethodLanguageTag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguageStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4175,7 +4264,7 @@ impl ::windows::core::RuntimeName for ILanguageStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILanguageStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageStatics2Impl, const OFFSET: isize>() -> ILanguageStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageStatics2Vtbl {
         unsafe extern "system" fn TrySetInputMethodLanguageTag<Impl: ILanguageStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySetInputMethodLanguageTag(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4187,20 +4276,23 @@ impl ILanguageStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics2>, ::windows::core::GetTrustLevel, TrySetInputMethodLanguageTag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics2>, ::windows::core::GetTrustLevel, TrySetInputMethodLanguageTag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguageStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILanguageStatics3Impl: Sized {
     fn GetMuiCompatibleLanguageListFromLanguageTags(&self, languagetags: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILanguageStatics3 {
     const NAME: &'static str = "Windows.Globalization.ILanguageStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ILanguageStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageStatics3Impl, const OFFSET: isize>() -> ILanguageStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageStatics3Vtbl {
         unsafe extern "system" fn GetMuiCompatibleLanguageListFromLanguageTags<Impl: ILanguageStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetags: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMuiCompatibleLanguageListFromLanguageTags(&*(&languagetags as *const <super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -4212,7 +4304,10 @@ impl ILanguageStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics3>, ::windows::core::GetTrustLevel, GetMuiCompatibleLanguageListFromLanguageTags::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILanguageStatics3>, ::windows::core::GetTrustLevel, GetMuiCompatibleLanguageListFromLanguageTags::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILanguageStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4260,7 +4355,7 @@ impl ::windows::core::RuntimeName for INumeralSystemIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INumeralSystemIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemIdentifiersStaticsImpl, const OFFSET: isize>() -> INumeralSystemIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemIdentifiersStaticsVtbl {
         unsafe extern "system" fn Arab<Impl: INumeralSystemIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arab() {
@@ -4658,49 +4753,52 @@ impl INumeralSystemIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INumeralSystemIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            Arab::<Impl, OFFSET>,
-            ArabExt::<Impl, OFFSET>,
-            Bali::<Impl, OFFSET>,
-            Beng::<Impl, OFFSET>,
-            Cham::<Impl, OFFSET>,
-            Deva::<Impl, OFFSET>,
-            FullWide::<Impl, OFFSET>,
-            Gujr::<Impl, OFFSET>,
-            Guru::<Impl, OFFSET>,
-            HaniDec::<Impl, OFFSET>,
-            Java::<Impl, OFFSET>,
-            Kali::<Impl, OFFSET>,
-            Khmr::<Impl, OFFSET>,
-            Knda::<Impl, OFFSET>,
-            Lana::<Impl, OFFSET>,
-            LanaTham::<Impl, OFFSET>,
-            Laoo::<Impl, OFFSET>,
-            Latn::<Impl, OFFSET>,
-            Lepc::<Impl, OFFSET>,
-            Limb::<Impl, OFFSET>,
-            Mlym::<Impl, OFFSET>,
-            Mong::<Impl, OFFSET>,
-            Mtei::<Impl, OFFSET>,
-            Mymr::<Impl, OFFSET>,
-            MymrShan::<Impl, OFFSET>,
-            Nkoo::<Impl, OFFSET>,
-            Olck::<Impl, OFFSET>,
-            Orya::<Impl, OFFSET>,
-            Saur::<Impl, OFFSET>,
-            Sund::<Impl, OFFSET>,
-            Talu::<Impl, OFFSET>,
-            TamlDec::<Impl, OFFSET>,
-            Telu::<Impl, OFFSET>,
-            Thai::<Impl, OFFSET>,
-            Tibt::<Impl, OFFSET>,
-            Vaii::<Impl, OFFSET>,
+            Arab::<Impl, IMPL_OFFSET>,
+            ArabExt::<Impl, IMPL_OFFSET>,
+            Bali::<Impl, IMPL_OFFSET>,
+            Beng::<Impl, IMPL_OFFSET>,
+            Cham::<Impl, IMPL_OFFSET>,
+            Deva::<Impl, IMPL_OFFSET>,
+            FullWide::<Impl, IMPL_OFFSET>,
+            Gujr::<Impl, IMPL_OFFSET>,
+            Guru::<Impl, IMPL_OFFSET>,
+            HaniDec::<Impl, IMPL_OFFSET>,
+            Java::<Impl, IMPL_OFFSET>,
+            Kali::<Impl, IMPL_OFFSET>,
+            Khmr::<Impl, IMPL_OFFSET>,
+            Knda::<Impl, IMPL_OFFSET>,
+            Lana::<Impl, IMPL_OFFSET>,
+            LanaTham::<Impl, IMPL_OFFSET>,
+            Laoo::<Impl, IMPL_OFFSET>,
+            Latn::<Impl, IMPL_OFFSET>,
+            Lepc::<Impl, IMPL_OFFSET>,
+            Limb::<Impl, IMPL_OFFSET>,
+            Mlym::<Impl, IMPL_OFFSET>,
+            Mong::<Impl, IMPL_OFFSET>,
+            Mtei::<Impl, IMPL_OFFSET>,
+            Mymr::<Impl, IMPL_OFFSET>,
+            MymrShan::<Impl, IMPL_OFFSET>,
+            Nkoo::<Impl, IMPL_OFFSET>,
+            Olck::<Impl, IMPL_OFFSET>,
+            Orya::<Impl, IMPL_OFFSET>,
+            Saur::<Impl, IMPL_OFFSET>,
+            Sund::<Impl, IMPL_OFFSET>,
+            Talu::<Impl, IMPL_OFFSET>,
+            TamlDec::<Impl, IMPL_OFFSET>,
+            Telu::<Impl, IMPL_OFFSET>,
+            Thai::<Impl, IMPL_OFFSET>,
+            Tibt::<Impl, IMPL_OFFSET>,
+            Vaii::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumeralSystemIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4724,7 +4822,7 @@ impl ::windows::core::RuntimeName for INumeralSystemIdentifiersStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INumeralSystemIdentifiersStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemIdentifiersStatics2Impl, const OFFSET: isize>() -> INumeralSystemIdentifiersStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemIdentifiersStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemIdentifiersStatics2Vtbl {
         unsafe extern "system" fn Brah<Impl: INumeralSystemIdentifiersStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Brah() {
@@ -4858,25 +4956,28 @@ impl INumeralSystemIdentifiersStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INumeralSystemIdentifiersStatics2>,
             ::windows::core::GetTrustLevel,
-            Brah::<Impl, OFFSET>,
-            Osma::<Impl, OFFSET>,
-            MathBold::<Impl, OFFSET>,
-            MathDbl::<Impl, OFFSET>,
-            MathSans::<Impl, OFFSET>,
-            MathSanb::<Impl, OFFSET>,
-            MathMono::<Impl, OFFSET>,
-            ZmthBold::<Impl, OFFSET>,
-            ZmthDbl::<Impl, OFFSET>,
-            ZmthSans::<Impl, OFFSET>,
-            ZmthSanb::<Impl, OFFSET>,
-            ZmthMono::<Impl, OFFSET>,
+            Brah::<Impl, IMPL_OFFSET>,
+            Osma::<Impl, IMPL_OFFSET>,
+            MathBold::<Impl, IMPL_OFFSET>,
+            MathDbl::<Impl, IMPL_OFFSET>,
+            MathSans::<Impl, IMPL_OFFSET>,
+            MathSanb::<Impl, IMPL_OFFSET>,
+            MathMono::<Impl, IMPL_OFFSET>,
+            ZmthBold::<Impl, IMPL_OFFSET>,
+            ZmthDbl::<Impl, IMPL_OFFSET>,
+            ZmthSans::<Impl, IMPL_OFFSET>,
+            ZmthSanb::<Impl, IMPL_OFFSET>,
+            ZmthMono::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INumeralSystemIdentifiersStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4892,7 +4993,7 @@ impl ::windows::core::RuntimeName for ITimeZoneOnCalendar {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITimeZoneOnCalendarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeZoneOnCalendarImpl, const OFFSET: isize>() -> ITimeZoneOnCalendarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeZoneOnCalendarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimeZoneOnCalendarVtbl {
         unsafe extern "system" fn GetTimeZone<Impl: ITimeZoneOnCalendarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTimeZone() {
@@ -4930,6 +5031,9 @@ impl ITimeZoneOnCalendarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeZoneOnCalendar>, ::windows::core::GetTrustLevel, GetTimeZone::<Impl, OFFSET>, ChangeTimeZone::<Impl, OFFSET>, TimeZoneAsFullString::<Impl, OFFSET>, TimeZoneAsString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeZoneOnCalendar>, ::windows::core::GetTrustLevel, GetTimeZone::<Impl, IMPL_OFFSET>, ChangeTimeZone::<Impl, IMPL_OFFSET>, TimeZoneAsFullString::<Impl, IMPL_OFFSET>, TimeZoneAsString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimeZoneOnCalendar as ::windows::core::Interface>::IID
     }
 }

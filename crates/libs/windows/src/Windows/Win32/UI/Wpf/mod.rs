@@ -471,7 +471,7 @@ pub struct IMILBitmapEffectEventsVtbl(
 pub struct IMILBitmapEffectFactory(::windows::core::IUnknown);
 impl IMILBitmapEffectFactory {
     #[doc = "*Required features: 'Win32_UI_Wpf'*"]
-    pub unsafe fn CreateEffect(&self, pguideffect: &::windows::core::GUID) -> ::windows::core::Result<IMILBitmapEffect> {
+    pub unsafe fn CreateEffect(&self, pguideffect: *const ::windows::core::GUID) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguideffect), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
     }
@@ -532,7 +532,7 @@ pub struct IMILBitmapEffectFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguideffect: &::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguideffect: *const ::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
@@ -1374,7 +1374,7 @@ pub struct IMILBitmapEffectPrimitiveImplVtbl(
 pub struct IMILBitmapEffectRenderContext(::windows::core::IUnknown);
 impl IMILBitmapEffectRenderContext {
     #[doc = "*Required features: 'Win32_UI_Wpf'*"]
-    pub unsafe fn SetOutputPixelFormat(&self, format: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputPixelFormat(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Wpf'*"]
@@ -1454,7 +1454,7 @@ pub struct IMILBitmapEffectRenderContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsoftware: i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmatrix: *const MILMatrixF) -> ::windows::core::HRESULT,

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactPickerUIImpl: Sized {
     fn AddContact(&self, id: &::windows::core::HSTRING, contact: &::core::option::Option<super::Contact>) -> ::windows::core::Result<AddContactResult>;
     fn RemoveContact(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -8,13 +8,13 @@ pub trait IContactPickerUIImpl: Sized {
     fn ContactRemoved(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveContactRemoved(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.IContactPickerUI";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactPickerUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerUIImpl, const OFFSET: isize>() -> IContactPickerUIVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPickerUIVtbl {
         unsafe extern "system" fn AddContact<Impl: IContactPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contact: ::windows::core::RawPtr, result__: *mut AddContactResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddContact(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&contact as *const <super::Contact as ::windows::core::Abi>::Abi as *const <super::Contact as ::windows::core::DefaultType>::DefaultType)) {
@@ -79,34 +79,37 @@ impl IContactPickerUIVtbl {
             (*this).RemoveContactRemoved(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactPickerUI>,
             ::windows::core::GetTrustLevel,
-            AddContact::<Impl, OFFSET>,
-            RemoveContact::<Impl, OFFSET>,
-            ContainsContact::<Impl, OFFSET>,
-            DesiredFields::<Impl, OFFSET>,
-            SelectionMode::<Impl, OFFSET>,
-            ContactRemoved::<Impl, OFFSET>,
-            RemoveContactRemoved::<Impl, OFFSET>,
+            AddContact::<Impl, IMPL_OFFSET>,
+            RemoveContact::<Impl, IMPL_OFFSET>,
+            ContainsContact::<Impl, IMPL_OFFSET>,
+            DesiredFields::<Impl, IMPL_OFFSET>,
+            SelectionMode::<Impl, IMPL_OFFSET>,
+            ContactRemoved::<Impl, IMPL_OFFSET>,
+            RemoveContactRemoved::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPickerUI as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactPickerUI2Impl: Sized {
     fn AddContact(&self, contact: &::core::option::Option<super::Contact>) -> ::windows::core::Result<AddContactResult>;
     fn DesiredFieldsWithContactFieldType(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPickerUI2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.IContactPickerUI2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactPickerUI2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerUI2Impl, const OFFSET: isize>() -> IContactPickerUI2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerUI2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPickerUI2Vtbl {
         unsafe extern "system" fn AddContact<Impl: IContactPickerUI2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut AddContactResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddContact(&*(&contact as *const <super::Contact as ::windows::core::Abi>::Abi as *const <super::Contact as ::windows::core::DefaultType>::DefaultType)) {
@@ -129,7 +132,10 @@ impl IContactPickerUI2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPickerUI2>, ::windows::core::GetTrustLevel, AddContact::<Impl, OFFSET>, DesiredFieldsWithContactFieldType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPickerUI2>, ::windows::core::GetTrustLevel, AddContact::<Impl, IMPL_OFFSET>, DesiredFieldsWithContactFieldType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPickerUI2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -142,7 +148,7 @@ impl ::windows::core::RuntimeName for IContactRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactRemovedEventArgsImpl, const OFFSET: isize>() -> IContactRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactRemovedEventArgsVtbl {
         unsafe extern "system" fn Id<Impl: IContactRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -154,6 +160,9 @@ impl IContactRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactRemovedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactRemovedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }

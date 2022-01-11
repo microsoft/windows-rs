@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceInfoImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn UpdateTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
@@ -6,13 +6,13 @@ pub trait ISpatialSurfaceInfoImpl: Sized {
     fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
     fn TryComputeLatestMeshWithOptionsAsync(&self, maxtrianglespercubicmeter: f64, options: &::core::option::Option<SpatialSurfaceMeshOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceInfo {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialSurfaceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceInfoImpl, const OFFSET: isize>() -> ISpatialSurfaceInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceInfoVtbl {
         unsafe extern "system" fn Id<Impl: ISpatialSurfaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -68,10 +68,13 @@ impl ISpatialSurfaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceInfo>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, UpdateTime::<Impl, OFFSET>, TryGetBounds::<Impl, OFFSET>, TryComputeLatestMeshAsync::<Impl, OFFSET>, TryComputeLatestMeshWithOptionsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, UpdateTime::<Impl, IMPL_OFFSET>, TryGetBounds::<Impl, IMPL_OFFSET>, TryComputeLatestMeshAsync::<Impl, IMPL_OFFSET>, TryComputeLatestMeshWithOptionsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshImpl: Sized {
     fn SurfaceInfo(&self) -> ::windows::core::Result<SpatialSurfaceInfo>;
     fn CoordinateSystem(&self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
@@ -80,13 +83,13 @@ pub trait ISpatialSurfaceMeshImpl: Sized {
     fn VertexPositionScale(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn VertexNormals(&self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMesh {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMesh";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ISpatialSurfaceMeshVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshImpl, const OFFSET: isize>() -> ISpatialSurfaceMeshVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceMeshVtbl {
         unsafe extern "system" fn SurfaceInfo<Impl: ISpatialSurfaceMeshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SurfaceInfo() {
@@ -153,23 +156,39 @@ impl ISpatialSurfaceMeshVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMesh>, ::windows::core::GetTrustLevel, SurfaceInfo::<Impl, OFFSET>, CoordinateSystem::<Impl, OFFSET>, TriangleIndices::<Impl, OFFSET>, VertexPositions::<Impl, OFFSET>, VertexPositionScale::<Impl, OFFSET>, VertexNormals::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMesh>,
+            ::windows::core::GetTrustLevel,
+            SurfaceInfo::<Impl, IMPL_OFFSET>,
+            CoordinateSystem::<Impl, IMPL_OFFSET>,
+            TriangleIndices::<Impl, IMPL_OFFSET>,
+            VertexPositions::<Impl, IMPL_OFFSET>,
+            VertexPositionScale::<Impl, IMPL_OFFSET>,
+            VertexNormals::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceMesh as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshBufferImpl: Sized {
     fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
     fn Stride(&self) -> ::windows::core::Result<u32>;
     fn ElementCount(&self) -> ::windows::core::Result<u32>;
     fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMeshBuffer {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshBuffer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISpatialSurfaceMeshBufferVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: isize>() -> ISpatialSurfaceMeshBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceMeshBufferVtbl {
         unsafe extern "system" fn Format<Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
@@ -214,10 +233,13 @@ impl ISpatialSurfaceMeshBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshBuffer>, ::windows::core::GetTrustLevel, Format::<Impl, OFFSET>, Stride::<Impl, OFFSET>, ElementCount::<Impl, OFFSET>, Data::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshBuffer>, ::windows::core::GetTrustLevel, Format::<Impl, IMPL_OFFSET>, Stride::<Impl, IMPL_OFFSET>, ElementCount::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceMeshBuffer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshOptionsImpl: Sized {
     fn VertexPositionFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
     fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
@@ -228,13 +250,13 @@ pub trait ISpatialSurfaceMeshOptionsImpl: Sized {
     fn IncludeVertexNormals(&self) -> ::windows::core::Result<bool>;
     fn SetIncludeVertexNormals(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMeshOptions {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ISpatialSurfaceMeshOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: isize>() -> ISpatialSurfaceMeshOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceMeshOptionsVtbl {
         unsafe extern "system" fn VertexPositionFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VertexPositionFormat() {
@@ -296,36 +318,39 @@ impl ISpatialSurfaceMeshOptionsVtbl {
             (*this).SetIncludeVertexNormals(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptions>,
             ::windows::core::GetTrustLevel,
-            VertexPositionFormat::<Impl, OFFSET>,
-            SetVertexPositionFormat::<Impl, OFFSET>,
-            TriangleIndexFormat::<Impl, OFFSET>,
-            SetTriangleIndexFormat::<Impl, OFFSET>,
-            VertexNormalFormat::<Impl, OFFSET>,
-            SetVertexNormalFormat::<Impl, OFFSET>,
-            IncludeVertexNormals::<Impl, OFFSET>,
-            SetIncludeVertexNormals::<Impl, OFFSET>,
+            VertexPositionFormat::<Impl, IMPL_OFFSET>,
+            SetVertexPositionFormat::<Impl, IMPL_OFFSET>,
+            TriangleIndexFormat::<Impl, IMPL_OFFSET>,
+            SetTriangleIndexFormat::<Impl, IMPL_OFFSET>,
+            VertexNormalFormat::<Impl, IMPL_OFFSET>,
+            SetVertexNormalFormat::<Impl, IMPL_OFFSET>,
+            IncludeVertexNormals::<Impl, IMPL_OFFSET>,
+            SetIncludeVertexNormals::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceMeshOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshOptionsStaticsImpl: Sized {
     fn SupportedVertexPositionFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
     fn SupportedTriangleIndexFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
     fn SupportedVertexNormalFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMeshOptionsStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptionsStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ISpatialSurfaceMeshOptionsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const OFFSET: isize>() -> ISpatialSurfaceMeshOptionsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceMeshOptionsStaticsVtbl {
         unsafe extern "system" fn SupportedVertexPositionFormats<Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedVertexPositionFormats() {
@@ -359,10 +384,13 @@ impl ISpatialSurfaceMeshOptionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptionsStatics>, ::windows::core::GetTrustLevel, SupportedVertexPositionFormats::<Impl, OFFSET>, SupportedTriangleIndexFormats::<Impl, OFFSET>, SupportedVertexNormalFormats::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptionsStatics>, ::windows::core::GetTrustLevel, SupportedVertexPositionFormats::<Impl, IMPL_OFFSET>, SupportedTriangleIndexFormats::<Impl, IMPL_OFFSET>, SupportedVertexNormalFormats::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceMeshOptionsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceObserverImpl: Sized {
     fn GetObservedSurfaces(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, SpatialSurfaceInfo>>;
     fn SetBoundingVolume(&self, bounds: &::core::option::Option<super::SpatialBoundingVolume>) -> ::windows::core::Result<()>;
@@ -370,13 +398,13 @@ pub trait ISpatialSurfaceObserverImpl: Sized {
     fn ObservedSurfacesChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveObservedSurfacesChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceObserver {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISpatialSurfaceObserverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceObserverImpl, const OFFSET: isize>() -> ISpatialSurfaceObserverVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceObserverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceObserverVtbl {
         unsafe extern "system" fn GetObservedSurfaces<Impl: ISpatialSurfaceObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObservedSurfaces() {
@@ -411,20 +439,35 @@ impl ISpatialSurfaceObserverVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveObservedSurfacesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserver>, ::windows::core::GetTrustLevel, GetObservedSurfaces::<Impl, OFFSET>, SetBoundingVolume::<Impl, OFFSET>, SetBoundingVolumes::<Impl, OFFSET>, ObservedSurfacesChanged::<Impl, OFFSET>, RemoveObservedSurfacesChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserver>,
+            ::windows::core::GetTrustLevel,
+            GetObservedSurfaces::<Impl, IMPL_OFFSET>,
+            SetBoundingVolume::<Impl, IMPL_OFFSET>,
+            SetBoundingVolumes::<Impl, IMPL_OFFSET>,
+            ObservedSurfacesChanged::<Impl, IMPL_OFFSET>,
+            RemoveObservedSurfacesChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceObserver as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceObserverStaticsImpl: Sized {
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceObserverStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialSurfaceObserverStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceObserverStaticsImpl, const OFFSET: isize>() -> ISpatialSurfaceObserverStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceObserverStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceObserverStaticsVtbl {
         unsafe extern "system" fn RequestAccessAsync<Impl: ISpatialSurfaceObserverStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
@@ -436,20 +479,23 @@ impl ISpatialSurfaceObserverStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceObserverStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceObserverStatics2Impl: Sized + ISpatialSurfaceObserverStaticsImpl {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceObserverStatics2 {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpatialSurfaceObserverStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceObserverStatics2Impl, const OFFSET: isize>() -> ISpatialSurfaceObserverStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialSurfaceObserverStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialSurfaceObserverStatics2Vtbl {
         unsafe extern "system" fn IsSupported<Impl: ISpatialSurfaceObserverStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -461,6 +507,9 @@ impl ISpatialSurfaceObserverStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialSurfaceObserverStatics2 as ::windows::core::Interface>::IID
     }
 }

@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPreviewBuildsManagerImpl: Sized {
     fn ArePreviewBuildsAllowed(&self) -> ::windows::core::Result<bool>;
     fn SetArePreviewBuildsAllowed(&self, value: bool) -> ::windows::core::Result<()>;
     fn GetCurrentState(&self) -> ::windows::core::Result<PreviewBuildsState>;
     fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.IPreviewBuildsManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPreviewBuildsManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerImpl, const OFFSET: isize>() -> IPreviewBuildsManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsManagerVtbl {
         unsafe extern "system" fn ArePreviewBuildsAllowed<Impl: IPreviewBuildsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArePreviewBuildsAllowed() {
@@ -49,7 +49,10 @@ impl IPreviewBuildsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsManager>, ::windows::core::GetTrustLevel, ArePreviewBuildsAllowed::<Impl, OFFSET>, SetArePreviewBuildsAllowed::<Impl, OFFSET>, GetCurrentState::<Impl, OFFSET>, SyncAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsManager>, ::windows::core::GetTrustLevel, ArePreviewBuildsAllowed::<Impl, IMPL_OFFSET>, SetArePreviewBuildsAllowed::<Impl, IMPL_OFFSET>, GetCurrentState::<Impl, IMPL_OFFSET>, SyncAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPreviewBuildsManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -63,7 +66,7 @@ impl ::windows::core::RuntimeName for IPreviewBuildsManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPreviewBuildsManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerStaticsImpl, const OFFSET: isize>() -> IPreviewBuildsManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsManagerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IPreviewBuildsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -86,20 +89,23 @@ impl IPreviewBuildsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPreviewBuildsManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPreviewBuildsStateImpl: Sized {
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.IPreviewBuildsState";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPreviewBuildsStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsStateImpl, const OFFSET: isize>() -> IPreviewBuildsStateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsStateVtbl {
         unsafe extern "system" fn Properties<Impl: IPreviewBuildsStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
@@ -111,6 +117,9 @@ impl IPreviewBuildsStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsState>, ::windows::core::GetTrustLevel, Properties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreviewBuildsState>, ::windows::core::GetTrustLevel, Properties::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPreviewBuildsState as ::windows::core::Interface>::IID
     }
 }

@@ -15,7 +15,7 @@ impl ::windows::core::RuntimeName for ISystemUpdateItem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemUpdateItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemUpdateItemImpl, const OFFSET: isize>() -> ISystemUpdateItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemUpdateItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemUpdateItemVtbl {
         unsafe extern "system" fn State<Impl: ISystemUpdateItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateItemState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -104,7 +104,25 @@ impl ISystemUpdateItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemUpdateItem>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, Title::<Impl, OFFSET>, Description::<Impl, OFFSET>, Id::<Impl, OFFSET>, Revision::<Impl, OFFSET>, DownloadProgress::<Impl, OFFSET>, InstallProgress::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISystemUpdateItem>,
+            ::windows::core::GetTrustLevel,
+            State::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Revision::<Impl, IMPL_OFFSET>,
+            DownloadProgress::<Impl, IMPL_OFFSET>,
+            InstallProgress::<Impl, IMPL_OFFSET>,
+            ExtendedError::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemUpdateItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -119,7 +137,7 @@ impl ::windows::core::RuntimeName for ISystemUpdateLastErrorInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemUpdateLastErrorInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemUpdateLastErrorInfoImpl, const OFFSET: isize>() -> ISystemUpdateLastErrorInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemUpdateLastErrorInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemUpdateLastErrorInfoVtbl {
         unsafe extern "system" fn State<Impl: ISystemUpdateLastErrorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateManagerState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -153,10 +171,13 @@ impl ISystemUpdateLastErrorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemUpdateLastErrorInfo>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, IsInteractive::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemUpdateLastErrorInfo>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, IsInteractive::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemUpdateLastErrorInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISystemUpdateManagerStaticsImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn State(&self) -> ::windows::core::Result<SystemUpdateManagerState>;
@@ -183,13 +204,13 @@ pub trait ISystemUpdateManagerStaticsImpl: Sized {
     fn RebootToCompleteInstall(&self) -> ::windows::core::Result<()>;
     fn StartCancelUpdates(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemUpdateManagerStatics {
     const NAME: &'static str = "Windows.System.Update.ISystemUpdateManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISystemUpdateManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemUpdateManagerStaticsImpl, const OFFSET: isize>() -> ISystemUpdateManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemUpdateManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemUpdateManagerStaticsVtbl {
         unsafe extern "system" fn IsSupported<Impl: ISystemUpdateManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -427,36 +448,39 @@ impl ISystemUpdateManagerStaticsVtbl {
             (*this).StartCancelUpdates().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemUpdateManagerStatics>,
             ::windows::core::GetTrustLevel,
-            IsSupported::<Impl, OFFSET>,
-            State::<Impl, OFFSET>,
-            StateChanged::<Impl, OFFSET>,
-            RemoveStateChanged::<Impl, OFFSET>,
-            DownloadProgress::<Impl, OFFSET>,
-            InstallProgress::<Impl, OFFSET>,
-            UserActiveHoursStart::<Impl, OFFSET>,
-            UserActiveHoursEnd::<Impl, OFFSET>,
-            UserActiveHoursMax::<Impl, OFFSET>,
-            TrySetUserActiveHours::<Impl, OFFSET>,
-            LastUpdateCheckTime::<Impl, OFFSET>,
-            LastUpdateInstallTime::<Impl, OFFSET>,
-            LastErrorInfo::<Impl, OFFSET>,
-            GetAutomaticRebootBlockIds::<Impl, OFFSET>,
-            BlockAutomaticRebootAsync::<Impl, OFFSET>,
-            UnblockAutomaticRebootAsync::<Impl, OFFSET>,
-            ExtendedError::<Impl, OFFSET>,
-            GetUpdateItems::<Impl, OFFSET>,
-            AttentionRequiredReason::<Impl, OFFSET>,
-            SetFlightRing::<Impl, OFFSET>,
-            GetFlightRing::<Impl, OFFSET>,
-            StartInstall::<Impl, OFFSET>,
-            RebootToCompleteInstall::<Impl, OFFSET>,
-            StartCancelUpdates::<Impl, OFFSET>,
+            IsSupported::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            DownloadProgress::<Impl, IMPL_OFFSET>,
+            InstallProgress::<Impl, IMPL_OFFSET>,
+            UserActiveHoursStart::<Impl, IMPL_OFFSET>,
+            UserActiveHoursEnd::<Impl, IMPL_OFFSET>,
+            UserActiveHoursMax::<Impl, IMPL_OFFSET>,
+            TrySetUserActiveHours::<Impl, IMPL_OFFSET>,
+            LastUpdateCheckTime::<Impl, IMPL_OFFSET>,
+            LastUpdateInstallTime::<Impl, IMPL_OFFSET>,
+            LastErrorInfo::<Impl, IMPL_OFFSET>,
+            GetAutomaticRebootBlockIds::<Impl, IMPL_OFFSET>,
+            BlockAutomaticRebootAsync::<Impl, IMPL_OFFSET>,
+            UnblockAutomaticRebootAsync::<Impl, IMPL_OFFSET>,
+            ExtendedError::<Impl, IMPL_OFFSET>,
+            GetUpdateItems::<Impl, IMPL_OFFSET>,
+            AttentionRequiredReason::<Impl, IMPL_OFFSET>,
+            SetFlightRing::<Impl, IMPL_OFFSET>,
+            GetFlightRing::<Impl, IMPL_OFFSET>,
+            StartInstall::<Impl, IMPL_OFFSET>,
+            RebootToCompleteInstall::<Impl, IMPL_OFFSET>,
+            StartCancelUpdates::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemUpdateManagerStatics as ::windows::core::Interface>::IID
     }
 }

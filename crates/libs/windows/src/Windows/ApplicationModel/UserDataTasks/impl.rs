@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -28,13 +28,13 @@ pub trait IUserDataTaskImpl: Sized {
     fn StartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
     fn SetStartDate(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTask";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskImpl, const OFFSET: isize>() -> IUserDataTaskVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskVtbl {
         unsafe extern "system" fn Id<Impl: IUserDataTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -249,53 +249,56 @@ impl IUserDataTaskVtbl {
             (*this).SetStartDate(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataTask>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            ListId::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            CompletedDate::<Impl, OFFSET>,
-            SetCompletedDate::<Impl, OFFSET>,
-            Details::<Impl, OFFSET>,
-            SetDetails::<Impl, OFFSET>,
-            DetailsKind::<Impl, OFFSET>,
-            SetDetailsKind::<Impl, OFFSET>,
-            DueDate::<Impl, OFFSET>,
-            SetDueDate::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            Priority::<Impl, OFFSET>,
-            SetPriority::<Impl, OFFSET>,
-            RecurrenceProperties::<Impl, OFFSET>,
-            SetRecurrenceProperties::<Impl, OFFSET>,
-            RegenerationProperties::<Impl, OFFSET>,
-            SetRegenerationProperties::<Impl, OFFSET>,
-            Reminder::<Impl, OFFSET>,
-            SetReminder::<Impl, OFFSET>,
-            Sensitivity::<Impl, OFFSET>,
-            SetSensitivity::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            SetSubject::<Impl, OFFSET>,
-            StartDate::<Impl, OFFSET>,
-            SetStartDate::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            ListId::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            CompletedDate::<Impl, IMPL_OFFSET>,
+            SetCompletedDate::<Impl, IMPL_OFFSET>,
+            Details::<Impl, IMPL_OFFSET>,
+            SetDetails::<Impl, IMPL_OFFSET>,
+            DetailsKind::<Impl, IMPL_OFFSET>,
+            SetDetailsKind::<Impl, IMPL_OFFSET>,
+            DueDate::<Impl, IMPL_OFFSET>,
+            SetDueDate::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            SetPriority::<Impl, IMPL_OFFSET>,
+            RecurrenceProperties::<Impl, IMPL_OFFSET>,
+            SetRecurrenceProperties::<Impl, IMPL_OFFSET>,
+            RegenerationProperties::<Impl, IMPL_OFFSET>,
+            SetRegenerationProperties::<Impl, IMPL_OFFSET>,
+            Reminder::<Impl, IMPL_OFFSET>,
+            SetReminder::<Impl, IMPL_OFFSET>,
+            Sensitivity::<Impl, IMPL_OFFSET>,
+            SetSensitivity::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            StartDate::<Impl, IMPL_OFFSET>,
+            SetStartDate::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTask as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserDataTaskBatchImpl: Sized {
     fn Tasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskBatch";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUserDataTaskBatchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskBatchImpl, const OFFSET: isize>() -> IUserDataTaskBatchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskBatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskBatchVtbl {
         unsafe extern "system" fn Tasks<Impl: IUserDataTaskBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tasks() {
@@ -307,10 +310,13 @@ impl IUserDataTaskBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskBatch>, ::windows::core::GetTrustLevel, Tasks::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskBatch>, ::windows::core::GetTrustLevel, Tasks::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskBatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -332,13 +338,13 @@ pub trait IUserDataTaskListImpl: Sized {
     fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskList";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskListImpl, const OFFSET: isize>() -> IUserDataTaskListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskListVtbl {
         unsafe extern "system" fn Id<Impl: IUserDataTaskListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -528,48 +534,51 @@ impl IUserDataTaskListVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataTaskList>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            UserDataAccountId::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            SourceDisplayName::<Impl, OFFSET>,
-            OtherAppReadAccess::<Impl, OFFSET>,
-            SetOtherAppReadAccess::<Impl, OFFSET>,
-            OtherAppWriteAccess::<Impl, OFFSET>,
-            SetOtherAppWriteAccess::<Impl, OFFSET>,
-            LimitedWriteOperations::<Impl, OFFSET>,
-            SyncManager::<Impl, OFFSET>,
-            RegisterSyncManagerAsync::<Impl, OFFSET>,
-            GetTaskReader::<Impl, OFFSET>,
-            GetTaskReaderWithOptions::<Impl, OFFSET>,
-            GetTaskAsync::<Impl, OFFSET>,
-            SaveTaskAsync::<Impl, OFFSET>,
-            DeleteTaskAsync::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            UserDataAccountId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            SourceDisplayName::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            OtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            LimitedWriteOperations::<Impl, IMPL_OFFSET>,
+            SyncManager::<Impl, IMPL_OFFSET>,
+            RegisterSyncManagerAsync::<Impl, IMPL_OFFSET>,
+            GetTaskReader::<Impl, IMPL_OFFSET>,
+            GetTaskReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetTaskAsync::<Impl, IMPL_OFFSET>,
+            SaveTaskAsync::<Impl, IMPL_OFFSET>,
+            DeleteTaskAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskList as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListLimitedWriteOperationsImpl: Sized {
     fn TryCompleteTaskAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn TryCreateOrUpdateTaskAsync(&self, userdatatask: &::core::option::Option<UserDataTask>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryDeleteTaskAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TrySkipOccurrenceAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskListLimitedWriteOperations";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskListLimitedWriteOperationsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskListLimitedWriteOperationsImpl, const OFFSET: isize>() -> IUserDataTaskListLimitedWriteOperationsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskListLimitedWriteOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskListLimitedWriteOperationsVtbl {
         unsafe extern "system" fn TryCompleteTaskAsync<Impl: IUserDataTaskListLimitedWriteOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userdatataskid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCompleteTaskAsync(&*(&userdatataskid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -614,10 +623,13 @@ impl IUserDataTaskListLimitedWriteOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListLimitedWriteOperations>, ::windows::core::GetTrustLevel, TryCompleteTaskAsync::<Impl, OFFSET>, TryCreateOrUpdateTaskAsync::<Impl, OFFSET>, TryDeleteTaskAsync::<Impl, OFFSET>, TrySkipOccurrenceAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskListLimitedWriteOperations>, ::windows::core::GetTrustLevel, TryCompleteTaskAsync::<Impl, IMPL_OFFSET>, TryCreateOrUpdateTaskAsync::<Impl, IMPL_OFFSET>, TryDeleteTaskAsync::<Impl, IMPL_OFFSET>, TrySkipOccurrenceAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskListLimitedWriteOperations as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListSyncManagerImpl: Sized {
     fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn SetLastAttemptedSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
@@ -629,13 +641,13 @@ pub trait IUserDataTaskListSyncManagerImpl: Sized {
     fn SyncStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSyncStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskListSyncManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskListSyncManagerImpl, const OFFSET: isize>() -> IUserDataTaskListSyncManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskListSyncManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskListSyncManagerVtbl {
         unsafe extern "system" fn LastAttemptedSyncTime<Impl: IUserDataTaskListSyncManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastAttemptedSyncTime() {
@@ -708,36 +720,39 @@ impl IUserDataTaskListSyncManagerVtbl {
             (*this).RemoveSyncStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataTaskListSyncManager>,
             ::windows::core::GetTrustLevel,
-            LastAttemptedSyncTime::<Impl, OFFSET>,
-            SetLastAttemptedSyncTime::<Impl, OFFSET>,
-            LastSuccessfulSyncTime::<Impl, OFFSET>,
-            SetLastSuccessfulSyncTime::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            SetStatus::<Impl, OFFSET>,
-            SyncAsync::<Impl, OFFSET>,
-            SyncStatusChanged::<Impl, OFFSET>,
-            RemoveSyncStatusChanged::<Impl, OFFSET>,
+            LastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
+            SetLastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
+            LastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            SetLastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            SetStatus::<Impl, IMPL_OFFSET>,
+            SyncAsync::<Impl, IMPL_OFFSET>,
+            SyncStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSyncStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskListSyncManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IUserDataTaskManagerImpl: Sized {
     fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IUserDataTaskManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskManagerImpl, const OFFSET: isize>() -> IUserDataTaskManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskManagerVtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IUserDataTaskManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: UserDataTaskStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync(accesstype) {
@@ -760,21 +775,24 @@ impl IUserDataTaskManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskManager>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskManager>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IUserDataTaskManagerStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<UserDataTaskManager>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserDataTaskManager>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IUserDataTaskManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskManagerStaticsImpl, const OFFSET: isize>() -> IUserDataTaskManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskManagerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IUserDataTaskManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -797,7 +815,10 @@ impl IUserDataTaskManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -813,7 +834,7 @@ impl ::windows::core::RuntimeName for IUserDataTaskQueryOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserDataTaskQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskQueryOptionsImpl, const OFFSET: isize>() -> IUserDataTaskQueryOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskQueryOptionsVtbl {
         unsafe extern "system" fn SortProperty<Impl: IUserDataTaskQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskQuerySortProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SortProperty() {
@@ -844,20 +865,23 @@ impl IUserDataTaskQueryOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKind(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskQueryOptions>, ::windows::core::GetTrustLevel, SortProperty::<Impl, OFFSET>, SetSortProperty::<Impl, OFFSET>, Kind::<Impl, OFFSET>, SetKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskQueryOptions>, ::windows::core::GetTrustLevel, SortProperty::<Impl, IMPL_OFFSET>, SetSortProperty::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, SetKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskQueryOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskReaderImpl, const OFFSET: isize>() -> IUserDataTaskReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IUserDataTaskReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -869,10 +893,13 @@ impl IUserDataTaskReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskRecurrencePropertiesImpl: Sized {
     fn Unit(&self) -> ::windows::core::Result<UserDataTaskRecurrenceUnit>;
     fn SetUnit(&self, value: UserDataTaskRecurrenceUnit) -> ::windows::core::Result<()>;
@@ -891,13 +918,13 @@ pub trait IUserDataTaskRecurrencePropertiesImpl: Sized {
     fn Day(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
     fn SetDay(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskRecurrencePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskRecurrencePropertiesImpl, const OFFSET: isize>() -> IUserDataTaskRecurrencePropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskRecurrencePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskRecurrencePropertiesVtbl {
         unsafe extern "system" fn Unit<Impl: IUserDataTaskRecurrencePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskRecurrenceUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unit() {
@@ -1019,32 +1046,35 @@ impl IUserDataTaskRecurrencePropertiesVtbl {
             (*this).SetDay(&*(&value as *const <super::super::Foundation::IReference<i32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<i32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataTaskRecurrenceProperties>,
             ::windows::core::GetTrustLevel,
-            Unit::<Impl, OFFSET>,
-            SetUnit::<Impl, OFFSET>,
-            Occurrences::<Impl, OFFSET>,
-            SetOccurrences::<Impl, OFFSET>,
-            Until::<Impl, OFFSET>,
-            SetUntil::<Impl, OFFSET>,
-            Interval::<Impl, OFFSET>,
-            SetInterval::<Impl, OFFSET>,
-            DaysOfWeek::<Impl, OFFSET>,
-            SetDaysOfWeek::<Impl, OFFSET>,
-            WeekOfMonth::<Impl, OFFSET>,
-            SetWeekOfMonth::<Impl, OFFSET>,
-            Month::<Impl, OFFSET>,
-            SetMonth::<Impl, OFFSET>,
-            Day::<Impl, OFFSET>,
-            SetDay::<Impl, OFFSET>,
+            Unit::<Impl, IMPL_OFFSET>,
+            SetUnit::<Impl, IMPL_OFFSET>,
+            Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences::<Impl, IMPL_OFFSET>,
+            Until::<Impl, IMPL_OFFSET>,
+            SetUntil::<Impl, IMPL_OFFSET>,
+            Interval::<Impl, IMPL_OFFSET>,
+            SetInterval::<Impl, IMPL_OFFSET>,
+            DaysOfWeek::<Impl, IMPL_OFFSET>,
+            SetDaysOfWeek::<Impl, IMPL_OFFSET>,
+            WeekOfMonth::<Impl, IMPL_OFFSET>,
+            SetWeekOfMonth::<Impl, IMPL_OFFSET>,
+            Month::<Impl, IMPL_OFFSET>,
+            SetMonth::<Impl, IMPL_OFFSET>,
+            Day::<Impl, IMPL_OFFSET>,
+            SetDay::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskRecurrenceProperties as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskRegenerationPropertiesImpl: Sized {
     fn Unit(&self) -> ::windows::core::Result<UserDataTaskRegenerationUnit>;
     fn SetUnit(&self, value: UserDataTaskRegenerationUnit) -> ::windows::core::Result<()>;
@@ -1055,13 +1085,13 @@ pub trait IUserDataTaskRegenerationPropertiesImpl: Sized {
     fn Interval(&self) -> ::windows::core::Result<i32>;
     fn SetInterval(&self, value: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskRegenerationPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskRegenerationPropertiesImpl, const OFFSET: isize>() -> IUserDataTaskRegenerationPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskRegenerationPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskRegenerationPropertiesVtbl {
         unsafe extern "system" fn Unit<Impl: IUserDataTaskRegenerationPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskRegenerationUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unit() {
@@ -1123,37 +1153,40 @@ impl IUserDataTaskRegenerationPropertiesVtbl {
             (*this).SetInterval(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUserDataTaskRegenerationProperties>,
             ::windows::core::GetTrustLevel,
-            Unit::<Impl, OFFSET>,
-            SetUnit::<Impl, OFFSET>,
-            Occurrences::<Impl, OFFSET>,
-            SetOccurrences::<Impl, OFFSET>,
-            Until::<Impl, OFFSET>,
-            SetUntil::<Impl, OFFSET>,
-            Interval::<Impl, OFFSET>,
-            SetInterval::<Impl, OFFSET>,
+            Unit::<Impl, IMPL_OFFSET>,
+            SetUnit::<Impl, IMPL_OFFSET>,
+            Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences::<Impl, IMPL_OFFSET>,
+            Until::<Impl, IMPL_OFFSET>,
+            SetUntil::<Impl, IMPL_OFFSET>,
+            Interval::<Impl, IMPL_OFFSET>,
+            SetInterval::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskRegenerationProperties as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskStoreImpl: Sized {
     fn CreateListAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>>;
     fn CreateListInAccountAsync(&self, name: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>>;
     fn FindListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>>;
     fn GetListAsync(&self, tasklistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.IUserDataTaskStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserDataTaskStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskStoreImpl, const OFFSET: isize>() -> IUserDataTaskStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataTaskStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataTaskStoreVtbl {
         unsafe extern "system" fn CreateListAsync<Impl: IUserDataTaskStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateListAsync(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1198,6 +1231,9 @@ impl IUserDataTaskStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskStore>, ::windows::core::GetTrustLevel, CreateListAsync::<Impl, OFFSET>, CreateListInAccountAsync::<Impl, OFFSET>, FindListsAsync::<Impl, OFFSET>, GetListAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataTaskStore>, ::windows::core::GetTrustLevel, CreateListAsync::<Impl, IMPL_OFFSET>, CreateListInAccountAsync::<Impl, IMPL_OFFSET>, FindListsAsync::<Impl, IMPL_OFFSET>, GetListAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserDataTaskStore as ::windows::core::Interface>::IID
     }
 }

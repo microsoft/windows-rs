@@ -31,7 +31,7 @@ impl ::windows::core::RuntimeName for ICompositeTransform3D {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICompositeTransform3DVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositeTransform3DImpl, const OFFSET: isize>() -> ICompositeTransform3DVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositeTransform3DImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositeTransform3DVtbl {
         unsafe extern "system" fn CenterX<Impl: ICompositeTransform3DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterX() {
@@ -213,37 +213,40 @@ impl ICompositeTransform3DVtbl {
             (*this).SetTranslateZ(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICompositeTransform3D>,
             ::windows::core::GetTrustLevel,
-            CenterX::<Impl, OFFSET>,
-            SetCenterX::<Impl, OFFSET>,
-            CenterY::<Impl, OFFSET>,
-            SetCenterY::<Impl, OFFSET>,
-            CenterZ::<Impl, OFFSET>,
-            SetCenterZ::<Impl, OFFSET>,
-            RotationX::<Impl, OFFSET>,
-            SetRotationX::<Impl, OFFSET>,
-            RotationY::<Impl, OFFSET>,
-            SetRotationY::<Impl, OFFSET>,
-            RotationZ::<Impl, OFFSET>,
-            SetRotationZ::<Impl, OFFSET>,
-            ScaleX::<Impl, OFFSET>,
-            SetScaleX::<Impl, OFFSET>,
-            ScaleY::<Impl, OFFSET>,
-            SetScaleY::<Impl, OFFSET>,
-            ScaleZ::<Impl, OFFSET>,
-            SetScaleZ::<Impl, OFFSET>,
-            TranslateX::<Impl, OFFSET>,
-            SetTranslateX::<Impl, OFFSET>,
-            TranslateY::<Impl, OFFSET>,
-            SetTranslateY::<Impl, OFFSET>,
-            TranslateZ::<Impl, OFFSET>,
-            SetTranslateZ::<Impl, OFFSET>,
+            CenterX::<Impl, IMPL_OFFSET>,
+            SetCenterX::<Impl, IMPL_OFFSET>,
+            CenterY::<Impl, IMPL_OFFSET>,
+            SetCenterY::<Impl, IMPL_OFFSET>,
+            CenterZ::<Impl, IMPL_OFFSET>,
+            SetCenterZ::<Impl, IMPL_OFFSET>,
+            RotationX::<Impl, IMPL_OFFSET>,
+            SetRotationX::<Impl, IMPL_OFFSET>,
+            RotationY::<Impl, IMPL_OFFSET>,
+            SetRotationY::<Impl, IMPL_OFFSET>,
+            RotationZ::<Impl, IMPL_OFFSET>,
+            SetRotationZ::<Impl, IMPL_OFFSET>,
+            ScaleX::<Impl, IMPL_OFFSET>,
+            SetScaleX::<Impl, IMPL_OFFSET>,
+            ScaleY::<Impl, IMPL_OFFSET>,
+            SetScaleY::<Impl, IMPL_OFFSET>,
+            ScaleZ::<Impl, IMPL_OFFSET>,
+            SetScaleZ::<Impl, IMPL_OFFSET>,
+            TranslateX::<Impl, IMPL_OFFSET>,
+            SetTranslateX::<Impl, IMPL_OFFSET>,
+            TranslateY::<Impl, IMPL_OFFSET>,
+            SetTranslateY::<Impl, IMPL_OFFSET>,
+            TranslateZ::<Impl, IMPL_OFFSET>,
+            SetTranslateZ::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositeTransform3D as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -267,7 +270,7 @@ impl ::windows::core::RuntimeName for ICompositeTransform3DStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICompositeTransform3DStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositeTransform3DStaticsImpl, const OFFSET: isize>() -> ICompositeTransform3DStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositeTransform3DStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositeTransform3DStaticsVtbl {
         unsafe extern "system" fn CenterXProperty<Impl: ICompositeTransform3DStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterXProperty() {
@@ -401,25 +404,28 @@ impl ICompositeTransform3DStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICompositeTransform3DStatics>,
             ::windows::core::GetTrustLevel,
-            CenterXProperty::<Impl, OFFSET>,
-            CenterYProperty::<Impl, OFFSET>,
-            CenterZProperty::<Impl, OFFSET>,
-            RotationXProperty::<Impl, OFFSET>,
-            RotationYProperty::<Impl, OFFSET>,
-            RotationZProperty::<Impl, OFFSET>,
-            ScaleXProperty::<Impl, OFFSET>,
-            ScaleYProperty::<Impl, OFFSET>,
-            ScaleZProperty::<Impl, OFFSET>,
-            TranslateXProperty::<Impl, OFFSET>,
-            TranslateYProperty::<Impl, OFFSET>,
-            TranslateZProperty::<Impl, OFFSET>,
+            CenterXProperty::<Impl, IMPL_OFFSET>,
+            CenterYProperty::<Impl, IMPL_OFFSET>,
+            CenterZProperty::<Impl, IMPL_OFFSET>,
+            RotationXProperty::<Impl, IMPL_OFFSET>,
+            RotationYProperty::<Impl, IMPL_OFFSET>,
+            RotationZProperty::<Impl, IMPL_OFFSET>,
+            ScaleXProperty::<Impl, IMPL_OFFSET>,
+            ScaleYProperty::<Impl, IMPL_OFFSET>,
+            ScaleZProperty::<Impl, IMPL_OFFSET>,
+            TranslateXProperty::<Impl, IMPL_OFFSET>,
+            TranslateYProperty::<Impl, IMPL_OFFSET>,
+            TranslateZProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICompositeTransform3DStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -430,8 +436,11 @@ impl ::windows::core::RuntimeName for IMatrix3DHelper {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMatrix3DHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMatrix3DHelperImpl, const OFFSET: isize>() -> IMatrix3DHelperVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMatrix3DHelper>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMatrix3DHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMatrix3DHelperVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMatrix3DHelper>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMatrix3DHelper as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -449,7 +458,7 @@ impl ::windows::core::RuntimeName for IMatrix3DHelperStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMatrix3DHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMatrix3DHelperStaticsImpl, const OFFSET: isize>() -> IMatrix3DHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMatrix3DHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMatrix3DHelperStaticsVtbl {
         unsafe extern "system" fn Identity<Impl: IMatrix3DHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Matrix3D) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Identity() {
@@ -516,7 +525,10 @@ impl IMatrix3DHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMatrix3DHelperStatics>, ::windows::core::GetTrustLevel, Identity::<Impl, OFFSET>, Multiply::<Impl, OFFSET>, FromElements::<Impl, OFFSET>, GetHasInverse::<Impl, OFFSET>, GetIsIdentity::<Impl, OFFSET>, Invert::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMatrix3DHelperStatics>, ::windows::core::GetTrustLevel, Identity::<Impl, IMPL_OFFSET>, Multiply::<Impl, IMPL_OFFSET>, FromElements::<Impl, IMPL_OFFSET>, GetHasInverse::<Impl, IMPL_OFFSET>, GetIsIdentity::<Impl, IMPL_OFFSET>, Invert::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMatrix3DHelperStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -534,7 +546,7 @@ impl ::windows::core::RuntimeName for IPerspectiveTransform3D {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPerspectiveTransform3DVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerspectiveTransform3DImpl, const OFFSET: isize>() -> IPerspectiveTransform3DVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerspectiveTransform3DImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerspectiveTransform3DVtbl {
         unsafe extern "system" fn Depth<Impl: IPerspectiveTransform3DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Depth() {
@@ -580,7 +592,10 @@ impl IPerspectiveTransform3DVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffsetY(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerspectiveTransform3D>, ::windows::core::GetTrustLevel, Depth::<Impl, OFFSET>, SetDepth::<Impl, OFFSET>, OffsetX::<Impl, OFFSET>, SetOffsetX::<Impl, OFFSET>, OffsetY::<Impl, OFFSET>, SetOffsetY::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerspectiveTransform3D>, ::windows::core::GetTrustLevel, Depth::<Impl, IMPL_OFFSET>, SetDepth::<Impl, IMPL_OFFSET>, OffsetX::<Impl, IMPL_OFFSET>, SetOffsetX::<Impl, IMPL_OFFSET>, OffsetY::<Impl, IMPL_OFFSET>, SetOffsetY::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerspectiveTransform3D as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -595,7 +610,7 @@ impl ::windows::core::RuntimeName for IPerspectiveTransform3DStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPerspectiveTransform3DStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerspectiveTransform3DStaticsImpl, const OFFSET: isize>() -> IPerspectiveTransform3DStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerspectiveTransform3DStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerspectiveTransform3DStaticsVtbl {
         unsafe extern "system" fn DepthProperty<Impl: IPerspectiveTransform3DStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DepthProperty() {
@@ -629,7 +644,10 @@ impl IPerspectiveTransform3DStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerspectiveTransform3DStatics>, ::windows::core::GetTrustLevel, DepthProperty::<Impl, OFFSET>, OffsetXProperty::<Impl, OFFSET>, OffsetYProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerspectiveTransform3DStatics>, ::windows::core::GetTrustLevel, DepthProperty::<Impl, IMPL_OFFSET>, OffsetXProperty::<Impl, IMPL_OFFSET>, OffsetYProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerspectiveTransform3DStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -640,8 +658,11 @@ impl ::windows::core::RuntimeName for ITransform3D {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransform3DVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransform3DImpl, const OFFSET: isize>() -> ITransform3DVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransform3D>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransform3DImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransform3DVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransform3D>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransform3D as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -654,7 +675,7 @@ impl ::windows::core::RuntimeName for ITransform3DFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransform3DFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransform3DFactoryImpl, const OFFSET: isize>() -> ITransform3DFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransform3DFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransform3DFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ITransform3DFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -666,6 +687,9 @@ impl ITransform3DFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransform3DFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransform3DFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransform3DFactory as ::windows::core::Interface>::IID
     }
 }

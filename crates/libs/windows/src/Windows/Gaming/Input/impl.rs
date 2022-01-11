@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IArcadeStickImpl: Sized + IGameControllerImpl {
     fn GetButtonLabel(&self, button: ArcadeStickButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
     fn GetCurrentReading(&self) -> ::windows::core::Result<ArcadeStickReading>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.IArcadeStick";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IArcadeStickVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickImpl, const OFFSET: isize>() -> IArcadeStickVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IArcadeStickVtbl {
         unsafe extern "system" fn GetButtonLabel<Impl: IArcadeStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: ArcadeStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(button) {
@@ -32,10 +32,13 @@ impl IArcadeStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStick>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStick>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, IMPL_OFFSET>, GetCurrentReading::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IArcadeStick as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IArcadeStickStaticsImpl: Sized {
     fn ArcadeStickAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<ArcadeStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveArcadeStickAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -43,13 +46,13 @@ pub trait IArcadeStickStaticsImpl: Sized {
     fn RemoveArcadeStickRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn ArcadeSticks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ArcadeStick>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IArcadeStickStatics {
     const NAME: &'static str = "Windows.Gaming.Input.IArcadeStickStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IArcadeStickStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickStaticsImpl, const OFFSET: isize>() -> IArcadeStickStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IArcadeStickStaticsVtbl {
         unsafe extern "system" fn ArcadeStickAdded<Impl: IArcadeStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArcadeStickAdded(&*(&value as *const <super::super::Foundation::EventHandler<ArcadeStick> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ArcadeStick> as ::windows::core::DefaultType>::DefaultType)) {
@@ -91,20 +94,35 @@ impl IArcadeStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics>, ::windows::core::GetTrustLevel, ArcadeStickAdded::<Impl, OFFSET>, RemoveArcadeStickAdded::<Impl, OFFSET>, ArcadeStickRemoved::<Impl, OFFSET>, RemoveArcadeStickRemoved::<Impl, OFFSET>, ArcadeSticks::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IArcadeStickStatics>,
+            ::windows::core::GetTrustLevel,
+            ArcadeStickAdded::<Impl, IMPL_OFFSET>,
+            RemoveArcadeStickAdded::<Impl, IMPL_OFFSET>,
+            ArcadeStickRemoved::<Impl, IMPL_OFFSET>,
+            RemoveArcadeStickRemoved::<Impl, IMPL_OFFSET>,
+            ArcadeSticks::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IArcadeStickStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IArcadeStickStatics2Impl: Sized + IArcadeStickStaticsImpl {
     fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<ArcadeStick>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IArcadeStickStatics2 {
     const NAME: &'static str = "Windows.Gaming.Input.IArcadeStickStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IArcadeStickStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickStatics2Impl, const OFFSET: isize>() -> IArcadeStickStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IArcadeStickStatics2Vtbl {
         unsafe extern "system" fn FromGameController<Impl: IArcadeStickStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
@@ -116,22 +134,25 @@ impl IArcadeStickStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IArcadeStickStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IFlightStickImpl: Sized + IGameControllerImpl {
     fn HatSwitchKind(&self) -> ::windows::core::Result<GameControllerSwitchKind>;
     fn GetButtonLabel(&self, button: FlightStickButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
     fn GetCurrentReading(&self) -> ::windows::core::Result<FlightStickReading>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.IFlightStick";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IFlightStickVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlightStickImpl, const OFFSET: isize>() -> IFlightStickVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlightStickImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFlightStickVtbl {
         unsafe extern "system" fn HatSwitchKind<Impl: IFlightStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerSwitchKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HatSwitchKind() {
@@ -165,10 +186,13 @@ impl IFlightStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlightStick>, ::windows::core::GetTrustLevel, HatSwitchKind::<Impl, OFFSET>, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlightStick>, ::windows::core::GetTrustLevel, HatSwitchKind::<Impl, IMPL_OFFSET>, GetButtonLabel::<Impl, IMPL_OFFSET>, GetCurrentReading::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFlightStick as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFlightStickStaticsImpl: Sized {
     fn FlightStickAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<FlightStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveFlightStickAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -177,13 +201,13 @@ pub trait IFlightStickStaticsImpl: Sized {
     fn FlightSticks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FlightStick>>;
     fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<FlightStick>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlightStickStatics {
     const NAME: &'static str = "Windows.Gaming.Input.IFlightStickStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFlightStickStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlightStickStaticsImpl, const OFFSET: isize>() -> IFlightStickStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlightStickStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFlightStickStaticsVtbl {
         unsafe extern "system" fn FlightStickAdded<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlightStickAdded(&*(&value as *const <super::super::Foundation::EventHandler<FlightStick> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<FlightStick> as ::windows::core::DefaultType>::DefaultType)) {
@@ -236,9 +260,26 @@ impl IFlightStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlightStickStatics>, ::windows::core::GetTrustLevel, FlightStickAdded::<Impl, OFFSET>, RemoveFlightStickAdded::<Impl, OFFSET>, FlightStickRemoved::<Impl, OFFSET>, RemoveFlightStickRemoved::<Impl, OFFSET>, FlightSticks::<Impl, OFFSET>, FromGameController::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IFlightStickStatics>,
+            ::windows::core::GetTrustLevel,
+            FlightStickAdded::<Impl, IMPL_OFFSET>,
+            RemoveFlightStickAdded::<Impl, IMPL_OFFSET>,
+            FlightStickRemoved::<Impl, IMPL_OFFSET>,
+            RemoveFlightStickRemoved::<Impl, IMPL_OFFSET>,
+            FlightSticks::<Impl, IMPL_OFFSET>,
+            FromGameController::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFlightStickStatics as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IGameControllerImpl: Sized {
     fn HeadsetConnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -250,11 +291,13 @@ pub trait IGameControllerImpl: Sized {
     fn IsWireless(&self) -> ::windows::core::Result<bool>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
+#[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for IGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IGameController";
 }
+#[cfg(all(feature = "Foundation", feature = "System"))]
 impl IGameControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerImpl, const OFFSET: isize>() -> IGameControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerVtbl {
         unsafe extern "system" fn HeadsetConnected<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeadsetConnected(&*(&value as *const <super::super::Foundation::TypedEventHandler<IGameController, Headset> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IGameController, Headset> as ::windows::core::DefaultType>::DefaultType)) {
@@ -334,32 +377,38 @@ impl IGameControllerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGameController>,
             ::windows::core::GetTrustLevel,
-            HeadsetConnected::<Impl, OFFSET>,
-            RemoveHeadsetConnected::<Impl, OFFSET>,
-            HeadsetDisconnected::<Impl, OFFSET>,
-            RemoveHeadsetDisconnected::<Impl, OFFSET>,
-            UserChanged::<Impl, OFFSET>,
-            RemoveUserChanged::<Impl, OFFSET>,
-            Headset::<Impl, OFFSET>,
-            IsWireless::<Impl, OFFSET>,
-            User::<Impl, OFFSET>,
+            HeadsetConnected::<Impl, IMPL_OFFSET>,
+            RemoveHeadsetConnected::<Impl, IMPL_OFFSET>,
+            HeadsetDisconnected::<Impl, IMPL_OFFSET>,
+            RemoveHeadsetDisconnected::<Impl, IMPL_OFFSET>,
+            UserChanged::<Impl, IMPL_OFFSET>,
+            RemoveUserChanged::<Impl, IMPL_OFFSET>,
+            Headset::<Impl, IMPL_OFFSET>,
+            IsWireless::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameController as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Devices_Power")]
 pub trait IGameControllerBatteryInfoImpl: Sized {
     fn TryGetBatteryReport(&self) -> ::windows::core::Result<super::super::Devices::Power::BatteryReport>;
 }
+#[cfg(feature = "Devices_Power")]
 impl ::windows::core::RuntimeName for IGameControllerBatteryInfo {
     const NAME: &'static str = "Windows.Gaming.Input.IGameControllerBatteryInfo";
 }
+#[cfg(feature = "Devices_Power")]
 impl IGameControllerBatteryInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerBatteryInfoImpl, const OFFSET: isize>() -> IGameControllerBatteryInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerBatteryInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerBatteryInfoVtbl {
         unsafe extern "system" fn TryGetBatteryReport<Impl: IGameControllerBatteryInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetBatteryReport() {
@@ -371,22 +420,25 @@ impl IGameControllerBatteryInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerBatteryInfo>, ::windows::core::GetTrustLevel, TryGetBatteryReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerBatteryInfo>, ::windows::core::GetTrustLevel, TryGetBatteryReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameControllerBatteryInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IGamepadImpl: Sized + IGameControllerImpl {
     fn Vibration(&self) -> ::windows::core::Result<GamepadVibration>;
     fn SetVibration(&self, value: &GamepadVibration) -> ::windows::core::Result<()>;
     fn GetCurrentReading(&self) -> ::windows::core::Result<GamepadReading>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepad {
     const NAME: &'static str = "Windows.Gaming.Input.IGamepad";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IGamepadVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadImpl, const OFFSET: isize>() -> IGamepadVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGamepadVtbl {
         unsafe extern "system" fn Vibration<Impl: IGamepadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GamepadVibration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Vibration() {
@@ -413,20 +465,23 @@ impl IGamepadVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad>, ::windows::core::GetTrustLevel, Vibration::<Impl, OFFSET>, SetVibration::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad>, ::windows::core::GetTrustLevel, Vibration::<Impl, IMPL_OFFSET>, SetVibration::<Impl, IMPL_OFFSET>, GetCurrentReading::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGamepad as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IGamepad2Impl: Sized + IGameControllerImpl + IGamepadImpl {
     fn GetButtonLabel(&self, button: GamepadButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepad2 {
     const NAME: &'static str = "Windows.Gaming.Input.IGamepad2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IGamepad2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepad2Impl, const OFFSET: isize>() -> IGamepad2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepad2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGamepad2Vtbl {
         unsafe extern "system" fn GetButtonLabel<Impl: IGamepad2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: GamepadButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(button) {
@@ -438,10 +493,13 @@ impl IGamepad2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad2>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad2>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGamepad2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGamepadStaticsImpl: Sized {
     fn GamepadAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<Gamepad>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveGamepadAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -449,13 +507,13 @@ pub trait IGamepadStaticsImpl: Sized {
     fn RemoveGamepadRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Gamepads(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Gamepad>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepadStatics {
     const NAME: &'static str = "Windows.Gaming.Input.IGamepadStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGamepadStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadStaticsImpl, const OFFSET: isize>() -> IGamepadStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGamepadStaticsVtbl {
         unsafe extern "system" fn GamepadAdded<Impl: IGamepadStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GamepadAdded(&*(&value as *const <super::super::Foundation::EventHandler<Gamepad> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<Gamepad> as ::windows::core::DefaultType>::DefaultType)) {
@@ -497,20 +555,23 @@ impl IGamepadStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics>, ::windows::core::GetTrustLevel, GamepadAdded::<Impl, OFFSET>, RemoveGamepadAdded::<Impl, OFFSET>, GamepadRemoved::<Impl, OFFSET>, RemoveGamepadRemoved::<Impl, OFFSET>, Gamepads::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics>, ::windows::core::GetTrustLevel, GamepadAdded::<Impl, IMPL_OFFSET>, RemoveGamepadAdded::<Impl, IMPL_OFFSET>, GamepadRemoved::<Impl, IMPL_OFFSET>, RemoveGamepadRemoved::<Impl, IMPL_OFFSET>, Gamepads::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGamepadStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGamepadStatics2Impl: Sized + IGamepadStaticsImpl {
     fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<Gamepad>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepadStatics2 {
     const NAME: &'static str = "Windows.Gaming.Input.IGamepadStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGamepadStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadStatics2Impl, const OFFSET: isize>() -> IGamepadStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGamepadStatics2Vtbl {
         unsafe extern "system" fn FromGameController<Impl: IGamepadStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
@@ -522,7 +583,10 @@ impl IGamepadStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGamepadStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -536,7 +600,7 @@ impl ::windows::core::RuntimeName for IHeadset {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHeadsetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadsetImpl, const OFFSET: isize>() -> IHeadsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHeadsetVtbl {
         unsafe extern "system" fn CaptureDeviceId<Impl: IHeadsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureDeviceId() {
@@ -559,10 +623,13 @@ impl IHeadsetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadset>, ::windows::core::GetTrustLevel, CaptureDeviceId::<Impl, OFFSET>, RenderDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadset>, ::windows::core::GetTrustLevel, CaptureDeviceId::<Impl, IMPL_OFFSET>, RenderDeviceId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHeadset as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 pub trait IRacingWheelImpl: Sized + IGameControllerImpl {
     fn HasClutch(&self) -> ::windows::core::Result<bool>;
     fn HasHandbrake(&self) -> ::windows::core::Result<bool>;
@@ -573,13 +640,13 @@ pub trait IRacingWheelImpl: Sized + IGameControllerImpl {
     fn GetButtonLabel(&self, button: RacingWheelButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
     fn GetCurrentReading(&self) -> ::windows::core::Result<RacingWheelReading>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.IRacingWheel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 impl IRacingWheelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelImpl, const OFFSET: isize>() -> IRacingWheelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRacingWheelVtbl {
         unsafe extern "system" fn HasClutch<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasClutch() {
@@ -669,24 +736,27 @@ impl IRacingWheelVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRacingWheel>,
             ::windows::core::GetTrustLevel,
-            HasClutch::<Impl, OFFSET>,
-            HasHandbrake::<Impl, OFFSET>,
-            HasPatternShifter::<Impl, OFFSET>,
-            MaxPatternShifterGear::<Impl, OFFSET>,
-            MaxWheelAngle::<Impl, OFFSET>,
-            WheelMotor::<Impl, OFFSET>,
-            GetButtonLabel::<Impl, OFFSET>,
-            GetCurrentReading::<Impl, OFFSET>,
+            HasClutch::<Impl, IMPL_OFFSET>,
+            HasHandbrake::<Impl, IMPL_OFFSET>,
+            HasPatternShifter::<Impl, IMPL_OFFSET>,
+            MaxPatternShifterGear::<Impl, IMPL_OFFSET>,
+            MaxWheelAngle::<Impl, IMPL_OFFSET>,
+            WheelMotor::<Impl, IMPL_OFFSET>,
+            GetButtonLabel::<Impl, IMPL_OFFSET>,
+            GetCurrentReading::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRacingWheel as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRacingWheelStaticsImpl: Sized {
     fn RacingWheelAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<RacingWheel>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRacingWheelAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -694,13 +764,13 @@ pub trait IRacingWheelStaticsImpl: Sized {
     fn RemoveRacingWheelRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn RacingWheels(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRacingWheelStatics {
     const NAME: &'static str = "Windows.Gaming.Input.IRacingWheelStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRacingWheelStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelStaticsImpl, const OFFSET: isize>() -> IRacingWheelStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRacingWheelStaticsVtbl {
         unsafe extern "system" fn RacingWheelAdded<Impl: IRacingWheelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RacingWheelAdded(&*(&value as *const <super::super::Foundation::EventHandler<RacingWheel> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<RacingWheel> as ::windows::core::DefaultType>::DefaultType)) {
@@ -742,20 +812,35 @@ impl IRacingWheelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics>, ::windows::core::GetTrustLevel, RacingWheelAdded::<Impl, OFFSET>, RemoveRacingWheelAdded::<Impl, OFFSET>, RacingWheelRemoved::<Impl, OFFSET>, RemoveRacingWheelRemoved::<Impl, OFFSET>, RacingWheels::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRacingWheelStatics>,
+            ::windows::core::GetTrustLevel,
+            RacingWheelAdded::<Impl, IMPL_OFFSET>,
+            RemoveRacingWheelAdded::<Impl, IMPL_OFFSET>,
+            RacingWheelRemoved::<Impl, IMPL_OFFSET>,
+            RemoveRacingWheelRemoved::<Impl, IMPL_OFFSET>,
+            RacingWheels::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRacingWheelStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRacingWheelStatics2Impl: Sized + IRacingWheelStaticsImpl {
     fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<RacingWheel>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRacingWheelStatics2 {
     const NAME: &'static str = "Windows.Gaming.Input.IRacingWheelStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRacingWheelStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelStatics2Impl, const OFFSET: isize>() -> IRacingWheelStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRacingWheelStatics2Vtbl {
         unsafe extern "system" fn FromGameController<Impl: IRacingWheelStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
@@ -767,10 +852,13 @@ impl IRacingWheelStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRacingWheelStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 pub trait IRawGameControllerImpl: Sized + IGameControllerImpl {
     fn AxisCount(&self) -> ::windows::core::Result<i32>;
     fn ButtonCount(&self) -> ::windows::core::Result<i32>;
@@ -782,13 +870,13 @@ pub trait IRawGameControllerImpl: Sized + IGameControllerImpl {
     fn GetCurrentReading(&self, buttonarray: &mut [<bool as ::windows::core::DefaultType>::DefaultType], switcharray: &mut [<GameControllerSwitchPosition as ::windows::core::DefaultType>::DefaultType], axisarray: &mut [<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u64>;
     fn GetSwitchKind(&self, switchindex: i32) -> ::windows::core::Result<GameControllerSwitchKind>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IRawGameController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 impl IRawGameControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameControllerImpl, const OFFSET: isize>() -> IRawGameControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawGameControllerVtbl {
         unsafe extern "system" fn AxisCount<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AxisCount() {
@@ -889,37 +977,40 @@ impl IRawGameControllerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRawGameController>,
             ::windows::core::GetTrustLevel,
-            AxisCount::<Impl, OFFSET>,
-            ButtonCount::<Impl, OFFSET>,
-            ForceFeedbackMotors::<Impl, OFFSET>,
-            HardwareProductId::<Impl, OFFSET>,
-            HardwareVendorId::<Impl, OFFSET>,
-            SwitchCount::<Impl, OFFSET>,
-            GetButtonLabel::<Impl, OFFSET>,
-            GetCurrentReading::<Impl, OFFSET>,
-            GetSwitchKind::<Impl, OFFSET>,
+            AxisCount::<Impl, IMPL_OFFSET>,
+            ButtonCount::<Impl, IMPL_OFFSET>,
+            ForceFeedbackMotors::<Impl, IMPL_OFFSET>,
+            HardwareProductId::<Impl, IMPL_OFFSET>,
+            HardwareVendorId::<Impl, IMPL_OFFSET>,
+            SwitchCount::<Impl, IMPL_OFFSET>,
+            GetButtonLabel::<Impl, IMPL_OFFSET>,
+            GetCurrentReading::<Impl, IMPL_OFFSET>,
+            GetSwitchKind::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRawGameController as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IRawGameController2Impl: Sized + IGameControllerImpl + IRawGameControllerImpl {
     fn SimpleHapticsControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>>;
     fn NonRoamableId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawGameController2 {
     const NAME: &'static str = "Windows.Gaming.Input.IRawGameController2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IRawGameController2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameController2Impl, const OFFSET: isize>() -> IRawGameController2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameController2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawGameController2Vtbl {
         unsafe extern "system" fn SimpleHapticsControllers<Impl: IRawGameController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsControllers() {
@@ -953,10 +1044,13 @@ impl IRawGameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawGameController2>, ::windows::core::GetTrustLevel, SimpleHapticsControllers::<Impl, OFFSET>, NonRoamableId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawGameController2>, ::windows::core::GetTrustLevel, SimpleHapticsControllers::<Impl, IMPL_OFFSET>, NonRoamableId::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRawGameController2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRawGameControllerStaticsImpl: Sized {
     fn RawGameControllerAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<RawGameController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRawGameControllerAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -965,13 +1059,13 @@ pub trait IRawGameControllerStaticsImpl: Sized {
     fn RawGameControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>>;
     fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<RawGameController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawGameControllerStatics {
     const NAME: &'static str = "Windows.Gaming.Input.IRawGameControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRawGameControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>() -> IRawGameControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawGameControllerStaticsVtbl {
         unsafe extern "system" fn RawGameControllerAdded<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawGameControllerAdded(&*(&value as *const <super::super::Foundation::EventHandler<RawGameController> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<RawGameController> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1025,34 +1119,37 @@ impl IRawGameControllerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRawGameControllerStatics>,
             ::windows::core::GetTrustLevel,
-            RawGameControllerAdded::<Impl, OFFSET>,
-            RemoveRawGameControllerAdded::<Impl, OFFSET>,
-            RawGameControllerRemoved::<Impl, OFFSET>,
-            RemoveRawGameControllerRemoved::<Impl, OFFSET>,
-            RawGameControllers::<Impl, OFFSET>,
-            FromGameController::<Impl, OFFSET>,
+            RawGameControllerAdded::<Impl, IMPL_OFFSET>,
+            RemoveRawGameControllerAdded::<Impl, IMPL_OFFSET>,
+            RawGameControllerRemoved::<Impl, IMPL_OFFSET>,
+            RemoveRawGameControllerRemoved::<Impl, IMPL_OFFSET>,
+            RawGameControllers::<Impl, IMPL_OFFSET>,
+            FromGameController::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRawGameControllerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IUINavigationControllerImpl: Sized + IGameControllerImpl {
     fn GetCurrentReading(&self) -> ::windows::core::Result<UINavigationReading>;
     fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
     fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.IUINavigationController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IUINavigationControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerImpl, const OFFSET: isize>() -> IUINavigationControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUINavigationControllerVtbl {
         unsafe extern "system" fn GetCurrentReading<Impl: IUINavigationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UINavigationReading) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
@@ -1086,10 +1183,13 @@ impl IUINavigationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationController>, ::windows::core::GetTrustLevel, GetCurrentReading::<Impl, OFFSET>, GetOptionalButtonLabel::<Impl, OFFSET>, GetRequiredButtonLabel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationController>, ::windows::core::GetTrustLevel, GetCurrentReading::<Impl, IMPL_OFFSET>, GetOptionalButtonLabel::<Impl, IMPL_OFFSET>, GetRequiredButtonLabel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUINavigationController as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUINavigationControllerStaticsImpl: Sized {
     fn UINavigationControllerAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<UINavigationController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUINavigationControllerAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1097,13 +1197,13 @@ pub trait IUINavigationControllerStaticsImpl: Sized {
     fn RemoveUINavigationControllerRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn UINavigationControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUINavigationControllerStatics {
     const NAME: &'static str = "Windows.Gaming.Input.IUINavigationControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUINavigationControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>() -> IUINavigationControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUINavigationControllerStaticsVtbl {
         unsafe extern "system" fn UINavigationControllerAdded<Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UINavigationControllerAdded(&*(&value as *const <super::super::Foundation::EventHandler<UINavigationController> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<UINavigationController> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1146,31 +1246,34 @@ impl IUINavigationControllerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics>,
             ::windows::core::GetTrustLevel,
-            UINavigationControllerAdded::<Impl, OFFSET>,
-            RemoveUINavigationControllerAdded::<Impl, OFFSET>,
-            UINavigationControllerRemoved::<Impl, OFFSET>,
-            RemoveUINavigationControllerRemoved::<Impl, OFFSET>,
-            UINavigationControllers::<Impl, OFFSET>,
+            UINavigationControllerAdded::<Impl, IMPL_OFFSET>,
+            RemoveUINavigationControllerAdded::<Impl, IMPL_OFFSET>,
+            UINavigationControllerRemoved::<Impl, IMPL_OFFSET>,
+            RemoveUINavigationControllerRemoved::<Impl, IMPL_OFFSET>,
+            UINavigationControllers::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUINavigationControllerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUINavigationControllerStatics2Impl: Sized + IUINavigationControllerStaticsImpl {
     fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<UINavigationController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUINavigationControllerStatics2 {
     const NAME: &'static str = "Windows.Gaming.Input.IUINavigationControllerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IUINavigationControllerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerStatics2Impl, const OFFSET: isize>() -> IUINavigationControllerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUINavigationControllerStatics2Vtbl {
         unsafe extern "system" fn FromGameController<Impl: IUINavigationControllerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
@@ -1182,6 +1285,9 @@ impl IUINavigationControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUINavigationControllerStatics2 as ::windows::core::Interface>::IID
     }
 }

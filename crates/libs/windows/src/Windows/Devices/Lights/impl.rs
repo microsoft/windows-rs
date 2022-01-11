@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampImpl: Sized + IClosableImpl {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
@@ -11,13 +11,13 @@ pub trait ILampImpl: Sized + IClosableImpl {
     fn AvailabilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAvailabilityChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILamp {
     const NAME: &'static str = "Windows.Devices.Lights.ILamp";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ILampVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampImpl, const OFFSET: isize>() -> ILampVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampVtbl {
         unsafe extern "system" fn DeviceId<Impl: ILampImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -101,26 +101,29 @@ impl ILampVtbl {
             (*this).RemoveAvailabilityChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILamp>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
-            BrightnessLevel::<Impl, OFFSET>,
-            SetBrightnessLevel::<Impl, OFFSET>,
-            IsColorSettable::<Impl, OFFSET>,
-            Color::<Impl, OFFSET>,
-            SetColor::<Impl, OFFSET>,
-            AvailabilityChanged::<Impl, OFFSET>,
-            RemoveAvailabilityChanged::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            BrightnessLevel::<Impl, IMPL_OFFSET>,
+            SetBrightnessLevel::<Impl, IMPL_OFFSET>,
+            IsColorSettable::<Impl, IMPL_OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            AvailabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILamp as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Storage_Streams", feature = "System", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HardwareVendorId(&self) -> ::windows::core::Result<u16>;
@@ -149,13 +152,13 @@ pub trait ILampArrayImpl: Sized {
     fn SendMessageAsync(&self, messageid: i32, message: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RequestMessageAsync(&self, messageid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Storage_Streams", feature = "System", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArray {
     const NAME: &'static str = "Windows.Devices.Lights.ILampArray";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Storage_Streams", feature = "System", feature = "UI", feature = "implement_exclusive"))]
 impl ILampArrayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayImpl, const OFFSET: isize>() -> ILampArrayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayVtbl {
         unsafe extern "system" fn DeviceId<Impl: ILampArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -382,53 +385,56 @@ impl ILampArrayVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampArray>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            HardwareVendorId::<Impl, OFFSET>,
-            HardwareProductId::<Impl, OFFSET>,
-            HardwareVersion::<Impl, OFFSET>,
-            LampArrayKind::<Impl, OFFSET>,
-            LampCount::<Impl, OFFSET>,
-            MinUpdateInterval::<Impl, OFFSET>,
-            BoundingBox::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
-            BrightnessLevel::<Impl, OFFSET>,
-            SetBrightnessLevel::<Impl, OFFSET>,
-            IsConnected::<Impl, OFFSET>,
-            SupportsVirtualKeys::<Impl, OFFSET>,
-            GetLampInfo::<Impl, OFFSET>,
-            GetIndicesForKey::<Impl, OFFSET>,
-            GetIndicesForPurposes::<Impl, OFFSET>,
-            SetColor::<Impl, OFFSET>,
-            SetColorForIndex::<Impl, OFFSET>,
-            SetSingleColorForIndices::<Impl, OFFSET>,
-            SetColorsForIndices::<Impl, OFFSET>,
-            SetColorsForKey::<Impl, OFFSET>,
-            SetColorsForKeys::<Impl, OFFSET>,
-            SetColorsForPurposes::<Impl, OFFSET>,
-            SendMessageAsync::<Impl, OFFSET>,
-            RequestMessageAsync::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            HardwareVendorId::<Impl, IMPL_OFFSET>,
+            HardwareProductId::<Impl, IMPL_OFFSET>,
+            HardwareVersion::<Impl, IMPL_OFFSET>,
+            LampArrayKind::<Impl, IMPL_OFFSET>,
+            LampCount::<Impl, IMPL_OFFSET>,
+            MinUpdateInterval::<Impl, IMPL_OFFSET>,
+            BoundingBox::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            BrightnessLevel::<Impl, IMPL_OFFSET>,
+            SetBrightnessLevel::<Impl, IMPL_OFFSET>,
+            IsConnected::<Impl, IMPL_OFFSET>,
+            SupportsVirtualKeys::<Impl, IMPL_OFFSET>,
+            GetLampInfo::<Impl, IMPL_OFFSET>,
+            GetIndicesForKey::<Impl, IMPL_OFFSET>,
+            GetIndicesForPurposes::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            SetColorForIndex::<Impl, IMPL_OFFSET>,
+            SetSingleColorForIndices::<Impl, IMPL_OFFSET>,
+            SetColorsForIndices::<Impl, IMPL_OFFSET>,
+            SetColorsForKey::<Impl, IMPL_OFFSET>,
+            SetColorsForKeys::<Impl, IMPL_OFFSET>,
+            SetColorsForPurposes::<Impl, IMPL_OFFSET>,
+            SendMessageAsync::<Impl, IMPL_OFFSET>,
+            RequestMessageAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArray as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILampArrayStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LampArray>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayStatics {
     const NAME: &'static str = "Windows.Devices.Lights.ILampArrayStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILampArrayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayStaticsImpl, const OFFSET: isize>() -> ILampArrayStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ILampArrayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -451,7 +457,10 @@ impl ILampArrayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -464,7 +473,7 @@ impl ::windows::core::RuntimeName for ILampAvailabilityChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampAvailabilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampAvailabilityChangedEventArgsImpl, const OFFSET: isize>() -> ILampAvailabilityChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampAvailabilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampAvailabilityChangedEventArgsVtbl {
         unsafe extern "system" fn IsAvailable<Impl: ILampAvailabilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailable() {
@@ -476,10 +485,13 @@ impl ILampAvailabilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, IsAvailable::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, IsAvailable::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampAvailabilityChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampInfoImpl: Sized {
     fn Index(&self) -> ::windows::core::Result<i32>;
     fn Purposes(&self) -> ::windows::core::Result<LampPurposes>;
@@ -492,13 +504,13 @@ pub trait ILampInfoImpl: Sized {
     fn GetNearestSupportedColor(&self, desiredcolor: &super::super::UI::Color) -> ::windows::core::Result<super::super::UI::Color>;
     fn UpdateLatency(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.ILampInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "UI", feature = "implement_exclusive"))]
 impl ILampInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampInfoImpl, const OFFSET: isize>() -> ILampInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampInfoVtbl {
         unsafe extern "system" fn Index<Impl: ILampInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Index() {
@@ -610,38 +622,41 @@ impl ILampInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampInfo>,
             ::windows::core::GetTrustLevel,
-            Index::<Impl, OFFSET>,
-            Purposes::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            RedLevelCount::<Impl, OFFSET>,
-            GreenLevelCount::<Impl, OFFSET>,
-            BlueLevelCount::<Impl, OFFSET>,
-            GainLevelCount::<Impl, OFFSET>,
-            FixedColor::<Impl, OFFSET>,
-            GetNearestSupportedColor::<Impl, OFFSET>,
-            UpdateLatency::<Impl, OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            Purposes::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            RedLevelCount::<Impl, IMPL_OFFSET>,
+            GreenLevelCount::<Impl, IMPL_OFFSET>,
+            BlueLevelCount::<Impl, IMPL_OFFSET>,
+            GainLevelCount::<Impl, IMPL_OFFSET>,
+            FixedColor::<Impl, IMPL_OFFSET>,
+            GetNearestSupportedColor::<Impl, IMPL_OFFSET>,
+            UpdateLatency::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILampStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Lamp>>;
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Lamp>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampStatics {
     const NAME: &'static str = "Windows.Devices.Lights.ILampStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILampStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampStaticsImpl, const OFFSET: isize>() -> ILampStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ILampStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -675,6 +690,9 @@ impl ILampStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampStatics as ::windows::core::Interface>::IID
     }
 }

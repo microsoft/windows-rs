@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorAuthenticationManagerImpl: Sized {
     fn GetOneTimePassCodeAsync(&self, useraccountid: &::windows::core::HSTRING, codelength: u32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>;
     fn AddDeviceAsync(&self, useraccountid: &::windows::core::HSTRING, authenticationtoken: &::windows::core::HSTRING, wnschannelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
@@ -11,13 +11,13 @@ pub trait IMicrosoftAccountMultiFactorAuthenticationManagerImpl: Sized {
     fn DenySessionUsingAuthSessionInfoAsync(&self, authenticationsessioninfo: &::core::option::Option<MicrosoftAccountMultiFactorSessionInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
     fn DenySessionAsync(&self, useraccountid: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
         unsafe extern "system" fn GetOneTimePassCodeAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, codelength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOneTimePassCodeAsync(&*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), codelength) {
@@ -133,23 +133,26 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticationManager>,
             ::windows::core::GetTrustLevel,
-            GetOneTimePassCodeAsync::<Impl, OFFSET>,
-            AddDeviceAsync::<Impl, OFFSET>,
-            RemoveDeviceAsync::<Impl, OFFSET>,
-            UpdateWnsChannelAsync::<Impl, OFFSET>,
-            GetSessionsAsync::<Impl, OFFSET>,
-            GetSessionsAndUnregisteredAccountsAsync::<Impl, OFFSET>,
-            ApproveSessionUsingAuthSessionInfoAsync::<Impl, OFFSET>,
-            ApproveSessionAsync::<Impl, OFFSET>,
-            DenySessionUsingAuthSessionInfoAsync::<Impl, OFFSET>,
-            DenySessionAsync::<Impl, OFFSET>,
+            GetOneTimePassCodeAsync::<Impl, IMPL_OFFSET>,
+            AddDeviceAsync::<Impl, IMPL_OFFSET>,
+            RemoveDeviceAsync::<Impl, IMPL_OFFSET>,
+            UpdateWnsChannelAsync::<Impl, IMPL_OFFSET>,
+            GetSessionsAsync::<Impl, IMPL_OFFSET>,
+            GetSessionsAndUnregisteredAccountsAsync::<Impl, IMPL_OFFSET>,
+            ApproveSessionUsingAuthSessionInfoAsync::<Impl, IMPL_OFFSET>,
+            ApproveSessionAsync::<Impl, IMPL_OFFSET>,
+            DenySessionUsingAuthSessionInfoAsync::<Impl, IMPL_OFFSET>,
+            DenySessionAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMicrosoftAccountMultiFactorAuthenticationManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -162,7 +165,7 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorAuthenticatorS
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -174,21 +177,24 @@ impl IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticatorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticatorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMicrosoftAccountMultiFactorAuthenticatorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorGetSessionsResultImpl: Sized {
     fn Sessions(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>;
     fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
         unsafe extern "system" fn Sessions<Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sessions() {
@@ -211,23 +217,26 @@ impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorGetSessionsResult>, ::windows::core::GetTrustLevel, Sessions::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorGetSessionsResult>, ::windows::core::GetTrustLevel, Sessions::<Impl, IMPL_OFFSET>, ServiceResponse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMicrosoftAccountMultiFactorGetSessionsResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl: Sized {
     fn Code(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TimeInterval(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
     fn TimeToLive(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
     fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
         unsafe extern "system" fn Code<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
@@ -272,10 +281,13 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorOneTimeCodedInfo>, ::windows::core::GetTrustLevel, Code::<Impl, OFFSET>, TimeInterval::<Impl, OFFSET>, TimeToLive::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorOneTimeCodedInfo>, ::windows::core::GetTrustLevel, Code::<Impl, IMPL_OFFSET>, TimeInterval::<Impl, IMPL_OFFSET>, TimeToLive::<Impl, IMPL_OFFSET>, ServiceResponse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMicrosoftAccountMultiFactorOneTimeCodedInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorSessionInfoImpl: Sized {
     fn UserAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -285,13 +297,13 @@ pub trait IMicrosoftAccountMultiFactorSessionInfoImpl: Sized {
     fn RequestTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorSessionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMicrosoftAccountMultiFactorSessionInfoVtbl {
         unsafe extern "system" fn UserAccountId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserAccountId() {
@@ -370,35 +382,38 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorSessionInfo>,
             ::windows::core::GetTrustLevel,
-            UserAccountId::<Impl, OFFSET>,
-            SessionId::<Impl, OFFSET>,
-            DisplaySessionId::<Impl, OFFSET>,
-            ApprovalStatus::<Impl, OFFSET>,
-            AuthenticationType::<Impl, OFFSET>,
-            RequestTime::<Impl, OFFSET>,
-            ExpirationTime::<Impl, OFFSET>,
+            UserAccountId::<Impl, IMPL_OFFSET>,
+            SessionId::<Impl, IMPL_OFFSET>,
+            DisplaySessionId::<Impl, IMPL_OFFSET>,
+            ApprovalStatus::<Impl, IMPL_OFFSET>,
+            AuthenticationType::<Impl, IMPL_OFFSET>,
+            RequestTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMicrosoftAccountMultiFactorSessionInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl: Sized {
     fn Sessions(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>;
     fn UnregisteredAccounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
         unsafe extern "system" fn Sessions<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sessions() {
@@ -432,6 +447,9 @@ impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>, ::windows::core::GetTrustLevel, Sessions::<Impl, OFFSET>, UnregisteredAccounts::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>, ::windows::core::GetTrustLevel, Sessions::<Impl, IMPL_OFFSET>, UnregisteredAccounts::<Impl, IMPL_OFFSET>, ServiceResponse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as ::windows::core::Interface>::IID
     }
 }

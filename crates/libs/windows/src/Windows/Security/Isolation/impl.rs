@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironmentImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn StartProcessSilentlyAsync(&self, hostexepath: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>;
@@ -12,13 +12,13 @@ pub trait IIsolatedWindowsEnvironmentImpl: Sized {
     fn RegisterMessageReceiver(&self, receiverid: &::windows::core::GUID, messagereceivedcallback: &::core::option::Option<MessageReceivedCallback>) -> ::windows::core::Result<()>;
     fn UnregisterMessageReceiver(&self, receiverid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentVtbl {
         unsafe extern "system" fn Id<Impl: IIsolatedWindowsEnvironmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -145,38 +145,41 @@ impl IIsolatedWindowsEnvironmentVtbl {
             (*this).UnregisterMessageReceiver(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            StartProcessSilentlyAsync::<Impl, OFFSET>,
-            StartProcessSilentlyWithTelemetryAsync::<Impl, OFFSET>,
-            ShareFolderAsync::<Impl, OFFSET>,
-            ShareFolderWithTelemetryAsync::<Impl, OFFSET>,
-            LaunchFileWithUIAsync::<Impl, OFFSET>,
-            LaunchFileWithUIAndTelemetryAsync::<Impl, OFFSET>,
-            TerminateAsync::<Impl, OFFSET>,
-            TerminateWithTelemetryAsync::<Impl, OFFSET>,
-            RegisterMessageReceiver::<Impl, OFFSET>,
-            UnregisterMessageReceiver::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            StartProcessSilentlyAsync::<Impl, IMPL_OFFSET>,
+            StartProcessSilentlyWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            ShareFolderAsync::<Impl, IMPL_OFFSET>,
+            ShareFolderWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            LaunchFileWithUIAsync::<Impl, IMPL_OFFSET>,
+            LaunchFileWithUIAndTelemetryAsync::<Impl, IMPL_OFFSET>,
+            TerminateAsync::<Impl, IMPL_OFFSET>,
+            TerminateWithTelemetryAsync::<Impl, IMPL_OFFSET>,
+            RegisterMessageReceiver::<Impl, IMPL_OFFSET>,
+            UnregisterMessageReceiver::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironment as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironment2Impl: Sized {
     fn PostMessageToReceiverAsync(&self, receiverid: &::windows::core::GUID, message: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>;
     fn PostMessageToReceiverWithTelemetryAsync(&self, receiverid: &::windows::core::GUID, message: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, telemetryparameters: &::core::option::Option<IsolatedWindowsEnvironmentTelemetryParameters>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironment2 {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironment2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironment2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironment2Impl, const OFFSET: isize>() -> IIsolatedWindowsEnvironment2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironment2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironment2Vtbl {
         unsafe extern "system" fn PostMessageToReceiverAsync<Impl: IIsolatedWindowsEnvironment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostMessageToReceiverAsync(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <super::super::Foundation::Collections::IIterable<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -203,22 +206,25 @@ impl IIsolatedWindowsEnvironment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment2>, ::windows::core::GetTrustLevel, PostMessageToReceiverAsync::<Impl, OFFSET>, PostMessageToReceiverWithTelemetryAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment2>, ::windows::core::GetTrustLevel, PostMessageToReceiverAsync::<Impl, IMPL_OFFSET>, PostMessageToReceiverWithTelemetryAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironment2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironment3Impl: Sized {
     fn GetUserInfo(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentUserInfo>;
     fn ShareFileAsync(&self, filepath: &::windows::core::HSTRING, options: &::core::option::Option<IsolatedWindowsEnvironmentShareFileRequestOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>;
     fn ShareFileWithTelemetryAsync(&self, filepath: &::windows::core::HSTRING, options: &::core::option::Option<IsolatedWindowsEnvironmentShareFileRequestOptions>, telemetryparameters: &::core::option::Option<IsolatedWindowsEnvironmentTelemetryParameters>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironment3 {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironment3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironment3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironment3Impl, const OFFSET: isize>() -> IIsolatedWindowsEnvironment3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironment3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironment3Vtbl {
         unsafe extern "system" fn GetUserInfo<Impl: IIsolatedWindowsEnvironment3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUserInfo() {
@@ -256,7 +262,10 @@ impl IIsolatedWindowsEnvironment3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment3>, ::windows::core::GetTrustLevel, GetUserInfo::<Impl, OFFSET>, ShareFileAsync::<Impl, OFFSET>, ShareFileWithTelemetryAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironment3>, ::windows::core::GetTrustLevel, GetUserInfo::<Impl, IMPL_OFFSET>, ShareFileAsync::<Impl, IMPL_OFFSET>, ShareFileWithTelemetryAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironment3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -271,7 +280,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentCreateResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentCreateResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentCreateResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentCreateResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentCreateResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentCreateResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentCreateResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentCreateStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -305,23 +314,26 @@ impl IIsolatedWindowsEnvironmentCreateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentCreateResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, Environment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentCreateResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, Environment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentCreateResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironmentFactoryImpl: Sized {
     fn CreateAsync(&self, options: &::core::option::Option<IsolatedWindowsEnvironmentOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>;
     fn CreateWithTelemetryAsync(&self, options: &::core::option::Option<IsolatedWindowsEnvironmentOptions>, telemetryparameters: &::core::option::Option<IsolatedWindowsEnvironmentTelemetryParameters>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>;
     fn GetById(&self, environmentid: &::windows::core::HSTRING) -> ::windows::core::Result<IsolatedWindowsEnvironment>;
     fn FindByOwnerId(&self, environmentownerid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentFactory {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironmentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentFactoryImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentFactoryVtbl {
         unsafe extern "system" fn CreateAsync<Impl: IIsolatedWindowsEnvironmentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync(&*(&options as *const <IsolatedWindowsEnvironmentOptions as ::windows::core::Abi>::Abi as *const <IsolatedWindowsEnvironmentOptions as ::windows::core::DefaultType>::DefaultType)) {
@@ -366,7 +378,10 @@ impl IIsolatedWindowsEnvironmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFactory>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, OFFSET>, CreateWithTelemetryAsync::<Impl, OFFSET>, GetById::<Impl, OFFSET>, FindByOwnerId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFactory>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>, CreateWithTelemetryAsync::<Impl, IMPL_OFFSET>, GetById::<Impl, IMPL_OFFSET>, FindByOwnerId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -381,7 +396,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentFile {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentFileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentFileImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentFileVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentFileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentFileVtbl {
         unsafe extern "system" fn Id<Impl: IIsolatedWindowsEnvironmentFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -408,7 +423,10 @@ impl IIsolatedWindowsEnvironmentFileVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFile>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, HostPath::<Impl, OFFSET>, Close::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFile>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, HostPath::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentFile as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -422,7 +440,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentFile2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentFile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentFile2Impl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentFile2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentFile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentFile2Vtbl {
         unsafe extern "system" fn GuestPath<Impl: IIsolatedWindowsEnvironmentFile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GuestPath() {
@@ -445,21 +463,24 @@ impl IIsolatedWindowsEnvironmentFile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFile2>, ::windows::core::GetTrustLevel, GuestPath::<Impl, OFFSET>, IsReadOnly::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentFile2>, ::windows::core::GetTrustLevel, GuestPath::<Impl, IMPL_OFFSET>, IsReadOnly::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentFile2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironmentHostStaticsImpl: Sized {
     fn IsReady(&self) -> ::windows::core::Result<bool>;
     fn HostErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentHostStatics {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironmentHostStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentHostStaticsImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentHostStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentHostStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentHostStaticsVtbl {
         unsafe extern "system" fn IsReady<Impl: IIsolatedWindowsEnvironmentHostStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReady() {
@@ -482,7 +503,10 @@ impl IIsolatedWindowsEnvironmentHostStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentHostStatics>, ::windows::core::GetTrustLevel, IsReady::<Impl, OFFSET>, HostErrors::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentHostStatics>, ::windows::core::GetTrustLevel, IsReady::<Impl, IMPL_OFFSET>, HostErrors::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentHostStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -497,7 +521,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentLaunchFileResul
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentLaunchFileResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentLaunchFileResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentLaunchFileResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentLaunchFileResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentLaunchFileResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentLaunchFileResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentLaunchFileStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -531,7 +555,10 @@ impl IIsolatedWindowsEnvironmentLaunchFileResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentLaunchFileResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, File::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentLaunchFileResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentLaunchFileResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -560,7 +587,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOptionsImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentOptionsVtbl {
         unsafe extern "system" fn EnvironmentOwnerId<Impl: IIsolatedWindowsEnvironmentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnvironmentOwnerId() {
@@ -693,30 +720,33 @@ impl IIsolatedWindowsEnvironmentOptionsVtbl {
             (*this).SetAllowCameraAndMicrophoneAccess(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOptions>,
             ::windows::core::GetTrustLevel,
-            EnvironmentOwnerId::<Impl, OFFSET>,
-            SetEnvironmentOwnerId::<Impl, OFFSET>,
-            AllowedClipboardFormats::<Impl, OFFSET>,
-            SetAllowedClipboardFormats::<Impl, OFFSET>,
-            ClipboardCopyPasteDirections::<Impl, OFFSET>,
-            SetClipboardCopyPasteDirections::<Impl, OFFSET>,
-            AvailablePrinters::<Impl, OFFSET>,
-            SetAvailablePrinters::<Impl, OFFSET>,
-            SharedHostFolderPath::<Impl, OFFSET>,
-            SharedFolderNameInEnvironment::<Impl, OFFSET>,
-            ShareHostFolderForUntrustedItems::<Impl, OFFSET>,
-            PersistUserProfile::<Impl, OFFSET>,
-            SetPersistUserProfile::<Impl, OFFSET>,
-            AllowGraphicsHardwareAcceleration::<Impl, OFFSET>,
-            SetAllowGraphicsHardwareAcceleration::<Impl, OFFSET>,
-            AllowCameraAndMicrophoneAccess::<Impl, OFFSET>,
-            SetAllowCameraAndMicrophoneAccess::<Impl, OFFSET>,
+            EnvironmentOwnerId::<Impl, IMPL_OFFSET>,
+            SetEnvironmentOwnerId::<Impl, IMPL_OFFSET>,
+            AllowedClipboardFormats::<Impl, IMPL_OFFSET>,
+            SetAllowedClipboardFormats::<Impl, IMPL_OFFSET>,
+            ClipboardCopyPasteDirections::<Impl, IMPL_OFFSET>,
+            SetClipboardCopyPasteDirections::<Impl, IMPL_OFFSET>,
+            AvailablePrinters::<Impl, IMPL_OFFSET>,
+            SetAvailablePrinters::<Impl, IMPL_OFFSET>,
+            SharedHostFolderPath::<Impl, IMPL_OFFSET>,
+            SharedFolderNameInEnvironment::<Impl, IMPL_OFFSET>,
+            ShareHostFolderForUntrustedItems::<Impl, IMPL_OFFSET>,
+            PersistUserProfile::<Impl, IMPL_OFFSET>,
+            SetPersistUserProfile::<Impl, IMPL_OFFSET>,
+            AllowGraphicsHardwareAcceleration::<Impl, IMPL_OFFSET>,
+            SetAllowGraphicsHardwareAcceleration::<Impl, IMPL_OFFSET>,
+            AllowCameraAndMicrophoneAccess::<Impl, IMPL_OFFSET>,
+            SetAllowCameraAndMicrophoneAccess::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -730,7 +760,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentOptions2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentOptions2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOptions2Impl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentOptions2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOptions2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentOptions2Vtbl {
         unsafe extern "system" fn WindowAnnotationOverride<Impl: IIsolatedWindowsEnvironmentOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowAnnotationOverride() {
@@ -746,23 +776,26 @@ impl IIsolatedWindowsEnvironmentOptions2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWindowAnnotationOverride(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOptions2>, ::windows::core::GetTrustLevel, WindowAnnotationOverride::<Impl, OFFSET>, SetWindowAnnotationOverride::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOptions2>, ::windows::core::GetTrustLevel, WindowAnnotationOverride::<Impl, IMPL_OFFSET>, SetWindowAnnotationOverride::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentOptions2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironmentOwnerRegistrationDataImpl: Sized {
     fn ShareableFolders(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn ProcessesRunnableAsSystem(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn ProcessesRunnableAsUser(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn ActivationFileExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironmentOwnerRegistrationDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOwnerRegistrationDataImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentOwnerRegistrationDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOwnerRegistrationDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentOwnerRegistrationDataVtbl {
         unsafe extern "system" fn ShareableFolders<Impl: IIsolatedWindowsEnvironmentOwnerRegistrationDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShareableFolders() {
@@ -807,7 +840,21 @@ impl IIsolatedWindowsEnvironmentOwnerRegistrationDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationData>, ::windows::core::GetTrustLevel, ShareableFolders::<Impl, OFFSET>, ProcessesRunnableAsSystem::<Impl, OFFSET>, ProcessesRunnableAsUser::<Impl, OFFSET>, ActivationFileExtensions::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationData>,
+            ::windows::core::GetTrustLevel,
+            ShareableFolders::<Impl, IMPL_OFFSET>,
+            ProcessesRunnableAsSystem::<Impl, IMPL_OFFSET>,
+            ProcessesRunnableAsUser::<Impl, IMPL_OFFSET>,
+            ActivationFileExtensions::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentOwnerRegistrationData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -821,7 +868,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentOwnerRegistrati
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOwnerRegistrationResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOwnerRegistrationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentOwnerRegistrationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentOwnerRegistrationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -844,7 +891,10 @@ impl IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentOwnerRegistrationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -858,7 +908,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentOwnerRegistrati
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentOwnerRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOwnerRegistrationStaticsImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentOwnerRegistrationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentOwnerRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentOwnerRegistrationStaticsVtbl {
         unsafe extern "system" fn Register<Impl: IIsolatedWindowsEnvironmentOwnerRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ownername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, ownerregistrationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Register(&*(&ownername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&ownerregistrationdata as *const <IsolatedWindowsEnvironmentOwnerRegistrationData as ::windows::core::Abi>::Abi as *const <IsolatedWindowsEnvironmentOwnerRegistrationData as ::windows::core::DefaultType>::DefaultType)) {
@@ -874,7 +924,10 @@ impl IIsolatedWindowsEnvironmentOwnerRegistrationStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unregister(&*(&ownername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationStatics>, ::windows::core::GetTrustLevel, Register::<Impl, OFFSET>, Unregister::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentOwnerRegistrationStatics>, ::windows::core::GetTrustLevel, Register::<Impl, IMPL_OFFSET>, Unregister::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentOwnerRegistrationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -888,7 +941,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentPostMessageResu
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentPostMessageResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentPostMessageResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentPostMessageResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentPostMessageResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentPostMessageResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentPostMessageResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentPostMessageStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -911,10 +964,13 @@ impl IIsolatedWindowsEnvironmentPostMessageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentPostMessageResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentPostMessageResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentPostMessageResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironmentProcessImpl: Sized {
     fn State(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentProcessState>;
     fn ExitCode(&self) -> ::windows::core::Result<u32>;
@@ -922,13 +978,13 @@ pub trait IIsolatedWindowsEnvironmentProcessImpl: Sized {
     fn WaitForExitWithTimeout(&self, timeoutmilliseconds: u32) -> ::windows::core::Result<()>;
     fn WaitForExitAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironmentProcessVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentProcessImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentProcessVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentProcessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentProcessVtbl {
         unsafe extern "system" fn State<Impl: IIsolatedWindowsEnvironmentProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentProcessState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -970,7 +1026,10 @@ impl IIsolatedWindowsEnvironmentProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentProcess>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, ExitCode::<Impl, OFFSET>, WaitForExit::<Impl, OFFSET>, WaitForExitWithTimeout::<Impl, OFFSET>, WaitForExitAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentProcess>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, ExitCode::<Impl, IMPL_OFFSET>, WaitForExit::<Impl, IMPL_OFFSET>, WaitForExitWithTimeout::<Impl, IMPL_OFFSET>, WaitForExitAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentProcess as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -984,7 +1043,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentShareFileReques
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFileRequestOptionsImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFileRequestOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl {
         unsafe extern "system" fn AllowWrite<Impl: IIsolatedWindowsEnvironmentShareFileRequestOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowWrite() {
@@ -1000,7 +1059,10 @@ impl IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWrite(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFileRequestOptions>, ::windows::core::GetTrustLevel, AllowWrite::<Impl, OFFSET>, SetAllowWrite::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFileRequestOptions>, ::windows::core::GetTrustLevel, AllowWrite::<Impl, IMPL_OFFSET>, SetAllowWrite::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentShareFileRequestOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1015,7 +1077,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentShareFileResult
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentShareFileResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFileResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFileResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFileResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFileResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentShareFileResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentShareFileStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1049,7 +1111,10 @@ impl IIsolatedWindowsEnvironmentShareFileResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFileResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, File::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFileResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, File::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentShareFileResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1063,7 +1128,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentShareFolderRequ
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFolderRequestOptionsImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFolderRequestOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl {
         unsafe extern "system" fn AllowWrite<Impl: IIsolatedWindowsEnvironmentShareFolderRequestOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowWrite() {
@@ -1079,7 +1144,10 @@ impl IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWrite(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFolderRequestOptions>, ::windows::core::GetTrustLevel, AllowWrite::<Impl, OFFSET>, SetAllowWrite::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFolderRequestOptions>, ::windows::core::GetTrustLevel, AllowWrite::<Impl, IMPL_OFFSET>, SetAllowWrite::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentShareFolderRequestOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1093,7 +1161,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentShareFolderResu
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentShareFolderResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFolderResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFolderResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentShareFolderResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentShareFolderResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentShareFolderResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentShareFolderStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1116,7 +1184,10 @@ impl IIsolatedWindowsEnvironmentShareFolderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFolderResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentShareFolderResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentShareFolderResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1131,7 +1202,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentStartProcessRes
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentStartProcessResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentStartProcessResultImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentStartProcessResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentStartProcessResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentStartProcessResultVtbl {
         unsafe extern "system" fn Status<Impl: IIsolatedWindowsEnvironmentStartProcessResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentStartProcessStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1165,7 +1236,10 @@ impl IIsolatedWindowsEnvironmentStartProcessResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentStartProcessResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, Process::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentStartProcessResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, Process::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentStartProcessResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1179,7 +1253,7 @@ impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentTelemetryParame
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIsolatedWindowsEnvironmentTelemetryParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentTelemetryParametersImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentTelemetryParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentTelemetryParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentTelemetryParametersVtbl {
         unsafe extern "system" fn CorrelationId<Impl: IIsolatedWindowsEnvironmentTelemetryParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CorrelationId() {
@@ -1195,22 +1269,25 @@ impl IIsolatedWindowsEnvironmentTelemetryParametersVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCorrelationId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentTelemetryParameters>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, OFFSET>, SetCorrelationId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentTelemetryParameters>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, IMPL_OFFSET>, SetCorrelationId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentTelemetryParameters as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsEnvironmentUserInfoImpl: Sized {
     fn EnvironmentUserSid(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EnvironmentUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TryWaitForSignInAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IIsolatedWindowsEnvironmentUserInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentUserInfoImpl, const OFFSET: isize>() -> IIsolatedWindowsEnvironmentUserInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsEnvironmentUserInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsEnvironmentUserInfoVtbl {
         unsafe extern "system" fn EnvironmentUserSid<Impl: IIsolatedWindowsEnvironmentUserInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnvironmentUserSid() {
@@ -1244,21 +1321,24 @@ impl IIsolatedWindowsEnvironmentUserInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentUserInfo>, ::windows::core::GetTrustLevel, EnvironmentUserSid::<Impl, OFFSET>, EnvironmentUserName::<Impl, OFFSET>, TryWaitForSignInAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsEnvironmentUserInfo>, ::windows::core::GetTrustLevel, EnvironmentUserSid::<Impl, IMPL_OFFSET>, EnvironmentUserName::<Impl, IMPL_OFFSET>, TryWaitForSignInAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsEnvironmentUserInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsHostMessengerStaticsImpl: Sized {
     fn PostMessageToReceiver(&self, receiverid: &::windows::core::GUID, message: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()>;
     fn GetFileId(&self, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::GUID>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsHostMessengerStatics {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsHostMessengerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsHostMessengerStaticsImpl, const OFFSET: isize>() -> IIsolatedWindowsHostMessengerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsHostMessengerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsHostMessengerStaticsVtbl {
         unsafe extern "system" fn PostMessageToReceiver<Impl: IIsolatedWindowsHostMessengerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PostMessageToReceiver(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1274,21 +1354,24 @@ impl IIsolatedWindowsHostMessengerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsHostMessengerStatics>, ::windows::core::GetTrustLevel, PostMessageToReceiver::<Impl, OFFSET>, GetFileId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsHostMessengerStatics>, ::windows::core::GetTrustLevel, PostMessageToReceiver::<Impl, IMPL_OFFSET>, GetFileId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsHostMessengerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsolatedWindowsHostMessengerStatics2Impl: Sized {
     fn RegisterHostMessageReceiver(&self, receiverid: &::windows::core::GUID, hostmessagereceivedcallback: &::core::option::Option<HostMessageReceivedCallback>) -> ::windows::core::Result<()>;
     fn UnregisterHostMessageReceiver(&self, receiverid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsolatedWindowsHostMessengerStatics2 {
     const NAME: &'static str = "Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIsolatedWindowsHostMessengerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsHostMessengerStatics2Impl, const OFFSET: isize>() -> IIsolatedWindowsHostMessengerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedWindowsHostMessengerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedWindowsHostMessengerStatics2Vtbl {
         unsafe extern "system" fn RegisterHostMessageReceiver<Impl: IIsolatedWindowsHostMessengerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, hostmessagereceivedcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterHostMessageReceiver(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&hostmessagereceivedcallback as *const <HostMessageReceivedCallback as ::windows::core::Abi>::Abi as *const <HostMessageReceivedCallback as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1297,6 +1380,9 @@ impl IIsolatedWindowsHostMessengerStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterHostMessageReceiver(&*(&receiverid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsHostMessengerStatics2>, ::windows::core::GetTrustLevel, RegisterHostMessageReceiver::<Impl, OFFSET>, UnregisterHostMessageReceiver::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIsolatedWindowsHostMessengerStatics2>, ::windows::core::GetTrustLevel, RegisterHostMessageReceiver::<Impl, IMPL_OFFSET>, UnregisterHostMessageReceiver::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIsolatedWindowsHostMessengerStatics2 as ::windows::core::Interface>::IID
     }
 }

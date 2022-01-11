@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDateTimeFormatterImpl: Sized {
     fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -19,13 +19,13 @@ pub trait IDateTimeFormatterImpl: Sized {
     fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ResolvedGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.IDateTimeFormatter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDateTimeFormatterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatterImpl, const OFFSET: isize>() -> IDateTimeFormatterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDateTimeFormatterVtbl {
         unsafe extern "system" fn Languages<Impl: IDateTimeFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Languages() {
@@ -218,44 +218,47 @@ impl IDateTimeFormatterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDateTimeFormatter>,
             ::windows::core::GetTrustLevel,
-            Languages::<Impl, OFFSET>,
-            GeographicRegion::<Impl, OFFSET>,
-            Calendar::<Impl, OFFSET>,
-            Clock::<Impl, OFFSET>,
-            NumeralSystem::<Impl, OFFSET>,
-            SetNumeralSystem::<Impl, OFFSET>,
-            Patterns::<Impl, OFFSET>,
-            Template::<Impl, OFFSET>,
-            Format::<Impl, OFFSET>,
-            IncludeYear::<Impl, OFFSET>,
-            IncludeMonth::<Impl, OFFSET>,
-            IncludeDayOfWeek::<Impl, OFFSET>,
-            IncludeDay::<Impl, OFFSET>,
-            IncludeHour::<Impl, OFFSET>,
-            IncludeMinute::<Impl, OFFSET>,
-            IncludeSecond::<Impl, OFFSET>,
-            ResolvedLanguage::<Impl, OFFSET>,
-            ResolvedGeographicRegion::<Impl, OFFSET>,
+            Languages::<Impl, IMPL_OFFSET>,
+            GeographicRegion::<Impl, IMPL_OFFSET>,
+            Calendar::<Impl, IMPL_OFFSET>,
+            Clock::<Impl, IMPL_OFFSET>,
+            NumeralSystem::<Impl, IMPL_OFFSET>,
+            SetNumeralSystem::<Impl, IMPL_OFFSET>,
+            Patterns::<Impl, IMPL_OFFSET>,
+            Template::<Impl, IMPL_OFFSET>,
+            Format::<Impl, IMPL_OFFSET>,
+            IncludeYear::<Impl, IMPL_OFFSET>,
+            IncludeMonth::<Impl, IMPL_OFFSET>,
+            IncludeDayOfWeek::<Impl, IMPL_OFFSET>,
+            IncludeDay::<Impl, IMPL_OFFSET>,
+            IncludeHour::<Impl, IMPL_OFFSET>,
+            IncludeMinute::<Impl, IMPL_OFFSET>,
+            IncludeSecond::<Impl, IMPL_OFFSET>,
+            ResolvedLanguage::<Impl, IMPL_OFFSET>,
+            ResolvedGeographicRegion::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDateTimeFormatter as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDateTimeFormatter2Impl: Sized {
     fn FormatUsingTimeZone(&self, datetime: &super::super::Foundation::DateTime, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeFormatter2 {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDateTimeFormatter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatter2Impl, const OFFSET: isize>() -> IDateTimeFormatter2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDateTimeFormatter2Vtbl {
         unsafe extern "system" fn FormatUsingTimeZone<Impl: IDateTimeFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datetime: super::super::Foundation::DateTime, timezoneid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatUsingTimeZone(&*(&datetime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&timezoneid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -267,10 +270,13 @@ impl IDateTimeFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDateTimeFormatter2>, ::windows::core::GetTrustLevel, FormatUsingTimeZone::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDateTimeFormatter2>, ::windows::core::GetTrustLevel, FormatUsingTimeZone::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDateTimeFormatter2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDateTimeFormatterFactoryImpl: Sized {
     fn CreateDateTimeFormatter(&self, formattemplate: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
     fn CreateDateTimeFormatterLanguages(&self, formattemplate: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DateTimeFormatter>;
@@ -280,13 +286,13 @@ pub trait IDateTimeFormatterFactoryImpl: Sized {
     fn CreateDateTimeFormatterDateTimeLanguages(&self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DateTimeFormatter>;
     fn CreateDateTimeFormatterDateTimeContext(&self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDateTimeFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatterFactoryImpl, const OFFSET: isize>() -> IDateTimeFormatterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDateTimeFormatterFactoryVtbl {
         unsafe extern "system" fn CreateDateTimeFormatter<Impl: IDateTimeFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formattemplate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDateTimeFormatter(&*(&formattemplate as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -383,20 +389,23 @@ impl IDateTimeFormatterFactoryVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDateTimeFormatterFactory>,
             ::windows::core::GetTrustLevel,
-            CreateDateTimeFormatter::<Impl, OFFSET>,
-            CreateDateTimeFormatterLanguages::<Impl, OFFSET>,
-            CreateDateTimeFormatterContext::<Impl, OFFSET>,
-            CreateDateTimeFormatterDate::<Impl, OFFSET>,
-            CreateDateTimeFormatterTime::<Impl, OFFSET>,
-            CreateDateTimeFormatterDateTimeLanguages::<Impl, OFFSET>,
-            CreateDateTimeFormatterDateTimeContext::<Impl, OFFSET>,
+            CreateDateTimeFormatter::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterLanguages::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterContext::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterDate::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterTime::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterDateTimeLanguages::<Impl, IMPL_OFFSET>,
+            CreateDateTimeFormatterDateTimeContext::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDateTimeFormatterFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -412,7 +421,7 @@ impl ::windows::core::RuntimeName for IDateTimeFormatterStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDateTimeFormatterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatterStaticsImpl, const OFFSET: isize>() -> IDateTimeFormatterStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDateTimeFormatterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDateTimeFormatterStaticsVtbl {
         unsafe extern "system" fn LongDate<Impl: IDateTimeFormatterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LongDate() {
@@ -457,6 +466,9 @@ impl IDateTimeFormatterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDateTimeFormatterStatics>, ::windows::core::GetTrustLevel, LongDate::<Impl, OFFSET>, LongTime::<Impl, OFFSET>, ShortDate::<Impl, OFFSET>, ShortTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDateTimeFormatterStatics>, ::windows::core::GetTrustLevel, LongDate::<Impl, IMPL_OFFSET>, LongTime::<Impl, IMPL_OFFSET>, ShortDate::<Impl, IMPL_OFFSET>, ShortTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDateTimeFormatterStatics as ::windows::core::Interface>::IID
     }
 }

@@ -6,11 +6,14 @@ impl ::windows::core::RuntimeName for IRequestingFocusOnKeyboardInputEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRequestingFocusOnKeyboardInputEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRequestingFocusOnKeyboardInputEventArgsImpl, const OFFSET: isize>() -> IRequestingFocusOnKeyboardInputEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRequestingFocusOnKeyboardInputEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRequestingFocusOnKeyboardInputEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRequestingFocusOnKeyboardInputEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRequestingFocusOnKeyboardInputEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRequestingFocusOnKeyboardInputEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISearchSuggestionImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<SearchSuggestionKind>;
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -19,13 +22,13 @@ pub trait ISearchSuggestionImpl: Sized {
     fn Image(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn ImageAlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchSuggestion {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.ISearchSuggestion";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISearchSuggestionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionImpl, const OFFSET: isize>() -> ISearchSuggestionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionVtbl {
         unsafe extern "system" fn Kind<Impl: ISearchSuggestionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SearchSuggestionKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -92,10 +95,13 @@ impl ISearchSuggestionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestion>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>, Text::<Impl, OFFSET>, Tag::<Impl, OFFSET>, DetailText::<Impl, OFFSET>, Image::<Impl, OFFSET>, ImageAlternateText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestion>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, DetailText::<Impl, IMPL_OFFSET>, Image::<Impl, IMPL_OFFSET>, ImageAlternateText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchSuggestion as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISearchSuggestionManagerImpl: Sized {
     fn SearchHistoryEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetSearchHistoryEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -114,13 +120,13 @@ pub trait ISearchSuggestionManagerImpl: Sized {
     fn RequestingFocusOnKeyboardInput(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveRequestingFocusOnKeyboardInput(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchSuggestionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.ISearchSuggestionManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISearchSuggestionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionManagerImpl, const OFFSET: isize>() -> ISearchSuggestionManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionManagerVtbl {
         unsafe extern "system" fn SearchHistoryEnabled<Impl: ISearchSuggestionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchHistoryEnabled() {
@@ -227,29 +233,32 @@ impl ISearchSuggestionManagerVtbl {
             (*this).RemoveRequestingFocusOnKeyboardInput(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISearchSuggestionManager>,
             ::windows::core::GetTrustLevel,
-            SearchHistoryEnabled::<Impl, OFFSET>,
-            SetSearchHistoryEnabled::<Impl, OFFSET>,
-            SearchHistoryContext::<Impl, OFFSET>,
-            SetSearchHistoryContext::<Impl, OFFSET>,
-            SetLocalContentSuggestionSettings::<Impl, OFFSET>,
-            SetQuery::<Impl, OFFSET>,
-            SetQueryWithLanguage::<Impl, OFFSET>,
-            SetQueryWithSearchQueryLinguisticDetails::<Impl, OFFSET>,
-            Suggestions::<Impl, OFFSET>,
-            AddToHistory::<Impl, OFFSET>,
-            AddToHistoryWithLanguage::<Impl, OFFSET>,
-            ClearHistory::<Impl, OFFSET>,
-            SuggestionsRequested::<Impl, OFFSET>,
-            RemoveSuggestionsRequested::<Impl, OFFSET>,
-            RequestingFocusOnKeyboardInput::<Impl, OFFSET>,
-            RemoveRequestingFocusOnKeyboardInput::<Impl, OFFSET>,
+            SearchHistoryEnabled::<Impl, IMPL_OFFSET>,
+            SetSearchHistoryEnabled::<Impl, IMPL_OFFSET>,
+            SearchHistoryContext::<Impl, IMPL_OFFSET>,
+            SetSearchHistoryContext::<Impl, IMPL_OFFSET>,
+            SetLocalContentSuggestionSettings::<Impl, IMPL_OFFSET>,
+            SetQuery::<Impl, IMPL_OFFSET>,
+            SetQueryWithLanguage::<Impl, IMPL_OFFSET>,
+            SetQueryWithSearchQueryLinguisticDetails::<Impl, IMPL_OFFSET>,
+            Suggestions::<Impl, IMPL_OFFSET>,
+            AddToHistory::<Impl, IMPL_OFFSET>,
+            AddToHistoryWithLanguage::<Impl, IMPL_OFFSET>,
+            ClearHistory::<Impl, IMPL_OFFSET>,
+            SuggestionsRequested::<Impl, IMPL_OFFSET>,
+            RemoveSuggestionsRequested::<Impl, IMPL_OFFSET>,
+            RequestingFocusOnKeyboardInput::<Impl, IMPL_OFFSET>,
+            RemoveRequestingFocusOnKeyboardInput::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchSuggestionManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -265,7 +274,7 @@ impl ::windows::core::RuntimeName for ISearchSuggestionsRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISearchSuggestionsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestedEventArgsImpl, const OFFSET: isize>() -> ISearchSuggestionsRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequestedEventArgsVtbl {
         unsafe extern "system" fn QueryText<Impl: ISearchSuggestionsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryText() {
@@ -310,6 +319,9 @@ impl ISearchSuggestionsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequestedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, OFFSET>, Language::<Impl, OFFSET>, LinguisticDetails::<Impl, OFFSET>, Request::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISearchSuggestionsRequestedEventArgs>, ::windows::core::GetTrustLevel, QueryText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, LinguisticDetails::<Impl, IMPL_OFFSET>, Request::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchSuggestionsRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

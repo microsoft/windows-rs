@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IBackgroundEnergyDiagnosticsStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IBackgroundEnergyDiagnosticsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>() -> IBackgroundEnergyDiagnosticsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundEnergyDiagnosticsStaticsVtbl {
         unsafe extern "system" fn DeviceSpecificConversionFactor<Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceSpecificConversionFactor() {
@@ -37,7 +37,10 @@ impl IBackgroundEnergyDiagnosticsStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetTotalEnergyUsage().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundEnergyDiagnosticsStatics>, ::windows::core::GetTrustLevel, DeviceSpecificConversionFactor::<Impl, OFFSET>, ComputeTotalEnergyUsage::<Impl, OFFSET>, ResetTotalEnergyUsage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundEnergyDiagnosticsStatics>, ::windows::core::GetTrustLevel, DeviceSpecificConversionFactor::<Impl, IMPL_OFFSET>, ComputeTotalEnergyUsage::<Impl, IMPL_OFFSET>, ResetTotalEnergyUsage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundEnergyDiagnosticsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -52,7 +55,7 @@ impl ::windows::core::RuntimeName for IForegroundEnergyDiagnosticsStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IForegroundEnergyDiagnosticsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForegroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>() -> IForegroundEnergyDiagnosticsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForegroundEnergyDiagnosticsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForegroundEnergyDiagnosticsStaticsVtbl {
         unsafe extern "system" fn DeviceSpecificConversionFactor<Impl: IForegroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceSpecificConversionFactor() {
@@ -79,6 +82,9 @@ impl IForegroundEnergyDiagnosticsStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetTotalEnergyUsage().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IForegroundEnergyDiagnosticsStatics>, ::windows::core::GetTrustLevel, DeviceSpecificConversionFactor::<Impl, OFFSET>, ComputeTotalEnergyUsage::<Impl, OFFSET>, ResetTotalEnergyUsage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IForegroundEnergyDiagnosticsStatics>, ::windows::core::GetTrustLevel, DeviceSpecificConversionFactor::<Impl, IMPL_OFFSET>, ComputeTotalEnergyUsage::<Impl, IMPL_OFFSET>, ResetTotalEnergyUsage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IForegroundEnergyDiagnosticsStatics as ::windows::core::Interface>::IID
     }
 }

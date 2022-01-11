@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAdvancedColorInfoImpl: Sized {
     fn CurrentAdvancedColorKind(&self) -> ::windows::core::Result<AdvancedColorKind>;
     fn RedPrimary(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
@@ -12,13 +12,13 @@ pub trait IAdvancedColorInfoImpl: Sized {
     fn IsHdrMetadataFormatCurrentlySupported(&self, format: HdrMetadataFormat) -> ::windows::core::Result<bool>;
     fn IsAdvancedColorKindAvailable(&self, kind: AdvancedColorKind) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.IAdvancedColorInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAdvancedColorInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedColorInfoImpl, const OFFSET: isize>() -> IAdvancedColorInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedColorInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedColorInfoVtbl {
         unsafe extern "system" fn CurrentAdvancedColorKind<Impl: IAdvancedColorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdvancedColorKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAdvancedColorKind() {
@@ -141,27 +141,30 @@ impl IAdvancedColorInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAdvancedColorInfo>,
             ::windows::core::GetTrustLevel,
-            CurrentAdvancedColorKind::<Impl, OFFSET>,
-            RedPrimary::<Impl, OFFSET>,
-            GreenPrimary::<Impl, OFFSET>,
-            BluePrimary::<Impl, OFFSET>,
-            WhitePoint::<Impl, OFFSET>,
-            MaxLuminanceInNits::<Impl, OFFSET>,
-            MinLuminanceInNits::<Impl, OFFSET>,
-            MaxAverageFullFrameLuminanceInNits::<Impl, OFFSET>,
-            SdrWhiteLevelInNits::<Impl, OFFSET>,
-            IsHdrMetadataFormatCurrentlySupported::<Impl, OFFSET>,
-            IsAdvancedColorKindAvailable::<Impl, OFFSET>,
+            CurrentAdvancedColorKind::<Impl, IMPL_OFFSET>,
+            RedPrimary::<Impl, IMPL_OFFSET>,
+            GreenPrimary::<Impl, IMPL_OFFSET>,
+            BluePrimary::<Impl, IMPL_OFFSET>,
+            WhitePoint::<Impl, IMPL_OFFSET>,
+            MaxLuminanceInNits::<Impl, IMPL_OFFSET>,
+            MinLuminanceInNits::<Impl, IMPL_OFFSET>,
+            MaxAverageFullFrameLuminanceInNits::<Impl, IMPL_OFFSET>,
+            SdrWhiteLevelInNits::<Impl, IMPL_OFFSET>,
+            IsHdrMetadataFormatCurrentlySupported::<Impl, IMPL_OFFSET>,
+            IsAdvancedColorKindAvailable::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdvancedColorInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBrightnessOverrideImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn IsOverrideActive(&self) -> ::windows::core::Result<bool>;
@@ -178,13 +181,13 @@ pub trait IBrightnessOverrideImpl: Sized {
     fn BrightnessLevelChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BrightnessOverride, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveBrightnessLevelChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.IBrightnessOverride";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBrightnessOverrideVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideImpl, const OFFSET: isize>() -> IBrightnessOverrideVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBrightnessOverrideVtbl {
         unsafe extern "system" fn IsSupported<Impl: IBrightnessOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -291,27 +294,30 @@ impl IBrightnessOverrideVtbl {
             (*this).RemoveBrightnessLevelChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBrightnessOverride>,
             ::windows::core::GetTrustLevel,
-            IsSupported::<Impl, OFFSET>,
-            IsOverrideActive::<Impl, OFFSET>,
-            BrightnessLevel::<Impl, OFFSET>,
-            SetBrightnessLevel::<Impl, OFFSET>,
-            SetBrightnessScenario::<Impl, OFFSET>,
-            GetLevelForScenario::<Impl, OFFSET>,
-            StartOverride::<Impl, OFFSET>,
-            StopOverride::<Impl, OFFSET>,
-            IsSupportedChanged::<Impl, OFFSET>,
-            RemoveIsSupportedChanged::<Impl, OFFSET>,
-            IsOverrideActiveChanged::<Impl, OFFSET>,
-            RemoveIsOverrideActiveChanged::<Impl, OFFSET>,
-            BrightnessLevelChanged::<Impl, OFFSET>,
-            RemoveBrightnessLevelChanged::<Impl, OFFSET>,
+            IsSupported::<Impl, IMPL_OFFSET>,
+            IsOverrideActive::<Impl, IMPL_OFFSET>,
+            BrightnessLevel::<Impl, IMPL_OFFSET>,
+            SetBrightnessLevel::<Impl, IMPL_OFFSET>,
+            SetBrightnessScenario::<Impl, IMPL_OFFSET>,
+            GetLevelForScenario::<Impl, IMPL_OFFSET>,
+            StartOverride::<Impl, IMPL_OFFSET>,
+            StopOverride::<Impl, IMPL_OFFSET>,
+            IsSupportedChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsSupportedChanged::<Impl, IMPL_OFFSET>,
+            IsOverrideActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsOverrideActiveChanged::<Impl, IMPL_OFFSET>,
+            BrightnessLevelChanged::<Impl, IMPL_OFFSET>,
+            RemoveBrightnessLevelChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBrightnessOverride as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -325,7 +331,7 @@ impl ::windows::core::RuntimeName for IBrightnessOverrideSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBrightnessOverrideSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideSettingsImpl, const OFFSET: isize>() -> IBrightnessOverrideSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBrightnessOverrideSettingsVtbl {
         unsafe extern "system" fn DesiredLevel<Impl: IBrightnessOverrideSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredLevel() {
@@ -348,7 +354,10 @@ impl IBrightnessOverrideSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBrightnessOverrideSettings>, ::windows::core::GetTrustLevel, DesiredLevel::<Impl, OFFSET>, DesiredNits::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBrightnessOverrideSettings>, ::windows::core::GetTrustLevel, DesiredLevel::<Impl, IMPL_OFFSET>, DesiredNits::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBrightnessOverrideSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -363,7 +372,7 @@ impl ::windows::core::RuntimeName for IBrightnessOverrideSettingsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBrightnessOverrideSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideSettingsStaticsImpl, const OFFSET: isize>() -> IBrightnessOverrideSettingsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBrightnessOverrideSettingsStaticsVtbl {
         unsafe extern "system" fn CreateFromLevel<Impl: IBrightnessOverrideSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromLevel(level) {
@@ -397,22 +406,25 @@ impl IBrightnessOverrideSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBrightnessOverrideSettingsStatics>, ::windows::core::GetTrustLevel, CreateFromLevel::<Impl, OFFSET>, CreateFromNits::<Impl, OFFSET>, CreateFromDisplayBrightnessOverrideScenario::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBrightnessOverrideSettingsStatics>, ::windows::core::GetTrustLevel, CreateFromLevel::<Impl, IMPL_OFFSET>, CreateFromNits::<Impl, IMPL_OFFSET>, CreateFromDisplayBrightnessOverrideScenario::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBrightnessOverrideSettingsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBrightnessOverrideStaticsImpl: Sized {
     fn GetDefaultForSystem(&self) -> ::windows::core::Result<BrightnessOverride>;
     fn GetForCurrentView(&self) -> ::windows::core::Result<BrightnessOverride>;
     fn SaveForSystemAsync(&self, value: &::core::option::Option<BrightnessOverride>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBrightnessOverrideStatics {
     const NAME: &'static str = "Windows.Graphics.Display.IBrightnessOverrideStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBrightnessOverrideStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideStaticsImpl, const OFFSET: isize>() -> IBrightnessOverrideStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrightnessOverrideStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBrightnessOverrideStaticsVtbl {
         unsafe extern "system" fn GetDefaultForSystem<Impl: IBrightnessOverrideStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultForSystem() {
@@ -446,7 +458,10 @@ impl IBrightnessOverrideStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBrightnessOverrideStatics>, ::windows::core::GetTrustLevel, GetDefaultForSystem::<Impl, OFFSET>, GetForCurrentView::<Impl, OFFSET>, SaveForSystemAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBrightnessOverrideStatics>, ::windows::core::GetTrustLevel, GetDefaultForSystem::<Impl, IMPL_OFFSET>, GetForCurrentView::<Impl, IMPL_OFFSET>, SaveForSystemAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBrightnessOverrideStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -459,7 +474,7 @@ impl ::windows::core::RuntimeName for IColorOverrideSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorOverrideSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorOverrideSettingsImpl, const OFFSET: isize>() -> IColorOverrideSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorOverrideSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorOverrideSettingsVtbl {
         unsafe extern "system" fn DesiredDisplayColorOverrideScenario<Impl: IColorOverrideSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayColorOverrideScenario) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredDisplayColorOverrideScenario() {
@@ -471,7 +486,10 @@ impl IColorOverrideSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorOverrideSettings>, ::windows::core::GetTrustLevel, DesiredDisplayColorOverrideScenario::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorOverrideSettings>, ::windows::core::GetTrustLevel, DesiredDisplayColorOverrideScenario::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorOverrideSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -484,7 +502,7 @@ impl ::windows::core::RuntimeName for IColorOverrideSettingsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorOverrideSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorOverrideSettingsStaticsImpl, const OFFSET: isize>() -> IColorOverrideSettingsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorOverrideSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorOverrideSettingsStaticsVtbl {
         unsafe extern "system" fn CreateFromDisplayColorOverrideScenario<Impl: IColorOverrideSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, overridescenario: DisplayColorOverrideScenario, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromDisplayColorOverrideScenario(overridescenario) {
@@ -496,10 +514,13 @@ impl IColorOverrideSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorOverrideSettingsStatics>, ::windows::core::GetTrustLevel, CreateFromDisplayColorOverrideScenario::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorOverrideSettingsStatics>, ::windows::core::GetTrustLevel, CreateFromDisplayColorOverrideScenario::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorOverrideSettingsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayEnhancementOverrideImpl: Sized {
     fn ColorOverrideSettings(&self) -> ::windows::core::Result<ColorOverrideSettings>;
     fn SetColorOverrideSettings(&self, value: &::core::option::Option<ColorOverrideSettings>) -> ::windows::core::Result<()>;
@@ -517,13 +538,13 @@ pub trait IDisplayEnhancementOverrideImpl: Sized {
     fn DisplayEnhancementOverrideCapabilitiesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, DisplayEnhancementOverrideCapabilitiesChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDisplayEnhancementOverrideCapabilitiesChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayEnhancementOverride";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDisplayEnhancementOverrideVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideImpl, const OFFSET: isize>() -> IDisplayEnhancementOverrideVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayEnhancementOverrideVtbl {
         unsafe extern "system" fn ColorOverrideSettings<Impl: IDisplayEnhancementOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorOverrideSettings() {
@@ -641,43 +662,46 @@ impl IDisplayEnhancementOverrideVtbl {
             (*this).RemoveDisplayEnhancementOverrideCapabilitiesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverride>,
             ::windows::core::GetTrustLevel,
-            ColorOverrideSettings::<Impl, OFFSET>,
-            SetColorOverrideSettings::<Impl, OFFSET>,
-            BrightnessOverrideSettings::<Impl, OFFSET>,
-            SetBrightnessOverrideSettings::<Impl, OFFSET>,
-            CanOverride::<Impl, OFFSET>,
-            IsOverrideActive::<Impl, OFFSET>,
-            GetCurrentDisplayEnhancementOverrideCapabilities::<Impl, OFFSET>,
-            RequestOverride::<Impl, OFFSET>,
-            StopOverride::<Impl, OFFSET>,
-            CanOverrideChanged::<Impl, OFFSET>,
-            RemoveCanOverrideChanged::<Impl, OFFSET>,
-            IsOverrideActiveChanged::<Impl, OFFSET>,
-            RemoveIsOverrideActiveChanged::<Impl, OFFSET>,
-            DisplayEnhancementOverrideCapabilitiesChanged::<Impl, OFFSET>,
-            RemoveDisplayEnhancementOverrideCapabilitiesChanged::<Impl, OFFSET>,
+            ColorOverrideSettings::<Impl, IMPL_OFFSET>,
+            SetColorOverrideSettings::<Impl, IMPL_OFFSET>,
+            BrightnessOverrideSettings::<Impl, IMPL_OFFSET>,
+            SetBrightnessOverrideSettings::<Impl, IMPL_OFFSET>,
+            CanOverride::<Impl, IMPL_OFFSET>,
+            IsOverrideActive::<Impl, IMPL_OFFSET>,
+            GetCurrentDisplayEnhancementOverrideCapabilities::<Impl, IMPL_OFFSET>,
+            RequestOverride::<Impl, IMPL_OFFSET>,
+            StopOverride::<Impl, IMPL_OFFSET>,
+            CanOverrideChanged::<Impl, IMPL_OFFSET>,
+            RemoveCanOverrideChanged::<Impl, IMPL_OFFSET>,
+            IsOverrideActiveChanged::<Impl, IMPL_OFFSET>,
+            RemoveIsOverrideActiveChanged::<Impl, IMPL_OFFSET>,
+            DisplayEnhancementOverrideCapabilitiesChanged::<Impl, IMPL_OFFSET>,
+            RemoveDisplayEnhancementOverrideCapabilitiesChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayEnhancementOverride as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDisplayEnhancementOverrideCapabilitiesImpl: Sized {
     fn IsBrightnessControlSupported(&self) -> ::windows::core::Result<bool>;
     fn IsBrightnessNitsControlSupported(&self) -> ::windows::core::Result<bool>;
     fn GetSupportedNitRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<NitRange>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilities";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDisplayEnhancementOverrideCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideCapabilitiesImpl, const OFFSET: isize>() -> IDisplayEnhancementOverrideCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayEnhancementOverrideCapabilitiesVtbl {
         unsafe extern "system" fn IsBrightnessControlSupported<Impl: IDisplayEnhancementOverrideCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBrightnessControlSupported() {
@@ -711,7 +735,10 @@ impl IDisplayEnhancementOverrideCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverrideCapabilities>, ::windows::core::GetTrustLevel, IsBrightnessControlSupported::<Impl, OFFSET>, IsBrightnessNitsControlSupported::<Impl, OFFSET>, GetSupportedNitRanges::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverrideCapabilities>, ::windows::core::GetTrustLevel, IsBrightnessControlSupported::<Impl, IMPL_OFFSET>, IsBrightnessNitsControlSupported::<Impl, IMPL_OFFSET>, GetSupportedNitRanges::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayEnhancementOverrideCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -724,7 +751,7 @@ impl ::windows::core::RuntimeName for IDisplayEnhancementOverrideCapabilitiesCha
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideCapabilitiesChangedEventArgsImpl, const OFFSET: isize>() -> IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideCapabilitiesChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl {
         unsafe extern "system" fn Capabilities<Impl: IDisplayEnhancementOverrideCapabilitiesChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
@@ -736,7 +763,10 @@ impl IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverrideCapabilitiesChangedEventArgs>, ::windows::core::GetTrustLevel, Capabilities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverrideCapabilitiesChangedEventArgs>, ::windows::core::GetTrustLevel, Capabilities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayEnhancementOverrideCapabilitiesChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -749,7 +779,7 @@ impl ::windows::core::RuntimeName for IDisplayEnhancementOverrideStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayEnhancementOverrideStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideStaticsImpl, const OFFSET: isize>() -> IDisplayEnhancementOverrideStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayEnhancementOverrideStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayEnhancementOverrideStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IDisplayEnhancementOverrideStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -761,10 +791,13 @@ impl IDisplayEnhancementOverrideStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverrideStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayEnhancementOverrideStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayEnhancementOverrideStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDisplayInformationImpl: Sized {
     fn CurrentOrientation(&self) -> ::windows::core::Result<DisplayOrientations>;
     fn NativeOrientation(&self) -> ::windows::core::Result<DisplayOrientations>;
@@ -783,13 +816,13 @@ pub trait IDisplayInformationImpl: Sized {
     fn ColorProfileChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveColorProfileChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IDisplayInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformationImpl, const OFFSET: isize>() -> IDisplayInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayInformationVtbl {
         unsafe extern "system" fn CurrentOrientation<Impl: IDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentOrientation() {
@@ -939,42 +972,45 @@ impl IDisplayInformationVtbl {
             (*this).RemoveColorProfileChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDisplayInformation>,
             ::windows::core::GetTrustLevel,
-            CurrentOrientation::<Impl, OFFSET>,
-            NativeOrientation::<Impl, OFFSET>,
-            OrientationChanged::<Impl, OFFSET>,
-            RemoveOrientationChanged::<Impl, OFFSET>,
-            ResolutionScale::<Impl, OFFSET>,
-            LogicalDpi::<Impl, OFFSET>,
-            RawDpiX::<Impl, OFFSET>,
-            RawDpiY::<Impl, OFFSET>,
-            DpiChanged::<Impl, OFFSET>,
-            RemoveDpiChanged::<Impl, OFFSET>,
-            StereoEnabled::<Impl, OFFSET>,
-            StereoEnabledChanged::<Impl, OFFSET>,
-            RemoveStereoEnabledChanged::<Impl, OFFSET>,
-            GetColorProfileAsync::<Impl, OFFSET>,
-            ColorProfileChanged::<Impl, OFFSET>,
-            RemoveColorProfileChanged::<Impl, OFFSET>,
+            CurrentOrientation::<Impl, IMPL_OFFSET>,
+            NativeOrientation::<Impl, IMPL_OFFSET>,
+            OrientationChanged::<Impl, IMPL_OFFSET>,
+            RemoveOrientationChanged::<Impl, IMPL_OFFSET>,
+            ResolutionScale::<Impl, IMPL_OFFSET>,
+            LogicalDpi::<Impl, IMPL_OFFSET>,
+            RawDpiX::<Impl, IMPL_OFFSET>,
+            RawDpiY::<Impl, IMPL_OFFSET>,
+            DpiChanged::<Impl, IMPL_OFFSET>,
+            RemoveDpiChanged::<Impl, IMPL_OFFSET>,
+            StereoEnabled::<Impl, IMPL_OFFSET>,
+            StereoEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveStereoEnabledChanged::<Impl, IMPL_OFFSET>,
+            GetColorProfileAsync::<Impl, IMPL_OFFSET>,
+            ColorProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveColorProfileChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayInformation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDisplayInformation2Impl: Sized + IDisplayInformationImpl {
     fn RawPixelsPerViewPixel(&self) -> ::windows::core::Result<f64>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayInformation2 {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayInformation2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IDisplayInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation2Impl, const OFFSET: isize>() -> IDisplayInformation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayInformation2Vtbl {
         unsafe extern "system" fn RawPixelsPerViewPixel<Impl: IDisplayInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawPixelsPerViewPixel() {
@@ -986,20 +1022,23 @@ impl IDisplayInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation2>, ::windows::core::GetTrustLevel, RawPixelsPerViewPixel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation2>, ::windows::core::GetTrustLevel, RawPixelsPerViewPixel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayInformation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayInformation3Impl: Sized {
     fn DiagonalSizeInInches(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayInformation3 {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayInformation3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDisplayInformation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation3Impl, const OFFSET: isize>() -> IDisplayInformation3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayInformation3Vtbl {
         unsafe extern "system" fn DiagonalSizeInInches<Impl: IDisplayInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiagonalSizeInInches() {
@@ -1011,7 +1050,10 @@ impl IDisplayInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation3>, ::windows::core::GetTrustLevel, DiagonalSizeInInches::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation3>, ::windows::core::GetTrustLevel, DiagonalSizeInInches::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayInformation3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1025,7 +1067,7 @@ impl ::windows::core::RuntimeName for IDisplayInformation4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayInformation4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation4Impl, const OFFSET: isize>() -> IDisplayInformation4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayInformation4Vtbl {
         unsafe extern "system" fn ScreenWidthInRawPixels<Impl: IDisplayInformation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenWidthInRawPixels() {
@@ -1048,22 +1090,25 @@ impl IDisplayInformation4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation4>, ::windows::core::GetTrustLevel, ScreenWidthInRawPixels::<Impl, OFFSET>, ScreenHeightInRawPixels::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation4>, ::windows::core::GetTrustLevel, ScreenWidthInRawPixels::<Impl, IMPL_OFFSET>, ScreenHeightInRawPixels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayInformation4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayInformation5Impl: Sized {
     fn GetAdvancedColorInfo(&self) -> ::windows::core::Result<AdvancedColorInfo>;
     fn AdvancedColorInfoChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdvancedColorInfoChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayInformation5 {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayInformation5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDisplayInformation5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation5Impl, const OFFSET: isize>() -> IDisplayInformation5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformation5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayInformation5Vtbl {
         unsafe extern "system" fn GetAdvancedColorInfo<Impl: IDisplayInformation5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAdvancedColorInfo() {
@@ -1090,10 +1135,13 @@ impl IDisplayInformation5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdvancedColorInfoChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation5>, ::windows::core::GetTrustLevel, GetAdvancedColorInfo::<Impl, OFFSET>, AdvancedColorInfoChanged::<Impl, OFFSET>, RemoveAdvancedColorInfoChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayInformation5>, ::windows::core::GetTrustLevel, GetAdvancedColorInfo::<Impl, IMPL_OFFSET>, AdvancedColorInfoChanged::<Impl, IMPL_OFFSET>, RemoveAdvancedColorInfoChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayInformation5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayInformationStaticsImpl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<DisplayInformation>;
     fn AutoRotationPreferences(&self) -> ::windows::core::Result<DisplayOrientations>;
@@ -1101,13 +1149,13 @@ pub trait IDisplayInformationStaticsImpl: Sized {
     fn DisplayContentsInvalidated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDisplayContentsInvalidated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayInformationStatics {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayInformationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDisplayInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformationStaticsImpl, const OFFSET: isize>() -> IDisplayInformationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayInformationStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IDisplayInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -1150,21 +1198,24 @@ impl IDisplayInformationStaticsVtbl {
             (*this).RemoveDisplayContentsInvalidated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDisplayInformationStatics>,
             ::windows::core::GetTrustLevel,
-            GetForCurrentView::<Impl, OFFSET>,
-            AutoRotationPreferences::<Impl, OFFSET>,
-            SetAutoRotationPreferences::<Impl, OFFSET>,
-            DisplayContentsInvalidated::<Impl, OFFSET>,
-            RemoveDisplayContentsInvalidated::<Impl, OFFSET>,
+            GetForCurrentView::<Impl, IMPL_OFFSET>,
+            AutoRotationPreferences::<Impl, IMPL_OFFSET>,
+            SetAutoRotationPreferences::<Impl, IMPL_OFFSET>,
+            DisplayContentsInvalidated::<Impl, IMPL_OFFSET>,
+            RemoveDisplayContentsInvalidated::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayInformationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IDisplayPropertiesStaticsImpl: Sized {
     fn CurrentOrientation(&self) -> ::windows::core::Result<DisplayOrientations>;
     fn NativeOrientation(&self) -> ::windows::core::Result<DisplayOrientations>;
@@ -1185,13 +1236,13 @@ pub trait IDisplayPropertiesStaticsImpl: Sized {
     fn DisplayContentsInvalidated(&self, handler: &::core::option::Option<DisplayPropertiesEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDisplayContentsInvalidated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayPropertiesStatics {
     const NAME: &'static str = "Windows.Graphics.Display.IDisplayPropertiesStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl IDisplayPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayPropertiesStaticsImpl, const OFFSET: isize>() -> IDisplayPropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayPropertiesStaticsVtbl {
         unsafe extern "system" fn CurrentOrientation<Impl: IDisplayPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentOrientation() {
@@ -1349,31 +1400,34 @@ impl IDisplayPropertiesStaticsVtbl {
             (*this).RemoveDisplayContentsInvalidated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDisplayPropertiesStatics>,
             ::windows::core::GetTrustLevel,
-            CurrentOrientation::<Impl, OFFSET>,
-            NativeOrientation::<Impl, OFFSET>,
-            AutoRotationPreferences::<Impl, OFFSET>,
-            SetAutoRotationPreferences::<Impl, OFFSET>,
-            OrientationChanged::<Impl, OFFSET>,
-            RemoveOrientationChanged::<Impl, OFFSET>,
-            ResolutionScale::<Impl, OFFSET>,
-            LogicalDpi::<Impl, OFFSET>,
-            LogicalDpiChanged::<Impl, OFFSET>,
-            RemoveLogicalDpiChanged::<Impl, OFFSET>,
-            StereoEnabled::<Impl, OFFSET>,
-            StereoEnabledChanged::<Impl, OFFSET>,
-            RemoveStereoEnabledChanged::<Impl, OFFSET>,
-            GetColorProfileAsync::<Impl, OFFSET>,
-            ColorProfileChanged::<Impl, OFFSET>,
-            RemoveColorProfileChanged::<Impl, OFFSET>,
-            DisplayContentsInvalidated::<Impl, OFFSET>,
-            RemoveDisplayContentsInvalidated::<Impl, OFFSET>,
+            CurrentOrientation::<Impl, IMPL_OFFSET>,
+            NativeOrientation::<Impl, IMPL_OFFSET>,
+            AutoRotationPreferences::<Impl, IMPL_OFFSET>,
+            SetAutoRotationPreferences::<Impl, IMPL_OFFSET>,
+            OrientationChanged::<Impl, IMPL_OFFSET>,
+            RemoveOrientationChanged::<Impl, IMPL_OFFSET>,
+            ResolutionScale::<Impl, IMPL_OFFSET>,
+            LogicalDpi::<Impl, IMPL_OFFSET>,
+            LogicalDpiChanged::<Impl, IMPL_OFFSET>,
+            RemoveLogicalDpiChanged::<Impl, IMPL_OFFSET>,
+            StereoEnabled::<Impl, IMPL_OFFSET>,
+            StereoEnabledChanged::<Impl, IMPL_OFFSET>,
+            RemoveStereoEnabledChanged::<Impl, IMPL_OFFSET>,
+            GetColorProfileAsync::<Impl, IMPL_OFFSET>,
+            ColorProfileChanged::<Impl, IMPL_OFFSET>,
+            RemoveColorProfileChanged::<Impl, IMPL_OFFSET>,
+            DisplayContentsInvalidated::<Impl, IMPL_OFFSET>,
+            RemoveDisplayContentsInvalidated::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayPropertiesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1384,8 +1438,11 @@ impl ::windows::core::RuntimeName for IDisplayServices {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayServicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayServicesImpl, const OFFSET: isize>() -> IDisplayServicesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayServices>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayServicesVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayServices>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayServices as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1398,7 +1455,7 @@ impl ::windows::core::RuntimeName for IDisplayServicesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayServicesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayServicesStaticsImpl, const OFFSET: isize>() -> IDisplayServicesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayServicesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayServicesStaticsVtbl {
         unsafe extern "system" fn FindAll<Impl: IDisplayServicesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::DisplayId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAll() {
@@ -1411,6 +1468,9 @@ impl IDisplayServicesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayServicesStatics>, ::windows::core::GetTrustLevel, FindAll::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayServicesStatics>, ::windows::core::GetTrustLevel, FindAll::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayServicesStatics as ::windows::core::Interface>::IID
     }
 }

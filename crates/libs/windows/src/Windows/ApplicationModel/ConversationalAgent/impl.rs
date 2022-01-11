@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetectionConfigurationImpl: Sized {
     fn SignalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -25,13 +25,13 @@ pub trait IActivationSignalDetectionConfigurationImpl: Sized {
     fn ClearTrainingData(&self) -> ::windows::core::Result<()>;
     fn ClearTrainingDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IActivationSignalDetectionConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>() -> IActivationSignalDetectionConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfigurationVtbl {
         unsafe extern "system" fn SignalId<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalId() {
@@ -262,40 +262,43 @@ impl IActivationSignalDetectionConfigurationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfiguration>,
             ::windows::core::GetTrustLevel,
-            SignalId::<Impl, OFFSET>,
-            ModelId::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            IsActive::<Impl, OFFSET>,
-            SetEnabled::<Impl, OFFSET>,
-            SetEnabledAsync::<Impl, OFFSET>,
-            AvailabilityInfo::<Impl, OFFSET>,
-            AvailabilityChanged::<Impl, OFFSET>,
-            RemoveAvailabilityChanged::<Impl, OFFSET>,
-            SetModelData::<Impl, OFFSET>,
-            SetModelDataAsync::<Impl, OFFSET>,
-            GetModelDataType::<Impl, OFFSET>,
-            GetModelDataTypeAsync::<Impl, OFFSET>,
-            GetModelData::<Impl, OFFSET>,
-            GetModelDataAsync::<Impl, OFFSET>,
-            ClearModelData::<Impl, OFFSET>,
-            ClearModelDataAsync::<Impl, OFFSET>,
-            TrainingStepsCompleted::<Impl, OFFSET>,
-            TrainingStepsRemaining::<Impl, OFFSET>,
-            TrainingDataFormat::<Impl, OFFSET>,
-            ApplyTrainingData::<Impl, OFFSET>,
-            ApplyTrainingDataAsync::<Impl, OFFSET>,
-            ClearTrainingData::<Impl, OFFSET>,
-            ClearTrainingDataAsync::<Impl, OFFSET>,
+            SignalId::<Impl, IMPL_OFFSET>,
+            ModelId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            IsActive::<Impl, IMPL_OFFSET>,
+            SetEnabled::<Impl, IMPL_OFFSET>,
+            SetEnabledAsync::<Impl, IMPL_OFFSET>,
+            AvailabilityInfo::<Impl, IMPL_OFFSET>,
+            AvailabilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveAvailabilityChanged::<Impl, IMPL_OFFSET>,
+            SetModelData::<Impl, IMPL_OFFSET>,
+            SetModelDataAsync::<Impl, IMPL_OFFSET>,
+            GetModelDataType::<Impl, IMPL_OFFSET>,
+            GetModelDataTypeAsync::<Impl, IMPL_OFFSET>,
+            GetModelData::<Impl, IMPL_OFFSET>,
+            GetModelDataAsync::<Impl, IMPL_OFFSET>,
+            ClearModelData::<Impl, IMPL_OFFSET>,
+            ClearModelDataAsync::<Impl, IMPL_OFFSET>,
+            TrainingStepsCompleted::<Impl, IMPL_OFFSET>,
+            TrainingStepsRemaining::<Impl, IMPL_OFFSET>,
+            TrainingDataFormat::<Impl, IMPL_OFFSET>,
+            ApplyTrainingData::<Impl, IMPL_OFFSET>,
+            ApplyTrainingDataAsync::<Impl, IMPL_OFFSET>,
+            ClearTrainingData::<Impl, IMPL_OFFSET>,
+            ClearTrainingDataAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivationSignalDetectionConfiguration as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetectionConfiguration2Impl: Sized {
     fn SetModelDataWithResult(&self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<ActivationSignalDetectionConfigurationSetModelDataResult>;
     fn SetModelDataWithResultAsync(&self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>;
@@ -303,13 +306,13 @@ pub trait IActivationSignalDetectionConfiguration2Impl: Sized {
     fn SetEnabledWithResult(&self, value: bool) -> ::windows::core::Result<ActivationSignalDetectionConfigurationStateChangeResult>;
     fn TrainingStepCompletionMaxAllowedTime(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetectionConfiguration2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IActivationSignalDetectionConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>() -> IActivationSignalDetectionConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfiguration2Vtbl {
         unsafe extern "system" fn SetModelDataWithResult<Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetModelDataWithResult(&*(&datatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
@@ -366,18 +369,21 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfiguration2>,
             ::windows::core::GetTrustLevel,
-            SetModelDataWithResult::<Impl, OFFSET>,
-            SetModelDataWithResultAsync::<Impl, OFFSET>,
-            SetEnabledWithResultAsync::<Impl, OFFSET>,
-            SetEnabledWithResult::<Impl, OFFSET>,
-            TrainingStepCompletionMaxAllowedTime::<Impl, OFFSET>,
+            SetModelDataWithResult::<Impl, IMPL_OFFSET>,
+            SetModelDataWithResultAsync::<Impl, IMPL_OFFSET>,
+            SetEnabledWithResultAsync::<Impl, IMPL_OFFSET>,
+            SetEnabledWithResult::<Impl, IMPL_OFFSET>,
+            TrainingStepCompletionMaxAllowedTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivationSignalDetectionConfiguration2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -391,7 +397,7 @@ impl ::windows::core::RuntimeName for IActivationSignalDetectionConfigurationCre
 }
 #[cfg(feature = "implement_exclusive")]
 impl IActivationSignalDetectionConfigurationCreationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationCreationResultImpl, const OFFSET: isize>() -> IActivationSignalDetectionConfigurationCreationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationCreationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfigurationCreationResultVtbl {
         unsafe extern "system" fn Status<Impl: IActivationSignalDetectionConfigurationCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -414,10 +420,13 @@ impl IActivationSignalDetectionConfigurationCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfigurationCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Configuration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivationSignalDetectionConfigurationCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Configuration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivationSignalDetectionConfigurationCreationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetectorImpl: Sized {
     fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Kind(&self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
@@ -436,13 +445,13 @@ pub trait IActivationSignalDetectorImpl: Sized {
     fn RemoveConfiguration(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn RemoveConfigurationAsync(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IActivationSignalDetectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectorImpl, const OFFSET: isize>() -> IActivationSignalDetectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectorVtbl {
         unsafe extern "system" fn ProviderId<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
@@ -616,32 +625,35 @@ impl IActivationSignalDetectorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IActivationSignalDetector>,
             ::windows::core::GetTrustLevel,
-            ProviderId::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            CanCreateConfigurations::<Impl, OFFSET>,
-            SupportedModelDataTypes::<Impl, OFFSET>,
-            SupportedTrainingDataFormats::<Impl, OFFSET>,
-            SupportedPowerStates::<Impl, OFFSET>,
-            GetSupportedModelIdsForSignalId::<Impl, OFFSET>,
-            GetSupportedModelIdsForSignalIdAsync::<Impl, OFFSET>,
-            CreateConfiguration::<Impl, OFFSET>,
-            CreateConfigurationAsync::<Impl, OFFSET>,
-            GetConfigurations::<Impl, OFFSET>,
-            GetConfigurationsAsync::<Impl, OFFSET>,
-            GetConfiguration::<Impl, OFFSET>,
-            GetConfigurationAsync::<Impl, OFFSET>,
-            RemoveConfiguration::<Impl, OFFSET>,
-            RemoveConfigurationAsync::<Impl, OFFSET>,
+            ProviderId::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            CanCreateConfigurations::<Impl, IMPL_OFFSET>,
+            SupportedModelDataTypes::<Impl, IMPL_OFFSET>,
+            SupportedTrainingDataFormats::<Impl, IMPL_OFFSET>,
+            SupportedPowerStates::<Impl, IMPL_OFFSET>,
+            GetSupportedModelIdsForSignalId::<Impl, IMPL_OFFSET>,
+            GetSupportedModelIdsForSignalIdAsync::<Impl, IMPL_OFFSET>,
+            CreateConfiguration::<Impl, IMPL_OFFSET>,
+            CreateConfigurationAsync::<Impl, IMPL_OFFSET>,
+            GetConfigurations::<Impl, IMPL_OFFSET>,
+            GetConfigurationsAsync::<Impl, IMPL_OFFSET>,
+            GetConfiguration::<Impl, IMPL_OFFSET>,
+            GetConfigurationAsync::<Impl, IMPL_OFFSET>,
+            RemoveConfiguration::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivationSignalDetector as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetector2Impl: Sized {
     fn GetAvailableModelIdsForSignalIdAsync(&self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
     fn GetAvailableModelIdsForSignalId(&self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -651,13 +663,13 @@ pub trait IActivationSignalDetector2Impl: Sized {
     fn RemoveConfigurationWithResult(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfigurationRemovalResult>;
     fn DetectorId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetector2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IActivationSignalDetector2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetector2Impl, const OFFSET: isize>() -> IActivationSignalDetector2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetector2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetector2Vtbl {
         unsafe extern "system" fn GetAvailableModelIdsForSignalIdAsync<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAvailableModelIdsForSignalIdAsync(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -744,36 +756,39 @@ impl IActivationSignalDetector2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IActivationSignalDetector2>,
             ::windows::core::GetTrustLevel,
-            GetAvailableModelIdsForSignalIdAsync::<Impl, OFFSET>,
-            GetAvailableModelIdsForSignalId::<Impl, OFFSET>,
-            CreateConfigurationWithResultAsync::<Impl, OFFSET>,
-            CreateConfigurationWithResult::<Impl, OFFSET>,
-            RemoveConfigurationWithResultAsync::<Impl, OFFSET>,
-            RemoveConfigurationWithResult::<Impl, OFFSET>,
-            DetectorId::<Impl, OFFSET>,
+            GetAvailableModelIdsForSignalIdAsync::<Impl, IMPL_OFFSET>,
+            GetAvailableModelIdsForSignalId::<Impl, IMPL_OFFSET>,
+            CreateConfigurationWithResultAsync::<Impl, IMPL_OFFSET>,
+            CreateConfigurationWithResult::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationWithResultAsync::<Impl, IMPL_OFFSET>,
+            RemoveConfigurationWithResult::<Impl, IMPL_OFFSET>,
+            DetectorId::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivationSignalDetector2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConversationalAgentDetectorManagerImpl: Sized {
     fn GetAllActivationSignalDetectors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
     fn GetAllActivationSignalDetectorsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
     fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
     fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IConversationalAgentDetectorManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerImpl, const OFFSET: isize>() -> IConversationalAgentDetectorManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManagerVtbl {
         unsafe extern "system" fn GetAllActivationSignalDetectors<Impl: IConversationalAgentDetectorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllActivationSignalDetectors() {
@@ -818,21 +833,35 @@ impl IConversationalAgentDetectorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManager>, ::windows::core::GetTrustLevel, GetAllActivationSignalDetectors::<Impl, OFFSET>, GetAllActivationSignalDetectorsAsync::<Impl, OFFSET>, GetActivationSignalDetectors::<Impl, OFFSET>, GetActivationSignalDetectorsAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManager>,
+            ::windows::core::GetTrustLevel,
+            GetAllActivationSignalDetectors::<Impl, IMPL_OFFSET>,
+            GetAllActivationSignalDetectorsAsync::<Impl, IMPL_OFFSET>,
+            GetActivationSignalDetectors::<Impl, IMPL_OFFSET>,
+            GetActivationSignalDetectorsAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentDetectorManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConversationalAgentDetectorManager2Impl: Sized {
     fn GetActivationSignalDetectorFromId(&self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetector>;
     fn GetActivationSignalDetectorFromIdAsync(&self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentDetectorManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConversationalAgentDetectorManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManager2Impl, const OFFSET: isize>() -> IConversationalAgentDetectorManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManager2Vtbl {
         unsafe extern "system" fn GetActivationSignalDetectorFromId<Impl: IConversationalAgentDetectorManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActivationSignalDetectorFromId(&*(&detectorid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -855,7 +884,10 @@ impl IConversationalAgentDetectorManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManager2>, ::windows::core::GetTrustLevel, GetActivationSignalDetectorFromId::<Impl, OFFSET>, GetActivationSignalDetectorFromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManager2>, ::windows::core::GetTrustLevel, GetActivationSignalDetectorFromId::<Impl, IMPL_OFFSET>, GetActivationSignalDetectorFromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentDetectorManager2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -868,7 +900,7 @@ impl ::windows::core::RuntimeName for IConversationalAgentDetectorManagerStatics
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentDetectorManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerStaticsImpl, const OFFSET: isize>() -> IConversationalAgentDetectorManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManagerStaticsVtbl {
         unsafe extern "system" fn Default<Impl: IConversationalAgentDetectorManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Default() {
@@ -880,10 +912,13 @@ impl IConversationalAgentDetectorManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManagerStatics>, ::windows::core::GetTrustLevel, Default::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentDetectorManagerStatics>, ::windows::core::GetTrustLevel, Default::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentDetectorManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSessionImpl: Sized {
     fn SessionInterrupted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSessionInterrupted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -920,13 +955,13 @@ pub trait IConversationalAgentSessionImpl: Sized {
     fn GetSupportedSignalModelIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>;
     fn GetSupportedSignalModelIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
 impl IConversationalAgentSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionImpl, const OFFSET: isize>() -> IConversationalAgentSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionVtbl {
         unsafe extern "system" fn SessionInterrupted<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInterrupted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1281,50 +1316,53 @@ impl IConversationalAgentSessionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConversationalAgentSession>,
             ::windows::core::GetTrustLevel,
-            SessionInterrupted::<Impl, OFFSET>,
-            RemoveSessionInterrupted::<Impl, OFFSET>,
-            SignalDetected::<Impl, OFFSET>,
-            RemoveSignalDetected::<Impl, OFFSET>,
-            SystemStateChanged::<Impl, OFFSET>,
-            RemoveSystemStateChanged::<Impl, OFFSET>,
-            AgentState::<Impl, OFFSET>,
-            Signal::<Impl, OFFSET>,
-            IsIndicatorLightAvailable::<Impl, OFFSET>,
-            IsScreenAvailable::<Impl, OFFSET>,
-            IsUserAuthenticated::<Impl, OFFSET>,
-            IsVoiceActivationAvailable::<Impl, OFFSET>,
-            IsInterruptible::<Impl, OFFSET>,
-            IsInterrupted::<Impl, OFFSET>,
-            RequestInterruptibleAsync::<Impl, OFFSET>,
-            RequestInterruptible::<Impl, OFFSET>,
-            RequestAgentStateChangeAsync::<Impl, OFFSET>,
-            RequestAgentStateChange::<Impl, OFFSET>,
-            RequestForegroundActivationAsync::<Impl, OFFSET>,
-            RequestForegroundActivation::<Impl, OFFSET>,
-            GetAudioClientAsync::<Impl, OFFSET>,
-            GetAudioClient::<Impl, OFFSET>,
-            CreateAudioDeviceInputNodeAsync::<Impl, OFFSET>,
-            CreateAudioDeviceInputNode::<Impl, OFFSET>,
-            GetAudioCaptureDeviceIdAsync::<Impl, OFFSET>,
-            GetAudioCaptureDeviceId::<Impl, OFFSET>,
-            GetAudioRenderDeviceIdAsync::<Impl, OFFSET>,
-            GetAudioRenderDeviceId::<Impl, OFFSET>,
-            GetSignalModelIdAsync::<Impl, OFFSET>,
-            GetSignalModelId::<Impl, OFFSET>,
-            SetSignalModelIdAsync::<Impl, OFFSET>,
-            SetSignalModelId::<Impl, OFFSET>,
-            GetSupportedSignalModelIdsAsync::<Impl, OFFSET>,
-            GetSupportedSignalModelIds::<Impl, OFFSET>,
+            SessionInterrupted::<Impl, IMPL_OFFSET>,
+            RemoveSessionInterrupted::<Impl, IMPL_OFFSET>,
+            SignalDetected::<Impl, IMPL_OFFSET>,
+            RemoveSignalDetected::<Impl, IMPL_OFFSET>,
+            SystemStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveSystemStateChanged::<Impl, IMPL_OFFSET>,
+            AgentState::<Impl, IMPL_OFFSET>,
+            Signal::<Impl, IMPL_OFFSET>,
+            IsIndicatorLightAvailable::<Impl, IMPL_OFFSET>,
+            IsScreenAvailable::<Impl, IMPL_OFFSET>,
+            IsUserAuthenticated::<Impl, IMPL_OFFSET>,
+            IsVoiceActivationAvailable::<Impl, IMPL_OFFSET>,
+            IsInterruptible::<Impl, IMPL_OFFSET>,
+            IsInterrupted::<Impl, IMPL_OFFSET>,
+            RequestInterruptibleAsync::<Impl, IMPL_OFFSET>,
+            RequestInterruptible::<Impl, IMPL_OFFSET>,
+            RequestAgentStateChangeAsync::<Impl, IMPL_OFFSET>,
+            RequestAgentStateChange::<Impl, IMPL_OFFSET>,
+            RequestForegroundActivationAsync::<Impl, IMPL_OFFSET>,
+            RequestForegroundActivation::<Impl, IMPL_OFFSET>,
+            GetAudioClientAsync::<Impl, IMPL_OFFSET>,
+            GetAudioClient::<Impl, IMPL_OFFSET>,
+            CreateAudioDeviceInputNodeAsync::<Impl, IMPL_OFFSET>,
+            CreateAudioDeviceInputNode::<Impl, IMPL_OFFSET>,
+            GetAudioCaptureDeviceIdAsync::<Impl, IMPL_OFFSET>,
+            GetAudioCaptureDeviceId::<Impl, IMPL_OFFSET>,
+            GetAudioRenderDeviceIdAsync::<Impl, IMPL_OFFSET>,
+            GetAudioRenderDeviceId::<Impl, IMPL_OFFSET>,
+            GetSignalModelIdAsync::<Impl, IMPL_OFFSET>,
+            GetSignalModelId::<Impl, IMPL_OFFSET>,
+            SetSignalModelIdAsync::<Impl, IMPL_OFFSET>,
+            SetSignalModelId::<Impl, IMPL_OFFSET>,
+            GetSupportedSignalModelIdsAsync::<Impl, IMPL_OFFSET>,
+            GetSupportedSignalModelIds::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSession as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSession2Impl: Sized {
     fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>;
     fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<ConversationalAgentActivationResult>;
@@ -1333,13 +1371,13 @@ pub trait IConversationalAgentSession2Impl: Sized {
     fn GetMissingPrerequisites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>;
     fn GetMissingPrerequisitesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSession2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IConversationalAgentSession2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSession2Impl, const OFFSET: isize>() -> IConversationalAgentSession2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSession2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSession2Vtbl {
         unsafe extern "system" fn RequestActivationAsync<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestActivationAsync(activationkind) {
@@ -1400,19 +1438,22 @@ impl IConversationalAgentSession2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConversationalAgentSession2>,
             ::windows::core::GetTrustLevel,
-            RequestActivationAsync::<Impl, OFFSET>,
-            RequestActivation::<Impl, OFFSET>,
-            SetSupportLockScreenActivationAsync::<Impl, OFFSET>,
-            SetSupportLockScreenActivation::<Impl, OFFSET>,
-            GetMissingPrerequisites::<Impl, OFFSET>,
-            GetMissingPrerequisitesAsync::<Impl, OFFSET>,
+            RequestActivationAsync::<Impl, IMPL_OFFSET>,
+            RequestActivation::<Impl, IMPL_OFFSET>,
+            SetSupportLockScreenActivationAsync::<Impl, IMPL_OFFSET>,
+            SetSupportLockScreenActivation::<Impl, IMPL_OFFSET>,
+            GetMissingPrerequisites::<Impl, IMPL_OFFSET>,
+            GetMissingPrerequisitesAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSession2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1423,22 +1464,25 @@ impl ::windows::core::RuntimeName for IConversationalAgentSessionInterruptedEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentSessionInterruptedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionInterruptedEventArgsImpl, const OFFSET: isize>() -> IConversationalAgentSessionInterruptedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSessionInterruptedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionInterruptedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionInterruptedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSessionInterruptedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSessionInterruptedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSessionStaticsImpl: Sized {
     fn GetCurrentSessionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>;
     fn GetCurrentSessionSync(&self) -> ::windows::core::Result<ConversationalAgentSession>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSessionStatics {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConversationalAgentSessionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionStaticsImpl, const OFFSET: isize>() -> IConversationalAgentSessionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionStaticsVtbl {
         unsafe extern "system" fn GetCurrentSessionAsync<Impl: IConversationalAgentSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSessionAsync() {
@@ -1461,10 +1505,13 @@ impl IConversationalAgentSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSessionStatics>, ::windows::core::GetTrustLevel, GetCurrentSessionAsync::<Impl, OFFSET>, GetCurrentSessionSync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSessionStatics>, ::windows::core::GetTrustLevel, GetCurrentSessionAsync::<Impl, IMPL_OFFSET>, GetCurrentSessionSync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSessionStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSignalImpl: Sized {
     fn IsSignalVerificationRequired(&self) -> ::windows::core::Result<bool>;
     fn SetIsSignalVerificationRequired(&self, value: bool) -> ::windows::core::Result<()>;
@@ -1479,13 +1526,13 @@ pub trait IConversationalAgentSignalImpl: Sized {
     fn SignalEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetSignalEnd(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignal";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IConversationalAgentSignalVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalImpl, const OFFSET: isize>() -> IConversationalAgentSignalVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignalVtbl {
         unsafe extern "system" fn IsSignalVerificationRequired<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSignalVerificationRequired() {
@@ -1577,25 +1624,28 @@ impl IConversationalAgentSignalVtbl {
             (*this).SetSignalEnd(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IConversationalAgentSignal>,
             ::windows::core::GetTrustLevel,
-            IsSignalVerificationRequired::<Impl, OFFSET>,
-            SetIsSignalVerificationRequired::<Impl, OFFSET>,
-            SignalId::<Impl, OFFSET>,
-            SetSignalId::<Impl, OFFSET>,
-            SignalName::<Impl, OFFSET>,
-            SetSignalName::<Impl, OFFSET>,
-            SignalContext::<Impl, OFFSET>,
-            SetSignalContext::<Impl, OFFSET>,
-            SignalStart::<Impl, OFFSET>,
-            SetSignalStart::<Impl, OFFSET>,
-            SignalEnd::<Impl, OFFSET>,
-            SetSignalEnd::<Impl, OFFSET>,
+            IsSignalVerificationRequired::<Impl, IMPL_OFFSET>,
+            SetIsSignalVerificationRequired::<Impl, IMPL_OFFSET>,
+            SignalId::<Impl, IMPL_OFFSET>,
+            SetSignalId::<Impl, IMPL_OFFSET>,
+            SignalName::<Impl, IMPL_OFFSET>,
+            SetSignalName::<Impl, IMPL_OFFSET>,
+            SignalContext::<Impl, IMPL_OFFSET>,
+            SetSignalContext::<Impl, IMPL_OFFSET>,
+            SignalStart::<Impl, IMPL_OFFSET>,
+            SetSignalStart::<Impl, IMPL_OFFSET>,
+            SignalEnd::<Impl, IMPL_OFFSET>,
+            SetSignalEnd::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSignal as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1609,7 +1659,7 @@ impl ::windows::core::RuntimeName for IConversationalAgentSignal2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentSignal2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignal2Impl, const OFFSET: isize>() -> IConversationalAgentSignal2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignal2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignal2Vtbl {
         unsafe extern "system" fn DetectorId<Impl: IConversationalAgentSignal2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectorId() {
@@ -1632,7 +1682,10 @@ impl IConversationalAgentSignal2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSignal2>, ::windows::core::GetTrustLevel, DetectorId::<Impl, OFFSET>, DetectorKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSignal2>, ::windows::core::GetTrustLevel, DetectorId::<Impl, IMPL_OFFSET>, DetectorKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSignal2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1643,8 +1696,11 @@ impl ::windows::core::RuntimeName for IConversationalAgentSignalDetectedEventArg
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentSignalDetectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalDetectedEventArgsImpl, const OFFSET: isize>() -> IConversationalAgentSignalDetectedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSignalDetectedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalDetectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignalDetectedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSignalDetectedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSignalDetectedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1657,7 +1713,7 @@ impl ::windows::core::RuntimeName for IConversationalAgentSystemStateChangedEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConversationalAgentSystemStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSystemStateChangedEventArgsImpl, const OFFSET: isize>() -> IConversationalAgentSystemStateChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSystemStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSystemStateChangedEventArgsVtbl {
         unsafe extern "system" fn SystemStateChangeType<Impl: IConversationalAgentSystemStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemStateChangeType() {
@@ -1669,7 +1725,10 @@ impl IConversationalAgentSystemStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSystemStateChangedEventArgs>, ::windows::core::GetTrustLevel, SystemStateChangeType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConversationalAgentSystemStateChangedEventArgs>, ::windows::core::GetTrustLevel, SystemStateChangeType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConversationalAgentSystemStateChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1682,7 +1741,7 @@ impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityChanged
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityChangedEventArgsImpl, const OFFSET: isize>() -> IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
         unsafe extern "system" fn Kind<Impl: IDetectionConfigurationAvailabilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -1694,7 +1753,10 @@ impl IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityChangedEventArgs>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDetectionConfigurationAvailabilityChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1710,7 +1772,7 @@ impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDetectionConfigurationAvailabilityInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfoImpl, const OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfoVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IDetectionConfigurationAvailabilityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -1755,20 +1817,23 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityInfo>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, OFFSET>, HasSystemResourceAccess::<Impl, OFFSET>, HasPermission::<Impl, OFFSET>, HasLockScreenPermission::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityInfo>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, HasSystemResourceAccess::<Impl, IMPL_OFFSET>, HasPermission::<Impl, IMPL_OFFSET>, HasLockScreenPermission::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDetectionConfigurationAvailabilityInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDetectionConfigurationAvailabilityInfo2Impl: Sized {
     fn UnavailableSystemResources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityInfo2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDetectionConfigurationAvailabilityInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfo2Impl, const OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfo2Vtbl {
         unsafe extern "system" fn UnavailableSystemResources<Impl: IDetectionConfigurationAvailabilityInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnavailableSystemResources() {
@@ -1780,6 +1845,9 @@ impl IDetectionConfigurationAvailabilityInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityInfo2>, ::windows::core::GetTrustLevel, UnavailableSystemResources::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDetectionConfigurationAvailabilityInfo2>, ::windows::core::GetTrustLevel, UnavailableSystemResources::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDetectionConfigurationAvailabilityInfo2 as ::windows::core::Interface>::IID
     }
 }

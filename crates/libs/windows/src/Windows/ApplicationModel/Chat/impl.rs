@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IChatCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatCapabilitiesImpl, const OFFSET: isize>() -> IChatCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatCapabilitiesVtbl {
         unsafe extern "system" fn IsOnline<Impl: IChatCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOnline() {
@@ -68,21 +68,36 @@ impl IChatCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilities>, ::windows::core::GetTrustLevel, IsOnline::<Impl, OFFSET>, IsChatCapable::<Impl, OFFSET>, IsFileTransferCapable::<Impl, OFFSET>, IsGeoLocationPushCapable::<Impl, OFFSET>, IsIntegratedMessagingCapable::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IChatCapabilities>,
+            ::windows::core::GetTrustLevel,
+            IsOnline::<Impl, IMPL_OFFSET>,
+            IsChatCapable::<Impl, IMPL_OFFSET>,
+            IsFileTransferCapable::<Impl, IMPL_OFFSET>,
+            IsGeoLocationPushCapable::<Impl, IMPL_OFFSET>,
+            IsIntegratedMessagingCapable::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatCapabilitiesManagerStaticsImpl: Sized {
     fn GetCachedCapabilitiesAsync(&self, address: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>>;
     fn GetCapabilitiesFromNetworkAsync(&self, address: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatCapabilitiesManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatCapabilitiesManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatCapabilitiesManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatCapabilitiesManagerStaticsImpl, const OFFSET: isize>() -> IChatCapabilitiesManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatCapabilitiesManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatCapabilitiesManagerStaticsVtbl {
         unsafe extern "system" fn GetCachedCapabilitiesAsync<Impl: IChatCapabilitiesManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedCapabilitiesAsync(&*(&address as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -105,21 +120,24 @@ impl IChatCapabilitiesManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilitiesManagerStatics>, ::windows::core::GetTrustLevel, GetCachedCapabilitiesAsync::<Impl, OFFSET>, GetCapabilitiesFromNetworkAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilitiesManagerStatics>, ::windows::core::GetTrustLevel, GetCachedCapabilitiesAsync::<Impl, IMPL_OFFSET>, GetCapabilitiesFromNetworkAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatCapabilitiesManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatCapabilitiesManagerStatics2Impl: Sized {
     fn GetCachedCapabilitiesForTransportAsync(&self, address: &::windows::core::HSTRING, transportid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>>;
     fn GetCapabilitiesFromNetworkForTransportAsync(&self, address: &::windows::core::HSTRING, transportid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatCapabilitiesManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatCapabilitiesManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatCapabilitiesManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatCapabilitiesManagerStatics2Impl, const OFFSET: isize>() -> IChatCapabilitiesManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatCapabilitiesManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatCapabilitiesManagerStatics2Vtbl {
         unsafe extern "system" fn GetCachedCapabilitiesForTransportAsync<Impl: IChatCapabilitiesManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transportid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedCapabilitiesForTransportAsync(&*(&address as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&transportid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -142,10 +160,13 @@ impl IChatCapabilitiesManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilitiesManagerStatics2>, ::windows::core::GetTrustLevel, GetCachedCapabilitiesForTransportAsync::<Impl, OFFSET>, GetCapabilitiesFromNetworkForTransportAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatCapabilitiesManagerStatics2>, ::windows::core::GetTrustLevel, GetCachedCapabilitiesForTransportAsync::<Impl, IMPL_OFFSET>, GetCapabilitiesFromNetworkForTransportAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatCapabilitiesManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatConversationImpl: Sized {
     fn HasUnreadMessages(&self) -> ::windows::core::Result<bool>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -166,13 +187,13 @@ pub trait IChatConversationImpl: Sized {
     fn RemoteParticipantComposingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRemoteParticipantComposingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatConversation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatConversationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversationImpl, const OFFSET: isize>() -> IChatConversationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatConversationVtbl {
         unsafe extern "system" fn HasUnreadMessages<Impl: IChatConversationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasUnreadMessages() {
@@ -337,31 +358,34 @@ impl IChatConversationVtbl {
             (*this).RemoveRemoteParticipantComposingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatConversation>,
             ::windows::core::GetTrustLevel,
-            HasUnreadMessages::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            SetSubject::<Impl, OFFSET>,
-            IsConversationMuted::<Impl, OFFSET>,
-            SetIsConversationMuted::<Impl, OFFSET>,
-            MostRecentMessageId::<Impl, OFFSET>,
-            Participants::<Impl, OFFSET>,
-            ThreadingInfo::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            GetMessageReader::<Impl, OFFSET>,
-            MarkAllMessagesAsReadAsync::<Impl, OFFSET>,
-            MarkMessagesAsReadAsync::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
-            NotifyLocalParticipantComposing::<Impl, OFFSET>,
-            NotifyRemoteParticipantComposing::<Impl, OFFSET>,
-            RemoteParticipantComposingChanged::<Impl, OFFSET>,
-            RemoveRemoteParticipantComposingChanged::<Impl, OFFSET>,
+            HasUnreadMessages::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            IsConversationMuted::<Impl, IMPL_OFFSET>,
+            SetIsConversationMuted::<Impl, IMPL_OFFSET>,
+            MostRecentMessageId::<Impl, IMPL_OFFSET>,
+            Participants::<Impl, IMPL_OFFSET>,
+            ThreadingInfo::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetMessageReader::<Impl, IMPL_OFFSET>,
+            MarkAllMessagesAsReadAsync::<Impl, IMPL_OFFSET>,
+            MarkMessagesAsReadAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            NotifyLocalParticipantComposing::<Impl, IMPL_OFFSET>,
+            NotifyRemoteParticipantComposing::<Impl, IMPL_OFFSET>,
+            RemoteParticipantComposingChanged::<Impl, IMPL_OFFSET>,
+            RemoveRemoteParticipantComposingChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatConversation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -375,7 +399,7 @@ impl ::windows::core::RuntimeName for IChatConversation2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatConversation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversation2Impl, const OFFSET: isize>() -> IChatConversation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatConversation2Vtbl {
         unsafe extern "system" fn CanModifyParticipants<Impl: IChatConversation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanModifyParticipants() {
@@ -391,21 +415,24 @@ impl IChatConversation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanModifyParticipants(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatConversation2>, ::windows::core::GetTrustLevel, CanModifyParticipants::<Impl, OFFSET>, SetCanModifyParticipants::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatConversation2>, ::windows::core::GetTrustLevel, CanModifyParticipants::<Impl, IMPL_OFFSET>, SetCanModifyParticipants::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatConversation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatConversationReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>>;
     fn ReadBatchWithCountAsync(&self, count: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatConversationReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatConversationReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversationReaderImpl, const OFFSET: isize>() -> IChatConversationReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversationReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatConversationReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IChatConversationReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -428,10 +455,13 @@ impl IChatConversationReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatConversationReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>, ReadBatchWithCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatConversationReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>, ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatConversationReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatConversationThreadingInfoImpl: Sized {
     fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetContactId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -443,13 +473,13 @@ pub trait IChatConversationThreadingInfoImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<ChatConversationThreadingKind>;
     fn SetKind(&self, value: ChatConversationThreadingKind) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatConversationThreadingInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatConversationThreadingInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversationThreadingInfoImpl, const OFFSET: isize>() -> IChatConversationThreadingInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatConversationThreadingInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatConversationThreadingInfoVtbl {
         unsafe extern "system" fn ContactId<Impl: IChatConversationThreadingInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactId() {
@@ -522,22 +552,25 @@ impl IChatConversationThreadingInfoVtbl {
             (*this).SetKind(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatConversationThreadingInfo>,
             ::windows::core::GetTrustLevel,
-            ContactId::<Impl, OFFSET>,
-            SetContactId::<Impl, OFFSET>,
-            Custom::<Impl, OFFSET>,
-            SetCustom::<Impl, OFFSET>,
-            ConversationId::<Impl, OFFSET>,
-            SetConversationId::<Impl, OFFSET>,
-            Participants::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            SetKind::<Impl, OFFSET>,
+            ContactId::<Impl, IMPL_OFFSET>,
+            SetContactId::<Impl, IMPL_OFFSET>,
+            Custom::<Impl, IMPL_OFFSET>,
+            SetCustom::<Impl, IMPL_OFFSET>,
+            ConversationId::<Impl, IMPL_OFFSET>,
+            SetConversationId::<Impl, IMPL_OFFSET>,
+            Participants::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            SetKind::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatConversationThreadingInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IChatItemImpl: Sized {
@@ -547,7 +580,7 @@ impl ::windows::core::RuntimeName for IChatItem {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";
 }
 impl IChatItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatItemImpl, const OFFSET: isize>() -> IChatItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatItemVtbl {
         unsafe extern "system" fn ItemKind<Impl: IChatItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ChatItemKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemKind() {
@@ -559,10 +592,13 @@ impl IChatItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatItem>, ::windows::core::GetTrustLevel, ItemKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatItem>, ::windows::core::GetTrustLevel, ItemKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessageImpl: Sized {
     fn Attachments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ChatMessageAttachment>>;
     fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -582,13 +618,13 @@ pub trait IChatMessageImpl: Sized {
     fn TransportId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTransportId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageImpl, const OFFSET: isize>() -> IChatMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageVtbl {
         unsafe extern "system" fn Attachments<Impl: IChatMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Attachments() {
@@ -763,33 +799,36 @@ impl IChatMessageVtbl {
             (*this).SetTransportId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatMessage>,
             ::windows::core::GetTrustLevel,
-            Attachments::<Impl, OFFSET>,
-            Body::<Impl, OFFSET>,
-            SetBody::<Impl, OFFSET>,
-            From::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            IsForwardingDisabled::<Impl, OFFSET>,
-            IsIncoming::<Impl, OFFSET>,
-            IsRead::<Impl, OFFSET>,
-            LocalTimestamp::<Impl, OFFSET>,
-            NetworkTimestamp::<Impl, OFFSET>,
-            Recipients::<Impl, OFFSET>,
-            RecipientSendStatuses::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            TransportFriendlyName::<Impl, OFFSET>,
-            TransportId::<Impl, OFFSET>,
-            SetTransportId::<Impl, OFFSET>,
+            Attachments::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            IsForwardingDisabled::<Impl, IMPL_OFFSET>,
+            IsIncoming::<Impl, IMPL_OFFSET>,
+            IsRead::<Impl, IMPL_OFFSET>,
+            LocalTimestamp::<Impl, IMPL_OFFSET>,
+            NetworkTimestamp::<Impl, IMPL_OFFSET>,
+            Recipients::<Impl, IMPL_OFFSET>,
+            RecipientSendStatuses::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            TransportFriendlyName::<Impl, IMPL_OFFSET>,
+            TransportId::<Impl, IMPL_OFFSET>,
+            SetTransportId::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessage as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessage2Impl: Sized + IChatMessageImpl + IChatMessage3Impl {
     fn EstimatedDownloadSize(&self) -> ::windows::core::Result<u64>;
     fn SetEstimatedDownloadSize(&self, value: u64) -> ::windows::core::Result<()>;
@@ -820,13 +859,13 @@ pub trait IChatMessage2Impl: Sized + IChatMessageImpl + IChatMessage3Impl {
     fn SetThreadingInfo(&self, value: &::core::option::Option<ChatConversationThreadingInfo>) -> ::windows::core::Result<()>;
     fn RecipientsDeliveryInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ChatRecipientDeliveryInfo>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessage2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessage2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessage2Impl, const OFFSET: isize>() -> IChatMessage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessage2Vtbl {
         unsafe extern "system" fn EstimatedDownloadSize<Impl: IChatMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EstimatedDownloadSize() {
@@ -1017,54 +1056,57 @@ impl IChatMessage2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatMessage2>,
             ::windows::core::GetTrustLevel,
-            EstimatedDownloadSize::<Impl, OFFSET>,
-            SetEstimatedDownloadSize::<Impl, OFFSET>,
-            SetFrom::<Impl, OFFSET>,
-            IsAutoReply::<Impl, OFFSET>,
-            SetIsAutoReply::<Impl, OFFSET>,
-            SetIsForwardingDisabled::<Impl, OFFSET>,
-            IsReplyDisabled::<Impl, OFFSET>,
-            SetIsIncoming::<Impl, OFFSET>,
-            SetIsRead::<Impl, OFFSET>,
-            IsSeen::<Impl, OFFSET>,
-            SetIsSeen::<Impl, OFFSET>,
-            IsSimMessage::<Impl, OFFSET>,
-            SetLocalTimestamp::<Impl, OFFSET>,
-            MessageKind::<Impl, OFFSET>,
-            SetMessageKind::<Impl, OFFSET>,
-            MessageOperatorKind::<Impl, OFFSET>,
-            SetMessageOperatorKind::<Impl, OFFSET>,
-            SetNetworkTimestamp::<Impl, OFFSET>,
-            IsReceivedDuringQuietHours::<Impl, OFFSET>,
-            SetIsReceivedDuringQuietHours::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            SetStatus::<Impl, OFFSET>,
-            SetSubject::<Impl, OFFSET>,
-            ShouldSuppressNotification::<Impl, OFFSET>,
-            SetShouldSuppressNotification::<Impl, OFFSET>,
-            ThreadingInfo::<Impl, OFFSET>,
-            SetThreadingInfo::<Impl, OFFSET>,
-            RecipientsDeliveryInfos::<Impl, OFFSET>,
+            EstimatedDownloadSize::<Impl, IMPL_OFFSET>,
+            SetEstimatedDownloadSize::<Impl, IMPL_OFFSET>,
+            SetFrom::<Impl, IMPL_OFFSET>,
+            IsAutoReply::<Impl, IMPL_OFFSET>,
+            SetIsAutoReply::<Impl, IMPL_OFFSET>,
+            SetIsForwardingDisabled::<Impl, IMPL_OFFSET>,
+            IsReplyDisabled::<Impl, IMPL_OFFSET>,
+            SetIsIncoming::<Impl, IMPL_OFFSET>,
+            SetIsRead::<Impl, IMPL_OFFSET>,
+            IsSeen::<Impl, IMPL_OFFSET>,
+            SetIsSeen::<Impl, IMPL_OFFSET>,
+            IsSimMessage::<Impl, IMPL_OFFSET>,
+            SetLocalTimestamp::<Impl, IMPL_OFFSET>,
+            MessageKind::<Impl, IMPL_OFFSET>,
+            SetMessageKind::<Impl, IMPL_OFFSET>,
+            MessageOperatorKind::<Impl, IMPL_OFFSET>,
+            SetMessageOperatorKind::<Impl, IMPL_OFFSET>,
+            SetNetworkTimestamp::<Impl, IMPL_OFFSET>,
+            IsReceivedDuringQuietHours::<Impl, IMPL_OFFSET>,
+            SetIsReceivedDuringQuietHours::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            SetStatus::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            ShouldSuppressNotification::<Impl, IMPL_OFFSET>,
+            SetShouldSuppressNotification::<Impl, IMPL_OFFSET>,
+            ThreadingInfo::<Impl, IMPL_OFFSET>,
+            SetThreadingInfo::<Impl, IMPL_OFFSET>,
+            RecipientsDeliveryInfos::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessage2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessage3Impl: Sized + IChatMessageImpl {
     fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessage3 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessage3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessage3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessage3Impl, const OFFSET: isize>() -> IChatMessage3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessage3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessage3Vtbl {
         unsafe extern "system" fn RemoteId<Impl: IChatMessage3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteId() {
@@ -1076,21 +1118,24 @@ impl IChatMessage3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessage3>, ::windows::core::GetTrustLevel, RemoteId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessage3>, ::windows::core::GetTrustLevel, RemoteId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessage3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessage4Impl: Sized + IChatMessageImpl {
     fn SyncId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetSyncId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessage4 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessage4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessage4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessage4Impl, const OFFSET: isize>() -> IChatMessage4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessage4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessage4Vtbl {
         unsafe extern "system" fn SyncId<Impl: IChatMessage4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncId() {
@@ -1106,10 +1151,13 @@ impl IChatMessage4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSyncId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessage4>, ::windows::core::GetTrustLevel, SyncId::<Impl, OFFSET>, SetSyncId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessage4>, ::windows::core::GetTrustLevel, SyncId::<Impl, IMPL_OFFSET>, SetSyncId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessage4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IChatMessageAttachmentImpl: Sized {
     fn DataStreamReference(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetDataStreamReference(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
@@ -1120,13 +1168,13 @@ pub trait IChatMessageAttachmentImpl: Sized {
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageAttachment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IChatMessageAttachmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageAttachmentImpl, const OFFSET: isize>() -> IChatMessageAttachmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageAttachmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageAttachmentVtbl {
         unsafe extern "system" fn DataStreamReference<Impl: IChatMessageAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataStreamReference() {
@@ -1188,24 +1236,27 @@ impl IChatMessageAttachmentVtbl {
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatMessageAttachment>,
             ::windows::core::GetTrustLevel,
-            DataStreamReference::<Impl, OFFSET>,
-            SetDataStreamReference::<Impl, OFFSET>,
-            GroupId::<Impl, OFFSET>,
-            SetGroupId::<Impl, OFFSET>,
-            MimeType::<Impl, OFFSET>,
-            SetMimeType::<Impl, OFFSET>,
-            Text::<Impl, OFFSET>,
-            SetText::<Impl, OFFSET>,
+            DataStreamReference::<Impl, IMPL_OFFSET>,
+            SetDataStreamReference::<Impl, IMPL_OFFSET>,
+            GroupId::<Impl, IMPL_OFFSET>,
+            SetGroupId::<Impl, IMPL_OFFSET>,
+            MimeType::<Impl, IMPL_OFFSET>,
+            SetMimeType::<Impl, IMPL_OFFSET>,
+            Text::<Impl, IMPL_OFFSET>,
+            SetText::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageAttachment as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IChatMessageAttachment2Impl: Sized + IChatMessageAttachmentImpl {
     fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetThumbnail(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
@@ -1214,13 +1265,13 @@ pub trait IChatMessageAttachment2Impl: Sized + IChatMessageAttachmentImpl {
     fn OriginalFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetOriginalFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageAttachment2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageAttachment2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IChatMessageAttachment2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageAttachment2Impl, const OFFSET: isize>() -> IChatMessageAttachment2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageAttachment2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageAttachment2Vtbl {
         unsafe extern "system" fn Thumbnail<Impl: IChatMessageAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
@@ -1266,20 +1317,36 @@ impl IChatMessageAttachment2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOriginalFileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageAttachment2>, ::windows::core::GetTrustLevel, Thumbnail::<Impl, OFFSET>, SetThumbnail::<Impl, OFFSET>, TransferProgress::<Impl, OFFSET>, SetTransferProgress::<Impl, OFFSET>, OriginalFileName::<Impl, OFFSET>, SetOriginalFileName::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IChatMessageAttachment2>,
+            ::windows::core::GetTrustLevel,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            TransferProgress::<Impl, IMPL_OFFSET>,
+            SetTransferProgress::<Impl, IMPL_OFFSET>,
+            OriginalFileName::<Impl, IMPL_OFFSET>,
+            SetOriginalFileName::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageAttachment2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IChatMessageAttachmentFactoryImpl: Sized {
     fn CreateChatMessageAttachment(&self, mimetype: &::windows::core::HSTRING, datastreamreference: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<ChatMessageAttachment>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageAttachmentFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageAttachmentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IChatMessageAttachmentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageAttachmentFactoryImpl, const OFFSET: isize>() -> IChatMessageAttachmentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageAttachmentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageAttachmentFactoryVtbl {
         unsafe extern "system" fn CreateChatMessageAttachment<Impl: IChatMessageAttachmentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mimetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, datastreamreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateChatMessageAttachment(&*(&mimetype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&datastreamreference as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)) {
@@ -1291,20 +1358,23 @@ impl IChatMessageAttachmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageAttachmentFactory>, ::windows::core::GetTrustLevel, CreateChatMessageAttachment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageAttachmentFactory>, ::windows::core::GetTrustLevel, CreateChatMessageAttachment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageAttachmentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageBlockingStaticImpl: Sized {
     fn MarkMessageAsBlockedAsync(&self, localchatmessageid: &::windows::core::HSTRING, blocked: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageBlockingStatic {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageBlockingStatic";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageBlockingStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageBlockingStaticImpl, const OFFSET: isize>() -> IChatMessageBlockingStaticVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageBlockingStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageBlockingStaticVtbl {
         unsafe extern "system" fn MarkMessageAsBlockedAsync<Impl: IChatMessageBlockingStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localchatmessageid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, blocked: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MarkMessageAsBlockedAsync(&*(&localchatmessageid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), blocked) {
@@ -1316,7 +1386,10 @@ impl IChatMessageBlockingStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageBlockingStatic>, ::windows::core::GetTrustLevel, MarkMessageAsBlockedAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageBlockingStatic>, ::windows::core::GetTrustLevel, MarkMessageAsBlockedAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageBlockingStatic as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1330,7 +1403,7 @@ impl ::windows::core::RuntimeName for IChatMessageChange {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageChangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangeImpl, const OFFSET: isize>() -> IChatMessageChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageChangeVtbl {
         unsafe extern "system" fn ChangeType<Impl: IChatMessageChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ChatMessageChangeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeType() {
@@ -1353,22 +1426,25 @@ impl IChatMessageChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageChange as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessageChangeReaderImpl: Sized {
     fn AcceptChanges(&self) -> ::windows::core::Result<()>;
     fn AcceptChangesThrough(&self, lastchangetoacknowledge: &::core::option::Option<ChatMessageChange>) -> ::windows::core::Result<()>;
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageChange>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageChangeReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessageChangeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangeReaderImpl, const OFFSET: isize>() -> IChatMessageChangeReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageChangeReaderVtbl {
         unsafe extern "system" fn AcceptChanges<Impl: IChatMessageChangeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptChanges().into()
@@ -1388,7 +1464,10 @@ impl IChatMessageChangeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, OFFSET>, AcceptChangesThrough::<Impl, OFFSET>, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, IMPL_OFFSET>, AcceptChangesThrough::<Impl, IMPL_OFFSET>, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageChangeReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1403,7 +1482,7 @@ impl ::windows::core::RuntimeName for IChatMessageChangeTracker {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageChangeTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangeTrackerImpl, const OFFSET: isize>() -> IChatMessageChangeTrackerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangeTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageChangeTrackerVtbl {
         unsafe extern "system" fn Enable<Impl: IChatMessageChangeTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enable().into()
@@ -1423,7 +1502,10 @@ impl IChatMessageChangeTrackerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangeTracker>, ::windows::core::GetTrustLevel, Enable::<Impl, OFFSET>, GetChangeReader::<Impl, OFFSET>, Reset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangeTracker>, ::windows::core::GetTrustLevel, Enable::<Impl, IMPL_OFFSET>, GetChangeReader::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageChangeTracker as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1436,12 +1518,15 @@ impl ::windows::core::RuntimeName for IChatMessageChangedDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageChangedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangedDeferralImpl, const OFFSET: isize>() -> IChatMessageChangedDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageChangedDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IChatMessageChangedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageChangedDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1454,7 +1539,7 @@ impl ::windows::core::RuntimeName for IChatMessageChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangedEventArgsImpl, const OFFSET: isize>() -> IChatMessageChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IChatMessageChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -1466,21 +1551,24 @@ impl IChatMessageChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageManager2StaticsImpl: Sized + IChatMessageManagerStaticImpl {
     fn RegisterTransportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn GetTransportAsync(&self, transportid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessageTransport>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageManager2Statics {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageManager2Statics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageManager2StaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageManager2StaticsImpl, const OFFSET: isize>() -> IChatMessageManager2StaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageManager2StaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageManager2StaticsVtbl {
         unsafe extern "system" fn RegisterTransportAsync<Impl: IChatMessageManager2StaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterTransportAsync() {
@@ -1503,23 +1591,26 @@ impl IChatMessageManager2StaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManager2Statics>, ::windows::core::GetTrustLevel, RegisterTransportAsync::<Impl, OFFSET>, GetTransportAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManager2Statics>, ::windows::core::GetTrustLevel, RegisterTransportAsync::<Impl, IMPL_OFFSET>, GetTransportAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageManager2Statics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessageManagerStaticImpl: Sized {
     fn GetTransportsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageTransport>>>;
     fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessageStore>>;
     fn ShowComposeSmsMessageAsync(&self, message: &::core::option::Option<ChatMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ShowSmsSettings(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageManagerStatic {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageManagerStatic";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessageManagerStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageManagerStaticImpl, const OFFSET: isize>() -> IChatMessageManagerStaticVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageManagerStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageManagerStaticVtbl {
         unsafe extern "system" fn GetTransportsAsync<Impl: IChatMessageManagerStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTransportsAsync() {
@@ -1557,20 +1648,23 @@ impl IChatMessageManagerStaticVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowSmsSettings().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManagerStatic>, ::windows::core::GetTrustLevel, GetTransportsAsync::<Impl, OFFSET>, RequestStoreAsync::<Impl, OFFSET>, ShowComposeSmsMessageAsync::<Impl, OFFSET>, ShowSmsSettings::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManagerStatic>, ::windows::core::GetTrustLevel, GetTransportsAsync::<Impl, IMPL_OFFSET>, RequestStoreAsync::<Impl, IMPL_OFFSET>, ShowComposeSmsMessageAsync::<Impl, IMPL_OFFSET>, ShowSmsSettings::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageManagerStatic as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageManagerStatics3Impl: Sized + IChatMessageManagerStaticImpl {
     fn RequestSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatSyncManager>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageManagerStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageManagerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageManagerStatics3Impl, const OFFSET: isize>() -> IChatMessageManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageManagerStatics3Vtbl {
         unsafe extern "system" fn RequestSyncManagerAsync<Impl: IChatMessageManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSyncManagerAsync() {
@@ -1582,7 +1676,10 @@ impl IChatMessageManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManagerStatics3>, ::windows::core::GetTrustLevel, RequestSyncManagerAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageManagerStatics3>, ::windows::core::GetTrustLevel, RequestSyncManagerAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageManagerStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1595,7 +1692,7 @@ impl ::windows::core::RuntimeName for IChatMessageNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IChatMessageNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn ChatMessage<Impl: IChatMessageNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChatMessage() {
@@ -1607,7 +1704,10 @@ impl IChatMessageNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTriggerDetails>, ::windows::core::GetTrustLevel, ChatMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTriggerDetails>, ::windows::core::GetTrustLevel, ChatMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1623,7 +1723,7 @@ impl ::windows::core::RuntimeName for IChatMessageNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageNotificationTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IChatMessageNotificationTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageNotificationTriggerDetails2Vtbl {
         unsafe extern "system" fn ShouldDisplayToast<Impl: IChatMessageNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldDisplayToast() {
@@ -1668,20 +1768,23 @@ impl IChatMessageNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, ShouldDisplayToast::<Impl, OFFSET>, ShouldUpdateDetailText::<Impl, OFFSET>, ShouldUpdateBadge::<Impl, OFFSET>, ShouldUpdateActionCenter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, ShouldDisplayToast::<Impl, IMPL_OFFSET>, ShouldUpdateDetailText::<Impl, IMPL_OFFSET>, ShouldUpdateBadge::<Impl, IMPL_OFFSET>, ShouldUpdateActionCenter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageNotificationTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessageReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessageReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReaderImpl, const OFFSET: isize>() -> IChatMessageReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IChatMessageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -1693,20 +1796,23 @@ impl IChatMessageReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessageReader2Impl: Sized {
     fn ReadBatchWithCountAsync(&self, count: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageReader2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageReader2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessageReader2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReader2Impl, const OFFSET: isize>() -> IChatMessageReader2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageReader2Vtbl {
         unsafe extern "system" fn ReadBatchWithCountAsync<Impl: IChatMessageReader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchWithCountAsync(count) {
@@ -1718,10 +1824,13 @@ impl IChatMessageReader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReader2>, ::windows::core::GetTrustLevel, ReadBatchWithCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReader2>, ::windows::core::GetTrustLevel, ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageReader2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageStoreImpl: Sized {
     fn ChangeTracker(&self) -> ::windows::core::Result<ChatMessageChangeTracker>;
     fn DeleteMessageAsync(&self, localmessageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -1736,13 +1845,13 @@ pub trait IChatMessageStoreImpl: Sized {
     fn MessageChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageChanged(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStoreImpl, const OFFSET: isize>() -> IChatMessageStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageStoreVtbl {
         unsafe extern "system" fn ChangeTracker<Impl: IChatMessageStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeTracker() {
@@ -1869,28 +1978,31 @@ impl IChatMessageStoreVtbl {
             (*this).RemoveMessageChanged(&*(&value as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatMessageStore>,
             ::windows::core::GetTrustLevel,
-            ChangeTracker::<Impl, OFFSET>,
-            DeleteMessageAsync::<Impl, OFFSET>,
-            DownloadMessageAsync::<Impl, OFFSET>,
-            GetMessageAsync::<Impl, OFFSET>,
-            GetMessageReader1::<Impl, OFFSET>,
-            GetMessageReader2::<Impl, OFFSET>,
-            MarkMessageReadAsync::<Impl, OFFSET>,
-            RetrySendMessageAsync::<Impl, OFFSET>,
-            SendMessageAsync::<Impl, OFFSET>,
-            ValidateMessage::<Impl, OFFSET>,
-            MessageChanged::<Impl, OFFSET>,
-            RemoveMessageChanged::<Impl, OFFSET>,
+            ChangeTracker::<Impl, IMPL_OFFSET>,
+            DeleteMessageAsync::<Impl, IMPL_OFFSET>,
+            DownloadMessageAsync::<Impl, IMPL_OFFSET>,
+            GetMessageAsync::<Impl, IMPL_OFFSET>,
+            GetMessageReader1::<Impl, IMPL_OFFSET>,
+            GetMessageReader2::<Impl, IMPL_OFFSET>,
+            MarkMessageReadAsync::<Impl, IMPL_OFFSET>,
+            RetrySendMessageAsync::<Impl, IMPL_OFFSET>,
+            SendMessageAsync::<Impl, IMPL_OFFSET>,
+            ValidateMessage::<Impl, IMPL_OFFSET>,
+            MessageChanged::<Impl, IMPL_OFFSET>,
+            RemoveMessageChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageStore as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatMessageStore2Impl: Sized + IChatMessageStoreImpl {
     fn ForwardMessageAsync(&self, localchatmessageid: &::windows::core::HSTRING, addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>>;
     fn GetConversationAsync(&self, conversationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>>;
@@ -1910,13 +2022,13 @@ pub trait IChatMessageStore2Impl: Sized + IChatMessageStoreImpl {
     fn StoreChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStoreChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageStore2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageStore2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatMessageStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStore2Impl, const OFFSET: isize>() -> IChatMessageStore2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageStore2Vtbl {
         unsafe extern "system" fn ForwardMessageAsync<Impl: IChatMessageStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localchatmessageid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, addresses: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForwardMessageAsync(&*(&localchatmessageid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&addresses as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2098,43 +2210,46 @@ impl IChatMessageStore2Vtbl {
             (*this).RemoveStoreChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatMessageStore2>,
             ::windows::core::GetTrustLevel,
-            ForwardMessageAsync::<Impl, OFFSET>,
-            GetConversationAsync::<Impl, OFFSET>,
-            GetConversationForTransportsAsync::<Impl, OFFSET>,
-            GetConversationFromThreadingInfoAsync::<Impl, OFFSET>,
-            GetConversationReader::<Impl, OFFSET>,
-            GetConversationForTransportsReader::<Impl, OFFSET>,
-            GetMessageByRemoteIdAsync::<Impl, OFFSET>,
-            GetUnseenCountAsync::<Impl, OFFSET>,
-            GetUnseenCountForTransportsReaderAsync::<Impl, OFFSET>,
-            MarkAsSeenAsync::<Impl, OFFSET>,
-            MarkAsSeenForTransportsAsync::<Impl, OFFSET>,
-            GetSearchReader::<Impl, OFFSET>,
-            SaveMessageAsync::<Impl, OFFSET>,
-            TryCancelDownloadMessageAsync::<Impl, OFFSET>,
-            TryCancelSendMessageAsync::<Impl, OFFSET>,
-            StoreChanged::<Impl, OFFSET>,
-            RemoveStoreChanged::<Impl, OFFSET>,
+            ForwardMessageAsync::<Impl, IMPL_OFFSET>,
+            GetConversationAsync::<Impl, IMPL_OFFSET>,
+            GetConversationForTransportsAsync::<Impl, IMPL_OFFSET>,
+            GetConversationFromThreadingInfoAsync::<Impl, IMPL_OFFSET>,
+            GetConversationReader::<Impl, IMPL_OFFSET>,
+            GetConversationForTransportsReader::<Impl, IMPL_OFFSET>,
+            GetMessageByRemoteIdAsync::<Impl, IMPL_OFFSET>,
+            GetUnseenCountAsync::<Impl, IMPL_OFFSET>,
+            GetUnseenCountForTransportsReaderAsync::<Impl, IMPL_OFFSET>,
+            MarkAsSeenAsync::<Impl, IMPL_OFFSET>,
+            MarkAsSeenForTransportsAsync::<Impl, IMPL_OFFSET>,
+            GetSearchReader::<Impl, IMPL_OFFSET>,
+            SaveMessageAsync::<Impl, IMPL_OFFSET>,
+            TryCancelDownloadMessageAsync::<Impl, IMPL_OFFSET>,
+            TryCancelSendMessageAsync::<Impl, IMPL_OFFSET>,
+            StoreChanged::<Impl, IMPL_OFFSET>,
+            RemoveStoreChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageStore2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageStore3Impl: Sized + IChatMessageStoreImpl {
     fn GetMessageBySyncIdAsync(&self, syncid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageStore3 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageStore3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageStore3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStore3Impl, const OFFSET: isize>() -> IChatMessageStore3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStore3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageStore3Vtbl {
         unsafe extern "system" fn GetMessageBySyncIdAsync<Impl: IChatMessageStore3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMessageBySyncIdAsync(&*(&syncid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2146,7 +2261,10 @@ impl IChatMessageStore3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageStore3>, ::windows::core::GetTrustLevel, GetMessageBySyncIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageStore3>, ::windows::core::GetTrustLevel, GetMessageBySyncIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageStore3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2160,7 +2278,7 @@ impl ::windows::core::RuntimeName for IChatMessageStoreChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageStoreChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStoreChangedEventArgsImpl, const OFFSET: isize>() -> IChatMessageStoreChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageStoreChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageStoreChangedEventArgsVtbl {
         unsafe extern "system" fn Id<Impl: IChatMessageStoreChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -2183,10 +2301,13 @@ impl IChatMessageStoreChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageStoreChangedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Kind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageStoreChangedEventArgs>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageStoreChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageTransportImpl: Sized {
     fn IsAppSetAsNotificationProvider(&self) -> ::windows::core::Result<bool>;
     fn IsActive(&self) -> ::windows::core::Result<bool>;
@@ -2194,13 +2315,13 @@ pub trait IChatMessageTransportImpl: Sized {
     fn TransportId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RequestSetAsNotificationProviderAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageTransport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageTransportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageTransportImpl, const OFFSET: isize>() -> IChatMessageTransportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageTransportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageTransportVtbl {
         unsafe extern "system" fn IsAppSetAsNotificationProvider<Impl: IChatMessageTransportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAppSetAsNotificationProvider() {
@@ -2256,21 +2377,36 @@ impl IChatMessageTransportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageTransport>, ::windows::core::GetTrustLevel, IsAppSetAsNotificationProvider::<Impl, OFFSET>, IsActive::<Impl, OFFSET>, TransportFriendlyName::<Impl, OFFSET>, TransportId::<Impl, OFFSET>, RequestSetAsNotificationProviderAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IChatMessageTransport>,
+            ::windows::core::GetTrustLevel,
+            IsAppSetAsNotificationProvider::<Impl, IMPL_OFFSET>,
+            IsActive::<Impl, IMPL_OFFSET>,
+            TransportFriendlyName::<Impl, IMPL_OFFSET>,
+            TransportId::<Impl, IMPL_OFFSET>,
+            RequestSetAsNotificationProviderAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageTransport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageTransport2Impl: Sized + IChatMessageTransportImpl {
     fn Configuration(&self) -> ::windows::core::Result<ChatMessageTransportConfiguration>;
     fn TransportKind(&self) -> ::windows::core::Result<ChatMessageTransportKind>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageTransport2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageTransport2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageTransport2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageTransport2Impl, const OFFSET: isize>() -> IChatMessageTransport2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageTransport2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageTransport2Vtbl {
         unsafe extern "system" fn Configuration<Impl: IChatMessageTransport2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -2293,10 +2429,13 @@ impl IChatMessageTransport2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageTransport2>, ::windows::core::GetTrustLevel, Configuration::<Impl, OFFSET>, TransportKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageTransport2>, ::windows::core::GetTrustLevel, Configuration::<Impl, IMPL_OFFSET>, TransportKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageTransport2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IChatMessageTransportConfigurationImpl: Sized {
     fn MaxAttachmentCount(&self) -> ::windows::core::Result<i32>;
     fn MaxMessageSizeInKilobytes(&self) -> ::windows::core::Result<i32>;
@@ -2304,13 +2443,13 @@ pub trait IChatMessageTransportConfigurationImpl: Sized {
     fn SupportedVideoFormat(&self) -> ::windows::core::Result<super::super::Media::MediaProperties::MediaEncodingProfile>;
     fn ExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageTransportConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl IChatMessageTransportConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageTransportConfigurationImpl, const OFFSET: isize>() -> IChatMessageTransportConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageTransportConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageTransportConfigurationVtbl {
         unsafe extern "system" fn MaxAttachmentCount<Impl: IChatMessageTransportConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAttachmentCount() {
@@ -2366,23 +2505,38 @@ impl IChatMessageTransportConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageTransportConfiguration>, ::windows::core::GetTrustLevel, MaxAttachmentCount::<Impl, OFFSET>, MaxMessageSizeInKilobytes::<Impl, OFFSET>, MaxRecipientCount::<Impl, OFFSET>, SupportedVideoFormat::<Impl, OFFSET>, ExtendedProperties::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IChatMessageTransportConfiguration>,
+            ::windows::core::GetTrustLevel,
+            MaxAttachmentCount::<Impl, IMPL_OFFSET>,
+            MaxMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            MaxRecipientCount::<Impl, IMPL_OFFSET>,
+            SupportedVideoFormat::<Impl, IMPL_OFFSET>,
+            ExtendedProperties::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageTransportConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatMessageValidationResultImpl: Sized {
     fn MaxPartCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn PartCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn RemainingCharacterCountInPart(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn Status(&self) -> ::windows::core::Result<ChatMessageValidationStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatMessageValidationResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatMessageValidationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageValidationResultImpl, const OFFSET: isize>() -> IChatMessageValidationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageValidationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageValidationResultVtbl {
         unsafe extern "system" fn MaxPartCount<Impl: IChatMessageValidationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPartCount() {
@@ -2427,7 +2581,10 @@ impl IChatMessageValidationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageValidationResult>, ::windows::core::GetTrustLevel, MaxPartCount::<Impl, OFFSET>, PartCount::<Impl, OFFSET>, RemainingCharacterCountInPart::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageValidationResult>, ::windows::core::GetTrustLevel, MaxPartCount::<Impl, IMPL_OFFSET>, PartCount::<Impl, IMPL_OFFSET>, RemainingCharacterCountInPart::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageValidationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2441,7 +2598,7 @@ impl ::windows::core::RuntimeName for IChatQueryOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatQueryOptionsImpl, const OFFSET: isize>() -> IChatQueryOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatQueryOptionsVtbl {
         unsafe extern "system" fn SearchString<Impl: IChatQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchString() {
@@ -2457,10 +2614,13 @@ impl IChatQueryOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSearchString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatQueryOptions>, ::windows::core::GetTrustLevel, SearchString::<Impl, OFFSET>, SetSearchString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatQueryOptions>, ::windows::core::GetTrustLevel, SearchString::<Impl, IMPL_OFFSET>, SetSearchString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatQueryOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChatRecipientDeliveryInfoImpl: Sized {
     fn TransportAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTransportAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -2474,13 +2634,13 @@ pub trait IChatRecipientDeliveryInfoImpl: Sized {
     fn IsErrorPermanent(&self) -> ::windows::core::Result<bool>;
     fn Status(&self) -> ::windows::core::Result<ChatMessageStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IChatRecipientDeliveryInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatRecipientDeliveryInfoImpl, const OFFSET: isize>() -> IChatRecipientDeliveryInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatRecipientDeliveryInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatRecipientDeliveryInfoVtbl {
         unsafe extern "system" fn TransportAddress<Impl: IChatRecipientDeliveryInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportAddress() {
@@ -2582,38 +2742,41 @@ impl IChatRecipientDeliveryInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IChatRecipientDeliveryInfo>,
             ::windows::core::GetTrustLevel,
-            TransportAddress::<Impl, OFFSET>,
-            SetTransportAddress::<Impl, OFFSET>,
-            DeliveryTime::<Impl, OFFSET>,
-            SetDeliveryTime::<Impl, OFFSET>,
-            ReadTime::<Impl, OFFSET>,
-            SetReadTime::<Impl, OFFSET>,
-            TransportErrorCodeCategory::<Impl, OFFSET>,
-            TransportInterpretedErrorCode::<Impl, OFFSET>,
-            TransportErrorCode::<Impl, OFFSET>,
-            IsErrorPermanent::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
+            TransportAddress::<Impl, IMPL_OFFSET>,
+            SetTransportAddress::<Impl, IMPL_OFFSET>,
+            DeliveryTime::<Impl, IMPL_OFFSET>,
+            SetDeliveryTime::<Impl, IMPL_OFFSET>,
+            ReadTime::<Impl, IMPL_OFFSET>,
+            SetReadTime::<Impl, IMPL_OFFSET>,
+            TransportErrorCodeCategory::<Impl, IMPL_OFFSET>,
+            TransportInterpretedErrorCode::<Impl, IMPL_OFFSET>,
+            TransportErrorCode::<Impl, IMPL_OFFSET>,
+            IsErrorPermanent::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatRecipientDeliveryInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChatSearchReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>>;
     fn ReadBatchWithCountAsync(&self, count: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatSearchReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IChatSearchReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatSearchReaderImpl, const OFFSET: isize>() -> IChatSearchReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatSearchReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatSearchReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IChatSearchReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -2636,7 +2799,10 @@ impl IChatSearchReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSearchReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>, ReadBatchWithCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSearchReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>, ReadBatchWithCountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatSearchReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2652,7 +2818,7 @@ impl ::windows::core::RuntimeName for IChatSyncConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatSyncConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatSyncConfigurationImpl, const OFFSET: isize>() -> IChatSyncConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatSyncConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatSyncConfigurationVtbl {
         unsafe extern "system" fn IsSyncEnabled<Impl: IChatSyncConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSyncEnabled() {
@@ -2683,10 +2849,13 @@ impl IChatSyncConfigurationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestoreHistorySpan(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSyncConfiguration>, ::windows::core::GetTrustLevel, IsSyncEnabled::<Impl, OFFSET>, SetIsSyncEnabled::<Impl, OFFSET>, RestoreHistorySpan::<Impl, OFFSET>, SetRestoreHistorySpan::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSyncConfiguration>, ::windows::core::GetTrustLevel, IsSyncEnabled::<Impl, IMPL_OFFSET>, SetIsSyncEnabled::<Impl, IMPL_OFFSET>, RestoreHistorySpan::<Impl, IMPL_OFFSET>, SetRestoreHistorySpan::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatSyncConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IChatSyncManagerImpl: Sized {
     fn Configuration(&self) -> ::windows::core::Result<ChatSyncConfiguration>;
     fn AssociateAccountAsync(&self, webaccount: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -2695,13 +2864,13 @@ pub trait IChatSyncManagerImpl: Sized {
     fn StartSync(&self) -> ::windows::core::Result<()>;
     fn SetConfigurationAsync(&self, configuration: &::core::option::Option<ChatSyncConfiguration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatSyncManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl IChatSyncManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatSyncManagerImpl, const OFFSET: isize>() -> IChatSyncManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatSyncManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatSyncManagerVtbl {
         unsafe extern "system" fn Configuration<Impl: IChatSyncManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
@@ -2761,10 +2930,26 @@ impl IChatSyncManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatSyncManager>, ::windows::core::GetTrustLevel, Configuration::<Impl, OFFSET>, AssociateAccountAsync::<Impl, OFFSET>, UnassociateAccountAsync::<Impl, OFFSET>, IsAccountAssociated::<Impl, OFFSET>, StartSync::<Impl, OFFSET>, SetConfigurationAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IChatSyncManager>,
+            ::windows::core::GetTrustLevel,
+            Configuration::<Impl, IMPL_OFFSET>,
+            AssociateAccountAsync::<Impl, IMPL_OFFSET>,
+            UnassociateAccountAsync::<Impl, IMPL_OFFSET>,
+            IsAccountAssociated::<Impl, IMPL_OFFSET>,
+            StartSync::<Impl, IMPL_OFFSET>,
+            SetConfigurationAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatSyncManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRcsEndUserMessageImpl: Sized {
     fn TransportId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2774,13 +2959,13 @@ pub trait IRcsEndUserMessageImpl: Sized {
     fn SendResponseAsync(&self, action: &::core::option::Option<RcsEndUserMessageAction>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SendResponseWithPinAsync(&self, action: &::core::option::Option<RcsEndUserMessageAction>, pin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IRcsEndUserMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRcsEndUserMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageImpl, const OFFSET: isize>() -> IRcsEndUserMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageVtbl {
         unsafe extern "system" fn TransportId<Impl: IRcsEndUserMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportId() {
@@ -2858,7 +3043,24 @@ impl IRcsEndUserMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessage>, ::windows::core::GetTrustLevel, TransportId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Text::<Impl, OFFSET>, IsPinRequired::<Impl, OFFSET>, Actions::<Impl, OFFSET>, SendResponseAsync::<Impl, OFFSET>, SendResponseWithPinAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRcsEndUserMessage>,
+            ::windows::core::GetTrustLevel,
+            TransportId::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Text::<Impl, IMPL_OFFSET>,
+            IsPinRequired::<Impl, IMPL_OFFSET>,
+            Actions::<Impl, IMPL_OFFSET>,
+            SendResponseAsync::<Impl, IMPL_OFFSET>,
+            SendResponseWithPinAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsEndUserMessage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2871,7 +3073,7 @@ impl ::windows::core::RuntimeName for IRcsEndUserMessageAction {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRcsEndUserMessageActionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageActionImpl, const OFFSET: isize>() -> IRcsEndUserMessageActionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageActionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageActionVtbl {
         unsafe extern "system" fn Label<Impl: IRcsEndUserMessageActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
@@ -2883,7 +3085,10 @@ impl IRcsEndUserMessageActionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAction>, ::windows::core::GetTrustLevel, Label::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAction>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsEndUserMessageAction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2897,7 +3102,7 @@ impl ::windows::core::RuntimeName for IRcsEndUserMessageAvailableEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRcsEndUserMessageAvailableEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableEventArgsImpl, const OFFSET: isize>() -> IRcsEndUserMessageAvailableEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageAvailableEventArgsVtbl {
         unsafe extern "system" fn IsMessageAvailable<Impl: IRcsEndUserMessageAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMessageAvailable() {
@@ -2920,7 +3125,10 @@ impl IRcsEndUserMessageAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableEventArgs>, ::windows::core::GetTrustLevel, IsMessageAvailable::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableEventArgs>, ::windows::core::GetTrustLevel, IsMessageAvailable::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsEndUserMessageAvailableEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2934,7 +3142,7 @@ impl ::windows::core::RuntimeName for IRcsEndUserMessageAvailableTriggerDetails 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRcsEndUserMessageAvailableTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableTriggerDetailsImpl, const OFFSET: isize>() -> IRcsEndUserMessageAvailableTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageAvailableTriggerDetailsVtbl {
         unsafe extern "system" fn Title<Impl: IRcsEndUserMessageAvailableTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -2957,21 +3165,24 @@ impl IRcsEndUserMessageAvailableTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableTriggerDetails>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, Text::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableTriggerDetails>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsEndUserMessageAvailableTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRcsEndUserMessageManagerImpl: Sized {
     fn MessageAvailableChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IRcsEndUserMessageManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRcsEndUserMessageManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageManagerImpl, const OFFSET: isize>() -> IRcsEndUserMessageManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageManagerVtbl {
         unsafe extern "system" fn MessageAvailableChanged<Impl: IRcsEndUserMessageManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageAvailableChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2987,23 +3198,26 @@ impl IRcsEndUserMessageManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageManager>, ::windows::core::GetTrustLevel, MessageAvailableChanged::<Impl, OFFSET>, RemoveMessageAvailableChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageManager>, ::windows::core::GetTrustLevel, MessageAvailableChanged::<Impl, IMPL_OFFSET>, RemoveMessageAvailableChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsEndUserMessageManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRcsManagerStaticsImpl: Sized {
     fn GetEndUserMessageManager(&self) -> ::windows::core::Result<RcsEndUserMessageManager>;
     fn GetTransportsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<RcsTransport>>>;
     fn GetTransportAsync(&self, transportid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RcsTransport>>;
     fn LeaveConversationAsync(&self, conversation: &::core::option::Option<ChatConversation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRcsManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IRcsManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRcsManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsManagerStaticsImpl, const OFFSET: isize>() -> IRcsManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsManagerStaticsVtbl {
         unsafe extern "system" fn GetEndUserMessageManager<Impl: IRcsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndUserMessageManager() {
@@ -3048,21 +3262,24 @@ impl IRcsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsManagerStatics>, ::windows::core::GetTrustLevel, GetEndUserMessageManager::<Impl, OFFSET>, GetTransportsAsync::<Impl, OFFSET>, GetTransportAsync::<Impl, OFFSET>, LeaveConversationAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsManagerStatics>, ::windows::core::GetTrustLevel, GetEndUserMessageManager::<Impl, IMPL_OFFSET>, GetTransportsAsync::<Impl, IMPL_OFFSET>, GetTransportAsync::<Impl, IMPL_OFFSET>, LeaveConversationAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRcsManagerStatics2Impl: Sized {
     fn TransportListChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveTransportListChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRcsManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IRcsManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRcsManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsManagerStatics2Impl, const OFFSET: isize>() -> IRcsManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsManagerStatics2Vtbl {
         unsafe extern "system" fn TransportListChanged<Impl: IRcsManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportListChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3078,7 +3295,10 @@ impl IRcsManagerStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTransportListChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsManagerStatics2>, ::windows::core::GetTrustLevel, TransportListChanged::<Impl, OFFSET>, RemoveTransportListChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsManagerStatics2>, ::windows::core::GetTrustLevel, TransportListChanged::<Impl, IMPL_OFFSET>, RemoveTransportListChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3091,7 +3311,7 @@ impl ::windows::core::RuntimeName for IRcsServiceKindSupportedChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRcsServiceKindSupportedChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsServiceKindSupportedChangedEventArgsImpl, const OFFSET: isize>() -> IRcsServiceKindSupportedChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsServiceKindSupportedChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsServiceKindSupportedChangedEventArgsVtbl {
         unsafe extern "system" fn ServiceKind<Impl: IRcsServiceKindSupportedChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RcsServiceKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceKind() {
@@ -3103,10 +3323,13 @@ impl IRcsServiceKindSupportedChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsServiceKindSupportedChangedEventArgs>, ::windows::core::GetTrustLevel, ServiceKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsServiceKindSupportedChangedEventArgs>, ::windows::core::GetTrustLevel, ServiceKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsServiceKindSupportedChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRcsTransportImpl: Sized {
     fn ExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
     fn IsActive(&self) -> ::windows::core::Result<bool>;
@@ -3118,13 +3341,13 @@ pub trait IRcsTransportImpl: Sized {
     fn ServiceKindSupportedChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServiceKindSupportedChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IRcsTransport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRcsTransportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsTransportImpl, const OFFSET: isize>() -> IRcsTransportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsTransportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsTransportVtbl {
         unsafe extern "system" fn ExtendedProperties<Impl: IRcsTransportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedProperties() {
@@ -3218,22 +3441,25 @@ impl IRcsTransportVtbl {
             (*this).RemoveServiceKindSupportedChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRcsTransport>,
             ::windows::core::GetTrustLevel,
-            ExtendedProperties::<Impl, OFFSET>,
-            IsActive::<Impl, OFFSET>,
-            TransportFriendlyName::<Impl, OFFSET>,
-            TransportId::<Impl, OFFSET>,
-            Configuration::<Impl, OFFSET>,
-            IsStoreAndForwardEnabled::<Impl, OFFSET>,
-            IsServiceKindSupported::<Impl, OFFSET>,
-            ServiceKindSupportedChanged::<Impl, OFFSET>,
-            RemoveServiceKindSupportedChanged::<Impl, OFFSET>,
+            ExtendedProperties::<Impl, IMPL_OFFSET>,
+            IsActive::<Impl, IMPL_OFFSET>,
+            TransportFriendlyName::<Impl, IMPL_OFFSET>,
+            TransportId::<Impl, IMPL_OFFSET>,
+            Configuration::<Impl, IMPL_OFFSET>,
+            IsStoreAndForwardEnabled::<Impl, IMPL_OFFSET>,
+            IsServiceKindSupported::<Impl, IMPL_OFFSET>,
+            ServiceKindSupportedChanged::<Impl, IMPL_OFFSET>,
+            RemoveServiceKindSupportedChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsTransport as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3251,7 +3477,7 @@ impl ::windows::core::RuntimeName for IRcsTransportConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRcsTransportConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsTransportConfigurationImpl, const OFFSET: isize>() -> IRcsTransportConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsTransportConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsTransportConfigurationVtbl {
         unsafe extern "system" fn MaxAttachmentCount<Impl: IRcsTransportConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAttachmentCount() {
@@ -3319,19 +3545,22 @@ impl IRcsTransportConfigurationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRcsTransportConfiguration>,
             ::windows::core::GetTrustLevel,
-            MaxAttachmentCount::<Impl, OFFSET>,
-            MaxMessageSizeInKilobytes::<Impl, OFFSET>,
-            MaxGroupMessageSizeInKilobytes::<Impl, OFFSET>,
-            MaxRecipientCount::<Impl, OFFSET>,
-            MaxFileSizeInKilobytes::<Impl, OFFSET>,
-            WarningFileSizeInKilobytes::<Impl, OFFSET>,
+            MaxAttachmentCount::<Impl, IMPL_OFFSET>,
+            MaxMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            MaxGroupMessageSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            MaxRecipientCount::<Impl, IMPL_OFFSET>,
+            MaxFileSizeInKilobytes::<Impl, IMPL_OFFSET>,
+            WarningFileSizeInKilobytes::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsTransportConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3346,7 +3575,7 @@ impl ::windows::core::RuntimeName for IRemoteParticipantComposingChangedEventArg
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteParticipantComposingChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteParticipantComposingChangedEventArgsImpl, const OFFSET: isize>() -> IRemoteParticipantComposingChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteParticipantComposingChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteParticipantComposingChangedEventArgsVtbl {
         unsafe extern "system" fn TransportId<Impl: IRemoteParticipantComposingChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportId() {
@@ -3380,6 +3609,9 @@ impl IRemoteParticipantComposingChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteParticipantComposingChangedEventArgs>, ::windows::core::GetTrustLevel, TransportId::<Impl, OFFSET>, ParticipantAddress::<Impl, OFFSET>, IsComposing::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteParticipantComposingChangedEventArgs>, ::windows::core::GetTrustLevel, TransportId::<Impl, IMPL_OFFSET>, ParticipantAddress::<Impl, IMPL_OFFSET>, IsComposing::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteParticipantComposingChangedEventArgs as ::windows::core::Interface>::IID
     }
 }

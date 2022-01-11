@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
 pub trait IInjectedInputGamepadInfoImpl: Sized {
     fn Buttons(&self) -> ::windows::core::Result<super::super::super::super::Gaming::Input::GamepadButtons>;
     fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::Result<()>;
@@ -15,13 +15,13 @@ pub trait IInjectedInputGamepadInfoImpl: Sized {
     fn RightTrigger(&self) -> ::windows::core::Result<f64>;
     fn SetRightTrigger(&self, value: f64) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
 impl IInjectedInputGamepadInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>() -> IInjectedInputGamepadInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputGamepadInfoVtbl {
         unsafe extern "system" fn Buttons<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Buttons() {
@@ -128,40 +128,43 @@ impl IInjectedInputGamepadInfoVtbl {
             (*this).SetRightTrigger(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInjectedInputGamepadInfo>,
             ::windows::core::GetTrustLevel,
-            Buttons::<Impl, OFFSET>,
-            SetButtons::<Impl, OFFSET>,
-            LeftThumbstickX::<Impl, OFFSET>,
-            SetLeftThumbstickX::<Impl, OFFSET>,
-            LeftThumbstickY::<Impl, OFFSET>,
-            SetLeftThumbstickY::<Impl, OFFSET>,
-            LeftTrigger::<Impl, OFFSET>,
-            SetLeftTrigger::<Impl, OFFSET>,
-            RightThumbstickX::<Impl, OFFSET>,
-            SetRightThumbstickX::<Impl, OFFSET>,
-            RightThumbstickY::<Impl, OFFSET>,
-            SetRightThumbstickY::<Impl, OFFSET>,
-            RightTrigger::<Impl, OFFSET>,
-            SetRightTrigger::<Impl, OFFSET>,
+            Buttons::<Impl, IMPL_OFFSET>,
+            SetButtons::<Impl, IMPL_OFFSET>,
+            LeftThumbstickX::<Impl, IMPL_OFFSET>,
+            SetLeftThumbstickX::<Impl, IMPL_OFFSET>,
+            LeftThumbstickY::<Impl, IMPL_OFFSET>,
+            SetLeftThumbstickY::<Impl, IMPL_OFFSET>,
+            LeftTrigger::<Impl, IMPL_OFFSET>,
+            SetLeftTrigger::<Impl, IMPL_OFFSET>,
+            RightThumbstickX::<Impl, IMPL_OFFSET>,
+            SetRightThumbstickX::<Impl, IMPL_OFFSET>,
+            RightThumbstickY::<Impl, IMPL_OFFSET>,
+            SetRightThumbstickY::<Impl, IMPL_OFFSET>,
+            RightTrigger::<Impl, IMPL_OFFSET>,
+            SetRightTrigger::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInjectedInputGamepadInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
 pub trait IInjectedInputGamepadInfoFactoryImpl: Sized {
     fn CreateInstanceFromGamepadReading(&self, reading: &super::super::super::super::Gaming::Input::GamepadReading) -> ::windows::core::Result<InjectedInputGamepadInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInjectedInputGamepadInfoFactory {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
 impl IInjectedInputGamepadInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoFactoryImpl, const OFFSET: isize>() -> IInjectedInputGamepadInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputGamepadInfoFactoryVtbl {
         unsafe extern "system" fn CreateInstanceFromGamepadReading<Impl: IInjectedInputGamepadInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reading: super::super::super::super::Gaming::Input::GamepadReading, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceFromGamepadReading(&*(&reading as *const <super::super::super::super::Gaming::Input::GamepadReading as ::windows::core::Abi>::Abi as *const <super::super::super::super::Gaming::Input::GamepadReading as ::windows::core::DefaultType>::DefaultType)) {
@@ -173,7 +176,10 @@ impl IInjectedInputGamepadInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInjectedInputGamepadInfoFactory>, ::windows::core::GetTrustLevel, CreateInstanceFromGamepadReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInjectedInputGamepadInfoFactory>, ::windows::core::GetTrustLevel, CreateInstanceFromGamepadReading::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInjectedInputGamepadInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -191,7 +197,7 @@ impl ::windows::core::RuntimeName for IInjectedInputKeyboardInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInjectedInputKeyboardInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>() -> IInjectedInputKeyboardInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputKeyboardInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputKeyboardInfoVtbl {
         unsafe extern "system" fn KeyOptions<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputKeyOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyOptions() {
@@ -237,7 +243,23 @@ impl IInjectedInputKeyboardInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVirtualKey(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInjectedInputKeyboardInfo>, ::windows::core::GetTrustLevel, KeyOptions::<Impl, OFFSET>, SetKeyOptions::<Impl, OFFSET>, ScanCode::<Impl, OFFSET>, SetScanCode::<Impl, OFFSET>, VirtualKey::<Impl, OFFSET>, SetVirtualKey::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IInjectedInputKeyboardInfo>,
+            ::windows::core::GetTrustLevel,
+            KeyOptions::<Impl, IMPL_OFFSET>,
+            SetKeyOptions::<Impl, IMPL_OFFSET>,
+            ScanCode::<Impl, IMPL_OFFSET>,
+            SetScanCode::<Impl, IMPL_OFFSET>,
+            VirtualKey::<Impl, IMPL_OFFSET>,
+            SetVirtualKey::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInjectedInputKeyboardInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -259,7 +281,7 @@ impl ::windows::core::RuntimeName for IInjectedInputMouseInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInjectedInputMouseInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>() -> IInjectedInputMouseInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputMouseInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputMouseInfoVtbl {
         unsafe extern "system" fn MouseOptions<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputMouseOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseOptions() {
@@ -336,23 +358,26 @@ impl IInjectedInputMouseInfoVtbl {
             (*this).SetTimeOffsetInMilliseconds(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInjectedInputMouseInfo>,
             ::windows::core::GetTrustLevel,
-            MouseOptions::<Impl, OFFSET>,
-            SetMouseOptions::<Impl, OFFSET>,
-            MouseData::<Impl, OFFSET>,
-            SetMouseData::<Impl, OFFSET>,
-            DeltaY::<Impl, OFFSET>,
-            SetDeltaY::<Impl, OFFSET>,
-            DeltaX::<Impl, OFFSET>,
-            SetDeltaX::<Impl, OFFSET>,
-            TimeOffsetInMilliseconds::<Impl, OFFSET>,
-            SetTimeOffsetInMilliseconds::<Impl, OFFSET>,
+            MouseOptions::<Impl, IMPL_OFFSET>,
+            SetMouseOptions::<Impl, IMPL_OFFSET>,
+            MouseData::<Impl, IMPL_OFFSET>,
+            SetMouseData::<Impl, IMPL_OFFSET>,
+            DeltaY::<Impl, IMPL_OFFSET>,
+            SetDeltaY::<Impl, IMPL_OFFSET>,
+            DeltaX::<Impl, IMPL_OFFSET>,
+            SetDeltaX::<Impl, IMPL_OFFSET>,
+            TimeOffsetInMilliseconds::<Impl, IMPL_OFFSET>,
+            SetTimeOffsetInMilliseconds::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInjectedInputMouseInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -378,7 +403,7 @@ impl ::windows::core::RuntimeName for IInjectedInputPenInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInjectedInputPenInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>() -> IInjectedInputPenInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputPenInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputPenInfoVtbl {
         unsafe extern "system" fn PointerInfo<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerInfo() {
@@ -485,27 +510,30 @@ impl IInjectedInputPenInfoVtbl {
             (*this).SetTiltY(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInjectedInputPenInfo>,
             ::windows::core::GetTrustLevel,
-            PointerInfo::<Impl, OFFSET>,
-            SetPointerInfo::<Impl, OFFSET>,
-            PenButtons::<Impl, OFFSET>,
-            SetPenButtons::<Impl, OFFSET>,
-            PenParameters::<Impl, OFFSET>,
-            SetPenParameters::<Impl, OFFSET>,
-            Pressure::<Impl, OFFSET>,
-            SetPressure::<Impl, OFFSET>,
-            Rotation::<Impl, OFFSET>,
-            SetRotation::<Impl, OFFSET>,
-            TiltX::<Impl, OFFSET>,
-            SetTiltX::<Impl, OFFSET>,
-            TiltY::<Impl, OFFSET>,
-            SetTiltY::<Impl, OFFSET>,
+            PointerInfo::<Impl, IMPL_OFFSET>,
+            SetPointerInfo::<Impl, IMPL_OFFSET>,
+            PenButtons::<Impl, IMPL_OFFSET>,
+            SetPenButtons::<Impl, IMPL_OFFSET>,
+            PenParameters::<Impl, IMPL_OFFSET>,
+            SetPenParameters::<Impl, IMPL_OFFSET>,
+            Pressure::<Impl, IMPL_OFFSET>,
+            SetPressure::<Impl, IMPL_OFFSET>,
+            Rotation::<Impl, IMPL_OFFSET>,
+            SetRotation::<Impl, IMPL_OFFSET>,
+            TiltX::<Impl, IMPL_OFFSET>,
+            SetTiltX::<Impl, IMPL_OFFSET>,
+            TiltY::<Impl, IMPL_OFFSET>,
+            SetTiltY::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInjectedInputPenInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -527,7 +555,7 @@ impl ::windows::core::RuntimeName for IInjectedInputTouchInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInjectedInputTouchInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>() -> IInjectedInputTouchInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputTouchInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputTouchInfoVtbl {
         unsafe extern "system" fn Contact<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputRectangle) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -604,26 +632,29 @@ impl IInjectedInputTouchInfoVtbl {
             (*this).SetTouchParameters(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInjectedInputTouchInfo>,
             ::windows::core::GetTrustLevel,
-            Contact::<Impl, OFFSET>,
-            SetContact::<Impl, OFFSET>,
-            Orientation::<Impl, OFFSET>,
-            SetOrientation::<Impl, OFFSET>,
-            PointerInfo::<Impl, OFFSET>,
-            SetPointerInfo::<Impl, OFFSET>,
-            Pressure::<Impl, OFFSET>,
-            SetPressure::<Impl, OFFSET>,
-            TouchParameters::<Impl, OFFSET>,
-            SetTouchParameters::<Impl, OFFSET>,
+            Contact::<Impl, IMPL_OFFSET>,
+            SetContact::<Impl, IMPL_OFFSET>,
+            Orientation::<Impl, IMPL_OFFSET>,
+            SetOrientation::<Impl, IMPL_OFFSET>,
+            PointerInfo::<Impl, IMPL_OFFSET>,
+            SetPointerInfo::<Impl, IMPL_OFFSET>,
+            Pressure::<Impl, IMPL_OFFSET>,
+            SetPressure::<Impl, IMPL_OFFSET>,
+            TouchParameters::<Impl, IMPL_OFFSET>,
+            SetTouchParameters::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInjectedInputTouchInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInputInjectorImpl: Sized {
     fn InjectKeyboardInput(&self, input: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>) -> ::windows::core::Result<()>;
     fn InjectMouseInput(&self, input: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>) -> ::windows::core::Result<()>;
@@ -635,13 +666,13 @@ pub trait IInputInjectorImpl: Sized {
     fn UninitializePenInjection(&self) -> ::windows::core::Result<()>;
     fn InjectShortcut(&self, shortcut: InjectedInputShortcut) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInputInjector";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IInputInjectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorImpl, const OFFSET: isize>() -> IInputInjectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorVtbl {
         unsafe extern "system" fn InjectKeyboardInput<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectKeyboardInput(&*(&input as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -679,37 +710,40 @@ impl IInputInjectorVtbl {
             (*this).InjectShortcut(shortcut).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInputInjector>,
             ::windows::core::GetTrustLevel,
-            InjectKeyboardInput::<Impl, OFFSET>,
-            InjectMouseInput::<Impl, OFFSET>,
-            InitializeTouchInjection::<Impl, OFFSET>,
-            InjectTouchInput::<Impl, OFFSET>,
-            UninitializeTouchInjection::<Impl, OFFSET>,
-            InitializePenInjection::<Impl, OFFSET>,
-            InjectPenInput::<Impl, OFFSET>,
-            UninitializePenInjection::<Impl, OFFSET>,
-            InjectShortcut::<Impl, OFFSET>,
+            InjectKeyboardInput::<Impl, IMPL_OFFSET>,
+            InjectMouseInput::<Impl, IMPL_OFFSET>,
+            InitializeTouchInjection::<Impl, IMPL_OFFSET>,
+            InjectTouchInput::<Impl, IMPL_OFFSET>,
+            UninitializeTouchInjection::<Impl, IMPL_OFFSET>,
+            InitializePenInjection::<Impl, IMPL_OFFSET>,
+            InjectPenInput::<Impl, IMPL_OFFSET>,
+            UninitializePenInjection::<Impl, IMPL_OFFSET>,
+            InjectShortcut::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputInjector as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInputInjector2Impl: Sized + IInputInjectorImpl {
     fn InitializeGamepadInjection(&self) -> ::windows::core::Result<()>;
     fn InjectGamepadInput(&self, input: &::core::option::Option<InjectedInputGamepadInfo>) -> ::windows::core::Result<()>;
     fn UninitializeGamepadInjection(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInputInjector2 {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInputInjector2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IInputInjector2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjector2Impl, const OFFSET: isize>() -> IInputInjector2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjector2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjector2Vtbl {
         unsafe extern "system" fn InitializeGamepadInjection<Impl: IInputInjector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InitializeGamepadInjection().into()
@@ -722,7 +756,10 @@ impl IInputInjector2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UninitializeGamepadInjection().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjector2>, ::windows::core::GetTrustLevel, InitializeGamepadInjection::<Impl, OFFSET>, InjectGamepadInput::<Impl, OFFSET>, UninitializeGamepadInjection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjector2>, ::windows::core::GetTrustLevel, InitializeGamepadInjection::<Impl, IMPL_OFFSET>, InjectGamepadInput::<Impl, IMPL_OFFSET>, UninitializeGamepadInjection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputInjector2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -735,7 +772,7 @@ impl ::windows::core::RuntimeName for IInputInjectorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInputInjectorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStaticsImpl, const OFFSET: isize>() -> IInputInjectorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorStaticsVtbl {
         unsafe extern "system" fn TryCreate<Impl: IInputInjectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreate() {
@@ -747,7 +784,10 @@ impl IInputInjectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjectorStatics>, ::windows::core::GetTrustLevel, TryCreate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjectorStatics>, ::windows::core::GetTrustLevel, TryCreate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputInjectorStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -760,7 +800,7 @@ impl ::windows::core::RuntimeName for IInputInjectorStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInputInjectorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStatics2Impl, const OFFSET: isize>() -> IInputInjectorStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorStatics2Vtbl {
         unsafe extern "system" fn TryCreateForAppBroadcastOnly<Impl: IInputInjectorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateForAppBroadcastOnly() {
@@ -772,6 +812,9 @@ impl IInputInjectorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjectorStatics2>, ::windows::core::GetTrustLevel, TryCreateForAppBroadcastOnly::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputInjectorStatics2>, ::windows::core::GetTrustLevel, TryCreateForAppBroadcastOnly::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputInjectorStatics2 as ::windows::core::Interface>::IID
     }
 }

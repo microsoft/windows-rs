@@ -6,8 +6,11 @@ impl ::windows::core::RuntimeName for IColorHelper {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorHelperImpl, const OFFSET: isize>() -> IColorHelperVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorHelper>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorHelperVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorHelper>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorHelper as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -20,7 +23,7 @@ impl ::windows::core::RuntimeName for IColorHelperStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorHelperStaticsImpl, const OFFSET: isize>() -> IColorHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorHelperStaticsVtbl {
         unsafe extern "system" fn FromArgb<Impl: IColorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromArgb(a, r, g, b) {
@@ -32,7 +35,10 @@ impl IColorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorHelperStatics>, ::windows::core::GetTrustLevel, FromArgb::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorHelperStatics>, ::windows::core::GetTrustLevel, FromArgb::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorHelperStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,7 +51,7 @@ impl ::windows::core::RuntimeName for IColorHelperStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorHelperStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorHelperStatics2Impl, const OFFSET: isize>() -> IColorHelperStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorHelperStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorHelperStatics2Vtbl {
         unsafe extern "system" fn ToDisplayName<Impl: IColorHelperStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToDisplayName(&*(&color as *const <Color as ::windows::core::Abi>::Abi as *const <Color as ::windows::core::DefaultType>::DefaultType)) {
@@ -57,7 +63,10 @@ impl IColorHelperStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorHelperStatics2>, ::windows::core::GetTrustLevel, ToDisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColorHelperStatics2>, ::windows::core::GetTrustLevel, ToDisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorHelperStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -68,8 +77,11 @@ impl ::windows::core::RuntimeName for IColors {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorsImpl, const OFFSET: isize>() -> IColorsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColors>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IColors>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColors as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -222,7 +234,7 @@ impl ::windows::core::RuntimeName for IColorsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IColorsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorsStaticsImpl, const OFFSET: isize>() -> IColorsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorsStaticsVtbl {
         unsafe extern "system" fn AliceBlue<Impl: IColorsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AliceBlue() {
@@ -1775,154 +1787,157 @@ impl IColorsStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IColorsStatics>,
             ::windows::core::GetTrustLevel,
-            AliceBlue::<Impl, OFFSET>,
-            AntiqueWhite::<Impl, OFFSET>,
-            Aqua::<Impl, OFFSET>,
-            Aquamarine::<Impl, OFFSET>,
-            Azure::<Impl, OFFSET>,
-            Beige::<Impl, OFFSET>,
-            Bisque::<Impl, OFFSET>,
-            Black::<Impl, OFFSET>,
-            BlanchedAlmond::<Impl, OFFSET>,
-            Blue::<Impl, OFFSET>,
-            BlueViolet::<Impl, OFFSET>,
-            Brown::<Impl, OFFSET>,
-            BurlyWood::<Impl, OFFSET>,
-            CadetBlue::<Impl, OFFSET>,
-            Chartreuse::<Impl, OFFSET>,
-            Chocolate::<Impl, OFFSET>,
-            Coral::<Impl, OFFSET>,
-            CornflowerBlue::<Impl, OFFSET>,
-            Cornsilk::<Impl, OFFSET>,
-            Crimson::<Impl, OFFSET>,
-            Cyan::<Impl, OFFSET>,
-            DarkBlue::<Impl, OFFSET>,
-            DarkCyan::<Impl, OFFSET>,
-            DarkGoldenrod::<Impl, OFFSET>,
-            DarkGray::<Impl, OFFSET>,
-            DarkGreen::<Impl, OFFSET>,
-            DarkKhaki::<Impl, OFFSET>,
-            DarkMagenta::<Impl, OFFSET>,
-            DarkOliveGreen::<Impl, OFFSET>,
-            DarkOrange::<Impl, OFFSET>,
-            DarkOrchid::<Impl, OFFSET>,
-            DarkRed::<Impl, OFFSET>,
-            DarkSalmon::<Impl, OFFSET>,
-            DarkSeaGreen::<Impl, OFFSET>,
-            DarkSlateBlue::<Impl, OFFSET>,
-            DarkSlateGray::<Impl, OFFSET>,
-            DarkTurquoise::<Impl, OFFSET>,
-            DarkViolet::<Impl, OFFSET>,
-            DeepPink::<Impl, OFFSET>,
-            DeepSkyBlue::<Impl, OFFSET>,
-            DimGray::<Impl, OFFSET>,
-            DodgerBlue::<Impl, OFFSET>,
-            Firebrick::<Impl, OFFSET>,
-            FloralWhite::<Impl, OFFSET>,
-            ForestGreen::<Impl, OFFSET>,
-            Fuchsia::<Impl, OFFSET>,
-            Gainsboro::<Impl, OFFSET>,
-            GhostWhite::<Impl, OFFSET>,
-            Gold::<Impl, OFFSET>,
-            Goldenrod::<Impl, OFFSET>,
-            Gray::<Impl, OFFSET>,
-            Green::<Impl, OFFSET>,
-            GreenYellow::<Impl, OFFSET>,
-            Honeydew::<Impl, OFFSET>,
-            HotPink::<Impl, OFFSET>,
-            IndianRed::<Impl, OFFSET>,
-            Indigo::<Impl, OFFSET>,
-            Ivory::<Impl, OFFSET>,
-            Khaki::<Impl, OFFSET>,
-            Lavender::<Impl, OFFSET>,
-            LavenderBlush::<Impl, OFFSET>,
-            LawnGreen::<Impl, OFFSET>,
-            LemonChiffon::<Impl, OFFSET>,
-            LightBlue::<Impl, OFFSET>,
-            LightCoral::<Impl, OFFSET>,
-            LightCyan::<Impl, OFFSET>,
-            LightGoldenrodYellow::<Impl, OFFSET>,
-            LightGreen::<Impl, OFFSET>,
-            LightGray::<Impl, OFFSET>,
-            LightPink::<Impl, OFFSET>,
-            LightSalmon::<Impl, OFFSET>,
-            LightSeaGreen::<Impl, OFFSET>,
-            LightSkyBlue::<Impl, OFFSET>,
-            LightSlateGray::<Impl, OFFSET>,
-            LightSteelBlue::<Impl, OFFSET>,
-            LightYellow::<Impl, OFFSET>,
-            Lime::<Impl, OFFSET>,
-            LimeGreen::<Impl, OFFSET>,
-            Linen::<Impl, OFFSET>,
-            Magenta::<Impl, OFFSET>,
-            Maroon::<Impl, OFFSET>,
-            MediumAquamarine::<Impl, OFFSET>,
-            MediumBlue::<Impl, OFFSET>,
-            MediumOrchid::<Impl, OFFSET>,
-            MediumPurple::<Impl, OFFSET>,
-            MediumSeaGreen::<Impl, OFFSET>,
-            MediumSlateBlue::<Impl, OFFSET>,
-            MediumSpringGreen::<Impl, OFFSET>,
-            MediumTurquoise::<Impl, OFFSET>,
-            MediumVioletRed::<Impl, OFFSET>,
-            MidnightBlue::<Impl, OFFSET>,
-            MintCream::<Impl, OFFSET>,
-            MistyRose::<Impl, OFFSET>,
-            Moccasin::<Impl, OFFSET>,
-            NavajoWhite::<Impl, OFFSET>,
-            Navy::<Impl, OFFSET>,
-            OldLace::<Impl, OFFSET>,
-            Olive::<Impl, OFFSET>,
-            OliveDrab::<Impl, OFFSET>,
-            Orange::<Impl, OFFSET>,
-            OrangeRed::<Impl, OFFSET>,
-            Orchid::<Impl, OFFSET>,
-            PaleGoldenrod::<Impl, OFFSET>,
-            PaleGreen::<Impl, OFFSET>,
-            PaleTurquoise::<Impl, OFFSET>,
-            PaleVioletRed::<Impl, OFFSET>,
-            PapayaWhip::<Impl, OFFSET>,
-            PeachPuff::<Impl, OFFSET>,
-            Peru::<Impl, OFFSET>,
-            Pink::<Impl, OFFSET>,
-            Plum::<Impl, OFFSET>,
-            PowderBlue::<Impl, OFFSET>,
-            Purple::<Impl, OFFSET>,
-            Red::<Impl, OFFSET>,
-            RosyBrown::<Impl, OFFSET>,
-            RoyalBlue::<Impl, OFFSET>,
-            SaddleBrown::<Impl, OFFSET>,
-            Salmon::<Impl, OFFSET>,
-            SandyBrown::<Impl, OFFSET>,
-            SeaGreen::<Impl, OFFSET>,
-            SeaShell::<Impl, OFFSET>,
-            Sienna::<Impl, OFFSET>,
-            Silver::<Impl, OFFSET>,
-            SkyBlue::<Impl, OFFSET>,
-            SlateBlue::<Impl, OFFSET>,
-            SlateGray::<Impl, OFFSET>,
-            Snow::<Impl, OFFSET>,
-            SpringGreen::<Impl, OFFSET>,
-            SteelBlue::<Impl, OFFSET>,
-            Tan::<Impl, OFFSET>,
-            Teal::<Impl, OFFSET>,
-            Thistle::<Impl, OFFSET>,
-            Tomato::<Impl, OFFSET>,
-            Transparent::<Impl, OFFSET>,
-            Turquoise::<Impl, OFFSET>,
-            Violet::<Impl, OFFSET>,
-            Wheat::<Impl, OFFSET>,
-            White::<Impl, OFFSET>,
-            WhiteSmoke::<Impl, OFFSET>,
-            Yellow::<Impl, OFFSET>,
-            YellowGreen::<Impl, OFFSET>,
+            AliceBlue::<Impl, IMPL_OFFSET>,
+            AntiqueWhite::<Impl, IMPL_OFFSET>,
+            Aqua::<Impl, IMPL_OFFSET>,
+            Aquamarine::<Impl, IMPL_OFFSET>,
+            Azure::<Impl, IMPL_OFFSET>,
+            Beige::<Impl, IMPL_OFFSET>,
+            Bisque::<Impl, IMPL_OFFSET>,
+            Black::<Impl, IMPL_OFFSET>,
+            BlanchedAlmond::<Impl, IMPL_OFFSET>,
+            Blue::<Impl, IMPL_OFFSET>,
+            BlueViolet::<Impl, IMPL_OFFSET>,
+            Brown::<Impl, IMPL_OFFSET>,
+            BurlyWood::<Impl, IMPL_OFFSET>,
+            CadetBlue::<Impl, IMPL_OFFSET>,
+            Chartreuse::<Impl, IMPL_OFFSET>,
+            Chocolate::<Impl, IMPL_OFFSET>,
+            Coral::<Impl, IMPL_OFFSET>,
+            CornflowerBlue::<Impl, IMPL_OFFSET>,
+            Cornsilk::<Impl, IMPL_OFFSET>,
+            Crimson::<Impl, IMPL_OFFSET>,
+            Cyan::<Impl, IMPL_OFFSET>,
+            DarkBlue::<Impl, IMPL_OFFSET>,
+            DarkCyan::<Impl, IMPL_OFFSET>,
+            DarkGoldenrod::<Impl, IMPL_OFFSET>,
+            DarkGray::<Impl, IMPL_OFFSET>,
+            DarkGreen::<Impl, IMPL_OFFSET>,
+            DarkKhaki::<Impl, IMPL_OFFSET>,
+            DarkMagenta::<Impl, IMPL_OFFSET>,
+            DarkOliveGreen::<Impl, IMPL_OFFSET>,
+            DarkOrange::<Impl, IMPL_OFFSET>,
+            DarkOrchid::<Impl, IMPL_OFFSET>,
+            DarkRed::<Impl, IMPL_OFFSET>,
+            DarkSalmon::<Impl, IMPL_OFFSET>,
+            DarkSeaGreen::<Impl, IMPL_OFFSET>,
+            DarkSlateBlue::<Impl, IMPL_OFFSET>,
+            DarkSlateGray::<Impl, IMPL_OFFSET>,
+            DarkTurquoise::<Impl, IMPL_OFFSET>,
+            DarkViolet::<Impl, IMPL_OFFSET>,
+            DeepPink::<Impl, IMPL_OFFSET>,
+            DeepSkyBlue::<Impl, IMPL_OFFSET>,
+            DimGray::<Impl, IMPL_OFFSET>,
+            DodgerBlue::<Impl, IMPL_OFFSET>,
+            Firebrick::<Impl, IMPL_OFFSET>,
+            FloralWhite::<Impl, IMPL_OFFSET>,
+            ForestGreen::<Impl, IMPL_OFFSET>,
+            Fuchsia::<Impl, IMPL_OFFSET>,
+            Gainsboro::<Impl, IMPL_OFFSET>,
+            GhostWhite::<Impl, IMPL_OFFSET>,
+            Gold::<Impl, IMPL_OFFSET>,
+            Goldenrod::<Impl, IMPL_OFFSET>,
+            Gray::<Impl, IMPL_OFFSET>,
+            Green::<Impl, IMPL_OFFSET>,
+            GreenYellow::<Impl, IMPL_OFFSET>,
+            Honeydew::<Impl, IMPL_OFFSET>,
+            HotPink::<Impl, IMPL_OFFSET>,
+            IndianRed::<Impl, IMPL_OFFSET>,
+            Indigo::<Impl, IMPL_OFFSET>,
+            Ivory::<Impl, IMPL_OFFSET>,
+            Khaki::<Impl, IMPL_OFFSET>,
+            Lavender::<Impl, IMPL_OFFSET>,
+            LavenderBlush::<Impl, IMPL_OFFSET>,
+            LawnGreen::<Impl, IMPL_OFFSET>,
+            LemonChiffon::<Impl, IMPL_OFFSET>,
+            LightBlue::<Impl, IMPL_OFFSET>,
+            LightCoral::<Impl, IMPL_OFFSET>,
+            LightCyan::<Impl, IMPL_OFFSET>,
+            LightGoldenrodYellow::<Impl, IMPL_OFFSET>,
+            LightGreen::<Impl, IMPL_OFFSET>,
+            LightGray::<Impl, IMPL_OFFSET>,
+            LightPink::<Impl, IMPL_OFFSET>,
+            LightSalmon::<Impl, IMPL_OFFSET>,
+            LightSeaGreen::<Impl, IMPL_OFFSET>,
+            LightSkyBlue::<Impl, IMPL_OFFSET>,
+            LightSlateGray::<Impl, IMPL_OFFSET>,
+            LightSteelBlue::<Impl, IMPL_OFFSET>,
+            LightYellow::<Impl, IMPL_OFFSET>,
+            Lime::<Impl, IMPL_OFFSET>,
+            LimeGreen::<Impl, IMPL_OFFSET>,
+            Linen::<Impl, IMPL_OFFSET>,
+            Magenta::<Impl, IMPL_OFFSET>,
+            Maroon::<Impl, IMPL_OFFSET>,
+            MediumAquamarine::<Impl, IMPL_OFFSET>,
+            MediumBlue::<Impl, IMPL_OFFSET>,
+            MediumOrchid::<Impl, IMPL_OFFSET>,
+            MediumPurple::<Impl, IMPL_OFFSET>,
+            MediumSeaGreen::<Impl, IMPL_OFFSET>,
+            MediumSlateBlue::<Impl, IMPL_OFFSET>,
+            MediumSpringGreen::<Impl, IMPL_OFFSET>,
+            MediumTurquoise::<Impl, IMPL_OFFSET>,
+            MediumVioletRed::<Impl, IMPL_OFFSET>,
+            MidnightBlue::<Impl, IMPL_OFFSET>,
+            MintCream::<Impl, IMPL_OFFSET>,
+            MistyRose::<Impl, IMPL_OFFSET>,
+            Moccasin::<Impl, IMPL_OFFSET>,
+            NavajoWhite::<Impl, IMPL_OFFSET>,
+            Navy::<Impl, IMPL_OFFSET>,
+            OldLace::<Impl, IMPL_OFFSET>,
+            Olive::<Impl, IMPL_OFFSET>,
+            OliveDrab::<Impl, IMPL_OFFSET>,
+            Orange::<Impl, IMPL_OFFSET>,
+            OrangeRed::<Impl, IMPL_OFFSET>,
+            Orchid::<Impl, IMPL_OFFSET>,
+            PaleGoldenrod::<Impl, IMPL_OFFSET>,
+            PaleGreen::<Impl, IMPL_OFFSET>,
+            PaleTurquoise::<Impl, IMPL_OFFSET>,
+            PaleVioletRed::<Impl, IMPL_OFFSET>,
+            PapayaWhip::<Impl, IMPL_OFFSET>,
+            PeachPuff::<Impl, IMPL_OFFSET>,
+            Peru::<Impl, IMPL_OFFSET>,
+            Pink::<Impl, IMPL_OFFSET>,
+            Plum::<Impl, IMPL_OFFSET>,
+            PowderBlue::<Impl, IMPL_OFFSET>,
+            Purple::<Impl, IMPL_OFFSET>,
+            Red::<Impl, IMPL_OFFSET>,
+            RosyBrown::<Impl, IMPL_OFFSET>,
+            RoyalBlue::<Impl, IMPL_OFFSET>,
+            SaddleBrown::<Impl, IMPL_OFFSET>,
+            Salmon::<Impl, IMPL_OFFSET>,
+            SandyBrown::<Impl, IMPL_OFFSET>,
+            SeaGreen::<Impl, IMPL_OFFSET>,
+            SeaShell::<Impl, IMPL_OFFSET>,
+            Sienna::<Impl, IMPL_OFFSET>,
+            Silver::<Impl, IMPL_OFFSET>,
+            SkyBlue::<Impl, IMPL_OFFSET>,
+            SlateBlue::<Impl, IMPL_OFFSET>,
+            SlateGray::<Impl, IMPL_OFFSET>,
+            Snow::<Impl, IMPL_OFFSET>,
+            SpringGreen::<Impl, IMPL_OFFSET>,
+            SteelBlue::<Impl, IMPL_OFFSET>,
+            Tan::<Impl, IMPL_OFFSET>,
+            Teal::<Impl, IMPL_OFFSET>,
+            Thistle::<Impl, IMPL_OFFSET>,
+            Tomato::<Impl, IMPL_OFFSET>,
+            Transparent::<Impl, IMPL_OFFSET>,
+            Turquoise::<Impl, IMPL_OFFSET>,
+            Violet::<Impl, IMPL_OFFSET>,
+            Wheat::<Impl, IMPL_OFFSET>,
+            White::<Impl, IMPL_OFFSET>,
+            WhiteSmoke::<Impl, IMPL_OFFSET>,
+            Yellow::<Impl, IMPL_OFFSET>,
+            YellowGreen::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColorsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1935,7 +1950,7 @@ impl ::windows::core::RuntimeName for IUIContentRoot {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUIContentRootVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIContentRootImpl, const OFFSET: isize>() -> IUIContentRootVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIContentRootImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIContentRootVtbl {
         unsafe extern "system" fn UIContext<Impl: IUIContentRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UIContext() {
@@ -1947,7 +1962,10 @@ impl IUIContentRootVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUIContentRoot>, ::windows::core::GetTrustLevel, UIContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUIContentRoot>, ::windows::core::GetTrustLevel, UIContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUIContentRoot as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1958,7 +1976,10 @@ impl ::windows::core::RuntimeName for IUIContext {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUIContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIContextImpl, const OFFSET: isize>() -> IUIContextVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUIContext>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIContextVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUIContext>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUIContext as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppExtensionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -8,13 +8,13 @@ pub trait IAppExtensionImpl: Sized {
     fn GetExtensionPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>>;
     fn GetPublicFolderAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtension";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppExtensionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionImpl, const OFFSET: isize>() -> IAppExtensionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionVtbl {
         unsafe extern "system" fn Id<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -92,7 +92,24 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtension>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, Description::<Impl, OFFSET>, Package::<Impl, OFFSET>, AppInfo::<Impl, OFFSET>, GetExtensionPropertiesAsync::<Impl, OFFSET>, GetPublicFolderAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAppExtension>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Package::<Impl, IMPL_OFFSET>,
+            AppInfo::<Impl, IMPL_OFFSET>,
+            GetExtensionPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetPublicFolderAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -105,7 +122,7 @@ impl ::windows::core::RuntimeName for IAppExtension2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppExtension2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtension2Impl, const OFFSET: isize>() -> IAppExtension2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtension2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtension2Vtbl {
         unsafe extern "system" fn AppUserModelId<Impl: IAppExtension2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppUserModelId() {
@@ -117,10 +134,13 @@ impl IAppExtension2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtension2>, ::windows::core::GetTrustLevel, AppUserModelId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtension2>, ::windows::core::GetTrustLevel, AppUserModelId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtension2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppExtensionCatalogImpl: Sized {
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>>;
     fn RequestRemovePackageAsync(&self, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -135,13 +155,13 @@ pub trait IAppExtensionCatalogImpl: Sized {
     fn PackageStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePackageStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppExtensionCatalogVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogImpl, const OFFSET: isize>() -> IAppExtensionCatalogVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionCatalogVtbl {
         unsafe extern "system" fn FindAllAsync<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsync() {
@@ -240,25 +260,28 @@ impl IAppExtensionCatalogVtbl {
             (*this).RemovePackageStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppExtensionCatalog>,
             ::windows::core::GetTrustLevel,
-            FindAllAsync::<Impl, OFFSET>,
-            RequestRemovePackageAsync::<Impl, OFFSET>,
-            PackageInstalled::<Impl, OFFSET>,
-            RemovePackageInstalled::<Impl, OFFSET>,
-            PackageUpdating::<Impl, OFFSET>,
-            RemovePackageUpdating::<Impl, OFFSET>,
-            PackageUpdated::<Impl, OFFSET>,
-            RemovePackageUpdated::<Impl, OFFSET>,
-            PackageUninstalling::<Impl, OFFSET>,
-            RemovePackageUninstalling::<Impl, OFFSET>,
-            PackageStatusChanged::<Impl, OFFSET>,
-            RemovePackageStatusChanged::<Impl, OFFSET>,
+            FindAllAsync::<Impl, IMPL_OFFSET>,
+            RequestRemovePackageAsync::<Impl, IMPL_OFFSET>,
+            PackageInstalled::<Impl, IMPL_OFFSET>,
+            RemovePackageInstalled::<Impl, IMPL_OFFSET>,
+            PackageUpdating::<Impl, IMPL_OFFSET>,
+            RemovePackageUpdating::<Impl, IMPL_OFFSET>,
+            PackageUpdated::<Impl, IMPL_OFFSET>,
+            RemovePackageUpdated::<Impl, IMPL_OFFSET>,
+            PackageUninstalling::<Impl, IMPL_OFFSET>,
+            RemovePackageUninstalling::<Impl, IMPL_OFFSET>,
+            PackageStatusChanged::<Impl, IMPL_OFFSET>,
+            RemovePackageStatusChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionCatalog as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -271,7 +294,7 @@ impl ::windows::core::RuntimeName for IAppExtensionCatalogStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppExtensionCatalogStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogStaticsImpl, const OFFSET: isize>() -> IAppExtensionCatalogStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionCatalogStaticsVtbl {
         unsafe extern "system" fn Open<Impl: IAppExtensionCatalogStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appextensionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Open(&*(&appextensionname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -283,22 +306,25 @@ impl IAppExtensionCatalogStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionCatalogStatics>, ::windows::core::GetTrustLevel, Open::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionCatalogStatics>, ::windows::core::GetTrustLevel, Open::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionCatalogStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppExtensionPackageInstalledEventArgsImpl: Sized {
     fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&self) -> ::windows::core::Result<super::Package>;
     fn Extensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppExtensionPackageInstalledEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageInstalledEventArgsImpl, const OFFSET: isize>() -> IAppExtensionPackageInstalledEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageInstalledEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageInstalledEventArgsVtbl {
         unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageInstalledEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
@@ -332,7 +358,10 @@ impl IAppExtensionPackageInstalledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageInstalledEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, OFFSET>, Package::<Impl, OFFSET>, Extensions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageInstalledEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Extensions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionPackageInstalledEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -346,7 +375,7 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageStatusChangedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppExtensionPackageStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageStatusChangedEventArgsImpl, const OFFSET: isize>() -> IAppExtensionPackageStatusChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageStatusChangedEventArgsVtbl {
         unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
@@ -369,7 +398,10 @@ impl IAppExtensionPackageStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageStatusChangedEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, OFFSET>, Package::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageStatusChangedEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionPackageStatusChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -383,7 +415,7 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageUninstallingEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppExtensionPackageUninstallingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUninstallingEventArgsImpl, const OFFSET: isize>() -> IAppExtensionPackageUninstallingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUninstallingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUninstallingEventArgsVtbl {
         unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUninstallingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
@@ -406,22 +438,25 @@ impl IAppExtensionPackageUninstallingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUninstallingEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, OFFSET>, Package::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUninstallingEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionPackageUninstallingEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppExtensionPackageUpdatedEventArgsImpl: Sized {
     fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&self) -> ::windows::core::Result<super::Package>;
     fn Extensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppExtensionPackageUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatedEventArgsImpl, const OFFSET: isize>() -> IAppExtensionPackageUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUpdatedEventArgsVtbl {
         unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
@@ -455,7 +490,10 @@ impl IAppExtensionPackageUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUpdatedEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, OFFSET>, Package::<Impl, OFFSET>, Extensions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUpdatedEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Extensions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionPackageUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -469,7 +507,7 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageUpdatingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppExtensionPackageUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatingEventArgsImpl, const OFFSET: isize>() -> IAppExtensionPackageUpdatingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUpdatingEventArgsVtbl {
         unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
@@ -492,6 +530,9 @@ impl IAppExtensionPackageUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUpdatingEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, OFFSET>, Package::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppExtensionPackageUpdatingEventArgs>, ::windows::core::GetTrustLevel, AppExtensionName::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppExtensionPackageUpdatingEventArgs as ::windows::core::Interface>::IID
     }
 }

@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverImpl: Sized {
     fn GetDefaultSettings(&self) -> ::windows::core::Result<MiracastReceiverSettings>;
     fn GetCurrentSettings(&self) -> ::windows::core::Result<MiracastReceiverSettings>;
@@ -14,13 +14,13 @@ pub trait IMiracastReceiverImpl: Sized {
     fn ClearKnownTransmitters(&self) -> ::windows::core::Result<()>;
     fn RemoveKnownTransmitter(&self, transmitter: &::core::option::Option<MiracastTransmitter>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiver";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverImpl, const OFFSET: isize>() -> IMiracastReceiverVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverVtbl {
         unsafe extern "system" fn GetDefaultSettings<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultSettings() {
@@ -144,26 +144,29 @@ impl IMiracastReceiverVtbl {
             (*this).RemoveKnownTransmitter(&*(&transmitter as *const <MiracastTransmitter as ::windows::core::Abi>::Abi as *const <MiracastTransmitter as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiver>,
             ::windows::core::GetTrustLevel,
-            GetDefaultSettings::<Impl, OFFSET>,
-            GetCurrentSettings::<Impl, OFFSET>,
-            GetCurrentSettingsAsync::<Impl, OFFSET>,
-            DisconnectAllAndApplySettings::<Impl, OFFSET>,
-            DisconnectAllAndApplySettingsAsync::<Impl, OFFSET>,
-            GetStatus::<Impl, OFFSET>,
-            GetStatusAsync::<Impl, OFFSET>,
-            StatusChanged::<Impl, OFFSET>,
-            RemoveStatusChanged::<Impl, OFFSET>,
-            CreateSession::<Impl, OFFSET>,
-            CreateSessionAsync::<Impl, OFFSET>,
-            ClearKnownTransmitters::<Impl, OFFSET>,
-            RemoveKnownTransmitter::<Impl, OFFSET>,
+            GetDefaultSettings::<Impl, IMPL_OFFSET>,
+            GetCurrentSettings::<Impl, IMPL_OFFSET>,
+            GetCurrentSettingsAsync::<Impl, IMPL_OFFSET>,
+            DisconnectAllAndApplySettings::<Impl, IMPL_OFFSET>,
+            DisconnectAllAndApplySettingsAsync::<Impl, IMPL_OFFSET>,
+            GetStatus::<Impl, IMPL_OFFSET>,
+            GetStatusAsync::<Impl, IMPL_OFFSET>,
+            StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
+            CreateSession::<Impl, IMPL_OFFSET>,
+            CreateSessionAsync::<Impl, IMPL_OFFSET>,
+            ClearKnownTransmitters::<Impl, IMPL_OFFSET>,
+            RemoveKnownTransmitter::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiver as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -177,7 +180,7 @@ impl ::windows::core::RuntimeName for IMiracastReceiverApplySettingsResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMiracastReceiverApplySettingsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverApplySettingsResultImpl, const OFFSET: isize>() -> IMiracastReceiverApplySettingsResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverApplySettingsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverApplySettingsResultVtbl {
         unsafe extern "system" fn Status<Impl: IMiracastReceiverApplySettingsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverApplySettingsStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -200,10 +203,13 @@ impl IMiracastReceiverApplySettingsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverApplySettingsResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverApplySettingsResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverApplySettingsResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverConnectionImpl: Sized {
     fn Disconnect(&self, reason: MiracastReceiverDisconnectReason) -> ::windows::core::Result<()>;
     fn DisconnectWithMessage(&self, reason: MiracastReceiverDisconnectReason, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -216,13 +222,13 @@ pub trait IMiracastReceiverConnectionImpl: Sized {
     fn CursorImageChannel(&self) -> ::windows::core::Result<MiracastReceiverCursorImageChannel>;
     fn StreamControl(&self) -> ::windows::core::Result<MiracastReceiverStreamControl>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverConnection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>() -> IMiracastReceiverConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverConnectionVtbl {
         unsafe extern "system" fn Disconnect<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MiracastReceiverDisconnectReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disconnect(reason).into()
@@ -306,38 +312,41 @@ impl IMiracastReceiverConnectionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiverConnection>,
             ::windows::core::GetTrustLevel,
-            Disconnect::<Impl, OFFSET>,
-            DisconnectWithMessage::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            PauseAsync::<Impl, OFFSET>,
-            Resume::<Impl, OFFSET>,
-            ResumeAsync::<Impl, OFFSET>,
-            Transmitter::<Impl, OFFSET>,
-            InputDevices::<Impl, OFFSET>,
-            CursorImageChannel::<Impl, OFFSET>,
-            StreamControl::<Impl, OFFSET>,
+            Disconnect::<Impl, IMPL_OFFSET>,
+            DisconnectWithMessage::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            PauseAsync::<Impl, IMPL_OFFSET>,
+            Resume::<Impl, IMPL_OFFSET>,
+            ResumeAsync::<Impl, IMPL_OFFSET>,
+            Transmitter::<Impl, IMPL_OFFSET>,
+            InputDevices::<Impl, IMPL_OFFSET>,
+            CursorImageChannel::<Impl, IMPL_OFFSET>,
+            StreamControl::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverConnection as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverConnectionCreatedEventArgsImpl: Sized {
     fn Connection(&self) -> ::windows::core::Result<MiracastReceiverConnection>;
     fn Pin(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverConnectionCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverConnectionCreatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const OFFSET: isize>() -> IMiracastReceiverConnectionCreatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverConnectionCreatedEventArgsVtbl {
         unsafe extern "system" fn Connection<Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
@@ -371,10 +380,13 @@ impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverConnectionCreatedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, OFFSET>, Pin::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverConnectionCreatedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>, Pin::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverConnectionCreatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverCursorImageChannelImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn MaxImageSize(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
@@ -385,13 +397,13 @@ pub trait IMiracastReceiverCursorImageChannelImpl: Sized {
     fn PositionChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePositionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverCursorImageChannel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IMiracastReceiverCursorImageChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>() -> IMiracastReceiverCursorImageChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverCursorImageChannelVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -467,37 +479,40 @@ impl IMiracastReceiverCursorImageChannelVtbl {
             (*this).RemovePositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiverCursorImageChannel>,
             ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, OFFSET>,
-            MaxImageSize::<Impl, OFFSET>,
-            Position::<Impl, OFFSET>,
-            ImageStream::<Impl, OFFSET>,
-            ImageStreamChanged::<Impl, OFFSET>,
-            RemoveImageStreamChanged::<Impl, OFFSET>,
-            PositionChanged::<Impl, OFFSET>,
-            RemovePositionChanged::<Impl, OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            MaxImageSize::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            ImageStream::<Impl, IMPL_OFFSET>,
+            ImageStreamChanged::<Impl, IMPL_OFFSET>,
+            RemoveImageStreamChanged::<Impl, IMPL_OFFSET>,
+            PositionChanged::<Impl, IMPL_OFFSET>,
+            RemovePositionChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverCursorImageChannel as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverCursorImageChannelSettingsImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
     fn MaxImageSize(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
     fn SetMaxImageSize(&self, value: &super::super::Graphics::SizeInt32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverCursorImageChannelSettings {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverCursorImageChannelSettings";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl IMiracastReceiverCursorImageChannelSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const OFFSET: isize>() -> IMiracastReceiverCursorImageChannelSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverCursorImageChannelSettingsVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -528,7 +543,10 @@ impl IMiracastReceiverCursorImageChannelSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxImageSize(&*(&value as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverCursorImageChannelSettings>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, OFFSET>, SetIsEnabled::<Impl, OFFSET>, MaxImageSize::<Impl, OFFSET>, SetMaxImageSize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverCursorImageChannelSettings>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, SetIsEnabled::<Impl, IMPL_OFFSET>, MaxImageSize::<Impl, IMPL_OFFSET>, SetMaxImageSize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverCursorImageChannelSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -541,7 +559,7 @@ impl ::windows::core::RuntimeName for IMiracastReceiverDisconnectedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMiracastReceiverDisconnectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverDisconnectedEventArgsImpl, const OFFSET: isize>() -> IMiracastReceiverDisconnectedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverDisconnectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverDisconnectedEventArgsVtbl {
         unsafe extern "system" fn Connection<Impl: IMiracastReceiverDisconnectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
@@ -553,10 +571,13 @@ impl IMiracastReceiverDisconnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverDisconnectedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverGameControllerDeviceImpl: Sized {
     fn TransmitInput(&self) -> ::windows::core::Result<bool>;
     fn SetTransmitInput(&self, value: bool) -> ::windows::core::Result<()>;
@@ -567,13 +588,13 @@ pub trait IMiracastReceiverGameControllerDeviceImpl: Sized {
     fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverGameControllerDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverGameControllerDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>() -> IMiracastReceiverGameControllerDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverGameControllerDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverGameControllerDeviceVtbl {
         unsafe extern "system" fn TransmitInput<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitInput() {
@@ -642,21 +663,24 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiverGameControllerDevice>,
             ::windows::core::GetTrustLevel,
-            TransmitInput::<Impl, OFFSET>,
-            SetTransmitInput::<Impl, OFFSET>,
-            IsRequestedByTransmitter::<Impl, OFFSET>,
-            IsTransmittingInput::<Impl, OFFSET>,
-            Mode::<Impl, OFFSET>,
-            SetMode::<Impl, OFFSET>,
-            Changed::<Impl, OFFSET>,
-            RemoveChanged::<Impl, OFFSET>,
+            TransmitInput::<Impl, IMPL_OFFSET>,
+            SetTransmitInput::<Impl, IMPL_OFFSET>,
+            IsRequestedByTransmitter::<Impl, IMPL_OFFSET>,
+            IsTransmittingInput::<Impl, IMPL_OFFSET>,
+            Mode::<Impl, IMPL_OFFSET>,
+            SetMode::<Impl, IMPL_OFFSET>,
+            Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverGameControllerDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -670,7 +694,7 @@ impl ::windows::core::RuntimeName for IMiracastReceiverInputDevices {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMiracastReceiverInputDevicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverInputDevicesImpl, const OFFSET: isize>() -> IMiracastReceiverInputDevicesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverInputDevicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverInputDevicesVtbl {
         unsafe extern "system" fn Keyboard<Impl: IMiracastReceiverInputDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Keyboard() {
@@ -693,10 +717,13 @@ impl IMiracastReceiverInputDevicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverInputDevices>, ::windows::core::GetTrustLevel, Keyboard::<Impl, OFFSET>, GameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverInputDevices>, ::windows::core::GetTrustLevel, Keyboard::<Impl, IMPL_OFFSET>, GameController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverInputDevices as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverKeyboardDeviceImpl: Sized {
     fn TransmitInput(&self) -> ::windows::core::Result<bool>;
     fn SetTransmitInput(&self, value: bool) -> ::windows::core::Result<()>;
@@ -705,13 +732,13 @@ pub trait IMiracastReceiverKeyboardDeviceImpl: Sized {
     fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverKeyboardDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverKeyboardDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>() -> IMiracastReceiverKeyboardDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverKeyboardDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverKeyboardDeviceVtbl {
         unsafe extern "system" fn TransmitInput<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitInput() {
@@ -764,23 +791,39 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverKeyboardDevice>, ::windows::core::GetTrustLevel, TransmitInput::<Impl, OFFSET>, SetTransmitInput::<Impl, OFFSET>, IsRequestedByTransmitter::<Impl, OFFSET>, IsTransmittingInput::<Impl, OFFSET>, Changed::<Impl, OFFSET>, RemoveChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMiracastReceiverKeyboardDevice>,
+            ::windows::core::GetTrustLevel,
+            TransmitInput::<Impl, IMPL_OFFSET>,
+            SetTransmitInput::<Impl, IMPL_OFFSET>,
+            IsRequestedByTransmitter::<Impl, IMPL_OFFSET>,
+            IsTransmittingInput::<Impl, IMPL_OFFSET>,
+            Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverKeyboardDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverMediaSourceCreatedEventArgsImpl: Sized {
     fn Connection(&self) -> ::windows::core::Result<MiracastReceiverConnection>;
     fn MediaSource(&self) -> ::windows::core::Result<super::Core::MediaSource>;
     fn CursorImageChannelSettings(&self) -> ::windows::core::Result<MiracastReceiverCursorImageChannelSettings>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverMediaSourceCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverMediaSourceCreatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const OFFSET: isize>() -> IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
         unsafe extern "system" fn Connection<Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
@@ -825,10 +868,13 @@ impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverMediaSourceCreatedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, OFFSET>, MediaSource::<Impl, OFFSET>, CursorImageChannelSettings::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverMediaSourceCreatedEventArgs>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>, MediaSource::<Impl, IMPL_OFFSET>, CursorImageChannelSettings::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverMediaSourceCreatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverSessionImpl: Sized {
     fn ConnectionCreated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveConnectionCreated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -843,13 +889,13 @@ pub trait IMiracastReceiverSessionImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<MiracastReceiverSessionStartResult>;
     fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSessionStartResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>() -> IMiracastReceiverSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSessionVtbl {
         unsafe extern "system" fn ConnectionCreated<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionCreated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -948,25 +994,28 @@ impl IMiracastReceiverSessionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiverSession>,
             ::windows::core::GetTrustLevel,
-            ConnectionCreated::<Impl, OFFSET>,
-            RemoveConnectionCreated::<Impl, OFFSET>,
-            MediaSourceCreated::<Impl, OFFSET>,
-            RemoveMediaSourceCreated::<Impl, OFFSET>,
-            Disconnected::<Impl, OFFSET>,
-            RemoveDisconnected::<Impl, OFFSET>,
-            AllowConnectionTakeover::<Impl, OFFSET>,
-            SetAllowConnectionTakeover::<Impl, OFFSET>,
-            MaxSimultaneousConnections::<Impl, OFFSET>,
-            SetMaxSimultaneousConnections::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            StartAsync::<Impl, OFFSET>,
+            ConnectionCreated::<Impl, IMPL_OFFSET>,
+            RemoveConnectionCreated::<Impl, IMPL_OFFSET>,
+            MediaSourceCreated::<Impl, IMPL_OFFSET>,
+            RemoveMediaSourceCreated::<Impl, IMPL_OFFSET>,
+            Disconnected::<Impl, IMPL_OFFSET>,
+            RemoveDisconnected::<Impl, IMPL_OFFSET>,
+            AllowConnectionTakeover::<Impl, IMPL_OFFSET>,
+            SetAllowConnectionTakeover::<Impl, IMPL_OFFSET>,
+            MaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
+            SetMaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            StartAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverSession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -980,7 +1029,7 @@ impl ::windows::core::RuntimeName for IMiracastReceiverSessionStartResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMiracastReceiverSessionStartResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionStartResultImpl, const OFFSET: isize>() -> IMiracastReceiverSessionStartResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionStartResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSessionStartResultVtbl {
         unsafe extern "system" fn Status<Impl: IMiracastReceiverSessionStartResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverSessionStartStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1003,7 +1052,10 @@ impl IMiracastReceiverSessionStartResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverSessionStartResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverSessionStartResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverSessionStartResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1025,7 +1077,7 @@ impl ::windows::core::RuntimeName for IMiracastReceiverSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMiracastReceiverSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>() -> IMiracastReceiverSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSettingsVtbl {
         unsafe extern "system" fn FriendlyName<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FriendlyName() {
@@ -1102,26 +1154,29 @@ impl IMiracastReceiverSettingsVtbl {
             (*this).SetRequireAuthorizationFromKnownTransmitters(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiverSettings>,
             ::windows::core::GetTrustLevel,
-            FriendlyName::<Impl, OFFSET>,
-            SetFriendlyName::<Impl, OFFSET>,
-            ModelName::<Impl, OFFSET>,
-            SetModelName::<Impl, OFFSET>,
-            ModelNumber::<Impl, OFFSET>,
-            SetModelNumber::<Impl, OFFSET>,
-            AuthorizationMethod::<Impl, OFFSET>,
-            SetAuthorizationMethod::<Impl, OFFSET>,
-            RequireAuthorizationFromKnownTransmitters::<Impl, OFFSET>,
-            SetRequireAuthorizationFromKnownTransmitters::<Impl, OFFSET>,
+            FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName::<Impl, IMPL_OFFSET>,
+            ModelName::<Impl, IMPL_OFFSET>,
+            SetModelName::<Impl, IMPL_OFFSET>,
+            ModelNumber::<Impl, IMPL_OFFSET>,
+            SetModelNumber::<Impl, IMPL_OFFSET>,
+            AuthorizationMethod::<Impl, IMPL_OFFSET>,
+            SetAuthorizationMethod::<Impl, IMPL_OFFSET>,
+            RequireAuthorizationFromKnownTransmitters::<Impl, IMPL_OFFSET>,
+            SetRequireAuthorizationFromKnownTransmitters::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverSettings as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverStatusImpl: Sized {
     fn ListeningStatus(&self) -> ::windows::core::Result<MiracastReceiverListeningStatus>;
     fn WiFiStatus(&self) -> ::windows::core::Result<MiracastReceiverWiFiStatus>;
@@ -1129,13 +1184,13 @@ pub trait IMiracastReceiverStatusImpl: Sized {
     fn MaxSimultaneousConnections(&self) -> ::windows::core::Result<i32>;
     fn KnownTransmitters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MiracastTransmitter>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverStatus";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMiracastReceiverStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>() -> IMiracastReceiverStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverStatusVtbl {
         unsafe extern "system" fn ListeningStatus<Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverListeningStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ListeningStatus() {
@@ -1191,10 +1246,25 @@ impl IMiracastReceiverStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverStatus>, ::windows::core::GetTrustLevel, ListeningStatus::<Impl, OFFSET>, WiFiStatus::<Impl, OFFSET>, IsConnectionTakeoverSupported::<Impl, OFFSET>, MaxSimultaneousConnections::<Impl, OFFSET>, KnownTransmitters::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMiracastReceiverStatus>,
+            ::windows::core::GetTrustLevel,
+            ListeningStatus::<Impl, IMPL_OFFSET>,
+            WiFiStatus::<Impl, IMPL_OFFSET>,
+            IsConnectionTakeoverSupported::<Impl, IMPL_OFFSET>,
+            MaxSimultaneousConnections::<Impl, IMPL_OFFSET>,
+            KnownTransmitters::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverStatus as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverStreamControlImpl: Sized {
     fn GetVideoStreamSettings(&self) -> ::windows::core::Result<MiracastReceiverVideoStreamSettings>;
     fn GetVideoStreamSettingsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>>;
@@ -1203,13 +1273,13 @@ pub trait IMiracastReceiverStreamControlImpl: Sized {
     fn MuteAudio(&self) -> ::windows::core::Result<bool>;
     fn SetMuteAudio(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverStreamControl";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMiracastReceiverStreamControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>() -> IMiracastReceiverStreamControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStreamControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverStreamControlVtbl {
         unsafe extern "system" fn GetVideoStreamSettings<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVideoStreamSettings() {
@@ -1263,35 +1333,38 @@ impl IMiracastReceiverStreamControlVtbl {
             (*this).SetMuteAudio(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastReceiverStreamControl>,
             ::windows::core::GetTrustLevel,
-            GetVideoStreamSettings::<Impl, OFFSET>,
-            GetVideoStreamSettingsAsync::<Impl, OFFSET>,
-            SuggestVideoStreamSettings::<Impl, OFFSET>,
-            SuggestVideoStreamSettingsAsync::<Impl, OFFSET>,
-            MuteAudio::<Impl, OFFSET>,
-            SetMuteAudio::<Impl, OFFSET>,
+            GetVideoStreamSettings::<Impl, IMPL_OFFSET>,
+            GetVideoStreamSettingsAsync::<Impl, IMPL_OFFSET>,
+            SuggestVideoStreamSettings::<Impl, IMPL_OFFSET>,
+            SuggestVideoStreamSettingsAsync::<Impl, IMPL_OFFSET>,
+            MuteAudio::<Impl, IMPL_OFFSET>,
+            SetMuteAudio::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverStreamControl as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IMiracastReceiverVideoStreamSettingsImpl: Sized {
     fn Size(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
     fn SetSize(&self, value: &super::super::Graphics::SizeInt32) -> ::windows::core::Result<()>;
     fn Bitrate(&self) -> ::windows::core::Result<i32>;
     fn SetBitrate(&self, value: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverVideoStreamSettings";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl IMiracastReceiverVideoStreamSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverVideoStreamSettingsImpl, const OFFSET: isize>() -> IMiracastReceiverVideoStreamSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverVideoStreamSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverVideoStreamSettingsVtbl {
         unsafe extern "system" fn Size<Impl: IMiracastReceiverVideoStreamSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
@@ -1322,10 +1395,13 @@ impl IMiracastReceiverVideoStreamSettingsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitrate(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverVideoStreamSettings>, ::windows::core::GetTrustLevel, Size::<Impl, OFFSET>, SetSize::<Impl, OFFSET>, Bitrate::<Impl, OFFSET>, SetBitrate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMiracastReceiverVideoStreamSettings>, ::windows::core::GetTrustLevel, Size::<Impl, IMPL_OFFSET>, SetSize::<Impl, IMPL_OFFSET>, Bitrate::<Impl, IMPL_OFFSET>, SetBitrate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastReceiverVideoStreamSettings as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMiracastTransmitterImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1335,13 +1411,13 @@ pub trait IMiracastTransmitterImpl: Sized {
     fn MacAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LastConnectionTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastTransmitter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMiracastTransmitterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastTransmitterImpl, const OFFSET: isize>() -> IMiracastTransmitterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastTransmitterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastTransmitterVtbl {
         unsafe extern "system" fn Name<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1406,19 +1482,22 @@ impl IMiracastTransmitterVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMiracastTransmitter>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            SetName::<Impl, OFFSET>,
-            AuthorizationStatus::<Impl, OFFSET>,
-            SetAuthorizationStatus::<Impl, OFFSET>,
-            GetConnections::<Impl, OFFSET>,
-            MacAddress::<Impl, OFFSET>,
-            LastConnectionTime::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            AuthorizationStatus::<Impl, IMPL_OFFSET>,
+            SetAuthorizationStatus::<Impl, IMPL_OFFSET>,
+            GetConnections::<Impl, IMPL_OFFSET>,
+            MacAddress::<Impl, IMPL_OFFSET>,
+            LastConnectionTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMiracastTransmitter as ::windows::core::Interface>::IID
     }
 }

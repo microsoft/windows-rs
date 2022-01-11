@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGuidanceAudioNotificationRequestedEventArgsImpl: Sized {
     fn AudioNotification(&self) -> ::windows::core::Result<GuidanceAudioNotificationKind>;
     fn AudioFilePaths(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn AudioText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceAudioNotificationRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGuidanceAudioNotificationRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceAudioNotificationRequestedEventArgsImpl, const OFFSET: isize>() -> IGuidanceAudioNotificationRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceAudioNotificationRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceAudioNotificationRequestedEventArgsVtbl {
         unsafe extern "system" fn AudioNotification<Impl: IGuidanceAudioNotificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotificationKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioNotification() {
@@ -44,7 +44,10 @@ impl IGuidanceAudioNotificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceAudioNotificationRequestedEventArgs>, ::windows::core::GetTrustLevel, AudioNotification::<Impl, OFFSET>, AudioFilePaths::<Impl, OFFSET>, AudioText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceAudioNotificationRequestedEventArgs>, ::windows::core::GetTrustLevel, AudioNotification::<Impl, IMPL_OFFSET>, AudioFilePaths::<Impl, IMPL_OFFSET>, AudioText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceAudioNotificationRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,7 +61,7 @@ impl ::windows::core::RuntimeName for IGuidanceLaneInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceLaneInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceLaneInfoImpl, const OFFSET: isize>() -> IGuidanceLaneInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceLaneInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceLaneInfoVtbl {
         unsafe extern "system" fn LaneMarkers<Impl: IGuidanceLaneInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GuidanceLaneMarkers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaneMarkers() {
@@ -81,10 +84,13 @@ impl IGuidanceLaneInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceLaneInfo>, ::windows::core::GetTrustLevel, LaneMarkers::<Impl, OFFSET>, IsOnRoute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceLaneInfo>, ::windows::core::GetTrustLevel, LaneMarkers::<Impl, IMPL_OFFSET>, IsOnRoute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceLaneInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IGuidanceManeuverImpl: Sized {
     fn StartLocation(&self) -> ::windows::core::Result<super::super::super::Devices::Geolocation::Geopoint>;
     fn DistanceFromRouteStart(&self) -> ::windows::core::Result<i32>;
@@ -99,13 +105,13 @@ pub trait IGuidanceManeuverImpl: Sized {
     fn RoadSignpost(&self) -> ::windows::core::Result<GuidanceRoadSignpost>;
     fn InstructionText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceManeuver";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IGuidanceManeuverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceManeuverImpl, const OFFSET: isize>() -> IGuidanceManeuverVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceManeuverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceManeuverVtbl {
         unsafe extern "system" fn StartLocation<Impl: IGuidanceManeuverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartLocation() {
@@ -239,28 +245,31 @@ impl IGuidanceManeuverVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGuidanceManeuver>,
             ::windows::core::GetTrustLevel,
-            StartLocation::<Impl, OFFSET>,
-            DistanceFromRouteStart::<Impl, OFFSET>,
-            DistanceFromPreviousManeuver::<Impl, OFFSET>,
-            DepartureRoadName::<Impl, OFFSET>,
-            NextRoadName::<Impl, OFFSET>,
-            DepartureShortRoadName::<Impl, OFFSET>,
-            NextShortRoadName::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            StartAngle::<Impl, OFFSET>,
-            EndAngle::<Impl, OFFSET>,
-            RoadSignpost::<Impl, OFFSET>,
-            InstructionText::<Impl, OFFSET>,
+            StartLocation::<Impl, IMPL_OFFSET>,
+            DistanceFromRouteStart::<Impl, IMPL_OFFSET>,
+            DistanceFromPreviousManeuver::<Impl, IMPL_OFFSET>,
+            DepartureRoadName::<Impl, IMPL_OFFSET>,
+            NextRoadName::<Impl, IMPL_OFFSET>,
+            DepartureShortRoadName::<Impl, IMPL_OFFSET>,
+            NextShortRoadName::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            StartAngle::<Impl, IMPL_OFFSET>,
+            EndAngle::<Impl, IMPL_OFFSET>,
+            RoadSignpost::<Impl, IMPL_OFFSET>,
+            InstructionText::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceManeuver as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IGuidanceMapMatchedCoordinateImpl: Sized {
     fn Location(&self) -> ::windows::core::Result<super::super::super::Devices::Geolocation::Geopoint>;
     fn CurrentHeading(&self) -> ::windows::core::Result<f64>;
@@ -268,13 +277,13 @@ pub trait IGuidanceMapMatchedCoordinateImpl: Sized {
     fn IsOnStreet(&self) -> ::windows::core::Result<bool>;
     fn Road(&self) -> ::windows::core::Result<GuidanceRoadSegment>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceMapMatchedCoordinate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IGuidanceMapMatchedCoordinateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceMapMatchedCoordinateImpl, const OFFSET: isize>() -> IGuidanceMapMatchedCoordinateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceMapMatchedCoordinateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceMapMatchedCoordinateVtbl {
         unsafe extern "system" fn Location<Impl: IGuidanceMapMatchedCoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
@@ -330,10 +339,13 @@ impl IGuidanceMapMatchedCoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceMapMatchedCoordinate>, ::windows::core::GetTrustLevel, Location::<Impl, OFFSET>, CurrentHeading::<Impl, OFFSET>, CurrentSpeed::<Impl, OFFSET>, IsOnStreet::<Impl, OFFSET>, Road::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceMapMatchedCoordinate>, ::windows::core::GetTrustLevel, Location::<Impl, IMPL_OFFSET>, CurrentHeading::<Impl, IMPL_OFFSET>, CurrentSpeed::<Impl, IMPL_OFFSET>, IsOnStreet::<Impl, IMPL_OFFSET>, Road::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceMapMatchedCoordinate as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGuidanceNavigatorImpl: Sized {
     fn StartNavigating(&self, route: &::core::option::Option<GuidanceRoute>) -> ::windows::core::Result<()>;
     fn StartSimulating(&self, route: &::core::option::Option<GuidanceRoute>, speedinmeterspersecond: i32) -> ::windows::core::Result<()>;
@@ -364,13 +376,13 @@ pub trait IGuidanceNavigatorImpl: Sized {
     fn UpdateUserLocation(&self, userlocation: &::core::option::Option<super::super::super::Devices::Geolocation::Geocoordinate>) -> ::windows::core::Result<()>;
     fn UpdateUserLocationWithPositionOverride(&self, userlocation: &::core::option::Option<super::super::super::Devices::Geolocation::Geocoordinate>, positionoverride: &super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceNavigator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IGuidanceNavigatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigatorImpl, const OFFSET: isize>() -> IGuidanceNavigatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceNavigatorVtbl {
         unsafe extern "system" fn StartNavigating<Impl: IGuidanceNavigatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, route: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartNavigating(&*(&route as *const <GuidanceRoute as ::windows::core::Abi>::Abi as *const <GuidanceRoute as ::windows::core::DefaultType>::DefaultType)).into()
@@ -549,57 +561,60 @@ impl IGuidanceNavigatorVtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGuidanceNavigator>,
             ::windows::core::GetTrustLevel,
-            StartNavigating::<Impl, OFFSET>,
-            StartSimulating::<Impl, OFFSET>,
-            StartTracking::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            Resume::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            RepeatLastAudioNotification::<Impl, OFFSET>,
-            AudioMeasurementSystem::<Impl, OFFSET>,
-            SetAudioMeasurementSystem::<Impl, OFFSET>,
-            AudioNotifications::<Impl, OFFSET>,
-            SetAudioNotifications::<Impl, OFFSET>,
-            GuidanceUpdated::<Impl, OFFSET>,
-            RemoveGuidanceUpdated::<Impl, OFFSET>,
-            DestinationReached::<Impl, OFFSET>,
-            RemoveDestinationReached::<Impl, OFFSET>,
-            Rerouting::<Impl, OFFSET>,
-            RemoveRerouting::<Impl, OFFSET>,
-            Rerouted::<Impl, OFFSET>,
-            RemoveRerouted::<Impl, OFFSET>,
-            RerouteFailed::<Impl, OFFSET>,
-            RemoveRerouteFailed::<Impl, OFFSET>,
-            UserLocationLost::<Impl, OFFSET>,
-            RemoveUserLocationLost::<Impl, OFFSET>,
-            UserLocationRestored::<Impl, OFFSET>,
-            RemoveUserLocationRestored::<Impl, OFFSET>,
-            SetGuidanceVoice::<Impl, OFFSET>,
-            UpdateUserLocation::<Impl, OFFSET>,
-            UpdateUserLocationWithPositionOverride::<Impl, OFFSET>,
+            StartNavigating::<Impl, IMPL_OFFSET>,
+            StartSimulating::<Impl, IMPL_OFFSET>,
+            StartTracking::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Resume::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            RepeatLastAudioNotification::<Impl, IMPL_OFFSET>,
+            AudioMeasurementSystem::<Impl, IMPL_OFFSET>,
+            SetAudioMeasurementSystem::<Impl, IMPL_OFFSET>,
+            AudioNotifications::<Impl, IMPL_OFFSET>,
+            SetAudioNotifications::<Impl, IMPL_OFFSET>,
+            GuidanceUpdated::<Impl, IMPL_OFFSET>,
+            RemoveGuidanceUpdated::<Impl, IMPL_OFFSET>,
+            DestinationReached::<Impl, IMPL_OFFSET>,
+            RemoveDestinationReached::<Impl, IMPL_OFFSET>,
+            Rerouting::<Impl, IMPL_OFFSET>,
+            RemoveRerouting::<Impl, IMPL_OFFSET>,
+            Rerouted::<Impl, IMPL_OFFSET>,
+            RemoveRerouted::<Impl, IMPL_OFFSET>,
+            RerouteFailed::<Impl, IMPL_OFFSET>,
+            RemoveRerouteFailed::<Impl, IMPL_OFFSET>,
+            UserLocationLost::<Impl, IMPL_OFFSET>,
+            RemoveUserLocationLost::<Impl, IMPL_OFFSET>,
+            UserLocationRestored::<Impl, IMPL_OFFSET>,
+            RemoveUserLocationRestored::<Impl, IMPL_OFFSET>,
+            SetGuidanceVoice::<Impl, IMPL_OFFSET>,
+            UpdateUserLocation::<Impl, IMPL_OFFSET>,
+            UpdateUserLocationWithPositionOverride::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceNavigator as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGuidanceNavigator2Impl: Sized {
     fn AudioNotificationRequested(&self, value: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveAudioNotificationRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn IsGuidanceAudioMuted(&self) -> ::windows::core::Result<bool>;
     fn SetIsGuidanceAudioMuted(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceNavigator2 {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceNavigator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGuidanceNavigator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigator2Impl, const OFFSET: isize>() -> IGuidanceNavigator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceNavigator2Vtbl {
         unsafe extern "system" fn AudioNotificationRequested<Impl: IGuidanceNavigator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioNotificationRequested(&*(&value as *const <super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -630,7 +645,10 @@ impl IGuidanceNavigator2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsGuidanceAudioMuted(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigator2>, ::windows::core::GetTrustLevel, AudioNotificationRequested::<Impl, OFFSET>, RemoveAudioNotificationRequested::<Impl, OFFSET>, IsGuidanceAudioMuted::<Impl, OFFSET>, SetIsGuidanceAudioMuted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigator2>, ::windows::core::GetTrustLevel, AudioNotificationRequested::<Impl, IMPL_OFFSET>, RemoveAudioNotificationRequested::<Impl, IMPL_OFFSET>, IsGuidanceAudioMuted::<Impl, IMPL_OFFSET>, SetIsGuidanceAudioMuted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceNavigator2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -643,7 +661,7 @@ impl ::windows::core::RuntimeName for IGuidanceNavigatorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceNavigatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigatorStaticsImpl, const OFFSET: isize>() -> IGuidanceNavigatorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceNavigatorStaticsVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IGuidanceNavigatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrent() {
@@ -655,7 +673,10 @@ impl IGuidanceNavigatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigatorStatics>, ::windows::core::GetTrustLevel, GetCurrent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigatorStatics>, ::windows::core::GetTrustLevel, GetCurrent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceNavigatorStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -668,7 +689,7 @@ impl ::windows::core::RuntimeName for IGuidanceNavigatorStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceNavigatorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigatorStatics2Impl, const OFFSET: isize>() -> IGuidanceNavigatorStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceNavigatorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceNavigatorStatics2Vtbl {
         unsafe extern "system" fn UseAppProvidedVoice<Impl: IGuidanceNavigatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UseAppProvidedVoice() {
@@ -680,7 +701,10 @@ impl IGuidanceNavigatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigatorStatics2>, ::windows::core::GetTrustLevel, UseAppProvidedVoice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceNavigatorStatics2>, ::windows::core::GetTrustLevel, UseAppProvidedVoice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceNavigatorStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -693,7 +717,7 @@ impl ::windows::core::RuntimeName for IGuidanceReroutedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceReroutedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceReroutedEventArgsImpl, const OFFSET: isize>() -> IGuidanceReroutedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceReroutedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceReroutedEventArgsVtbl {
         unsafe extern "system" fn Route<Impl: IGuidanceReroutedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Route() {
@@ -705,10 +729,13 @@ impl IGuidanceReroutedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceReroutedEventArgs>, ::windows::core::GetTrustLevel, Route::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceReroutedEventArgs>, ::windows::core::GetTrustLevel, Route::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceReroutedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGuidanceRoadSegmentImpl: Sized {
     fn RoadName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ShortRoadName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -720,13 +747,13 @@ pub trait IGuidanceRoadSegmentImpl: Sized {
     fn IsTunnel(&self) -> ::windows::core::Result<bool>;
     fn IsTollRoad(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceRoadSegment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl IGuidanceRoadSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRoadSegmentImpl, const OFFSET: isize>() -> IGuidanceRoadSegmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRoadSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceRoadSegmentVtbl {
         unsafe extern "system" fn RoadName<Impl: IGuidanceRoadSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoadName() {
@@ -827,22 +854,25 @@ impl IGuidanceRoadSegmentVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGuidanceRoadSegment>,
             ::windows::core::GetTrustLevel,
-            RoadName::<Impl, OFFSET>,
-            ShortRoadName::<Impl, OFFSET>,
-            SpeedLimit::<Impl, OFFSET>,
-            TravelTime::<Impl, OFFSET>,
-            Path::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            IsHighway::<Impl, OFFSET>,
-            IsTunnel::<Impl, OFFSET>,
-            IsTollRoad::<Impl, OFFSET>,
+            RoadName::<Impl, IMPL_OFFSET>,
+            ShortRoadName::<Impl, IMPL_OFFSET>,
+            SpeedLimit::<Impl, IMPL_OFFSET>,
+            TravelTime::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            IsHighway::<Impl, IMPL_OFFSET>,
+            IsTunnel::<Impl, IMPL_OFFSET>,
+            IsTollRoad::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceRoadSegment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -855,7 +885,7 @@ impl ::windows::core::RuntimeName for IGuidanceRoadSegment2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceRoadSegment2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRoadSegment2Impl, const OFFSET: isize>() -> IGuidanceRoadSegment2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRoadSegment2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceRoadSegment2Vtbl {
         unsafe extern "system" fn IsScenic<Impl: IGuidanceRoadSegment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScenic() {
@@ -867,10 +897,13 @@ impl IGuidanceRoadSegment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoadSegment2>, ::windows::core::GetTrustLevel, IsScenic::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoadSegment2>, ::windows::core::GetTrustLevel, IsScenic::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceRoadSegment2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 pub trait IGuidanceRoadSignpostImpl: Sized {
     fn ExitNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Exit(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -878,13 +911,13 @@ pub trait IGuidanceRoadSignpostImpl: Sized {
     fn ForegroundColor(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
     fn ExitDirections(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceRoadSignpost";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 impl IGuidanceRoadSignpostVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRoadSignpostImpl, const OFFSET: isize>() -> IGuidanceRoadSignpostVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRoadSignpostImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceRoadSignpostVtbl {
         unsafe extern "system" fn ExitNumber<Impl: IGuidanceRoadSignpostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitNumber() {
@@ -940,10 +973,13 @@ impl IGuidanceRoadSignpostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoadSignpost>, ::windows::core::GetTrustLevel, ExitNumber::<Impl, OFFSET>, Exit::<Impl, OFFSET>, BackgroundColor::<Impl, OFFSET>, ForegroundColor::<Impl, OFFSET>, ExitDirections::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoadSignpost>, ::windows::core::GetTrustLevel, ExitNumber::<Impl, IMPL_OFFSET>, Exit::<Impl, IMPL_OFFSET>, BackgroundColor::<Impl, IMPL_OFFSET>, ForegroundColor::<Impl, IMPL_OFFSET>, ExitDirections::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceRoadSignpost as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGuidanceRouteImpl: Sized {
     fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn Distance(&self) -> ::windows::core::Result<i32>;
@@ -953,13 +989,13 @@ pub trait IGuidanceRouteImpl: Sized {
     fn RoadSegments(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>>;
     fn ConvertToMapRoute(&self) -> ::windows::core::Result<super::MapRoute>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceRoute";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGuidanceRouteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRouteImpl, const OFFSET: isize>() -> IGuidanceRouteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRouteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceRouteVtbl {
         unsafe extern "system" fn Duration<Impl: IGuidanceRouteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
@@ -1037,7 +1073,24 @@ impl IGuidanceRouteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRoute>, ::windows::core::GetTrustLevel, Duration::<Impl, OFFSET>, Distance::<Impl, OFFSET>, Maneuvers::<Impl, OFFSET>, BoundingBox::<Impl, OFFSET>, Path::<Impl, OFFSET>, RoadSegments::<Impl, OFFSET>, ConvertToMapRoute::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGuidanceRoute>,
+            ::windows::core::GetTrustLevel,
+            Duration::<Impl, IMPL_OFFSET>,
+            Distance::<Impl, IMPL_OFFSET>,
+            Maneuvers::<Impl, IMPL_OFFSET>,
+            BoundingBox::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            RoadSegments::<Impl, IMPL_OFFSET>,
+            ConvertToMapRoute::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceRoute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1051,7 +1104,7 @@ impl ::windows::core::RuntimeName for IGuidanceRouteStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceRouteStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRouteStaticsImpl, const OFFSET: isize>() -> IGuidanceRouteStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceRouteStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceRouteStaticsVtbl {
         unsafe extern "system" fn CanCreateFromMapRoute<Impl: IGuidanceRouteStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maproute: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCreateFromMapRoute(&*(&maproute as *const <super::MapRoute as ::windows::core::Abi>::Abi as *const <super::MapRoute as ::windows::core::DefaultType>::DefaultType)) {
@@ -1074,7 +1127,10 @@ impl IGuidanceRouteStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRouteStatics>, ::windows::core::GetTrustLevel, CanCreateFromMapRoute::<Impl, OFFSET>, TryCreateFromMapRoute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceRouteStatics>, ::windows::core::GetTrustLevel, CanCreateFromMapRoute::<Impl, IMPL_OFFSET>, TryCreateFromMapRoute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceRouteStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1093,7 +1149,7 @@ impl ::windows::core::RuntimeName for IGuidanceTelemetryCollector {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceTelemetryCollectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceTelemetryCollectorImpl, const OFFSET: isize>() -> IGuidanceTelemetryCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceTelemetryCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceTelemetryCollectorVtbl {
         unsafe extern "system" fn Enabled<Impl: IGuidanceTelemetryCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
@@ -1144,20 +1200,23 @@ impl IGuidanceTelemetryCollectorVtbl {
             (*this).SetUploadFrequency(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGuidanceTelemetryCollector>,
             ::windows::core::GetTrustLevel,
-            Enabled::<Impl, OFFSET>,
-            SetEnabled::<Impl, OFFSET>,
-            ClearLocalData::<Impl, OFFSET>,
-            SpeedTrigger::<Impl, OFFSET>,
-            SetSpeedTrigger::<Impl, OFFSET>,
-            UploadFrequency::<Impl, OFFSET>,
-            SetUploadFrequency::<Impl, OFFSET>,
+            Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled::<Impl, IMPL_OFFSET>,
+            ClearLocalData::<Impl, IMPL_OFFSET>,
+            SpeedTrigger::<Impl, IMPL_OFFSET>,
+            SetSpeedTrigger::<Impl, IMPL_OFFSET>,
+            UploadFrequency::<Impl, IMPL_OFFSET>,
+            SetUploadFrequency::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceTelemetryCollector as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1170,7 +1229,7 @@ impl ::windows::core::RuntimeName for IGuidanceTelemetryCollectorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGuidanceTelemetryCollectorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceTelemetryCollectorStaticsImpl, const OFFSET: isize>() -> IGuidanceTelemetryCollectorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceTelemetryCollectorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceTelemetryCollectorStaticsVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IGuidanceTelemetryCollectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrent() {
@@ -1182,10 +1241,13 @@ impl IGuidanceTelemetryCollectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceTelemetryCollectorStatics>, ::windows::core::GetTrustLevel, GetCurrent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidanceTelemetryCollectorStatics>, ::windows::core::GetTrustLevel, GetCurrent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceTelemetryCollectorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGuidanceUpdatedEventArgsImpl: Sized {
     fn Mode(&self) -> ::windows::core::Result<GuidanceMode>;
     fn NextManeuver(&self) -> ::windows::core::Result<GuidanceManeuver>;
@@ -1202,13 +1264,13 @@ pub trait IGuidanceUpdatedEventArgsImpl: Sized {
     fn IsNewManeuver(&self) -> ::windows::core::Result<bool>;
     fn LaneInfo(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceLaneInfo>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGuidanceUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceUpdatedEventArgsImpl, const OFFSET: isize>() -> IGuidanceUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGuidanceUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGuidanceUpdatedEventArgsVtbl {
         unsafe extern "system" fn Mode<Impl: IGuidanceUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GuidanceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
@@ -1364,26 +1426,29 @@ impl IGuidanceUpdatedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGuidanceUpdatedEventArgs>,
             ::windows::core::GetTrustLevel,
-            Mode::<Impl, OFFSET>,
-            NextManeuver::<Impl, OFFSET>,
-            NextManeuverDistance::<Impl, OFFSET>,
-            AfterNextManeuver::<Impl, OFFSET>,
-            AfterNextManeuverDistance::<Impl, OFFSET>,
-            DistanceToDestination::<Impl, OFFSET>,
-            ElapsedDistance::<Impl, OFFSET>,
-            ElapsedTime::<Impl, OFFSET>,
-            TimeToDestination::<Impl, OFFSET>,
-            RoadName::<Impl, OFFSET>,
-            Route::<Impl, OFFSET>,
-            CurrentLocation::<Impl, OFFSET>,
-            IsNewManeuver::<Impl, OFFSET>,
-            LaneInfo::<Impl, OFFSET>,
+            Mode::<Impl, IMPL_OFFSET>,
+            NextManeuver::<Impl, IMPL_OFFSET>,
+            NextManeuverDistance::<Impl, IMPL_OFFSET>,
+            AfterNextManeuver::<Impl, IMPL_OFFSET>,
+            AfterNextManeuverDistance::<Impl, IMPL_OFFSET>,
+            DistanceToDestination::<Impl, IMPL_OFFSET>,
+            ElapsedDistance::<Impl, IMPL_OFFSET>,
+            ElapsedTime::<Impl, IMPL_OFFSET>,
+            TimeToDestination::<Impl, IMPL_OFFSET>,
+            RoadName::<Impl, IMPL_OFFSET>,
+            Route::<Impl, IMPL_OFFSET>,
+            CurrentLocation::<Impl, IMPL_OFFSET>,
+            IsNewManeuver::<Impl, IMPL_OFFSET>,
+            LaneInfo::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidanceUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }

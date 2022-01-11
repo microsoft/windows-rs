@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IItemRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IItemRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemRemovedEventArgsImpl, const OFFSET: isize>() -> IItemRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemRemovedEventArgsVtbl {
         unsafe extern "system" fn RemovedEntry<Impl: IItemRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<AccessListEntry>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemovedEntry() {
@@ -20,7 +20,10 @@ impl IItemRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemovedEntry::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IItemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemovedEntry::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IItemRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -34,7 +37,7 @@ impl ::windows::core::RuntimeName for IStorageApplicationPermissionsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorageApplicationPermissionsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStaticsImpl, const OFFSET: isize>() -> IStorageApplicationPermissionsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageApplicationPermissionsStaticsVtbl {
         unsafe extern "system" fn FutureAccessList<Impl: IStorageApplicationPermissionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FutureAccessList() {
@@ -57,21 +60,24 @@ impl IStorageApplicationPermissionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageApplicationPermissionsStatics>, ::windows::core::GetTrustLevel, FutureAccessList::<Impl, OFFSET>, MostRecentlyUsedList::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageApplicationPermissionsStatics>, ::windows::core::GetTrustLevel, FutureAccessList::<Impl, IMPL_OFFSET>, MostRecentlyUsedList::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageApplicationPermissionsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStorageApplicationPermissionsStatics2Impl: Sized {
     fn GetFutureAccessListForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StorageItemAccessList>;
     fn GetMostRecentlyUsedListForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StorageItemMostRecentlyUsedList>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageApplicationPermissionsStatics2 {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IStorageApplicationPermissionsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStatics2Impl, const OFFSET: isize>() -> IStorageApplicationPermissionsStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageApplicationPermissionsStatics2Vtbl {
         unsafe extern "system" fn GetFutureAccessListForUser<Impl: IStorageApplicationPermissionsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFutureAccessListForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -94,9 +100,13 @@ impl IStorageApplicationPermissionsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageApplicationPermissionsStatics2>, ::windows::core::GetTrustLevel, GetFutureAccessListForUser::<Impl, OFFSET>, GetMostRecentlyUsedListForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageApplicationPermissionsStatics2>, ::windows::core::GetTrustLevel, GetFutureAccessListForUser::<Impl, IMPL_OFFSET>, GetMostRecentlyUsedListForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageApplicationPermissionsStatics2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IStorageItemAccessListImpl: Sized {
     fn AddOverloadDefaultMetadata(&self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Add(&self, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -115,11 +125,13 @@ pub trait IStorageItemAccessListImpl: Sized {
     fn Entries(&self) -> ::windows::core::Result<AccessListEntryView>;
     fn MaximumItemsAllowed(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IStorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemAccessList";
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IStorageItemAccessListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemAccessListImpl, const OFFSET: isize>() -> IStorageItemAccessListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemAccessListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemAccessListVtbl {
         unsafe extern "system" fn AddOverloadDefaultMetadata<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddOverloadDefaultMetadata(&*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType)) {
@@ -271,43 +283,46 @@ impl IStorageItemAccessListVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStorageItemAccessList>,
             ::windows::core::GetTrustLevel,
-            AddOverloadDefaultMetadata::<Impl, OFFSET>,
-            Add::<Impl, OFFSET>,
-            AddOrReplaceOverloadDefaultMetadata::<Impl, OFFSET>,
-            AddOrReplace::<Impl, OFFSET>,
-            GetItemAsync::<Impl, OFFSET>,
-            GetFileAsync::<Impl, OFFSET>,
-            GetFolderAsync::<Impl, OFFSET>,
-            GetItemWithOptionsAsync::<Impl, OFFSET>,
-            GetFileWithOptionsAsync::<Impl, OFFSET>,
-            GetFolderWithOptionsAsync::<Impl, OFFSET>,
-            Remove::<Impl, OFFSET>,
-            ContainsItem::<Impl, OFFSET>,
-            Clear::<Impl, OFFSET>,
-            CheckAccess::<Impl, OFFSET>,
-            Entries::<Impl, OFFSET>,
-            MaximumItemsAllowed::<Impl, OFFSET>,
+            AddOverloadDefaultMetadata::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            AddOrReplaceOverloadDefaultMetadata::<Impl, IMPL_OFFSET>,
+            AddOrReplace::<Impl, IMPL_OFFSET>,
+            GetItemAsync::<Impl, IMPL_OFFSET>,
+            GetFileAsync::<Impl, IMPL_OFFSET>,
+            GetFolderAsync::<Impl, IMPL_OFFSET>,
+            GetItemWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            GetFileWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            GetFolderWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            ContainsItem::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            CheckAccess::<Impl, IMPL_OFFSET>,
+            Entries::<Impl, IMPL_OFFSET>,
+            MaximumItemsAllowed::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemAccessList as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageItemMostRecentlyUsedListImpl: Sized + IStorageItemAccessListImpl {
     fn ItemRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemRemoved(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageItemMostRecentlyUsedListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedListImpl, const OFFSET: isize>() -> IStorageItemMostRecentlyUsedListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemMostRecentlyUsedListVtbl {
         unsafe extern "system" fn ItemRemoved<Impl: IStorageItemMostRecentlyUsedListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -323,21 +338,24 @@ impl IStorageItemMostRecentlyUsedListVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemRemoved(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemMostRecentlyUsedList>, ::windows::core::GetTrustLevel, ItemRemoved::<Impl, OFFSET>, RemoveItemRemoved::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemMostRecentlyUsedList>, ::windows::core::GetTrustLevel, ItemRemoved::<Impl, IMPL_OFFSET>, RemoveItemRemoved::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemMostRecentlyUsedList as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageItemMostRecentlyUsedList2Impl: Sized + IStorageItemAccessListImpl + IStorageItemMostRecentlyUsedListImpl {
     fn AddWithMetadataAndVisibility(&self, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AddOrReplaceWithMetadataAndVisibility(&self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageItemMostRecentlyUsedList2 {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageItemMostRecentlyUsedList2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedList2Impl, const OFFSET: isize>() -> IStorageItemMostRecentlyUsedList2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemMostRecentlyUsedList2Vtbl {
         unsafe extern "system" fn AddWithMetadataAndVisibility<Impl: IStorageItemMostRecentlyUsedList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddWithMetadataAndVisibility(&*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&metadata as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), visibility) {
@@ -360,6 +378,9 @@ impl IStorageItemMostRecentlyUsedList2Vtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemMostRecentlyUsedList2>, ::windows::core::GetTrustLevel, AddWithMetadataAndVisibility::<Impl, OFFSET>, AddOrReplaceWithMetadataAndVisibility::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemMostRecentlyUsedList2>, ::windows::core::GetTrustLevel, AddWithMetadataAndVisibility::<Impl, IMPL_OFFSET>, AddOrReplaceWithMetadataAndVisibility::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemMostRecentlyUsedList2 as ::windows::core::Interface>::IID
     }
 }

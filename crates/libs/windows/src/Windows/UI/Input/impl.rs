@@ -6,8 +6,11 @@ impl ::windows::core::RuntimeName for IAttachableInputObject {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAttachableInputObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectImpl, const OFFSET: isize>() -> IAttachableInputObjectVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttachableInputObject>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttachableInputObjectVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttachableInputObject>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAttachableInputObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -18,23 +21,26 @@ impl ::windows::core::RuntimeName for IAttachableInputObjectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAttachableInputObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectFactoryImpl, const OFFSET: isize>() -> IAttachableInputObjectFactoryVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttachableInputObjectFactory>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttachableInputObjectFactoryVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAttachableInputObjectFactory>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAttachableInputObjectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICrossSlidingEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn CrossSlidingState(&self) -> ::windows::core::Result<CrossSlidingState>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ICrossSlidingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ICrossSlidingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgsImpl, const OFFSET: isize>() -> ICrossSlidingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrossSlidingEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: ICrossSlidingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -68,7 +74,10 @@ impl ICrossSlidingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICrossSlidingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, CrossSlidingState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICrossSlidingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, CrossSlidingState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICrossSlidingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -81,7 +90,7 @@ impl ::windows::core::RuntimeName for ICrossSlidingEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICrossSlidingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgs2Impl, const OFFSET: isize>() -> ICrossSlidingEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrossSlidingEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: ICrossSlidingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -93,22 +102,25 @@ impl ICrossSlidingEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICrossSlidingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICrossSlidingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICrossSlidingEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDraggingEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn DraggingState(&self) -> ::windows::core::Result<DraggingState>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IDraggingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IDraggingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgsImpl, const OFFSET: isize>() -> IDraggingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDraggingEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IDraggingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -142,7 +154,10 @@ impl IDraggingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDraggingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, DraggingState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDraggingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, DraggingState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDraggingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -155,7 +170,7 @@ impl ::windows::core::RuntimeName for IDraggingEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDraggingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgs2Impl, const OFFSET: isize>() -> IDraggingEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDraggingEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IDraggingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -167,10 +182,13 @@ impl IDraggingEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDraggingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDraggingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDraggingEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEdgeGestureImpl: Sized {
     fn Starting(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStarting(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -179,13 +197,13 @@ pub trait IEdgeGestureImpl: Sized {
     fn Canceled(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCanceled(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.IEdgeGesture";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEdgeGestureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureImpl, const OFFSET: isize>() -> IEdgeGestureVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureVtbl {
         unsafe extern "system" fn Starting<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Starting(&*(&handler as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -231,7 +249,10 @@ impl IEdgeGestureVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCanceled(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeGesture>, ::windows::core::GetTrustLevel, Starting::<Impl, OFFSET>, RemoveStarting::<Impl, OFFSET>, Completed::<Impl, OFFSET>, RemoveCompleted::<Impl, OFFSET>, Canceled::<Impl, OFFSET>, RemoveCanceled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeGesture>, ::windows::core::GetTrustLevel, Starting::<Impl, IMPL_OFFSET>, RemoveStarting::<Impl, IMPL_OFFSET>, Completed::<Impl, IMPL_OFFSET>, RemoveCompleted::<Impl, IMPL_OFFSET>, Canceled::<Impl, IMPL_OFFSET>, RemoveCanceled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEdgeGesture as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -244,7 +265,7 @@ impl ::windows::core::RuntimeName for IEdgeGestureEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEdgeGestureEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureEventArgsImpl, const OFFSET: isize>() -> IEdgeGestureEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureEventArgsVtbl {
         unsafe extern "system" fn Kind<Impl: IEdgeGestureEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EdgeGestureKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -256,7 +277,10 @@ impl IEdgeGestureEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeGestureEventArgs>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeGestureEventArgs>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEdgeGestureEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -269,7 +293,7 @@ impl ::windows::core::RuntimeName for IEdgeGestureStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEdgeGestureStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureStaticsImpl, const OFFSET: isize>() -> IEdgeGestureStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IEdgeGestureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -281,10 +305,13 @@ impl IEdgeGestureStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeGestureStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEdgeGestureStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEdgeGestureStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGestureRecognizerImpl: Sized {
     fn GestureSettings(&self) -> ::windows::core::Result<GestureSettings>;
     fn SetGestureSettings(&self, value: GestureSettings) -> ::windows::core::Result<()>;
@@ -345,13 +372,13 @@ pub trait IGestureRecognizerImpl: Sized {
     fn CrossSliding(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCrossSliding(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.IGestureRecognizer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGestureRecognizerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizerImpl, const OFFSET: isize>() -> IGestureRecognizerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGestureRecognizerVtbl {
         unsafe extern "system" fn GestureSettings<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GestureSettings) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GestureSettings() {
@@ -781,74 +808,77 @@ impl IGestureRecognizerVtbl {
             (*this).RemoveCrossSliding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGestureRecognizer>,
             ::windows::core::GetTrustLevel,
-            GestureSettings::<Impl, OFFSET>,
-            SetGestureSettings::<Impl, OFFSET>,
-            IsInertial::<Impl, OFFSET>,
-            IsActive::<Impl, OFFSET>,
-            ShowGestureFeedback::<Impl, OFFSET>,
-            SetShowGestureFeedback::<Impl, OFFSET>,
-            PivotCenter::<Impl, OFFSET>,
-            SetPivotCenter::<Impl, OFFSET>,
-            PivotRadius::<Impl, OFFSET>,
-            SetPivotRadius::<Impl, OFFSET>,
-            InertiaTranslationDeceleration::<Impl, OFFSET>,
-            SetInertiaTranslationDeceleration::<Impl, OFFSET>,
-            InertiaRotationDeceleration::<Impl, OFFSET>,
-            SetInertiaRotationDeceleration::<Impl, OFFSET>,
-            InertiaExpansionDeceleration::<Impl, OFFSET>,
-            SetInertiaExpansionDeceleration::<Impl, OFFSET>,
-            InertiaTranslationDisplacement::<Impl, OFFSET>,
-            SetInertiaTranslationDisplacement::<Impl, OFFSET>,
-            InertiaRotationAngle::<Impl, OFFSET>,
-            SetInertiaRotationAngle::<Impl, OFFSET>,
-            InertiaExpansion::<Impl, OFFSET>,
-            SetInertiaExpansion::<Impl, OFFSET>,
-            ManipulationExact::<Impl, OFFSET>,
-            SetManipulationExact::<Impl, OFFSET>,
-            CrossSlideThresholds::<Impl, OFFSET>,
-            SetCrossSlideThresholds::<Impl, OFFSET>,
-            CrossSlideHorizontally::<Impl, OFFSET>,
-            SetCrossSlideHorizontally::<Impl, OFFSET>,
-            CrossSlideExact::<Impl, OFFSET>,
-            SetCrossSlideExact::<Impl, OFFSET>,
-            AutoProcessInertia::<Impl, OFFSET>,
-            SetAutoProcessInertia::<Impl, OFFSET>,
-            MouseWheelParameters::<Impl, OFFSET>,
-            CanBeDoubleTap::<Impl, OFFSET>,
-            ProcessDownEvent::<Impl, OFFSET>,
-            ProcessMoveEvents::<Impl, OFFSET>,
-            ProcessUpEvent::<Impl, OFFSET>,
-            ProcessMouseWheelEvent::<Impl, OFFSET>,
-            ProcessInertia::<Impl, OFFSET>,
-            CompleteGesture::<Impl, OFFSET>,
-            Tapped::<Impl, OFFSET>,
-            RemoveTapped::<Impl, OFFSET>,
-            RightTapped::<Impl, OFFSET>,
-            RemoveRightTapped::<Impl, OFFSET>,
-            Holding::<Impl, OFFSET>,
-            RemoveHolding::<Impl, OFFSET>,
-            Dragging::<Impl, OFFSET>,
-            RemoveDragging::<Impl, OFFSET>,
-            ManipulationStarted::<Impl, OFFSET>,
-            RemoveManipulationStarted::<Impl, OFFSET>,
-            ManipulationUpdated::<Impl, OFFSET>,
-            RemoveManipulationUpdated::<Impl, OFFSET>,
-            ManipulationInertiaStarting::<Impl, OFFSET>,
-            RemoveManipulationInertiaStarting::<Impl, OFFSET>,
-            ManipulationCompleted::<Impl, OFFSET>,
-            RemoveManipulationCompleted::<Impl, OFFSET>,
-            CrossSliding::<Impl, OFFSET>,
-            RemoveCrossSliding::<Impl, OFFSET>,
+            GestureSettings::<Impl, IMPL_OFFSET>,
+            SetGestureSettings::<Impl, IMPL_OFFSET>,
+            IsInertial::<Impl, IMPL_OFFSET>,
+            IsActive::<Impl, IMPL_OFFSET>,
+            ShowGestureFeedback::<Impl, IMPL_OFFSET>,
+            SetShowGestureFeedback::<Impl, IMPL_OFFSET>,
+            PivotCenter::<Impl, IMPL_OFFSET>,
+            SetPivotCenter::<Impl, IMPL_OFFSET>,
+            PivotRadius::<Impl, IMPL_OFFSET>,
+            SetPivotRadius::<Impl, IMPL_OFFSET>,
+            InertiaTranslationDeceleration::<Impl, IMPL_OFFSET>,
+            SetInertiaTranslationDeceleration::<Impl, IMPL_OFFSET>,
+            InertiaRotationDeceleration::<Impl, IMPL_OFFSET>,
+            SetInertiaRotationDeceleration::<Impl, IMPL_OFFSET>,
+            InertiaExpansionDeceleration::<Impl, IMPL_OFFSET>,
+            SetInertiaExpansionDeceleration::<Impl, IMPL_OFFSET>,
+            InertiaTranslationDisplacement::<Impl, IMPL_OFFSET>,
+            SetInertiaTranslationDisplacement::<Impl, IMPL_OFFSET>,
+            InertiaRotationAngle::<Impl, IMPL_OFFSET>,
+            SetInertiaRotationAngle::<Impl, IMPL_OFFSET>,
+            InertiaExpansion::<Impl, IMPL_OFFSET>,
+            SetInertiaExpansion::<Impl, IMPL_OFFSET>,
+            ManipulationExact::<Impl, IMPL_OFFSET>,
+            SetManipulationExact::<Impl, IMPL_OFFSET>,
+            CrossSlideThresholds::<Impl, IMPL_OFFSET>,
+            SetCrossSlideThresholds::<Impl, IMPL_OFFSET>,
+            CrossSlideHorizontally::<Impl, IMPL_OFFSET>,
+            SetCrossSlideHorizontally::<Impl, IMPL_OFFSET>,
+            CrossSlideExact::<Impl, IMPL_OFFSET>,
+            SetCrossSlideExact::<Impl, IMPL_OFFSET>,
+            AutoProcessInertia::<Impl, IMPL_OFFSET>,
+            SetAutoProcessInertia::<Impl, IMPL_OFFSET>,
+            MouseWheelParameters::<Impl, IMPL_OFFSET>,
+            CanBeDoubleTap::<Impl, IMPL_OFFSET>,
+            ProcessDownEvent::<Impl, IMPL_OFFSET>,
+            ProcessMoveEvents::<Impl, IMPL_OFFSET>,
+            ProcessUpEvent::<Impl, IMPL_OFFSET>,
+            ProcessMouseWheelEvent::<Impl, IMPL_OFFSET>,
+            ProcessInertia::<Impl, IMPL_OFFSET>,
+            CompleteGesture::<Impl, IMPL_OFFSET>,
+            Tapped::<Impl, IMPL_OFFSET>,
+            RemoveTapped::<Impl, IMPL_OFFSET>,
+            RightTapped::<Impl, IMPL_OFFSET>,
+            RemoveRightTapped::<Impl, IMPL_OFFSET>,
+            Holding::<Impl, IMPL_OFFSET>,
+            RemoveHolding::<Impl, IMPL_OFFSET>,
+            Dragging::<Impl, IMPL_OFFSET>,
+            RemoveDragging::<Impl, IMPL_OFFSET>,
+            ManipulationStarted::<Impl, IMPL_OFFSET>,
+            RemoveManipulationStarted::<Impl, IMPL_OFFSET>,
+            ManipulationUpdated::<Impl, IMPL_OFFSET>,
+            RemoveManipulationUpdated::<Impl, IMPL_OFFSET>,
+            ManipulationInertiaStarting::<Impl, IMPL_OFFSET>,
+            RemoveManipulationInertiaStarting::<Impl, IMPL_OFFSET>,
+            ManipulationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveManipulationCompleted::<Impl, IMPL_OFFSET>,
+            CrossSliding::<Impl, IMPL_OFFSET>,
+            RemoveCrossSliding::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGestureRecognizer as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGestureRecognizer2Impl: Sized {
     fn TapMinContactCount(&self) -> ::windows::core::Result<u32>;
     fn SetTapMinContactCount(&self, value: u32) -> ::windows::core::Result<()>;
@@ -867,13 +897,13 @@ pub trait IGestureRecognizer2Impl: Sized {
     fn TranslationMaxContactCount(&self) -> ::windows::core::Result<u32>;
     fn SetTranslationMaxContactCount(&self, value: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGestureRecognizer2 {
     const NAME: &'static str = "Windows.UI.Input.IGestureRecognizer2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGestureRecognizer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizer2Impl, const OFFSET: isize>() -> IGestureRecognizer2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGestureRecognizer2Vtbl {
         unsafe extern "system" fn TapMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TapMinContactCount() {
@@ -995,44 +1025,47 @@ impl IGestureRecognizer2Vtbl {
             (*this).SetTranslationMaxContactCount(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGestureRecognizer2>,
             ::windows::core::GetTrustLevel,
-            TapMinContactCount::<Impl, OFFSET>,
-            SetTapMinContactCount::<Impl, OFFSET>,
-            TapMaxContactCount::<Impl, OFFSET>,
-            SetTapMaxContactCount::<Impl, OFFSET>,
-            HoldMinContactCount::<Impl, OFFSET>,
-            SetHoldMinContactCount::<Impl, OFFSET>,
-            HoldMaxContactCount::<Impl, OFFSET>,
-            SetHoldMaxContactCount::<Impl, OFFSET>,
-            HoldRadius::<Impl, OFFSET>,
-            SetHoldRadius::<Impl, OFFSET>,
-            HoldStartDelay::<Impl, OFFSET>,
-            SetHoldStartDelay::<Impl, OFFSET>,
-            TranslationMinContactCount::<Impl, OFFSET>,
-            SetTranslationMinContactCount::<Impl, OFFSET>,
-            TranslationMaxContactCount::<Impl, OFFSET>,
-            SetTranslationMaxContactCount::<Impl, OFFSET>,
+            TapMinContactCount::<Impl, IMPL_OFFSET>,
+            SetTapMinContactCount::<Impl, IMPL_OFFSET>,
+            TapMaxContactCount::<Impl, IMPL_OFFSET>,
+            SetTapMaxContactCount::<Impl, IMPL_OFFSET>,
+            HoldMinContactCount::<Impl, IMPL_OFFSET>,
+            SetHoldMinContactCount::<Impl, IMPL_OFFSET>,
+            HoldMaxContactCount::<Impl, IMPL_OFFSET>,
+            SetHoldMaxContactCount::<Impl, IMPL_OFFSET>,
+            HoldRadius::<Impl, IMPL_OFFSET>,
+            SetHoldRadius::<Impl, IMPL_OFFSET>,
+            HoldStartDelay::<Impl, IMPL_OFFSET>,
+            SetHoldStartDelay::<Impl, IMPL_OFFSET>,
+            TranslationMinContactCount::<Impl, IMPL_OFFSET>,
+            SetTranslationMinContactCount::<Impl, IMPL_OFFSET>,
+            TranslationMaxContactCount::<Impl, IMPL_OFFSET>,
+            SetTranslationMaxContactCount::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGestureRecognizer2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHoldingEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn HoldingState(&self) -> ::windows::core::Result<HoldingState>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IHoldingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IHoldingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgsImpl, const OFFSET: isize>() -> IHoldingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHoldingEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -1066,7 +1099,10 @@ impl IHoldingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHoldingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, HoldingState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHoldingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, HoldingState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHoldingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1080,7 +1116,7 @@ impl ::windows::core::RuntimeName for IHoldingEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHoldingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgs2Impl, const OFFSET: isize>() -> IHoldingEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHoldingEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IHoldingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -1103,22 +1139,25 @@ impl IHoldingEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHoldingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>, CurrentContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHoldingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>, CurrentContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHoldingEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IInputActivationListenerImpl: Sized {
     fn State(&self) -> ::windows::core::Result<InputActivationState>;
     fn InputActivationChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInputActivationChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.IInputActivationListener";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IInputActivationListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerImpl, const OFFSET: isize>() -> IInputActivationListenerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputActivationListenerVtbl {
         unsafe extern "system" fn State<Impl: IInputActivationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -1145,7 +1184,10 @@ impl IInputActivationListenerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInputActivationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputActivationListener>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, InputActivationChanged::<Impl, OFFSET>, RemoveInputActivationChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputActivationListener>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, InputActivationChanged::<Impl, IMPL_OFFSET>, RemoveInputActivationChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputActivationListener as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1158,7 +1200,7 @@ impl ::windows::core::RuntimeName for IInputActivationListenerActivationChangedE
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInputActivationListenerActivationChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerActivationChangedEventArgsImpl, const OFFSET: isize>() -> IInputActivationListenerActivationChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerActivationChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputActivationListenerActivationChangedEventArgsVtbl {
         unsafe extern "system" fn State<Impl: IInputActivationListenerActivationChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -1170,10 +1212,13 @@ impl IInputActivationListenerActivationChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputActivationListenerActivationChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputActivationListenerActivationChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInputActivationListenerActivationChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait IKeyboardDeliveryInterceptorImpl: Sized {
     fn IsInterceptionEnabledWhenInForeground(&self) -> ::windows::core::Result<bool>;
     fn SetIsInterceptionEnabledWhenInForeground(&self, value: bool) -> ::windows::core::Result<()>;
@@ -1182,13 +1227,13 @@ pub trait IKeyboardDeliveryInterceptorImpl: Sized {
     fn KeyUp(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveKeyUp(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.IKeyboardDeliveryInterceptor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 impl IKeyboardDeliveryInterceptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>() -> IKeyboardDeliveryInterceptorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardDeliveryInterceptorVtbl {
         unsafe extern "system" fn IsInterceptionEnabledWhenInForeground<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInterceptionEnabledWhenInForeground() {
@@ -1235,19 +1280,22 @@ impl IKeyboardDeliveryInterceptorVtbl {
             (*this).RemoveKeyUp(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IKeyboardDeliveryInterceptor>,
             ::windows::core::GetTrustLevel,
-            IsInterceptionEnabledWhenInForeground::<Impl, OFFSET>,
-            SetIsInterceptionEnabledWhenInForeground::<Impl, OFFSET>,
-            KeyDown::<Impl, OFFSET>,
-            RemoveKeyDown::<Impl, OFFSET>,
-            KeyUp::<Impl, OFFSET>,
-            RemoveKeyUp::<Impl, OFFSET>,
+            IsInterceptionEnabledWhenInForeground::<Impl, IMPL_OFFSET>,
+            SetIsInterceptionEnabledWhenInForeground::<Impl, IMPL_OFFSET>,
+            KeyDown::<Impl, IMPL_OFFSET>,
+            RemoveKeyDown::<Impl, IMPL_OFFSET>,
+            KeyUp::<Impl, IMPL_OFFSET>,
+            RemoveKeyUp::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyboardDeliveryInterceptor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1260,7 +1308,7 @@ impl ::windows::core::RuntimeName for IKeyboardDeliveryInterceptorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKeyboardDeliveryInterceptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorStaticsImpl, const OFFSET: isize>() -> IKeyboardDeliveryInterceptorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardDeliveryInterceptorStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IKeyboardDeliveryInterceptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -1272,23 +1320,26 @@ impl IKeyboardDeliveryInterceptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyboardDeliveryInterceptorStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyboardDeliveryInterceptorStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyboardDeliveryInterceptorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IManipulationCompletedEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta>;
     fn Velocities(&self) -> ::windows::core::Result<ManipulationVelocities>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationCompletedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IManipulationCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgsImpl, const OFFSET: isize>() -> IManipulationCompletedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationCompletedEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IManipulationCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -1333,7 +1384,10 @@ impl IManipulationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationCompletedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, Cumulative::<Impl, OFFSET>, Velocities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationCompletedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, Cumulative::<Impl, IMPL_OFFSET>, Velocities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1347,7 +1401,7 @@ impl ::windows::core::RuntimeName for IManipulationCompletedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IManipulationCompletedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgs2Impl, const OFFSET: isize>() -> IManipulationCompletedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationCompletedEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IManipulationCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -1370,10 +1424,13 @@ impl IManipulationCompletedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationCompletedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>, CurrentContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationCompletedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>, CurrentContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationCompletedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IManipulationInertiaStartingEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
@@ -1381,13 +1438,13 @@ pub trait IManipulationInertiaStartingEventArgsImpl: Sized {
     fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta>;
     fn Velocities(&self) -> ::windows::core::Result<ManipulationVelocities>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationInertiaStartingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IManipulationInertiaStartingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>() -> IManipulationInertiaStartingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationInertiaStartingEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -1443,7 +1500,10 @@ impl IManipulationInertiaStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationInertiaStartingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, Delta::<Impl, OFFSET>, Cumulative::<Impl, OFFSET>, Velocities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationInertiaStartingEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, Delta::<Impl, IMPL_OFFSET>, Cumulative::<Impl, IMPL_OFFSET>, Velocities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationInertiaStartingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1456,7 +1516,7 @@ impl ::windows::core::RuntimeName for IManipulationInertiaStartingEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IManipulationInertiaStartingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgs2Impl, const OFFSET: isize>() -> IManipulationInertiaStartingEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationInertiaStartingEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IManipulationInertiaStartingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -1468,22 +1528,25 @@ impl IManipulationInertiaStartingEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationInertiaStartingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationInertiaStartingEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationInertiaStartingEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IManipulationStartedEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationStartedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IManipulationStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgsImpl, const OFFSET: isize>() -> IManipulationStartedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationStartedEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IManipulationStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -1517,7 +1580,10 @@ impl IManipulationStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationStartedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, Cumulative::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationStartedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, Cumulative::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationStartedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1530,7 +1596,7 @@ impl ::windows::core::RuntimeName for IManipulationStartedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IManipulationStartedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgs2Impl, const OFFSET: isize>() -> IManipulationStartedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationStartedEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IManipulationStartedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -1542,10 +1608,13 @@ impl IManipulationStartedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationStartedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationStartedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationStartedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IManipulationUpdatedEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
@@ -1553,13 +1622,13 @@ pub trait IManipulationUpdatedEventArgsImpl: Sized {
     fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta>;
     fn Velocities(&self) -> ::windows::core::Result<ManipulationVelocities>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationUpdatedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IManipulationUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>() -> IManipulationUpdatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationUpdatedEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -1615,7 +1684,10 @@ impl IManipulationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationUpdatedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, Delta::<Impl, OFFSET>, Cumulative::<Impl, OFFSET>, Velocities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationUpdatedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, Delta::<Impl, IMPL_OFFSET>, Cumulative::<Impl, IMPL_OFFSET>, Velocities::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationUpdatedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1629,7 +1701,7 @@ impl ::windows::core::RuntimeName for IManipulationUpdatedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IManipulationUpdatedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgs2Impl, const OFFSET: isize>() -> IManipulationUpdatedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationUpdatedEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IManipulationUpdatedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -1652,10 +1724,13 @@ impl IManipulationUpdatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationUpdatedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>, CurrentContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IManipulationUpdatedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>, CurrentContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IManipulationUpdatedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMouseWheelParametersImpl: Sized {
     fn CharTranslation(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn SetCharTranslation(&self, value: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
@@ -1666,13 +1741,13 @@ pub trait IMouseWheelParametersImpl: Sized {
     fn PageTranslation(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn SetPageTranslation(&self, value: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.IMouseWheelParameters";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IMouseWheelParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseWheelParametersImpl, const OFFSET: isize>() -> IMouseWheelParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseWheelParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseWheelParametersVtbl {
         unsafe extern "system" fn CharTranslation<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharTranslation() {
@@ -1734,24 +1809,27 @@ impl IMouseWheelParametersVtbl {
             (*this).SetPageTranslation(&*(&value as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMouseWheelParameters>,
             ::windows::core::GetTrustLevel,
-            CharTranslation::<Impl, OFFSET>,
-            SetCharTranslation::<Impl, OFFSET>,
-            DeltaScale::<Impl, OFFSET>,
-            SetDeltaScale::<Impl, OFFSET>,
-            DeltaRotationAngle::<Impl, OFFSET>,
-            SetDeltaRotationAngle::<Impl, OFFSET>,
-            PageTranslation::<Impl, OFFSET>,
-            SetPageTranslation::<Impl, OFFSET>,
+            CharTranslation::<Impl, IMPL_OFFSET>,
+            SetCharTranslation::<Impl, IMPL_OFFSET>,
+            DeltaScale::<Impl, IMPL_OFFSET>,
+            SetDeltaScale::<Impl, IMPL_OFFSET>,
+            DeltaRotationAngle::<Impl, IMPL_OFFSET>,
+            SetDeltaRotationAngle::<Impl, IMPL_OFFSET>,
+            PageTranslation::<Impl, IMPL_OFFSET>,
+            SetPageTranslation::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMouseWheelParameters as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointerPointImpl: Sized {
     fn PointerDevice(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDevice>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
@@ -1762,13 +1840,13 @@ pub trait IPointerPointImpl: Sized {
     fn IsInContact(&self) -> ::windows::core::Result<bool>;
     fn Properties(&self) -> ::windows::core::Result<PointerPointProperties>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerPoint {
     const NAME: &'static str = "Windows.UI.Input.IPointerPoint";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IPointerPointVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointImpl, const OFFSET: isize>() -> IPointerPointVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointVtbl {
         unsafe extern "system" fn PointerDevice<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDevice() {
@@ -1857,10 +1935,28 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPoint>, ::windows::core::GetTrustLevel, PointerDevice::<Impl, OFFSET>, Position::<Impl, OFFSET>, RawPosition::<Impl, OFFSET>, PointerId::<Impl, OFFSET>, FrameId::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, IsInContact::<Impl, OFFSET>, Properties::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPointerPoint>,
+            ::windows::core::GetTrustLevel,
+            PointerDevice::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            RawPosition::<Impl, IMPL_OFFSET>,
+            PointerId::<Impl, IMPL_OFFSET>,
+            FrameId::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            IsInContact::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerPoint as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointerPointPropertiesImpl: Sized {
     fn Pressure(&self) -> ::windows::core::Result<f32>;
     fn IsInverted(&self) -> ::windows::core::Result<bool>;
@@ -1887,13 +1983,13 @@ pub trait IPointerPointPropertiesImpl: Sized {
     fn HasUsage(&self, usagepage: u32, usageid: u32) -> ::windows::core::Result<bool>;
     fn GetUsageValue(&self, usagepage: u32, usageid: u32) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPointerPointPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointPropertiesImpl, const OFFSET: isize>() -> IPointerPointPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointPropertiesVtbl {
         unsafe extern "system" fn Pressure<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pressure() {
@@ -2159,50 +2255,53 @@ impl IPointerPointPropertiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPointerPointProperties>,
             ::windows::core::GetTrustLevel,
-            Pressure::<Impl, OFFSET>,
-            IsInverted::<Impl, OFFSET>,
-            IsEraser::<Impl, OFFSET>,
-            Orientation::<Impl, OFFSET>,
-            XTilt::<Impl, OFFSET>,
-            YTilt::<Impl, OFFSET>,
-            Twist::<Impl, OFFSET>,
-            ContactRect::<Impl, OFFSET>,
-            ContactRectRaw::<Impl, OFFSET>,
-            TouchConfidence::<Impl, OFFSET>,
-            IsLeftButtonPressed::<Impl, OFFSET>,
-            IsRightButtonPressed::<Impl, OFFSET>,
-            IsMiddleButtonPressed::<Impl, OFFSET>,
-            MouseWheelDelta::<Impl, OFFSET>,
-            IsHorizontalMouseWheel::<Impl, OFFSET>,
-            IsPrimary::<Impl, OFFSET>,
-            IsInRange::<Impl, OFFSET>,
-            IsCanceled::<Impl, OFFSET>,
-            IsBarrelButtonPressed::<Impl, OFFSET>,
-            IsXButton1Pressed::<Impl, OFFSET>,
-            IsXButton2Pressed::<Impl, OFFSET>,
-            PointerUpdateKind::<Impl, OFFSET>,
-            HasUsage::<Impl, OFFSET>,
-            GetUsageValue::<Impl, OFFSET>,
+            Pressure::<Impl, IMPL_OFFSET>,
+            IsInverted::<Impl, IMPL_OFFSET>,
+            IsEraser::<Impl, IMPL_OFFSET>,
+            Orientation::<Impl, IMPL_OFFSET>,
+            XTilt::<Impl, IMPL_OFFSET>,
+            YTilt::<Impl, IMPL_OFFSET>,
+            Twist::<Impl, IMPL_OFFSET>,
+            ContactRect::<Impl, IMPL_OFFSET>,
+            ContactRectRaw::<Impl, IMPL_OFFSET>,
+            TouchConfidence::<Impl, IMPL_OFFSET>,
+            IsLeftButtonPressed::<Impl, IMPL_OFFSET>,
+            IsRightButtonPressed::<Impl, IMPL_OFFSET>,
+            IsMiddleButtonPressed::<Impl, IMPL_OFFSET>,
+            MouseWheelDelta::<Impl, IMPL_OFFSET>,
+            IsHorizontalMouseWheel::<Impl, IMPL_OFFSET>,
+            IsPrimary::<Impl, IMPL_OFFSET>,
+            IsInRange::<Impl, IMPL_OFFSET>,
+            IsCanceled::<Impl, IMPL_OFFSET>,
+            IsBarrelButtonPressed::<Impl, IMPL_OFFSET>,
+            IsXButton1Pressed::<Impl, IMPL_OFFSET>,
+            IsXButton2Pressed::<Impl, IMPL_OFFSET>,
+            PointerUpdateKind::<Impl, IMPL_OFFSET>,
+            HasUsage::<Impl, IMPL_OFFSET>,
+            GetUsageValue::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerPointProperties as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointerPointProperties2Impl: Sized {
     fn ZDistance(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerPointProperties2 {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointProperties2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPointerPointProperties2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointProperties2Impl, const OFFSET: isize>() -> IPointerPointProperties2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointProperties2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointProperties2Vtbl {
         unsafe extern "system" fn ZDistance<Impl: IPointerPointProperties2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZDistance() {
@@ -2214,23 +2313,26 @@ impl IPointerPointProperties2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPointProperties2>, ::windows::core::GetTrustLevel, ZDistance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPointProperties2>, ::windows::core::GetTrustLevel, ZDistance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerPointProperties2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPointerPointStaticsImpl: Sized {
     fn GetCurrentPoint(&self, pointerid: u32) -> ::windows::core::Result<PointerPoint>;
     fn GetIntermediatePoints(&self, pointerid: u32) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>;
     fn GetCurrentPointTransformed(&self, pointerid: u32, transform: &::core::option::Option<IPointerPointTransform>) -> ::windows::core::Result<PointerPoint>;
     fn GetIntermediatePointsTransformed(&self, pointerid: u32, transform: &::core::option::Option<IPointerPointTransform>) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerPointStatics {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPointerPointStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointStaticsImpl, const OFFSET: isize>() -> IPointerPointStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointStaticsVtbl {
         unsafe extern "system" fn GetCurrentPoint<Impl: IPointerPointStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPoint(pointerid) {
@@ -2275,19 +2377,25 @@ impl IPointerPointStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPointStatics>, ::windows::core::GetTrustLevel, GetCurrentPoint::<Impl, OFFSET>, GetIntermediatePoints::<Impl, OFFSET>, GetCurrentPointTransformed::<Impl, OFFSET>, GetIntermediatePointsTransformed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPointStatics>, ::windows::core::GetTrustLevel, GetCurrentPoint::<Impl, IMPL_OFFSET>, GetIntermediatePoints::<Impl, IMPL_OFFSET>, GetCurrentPointTransformed::<Impl, IMPL_OFFSET>, GetIntermediatePointsTransformed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerPointStatics as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IPointerPointTransformImpl: Sized {
     fn Inverse(&self) -> ::windows::core::Result<IPointerPointTransform>;
     fn TryTransform(&self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> ::windows::core::Result<bool>;
     fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
+#[cfg(feature = "Foundation")]
 impl IPointerPointTransformVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointTransformImpl, const OFFSET: isize>() -> IPointerPointTransformVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointTransformImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointTransformVtbl {
         unsafe extern "system" fn Inverse<Impl: IPointerPointTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Inverse() {
@@ -2321,7 +2429,10 @@ impl IPointerPointTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPointTransform>, ::windows::core::GetTrustLevel, Inverse::<Impl, OFFSET>, TryTransform::<Impl, OFFSET>, TransformBounds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerPointTransform>, ::windows::core::GetTrustLevel, Inverse::<Impl, IMPL_OFFSET>, TryTransform::<Impl, IMPL_OFFSET>, TransformBounds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerPointTransform as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2337,7 +2448,7 @@ impl ::windows::core::RuntimeName for IPointerVisualizationSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointerVisualizationSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsImpl, const OFFSET: isize>() -> IPointerVisualizationSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerVisualizationSettingsVtbl {
         unsafe extern "system" fn SetIsContactFeedbackEnabled<Impl: IPointerVisualizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsContactFeedbackEnabled(value).into()
@@ -2368,7 +2479,21 @@ impl IPointerVisualizationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerVisualizationSettings>, ::windows::core::GetTrustLevel, SetIsContactFeedbackEnabled::<Impl, OFFSET>, IsContactFeedbackEnabled::<Impl, OFFSET>, SetIsBarrelButtonFeedbackEnabled::<Impl, OFFSET>, IsBarrelButtonFeedbackEnabled::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPointerVisualizationSettings>,
+            ::windows::core::GetTrustLevel,
+            SetIsContactFeedbackEnabled::<Impl, IMPL_OFFSET>,
+            IsContactFeedbackEnabled::<Impl, IMPL_OFFSET>,
+            SetIsBarrelButtonFeedbackEnabled::<Impl, IMPL_OFFSET>,
+            IsBarrelButtonFeedbackEnabled::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerVisualizationSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2381,7 +2506,7 @@ impl ::windows::core::RuntimeName for IPointerVisualizationSettingsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPointerVisualizationSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsStaticsImpl, const OFFSET: isize>() -> IPointerVisualizationSettingsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerVisualizationSettingsStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IPointerVisualizationSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -2393,10 +2518,13 @@ impl IPointerVisualizationSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerVisualizationSettingsStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPointerVisualizationSettingsStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPointerVisualizationSettingsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRadialControllerImpl: Sized {
     fn Menu(&self) -> ::windows::core::Result<RadialControllerMenu>;
     fn RotationResolutionInDegrees(&self) -> ::windows::core::Result<f64>;
@@ -2418,13 +2546,13 @@ pub trait IRadialControllerImpl: Sized {
     fn ControlAcquired(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveControlAcquired(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialController {
     const NAME: &'static str = "Windows.UI.Input.IRadialController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRadialControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerImpl, const OFFSET: isize>() -> IRadialControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerVtbl {
         unsafe extern "system" fn Menu<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Menu() {
@@ -2572,35 +2700,38 @@ impl IRadialControllerVtbl {
             (*this).RemoveControlAcquired(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRadialController>,
             ::windows::core::GetTrustLevel,
-            Menu::<Impl, OFFSET>,
-            RotationResolutionInDegrees::<Impl, OFFSET>,
-            SetRotationResolutionInDegrees::<Impl, OFFSET>,
-            UseAutomaticHapticFeedback::<Impl, OFFSET>,
-            SetUseAutomaticHapticFeedback::<Impl, OFFSET>,
-            ScreenContactStarted::<Impl, OFFSET>,
-            RemoveScreenContactStarted::<Impl, OFFSET>,
-            ScreenContactEnded::<Impl, OFFSET>,
-            RemoveScreenContactEnded::<Impl, OFFSET>,
-            ScreenContactContinued::<Impl, OFFSET>,
-            RemoveScreenContactContinued::<Impl, OFFSET>,
-            ControlLost::<Impl, OFFSET>,
-            RemoveControlLost::<Impl, OFFSET>,
-            RotationChanged::<Impl, OFFSET>,
-            RemoveRotationChanged::<Impl, OFFSET>,
-            ButtonClicked::<Impl, OFFSET>,
-            RemoveButtonClicked::<Impl, OFFSET>,
-            ControlAcquired::<Impl, OFFSET>,
-            RemoveControlAcquired::<Impl, OFFSET>,
+            Menu::<Impl, IMPL_OFFSET>,
+            RotationResolutionInDegrees::<Impl, IMPL_OFFSET>,
+            SetRotationResolutionInDegrees::<Impl, IMPL_OFFSET>,
+            UseAutomaticHapticFeedback::<Impl, IMPL_OFFSET>,
+            SetUseAutomaticHapticFeedback::<Impl, IMPL_OFFSET>,
+            ScreenContactStarted::<Impl, IMPL_OFFSET>,
+            RemoveScreenContactStarted::<Impl, IMPL_OFFSET>,
+            ScreenContactEnded::<Impl, IMPL_OFFSET>,
+            RemoveScreenContactEnded::<Impl, IMPL_OFFSET>,
+            ScreenContactContinued::<Impl, IMPL_OFFSET>,
+            RemoveScreenContactContinued::<Impl, IMPL_OFFSET>,
+            ControlLost::<Impl, IMPL_OFFSET>,
+            RemoveControlLost::<Impl, IMPL_OFFSET>,
+            RotationChanged::<Impl, IMPL_OFFSET>,
+            RemoveRotationChanged::<Impl, IMPL_OFFSET>,
+            ButtonClicked::<Impl, IMPL_OFFSET>,
+            RemoveButtonClicked::<Impl, IMPL_OFFSET>,
+            ControlAcquired::<Impl, IMPL_OFFSET>,
+            RemoveControlAcquired::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialController as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRadialController2Impl: Sized {
     fn ButtonPressed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveButtonPressed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2609,13 +2740,13 @@ pub trait IRadialController2Impl: Sized {
     fn ButtonReleased(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveButtonReleased(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialController2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialController2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRadialController2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialController2Impl, const OFFSET: isize>() -> IRadialController2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialController2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialController2Vtbl {
         unsafe extern "system" fn ButtonPressed<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ButtonPressed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2661,7 +2792,23 @@ impl IRadialController2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveButtonReleased(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialController2>, ::windows::core::GetTrustLevel, ButtonPressed::<Impl, OFFSET>, RemoveButtonPressed::<Impl, OFFSET>, ButtonHolding::<Impl, OFFSET>, RemoveButtonHolding::<Impl, OFFSET>, ButtonReleased::<Impl, OFFSET>, RemoveButtonReleased::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRadialController2>,
+            ::windows::core::GetTrustLevel,
+            ButtonPressed::<Impl, IMPL_OFFSET>,
+            RemoveButtonPressed::<Impl, IMPL_OFFSET>,
+            ButtonHolding::<Impl, IMPL_OFFSET>,
+            RemoveButtonHolding::<Impl, IMPL_OFFSET>,
+            ButtonReleased::<Impl, IMPL_OFFSET>,
+            RemoveButtonReleased::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialController2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2674,7 +2821,7 @@ impl ::windows::core::RuntimeName for IRadialControllerButtonClickedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerButtonClickedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerButtonClickedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonClickedEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerButtonClickedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -2686,20 +2833,23 @@ impl IRadialControllerButtonClickedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonClickedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonClickedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerButtonClickedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerButtonClickedEventArgs2Impl: Sized {
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerButtonClickedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonClickedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerButtonClickedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgs2Impl, const OFFSET: isize>() -> IRadialControllerButtonClickedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonClickedEventArgs2Vtbl {
         unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonClickedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
@@ -2711,21 +2861,24 @@ impl IRadialControllerButtonClickedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonClickedEventArgs2>, ::windows::core::GetTrustLevel, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonClickedEventArgs2>, ::windows::core::GetTrustLevel, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerButtonClickedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerButtonHoldingEventArgsImpl: Sized {
     fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonHoldingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerButtonHoldingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonHoldingEventArgsImpl, const OFFSET: isize>() -> IRadialControllerButtonHoldingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonHoldingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonHoldingEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerButtonHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -2748,21 +2901,24 @@ impl IRadialControllerButtonHoldingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonHoldingEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonHoldingEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerButtonHoldingEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerButtonPressedEventArgsImpl: Sized {
     fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonPressedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerButtonPressedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonPressedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerButtonPressedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonPressedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonPressedEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerButtonPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -2785,21 +2941,24 @@ impl IRadialControllerButtonPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonPressedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonPressedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerButtonPressedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerButtonReleasedEventArgsImpl: Sized {
     fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonReleasedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerButtonReleasedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonReleasedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerButtonReleasedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonReleasedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonReleasedEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerButtonReleasedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -2822,22 +2981,25 @@ impl IRadialControllerButtonReleasedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonReleasedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerButtonReleasedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerButtonReleasedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRadialControllerConfigurationImpl: Sized {
     fn SetDefaultMenuItems(&self, buttons: &::core::option::Option<super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>) -> ::windows::core::Result<()>;
     fn ResetToDefaultMenuItems(&self) -> ::windows::core::Result<()>;
     fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRadialControllerConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationImpl, const OFFSET: isize>() -> IRadialControllerConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationVtbl {
         unsafe extern "system" fn SetDefaultMenuItems<Impl: IRadialControllerConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttons: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultMenuItems(&*(&buttons as *const <super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2857,7 +3019,10 @@ impl IRadialControllerConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfiguration>, ::windows::core::GetTrustLevel, SetDefaultMenuItems::<Impl, OFFSET>, ResetToDefaultMenuItems::<Impl, OFFSET>, TrySelectDefaultMenuItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfiguration>, ::windows::core::GetTrustLevel, SetDefaultMenuItems::<Impl, IMPL_OFFSET>, ResetToDefaultMenuItems::<Impl, IMPL_OFFSET>, TrySelectDefaultMenuItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2873,7 +3038,7 @@ impl ::windows::core::RuntimeName for IRadialControllerConfiguration2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfiguration2Impl, const OFFSET: isize>() -> IRadialControllerConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfiguration2Vtbl {
         unsafe extern "system" fn SetActiveControllerWhenMenuIsSuppressed<Impl: IRadialControllerConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActiveControllerWhenMenuIsSuppressed(&*(&value as *const <RadialController as ::windows::core::Abi>::Abi as *const <RadialController as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2904,7 +3069,21 @@ impl IRadialControllerConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfiguration2>, ::windows::core::GetTrustLevel, SetActiveControllerWhenMenuIsSuppressed::<Impl, OFFSET>, ActiveControllerWhenMenuIsSuppressed::<Impl, OFFSET>, SetIsMenuSuppressed::<Impl, OFFSET>, IsMenuSuppressed::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRadialControllerConfiguration2>,
+            ::windows::core::GetTrustLevel,
+            SetActiveControllerWhenMenuIsSuppressed::<Impl, IMPL_OFFSET>,
+            ActiveControllerWhenMenuIsSuppressed::<Impl, IMPL_OFFSET>,
+            SetIsMenuSuppressed::<Impl, IMPL_OFFSET>,
+            IsMenuSuppressed::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerConfiguration2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2917,7 +3096,7 @@ impl ::windows::core::RuntimeName for IRadialControllerConfigurationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerConfigurationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStaticsImpl, const OFFSET: isize>() -> IRadialControllerConfigurationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IRadialControllerConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -2929,7 +3108,10 @@ impl IRadialControllerConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfigurationStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfigurationStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerConfigurationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2945,7 +3127,7 @@ impl ::windows::core::RuntimeName for IRadialControllerConfigurationStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerConfigurationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStatics2Impl, const OFFSET: isize>() -> IRadialControllerConfigurationStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationStatics2Vtbl {
         unsafe extern "system" fn SetAppController<Impl: IRadialControllerConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppController(&*(&value as *const <RadialController as ::windows::core::Abi>::Abi as *const <RadialController as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2976,7 +3158,10 @@ impl IRadialControllerConfigurationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfigurationStatics2>, ::windows::core::GetTrustLevel, SetAppController::<Impl, OFFSET>, AppController::<Impl, OFFSET>, SetIsAppControllerEnabled::<Impl, OFFSET>, IsAppControllerEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerConfigurationStatics2>, ::windows::core::GetTrustLevel, SetAppController::<Impl, IMPL_OFFSET>, AppController::<Impl, IMPL_OFFSET>, SetIsAppControllerEnabled::<Impl, IMPL_OFFSET>, IsAppControllerEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerConfigurationStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2989,7 +3174,7 @@ impl ::windows::core::RuntimeName for IRadialControllerControlAcquiredEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerControlAcquiredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgsImpl, const OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerControlAcquiredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -3001,21 +3186,24 @@ impl IRadialControllerControlAcquiredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerControlAcquiredEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerControlAcquiredEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerControlAcquiredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerControlAcquiredEventArgs2Impl: Sized {
     fn IsButtonPressed(&self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerControlAcquiredEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerControlAcquiredEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerControlAcquiredEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgs2Impl, const OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgs2Vtbl {
         unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerControlAcquiredEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
@@ -3038,10 +3226,13 @@ impl IRadialControllerControlAcquiredEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerControlAcquiredEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerControlAcquiredEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerControlAcquiredEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRadialControllerMenuImpl: Sized {
     fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>>;
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
@@ -3050,13 +3241,13 @@ pub trait IRadialControllerMenuImpl: Sized {
     fn SelectMenuItem(&self, menuitem: &::core::option::Option<RadialControllerMenuItem>) -> ::windows::core::Result<()>;
     fn TrySelectPreviouslySelectedMenuItem(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenu";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IRadialControllerMenuVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuImpl, const OFFSET: isize>() -> IRadialControllerMenuVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuVtbl {
         unsafe extern "system" fn Items<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
@@ -3109,10 +3300,26 @@ impl IRadialControllerMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenu>, ::windows::core::GetTrustLevel, Items::<Impl, OFFSET>, IsEnabled::<Impl, OFFSET>, SetIsEnabled::<Impl, OFFSET>, GetSelectedMenuItem::<Impl, OFFSET>, SelectMenuItem::<Impl, OFFSET>, TrySelectPreviouslySelectedMenuItem::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRadialControllerMenu>,
+            ::windows::core::GetTrustLevel,
+            Items::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            GetSelectedMenuItem::<Impl, IMPL_OFFSET>,
+            SelectMenuItem::<Impl, IMPL_OFFSET>,
+            TrySelectPreviouslySelectedMenuItem::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerMenu as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRadialControllerMenuItemImpl: Sized {
     fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Tag(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -3120,13 +3327,13 @@ pub trait IRadialControllerMenuItemImpl: Sized {
     fn Invoked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInvoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenuItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRadialControllerMenuItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>() -> IRadialControllerMenuItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemVtbl {
         unsafe extern "system" fn DisplayText<Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
@@ -3168,21 +3375,24 @@ impl IRadialControllerMenuItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInvoked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenuItem>, ::windows::core::GetTrustLevel, DisplayText::<Impl, OFFSET>, Tag::<Impl, OFFSET>, SetTag::<Impl, OFFSET>, Invoked::<Impl, OFFSET>, RemoveInvoked::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenuItem>, ::windows::core::GetTrustLevel, DisplayText::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, SetTag::<Impl, IMPL_OFFSET>, Invoked::<Impl, IMPL_OFFSET>, RemoveInvoked::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerMenuItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRadialControllerMenuItemStaticsImpl: Sized {
     fn CreateFromIcon(&self, displaytext: &::windows::core::HSTRING, icon: &::core::option::Option<super::super::Storage::Streams::RandomAccessStreamReference>) -> ::windows::core::Result<RadialControllerMenuItem>;
     fn CreateFromKnownIcon(&self, displaytext: &::windows::core::HSTRING, value: RadialControllerMenuKnownIcon) -> ::windows::core::Result<RadialControllerMenuItem>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerMenuItemStatics {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenuItemStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IRadialControllerMenuItemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStaticsImpl, const OFFSET: isize>() -> IRadialControllerMenuItemStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemStaticsVtbl {
         unsafe extern "system" fn CreateFromIcon<Impl: IRadialControllerMenuItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIcon(&*(&displaytext as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&icon as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)) {
@@ -3205,21 +3415,24 @@ impl IRadialControllerMenuItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenuItemStatics>, ::windows::core::GetTrustLevel, CreateFromIcon::<Impl, OFFSET>, CreateFromKnownIcon::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenuItemStatics>, ::windows::core::GetTrustLevel, CreateFromIcon::<Impl, IMPL_OFFSET>, CreateFromKnownIcon::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerMenuItemStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRadialControllerMenuItemStatics2Impl: Sized {
     fn CreateFromFontGlyph(&self, displaytext: &::windows::core::HSTRING, glyph: &::windows::core::HSTRING, fontfamily: &::windows::core::HSTRING) -> ::windows::core::Result<RadialControllerMenuItem>;
     fn CreateFromFontGlyphWithUri(&self, displaytext: &::windows::core::HSTRING, glyph: &::windows::core::HSTRING, fontfamily: &::windows::core::HSTRING, fonturi: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<RadialControllerMenuItem>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerMenuItemStatics2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenuItemStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRadialControllerMenuItemStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStatics2Impl, const OFFSET: isize>() -> IRadialControllerMenuItemStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemStatics2Vtbl {
         unsafe extern "system" fn CreateFromFontGlyph<Impl: IRadialControllerMenuItemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromFontGlyph(
@@ -3251,7 +3464,10 @@ impl IRadialControllerMenuItemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenuItemStatics2>, ::windows::core::GetTrustLevel, CreateFromFontGlyph::<Impl, OFFSET>, CreateFromFontGlyphWithUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerMenuItemStatics2>, ::windows::core::GetTrustLevel, CreateFromFontGlyph::<Impl, IMPL_OFFSET>, CreateFromFontGlyphWithUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerMenuItemStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3265,7 +3481,7 @@ impl ::windows::core::RuntimeName for IRadialControllerRotationChangedEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerRotationChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerRotationChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerRotationChangedEventArgsVtbl {
         unsafe extern "system" fn RotationDeltaInDegrees<Impl: IRadialControllerRotationChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationDeltaInDegrees() {
@@ -3288,21 +3504,24 @@ impl IRadialControllerRotationChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerRotationChangedEventArgs>, ::windows::core::GetTrustLevel, RotationDeltaInDegrees::<Impl, OFFSET>, Contact::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerRotationChangedEventArgs>, ::windows::core::GetTrustLevel, RotationDeltaInDegrees::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerRotationChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerRotationChangedEventArgs2Impl: Sized {
     fn IsButtonPressed(&self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerRotationChangedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerRotationChangedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerRotationChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgs2Impl, const OFFSET: isize>() -> IRadialControllerRotationChangedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerRotationChangedEventArgs2Vtbl {
         unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerRotationChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
@@ -3325,21 +3544,24 @@ impl IRadialControllerRotationChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerRotationChangedEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerRotationChangedEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerRotationChangedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRadialControllerScreenContactImpl: Sized {
     fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContact";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IRadialControllerScreenContactVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactImpl, const OFFSET: isize>() -> IRadialControllerScreenContactVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactVtbl {
         unsafe extern "system" fn Bounds<Impl: IRadialControllerScreenContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounds() {
@@ -3362,7 +3584,10 @@ impl IRadialControllerScreenContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContact>, ::windows::core::GetTrustLevel, Bounds::<Impl, OFFSET>, Position::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContact>, ::windows::core::GetTrustLevel, Bounds::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerScreenContact as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3375,7 +3600,7 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactContinuedEve
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerScreenContactContinuedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerScreenContactContinuedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -3387,21 +3612,24 @@ impl IRadialControllerScreenContactContinuedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactContinuedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactContinuedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerScreenContactContinuedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerScreenContactContinuedEventArgs2Impl: Sized {
     fn IsButtonPressed(&self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerScreenContactContinuedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerScreenContactContinuedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgs2Impl, const OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgs2Vtbl {
         unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactContinuedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
@@ -3424,21 +3652,24 @@ impl IRadialControllerScreenContactContinuedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactContinuedEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactContinuedEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerScreenContactContinuedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerScreenContactEndedEventArgsImpl: Sized {
     fn IsButtonPressed(&self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerScreenContactEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactEndedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerScreenContactEndedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactEndedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerScreenContactEndedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactEndedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactEndedEventArgsVtbl {
         unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactEndedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
@@ -3461,7 +3692,10 @@ impl IRadialControllerScreenContactEndedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactEndedEventArgs>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactEndedEventArgs>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerScreenContactEndedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3474,7 +3708,7 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactStartedEvent
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerScreenContactStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgsImpl, const OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgsVtbl {
         unsafe extern "system" fn Contact<Impl: IRadialControllerScreenContactStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
@@ -3486,21 +3720,24 @@ impl IRadialControllerScreenContactStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactStartedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactStartedEventArgs>, ::windows::core::GetTrustLevel, Contact::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerScreenContactStartedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IRadialControllerScreenContactStartedEventArgs2Impl: Sized {
     fn IsButtonPressed(&self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerScreenContactStartedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl IRadialControllerScreenContactStartedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgs2Impl, const OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgs2Vtbl {
         unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactStartedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
@@ -3523,7 +3760,10 @@ impl IRadialControllerScreenContactStartedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactStartedEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerScreenContactStartedEventArgs2>, ::windows::core::GetTrustLevel, IsButtonPressed::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerScreenContactStartedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3537,7 +3777,7 @@ impl ::windows::core::RuntimeName for IRadialControllerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerStaticsImpl, const OFFSET: isize>() -> IRadialControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerStaticsVtbl {
         unsafe extern "system" fn IsSupported<Impl: IRadialControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -3560,21 +3800,24 @@ impl IRadialControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, CreateForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, CreateForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRadialControllerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRightTappedEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRightTappedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl IRightTappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgsImpl, const OFFSET: isize>() -> IRightTappedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRightTappedEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: IRightTappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -3597,7 +3840,10 @@ impl IRightTappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRightTappedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRightTappedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRightTappedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3610,7 +3856,7 @@ impl ::windows::core::RuntimeName for IRightTappedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRightTappedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgs2Impl, const OFFSET: isize>() -> IRightTappedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRightTappedEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: IRightTappedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -3622,10 +3868,13 @@ impl IRightTappedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRightTappedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRightTappedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRightTappedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemButtonEventControllerImpl: Sized {
     fn SystemFunctionButtonPressed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSystemFunctionButtonPressed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -3636,13 +3885,13 @@ pub trait ISystemButtonEventControllerImpl: Sized {
     fn SystemFunctionLockIndicatorChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSystemFunctionLockIndicatorChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.ISystemButtonEventController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISystemButtonEventControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>() -> ISystemButtonEventControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemButtonEventControllerVtbl {
         unsafe extern "system" fn SystemFunctionButtonPressed<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemFunctionButtonPressed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3704,34 +3953,37 @@ impl ISystemButtonEventControllerVtbl {
             (*this).RemoveSystemFunctionLockIndicatorChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemButtonEventController>,
             ::windows::core::GetTrustLevel,
-            SystemFunctionButtonPressed::<Impl, OFFSET>,
-            RemoveSystemFunctionButtonPressed::<Impl, OFFSET>,
-            SystemFunctionButtonReleased::<Impl, OFFSET>,
-            RemoveSystemFunctionButtonReleased::<Impl, OFFSET>,
-            SystemFunctionLockChanged::<Impl, OFFSET>,
-            RemoveSystemFunctionLockChanged::<Impl, OFFSET>,
-            SystemFunctionLockIndicatorChanged::<Impl, OFFSET>,
-            RemoveSystemFunctionLockIndicatorChanged::<Impl, OFFSET>,
+            SystemFunctionButtonPressed::<Impl, IMPL_OFFSET>,
+            RemoveSystemFunctionButtonPressed::<Impl, IMPL_OFFSET>,
+            SystemFunctionButtonReleased::<Impl, IMPL_OFFSET>,
+            RemoveSystemFunctionButtonReleased::<Impl, IMPL_OFFSET>,
+            SystemFunctionLockChanged::<Impl, IMPL_OFFSET>,
+            RemoveSystemFunctionLockChanged::<Impl, IMPL_OFFSET>,
+            SystemFunctionLockIndicatorChanged::<Impl, IMPL_OFFSET>,
+            RemoveSystemFunctionLockIndicatorChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemButtonEventController as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ISystemButtonEventControllerStaticsImpl: Sized {
     fn CreateForDispatcherQueue(&self, queue: &::core::option::Option<super::super::System::DispatcherQueue>) -> ::windows::core::Result<SystemButtonEventController>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemButtonEventControllerStatics {
     const NAME: &'static str = "Windows.UI.Input.ISystemButtonEventControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ISystemButtonEventControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerStaticsImpl, const OFFSET: isize>() -> ISystemButtonEventControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemButtonEventControllerStaticsVtbl {
         unsafe extern "system" fn CreateForDispatcherQueue<Impl: ISystemButtonEventControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForDispatcherQueue(&*(&queue as *const <super::super::System::DispatcherQueue as ::windows::core::Abi>::Abi as *const <super::super::System::DispatcherQueue as ::windows::core::DefaultType>::DefaultType)) {
@@ -3743,7 +3995,10 @@ impl ISystemButtonEventControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemButtonEventControllerStatics>, ::windows::core::GetTrustLevel, CreateForDispatcherQueue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemButtonEventControllerStatics>, ::windows::core::GetTrustLevel, CreateForDispatcherQueue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemButtonEventControllerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3758,7 +4013,7 @@ impl ::windows::core::RuntimeName for ISystemFunctionButtonEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemFunctionButtonEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionButtonEventArgsImpl, const OFFSET: isize>() -> ISystemFunctionButtonEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionButtonEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionButtonEventArgsVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISystemFunctionButtonEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -3785,7 +4040,10 @@ impl ISystemFunctionButtonEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemFunctionButtonEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, OFFSET>, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemFunctionButtonEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemFunctionButtonEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3801,7 +4059,7 @@ impl ::windows::core::RuntimeName for ISystemFunctionLockChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemFunctionLockChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockChangedEventArgsImpl, const OFFSET: isize>() -> ISystemFunctionLockChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionLockChangedEventArgsVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISystemFunctionLockChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -3839,7 +4097,10 @@ impl ISystemFunctionLockChangedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemFunctionLockChangedEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, OFFSET>, IsLocked::<Impl, OFFSET>, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemFunctionLockChangedEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, IsLocked::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemFunctionLockChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3855,7 +4116,7 @@ impl ::windows::core::RuntimeName for ISystemFunctionLockIndicatorChangedEventAr
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const OFFSET: isize>() -> ISystemFunctionLockIndicatorChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionLockIndicatorChangedEventArgsVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -3893,22 +4154,25 @@ impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemFunctionLockIndicatorChangedEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, OFFSET>, IsIndicatorOn::<Impl, OFFSET>, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemFunctionLockIndicatorChangedEventArgs>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, IsIndicatorOn::<Impl, IMPL_OFFSET>, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemFunctionLockIndicatorChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITappedEventArgsImpl: Sized {
     fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn TapCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ITappedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ITappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgsImpl, const OFFSET: isize>() -> ITappedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITappedEventArgsVtbl {
         unsafe extern "system" fn PointerDeviceType<Impl: ITappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
@@ -3942,7 +4206,10 @@ impl ITappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITappedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, OFFSET>, Position::<Impl, OFFSET>, TapCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITappedEventArgs>, ::windows::core::GetTrustLevel, PointerDeviceType::<Impl, IMPL_OFFSET>, Position::<Impl, IMPL_OFFSET>, TapCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITappedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3955,7 +4222,7 @@ impl ::windows::core::RuntimeName for ITappedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITappedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgs2Impl, const OFFSET: isize>() -> ITappedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITappedEventArgs2Vtbl {
         unsafe extern "system" fn ContactCount<Impl: ITappedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
@@ -3967,6 +4234,9 @@ impl ITappedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITappedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITappedEventArgs2>, ::windows::core::GetTrustLevel, ContactCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITappedEventArgs2 as ::windows::core::Interface>::IID
     }
 }

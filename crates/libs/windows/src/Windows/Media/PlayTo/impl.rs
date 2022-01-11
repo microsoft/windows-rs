@@ -1,14 +1,14 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentTimeChangeRequestedEventArgsImpl: Sized {
     fn Time(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICurrentTimeChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentTimeChangeRequestedEventArgsImpl, const OFFSET: isize>() -> ICurrentTimeChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentTimeChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentTimeChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn Time<Impl: ICurrentTimeChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Time() {
@@ -20,7 +20,10 @@ impl ICurrentTimeChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentTimeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Time::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentTimeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Time::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrentTimeChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,7 +36,7 @@ impl ::windows::core::RuntimeName for IMuteChangeRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMuteChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMuteChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IMuteChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMuteChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMuteChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn Mute<Impl: IMuteChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mute() {
@@ -45,10 +48,13 @@ impl IMuteChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMuteChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Mute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMuteChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Mute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMuteChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPlayToConnectionImpl: Sized {
     fn State(&self) -> ::windows::core::Result<PlayToConnectionState>;
     fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -58,13 +64,13 @@ pub trait IPlayToConnectionImpl: Sized {
     fn Error(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionErrorEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveError(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayToConnection {
     const NAME: &'static str = "Windows.Media.PlayTo.IPlayToConnection";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionImpl, const OFFSET: isize>() -> IPlayToConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToConnectionVtbl {
         unsafe extern "system" fn State<Impl: IPlayToConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -121,7 +127,24 @@ impl IPlayToConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveError(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnection>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, StateChanged::<Impl, OFFSET>, RemoveStateChanged::<Impl, OFFSET>, Transferred::<Impl, OFFSET>, RemoveTransferred::<Impl, OFFSET>, Error::<Impl, OFFSET>, RemoveError::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPlayToConnection>,
+            ::windows::core::GetTrustLevel,
+            State::<Impl, IMPL_OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            Transferred::<Impl, IMPL_OFFSET>,
+            RemoveTransferred::<Impl, IMPL_OFFSET>,
+            Error::<Impl, IMPL_OFFSET>,
+            RemoveError::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToConnection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -135,7 +158,7 @@ impl ::windows::core::RuntimeName for IPlayToConnectionErrorEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToConnectionErrorEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionErrorEventArgsImpl, const OFFSET: isize>() -> IPlayToConnectionErrorEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionErrorEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToConnectionErrorEventArgsVtbl {
         unsafe extern "system" fn Code<Impl: IPlayToConnectionErrorEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
@@ -158,7 +181,10 @@ impl IPlayToConnectionErrorEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionErrorEventArgs>, ::windows::core::GetTrustLevel, Code::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionErrorEventArgs>, ::windows::core::GetTrustLevel, Code::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToConnectionErrorEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -172,7 +198,7 @@ impl ::windows::core::RuntimeName for IPlayToConnectionStateChangedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToConnectionStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionStateChangedEventArgsImpl, const OFFSET: isize>() -> IPlayToConnectionStateChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToConnectionStateChangedEventArgsVtbl {
         unsafe extern "system" fn PreviousState<Impl: IPlayToConnectionStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviousState() {
@@ -195,7 +221,10 @@ impl IPlayToConnectionStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionStateChangedEventArgs>, ::windows::core::GetTrustLevel, PreviousState::<Impl, OFFSET>, CurrentState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionStateChangedEventArgs>, ::windows::core::GetTrustLevel, PreviousState::<Impl, IMPL_OFFSET>, CurrentState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToConnectionStateChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -209,7 +238,7 @@ impl ::windows::core::RuntimeName for IPlayToConnectionTransferredEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToConnectionTransferredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionTransferredEventArgsImpl, const OFFSET: isize>() -> IPlayToConnectionTransferredEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToConnectionTransferredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToConnectionTransferredEventArgsVtbl {
         unsafe extern "system" fn PreviousSource<Impl: IPlayToConnectionTransferredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviousSource() {
@@ -232,10 +261,13 @@ impl IPlayToConnectionTransferredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionTransferredEventArgs>, ::windows::core::GetTrustLevel, PreviousSource::<Impl, OFFSET>, CurrentSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToConnectionTransferredEventArgs>, ::windows::core::GetTrustLevel, PreviousSource::<Impl, IMPL_OFFSET>, CurrentSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToConnectionTransferredEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPlayToManagerImpl: Sized {
     fn SourceRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSourceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -244,13 +276,13 @@ pub trait IPlayToManagerImpl: Sized {
     fn SetDefaultSourceSelection(&self, value: bool) -> ::windows::core::Result<()>;
     fn DefaultSourceSelection(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayToManager {
     const NAME: &'static str = "Windows.Media.PlayTo.IPlayToManager";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerImpl, const OFFSET: isize>() -> IPlayToManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToManagerVtbl {
         unsafe extern "system" fn SourceRequested<Impl: IPlayToManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -297,19 +329,22 @@ impl IPlayToManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPlayToManager>,
             ::windows::core::GetTrustLevel,
-            SourceRequested::<Impl, OFFSET>,
-            RemoveSourceRequested::<Impl, OFFSET>,
-            SourceSelected::<Impl, OFFSET>,
-            RemoveSourceSelected::<Impl, OFFSET>,
-            SetDefaultSourceSelection::<Impl, OFFSET>,
-            DefaultSourceSelection::<Impl, OFFSET>,
+            SourceRequested::<Impl, IMPL_OFFSET>,
+            RemoveSourceRequested::<Impl, IMPL_OFFSET>,
+            SourceSelected::<Impl, IMPL_OFFSET>,
+            RemoveSourceSelected::<Impl, IMPL_OFFSET>,
+            SetDefaultSourceSelection::<Impl, IMPL_OFFSET>,
+            DefaultSourceSelection::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -323,7 +358,7 @@ impl ::windows::core::RuntimeName for IPlayToManagerStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerStaticsImpl, const OFFSET: isize>() -> IPlayToManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToManagerStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IPlayToManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -339,10 +374,13 @@ impl IPlayToManagerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPlayToUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>, ShowPlayToUI::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>, ShowPlayToUI::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayToReceiverImpl: Sized {
     fn PlayRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePlayRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -386,13 +424,13 @@ pub trait IPlayToReceiverImpl: Sized {
     fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.IPlayToReceiver";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPlayToReceiverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToReceiverImpl, const OFFSET: isize>() -> IPlayToReceiverVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToReceiverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToReceiverVtbl {
         unsafe extern "system" fn PlayRequested<Impl: IPlayToReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlayRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -670,54 +708,57 @@ impl IPlayToReceiverVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPlayToReceiver>,
             ::windows::core::GetTrustLevel,
-            PlayRequested::<Impl, OFFSET>,
-            RemovePlayRequested::<Impl, OFFSET>,
-            PauseRequested::<Impl, OFFSET>,
-            RemovePauseRequested::<Impl, OFFSET>,
-            SourceChangeRequested::<Impl, OFFSET>,
-            RemoveSourceChangeRequested::<Impl, OFFSET>,
-            PlaybackRateChangeRequested::<Impl, OFFSET>,
-            RemovePlaybackRateChangeRequested::<Impl, OFFSET>,
-            CurrentTimeChangeRequested::<Impl, OFFSET>,
-            RemoveCurrentTimeChangeRequested::<Impl, OFFSET>,
-            MuteChangeRequested::<Impl, OFFSET>,
-            RemoveMuteChangeRequested::<Impl, OFFSET>,
-            VolumeChangeRequested::<Impl, OFFSET>,
-            RemoveVolumeChangeRequested::<Impl, OFFSET>,
-            TimeUpdateRequested::<Impl, OFFSET>,
-            RemoveTimeUpdateRequested::<Impl, OFFSET>,
-            StopRequested::<Impl, OFFSET>,
-            RemoveStopRequested::<Impl, OFFSET>,
-            NotifyVolumeChange::<Impl, OFFSET>,
-            NotifyRateChange::<Impl, OFFSET>,
-            NotifyLoadedMetadata::<Impl, OFFSET>,
-            NotifyTimeUpdate::<Impl, OFFSET>,
-            NotifyDurationChange::<Impl, OFFSET>,
-            NotifySeeking::<Impl, OFFSET>,
-            NotifySeeked::<Impl, OFFSET>,
-            NotifyPaused::<Impl, OFFSET>,
-            NotifyPlaying::<Impl, OFFSET>,
-            NotifyEnded::<Impl, OFFSET>,
-            NotifyError::<Impl, OFFSET>,
-            NotifyStopped::<Impl, OFFSET>,
-            FriendlyName::<Impl, OFFSET>,
-            SetFriendlyName::<Impl, OFFSET>,
-            SetSupportsImage::<Impl, OFFSET>,
-            SupportsImage::<Impl, OFFSET>,
-            SetSupportsAudio::<Impl, OFFSET>,
-            SupportsAudio::<Impl, OFFSET>,
-            SetSupportsVideo::<Impl, OFFSET>,
-            SupportsVideo::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            StartAsync::<Impl, OFFSET>,
-            StopAsync::<Impl, OFFSET>,
+            PlayRequested::<Impl, IMPL_OFFSET>,
+            RemovePlayRequested::<Impl, IMPL_OFFSET>,
+            PauseRequested::<Impl, IMPL_OFFSET>,
+            RemovePauseRequested::<Impl, IMPL_OFFSET>,
+            SourceChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveSourceChangeRequested::<Impl, IMPL_OFFSET>,
+            PlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
+            RemovePlaybackRateChangeRequested::<Impl, IMPL_OFFSET>,
+            CurrentTimeChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveCurrentTimeChangeRequested::<Impl, IMPL_OFFSET>,
+            MuteChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveMuteChangeRequested::<Impl, IMPL_OFFSET>,
+            VolumeChangeRequested::<Impl, IMPL_OFFSET>,
+            RemoveVolumeChangeRequested::<Impl, IMPL_OFFSET>,
+            TimeUpdateRequested::<Impl, IMPL_OFFSET>,
+            RemoveTimeUpdateRequested::<Impl, IMPL_OFFSET>,
+            StopRequested::<Impl, IMPL_OFFSET>,
+            RemoveStopRequested::<Impl, IMPL_OFFSET>,
+            NotifyVolumeChange::<Impl, IMPL_OFFSET>,
+            NotifyRateChange::<Impl, IMPL_OFFSET>,
+            NotifyLoadedMetadata::<Impl, IMPL_OFFSET>,
+            NotifyTimeUpdate::<Impl, IMPL_OFFSET>,
+            NotifyDurationChange::<Impl, IMPL_OFFSET>,
+            NotifySeeking::<Impl, IMPL_OFFSET>,
+            NotifySeeked::<Impl, IMPL_OFFSET>,
+            NotifyPaused::<Impl, IMPL_OFFSET>,
+            NotifyPlaying::<Impl, IMPL_OFFSET>,
+            NotifyEnded::<Impl, IMPL_OFFSET>,
+            NotifyError::<Impl, IMPL_OFFSET>,
+            NotifyStopped::<Impl, IMPL_OFFSET>,
+            FriendlyName::<Impl, IMPL_OFFSET>,
+            SetFriendlyName::<Impl, IMPL_OFFSET>,
+            SetSupportsImage::<Impl, IMPL_OFFSET>,
+            SupportsImage::<Impl, IMPL_OFFSET>,
+            SetSupportsAudio::<Impl, IMPL_OFFSET>,
+            SupportsAudio::<Impl, IMPL_OFFSET>,
+            SetSupportsVideo::<Impl, IMPL_OFFSET>,
+            SupportsVideo::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            StartAsync::<Impl, IMPL_OFFSET>,
+            StopAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToReceiver as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -733,7 +774,7 @@ impl ::windows::core::RuntimeName for IPlayToSource {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceImpl, const OFFSET: isize>() -> IPlayToSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToSourceVtbl {
         unsafe extern "system" fn Connection<Impl: IPlayToSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
@@ -764,7 +805,10 @@ impl IPlayToSourceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PlayNext().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSource>, ::windows::core::GetTrustLevel, Connection::<Impl, OFFSET>, Next::<Impl, OFFSET>, SetNext::<Impl, OFFSET>, PlayNext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSource>, ::windows::core::GetTrustLevel, Connection::<Impl, IMPL_OFFSET>, Next::<Impl, IMPL_OFFSET>, SetNext::<Impl, IMPL_OFFSET>, PlayNext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -777,28 +821,31 @@ impl ::windows::core::RuntimeName for IPlayToSourceDeferral {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToSourceDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceDeferralImpl, const OFFSET: isize>() -> IPlayToSourceDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToSourceDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IPlayToSourceDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToSourceDeferral as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPlayToSourceRequestImpl: Sized {
     fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn DisplayErrorString(&self, errorstring: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<PlayToSourceDeferral>;
     fn SetSource(&self, value: &::core::option::Option<PlayToSource>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayToSourceRequest {
     const NAME: &'static str = "Windows.Media.PlayTo.IPlayToSourceRequest";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToSourceRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceRequestImpl, const OFFSET: isize>() -> IPlayToSourceRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToSourceRequestVtbl {
         unsafe extern "system" fn Deadline<Impl: IPlayToSourceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
@@ -829,7 +876,10 @@ impl IPlayToSourceRequestVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <PlayToSource as ::windows::core::Abi>::Abi as *const <PlayToSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceRequest>, ::windows::core::GetTrustLevel, Deadline::<Impl, OFFSET>, DisplayErrorString::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>, SetSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceRequest>, ::windows::core::GetTrustLevel, Deadline::<Impl, IMPL_OFFSET>, DisplayErrorString::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>, SetSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToSourceRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -842,7 +892,7 @@ impl ::windows::core::RuntimeName for IPlayToSourceRequestedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToSourceRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceRequestedEventArgsImpl, const OFFSET: isize>() -> IPlayToSourceRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToSourceRequestedEventArgsVtbl {
         unsafe extern "system" fn SourceRequest<Impl: IPlayToSourceRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceRequest() {
@@ -854,10 +904,13 @@ impl IPlayToSourceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceRequestedEventArgs>, ::windows::core::GetTrustLevel, SourceRequest::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceRequestedEventArgs>, ::windows::core::GetTrustLevel, SourceRequest::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToSourceRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPlayToSourceSelectedEventArgsImpl: Sized {
     fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Icon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
@@ -865,13 +918,13 @@ pub trait IPlayToSourceSelectedEventArgsImpl: Sized {
     fn SupportsAudio(&self) -> ::windows::core::Result<bool>;
     fn SupportsVideo(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToSourceSelectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceSelectedEventArgsImpl, const OFFSET: isize>() -> IPlayToSourceSelectedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceSelectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToSourceSelectedEventArgsVtbl {
         unsafe extern "system" fn FriendlyName<Impl: IPlayToSourceSelectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FriendlyName() {
@@ -927,21 +980,24 @@ impl IPlayToSourceSelectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceSelectedEventArgs>, ::windows::core::GetTrustLevel, FriendlyName::<Impl, OFFSET>, Icon::<Impl, OFFSET>, SupportsImage::<Impl, OFFSET>, SupportsAudio::<Impl, OFFSET>, SupportsVideo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceSelectedEventArgs>, ::windows::core::GetTrustLevel, FriendlyName::<Impl, IMPL_OFFSET>, Icon::<Impl, IMPL_OFFSET>, SupportsImage::<Impl, IMPL_OFFSET>, SupportsAudio::<Impl, IMPL_OFFSET>, SupportsVideo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToSourceSelectedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPlayToSourceWithPreferredSourceUriImpl: Sized {
     fn PreferredSourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetPreferredSourceUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayToSourceWithPreferredSourceUri {
     const NAME: &'static str = "Windows.Media.PlayTo.IPlayToSourceWithPreferredSourceUri";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPlayToSourceWithPreferredSourceUriVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceWithPreferredSourceUriImpl, const OFFSET: isize>() -> IPlayToSourceWithPreferredSourceUriVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceWithPreferredSourceUriImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToSourceWithPreferredSourceUriVtbl {
         unsafe extern "system" fn PreferredSourceUri<Impl: IPlayToSourceWithPreferredSourceUriImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredSourceUri() {
@@ -957,7 +1013,10 @@ impl IPlayToSourceWithPreferredSourceUriVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredSourceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceWithPreferredSourceUri>, ::windows::core::GetTrustLevel, PreferredSourceUri::<Impl, OFFSET>, SetPreferredSourceUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlayToSourceWithPreferredSourceUri>, ::windows::core::GetTrustLevel, PreferredSourceUri::<Impl, IMPL_OFFSET>, SetPreferredSourceUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlayToSourceWithPreferredSourceUri as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -970,7 +1029,7 @@ impl ::windows::core::RuntimeName for IPlaybackRateChangeRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPlaybackRateChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackRateChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IPlaybackRateChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackRateChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackRateChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn Rate<Impl: IPlaybackRateChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rate() {
@@ -982,10 +1041,13 @@ impl IPlaybackRateChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackRateChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Rate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackRateChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Rate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlaybackRateChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISourceChangeRequestedEventArgsImpl: Sized {
     fn Stream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -998,13 +1060,13 @@ pub trait ISourceChangeRequestedEventArgsImpl: Sized {
     fn Rating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISourceChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.ISourceChangeRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISourceChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISourceChangeRequestedEventArgsImpl, const OFFSET: isize>() -> ISourceChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISourceChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISourceChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn Stream<Impl: ISourceChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stream() {
@@ -1116,23 +1178,26 @@ impl ISourceChangeRequestedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISourceChangeRequestedEventArgs>,
             ::windows::core::GetTrustLevel,
-            Stream::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            Author::<Impl, OFFSET>,
-            Album::<Impl, OFFSET>,
-            Genre::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            Date::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
-            Rating::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
+            Stream::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Author::<Impl, IMPL_OFFSET>,
+            Album::<Impl, IMPL_OFFSET>,
+            Genre::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Date::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
+            Rating::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISourceChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1145,7 +1210,7 @@ impl ::windows::core::RuntimeName for IVolumeChangeRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVolumeChangeRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVolumeChangeRequestedEventArgsImpl, const OFFSET: isize>() -> IVolumeChangeRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVolumeChangeRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVolumeChangeRequestedEventArgsVtbl {
         unsafe extern "system" fn Volume<Impl: IVolumeChangeRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Volume() {
@@ -1157,6 +1222,9 @@ impl IVolumeChangeRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Volume::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeChangeRequestedEventArgs>, ::windows::core::GetTrustLevel, Volume::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVolumeChangeRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IJsonArray {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonArrayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayImpl, const OFFSET: isize>() -> IJsonArrayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonArrayVtbl {
         unsafe extern "system" fn GetObjectAt<Impl: IJsonArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectAt(index) {
@@ -68,7 +68,10 @@ impl IJsonArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonArray>, ::windows::core::GetTrustLevel, GetObjectAt::<Impl, OFFSET>, GetArrayAt::<Impl, OFFSET>, GetStringAt::<Impl, OFFSET>, GetNumberAt::<Impl, OFFSET>, GetBooleanAt::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonArray>, ::windows::core::GetTrustLevel, GetObjectAt::<Impl, IMPL_OFFSET>, GetArrayAt::<Impl, IMPL_OFFSET>, GetStringAt::<Impl, IMPL_OFFSET>, GetNumberAt::<Impl, IMPL_OFFSET>, GetBooleanAt::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonArray as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -82,7 +85,7 @@ impl ::windows::core::RuntimeName for IJsonArrayStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonArrayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayStaticsImpl, const OFFSET: isize>() -> IJsonArrayStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonArrayStaticsVtbl {
         unsafe extern "system" fn Parse<Impl: IJsonArrayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -105,7 +108,10 @@ impl IJsonArrayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonArrayStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, OFFSET>, TryParse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonArrayStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonArrayStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -118,7 +124,7 @@ impl ::windows::core::RuntimeName for IJsonErrorStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonErrorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonErrorStatics2Impl, const OFFSET: isize>() -> IJsonErrorStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonErrorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonErrorStatics2Vtbl {
         unsafe extern "system" fn GetJsonStatus<Impl: IJsonErrorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut JsonErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetJsonStatus(hresult) {
@@ -130,7 +136,10 @@ impl IJsonErrorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonErrorStatics2>, ::windows::core::GetTrustLevel, GetJsonStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonErrorStatics2>, ::windows::core::GetTrustLevel, GetJsonStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonErrorStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -149,7 +158,7 @@ impl ::windows::core::RuntimeName for IJsonObject {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectImpl, const OFFSET: isize>() -> IJsonObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectVtbl {
         unsafe extern "system" fn GetNamedValue<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -220,7 +229,24 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonObject>, ::windows::core::GetTrustLevel, GetNamedValue::<Impl, OFFSET>, SetNamedValue::<Impl, OFFSET>, GetNamedObject::<Impl, OFFSET>, GetNamedArray::<Impl, OFFSET>, GetNamedString::<Impl, OFFSET>, GetNamedNumber::<Impl, OFFSET>, GetNamedBoolean::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IJsonObject>,
+            ::windows::core::GetTrustLevel,
+            GetNamedValue::<Impl, IMPL_OFFSET>,
+            SetNamedValue::<Impl, IMPL_OFFSET>,
+            GetNamedObject::<Impl, IMPL_OFFSET>,
+            GetNamedArray::<Impl, IMPL_OFFSET>,
+            GetNamedString::<Impl, IMPL_OFFSET>,
+            GetNamedNumber::<Impl, IMPL_OFFSET>,
+            GetNamedBoolean::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -234,7 +260,7 @@ impl ::windows::core::RuntimeName for IJsonObjectStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonObjectStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectStaticsImpl, const OFFSET: isize>() -> IJsonObjectStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectStaticsVtbl {
         unsafe extern "system" fn Parse<Impl: IJsonObjectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -257,7 +283,10 @@ impl IJsonObjectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonObjectStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, OFFSET>, TryParse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonObjectStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonObjectStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -275,7 +304,7 @@ impl ::windows::core::RuntimeName for IJsonObjectWithDefaultValues {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonObjectWithDefaultValuesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>() -> IJsonObjectWithDefaultValuesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectWithDefaultValuesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectWithDefaultValuesVtbl {
         unsafe extern "system" fn GetNamedValueOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedValueOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&defaultvalue as *const <JsonValue as ::windows::core::Abi>::Abi as *const <JsonValue as ::windows::core::DefaultType>::DefaultType)) {
@@ -343,19 +372,22 @@ impl IJsonObjectWithDefaultValuesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IJsonObjectWithDefaultValues>,
             ::windows::core::GetTrustLevel,
-            GetNamedValueOrDefault::<Impl, OFFSET>,
-            GetNamedObjectOrDefault::<Impl, OFFSET>,
-            GetNamedStringOrDefault::<Impl, OFFSET>,
-            GetNamedArrayOrDefault::<Impl, OFFSET>,
-            GetNamedNumberOrDefault::<Impl, OFFSET>,
-            GetNamedBooleanOrDefault::<Impl, OFFSET>,
+            GetNamedValueOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedObjectOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedStringOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedArrayOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedNumberOrDefault::<Impl, IMPL_OFFSET>,
+            GetNamedBooleanOrDefault::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonObjectWithDefaultValues as ::windows::core::Interface>::IID
     }
 }
 pub trait IJsonValueImpl: Sized {
@@ -371,7 +403,7 @@ impl ::windows::core::RuntimeName for IJsonValue {
     const NAME: &'static str = "Windows.Data.Json.IJsonValue";
 }
 impl IJsonValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueImpl, const OFFSET: isize>() -> IJsonValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueVtbl {
         unsafe extern "system" fn ValueType<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JsonValueType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueType() {
@@ -449,7 +481,24 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValue>, ::windows::core::GetTrustLevel, ValueType::<Impl, OFFSET>, Stringify::<Impl, OFFSET>, GetString::<Impl, OFFSET>, GetNumber::<Impl, OFFSET>, GetBoolean::<Impl, OFFSET>, GetArray::<Impl, OFFSET>, GetObject::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IJsonValue>,
+            ::windows::core::GetTrustLevel,
+            ValueType::<Impl, IMPL_OFFSET>,
+            Stringify::<Impl, IMPL_OFFSET>,
+            GetString::<Impl, IMPL_OFFSET>,
+            GetNumber::<Impl, IMPL_OFFSET>,
+            GetBoolean::<Impl, IMPL_OFFSET>,
+            GetArray::<Impl, IMPL_OFFSET>,
+            GetObject::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonValue as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -466,7 +515,7 @@ impl ::windows::core::RuntimeName for IJsonValueStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStaticsImpl, const OFFSET: isize>() -> IJsonValueStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueStaticsVtbl {
         unsafe extern "system" fn Parse<Impl: IJsonValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -522,7 +571,10 @@ impl IJsonValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, OFFSET>, TryParse::<Impl, OFFSET>, CreateBooleanValue::<Impl, OFFSET>, CreateNumberValue::<Impl, OFFSET>, CreateStringValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValueStatics>, ::windows::core::GetTrustLevel, Parse::<Impl, IMPL_OFFSET>, TryParse::<Impl, IMPL_OFFSET>, CreateBooleanValue::<Impl, IMPL_OFFSET>, CreateNumberValue::<Impl, IMPL_OFFSET>, CreateStringValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonValueStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -535,7 +587,7 @@ impl ::windows::core::RuntimeName for IJsonValueStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IJsonValueStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStatics2Impl, const OFFSET: isize>() -> IJsonValueStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueStatics2Vtbl {
         unsafe extern "system" fn CreateNullValue<Impl: IJsonValueStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNullValue() {
@@ -547,6 +599,9 @@ impl IJsonValueStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValueStatics2>, ::windows::core::GetTrustLevel, CreateNullValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IJsonValueStatics2>, ::windows::core::GetTrustLevel, CreateNullValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IJsonValueStatics2 as ::windows::core::Interface>::IID
     }
 }

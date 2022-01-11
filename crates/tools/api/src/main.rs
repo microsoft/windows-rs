@@ -114,9 +114,9 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    if tree.namespace != "Windows.Foundation" {
-        return;
-    }
+    // if tree.namespace != "Windows.Foundation" {
+    //     return;
+    // }
 
     println!("{}", tree.namespace);
 

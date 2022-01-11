@@ -1,15 +1,15 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDiagnosticActionResultImpl: Sized {
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Results(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.IDiagnosticActionResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IDiagnosticActionResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticActionResultImpl, const OFFSET: isize>() -> IDiagnosticActionResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticActionResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiagnosticActionResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IDiagnosticActionResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -32,20 +32,23 @@ impl IDiagnosticActionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticActionResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, Results::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticActionResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, Results::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiagnosticActionResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Json", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDiagnosticInvokerImpl: Sized {
     fn RunDiagnosticActionAsync(&self, context: &::core::option::Option<super::super::Data::Json::JsonObject>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Json", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.IDiagnosticInvoker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Json", feature = "Foundation", feature = "implement_exclusive"))]
 impl IDiagnosticInvokerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvokerImpl, const OFFSET: isize>() -> IDiagnosticInvokerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvokerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiagnosticInvokerVtbl {
         unsafe extern "system" fn RunDiagnosticActionAsync<Impl: IDiagnosticInvokerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunDiagnosticActionAsync(&*(&context as *const <super::super::Data::Json::JsonObject as ::windows::core::Abi>::Abi as *const <super::super::Data::Json::JsonObject as ::windows::core::DefaultType>::DefaultType)) {
@@ -57,20 +60,23 @@ impl IDiagnosticInvokerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker>, ::windows::core::GetTrustLevel, RunDiagnosticActionAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker>, ::windows::core::GetTrustLevel, RunDiagnosticActionAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiagnosticInvoker as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDiagnosticInvoker2Impl: Sized {
     fn RunDiagnosticActionFromStringAsync(&self, context: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDiagnosticInvoker2 {
     const NAME: &'static str = "Windows.System.Diagnostics.IDiagnosticInvoker2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDiagnosticInvoker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvoker2Impl, const OFFSET: isize>() -> IDiagnosticInvoker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvoker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiagnosticInvoker2Vtbl {
         unsafe extern "system" fn RunDiagnosticActionFromStringAsync<Impl: IDiagnosticInvoker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunDiagnosticActionFromStringAsync(&*(&context as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -82,7 +88,10 @@ impl IDiagnosticInvoker2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker2>, ::windows::core::GetTrustLevel, RunDiagnosticActionFromStringAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker2>, ::windows::core::GetTrustLevel, RunDiagnosticActionFromStringAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiagnosticInvoker2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -97,7 +106,7 @@ impl ::windows::core::RuntimeName for IDiagnosticInvokerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiagnosticInvokerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: isize>() -> IDiagnosticInvokerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvokerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiagnosticInvokerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -131,7 +140,10 @@ impl IDiagnosticInvokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvokerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvokerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDiagnosticInvokerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -144,7 +156,7 @@ impl ::windows::core::RuntimeName for IProcessCpuUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessCpuUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessCpuUsageImpl, const OFFSET: isize>() -> IProcessCpuUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessCpuUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessCpuUsageVtbl {
         unsafe extern "system" fn GetReport<Impl: IProcessCpuUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
@@ -156,21 +168,24 @@ impl IProcessCpuUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessCpuUsage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProcessCpuUsageReportImpl: Sized {
     fn KernelTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn UserTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.IProcessCpuUsageReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IProcessCpuUsageReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessCpuUsageReportImpl, const OFFSET: isize>() -> IProcessCpuUsageReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessCpuUsageReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessCpuUsageReportVtbl {
         unsafe extern "system" fn KernelTime<Impl: IProcessCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KernelTime() {
@@ -193,10 +208,13 @@ impl IProcessCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, OFFSET>, UserTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, IMPL_OFFSET>, UserTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessCpuUsageReport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProcessDiagnosticInfoImpl: Sized {
     fn ProcessId(&self) -> ::windows::core::Result<u32>;
     fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -206,13 +224,13 @@ pub trait IProcessDiagnosticInfoImpl: Sized {
     fn MemoryUsage(&self) -> ::windows::core::Result<ProcessMemoryUsage>;
     fn CpuUsage(&self) -> ::windows::core::Result<ProcessCpuUsage>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.IProcessDiagnosticInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IProcessDiagnosticInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>() -> IProcessDiagnosticInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessDiagnosticInfoVtbl {
         unsafe extern "system" fn ProcessId<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessId() {
@@ -290,21 +308,38 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo>, ::windows::core::GetTrustLevel, ProcessId::<Impl, OFFSET>, ExecutableFileName::<Impl, OFFSET>, Parent::<Impl, OFFSET>, ProcessStartTime::<Impl, OFFSET>, DiskUsage::<Impl, OFFSET>, MemoryUsage::<Impl, OFFSET>, CpuUsage::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo>,
+            ::windows::core::GetTrustLevel,
+            ProcessId::<Impl, IMPL_OFFSET>,
+            ExecutableFileName::<Impl, IMPL_OFFSET>,
+            Parent::<Impl, IMPL_OFFSET>,
+            ProcessStartTime::<Impl, IMPL_OFFSET>,
+            DiskUsage::<Impl, IMPL_OFFSET>,
+            MemoryUsage::<Impl, IMPL_OFFSET>,
+            CpuUsage::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessDiagnosticInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProcessDiagnosticInfo2Impl: Sized {
     fn GetAppDiagnosticInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>;
     fn IsPackaged(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfo2 {
     const NAME: &'static str = "Windows.System.Diagnostics.IProcessDiagnosticInfo2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IProcessDiagnosticInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfo2Impl, const OFFSET: isize>() -> IProcessDiagnosticInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessDiagnosticInfo2Vtbl {
         unsafe extern "system" fn GetAppDiagnosticInfos<Impl: IProcessDiagnosticInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppDiagnosticInfos() {
@@ -327,21 +362,24 @@ impl IProcessDiagnosticInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo2>, ::windows::core::GetTrustLevel, GetAppDiagnosticInfos::<Impl, OFFSET>, IsPackaged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo2>, ::windows::core::GetTrustLevel, GetAppDiagnosticInfos::<Impl, IMPL_OFFSET>, IsPackaged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessDiagnosticInfo2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProcessDiagnosticInfoStaticsImpl: Sized {
     fn GetForProcesses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>;
     fn GetForCurrentProcess(&self) -> ::windows::core::Result<ProcessDiagnosticInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfoStatics {
     const NAME: &'static str = "Windows.System.Diagnostics.IProcessDiagnosticInfoStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IProcessDiagnosticInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: isize>() -> IProcessDiagnosticInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessDiagnosticInfoStaticsVtbl {
         unsafe extern "system" fn GetForProcesses<Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForProcesses() {
@@ -364,7 +402,10 @@ impl IProcessDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForProcesses::<Impl, OFFSET>, GetForCurrentProcess::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForProcesses::<Impl, IMPL_OFFSET>, GetForCurrentProcess::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessDiagnosticInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -377,7 +418,7 @@ impl ::windows::core::RuntimeName for IProcessDiagnosticInfoStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiagnosticInfoStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoStatics2Impl, const OFFSET: isize>() -> IProcessDiagnosticInfoStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessDiagnosticInfoStatics2Vtbl {
         unsafe extern "system" fn TryGetForProcessId<Impl: IProcessDiagnosticInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetForProcessId(processid) {
@@ -389,7 +430,10 @@ impl IProcessDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, TryGetForProcessId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, TryGetForProcessId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessDiagnosticInfoStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -402,7 +446,7 @@ impl ::windows::core::RuntimeName for IProcessDiskUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiskUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiskUsageImpl, const OFFSET: isize>() -> IProcessDiskUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiskUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessDiskUsageVtbl {
         unsafe extern "system" fn GetReport<Impl: IProcessDiskUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
@@ -414,7 +458,10 @@ impl IProcessDiskUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiskUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiskUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessDiskUsage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -432,7 +479,7 @@ impl ::windows::core::RuntimeName for IProcessDiskUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiskUsageReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>() -> IProcessDiskUsageReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiskUsageReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessDiskUsageReportVtbl {
         unsafe extern "system" fn ReadOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadOperationCount() {
@@ -499,7 +546,23 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiskUsageReport>, ::windows::core::GetTrustLevel, ReadOperationCount::<Impl, OFFSET>, WriteOperationCount::<Impl, OFFSET>, OtherOperationCount::<Impl, OFFSET>, BytesReadCount::<Impl, OFFSET>, BytesWrittenCount::<Impl, OFFSET>, OtherBytesCount::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IProcessDiskUsageReport>,
+            ::windows::core::GetTrustLevel,
+            ReadOperationCount::<Impl, IMPL_OFFSET>,
+            WriteOperationCount::<Impl, IMPL_OFFSET>,
+            OtherOperationCount::<Impl, IMPL_OFFSET>,
+            BytesReadCount::<Impl, IMPL_OFFSET>,
+            BytesWrittenCount::<Impl, IMPL_OFFSET>,
+            OtherBytesCount::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessDiskUsageReport as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,7 +575,7 @@ impl ::windows::core::RuntimeName for IProcessMemoryUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessMemoryUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessMemoryUsageImpl, const OFFSET: isize>() -> IProcessMemoryUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessMemoryUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessMemoryUsageVtbl {
         unsafe extern "system" fn GetReport<Impl: IProcessMemoryUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
@@ -524,7 +587,10 @@ impl IProcessMemoryUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessMemoryUsage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -548,7 +614,7 @@ impl ::windows::core::RuntimeName for IProcessMemoryUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessMemoryUsageReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>() -> IProcessMemoryUsageReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessMemoryUsageReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessMemoryUsageReportVtbl {
         unsafe extern "system" fn NonPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonPagedPoolSizeInBytes() {
@@ -682,25 +748,28 @@ impl IProcessMemoryUsageReportVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProcessMemoryUsageReport>,
             ::windows::core::GetTrustLevel,
-            NonPagedPoolSizeInBytes::<Impl, OFFSET>,
-            PageFaultCount::<Impl, OFFSET>,
-            PageFileSizeInBytes::<Impl, OFFSET>,
-            PagedPoolSizeInBytes::<Impl, OFFSET>,
-            PeakNonPagedPoolSizeInBytes::<Impl, OFFSET>,
-            PeakPageFileSizeInBytes::<Impl, OFFSET>,
-            PeakPagedPoolSizeInBytes::<Impl, OFFSET>,
-            PeakVirtualMemorySizeInBytes::<Impl, OFFSET>,
-            PeakWorkingSetSizeInBytes::<Impl, OFFSET>,
-            PrivatePageCount::<Impl, OFFSET>,
-            VirtualMemorySizeInBytes::<Impl, OFFSET>,
-            WorkingSetSizeInBytes::<Impl, OFFSET>,
+            NonPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PageFaultCount::<Impl, IMPL_OFFSET>,
+            PageFileSizeInBytes::<Impl, IMPL_OFFSET>,
+            PagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakNonPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakPageFileSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakPagedPoolSizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakVirtualMemorySizeInBytes::<Impl, IMPL_OFFSET>,
+            PeakWorkingSetSizeInBytes::<Impl, IMPL_OFFSET>,
+            PrivatePageCount::<Impl, IMPL_OFFSET>,
+            VirtualMemorySizeInBytes::<Impl, IMPL_OFFSET>,
+            WorkingSetSizeInBytes::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProcessMemoryUsageReport as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -713,7 +782,7 @@ impl ::windows::core::RuntimeName for ISystemCpuUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemCpuUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemCpuUsageImpl, const OFFSET: isize>() -> ISystemCpuUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemCpuUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemCpuUsageVtbl {
         unsafe extern "system" fn GetReport<Impl: ISystemCpuUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
@@ -725,22 +794,25 @@ impl ISystemCpuUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemCpuUsage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemCpuUsageReportImpl: Sized {
     fn KernelTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn UserTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn IdleTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ISystemCpuUsageReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISystemCpuUsageReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemCpuUsageReportImpl, const OFFSET: isize>() -> ISystemCpuUsageReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemCpuUsageReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemCpuUsageReportVtbl {
         unsafe extern "system" fn KernelTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KernelTime() {
@@ -774,7 +846,10 @@ impl ISystemCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, OFFSET>, UserTime::<Impl, OFFSET>, IdleTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, IMPL_OFFSET>, UserTime::<Impl, IMPL_OFFSET>, IdleTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemCpuUsageReport as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -788,7 +863,7 @@ impl ::windows::core::RuntimeName for ISystemDiagnosticInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemDiagnosticInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoImpl, const OFFSET: isize>() -> ISystemDiagnosticInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemDiagnosticInfoVtbl {
         unsafe extern "system" fn MemoryUsage<Impl: ISystemDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MemoryUsage() {
@@ -811,7 +886,10 @@ impl ISystemDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfo>, ::windows::core::GetTrustLevel, MemoryUsage::<Impl, OFFSET>, CpuUsage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfo>, ::windows::core::GetTrustLevel, MemoryUsage::<Impl, IMPL_OFFSET>, CpuUsage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemDiagnosticInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -824,7 +902,7 @@ impl ::windows::core::RuntimeName for ISystemDiagnosticInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemDiagnosticInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoStaticsImpl, const OFFSET: isize>() -> ISystemDiagnosticInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemDiagnosticInfoStaticsVtbl {
         unsafe extern "system" fn GetForCurrentSystem<Impl: ISystemDiagnosticInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentSystem() {
@@ -836,7 +914,10 @@ impl ISystemDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForCurrentSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForCurrentSystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemDiagnosticInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -850,7 +931,7 @@ impl ::windows::core::RuntimeName for ISystemDiagnosticInfoStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemDiagnosticInfoStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: isize>() -> ISystemDiagnosticInfoStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemDiagnosticInfoStatics2Vtbl {
         unsafe extern "system" fn IsArchitectureSupported<Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::ProcessorArchitecture, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsArchitectureSupported(r#type) {
@@ -873,7 +954,10 @@ impl ISystemDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, IsArchitectureSupported::<Impl, OFFSET>, PreferredArchitecture::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, IsArchitectureSupported::<Impl, IMPL_OFFSET>, PreferredArchitecture::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemDiagnosticInfoStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -886,7 +970,7 @@ impl ::windows::core::RuntimeName for ISystemMemoryUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMemoryUsageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMemoryUsageImpl, const OFFSET: isize>() -> ISystemMemoryUsageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMemoryUsageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMemoryUsageVtbl {
         unsafe extern "system" fn GetReport<Impl: ISystemMemoryUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
@@ -898,7 +982,10 @@ impl ISystemMemoryUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMemoryUsage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -913,7 +1000,7 @@ impl ::windows::core::RuntimeName for ISystemMemoryUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMemoryUsageReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMemoryUsageReportImpl, const OFFSET: isize>() -> ISystemMemoryUsageReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMemoryUsageReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMemoryUsageReportVtbl {
         unsafe extern "system" fn TotalPhysicalSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalPhysicalSizeInBytes() {
@@ -947,6 +1034,9 @@ impl ISystemMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsageReport>, ::windows::core::GetTrustLevel, TotalPhysicalSizeInBytes::<Impl, OFFSET>, AvailableSizeInBytes::<Impl, OFFSET>, CommittedSizeInBytes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsageReport>, ::windows::core::GetTrustLevel, TotalPhysicalSizeInBytes::<Impl, IMPL_OFFSET>, AvailableSizeInBytes::<Impl, IMPL_OFFSET>, CommittedSizeInBytes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMemoryUsageReport as ::windows::core::Interface>::IID
     }
 }

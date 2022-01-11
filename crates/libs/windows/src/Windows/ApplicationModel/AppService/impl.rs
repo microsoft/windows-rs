@@ -1,14 +1,14 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceCatalogStaticsImpl: Sized {
     fn FindAppServiceProvidersAsync(&self, appservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceCatalogStatics {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceCatalogStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppServiceCatalogStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceCatalogStaticsImpl, const OFFSET: isize>() -> IAppServiceCatalogStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceCatalogStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceCatalogStaticsVtbl {
         unsafe extern "system" fn FindAppServiceProvidersAsync<Impl: IAppServiceCatalogStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAppServiceProvidersAsync(&*(&appservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -20,7 +20,10 @@ impl IAppServiceCatalogStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceCatalogStatics>, ::windows::core::GetTrustLevel, FindAppServiceProvidersAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceCatalogStatics>, ::windows::core::GetTrustLevel, FindAppServiceProvidersAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceCatalogStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,7 +36,7 @@ impl ::windows::core::RuntimeName for IAppServiceClosedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppServiceClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceClosedEventArgsImpl, const OFFSET: isize>() -> IAppServiceClosedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceClosedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IAppServiceClosedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppServiceClosedStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -45,10 +48,13 @@ impl IAppServiceClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceClosedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceClosedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceClosedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceConnectionImpl: Sized {
     fn AppServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetAppServiceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -61,13 +67,13 @@ pub trait IAppServiceConnectionImpl: Sized {
     fn ServiceClosed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServiceClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceConnection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppServiceConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionImpl, const OFFSET: isize>() -> IAppServiceConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceConnectionVtbl {
         unsafe extern "system" fn AppServiceName<Impl: IAppServiceConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppServiceName() {
@@ -151,38 +157,41 @@ impl IAppServiceConnectionVtbl {
             (*this).RemoveServiceClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppServiceConnection>,
             ::windows::core::GetTrustLevel,
-            AppServiceName::<Impl, OFFSET>,
-            SetAppServiceName::<Impl, OFFSET>,
-            PackageFamilyName::<Impl, OFFSET>,
-            SetPackageFamilyName::<Impl, OFFSET>,
-            OpenAsync::<Impl, OFFSET>,
-            SendMessageAsync::<Impl, OFFSET>,
-            RequestReceived::<Impl, OFFSET>,
-            RemoveRequestReceived::<Impl, OFFSET>,
-            ServiceClosed::<Impl, OFFSET>,
-            RemoveServiceClosed::<Impl, OFFSET>,
+            AppServiceName::<Impl, IMPL_OFFSET>,
+            SetAppServiceName::<Impl, IMPL_OFFSET>,
+            PackageFamilyName::<Impl, IMPL_OFFSET>,
+            SetPackageFamilyName::<Impl, IMPL_OFFSET>,
+            OpenAsync::<Impl, IMPL_OFFSET>,
+            SendMessageAsync::<Impl, IMPL_OFFSET>,
+            RequestReceived::<Impl, IMPL_OFFSET>,
+            RemoveRequestReceived::<Impl, IMPL_OFFSET>,
+            ServiceClosed::<Impl, IMPL_OFFSET>,
+            RemoveServiceClosed::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceConnection as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 pub trait IAppServiceConnection2Impl: Sized {
     fn OpenRemoteAsync(&self, remotesystemconnectionrequest: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
     fn SetUser(&self, value: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceConnection2 {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceConnection2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl IAppServiceConnection2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnection2Impl, const OFFSET: isize>() -> IAppServiceConnection2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnection2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceConnection2Vtbl {
         unsafe extern "system" fn OpenRemoteAsync<Impl: IAppServiceConnection2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemconnectionrequest: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenRemoteAsync(&*(&remotesystemconnectionrequest as *const <super::super::System::RemoteSystems::RemoteSystemConnectionRequest as ::windows::core::Abi>::Abi as *const <super::super::System::RemoteSystems::RemoteSystemConnectionRequest as ::windows::core::DefaultType>::DefaultType)) {
@@ -209,20 +218,23 @@ impl IAppServiceConnection2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUser(&*(&value as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceConnection2>, ::windows::core::GetTrustLevel, OpenRemoteAsync::<Impl, OFFSET>, User::<Impl, OFFSET>, SetUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceConnection2>, ::windows::core::GetTrustLevel, OpenRemoteAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>, SetUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceConnection2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 pub trait IAppServiceConnectionStaticsImpl: Sized {
     fn SendStatelessMessageAsync(&self, connection: &::core::option::Option<AppServiceConnection>, connectionrequest: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceConnectionStatics {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceConnectionStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl IAppServiceConnectionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionStaticsImpl, const OFFSET: isize>() -> IAppServiceConnectionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceConnectionStaticsVtbl {
         unsafe extern "system" fn SendStatelessMessageAsync<Impl: IAppServiceConnectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: ::windows::core::RawPtr, connectionrequest: ::windows::core::RawPtr, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendStatelessMessageAsync(
@@ -238,7 +250,10 @@ impl IAppServiceConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceConnectionStatics>, ::windows::core::GetTrustLevel, SendStatelessMessageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceConnectionStatics>, ::windows::core::GetTrustLevel, SendStatelessMessageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceConnectionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -251,26 +266,29 @@ impl ::windows::core::RuntimeName for IAppServiceDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppServiceDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceDeferralImpl, const OFFSET: isize>() -> IAppServiceDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IAppServiceDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceDeferral as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceRequestImpl: Sized {
     fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn SendResponseAsync(&self, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppServiceRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceRequestImpl, const OFFSET: isize>() -> IAppServiceRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceRequestVtbl {
         unsafe extern "system" fn Message<Impl: IAppServiceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
@@ -293,7 +311,10 @@ impl IAppServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceRequest>, ::windows::core::GetTrustLevel, Message::<Impl, OFFSET>, SendResponseAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceRequest>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, SendResponseAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -307,7 +328,7 @@ impl ::windows::core::RuntimeName for IAppServiceRequestReceivedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppServiceRequestReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceRequestReceivedEventArgsImpl, const OFFSET: isize>() -> IAppServiceRequestReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceRequestReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceRequestReceivedEventArgsVtbl {
         unsafe extern "system" fn Request<Impl: IAppServiceRequestReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
@@ -330,21 +351,24 @@ impl IAppServiceRequestReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceRequestReceivedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceRequestReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceResponseImpl: Sized {
     fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn Status(&self) -> ::windows::core::Result<AppServiceResponseStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceResponse";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppServiceResponseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceResponseImpl, const OFFSET: isize>() -> IAppServiceResponseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceResponseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceResponseVtbl {
         unsafe extern "system" fn Message<Impl: IAppServiceResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
@@ -367,7 +391,10 @@ impl IAppServiceResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceResponse>, ::windows::core::GetTrustLevel, Message::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceResponse>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceResponse as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -382,7 +409,7 @@ impl ::windows::core::RuntimeName for IAppServiceTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppServiceTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetailsImpl, const OFFSET: isize>() -> IAppServiceTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceTriggerDetailsVtbl {
         unsafe extern "system" fn Name<Impl: IAppServiceTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -416,7 +443,10 @@ impl IAppServiceTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, CallerPackageFamilyName::<Impl, OFFSET>, AppServiceConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, CallerPackageFamilyName::<Impl, IMPL_OFFSET>, AppServiceConnection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -429,7 +459,7 @@ impl ::windows::core::RuntimeName for IAppServiceTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppServiceTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetails2Impl, const OFFSET: isize>() -> IAppServiceTriggerDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceTriggerDetails2Vtbl {
         unsafe extern "system" fn IsRemoteSystemConnection<Impl: IAppServiceTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRemoteSystemConnection() {
@@ -441,20 +471,23 @@ impl IAppServiceTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails2>, ::windows::core::GetTrustLevel, IsRemoteSystemConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails2>, ::windows::core::GetTrustLevel, IsRemoteSystemConnection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceTriggerDetails2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppServiceTriggerDetails3Impl: Sized {
     fn CheckCallerForCapabilityAsync(&self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceTriggerDetails3 {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IAppServiceTriggerDetails3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppServiceTriggerDetails3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetails3Impl, const OFFSET: isize>() -> IAppServiceTriggerDetails3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetails3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceTriggerDetails3Vtbl {
         unsafe extern "system" fn CheckCallerForCapabilityAsync<Impl: IAppServiceTriggerDetails3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckCallerForCapabilityAsync(&*(&capabilityname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -466,7 +499,10 @@ impl IAppServiceTriggerDetails3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails3>, ::windows::core::GetTrustLevel, CheckCallerForCapabilityAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails3>, ::windows::core::GetTrustLevel, CheckCallerForCapabilityAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceTriggerDetails3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -479,7 +515,7 @@ impl ::windows::core::RuntimeName for IAppServiceTriggerDetails4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppServiceTriggerDetails4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetails4Impl, const OFFSET: isize>() -> IAppServiceTriggerDetails4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceTriggerDetails4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceTriggerDetails4Vtbl {
         unsafe extern "system" fn CallerRemoteConnectionToken<Impl: IAppServiceTriggerDetails4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallerRemoteConnectionToken() {
@@ -491,21 +527,24 @@ impl IAppServiceTriggerDetails4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails4>, ::windows::core::GetTrustLevel, CallerRemoteConnectionToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppServiceTriggerDetails4>, ::windows::core::GetTrustLevel, CallerRemoteConnectionToken::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppServiceTriggerDetails4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStatelessAppServiceResponseImpl: Sized {
     fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn Status(&self) -> ::windows::core::Result<StatelessAppServiceResponseStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.IStatelessAppServiceResponse";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStatelessAppServiceResponseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStatelessAppServiceResponseImpl, const OFFSET: isize>() -> IStatelessAppServiceResponseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStatelessAppServiceResponseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStatelessAppServiceResponseVtbl {
         unsafe extern "system" fn Message<Impl: IStatelessAppServiceResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
@@ -528,6 +567,9 @@ impl IStatelessAppServiceResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStatelessAppServiceResponse>, ::windows::core::GetTrustLevel, Message::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStatelessAppServiceResponse>, ::windows::core::GetTrustLevel, Message::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStatelessAppServiceResponse as ::windows::core::Interface>::IID
     }
 }

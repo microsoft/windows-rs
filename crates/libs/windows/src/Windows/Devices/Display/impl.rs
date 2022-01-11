@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IDisplayMonitorImpl: Sized {
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -21,13 +21,13 @@ pub trait IDisplayMonitorImpl: Sized {
     fn MaxAverageFullFrameLuminanceInNits(&self) -> ::windows::core::Result<f32>;
     fn GetDescriptor(&self, descriptorkind: DisplayMonitorDescriptorKind) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.IDisplayMonitor";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics", feature = "implement_exclusive"))]
 impl IDisplayMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorImpl, const OFFSET: isize>() -> IDisplayMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitorVtbl {
         unsafe extern "system" fn DeviceId<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -250,33 +250,36 @@ impl IDisplayMonitorVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDisplayMonitor>,
             ::windows::core::GetTrustLevel,
-            DeviceId::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            ConnectionKind::<Impl, OFFSET>,
-            PhysicalConnector::<Impl, OFFSET>,
-            DisplayAdapterDeviceId::<Impl, OFFSET>,
-            DisplayAdapterId::<Impl, OFFSET>,
-            DisplayAdapterTargetId::<Impl, OFFSET>,
-            UsageKind::<Impl, OFFSET>,
-            NativeResolutionInRawPixels::<Impl, OFFSET>,
-            PhysicalSizeInInches::<Impl, OFFSET>,
-            RawDpiX::<Impl, OFFSET>,
-            RawDpiY::<Impl, OFFSET>,
-            RedPrimary::<Impl, OFFSET>,
-            GreenPrimary::<Impl, OFFSET>,
-            BluePrimary::<Impl, OFFSET>,
-            WhitePoint::<Impl, OFFSET>,
-            MaxLuminanceInNits::<Impl, OFFSET>,
-            MinLuminanceInNits::<Impl, OFFSET>,
-            MaxAverageFullFrameLuminanceInNits::<Impl, OFFSET>,
-            GetDescriptor::<Impl, OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            ConnectionKind::<Impl, IMPL_OFFSET>,
+            PhysicalConnector::<Impl, IMPL_OFFSET>,
+            DisplayAdapterDeviceId::<Impl, IMPL_OFFSET>,
+            DisplayAdapterId::<Impl, IMPL_OFFSET>,
+            DisplayAdapterTargetId::<Impl, IMPL_OFFSET>,
+            UsageKind::<Impl, IMPL_OFFSET>,
+            NativeResolutionInRawPixels::<Impl, IMPL_OFFSET>,
+            PhysicalSizeInInches::<Impl, IMPL_OFFSET>,
+            RawDpiX::<Impl, IMPL_OFFSET>,
+            RawDpiY::<Impl, IMPL_OFFSET>,
+            RedPrimary::<Impl, IMPL_OFFSET>,
+            GreenPrimary::<Impl, IMPL_OFFSET>,
+            BluePrimary::<Impl, IMPL_OFFSET>,
+            WhitePoint::<Impl, IMPL_OFFSET>,
+            MaxLuminanceInNits::<Impl, IMPL_OFFSET>,
+            MinLuminanceInNits::<Impl, IMPL_OFFSET>,
+            MaxAverageFullFrameLuminanceInNits::<Impl, IMPL_OFFSET>,
+            GetDescriptor::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayMonitor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -289,7 +292,7 @@ impl ::windows::core::RuntimeName for IDisplayMonitor2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayMonitor2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitor2Impl, const OFFSET: isize>() -> IDisplayMonitor2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitor2Vtbl {
         unsafe extern "system" fn IsDolbyVisionSupportedInHdrMode<Impl: IDisplayMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDolbyVisionSupportedInHdrMode() {
@@ -301,22 +304,25 @@ impl IDisplayMonitor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayMonitor2>, ::windows::core::GetTrustLevel, IsDolbyVisionSupportedInHdrMode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayMonitor2>, ::windows::core::GetTrustLevel, IsDolbyVisionSupportedInHdrMode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayMonitor2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayMonitorStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>>;
     fn FromInterfaceIdAsync(&self, deviceinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayMonitorStatics {
     const NAME: &'static str = "Windows.Devices.Display.IDisplayMonitorStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDisplayMonitorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorStaticsImpl, const OFFSET: isize>() -> IDisplayMonitorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitorStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: IDisplayMonitorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -350,6 +356,9 @@ impl IDisplayMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayMonitorStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, FromInterfaceIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayMonitorStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, FromInterfaceIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDisplayMonitorStatics as ::windows::core::Interface>::IID
     }
 }

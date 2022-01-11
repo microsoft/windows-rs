@@ -1,12 +1,15 @@
+#[cfg(feature = "Foundation_Collections")]
 pub trait IAdaptiveNotificationContentImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind>;
     fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAdaptiveNotificationContent {
     const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IAdaptiveNotificationContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveNotificationContentImpl, const OFFSET: isize>() -> IAdaptiveNotificationContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveNotificationContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveNotificationContentVtbl {
         unsafe extern "system" fn Kind<Impl: IAdaptiveNotificationContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveNotificationContentKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -29,7 +32,10 @@ impl IAdaptiveNotificationContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveNotificationContent>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>, Hints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveNotificationContent>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, Hints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdaptiveNotificationContent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,7 +51,7 @@ impl ::windows::core::RuntimeName for IAdaptiveNotificationText {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAdaptiveNotificationTextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveNotificationTextImpl, const OFFSET: isize>() -> IAdaptiveNotificationTextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveNotificationTextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveNotificationTextVtbl {
         unsafe extern "system" fn Text<Impl: IAdaptiveNotificationTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
@@ -76,22 +82,25 @@ impl IAdaptiveNotificationTextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveNotificationText>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, Language::<Impl, OFFSET>, SetLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveNotificationText>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdaptiveNotificationText as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBadgeNotificationImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.IBadgeNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IBadgeNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeNotificationImpl, const OFFSET: isize>() -> IBadgeNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBadgeNotificationVtbl {
         unsafe extern "system" fn Content<Impl: IBadgeNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -118,20 +127,23 @@ impl IBadgeNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeNotification>, ::windows::core::GetTrustLevel, Content::<Impl, OFFSET>, SetExpirationTime::<Impl, OFFSET>, ExpirationTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBadgeNotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IBadgeNotificationFactoryImpl: Sized {
     fn CreateBadgeNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<BadgeNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeNotificationFactory {
     const NAME: &'static str = "Windows.UI.Notifications.IBadgeNotificationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IBadgeNotificationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeNotificationFactoryImpl, const OFFSET: isize>() -> IBadgeNotificationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeNotificationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBadgeNotificationFactoryVtbl {
         unsafe extern "system" fn CreateBadgeNotification<Impl: IBadgeNotificationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBadgeNotification(&*(&content as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)) {
@@ -143,23 +155,26 @@ impl IBadgeNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeNotificationFactory>, ::windows::core::GetTrustLevel, CreateBadgeNotification::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeNotificationFactory>, ::windows::core::GetTrustLevel, CreateBadgeNotification::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBadgeNotificationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IBadgeUpdateManagerForUserImpl: Sized {
     fn CreateBadgeUpdaterForApplication(&self) -> ::windows::core::Result<BadgeUpdater>;
     fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
     fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.IBadgeUpdateManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IBadgeUpdateManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdateManagerForUserImpl, const OFFSET: isize>() -> IBadgeUpdateManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdateManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBadgeUpdateManagerForUserVtbl {
         unsafe extern "system" fn CreateBadgeUpdaterForApplication<Impl: IBadgeUpdateManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBadgeUpdaterForApplication() {
@@ -204,23 +219,37 @@ impl IBadgeUpdateManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerForUser>, ::windows::core::GetTrustLevel, CreateBadgeUpdaterForApplication::<Impl, OFFSET>, CreateBadgeUpdaterForApplicationWithId::<Impl, OFFSET>, CreateBadgeUpdaterForSecondaryTile::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerForUser>,
+            ::windows::core::GetTrustLevel,
+            CreateBadgeUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBadgeUpdateManagerForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IBadgeUpdateManagerStaticsImpl: Sized {
     fn CreateBadgeUpdaterForApplication(&self) -> ::windows::core::Result<BadgeUpdater>;
     fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
     fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
     fn GetTemplateContent(&self, r#type: BadgeTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdateManagerStatics {
     const NAME: &'static str = "Windows.UI.Notifications.IBadgeUpdateManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IBadgeUpdateManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdateManagerStaticsImpl, const OFFSET: isize>() -> IBadgeUpdateManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdateManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBadgeUpdateManagerStaticsVtbl {
         unsafe extern "system" fn CreateBadgeUpdaterForApplication<Impl: IBadgeUpdateManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBadgeUpdaterForApplication() {
@@ -265,20 +294,34 @@ impl IBadgeUpdateManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerStatics>, ::windows::core::GetTrustLevel, CreateBadgeUpdaterForApplication::<Impl, OFFSET>, CreateBadgeUpdaterForApplicationWithId::<Impl, OFFSET>, CreateBadgeUpdaterForSecondaryTile::<Impl, OFFSET>, GetTemplateContent::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerStatics>,
+            ::windows::core::GetTrustLevel,
+            CreateBadgeUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateBadgeUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            GetTemplateContent::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBadgeUpdateManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IBadgeUpdateManagerStatics2Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<BadgeUpdateManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdateManagerStatics2 {
     const NAME: &'static str = "Windows.UI.Notifications.IBadgeUpdateManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IBadgeUpdateManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdateManagerStatics2Impl, const OFFSET: isize>() -> IBadgeUpdateManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdateManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBadgeUpdateManagerStatics2Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IBadgeUpdateManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -290,10 +333,13 @@ impl IBadgeUpdateManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdateManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBadgeUpdateManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBadgeUpdaterImpl: Sized {
     fn Update(&self, notification: &::core::option::Option<BadgeNotification>) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -301,13 +347,13 @@ pub trait IBadgeUpdaterImpl: Sized {
     fn StartPeriodicUpdateAtTime(&self, badgecontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
     fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.IBadgeUpdater";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBadgeUpdaterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdaterImpl, const OFFSET: isize>() -> IBadgeUpdaterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBadgeUpdaterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBadgeUpdaterVtbl {
         unsafe extern "system" fn Update<Impl: IBadgeUpdaterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update(&*(&notification as *const <BadgeNotification as ::windows::core::Abi>::Abi as *const <BadgeNotification as ::windows::core::DefaultType>::DefaultType)).into()
@@ -328,7 +374,10 @@ impl IBadgeUpdaterVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopPeriodicUpdate().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdater>, ::windows::core::GetTrustLevel, Update::<Impl, OFFSET>, Clear::<Impl, OFFSET>, StartPeriodicUpdate::<Impl, OFFSET>, StartPeriodicUpdateAtTime::<Impl, OFFSET>, StopPeriodicUpdate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBadgeUpdater>, ::windows::core::GetTrustLevel, Update::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>, StartPeriodicUpdate::<Impl, IMPL_OFFSET>, StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>, StopPeriodicUpdate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBadgeUpdater as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -346,7 +395,7 @@ impl ::windows::core::RuntimeName for IKnownAdaptiveNotificationHintsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownAdaptiveNotificationHintsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownAdaptiveNotificationHintsStaticsImpl, const OFFSET: isize>() -> IKnownAdaptiveNotificationHintsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownAdaptiveNotificationHintsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownAdaptiveNotificationHintsStaticsVtbl {
         unsafe extern "system" fn Style<Impl: IKnownAdaptiveNotificationHintsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Style() {
@@ -413,7 +462,10 @@ impl IKnownAdaptiveNotificationHintsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownAdaptiveNotificationHintsStatics>, ::windows::core::GetTrustLevel, Style::<Impl, OFFSET>, Wrap::<Impl, OFFSET>, MaxLines::<Impl, OFFSET>, MinLines::<Impl, OFFSET>, TextStacking::<Impl, OFFSET>, Align::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownAdaptiveNotificationHintsStatics>, ::windows::core::GetTrustLevel, Style::<Impl, IMPL_OFFSET>, Wrap::<Impl, IMPL_OFFSET>, MaxLines::<Impl, IMPL_OFFSET>, MinLines::<Impl, IMPL_OFFSET>, TextStacking::<Impl, IMPL_OFFSET>, Align::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownAdaptiveNotificationHintsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -444,7 +496,7 @@ impl ::windows::core::RuntimeName for IKnownAdaptiveNotificationTextStylesStatic
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownAdaptiveNotificationTextStylesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownAdaptiveNotificationTextStylesStaticsImpl, const OFFSET: isize>() -> IKnownAdaptiveNotificationTextStylesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownAdaptiveNotificationTextStylesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownAdaptiveNotificationTextStylesStaticsVtbl {
         unsafe extern "system" fn Caption<Impl: IKnownAdaptiveNotificationTextStylesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Caption() {
@@ -655,32 +707,35 @@ impl IKnownAdaptiveNotificationTextStylesStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IKnownAdaptiveNotificationTextStylesStatics>,
             ::windows::core::GetTrustLevel,
-            Caption::<Impl, OFFSET>,
-            Body::<Impl, OFFSET>,
-            Base::<Impl, OFFSET>,
-            Subtitle::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            Subheader::<Impl, OFFSET>,
-            Header::<Impl, OFFSET>,
-            TitleNumeral::<Impl, OFFSET>,
-            SubheaderNumeral::<Impl, OFFSET>,
-            HeaderNumeral::<Impl, OFFSET>,
-            CaptionSubtle::<Impl, OFFSET>,
-            BodySubtle::<Impl, OFFSET>,
-            BaseSubtle::<Impl, OFFSET>,
-            SubtitleSubtle::<Impl, OFFSET>,
-            TitleSubtle::<Impl, OFFSET>,
-            SubheaderSubtle::<Impl, OFFSET>,
-            SubheaderNumeralSubtle::<Impl, OFFSET>,
-            HeaderSubtle::<Impl, OFFSET>,
-            HeaderNumeralSubtle::<Impl, OFFSET>,
+            Caption::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            Base::<Impl, IMPL_OFFSET>,
+            Subtitle::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Subheader::<Impl, IMPL_OFFSET>,
+            Header::<Impl, IMPL_OFFSET>,
+            TitleNumeral::<Impl, IMPL_OFFSET>,
+            SubheaderNumeral::<Impl, IMPL_OFFSET>,
+            HeaderNumeral::<Impl, IMPL_OFFSET>,
+            CaptionSubtle::<Impl, IMPL_OFFSET>,
+            BodySubtle::<Impl, IMPL_OFFSET>,
+            BaseSubtle::<Impl, IMPL_OFFSET>,
+            SubtitleSubtle::<Impl, IMPL_OFFSET>,
+            TitleSubtle::<Impl, IMPL_OFFSET>,
+            SubheaderSubtle::<Impl, IMPL_OFFSET>,
+            SubheaderNumeralSubtle::<Impl, IMPL_OFFSET>,
+            HeaderSubtle::<Impl, IMPL_OFFSET>,
+            HeaderNumeralSubtle::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownAdaptiveNotificationTextStylesStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -693,7 +748,7 @@ impl ::windows::core::RuntimeName for IKnownNotificationBindingsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownNotificationBindingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownNotificationBindingsStaticsImpl, const OFFSET: isize>() -> IKnownNotificationBindingsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownNotificationBindingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownNotificationBindingsStaticsVtbl {
         unsafe extern "system" fn ToastGeneric<Impl: IKnownNotificationBindingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToastGeneric() {
@@ -705,23 +760,26 @@ impl IKnownNotificationBindingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownNotificationBindingsStatics>, ::windows::core::GetTrustLevel, ToastGeneric::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownNotificationBindingsStatics>, ::windows::core::GetTrustLevel, ToastGeneric::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownNotificationBindingsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INotificationImpl: Sized {
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
     fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
     fn Visual(&self) -> ::windows::core::Result<NotificationVisual>;
     fn SetVisual(&self, value: &::core::option::Option<NotificationVisual>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotification {
     const NAME: &'static str = "Windows.UI.Notifications.INotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl INotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationImpl, const OFFSET: isize>() -> INotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotificationVtbl {
         unsafe extern "system" fn ExpirationTime<Impl: INotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationTime() {
@@ -752,10 +810,13 @@ impl INotificationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVisual(&*(&value as *const <NotificationVisual as ::windows::core::Abi>::Abi as *const <NotificationVisual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotification>, ::windows::core::GetTrustLevel, ExpirationTime::<Impl, OFFSET>, SetExpirationTime::<Impl, OFFSET>, Visual::<Impl, OFFSET>, SetVisual::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotification>, ::windows::core::GetTrustLevel, ExpirationTime::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, Visual::<Impl, IMPL_OFFSET>, SetVisual::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationBindingImpl: Sized {
     fn Template(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTemplate(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -764,13 +825,13 @@ pub trait INotificationBindingImpl: Sized {
     fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
     fn GetTextElements(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.INotificationBinding";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INotificationBindingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationBindingImpl, const OFFSET: isize>() -> INotificationBindingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationBindingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotificationBindingVtbl {
         unsafe extern "system" fn Template<Impl: INotificationBindingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Template() {
@@ -823,22 +884,25 @@ impl INotificationBindingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationBinding>, ::windows::core::GetTrustLevel, Template::<Impl, OFFSET>, SetTemplate::<Impl, OFFSET>, Language::<Impl, OFFSET>, SetLanguage::<Impl, OFFSET>, Hints::<Impl, OFFSET>, GetTextElements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationBinding>, ::windows::core::GetTrustLevel, Template::<Impl, IMPL_OFFSET>, SetTemplate::<Impl, IMPL_OFFSET>, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Hints::<Impl, IMPL_OFFSET>, GetTextElements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotificationBinding as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationDataImpl: Sized {
     fn Values(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
     fn SequenceNumber(&self) -> ::windows::core::Result<u32>;
     fn SetSequenceNumber(&self, value: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.INotificationData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INotificationDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationDataImpl, const OFFSET: isize>() -> INotificationDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotificationDataVtbl {
         unsafe extern "system" fn Values<Impl: INotificationDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Values() {
@@ -865,21 +929,24 @@ impl INotificationDataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSequenceNumber(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationData>, ::windows::core::GetTrustLevel, Values::<Impl, OFFSET>, SequenceNumber::<Impl, OFFSET>, SetSequenceNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationData>, ::windows::core::GetTrustLevel, Values::<Impl, IMPL_OFFSET>, SequenceNumber::<Impl, IMPL_OFFSET>, SetSequenceNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotificationData as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationDataFactoryImpl: Sized {
     fn CreateNotificationDataWithValuesAndSequenceNumber(&self, initialvalues: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, sequencenumber: u32) -> ::windows::core::Result<NotificationData>;
     fn CreateNotificationDataWithValues(&self, initialvalues: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<NotificationData>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationDataFactory {
     const NAME: &'static str = "Windows.UI.Notifications.INotificationDataFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INotificationDataFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationDataFactoryImpl, const OFFSET: isize>() -> INotificationDataFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationDataFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotificationDataFactoryVtbl {
         unsafe extern "system" fn CreateNotificationDataWithValuesAndSequenceNumber<Impl: INotificationDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalues: ::windows::core::RawPtr, sequencenumber: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNotificationDataWithValuesAndSequenceNumber(&*(&initialvalues as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType), sequencenumber) {
@@ -902,23 +969,26 @@ impl INotificationDataFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationDataFactory>, ::windows::core::GetTrustLevel, CreateNotificationDataWithValuesAndSequenceNumber::<Impl, OFFSET>, CreateNotificationDataWithValues::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationDataFactory>, ::windows::core::GetTrustLevel, CreateNotificationDataWithValuesAndSequenceNumber::<Impl, IMPL_OFFSET>, CreateNotificationDataWithValues::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotificationDataFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationVisualImpl: Sized {
     fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Bindings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<NotificationBinding>>;
     fn GetBinding(&self, templatename: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationBinding>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.INotificationVisual";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INotificationVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationVisualImpl, const OFFSET: isize>() -> INotificationVisualVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotificationVisualVtbl {
         unsafe extern "system" fn Language<Impl: INotificationVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
@@ -956,10 +1026,13 @@ impl INotificationVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationVisual>, ::windows::core::GetTrustLevel, Language::<Impl, OFFSET>, SetLanguage::<Impl, OFFSET>, Bindings::<Impl, OFFSET>, GetBinding::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotificationVisual>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Bindings::<Impl, IMPL_OFFSET>, GetBinding::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotificationVisual as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledTileNotificationImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn DeliveryTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -970,13 +1043,13 @@ pub trait IScheduledTileNotificationImpl: Sized {
     fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.IScheduledTileNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IScheduledTileNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledTileNotificationImpl, const OFFSET: isize>() -> IScheduledTileNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledTileNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledTileNotificationVtbl {
         unsafe extern "system" fn Content<Impl: IScheduledTileNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -1044,20 +1117,38 @@ impl IScheduledTileNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledTileNotification>, ::windows::core::GetTrustLevel, Content::<Impl, OFFSET>, DeliveryTime::<Impl, OFFSET>, SetExpirationTime::<Impl, OFFSET>, ExpirationTime::<Impl, OFFSET>, SetTag::<Impl, OFFSET>, Tag::<Impl, OFFSET>, SetId::<Impl, OFFSET>, Id::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IScheduledTileNotification>,
+            ::windows::core::GetTrustLevel,
+            Content::<Impl, IMPL_OFFSET>,
+            DeliveryTime::<Impl, IMPL_OFFSET>,
+            SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime::<Impl, IMPL_OFFSET>,
+            SetTag::<Impl, IMPL_OFFSET>,
+            Tag::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledTileNotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledTileNotificationFactoryImpl: Sized {
     fn CreateScheduledTileNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledTileNotificationFactory {
     const NAME: &'static str = "Windows.UI.Notifications.IScheduledTileNotificationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IScheduledTileNotificationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledTileNotificationFactoryImpl, const OFFSET: isize>() -> IScheduledTileNotificationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledTileNotificationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledTileNotificationFactoryVtbl {
         unsafe extern "system" fn CreateScheduledTileNotification<Impl: IScheduledTileNotificationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, deliverytime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateScheduledTileNotification(&*(&content as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType), &*(&deliverytime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)) {
@@ -1069,10 +1160,13 @@ impl IScheduledTileNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledTileNotificationFactory>, ::windows::core::GetTrustLevel, CreateScheduledTileNotification::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledTileNotificationFactory>, ::windows::core::GetTrustLevel, CreateScheduledTileNotification::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledTileNotificationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotificationImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn DeliveryTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1081,13 +1175,13 @@ pub trait IScheduledToastNotificationImpl: Sized {
     fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.IScheduledToastNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IScheduledToastNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotificationImpl, const OFFSET: isize>() -> IScheduledToastNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledToastNotificationVtbl {
         unsafe extern "system" fn Content<Impl: IScheduledToastNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -1147,7 +1241,10 @@ impl IScheduledToastNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification>, ::windows::core::GetTrustLevel, Content::<Impl, OFFSET>, DeliveryTime::<Impl, OFFSET>, SnoozeInterval::<Impl, OFFSET>, MaximumSnoozeCount::<Impl, OFFSET>, SetId::<Impl, OFFSET>, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, DeliveryTime::<Impl, IMPL_OFFSET>, SnoozeInterval::<Impl, IMPL_OFFSET>, MaximumSnoozeCount::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledToastNotification as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1165,7 +1262,7 @@ impl ::windows::core::RuntimeName for IScheduledToastNotification2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IScheduledToastNotification2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotification2Impl, const OFFSET: isize>() -> IScheduledToastNotification2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotification2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledToastNotification2Vtbl {
         unsafe extern "system" fn SetTag<Impl: IScheduledToastNotification2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTag(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1211,7 +1308,10 @@ impl IScheduledToastNotification2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification2>, ::windows::core::GetTrustLevel, SetTag::<Impl, OFFSET>, Tag::<Impl, OFFSET>, SetGroup::<Impl, OFFSET>, Group::<Impl, OFFSET>, SetSuppressPopup::<Impl, OFFSET>, SuppressPopup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification2>, ::windows::core::GetTrustLevel, SetTag::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, SetGroup::<Impl, IMPL_OFFSET>, Group::<Impl, IMPL_OFFSET>, SetSuppressPopup::<Impl, IMPL_OFFSET>, SuppressPopup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledToastNotification2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1227,7 +1327,7 @@ impl ::windows::core::RuntimeName for IScheduledToastNotification3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IScheduledToastNotification3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotification3Impl, const OFFSET: isize>() -> IScheduledToastNotification3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotification3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledToastNotification3Vtbl {
         unsafe extern "system" fn NotificationMirroring<Impl: IScheduledToastNotification3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NotificationMirroring) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotificationMirroring() {
@@ -1258,21 +1358,24 @@ impl IScheduledToastNotification3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification3>, ::windows::core::GetTrustLevel, NotificationMirroring::<Impl, OFFSET>, SetNotificationMirroring::<Impl, OFFSET>, RemoteId::<Impl, OFFSET>, SetRemoteId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification3>, ::windows::core::GetTrustLevel, NotificationMirroring::<Impl, IMPL_OFFSET>, SetNotificationMirroring::<Impl, IMPL_OFFSET>, RemoteId::<Impl, IMPL_OFFSET>, SetRemoteId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledToastNotification3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotification4Impl: Sized {
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
     fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotification4 {
     const NAME: &'static str = "Windows.UI.Notifications.IScheduledToastNotification4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IScheduledToastNotification4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotification4Impl, const OFFSET: isize>() -> IScheduledToastNotification4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotification4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledToastNotification4Vtbl {
         unsafe extern "system" fn ExpirationTime<Impl: IScheduledToastNotification4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationTime() {
@@ -1288,21 +1391,24 @@ impl IScheduledToastNotification4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpirationTime(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification4>, ::windows::core::GetTrustLevel, ExpirationTime::<Impl, OFFSET>, SetExpirationTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotification4>, ::windows::core::GetTrustLevel, ExpirationTime::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledToastNotification4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotificationFactoryImpl: Sized {
     fn CreateScheduledToastNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification>;
     fn CreateScheduledToastNotificationRecurring(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime, snoozeinterval: &super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotificationFactory {
     const NAME: &'static str = "Windows.UI.Notifications.IScheduledToastNotificationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IScheduledToastNotificationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotificationFactoryImpl, const OFFSET: isize>() -> IScheduledToastNotificationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotificationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledToastNotificationFactoryVtbl {
         unsafe extern "system" fn CreateScheduledToastNotification<Impl: IScheduledToastNotificationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, deliverytime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateScheduledToastNotification(&*(&content as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType), &*(&deliverytime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)) {
@@ -1330,23 +1436,26 @@ impl IScheduledToastNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotificationFactory>, ::windows::core::GetTrustLevel, CreateScheduledToastNotification::<Impl, OFFSET>, CreateScheduledToastNotificationRecurring::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotificationFactory>, ::windows::core::GetTrustLevel, CreateScheduledToastNotification::<Impl, IMPL_OFFSET>, CreateScheduledToastNotificationRecurring::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledToastNotificationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotificationShowingEventArgsImpl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<bool>;
     fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
     fn ScheduledToastNotification(&self) -> ::windows::core::Result<ScheduledToastNotification>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IScheduledToastNotificationShowingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotificationShowingEventArgsImpl, const OFFSET: isize>() -> IScheduledToastNotificationShowingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledToastNotificationShowingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduledToastNotificationShowingEventArgsVtbl {
         unsafe extern "system" fn Cancel<Impl: IScheduledToastNotificationShowingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cancel() {
@@ -1384,7 +1493,10 @@ impl IScheduledToastNotificationShowingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotificationShowingEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, OFFSET>, SetCancel::<Impl, OFFSET>, ScheduledToastNotification::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScheduledToastNotificationShowingEventArgs>, ::windows::core::GetTrustLevel, Cancel::<Impl, IMPL_OFFSET>, SetCancel::<Impl, IMPL_OFFSET>, ScheduledToastNotification::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduledToastNotificationShowingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1397,7 +1509,7 @@ impl ::windows::core::RuntimeName for IShownTileNotification {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShownTileNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShownTileNotificationImpl, const OFFSET: isize>() -> IShownTileNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShownTileNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShownTileNotificationVtbl {
         unsafe extern "system" fn Arguments<Impl: IShownTileNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
@@ -1409,22 +1521,25 @@ impl IShownTileNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShownTileNotification>, ::windows::core::GetTrustLevel, Arguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShownTileNotification>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShownTileNotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITileFlyoutNotificationImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ITileFlyoutNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ITileFlyoutNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutNotificationImpl, const OFFSET: isize>() -> ITileFlyoutNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileFlyoutNotificationVtbl {
         unsafe extern "system" fn Content<Impl: ITileFlyoutNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -1451,20 +1566,23 @@ impl ITileFlyoutNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutNotification>, ::windows::core::GetTrustLevel, Content::<Impl, OFFSET>, SetExpirationTime::<Impl, OFFSET>, ExpirationTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileFlyoutNotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileFlyoutNotificationFactoryImpl: Sized {
     fn CreateTileFlyoutNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<TileFlyoutNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutNotificationFactory {
     const NAME: &'static str = "Windows.UI.Notifications.ITileFlyoutNotificationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ITileFlyoutNotificationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutNotificationFactoryImpl, const OFFSET: isize>() -> ITileFlyoutNotificationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutNotificationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileFlyoutNotificationFactoryVtbl {
         unsafe extern "system" fn CreateTileFlyoutNotification<Impl: ITileFlyoutNotificationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileFlyoutNotification(&*(&content as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)) {
@@ -1476,23 +1594,26 @@ impl ITileFlyoutNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutNotificationFactory>, ::windows::core::GetTrustLevel, CreateTileFlyoutNotification::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutNotificationFactory>, ::windows::core::GetTrustLevel, CreateTileFlyoutNotification::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileFlyoutNotificationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileFlyoutUpdateManagerStaticsImpl: Sized {
     fn CreateTileFlyoutUpdaterForApplication(&self) -> ::windows::core::Result<TileFlyoutUpdater>;
     fn CreateTileFlyoutUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater>;
     fn CreateTileFlyoutUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater>;
     fn GetTemplateContent(&self, r#type: TileFlyoutTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutUpdateManagerStatics {
     const NAME: &'static str = "Windows.UI.Notifications.ITileFlyoutUpdateManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ITileFlyoutUpdateManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutUpdateManagerStaticsImpl, const OFFSET: isize>() -> ITileFlyoutUpdateManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutUpdateManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileFlyoutUpdateManagerStaticsVtbl {
         unsafe extern "system" fn CreateTileFlyoutUpdaterForApplication<Impl: ITileFlyoutUpdateManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileFlyoutUpdaterForApplication() {
@@ -1538,20 +1659,23 @@ impl ITileFlyoutUpdateManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITileFlyoutUpdateManagerStatics>,
             ::windows::core::GetTrustLevel,
-            CreateTileFlyoutUpdaterForApplication::<Impl, OFFSET>,
-            CreateTileFlyoutUpdaterForApplicationWithId::<Impl, OFFSET>,
-            CreateTileFlyoutUpdaterForSecondaryTile::<Impl, OFFSET>,
-            GetTemplateContent::<Impl, OFFSET>,
+            CreateTileFlyoutUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateTileFlyoutUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateTileFlyoutUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            GetTemplateContent::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileFlyoutUpdateManagerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITileFlyoutUpdaterImpl: Sized {
     fn Update(&self, notification: &::core::option::Option<TileFlyoutNotification>) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -1560,13 +1684,13 @@ pub trait ITileFlyoutUpdaterImpl: Sized {
     fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()>;
     fn Setting(&self) -> ::windows::core::Result<NotificationSetting>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.ITileFlyoutUpdater";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ITileFlyoutUpdaterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutUpdaterImpl, const OFFSET: isize>() -> ITileFlyoutUpdaterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileFlyoutUpdaterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileFlyoutUpdaterVtbl {
         unsafe extern "system" fn Update<Impl: ITileFlyoutUpdaterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update(&*(&notification as *const <TileFlyoutNotification as ::windows::core::Abi>::Abi as *const <TileFlyoutNotification as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1598,10 +1722,26 @@ impl ITileFlyoutUpdaterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileFlyoutUpdater>, ::windows::core::GetTrustLevel, Update::<Impl, OFFSET>, Clear::<Impl, OFFSET>, StartPeriodicUpdate::<Impl, OFFSET>, StartPeriodicUpdateAtTime::<Impl, OFFSET>, StopPeriodicUpdate::<Impl, OFFSET>, Setting::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ITileFlyoutUpdater>,
+            ::windows::core::GetTrustLevel,
+            Update::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
+            StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            Setting::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileFlyoutUpdater as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITileNotificationImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
@@ -1609,13 +1749,13 @@ pub trait ITileNotificationImpl: Sized {
     fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ITileNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ITileNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileNotificationImpl, const OFFSET: isize>() -> ITileNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileNotificationVtbl {
         unsafe extern "system" fn Content<Impl: ITileNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -1657,20 +1797,23 @@ impl ITileNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileNotification>, ::windows::core::GetTrustLevel, Content::<Impl, OFFSET>, SetExpirationTime::<Impl, OFFSET>, ExpirationTime::<Impl, OFFSET>, SetTag::<Impl, OFFSET>, Tag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileNotification>, ::windows::core::GetTrustLevel, Content::<Impl, IMPL_OFFSET>, SetExpirationTime::<Impl, IMPL_OFFSET>, ExpirationTime::<Impl, IMPL_OFFSET>, SetTag::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileNotification as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileNotificationFactoryImpl: Sized {
     fn CreateTileNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<TileNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileNotificationFactory {
     const NAME: &'static str = "Windows.UI.Notifications.ITileNotificationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ITileNotificationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileNotificationFactoryImpl, const OFFSET: isize>() -> ITileNotificationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileNotificationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileNotificationFactoryVtbl {
         unsafe extern "system" fn CreateTileNotification<Impl: ITileNotificationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileNotification(&*(&content as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)) {
@@ -1682,23 +1825,26 @@ impl ITileNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileNotificationFactory>, ::windows::core::GetTrustLevel, CreateTileNotification::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileNotificationFactory>, ::windows::core::GetTrustLevel, CreateTileNotification::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileNotificationFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ITileUpdateManagerForUserImpl: Sized {
     fn CreateTileUpdaterForApplication(&self) -> ::windows::core::Result<TileUpdater>;
     fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
     fn CreateTileUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ITileUpdateManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ITileUpdateManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdateManagerForUserImpl, const OFFSET: isize>() -> ITileUpdateManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdateManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileUpdateManagerForUserVtbl {
         unsafe extern "system" fn CreateTileUpdaterForApplication<Impl: ITileUpdateManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileUpdaterForApplication() {
@@ -1743,23 +1889,26 @@ impl ITileUpdateManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerForUser>, ::windows::core::GetTrustLevel, CreateTileUpdaterForApplication::<Impl, OFFSET>, CreateTileUpdaterForApplicationWithId::<Impl, OFFSET>, CreateTileUpdaterForSecondaryTile::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerForUser>, ::windows::core::GetTrustLevel, CreateTileUpdaterForApplication::<Impl, IMPL_OFFSET>, CreateTileUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>, CreateTileUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileUpdateManagerForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileUpdateManagerStaticsImpl: Sized {
     fn CreateTileUpdaterForApplication(&self) -> ::windows::core::Result<TileUpdater>;
     fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
     fn CreateTileUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
     fn GetTemplateContent(&self, r#type: TileTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdateManagerStatics {
     const NAME: &'static str = "Windows.UI.Notifications.ITileUpdateManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ITileUpdateManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdateManagerStaticsImpl, const OFFSET: isize>() -> ITileUpdateManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdateManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileUpdateManagerStaticsVtbl {
         unsafe extern "system" fn CreateTileUpdaterForApplication<Impl: ITileUpdateManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileUpdaterForApplication() {
@@ -1804,20 +1953,34 @@ impl ITileUpdateManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerStatics>, ::windows::core::GetTrustLevel, CreateTileUpdaterForApplication::<Impl, OFFSET>, CreateTileUpdaterForApplicationWithId::<Impl, OFFSET>, CreateTileUpdaterForSecondaryTile::<Impl, OFFSET>, GetTemplateContent::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ITileUpdateManagerStatics>,
+            ::windows::core::GetTrustLevel,
+            CreateTileUpdaterForApplication::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForApplicationWithId::<Impl, IMPL_OFFSET>,
+            CreateTileUpdaterForSecondaryTile::<Impl, IMPL_OFFSET>,
+            GetTemplateContent::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileUpdateManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ITileUpdateManagerStatics2Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<TileUpdateManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdateManagerStatics2 {
     const NAME: &'static str = "Windows.UI.Notifications.ITileUpdateManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ITileUpdateManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdateManagerStatics2Impl, const OFFSET: isize>() -> ITileUpdateManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdateManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileUpdateManagerStatics2Vtbl {
         unsafe extern "system" fn GetForUser<Impl: ITileUpdateManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -1829,10 +1992,13 @@ impl ITileUpdateManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdateManagerStatics2>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileUpdateManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITileUpdaterImpl: Sized {
     fn Update(&self, notification: &::core::option::Option<TileNotification>) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -1847,13 +2013,13 @@ pub trait ITileUpdaterImpl: Sized {
     fn StartPeriodicUpdateBatch(&self, tilecontents: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
     fn StartPeriodicUpdateBatchAtTime(&self, tilecontents: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.ITileUpdater";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ITileUpdaterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdaterImpl, const OFFSET: isize>() -> ITileUpdaterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdaterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileUpdaterVtbl {
         unsafe extern "system" fn Update<Impl: ITileUpdaterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update(&*(&notification as *const <TileNotification as ::windows::core::Abi>::Abi as *const <TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1919,25 +2085,28 @@ impl ITileUpdaterVtbl {
                 .into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITileUpdater>,
             ::windows::core::GetTrustLevel,
-            Update::<Impl, OFFSET>,
-            Clear::<Impl, OFFSET>,
-            EnableNotificationQueue::<Impl, OFFSET>,
-            Setting::<Impl, OFFSET>,
-            AddToSchedule::<Impl, OFFSET>,
-            RemoveFromSchedule::<Impl, OFFSET>,
-            GetScheduledTileNotifications::<Impl, OFFSET>,
-            StartPeriodicUpdate::<Impl, OFFSET>,
-            StartPeriodicUpdateAtTime::<Impl, OFFSET>,
-            StopPeriodicUpdate::<Impl, OFFSET>,
-            StartPeriodicUpdateBatch::<Impl, OFFSET>,
-            StartPeriodicUpdateBatchAtTime::<Impl, OFFSET>,
+            Update::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            EnableNotificationQueue::<Impl, IMPL_OFFSET>,
+            Setting::<Impl, IMPL_OFFSET>,
+            AddToSchedule::<Impl, IMPL_OFFSET>,
+            RemoveFromSchedule::<Impl, IMPL_OFFSET>,
+            GetScheduledTileNotifications::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateAtTime::<Impl, IMPL_OFFSET>,
+            StopPeriodicUpdate::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateBatch::<Impl, IMPL_OFFSET>,
+            StartPeriodicUpdateBatchAtTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileUpdater as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1952,7 +2121,7 @@ impl ::windows::core::RuntimeName for ITileUpdater2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITileUpdater2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdater2Impl, const OFFSET: isize>() -> ITileUpdater2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileUpdater2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileUpdater2Vtbl {
         unsafe extern "system" fn EnableNotificationQueueForSquare150x150<Impl: ITileUpdater2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableNotificationQueueForSquare150x150(enable).into()
@@ -1965,7 +2134,10 @@ impl ITileUpdater2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableNotificationQueueForSquare310x310(enable).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdater2>, ::windows::core::GetTrustLevel, EnableNotificationQueueForSquare150x150::<Impl, OFFSET>, EnableNotificationQueueForWide310x150::<Impl, OFFSET>, EnableNotificationQueueForSquare310x310::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITileUpdater2>, ::windows::core::GetTrustLevel, EnableNotificationQueueForSquare150x150::<Impl, IMPL_OFFSET>, EnableNotificationQueueForWide310x150::<Impl, IMPL_OFFSET>, EnableNotificationQueueForSquare310x310::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITileUpdater2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1978,7 +2150,7 @@ impl ::windows::core::RuntimeName for IToastActivatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastActivatedEventArgsImpl, const OFFSET: isize>() -> IToastActivatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastActivatedEventArgsVtbl {
         unsafe extern "system" fn Arguments<Impl: IToastActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
@@ -1990,20 +2162,23 @@ impl IToastActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastActivatedEventArgs>, ::windows::core::GetTrustLevel, Arguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastActivatedEventArgs>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastActivatedEventArgs2Impl: Sized {
     fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastActivatedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Notifications.IToastActivatedEventArgs2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IToastActivatedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastActivatedEventArgs2Impl, const OFFSET: isize>() -> IToastActivatedEventArgs2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastActivatedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastActivatedEventArgs2Vtbl {
         unsafe extern "system" fn UserInput<Impl: IToastActivatedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserInput() {
@@ -2015,10 +2190,13 @@ impl IToastActivatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastActivatedEventArgs2>, ::windows::core::GetTrustLevel, UserInput::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastActivatedEventArgs2>, ::windows::core::GetTrustLevel, UserInput::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastActivatedEventArgs2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastCollectionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2028,13 +2206,13 @@ pub trait IToastCollectionImpl: Sized {
     fn Icon(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetIcon(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.IToastCollection";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IToastCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastCollectionImpl, const OFFSET: isize>() -> IToastCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastCollectionVtbl {
         unsafe extern "system" fn Id<Impl: IToastCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -2091,20 +2269,37 @@ impl IToastCollectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIcon(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastCollection>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, SetDisplayName::<Impl, OFFSET>, LaunchArgs::<Impl, OFFSET>, SetLaunchArgs::<Impl, OFFSET>, Icon::<Impl, OFFSET>, SetIcon::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IToastCollection>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            LaunchArgs::<Impl, IMPL_OFFSET>,
+            SetLaunchArgs::<Impl, IMPL_OFFSET>,
+            Icon::<Impl, IMPL_OFFSET>,
+            SetIcon::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastCollectionFactoryImpl: Sized {
     fn CreateInstance(&self, collectionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, launchargs: &::windows::core::HSTRING, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ToastCollection>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastCollectionFactory {
     const NAME: &'static str = "Windows.UI.Notifications.IToastCollectionFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IToastCollectionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastCollectionFactoryImpl, const OFFSET: isize>() -> IToastCollectionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastCollectionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastCollectionFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IToastCollectionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collectionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, launchargs: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iconuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(
@@ -2121,10 +2316,13 @@ impl IToastCollectionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastCollectionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastCollectionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastCollectionFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IToastCollectionManagerImpl: Sized {
     fn SaveToastCollectionAsync(&self, collection: &::core::option::Option<ToastCollection>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn FindAllToastCollectionsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>>;
@@ -2134,13 +2332,13 @@ pub trait IToastCollectionManagerImpl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
     fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.IToastCollectionManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IToastCollectionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastCollectionManagerImpl, const OFFSET: isize>() -> IToastCollectionManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastCollectionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastCollectionManagerVtbl {
         unsafe extern "system" fn SaveToastCollectionAsync<Impl: IToastCollectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveToastCollectionAsync(&*(&collection as *const <ToastCollection as ::windows::core::Abi>::Abi as *const <ToastCollection as ::windows::core::DefaultType>::DefaultType)) {
@@ -2219,20 +2417,23 @@ impl IToastCollectionManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IToastCollectionManager>,
             ::windows::core::GetTrustLevel,
-            SaveToastCollectionAsync::<Impl, OFFSET>,
-            FindAllToastCollectionsAsync::<Impl, OFFSET>,
-            GetToastCollectionAsync::<Impl, OFFSET>,
-            RemoveToastCollectionAsync::<Impl, OFFSET>,
-            RemoveAllToastCollectionsAsync::<Impl, OFFSET>,
-            User::<Impl, OFFSET>,
-            AppId::<Impl, OFFSET>,
+            SaveToastCollectionAsync::<Impl, IMPL_OFFSET>,
+            FindAllToastCollectionsAsync::<Impl, IMPL_OFFSET>,
+            GetToastCollectionAsync::<Impl, IMPL_OFFSET>,
+            RemoveToastCollectionAsync::<Impl, IMPL_OFFSET>,
+            RemoveAllToastCollectionsAsync::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+            AppId::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastCollectionManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2245,7 +2446,7 @@ impl ::windows::core::RuntimeName for IToastDismissedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastDismissedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastDismissedEventArgsImpl, const OFFSET: isize>() -> IToastDismissedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastDismissedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastDismissedEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IToastDismissedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ToastDismissalReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -2257,7 +2458,10 @@ impl IToastDismissedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastDismissedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastDismissedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastDismissedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2270,7 +2474,7 @@ impl ::windows::core::RuntimeName for IToastFailedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastFailedEventArgsImpl, const OFFSET: isize>() -> IToastFailedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastFailedEventArgsVtbl {
         unsafe extern "system" fn ErrorCode<Impl: IToastFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
@@ -2282,10 +2486,13 @@ impl IToastFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastFailedEventArgs>, ::windows::core::GetTrustLevel, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastFailedEventArgs>, ::windows::core::GetTrustLevel, ErrorCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastFailedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotificationImpl: Sized {
     fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
@@ -2297,13 +2504,13 @@ pub trait IToastNotificationImpl: Sized {
     fn Failed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveFailed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IToastNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationImpl, const OFFSET: isize>() -> IToastNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationVtbl {
         unsafe extern "system" fn Content<Impl: IToastNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
@@ -2376,22 +2583,25 @@ impl IToastNotificationVtbl {
             (*this).RemoveFailed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IToastNotification>,
             ::windows::core::GetTrustLevel,
-            Content::<Impl, OFFSET>,
-            SetExpirationTime::<Impl, OFFSET>,
-            ExpirationTime::<Impl, OFFSET>,
-            Dismissed::<Impl, OFFSET>,
-            RemoveDismissed::<Impl, OFFSET>,
-            Activated::<Impl, OFFSET>,
-            RemoveActivated::<Impl, OFFSET>,
-            Failed::<Impl, OFFSET>,
-            RemoveFailed::<Impl, OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            SetExpirationTime::<Impl, IMPL_OFFSET>,
+            ExpirationTime::<Impl, IMPL_OFFSET>,
+            Dismissed::<Impl, IMPL_OFFSET>,
+            RemoveDismissed::<Impl, IMPL_OFFSET>,
+            Activated::<Impl, IMPL_OFFSET>,
+            RemoveActivated::<Impl, IMPL_OFFSET>,
+            Failed::<Impl, IMPL_OFFSET>,
+            RemoveFailed::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotification as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2409,7 +2619,7 @@ impl ::windows::core::RuntimeName for IToastNotification2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotification2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification2Impl, const OFFSET: isize>() -> IToastNotification2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotification2Vtbl {
         unsafe extern "system" fn SetTag<Impl: IToastNotification2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTag(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2455,7 +2665,10 @@ impl IToastNotification2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification2>, ::windows::core::GetTrustLevel, SetTag::<Impl, OFFSET>, Tag::<Impl, OFFSET>, SetGroup::<Impl, OFFSET>, Group::<Impl, OFFSET>, SetSuppressPopup::<Impl, OFFSET>, SuppressPopup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification2>, ::windows::core::GetTrustLevel, SetTag::<Impl, IMPL_OFFSET>, Tag::<Impl, IMPL_OFFSET>, SetGroup::<Impl, IMPL_OFFSET>, Group::<Impl, IMPL_OFFSET>, SetSuppressPopup::<Impl, IMPL_OFFSET>, SuppressPopup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotification2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2471,7 +2684,7 @@ impl ::windows::core::RuntimeName for IToastNotification3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotification3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification3Impl, const OFFSET: isize>() -> IToastNotification3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotification3Vtbl {
         unsafe extern "system" fn NotificationMirroring<Impl: IToastNotification3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NotificationMirroring) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotificationMirroring() {
@@ -2502,7 +2715,10 @@ impl IToastNotification3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification3>, ::windows::core::GetTrustLevel, NotificationMirroring::<Impl, OFFSET>, SetNotificationMirroring::<Impl, OFFSET>, RemoteId::<Impl, OFFSET>, SetRemoteId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification3>, ::windows::core::GetTrustLevel, NotificationMirroring::<Impl, IMPL_OFFSET>, SetNotificationMirroring::<Impl, IMPL_OFFSET>, RemoteId::<Impl, IMPL_OFFSET>, SetRemoteId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotification3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2518,7 +2734,7 @@ impl ::windows::core::RuntimeName for IToastNotification4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotification4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification4Impl, const OFFSET: isize>() -> IToastNotification4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotification4Vtbl {
         unsafe extern "system" fn Data<Impl: IToastNotification4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
@@ -2549,7 +2765,10 @@ impl IToastNotification4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPriority(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification4>, ::windows::core::GetTrustLevel, Data::<Impl, OFFSET>, SetData::<Impl, OFFSET>, Priority::<Impl, OFFSET>, SetPriority::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification4>, ::windows::core::GetTrustLevel, Data::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>, Priority::<Impl, IMPL_OFFSET>, SetPriority::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotification4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2563,7 +2782,7 @@ impl ::windows::core::RuntimeName for IToastNotification6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotification6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification6Impl, const OFFSET: isize>() -> IToastNotification6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotification6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotification6Vtbl {
         unsafe extern "system" fn ExpiresOnReboot<Impl: IToastNotification6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpiresOnReboot() {
@@ -2579,21 +2798,24 @@ impl IToastNotification6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpiresOnReboot(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification6>, ::windows::core::GetTrustLevel, ExpiresOnReboot::<Impl, OFFSET>, SetExpiresOnReboot::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotification6>, ::windows::core::GetTrustLevel, ExpiresOnReboot::<Impl, IMPL_OFFSET>, SetExpiresOnReboot::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotification6 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastNotificationActionTriggerDetailImpl: Sized {
     fn Argument(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationActionTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationActionTriggerDetail";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IToastNotificationActionTriggerDetailVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationActionTriggerDetailImpl, const OFFSET: isize>() -> IToastNotificationActionTriggerDetailVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationActionTriggerDetailImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationActionTriggerDetailVtbl {
         unsafe extern "system" fn Argument<Impl: IToastNotificationActionTriggerDetailImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Argument() {
@@ -2616,20 +2838,23 @@ impl IToastNotificationActionTriggerDetailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActionTriggerDetail>, ::windows::core::GetTrustLevel, Argument::<Impl, OFFSET>, UserInput::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActionTriggerDetail>, ::windows::core::GetTrustLevel, Argument::<Impl, IMPL_OFFSET>, UserInput::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationActionTriggerDetail as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IToastNotificationFactoryImpl: Sized {
     fn CreateToastNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<ToastNotification>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationFactory {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IToastNotificationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationFactoryImpl, const OFFSET: isize>() -> IToastNotificationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationFactoryVtbl {
         unsafe extern "system" fn CreateToastNotification<Impl: IToastNotificationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotification(&*(&content as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)) {
@@ -2641,7 +2866,10 @@ impl IToastNotificationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationFactory>, ::windows::core::GetTrustLevel, CreateToastNotification::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationFactory>, ::windows::core::GetTrustLevel, CreateToastNotification::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2660,7 +2888,7 @@ impl ::windows::core::RuntimeName for IToastNotificationHistory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationHistoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryImpl, const OFFSET: isize>() -> IToastNotificationHistoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationHistoryVtbl {
         unsafe extern "system" fn RemoveGroup<Impl: IToastNotificationHistoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGroup(&*(&group as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -2696,34 +2924,37 @@ impl IToastNotificationHistoryVtbl {
             (*this).ClearWithId(&*(&applicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IToastNotificationHistory>,
             ::windows::core::GetTrustLevel,
-            RemoveGroup::<Impl, OFFSET>,
-            RemoveGroupWithId::<Impl, OFFSET>,
-            RemoveGroupedTagWithId::<Impl, OFFSET>,
-            RemoveGroupedTag::<Impl, OFFSET>,
-            Remove::<Impl, OFFSET>,
-            Clear::<Impl, OFFSET>,
-            ClearWithId::<Impl, OFFSET>,
+            RemoveGroup::<Impl, IMPL_OFFSET>,
+            RemoveGroupWithId::<Impl, IMPL_OFFSET>,
+            RemoveGroupedTagWithId::<Impl, IMPL_OFFSET>,
+            RemoveGroupedTag::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            ClearWithId::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationHistory as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastNotificationHistory2Impl: Sized {
     fn GetHistory(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>;
     fn GetHistoryWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationHistory2 {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationHistory2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IToastNotificationHistory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistory2Impl, const OFFSET: isize>() -> IToastNotificationHistory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationHistory2Vtbl {
         unsafe extern "system" fn GetHistory<Impl: IToastNotificationHistory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHistory() {
@@ -2746,7 +2977,10 @@ impl IToastNotificationHistory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistory2>, ::windows::core::GetTrustLevel, GetHistory::<Impl, OFFSET>, GetHistoryWithId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistory2>, ::windows::core::GetTrustLevel, GetHistory::<Impl, IMPL_OFFSET>, GetHistoryWithId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationHistory2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2759,7 +2993,7 @@ impl ::windows::core::RuntimeName for IToastNotificationHistoryChangedTriggerDet
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationHistoryChangedTriggerDetailVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryChangedTriggerDetailImpl, const OFFSET: isize>() -> IToastNotificationHistoryChangedTriggerDetailVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryChangedTriggerDetailImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationHistoryChangedTriggerDetailVtbl {
         unsafe extern "system" fn ChangeType<Impl: IToastNotificationHistoryChangedTriggerDetailImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ToastHistoryChangedType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeType() {
@@ -2771,7 +3005,10 @@ impl IToastNotificationHistoryChangedTriggerDetailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerDetail>, ::windows::core::GetTrustLevel, ChangeType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerDetail>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationHistoryChangedTriggerDetail as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2784,7 +3021,7 @@ impl ::windows::core::RuntimeName for IToastNotificationHistoryChangedTriggerDet
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationHistoryChangedTriggerDetail2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryChangedTriggerDetail2Impl, const OFFSET: isize>() -> IToastNotificationHistoryChangedTriggerDetail2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryChangedTriggerDetail2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationHistoryChangedTriggerDetail2Vtbl {
         unsafe extern "system" fn CollectionId<Impl: IToastNotificationHistoryChangedTriggerDetail2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionId() {
@@ -2796,23 +3033,26 @@ impl IToastNotificationHistoryChangedTriggerDetail2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerDetail2>, ::windows::core::GetTrustLevel, CollectionId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerDetail2>, ::windows::core::GetTrustLevel, CollectionId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationHistoryChangedTriggerDetail2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerForUserImpl: Sized {
     fn CreateToastNotifier(&self) -> ::windows::core::Result<ToastNotifier>;
     fn CreateToastNotifierWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier>;
     fn History(&self) -> ::windows::core::Result<ToastNotificationHistory>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IToastNotificationManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerForUserImpl, const OFFSET: isize>() -> IToastNotificationManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerForUserVtbl {
         unsafe extern "system" fn CreateToastNotifier<Impl: IToastNotificationManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotifier() {
@@ -2857,23 +3097,26 @@ impl IToastNotificationManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerForUser>, ::windows::core::GetTrustLevel, CreateToastNotifier::<Impl, OFFSET>, CreateToastNotifierWithId::<Impl, OFFSET>, History::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerForUser>, ::windows::core::GetTrustLevel, CreateToastNotifier::<Impl, IMPL_OFFSET>, CreateToastNotifierWithId::<Impl, IMPL_OFFSET>, History::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerForUser2Impl: Sized {
     fn GetToastNotifierForToastCollectionIdAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>>;
     fn GetHistoryForToastCollectionIdAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>;
     fn GetToastCollectionManager(&self) -> ::windows::core::Result<ToastCollectionManager>;
     fn GetToastCollectionManagerWithAppId(&self, appid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastCollectionManager>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerForUser2 {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationManagerForUser2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IToastNotificationManagerForUser2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerForUser2Impl, const OFFSET: isize>() -> IToastNotificationManagerForUser2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerForUser2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerForUser2Vtbl {
         unsafe extern "system" fn GetToastNotifierForToastCollectionIdAsync<Impl: IToastNotificationManagerForUser2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collectionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetToastNotifierForToastCollectionIdAsync(&*(&collectionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2919,32 +3162,35 @@ impl IToastNotificationManagerForUser2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IToastNotificationManagerForUser2>,
             ::windows::core::GetTrustLevel,
-            GetToastNotifierForToastCollectionIdAsync::<Impl, OFFSET>,
-            GetHistoryForToastCollectionIdAsync::<Impl, OFFSET>,
-            GetToastCollectionManager::<Impl, OFFSET>,
-            GetToastCollectionManagerWithAppId::<Impl, OFFSET>,
+            GetToastNotifierForToastCollectionIdAsync::<Impl, IMPL_OFFSET>,
+            GetHistoryForToastCollectionIdAsync::<Impl, IMPL_OFFSET>,
+            GetToastCollectionManager::<Impl, IMPL_OFFSET>,
+            GetToastCollectionManagerWithAppId::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerForUser2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerStaticsImpl: Sized {
     fn CreateToastNotifier(&self) -> ::windows::core::Result<ToastNotifier>;
     fn CreateToastNotifierWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier>;
     fn GetTemplateContent(&self, r#type: ToastTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IToastNotificationManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStaticsImpl, const OFFSET: isize>() -> IToastNotificationManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStaticsVtbl {
         unsafe extern "system" fn CreateToastNotifier<Impl: IToastNotificationManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotifier() {
@@ -2978,7 +3224,10 @@ impl IToastNotificationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics>, ::windows::core::GetTrustLevel, CreateToastNotifier::<Impl, OFFSET>, CreateToastNotifierWithId::<Impl, OFFSET>, GetTemplateContent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics>, ::windows::core::GetTrustLevel, CreateToastNotifier::<Impl, IMPL_OFFSET>, CreateToastNotifierWithId::<Impl, IMPL_OFFSET>, GetTemplateContent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2991,7 +3240,7 @@ impl ::windows::core::RuntimeName for IToastNotificationManagerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics2Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStatics2Vtbl {
         unsafe extern "system" fn History<Impl: IToastNotificationManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).History() {
@@ -3003,21 +3252,24 @@ impl IToastNotificationManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics2>, ::windows::core::GetTrustLevel, History::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics2>, ::windows::core::GetTrustLevel, History::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerStatics4Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ToastNotificationManagerForUser>;
     fn ConfigureNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics4 {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotificationManagerStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IToastNotificationManagerStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics4Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStatics4Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IToastNotificationManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -3033,7 +3285,10 @@ impl IToastNotificationManagerStatics4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureNotificationMirroring(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics4>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>, ConfigureNotificationMirroring::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics4>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>, ConfigureNotificationMirroring::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerStatics4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3046,7 +3301,7 @@ impl ::windows::core::RuntimeName for IToastNotificationManagerStatics5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationManagerStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics5Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStatics5Vtbl {
         unsafe extern "system" fn GetDefault<Impl: IToastNotificationManagerStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -3058,10 +3313,13 @@ impl IToastNotificationManagerStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics5>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationManagerStatics5>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationManagerStatics5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastNotifierImpl: Sized {
     fn Show(&self, notification: &::core::option::Option<ToastNotification>) -> ::windows::core::Result<()>;
     fn Hide(&self, notification: &::core::option::Option<ToastNotification>) -> ::windows::core::Result<()>;
@@ -3070,13 +3328,13 @@ pub trait IToastNotifierImpl: Sized {
     fn RemoveFromSchedule(&self, scheduledtoast: &::core::option::Option<ScheduledToastNotification>) -> ::windows::core::Result<()>;
     fn GetScheduledToastNotifications(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotifier";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IToastNotifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotifierImpl, const OFFSET: isize>() -> IToastNotifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotifierVtbl {
         unsafe extern "system" fn Show<Impl: IToastNotifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Show(&*(&notification as *const <ToastNotification as ::windows::core::Abi>::Abi as *const <ToastNotification as ::windows::core::DefaultType>::DefaultType)).into()
@@ -3115,7 +3373,23 @@ impl IToastNotifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier>, ::windows::core::GetTrustLevel, Show::<Impl, OFFSET>, Hide::<Impl, OFFSET>, Setting::<Impl, OFFSET>, AddToSchedule::<Impl, OFFSET>, RemoveFromSchedule::<Impl, OFFSET>, GetScheduledToastNotifications::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IToastNotifier>,
+            ::windows::core::GetTrustLevel,
+            Show::<Impl, IMPL_OFFSET>,
+            Hide::<Impl, IMPL_OFFSET>,
+            Setting::<Impl, IMPL_OFFSET>,
+            AddToSchedule::<Impl, IMPL_OFFSET>,
+            RemoveFromSchedule::<Impl, IMPL_OFFSET>,
+            GetScheduledToastNotifications::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotifier as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3129,7 +3403,7 @@ impl ::windows::core::RuntimeName for IToastNotifier2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotifier2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotifier2Impl, const OFFSET: isize>() -> IToastNotifier2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotifier2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotifier2Vtbl {
         unsafe extern "system" fn UpdateWithTagAndGroup<Impl: IToastNotifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut NotificationUpdateResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateWithTagAndGroup(&*(&data as *const <NotificationData as ::windows::core::Abi>::Abi as *const <NotificationData as ::windows::core::DefaultType>::DefaultType), &*(&tag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&group as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3152,21 +3426,24 @@ impl IToastNotifier2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier2>, ::windows::core::GetTrustLevel, UpdateWithTagAndGroup::<Impl, OFFSET>, UpdateWithTag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier2>, ::windows::core::GetTrustLevel, UpdateWithTagAndGroup::<Impl, IMPL_OFFSET>, UpdateWithTag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotifier2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotifier3Impl: Sized {
     fn ScheduledToastNotificationShowing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveScheduledToastNotificationShowing(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotifier3 {
     const NAME: &'static str = "Windows.UI.Notifications.IToastNotifier3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IToastNotifier3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotifier3Impl, const OFFSET: isize>() -> IToastNotifier3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotifier3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotifier3Vtbl {
         unsafe extern "system" fn ScheduledToastNotificationShowing<Impl: IToastNotifier3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScheduledToastNotificationShowing(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -3182,23 +3459,26 @@ impl IToastNotifier3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScheduledToastNotificationShowing(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier3>, ::windows::core::GetTrustLevel, ScheduledToastNotificationShowing::<Impl, OFFSET>, RemoveScheduledToastNotificationShowing::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotifier3>, ::windows::core::GetTrustLevel, ScheduledToastNotificationShowing::<Impl, IMPL_OFFSET>, RemoveScheduledToastNotificationShowing::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotifier3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserNotificationImpl: Sized {
     fn Notification(&self) -> ::windows::core::Result<Notification>;
     fn AppInfo(&self) -> ::windows::core::Result<super::super::ApplicationModel::AppInfo>;
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn CreationTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.IUserNotification";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserNotificationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationImpl, const OFFSET: isize>() -> IUserNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationVtbl {
         unsafe extern "system" fn Notification<Impl: IUserNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Notification() {
@@ -3243,7 +3523,10 @@ impl IUserNotificationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotification>, ::windows::core::GetTrustLevel, Notification::<Impl, OFFSET>, AppInfo::<Impl, OFFSET>, Id::<Impl, OFFSET>, CreationTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotification>, ::windows::core::GetTrustLevel, Notification::<Impl, IMPL_OFFSET>, AppInfo::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, CreationTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserNotification as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3257,7 +3540,7 @@ impl ::windows::core::RuntimeName for IUserNotificationChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserNotificationChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationChangedEventArgsImpl, const OFFSET: isize>() -> IUserNotificationChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationChangedEventArgsVtbl {
         unsafe extern "system" fn ChangeKind<Impl: IUserNotificationChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserNotificationChangedKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeKind() {
@@ -3280,6 +3563,9 @@ impl IUserNotificationChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationChangedEventArgs>, ::windows::core::GetTrustLevel, ChangeKind::<Impl, OFFSET>, UserNotificationId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationChangedEventArgs>, ::windows::core::GetTrustLevel, ChangeKind::<Impl, IMPL_OFFSET>, UserNotificationId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserNotificationChangedEventArgs as ::windows::core::Interface>::IID
     }
 }

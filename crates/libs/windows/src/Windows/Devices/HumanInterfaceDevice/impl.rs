@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for IHidBooleanControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHidBooleanControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidBooleanControlImpl, const OFFSET: isize>() -> IHidBooleanControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidBooleanControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidBooleanControlVtbl {
         unsafe extern "system" fn Id<Impl: IHidBooleanControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -73,10 +73,13 @@ impl IHidBooleanControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControl>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, UsagePage::<Impl, OFFSET>, UsageId::<Impl, OFFSET>, IsActive::<Impl, OFFSET>, SetIsActive::<Impl, OFFSET>, ControlDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControl>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, UsageId::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, SetIsActive::<Impl, IMPL_OFFSET>, ControlDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidBooleanControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHidBooleanControlDescriptionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn ReportId(&self) -> ::windows::core::Result<u16>;
@@ -85,13 +88,13 @@ pub trait IHidBooleanControlDescriptionImpl: Sized {
     fn UsageId(&self) -> ::windows::core::Result<u16>;
     fn ParentCollections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHidBooleanControlDescriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidBooleanControlDescriptionImpl, const OFFSET: isize>() -> IHidBooleanControlDescriptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidBooleanControlDescriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidBooleanControlDescriptionVtbl {
         unsafe extern "system" fn Id<Impl: IHidBooleanControlDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -158,7 +161,10 @@ impl IHidBooleanControlDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControlDescription>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, ReportId::<Impl, OFFSET>, ReportType::<Impl, OFFSET>, UsagePage::<Impl, OFFSET>, UsageId::<Impl, OFFSET>, ParentCollections::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControlDescription>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, ReportId::<Impl, IMPL_OFFSET>, ReportType::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, UsageId::<Impl, IMPL_OFFSET>, ParentCollections::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidBooleanControlDescription as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -171,7 +177,7 @@ impl ::windows::core::RuntimeName for IHidBooleanControlDescription2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHidBooleanControlDescription2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidBooleanControlDescription2Impl, const OFFSET: isize>() -> IHidBooleanControlDescription2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidBooleanControlDescription2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidBooleanControlDescription2Vtbl {
         unsafe extern "system" fn IsAbsolute<Impl: IHidBooleanControlDescription2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAbsolute() {
@@ -183,7 +189,10 @@ impl IHidBooleanControlDescription2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControlDescription2>, ::windows::core::GetTrustLevel, IsAbsolute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidBooleanControlDescription2>, ::windows::core::GetTrustLevel, IsAbsolute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidBooleanControlDescription2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -199,7 +208,7 @@ impl ::windows::core::RuntimeName for IHidCollection {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHidCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidCollectionImpl, const OFFSET: isize>() -> IHidCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidCollectionVtbl {
         unsafe extern "system" fn Id<Impl: IHidCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -244,10 +253,13 @@ impl IHidCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidCollection>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Type::<Impl, OFFSET>, UsagePage::<Impl, OFFSET>, UsageId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidCollection>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, UsagePage::<Impl, IMPL_OFFSET>, UsageId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHidDeviceImpl: Sized + IClosableImpl {
     fn VendorId(&self) -> ::windows::core::Result<u16>;
     fn ProductId(&self) -> ::windows::core::Result<u16>;
@@ -269,13 +281,13 @@ pub trait IHidDeviceImpl: Sized + IClosableImpl {
     fn InputReportReceived(&self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInputReportReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidDevice";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHidDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidDeviceImpl, const OFFSET: isize>() -> IHidDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidDeviceVtbl {
         unsafe extern "system" fn VendorId<Impl: IHidDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VendorId() {
@@ -479,47 +491,50 @@ impl IHidDeviceVtbl {
             (*this).RemoveInputReportReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHidDevice>,
             ::windows::core::GetTrustLevel,
-            VendorId::<Impl, OFFSET>,
-            ProductId::<Impl, OFFSET>,
-            Version::<Impl, OFFSET>,
-            UsagePage::<Impl, OFFSET>,
-            UsageId::<Impl, OFFSET>,
-            GetInputReportAsync::<Impl, OFFSET>,
-            GetInputReportByIdAsync::<Impl, OFFSET>,
-            GetFeatureReportAsync::<Impl, OFFSET>,
-            GetFeatureReportByIdAsync::<Impl, OFFSET>,
-            CreateOutputReport::<Impl, OFFSET>,
-            CreateOutputReportById::<Impl, OFFSET>,
-            CreateFeatureReport::<Impl, OFFSET>,
-            CreateFeatureReportById::<Impl, OFFSET>,
-            SendOutputReportAsync::<Impl, OFFSET>,
-            SendFeatureReportAsync::<Impl, OFFSET>,
-            GetBooleanControlDescriptions::<Impl, OFFSET>,
-            GetNumericControlDescriptions::<Impl, OFFSET>,
-            InputReportReceived::<Impl, OFFSET>,
-            RemoveInputReportReceived::<Impl, OFFSET>,
+            VendorId::<Impl, IMPL_OFFSET>,
+            ProductId::<Impl, IMPL_OFFSET>,
+            Version::<Impl, IMPL_OFFSET>,
+            UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId::<Impl, IMPL_OFFSET>,
+            GetInputReportAsync::<Impl, IMPL_OFFSET>,
+            GetInputReportByIdAsync::<Impl, IMPL_OFFSET>,
+            GetFeatureReportAsync::<Impl, IMPL_OFFSET>,
+            GetFeatureReportByIdAsync::<Impl, IMPL_OFFSET>,
+            CreateOutputReport::<Impl, IMPL_OFFSET>,
+            CreateOutputReportById::<Impl, IMPL_OFFSET>,
+            CreateFeatureReport::<Impl, IMPL_OFFSET>,
+            CreateFeatureReportById::<Impl, IMPL_OFFSET>,
+            SendOutputReportAsync::<Impl, IMPL_OFFSET>,
+            SendFeatureReportAsync::<Impl, IMPL_OFFSET>,
+            GetBooleanControlDescriptions::<Impl, IMPL_OFFSET>,
+            GetNumericControlDescriptions::<Impl, IMPL_OFFSET>,
+            InputReportReceived::<Impl, IMPL_OFFSET>,
+            RemoveInputReportReceived::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IHidDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorVidPid(&self, usagepage: u16, usageid: u16, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidDeviceStatics {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl IHidDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidDeviceStaticsImpl, const OFFSET: isize>() -> IHidDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: IHidDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector(usagepage, usageid) {
@@ -553,10 +568,13 @@ impl IHidDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorVidPid::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorVidPid::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHidFeatureReportImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u16>;
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -566,13 +584,13 @@ pub trait IHidFeatureReportImpl: Sized {
     fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
     fn GetNumericControlByDescription(&self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidFeatureReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHidFeatureReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidFeatureReportImpl, const OFFSET: isize>() -> IHidFeatureReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidFeatureReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidFeatureReportVtbl {
         unsafe extern "system" fn Id<Impl: IHidFeatureReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -644,23 +662,26 @@ impl IHidFeatureReportVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHidFeatureReport>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            Data::<Impl, OFFSET>,
-            SetData::<Impl, OFFSET>,
-            GetBooleanControl::<Impl, OFFSET>,
-            GetBooleanControlByDescription::<Impl, OFFSET>,
-            GetNumericControl::<Impl, OFFSET>,
-            GetNumericControlByDescription::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Data::<Impl, IMPL_OFFSET>,
+            SetData::<Impl, IMPL_OFFSET>,
+            GetBooleanControl::<Impl, IMPL_OFFSET>,
+            GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
+            GetNumericControl::<Impl, IMPL_OFFSET>,
+            GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidFeatureReport as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHidInputReportImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u16>;
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -671,13 +692,13 @@ pub trait IHidInputReportImpl: Sized {
     fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
     fn GetNumericControlByDescription(&self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidInputReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHidInputReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidInputReportImpl, const OFFSET: isize>() -> IHidInputReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidInputReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidInputReportVtbl {
         unsafe extern "system" fn Id<Impl: IHidInputReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -767,21 +788,24 @@ impl IHidInputReportVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHidInputReport>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            Data::<Impl, OFFSET>,
-            ActivatedBooleanControls::<Impl, OFFSET>,
-            TransitionedBooleanControls::<Impl, OFFSET>,
-            GetBooleanControl::<Impl, OFFSET>,
-            GetBooleanControlByDescription::<Impl, OFFSET>,
-            GetNumericControl::<Impl, OFFSET>,
-            GetNumericControlByDescription::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Data::<Impl, IMPL_OFFSET>,
+            ActivatedBooleanControls::<Impl, IMPL_OFFSET>,
+            TransitionedBooleanControls::<Impl, IMPL_OFFSET>,
+            GetBooleanControl::<Impl, IMPL_OFFSET>,
+            GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
+            GetNumericControl::<Impl, IMPL_OFFSET>,
+            GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidInputReport as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -794,7 +818,7 @@ impl ::windows::core::RuntimeName for IHidInputReportReceivedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHidInputReportReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidInputReportReceivedEventArgsImpl, const OFFSET: isize>() -> IHidInputReportReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidInputReportReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidInputReportReceivedEventArgsVtbl {
         unsafe extern "system" fn Report<Impl: IHidInputReportReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
@@ -806,7 +830,10 @@ impl IHidInputReportReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidInputReportReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHidInputReportReceivedEventArgs>, ::windows::core::GetTrustLevel, Report::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidInputReportReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -827,7 +854,7 @@ impl ::windows::core::RuntimeName for IHidNumericControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHidNumericControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidNumericControlImpl, const OFFSET: isize>() -> IHidNumericControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidNumericControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidNumericControlVtbl {
         unsafe extern "system" fn Id<Impl: IHidNumericControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -914,25 +941,28 @@ impl IHidNumericControlVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHidNumericControl>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            IsGrouped::<Impl, OFFSET>,
-            UsagePage::<Impl, OFFSET>,
-            UsageId::<Impl, OFFSET>,
-            Value::<Impl, OFFSET>,
-            SetValue::<Impl, OFFSET>,
-            ScaledValue::<Impl, OFFSET>,
-            SetScaledValue::<Impl, OFFSET>,
-            ControlDescription::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            IsGrouped::<Impl, IMPL_OFFSET>,
+            UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+            ScaledValue::<Impl, IMPL_OFFSET>,
+            SetScaledValue::<Impl, IMPL_OFFSET>,
+            ControlDescription::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidNumericControl as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHidNumericControlDescriptionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn ReportId(&self) -> ::windows::core::Result<u16>;
@@ -951,13 +981,13 @@ pub trait IHidNumericControlDescriptionImpl: Sized {
     fn HasNull(&self) -> ::windows::core::Result<bool>;
     fn ParentCollections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHidNumericControlDescriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidNumericControlDescriptionImpl, const OFFSET: isize>() -> IHidNumericControlDescriptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidNumericControlDescriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidNumericControlDescriptionVtbl {
         unsafe extern "system" fn Id<Impl: IHidNumericControlDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1135,32 +1165,35 @@ impl IHidNumericControlDescriptionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHidNumericControlDescription>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            ReportId::<Impl, OFFSET>,
-            ReportType::<Impl, OFFSET>,
-            ReportSize::<Impl, OFFSET>,
-            ReportCount::<Impl, OFFSET>,
-            UsagePage::<Impl, OFFSET>,
-            UsageId::<Impl, OFFSET>,
-            LogicalMinimum::<Impl, OFFSET>,
-            LogicalMaximum::<Impl, OFFSET>,
-            PhysicalMinimum::<Impl, OFFSET>,
-            PhysicalMaximum::<Impl, OFFSET>,
-            UnitExponent::<Impl, OFFSET>,
-            Unit::<Impl, OFFSET>,
-            IsAbsolute::<Impl, OFFSET>,
-            HasNull::<Impl, OFFSET>,
-            ParentCollections::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            ReportId::<Impl, IMPL_OFFSET>,
+            ReportType::<Impl, IMPL_OFFSET>,
+            ReportSize::<Impl, IMPL_OFFSET>,
+            ReportCount::<Impl, IMPL_OFFSET>,
+            UsagePage::<Impl, IMPL_OFFSET>,
+            UsageId::<Impl, IMPL_OFFSET>,
+            LogicalMinimum::<Impl, IMPL_OFFSET>,
+            LogicalMaximum::<Impl, IMPL_OFFSET>,
+            PhysicalMinimum::<Impl, IMPL_OFFSET>,
+            PhysicalMaximum::<Impl, IMPL_OFFSET>,
+            UnitExponent::<Impl, IMPL_OFFSET>,
+            Unit::<Impl, IMPL_OFFSET>,
+            IsAbsolute::<Impl, IMPL_OFFSET>,
+            HasNull::<Impl, IMPL_OFFSET>,
+            ParentCollections::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidNumericControlDescription as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHidOutputReportImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u16>;
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -1170,13 +1203,13 @@ pub trait IHidOutputReportImpl: Sized {
     fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
     fn GetNumericControlByDescription(&self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.IHidOutputReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IHidOutputReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidOutputReportImpl, const OFFSET: isize>() -> IHidOutputReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidOutputReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidOutputReportVtbl {
         unsafe extern "system" fn Id<Impl: IHidOutputReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1248,19 +1281,22 @@ impl IHidOutputReportVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHidOutputReport>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            Data::<Impl, OFFSET>,
-            SetData::<Impl, OFFSET>,
-            GetBooleanControl::<Impl, OFFSET>,
-            GetBooleanControlByDescription::<Impl, OFFSET>,
-            GetNumericControl::<Impl, OFFSET>,
-            GetNumericControlByDescription::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Data::<Impl, IMPL_OFFSET>,
+            SetData::<Impl, IMPL_OFFSET>,
+            GetBooleanControl::<Impl, IMPL_OFFSET>,
+            GetBooleanControlByDescription::<Impl, IMPL_OFFSET>,
+            GetNumericControl::<Impl, IMPL_OFFSET>,
+            GetNumericControlByDescription::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHidOutputReport as ::windows::core::Interface>::IID
     }
 }

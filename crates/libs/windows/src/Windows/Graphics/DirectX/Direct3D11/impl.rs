@@ -8,12 +8,15 @@ impl ::windows::core::RuntimeName for IDirect3DDevice {
 }
 #[cfg(feature = "Foundation")]
 impl IDirect3DDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDeviceImpl, const OFFSET: isize>() -> IDirect3DDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirect3DDeviceVtbl {
         unsafe extern "system" fn Trim<Impl: IDirect3DDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Trim().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3DDevice>, ::windows::core::GetTrustLevel, Trim::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3DDevice>, ::windows::core::GetTrustLevel, Trim::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirect3DDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Foundation")]
@@ -26,7 +29,7 @@ impl ::windows::core::RuntimeName for IDirect3DSurface {
 }
 #[cfg(feature = "Foundation")]
 impl IDirect3DSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSurfaceImpl, const OFFSET: isize>() -> IDirect3DSurfaceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirect3DSurfaceVtbl {
         unsafe extern "system" fn Description<Impl: IDirect3DSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
@@ -38,6 +41,9 @@ impl IDirect3DSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3DSurface>, ::windows::core::GetTrustLevel, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3DSurface>, ::windows::core::GetTrustLevel, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirect3DSurface as ::windows::core::Interface>::IID
     }
 }

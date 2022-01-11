@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileOpenPickerImpl: Sized {
     fn ViewMode(&self) -> ::windows::core::Result<PickerViewMode>;
     fn SetViewMode(&self, value: PickerViewMode) -> ::windows::core::Result<()>;
@@ -12,13 +12,13 @@ pub trait IFileOpenPickerImpl: Sized {
     fn PickSingleFileAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
     fn PickMultipleFilesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileOpenPicker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileOpenPickerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerImpl, const OFFSET: isize>() -> IFileOpenPickerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerVtbl {
         unsafe extern "system" fn ViewMode<Impl: IFileOpenPickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PickerViewMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewMode() {
@@ -113,39 +113,42 @@ impl IFileOpenPickerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileOpenPicker>,
             ::windows::core::GetTrustLevel,
-            ViewMode::<Impl, OFFSET>,
-            SetViewMode::<Impl, OFFSET>,
-            SettingsIdentifier::<Impl, OFFSET>,
-            SetSettingsIdentifier::<Impl, OFFSET>,
-            SuggestedStartLocation::<Impl, OFFSET>,
-            SetSuggestedStartLocation::<Impl, OFFSET>,
-            CommitButtonText::<Impl, OFFSET>,
-            SetCommitButtonText::<Impl, OFFSET>,
-            FileTypeFilter::<Impl, OFFSET>,
-            PickSingleFileAsync::<Impl, OFFSET>,
-            PickMultipleFilesAsync::<Impl, OFFSET>,
+            ViewMode::<Impl, IMPL_OFFSET>,
+            SetViewMode::<Impl, IMPL_OFFSET>,
+            SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            FileTypeFilter::<Impl, IMPL_OFFSET>,
+            PickSingleFileAsync::<Impl, IMPL_OFFSET>,
+            PickMultipleFilesAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPicker as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileOpenPicker2Impl: Sized {
     fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn PickSingleFileAndContinue(&self) -> ::windows::core::Result<()>;
     fn PickMultipleFilesAndContinue(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPicker2 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileOpenPicker2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileOpenPicker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPicker2Impl, const OFFSET: isize>() -> IFileOpenPicker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPicker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPicker2Vtbl {
         unsafe extern "system" fn ContinuationData<Impl: IFileOpenPicker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContinuationData() {
@@ -165,20 +168,23 @@ impl IFileOpenPicker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PickMultipleFilesAndContinue().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, OFFSET>, PickSingleFileAndContinue::<Impl, OFFSET>, PickMultipleFilesAndContinue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>, PickSingleFileAndContinue::<Impl, IMPL_OFFSET>, PickMultipleFilesAndContinue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPicker2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IFileOpenPicker3Impl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPicker3 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileOpenPicker3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IFileOpenPicker3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPicker3Impl, const OFFSET: isize>() -> IFileOpenPicker3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPicker3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPicker3Vtbl {
         unsafe extern "system" fn User<Impl: IFileOpenPicker3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -190,20 +196,23 @@ impl IFileOpenPicker3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPicker3>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPicker3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPicker3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFileOpenPickerStaticsImpl: Sized {
     fn ResumePickSingleFileAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPickerStatics {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileOpenPickerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFileOpenPickerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerStaticsImpl, const OFFSET: isize>() -> IFileOpenPickerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerStaticsVtbl {
         unsafe extern "system" fn ResumePickSingleFileAsync<Impl: IFileOpenPickerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResumePickSingleFileAsync() {
@@ -215,20 +224,23 @@ impl IFileOpenPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerStatics>, ::windows::core::GetTrustLevel, ResumePickSingleFileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerStatics>, ::windows::core::GetTrustLevel, ResumePickSingleFileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPickerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IFileOpenPickerStatics2Impl: Sized {
     fn CreateForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<FileOpenPicker>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPickerStatics2 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileOpenPickerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IFileOpenPickerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerStatics2Impl, const OFFSET: isize>() -> IFileOpenPickerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerStatics2Vtbl {
         unsafe extern "system" fn CreateForUser<Impl: IFileOpenPickerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -240,20 +252,23 @@ impl IFileOpenPickerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerStatics2>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerStatics2>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPickerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFileOpenPickerWithOperationIdImpl: Sized {
     fn PickSingleFileAsync(&self, pickeroperationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPickerWithOperationId {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileOpenPickerWithOperationId";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFileOpenPickerWithOperationIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerWithOperationIdImpl, const OFFSET: isize>() -> IFileOpenPickerWithOperationIdVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerWithOperationIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerWithOperationIdVtbl {
         unsafe extern "system" fn PickSingleFileAsync<Impl: IFileOpenPickerWithOperationIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pickeroperationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PickSingleFileAsync(&*(&pickeroperationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -265,10 +280,13 @@ impl IFileOpenPickerWithOperationIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerWithOperationId>, ::windows::core::GetTrustLevel, PickSingleFileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileOpenPickerWithOperationId>, ::windows::core::GetTrustLevel, PickSingleFileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileOpenPickerWithOperationId as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileSavePickerImpl: Sized {
     fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetSettingsIdentifier(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -285,13 +303,13 @@ pub trait IFileSavePickerImpl: Sized {
     fn SetSuggestedFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PickSaveFileAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileSavePicker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileSavePickerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerImpl, const OFFSET: isize>() -> IFileSavePickerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePickerVtbl {
         unsafe extern "system" fn SettingsIdentifier<Impl: IFileSavePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SettingsIdentifier() {
@@ -405,41 +423,44 @@ impl IFileSavePickerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFileSavePicker>,
             ::windows::core::GetTrustLevel,
-            SettingsIdentifier::<Impl, OFFSET>,
-            SetSettingsIdentifier::<Impl, OFFSET>,
-            SuggestedStartLocation::<Impl, OFFSET>,
-            SetSuggestedStartLocation::<Impl, OFFSET>,
-            CommitButtonText::<Impl, OFFSET>,
-            SetCommitButtonText::<Impl, OFFSET>,
-            FileTypeChoices::<Impl, OFFSET>,
-            DefaultFileExtension::<Impl, OFFSET>,
-            SetDefaultFileExtension::<Impl, OFFSET>,
-            SuggestedSaveFile::<Impl, OFFSET>,
-            SetSuggestedSaveFile::<Impl, OFFSET>,
-            SuggestedFileName::<Impl, OFFSET>,
-            SetSuggestedFileName::<Impl, OFFSET>,
-            PickSaveFileAsync::<Impl, OFFSET>,
+            SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            FileTypeChoices::<Impl, IMPL_OFFSET>,
+            DefaultFileExtension::<Impl, IMPL_OFFSET>,
+            SetDefaultFileExtension::<Impl, IMPL_OFFSET>,
+            SuggestedSaveFile::<Impl, IMPL_OFFSET>,
+            SetSuggestedSaveFile::<Impl, IMPL_OFFSET>,
+            SuggestedFileName::<Impl, IMPL_OFFSET>,
+            SetSuggestedFileName::<Impl, IMPL_OFFSET>,
+            PickSaveFileAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileSavePicker as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileSavePicker2Impl: Sized {
     fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn PickSaveFileAndContinue(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileSavePicker2 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileSavePicker2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFileSavePicker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePicker2Impl, const OFFSET: isize>() -> IFileSavePicker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePicker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePicker2Vtbl {
         unsafe extern "system" fn ContinuationData<Impl: IFileSavePicker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContinuationData() {
@@ -455,7 +476,10 @@ impl IFileSavePicker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PickSaveFileAndContinue().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, OFFSET>, PickSaveFileAndContinue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>, PickSaveFileAndContinue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileSavePicker2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -469,7 +493,7 @@ impl ::windows::core::RuntimeName for IFileSavePicker3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFileSavePicker3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePicker3Impl, const OFFSET: isize>() -> IFileSavePicker3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePicker3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePicker3Vtbl {
         unsafe extern "system" fn EnterpriseId<Impl: IFileSavePicker3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterpriseId() {
@@ -485,20 +509,23 @@ impl IFileSavePicker3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnterpriseId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker3>, ::windows::core::GetTrustLevel, EnterpriseId::<Impl, OFFSET>, SetEnterpriseId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker3>, ::windows::core::GetTrustLevel, EnterpriseId::<Impl, IMPL_OFFSET>, SetEnterpriseId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileSavePicker3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IFileSavePicker4Impl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileSavePicker4 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileSavePicker4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IFileSavePicker4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePicker4Impl, const OFFSET: isize>() -> IFileSavePicker4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePicker4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePicker4Vtbl {
         unsafe extern "system" fn User<Impl: IFileSavePicker4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -510,20 +537,23 @@ impl IFileSavePicker4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker4>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePicker4>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileSavePicker4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IFileSavePickerStaticsImpl: Sized {
     fn CreateForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<FileSavePicker>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileSavePickerStatics {
     const NAME: &'static str = "Windows.Storage.Pickers.IFileSavePickerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IFileSavePickerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerStaticsImpl, const OFFSET: isize>() -> IFileSavePickerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePickerStaticsVtbl {
         unsafe extern "system" fn CreateForUser<Impl: IFileSavePickerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -535,10 +565,13 @@ impl IFileSavePickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileSavePickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFileSavePickerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFolderPickerImpl: Sized {
     fn ViewMode(&self) -> ::windows::core::Result<PickerViewMode>;
     fn SetViewMode(&self, value: PickerViewMode) -> ::windows::core::Result<()>;
@@ -551,13 +584,13 @@ pub trait IFolderPickerImpl: Sized {
     fn FileTypeFilter(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn PickSingleFolderAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.IFolderPicker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFolderPickerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPickerImpl, const OFFSET: isize>() -> IFolderPickerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPickerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFolderPickerVtbl {
         unsafe extern "system" fn ViewMode<Impl: IFolderPickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PickerViewMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewMode() {
@@ -641,37 +674,40 @@ impl IFolderPickerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFolderPicker>,
             ::windows::core::GetTrustLevel,
-            ViewMode::<Impl, OFFSET>,
-            SetViewMode::<Impl, OFFSET>,
-            SettingsIdentifier::<Impl, OFFSET>,
-            SetSettingsIdentifier::<Impl, OFFSET>,
-            SuggestedStartLocation::<Impl, OFFSET>,
-            SetSuggestedStartLocation::<Impl, OFFSET>,
-            CommitButtonText::<Impl, OFFSET>,
-            SetCommitButtonText::<Impl, OFFSET>,
-            FileTypeFilter::<Impl, OFFSET>,
-            PickSingleFolderAsync::<Impl, OFFSET>,
+            ViewMode::<Impl, IMPL_OFFSET>,
+            SetViewMode::<Impl, IMPL_OFFSET>,
+            SettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SetSettingsIdentifier::<Impl, IMPL_OFFSET>,
+            SuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            SetSuggestedStartLocation::<Impl, IMPL_OFFSET>,
+            CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            FileTypeFilter::<Impl, IMPL_OFFSET>,
+            PickSingleFolderAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFolderPicker as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFolderPicker2Impl: Sized {
     fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn PickFolderAndContinue(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFolderPicker2 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFolderPicker2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IFolderPicker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPicker2Impl, const OFFSET: isize>() -> IFolderPicker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPicker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFolderPicker2Vtbl {
         unsafe extern "system" fn ContinuationData<Impl: IFolderPicker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContinuationData() {
@@ -687,20 +723,23 @@ impl IFolderPicker2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PickFolderAndContinue().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, OFFSET>, PickFolderAndContinue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPicker2>, ::windows::core::GetTrustLevel, ContinuationData::<Impl, IMPL_OFFSET>, PickFolderAndContinue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFolderPicker2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IFolderPicker3Impl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFolderPicker3 {
     const NAME: &'static str = "Windows.Storage.Pickers.IFolderPicker3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IFolderPicker3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPicker3Impl, const OFFSET: isize>() -> IFolderPicker3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPicker3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFolderPicker3Vtbl {
         unsafe extern "system" fn User<Impl: IFolderPicker3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -712,20 +751,23 @@ impl IFolderPicker3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPicker3>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPicker3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFolderPicker3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IFolderPickerStaticsImpl: Sized {
     fn CreateForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<FolderPicker>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFolderPickerStatics {
     const NAME: &'static str = "Windows.Storage.Pickers.IFolderPickerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IFolderPickerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPickerStaticsImpl, const OFFSET: isize>() -> IFolderPickerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderPickerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFolderPickerStaticsVtbl {
         unsafe extern "system" fn CreateForUser<Impl: IFolderPickerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -737,6 +779,9 @@ impl IFolderPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFolderPickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFolderPickerStatics as ::windows::core::Interface>::IID
     }
 }

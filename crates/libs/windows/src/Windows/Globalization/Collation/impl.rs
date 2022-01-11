@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for ICharacterGrouping {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICharacterGroupingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICharacterGroupingImpl, const OFFSET: isize>() -> ICharacterGroupingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICharacterGroupingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICharacterGroupingVtbl {
         unsafe extern "system" fn First<Impl: ICharacterGroupingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).First() {
@@ -32,7 +32,10 @@ impl ICharacterGroupingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICharacterGrouping>, ::windows::core::GetTrustLevel, First::<Impl, OFFSET>, Label::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICharacterGrouping>, ::windows::core::GetTrustLevel, First::<Impl, IMPL_OFFSET>, Label::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICharacterGrouping as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -45,7 +48,7 @@ impl ::windows::core::RuntimeName for ICharacterGroupings {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ICharacterGroupingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICharacterGroupingsImpl, const OFFSET: isize>() -> ICharacterGroupingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICharacterGroupingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICharacterGroupingsVtbl {
         unsafe extern "system" fn Lookup<Impl: ICharacterGroupingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lookup(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -57,7 +60,10 @@ impl ICharacterGroupingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICharacterGroupings>, ::windows::core::GetTrustLevel, Lookup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICharacterGroupings>, ::windows::core::GetTrustLevel, Lookup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICharacterGroupings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -70,7 +76,7 @@ impl ::windows::core::RuntimeName for ICharacterGroupingsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICharacterGroupingsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICharacterGroupingsFactoryImpl, const OFFSET: isize>() -> ICharacterGroupingsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICharacterGroupingsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICharacterGroupingsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ICharacterGroupingsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&language as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -82,6 +88,9 @@ impl ICharacterGroupingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICharacterGroupingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICharacterGroupingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICharacterGroupingsFactory as ::windows::core::Interface>::IID
     }
 }

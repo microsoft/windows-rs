@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IConnectionRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IConnectionRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionRequestedEventArgsImpl, const OFFSET: isize>() -> IConnectionRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectionRequestedEventArgsVtbl {
         unsafe extern "system" fn PeerInformation<Impl: IConnectionRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerInformation() {
@@ -20,10 +20,13 @@ impl IConnectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionRequestedEventArgs>, ::windows::core::GetTrustLevel, PeerInformation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IConnectionRequestedEventArgs>, ::windows::core::GetTrustLevel, PeerInformation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnectionRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPeerFinderStaticsImpl: Sized {
     fn AllowBluetooth(&self) -> ::windows::core::Result<bool>;
     fn SetAllowBluetooth(&self, value: bool) -> ::windows::core::Result<()>;
@@ -45,13 +48,13 @@ pub trait IPeerFinderStaticsImpl: Sized {
     fn FindAllPeersAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>>;
     fn ConnectAsync(&self, peerinformation: &::core::option::Option<PeerInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPeerFinderStatics {
     const NAME: &'static str = "Windows.Networking.Proximity.IPeerFinderStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPeerFinderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerFinderStaticsImpl, const OFFSET: isize>() -> IPeerFinderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerFinderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeerFinderStaticsVtbl {
         unsafe extern "system" fn AllowBluetooth<Impl: IPeerFinderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowBluetooth() {
@@ -199,35 +202,38 @@ impl IPeerFinderStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPeerFinderStatics>,
             ::windows::core::GetTrustLevel,
-            AllowBluetooth::<Impl, OFFSET>,
-            SetAllowBluetooth::<Impl, OFFSET>,
-            AllowInfrastructure::<Impl, OFFSET>,
-            SetAllowInfrastructure::<Impl, OFFSET>,
-            AllowWiFiDirect::<Impl, OFFSET>,
-            SetAllowWiFiDirect::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            SupportedDiscoveryTypes::<Impl, OFFSET>,
-            AlternateIdentities::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            StartWithMessage::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            TriggeredConnectionStateChanged::<Impl, OFFSET>,
-            RemoveTriggeredConnectionStateChanged::<Impl, OFFSET>,
-            ConnectionRequested::<Impl, OFFSET>,
-            RemoveConnectionRequested::<Impl, OFFSET>,
-            FindAllPeersAsync::<Impl, OFFSET>,
-            ConnectAsync::<Impl, OFFSET>,
+            AllowBluetooth::<Impl, IMPL_OFFSET>,
+            SetAllowBluetooth::<Impl, IMPL_OFFSET>,
+            AllowInfrastructure::<Impl, IMPL_OFFSET>,
+            SetAllowInfrastructure::<Impl, IMPL_OFFSET>,
+            AllowWiFiDirect::<Impl, IMPL_OFFSET>,
+            SetAllowWiFiDirect::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            SupportedDiscoveryTypes::<Impl, IMPL_OFFSET>,
+            AlternateIdentities::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            StartWithMessage::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            TriggeredConnectionStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveTriggeredConnectionStateChanged::<Impl, IMPL_OFFSET>,
+            ConnectionRequested::<Impl, IMPL_OFFSET>,
+            RemoveConnectionRequested::<Impl, IMPL_OFFSET>,
+            FindAllPeersAsync::<Impl, IMPL_OFFSET>,
+            ConnectAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeerFinderStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPeerFinderStatics2Impl: Sized {
     fn Role(&self) -> ::windows::core::Result<PeerRole>;
     fn SetRole(&self, value: PeerRole) -> ::windows::core::Result<()>;
@@ -235,13 +241,13 @@ pub trait IPeerFinderStatics2Impl: Sized {
     fn SetDiscoveryData(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn CreateWatcher(&self) -> ::windows::core::Result<PeerWatcher>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPeerFinderStatics2 {
     const NAME: &'static str = "Windows.Networking.Proximity.IPeerFinderStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPeerFinderStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerFinderStatics2Impl, const OFFSET: isize>() -> IPeerFinderStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerFinderStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeerFinderStatics2Vtbl {
         unsafe extern "system" fn Role<Impl: IPeerFinderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PeerRole) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Role() {
@@ -283,7 +289,10 @@ impl IPeerFinderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerFinderStatics2>, ::windows::core::GetTrustLevel, Role::<Impl, OFFSET>, SetRole::<Impl, OFFSET>, DiscoveryData::<Impl, OFFSET>, SetDiscoveryData::<Impl, OFFSET>, CreateWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerFinderStatics2>, ::windows::core::GetTrustLevel, Role::<Impl, IMPL_OFFSET>, SetRole::<Impl, IMPL_OFFSET>, DiscoveryData::<Impl, IMPL_OFFSET>, SetDiscoveryData::<Impl, IMPL_OFFSET>, CreateWatcher::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeerFinderStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -296,7 +305,7 @@ impl ::windows::core::RuntimeName for IPeerInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPeerInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerInformationImpl, const OFFSET: isize>() -> IPeerInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeerInformationVtbl {
         unsafe extern "system" fn DisplayName<Impl: IPeerInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -308,21 +317,24 @@ impl IPeerInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeerInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPeerInformation3Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DiscoveryData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPeerInformation3 {
     const NAME: &'static str = "Windows.Networking.Proximity.IPeerInformation3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPeerInformation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerInformation3Impl, const OFFSET: isize>() -> IPeerInformation3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerInformation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeerInformation3Vtbl {
         unsafe extern "system" fn Id<Impl: IPeerInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -345,7 +357,10 @@ impl IPeerInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformation3>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DiscoveryData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformation3>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, DiscoveryData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeerInformation3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -359,7 +374,7 @@ impl ::windows::core::RuntimeName for IPeerInformationWithHostAndService {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPeerInformationWithHostAndServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerInformationWithHostAndServiceImpl, const OFFSET: isize>() -> IPeerInformationWithHostAndServiceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerInformationWithHostAndServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeerInformationWithHostAndServiceVtbl {
         unsafe extern "system" fn HostName<Impl: IPeerInformationWithHostAndServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HostName() {
@@ -382,10 +397,13 @@ impl IPeerInformationWithHostAndServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformationWithHostAndService>, ::windows::core::GetTrustLevel, HostName::<Impl, OFFSET>, ServiceName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPeerInformationWithHostAndService>, ::windows::core::GetTrustLevel, HostName::<Impl, IMPL_OFFSET>, ServiceName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeerInformationWithHostAndService as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPeerWatcherImpl: Sized {
     fn Added(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -401,13 +419,13 @@ pub trait IPeerWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.IPeerWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPeerWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerWatcherImpl, const OFFSET: isize>() -> IPeerWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeerWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeerWatcherVtbl {
         unsafe extern "system" fn Added<Impl: IPeerWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation> as ::windows::core::DefaultType>::DefaultType)) {
@@ -503,29 +521,32 @@ impl IPeerWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPeerWatcher>,
             ::windows::core::GetTrustLevel,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            Removed::<Impl, OFFSET>,
-            RemoveRemoved::<Impl, OFFSET>,
-            Updated::<Impl, OFFSET>,
-            RemoveUpdated::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            Removed::<Impl, IMPL_OFFSET>,
+            RemoveRemoved::<Impl, IMPL_OFFSET>,
+            Updated::<Impl, IMPL_OFFSET>,
+            RemoveUpdated::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPeerWatcher as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IProximityDeviceImpl: Sized {
     fn SubscribeForMessage(&self, messagetype: &::windows::core::HSTRING, messagereceivedhandler: &::core::option::Option<MessageReceivedHandler>) -> ::windows::core::Result<i64>;
     fn PublishMessage(&self, messagetype: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<i64>;
@@ -544,13 +565,13 @@ pub trait IProximityDeviceImpl: Sized {
     fn BitsPerSecond(&self) -> ::windows::core::Result<u64>;
     fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.IProximityDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IProximityDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProximityDeviceImpl, const OFFSET: isize>() -> IProximityDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProximityDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProximityDeviceVtbl {
         unsafe extern "system" fn SubscribeForMessage<Impl: IProximityDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, messagereceivedhandler: ::windows::core::RawPtr, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscribeForMessage(&*(&messagetype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&messagereceivedhandler as *const <MessageReceivedHandler as ::windows::core::Abi>::Abi as *const <MessageReceivedHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -708,29 +729,32 @@ impl IProximityDeviceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProximityDevice>,
             ::windows::core::GetTrustLevel,
-            SubscribeForMessage::<Impl, OFFSET>,
-            PublishMessage::<Impl, OFFSET>,
-            PublishMessageWithCallback::<Impl, OFFSET>,
-            PublishBinaryMessage::<Impl, OFFSET>,
-            PublishBinaryMessageWithCallback::<Impl, OFFSET>,
-            PublishUriMessage::<Impl, OFFSET>,
-            PublishUriMessageWithCallback::<Impl, OFFSET>,
-            StopSubscribingForMessage::<Impl, OFFSET>,
-            StopPublishingMessage::<Impl, OFFSET>,
-            DeviceArrived::<Impl, OFFSET>,
-            RemoveDeviceArrived::<Impl, OFFSET>,
-            DeviceDeparted::<Impl, OFFSET>,
-            RemoveDeviceDeparted::<Impl, OFFSET>,
-            MaxMessageBytes::<Impl, OFFSET>,
-            BitsPerSecond::<Impl, OFFSET>,
-            DeviceId::<Impl, OFFSET>,
+            SubscribeForMessage::<Impl, IMPL_OFFSET>,
+            PublishMessage::<Impl, IMPL_OFFSET>,
+            PublishMessageWithCallback::<Impl, IMPL_OFFSET>,
+            PublishBinaryMessage::<Impl, IMPL_OFFSET>,
+            PublishBinaryMessageWithCallback::<Impl, IMPL_OFFSET>,
+            PublishUriMessage::<Impl, IMPL_OFFSET>,
+            PublishUriMessageWithCallback::<Impl, IMPL_OFFSET>,
+            StopSubscribingForMessage::<Impl, IMPL_OFFSET>,
+            StopPublishingMessage::<Impl, IMPL_OFFSET>,
+            DeviceArrived::<Impl, IMPL_OFFSET>,
+            RemoveDeviceArrived::<Impl, IMPL_OFFSET>,
+            DeviceDeparted::<Impl, IMPL_OFFSET>,
+            RemoveDeviceDeparted::<Impl, IMPL_OFFSET>,
+            MaxMessageBytes::<Impl, IMPL_OFFSET>,
+            BitsPerSecond::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProximityDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -745,7 +769,7 @@ impl ::windows::core::RuntimeName for IProximityDeviceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProximityDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProximityDeviceStaticsImpl, const OFFSET: isize>() -> IProximityDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProximityDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProximityDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: IProximityDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -779,23 +803,26 @@ impl IProximityDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximityDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDefault::<Impl, OFFSET>, FromId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximityDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>, FromId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProximityDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IProximityMessageImpl: Sized {
     fn MessageType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SubscriptionId(&self) -> ::windows::core::Result<i64>;
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn DataAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.IProximityMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IProximityMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProximityMessageImpl, const OFFSET: isize>() -> IProximityMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProximityMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProximityMessageVtbl {
         unsafe extern "system" fn MessageType<Impl: IProximityMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
@@ -840,22 +867,25 @@ impl IProximityMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximityMessage>, ::windows::core::GetTrustLevel, MessageType::<Impl, OFFSET>, SubscriptionId::<Impl, OFFSET>, Data::<Impl, OFFSET>, DataAsString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProximityMessage>, ::windows::core::GetTrustLevel, MessageType::<Impl, IMPL_OFFSET>, SubscriptionId::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>, DataAsString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProximityMessage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait ITriggeredConnectionStateChangedEventArgsImpl: Sized {
     fn State(&self) -> ::windows::core::Result<TriggeredConnectState>;
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn Socket(&self) -> ::windows::core::Result<super::Sockets::StreamSocket>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ITriggeredConnectionStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITriggeredConnectionStateChangedEventArgsImpl, const OFFSET: isize>() -> ITriggeredConnectionStateChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITriggeredConnectionStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITriggeredConnectionStateChangedEventArgsVtbl {
         unsafe extern "system" fn State<Impl: ITriggeredConnectionStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TriggeredConnectState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -889,6 +919,9 @@ impl ITriggeredConnectionStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITriggeredConnectionStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, Id::<Impl, OFFSET>, Socket::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITriggeredConnectionStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>, Socket::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITriggeredConnectionStateChangedEventArgs as ::windows::core::Interface>::IID
     }
 }

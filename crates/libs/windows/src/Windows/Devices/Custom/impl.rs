@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICustomDeviceImpl: Sized {
     fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
     fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
     fn SendIOControlAsync(&self, iocontrolcode: &::core::option::Option<IIOControlCode>, inputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, outputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn TrySendIOControlAsync(&self, iocontrolcode: &::core::option::Option<IIOControlCode>, inputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, outputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.ICustomDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICustomDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomDeviceImpl, const OFFSET: isize>() -> ICustomDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomDeviceVtbl {
         unsafe extern "system" fn InputStream<Impl: ICustomDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
@@ -64,21 +64,24 @@ impl ICustomDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomDevice>, ::windows::core::GetTrustLevel, InputStream::<Impl, OFFSET>, OutputStream::<Impl, OFFSET>, SendIOControlAsync::<Impl, OFFSET>, TrySendIOControlAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomDevice>, ::windows::core::GetTrustLevel, InputStream::<Impl, IMPL_OFFSET>, OutputStream::<Impl, IMPL_OFFSET>, SendIOControlAsync::<Impl, IMPL_OFFSET>, TrySendIOControlAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICustomDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self, classguid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICustomDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Custom.ICustomDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICustomDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomDeviceStaticsImpl, const OFFSET: isize>() -> ICustomDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ICustomDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classguid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector(&*(&classguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
@@ -101,7 +104,10 @@ impl ICustomDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomDeviceStatics as ::windows::core::Interface>::IID
     }
 }
 pub trait IIOControlCodeImpl: Sized {
@@ -115,7 +121,7 @@ impl ::windows::core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
 impl IIOControlCodeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCodeImpl, const OFFSET: isize>() -> IIOControlCodeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCodeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIOControlCodeVtbl {
         unsafe extern "system" fn AccessMode<Impl: IIOControlCodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlAccessMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessMode() {
@@ -171,7 +177,10 @@ impl IIOControlCodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIOControlCode>, ::windows::core::GetTrustLevel, AccessMode::<Impl, OFFSET>, BufferingMethod::<Impl, OFFSET>, Function::<Impl, OFFSET>, DeviceType::<Impl, OFFSET>, ControlCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIOControlCode>, ::windows::core::GetTrustLevel, AccessMode::<Impl, IMPL_OFFSET>, BufferingMethod::<Impl, IMPL_OFFSET>, Function::<Impl, IMPL_OFFSET>, DeviceType::<Impl, IMPL_OFFSET>, ControlCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIOControlCode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -184,7 +193,7 @@ impl ::windows::core::RuntimeName for IIOControlCodeFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIOControlCodeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCodeFactoryImpl, const OFFSET: isize>() -> IIOControlCodeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCodeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIOControlCodeFactoryVtbl {
         unsafe extern "system" fn CreateIOControlCode<Impl: IIOControlCodeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateIOControlCode(devicetype, function, accessmode, bufferingmethod) {
@@ -196,7 +205,10 @@ impl IIOControlCodeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIOControlCodeFactory>, ::windows::core::GetTrustLevel, CreateIOControlCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIOControlCodeFactory>, ::windows::core::GetTrustLevel, CreateIOControlCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIOControlCodeFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -209,7 +221,7 @@ impl ::windows::core::RuntimeName for IKnownDeviceTypesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownDeviceTypesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownDeviceTypesStaticsImpl, const OFFSET: isize>() -> IKnownDeviceTypesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownDeviceTypesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownDeviceTypesStaticsVtbl {
         unsafe extern "system" fn Unknown<Impl: IKnownDeviceTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unknown() {
@@ -221,6 +233,9 @@ impl IKnownDeviceTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownDeviceTypesStatics>, ::windows::core::GetTrustLevel, Unknown::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownDeviceTypesStatics>, ::windows::core::GetTrustLevel, Unknown::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownDeviceTypesStatics as ::windows::core::Interface>::IID
     }
 }

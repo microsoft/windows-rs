@@ -3814,12 +3814,12 @@ pub unsafe fn QueryProcessAffinityUpdateMode<'a, Param0: ::windows::core::IntoPa
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryProtectedPolicy(policyguid: &::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryProtectedPolicy(policyguid: &::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL;
+            fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(QueryProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue)))
     }
@@ -4929,12 +4929,12 @@ pub unsafe fn SetProcessWorkingSetSize<'a, Param0: ::windows::core::IntoParam<'a
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetProtectedPolicy(policyguid: &::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetProtectedPolicy(policyguid: &::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL;
+            fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue), ::core::mem::transmute(oldpolicyvalue)))
     }

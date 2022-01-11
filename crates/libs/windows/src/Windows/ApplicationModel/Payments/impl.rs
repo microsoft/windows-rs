@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentAddressImpl: Sized {
     fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCountry(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -24,13 +24,13 @@ pub trait IPaymentAddressImpl: Sized {
     fn SetPhoneNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentAddress";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentAddressImpl, const OFFSET: isize>() -> IPaymentAddressVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentAddressVtbl {
         unsafe extern "system" fn Country<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Country() {
@@ -208,36 +208,39 @@ impl IPaymentAddressVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPaymentAddress>,
             ::windows::core::GetTrustLevel,
-            Country::<Impl, OFFSET>,
-            SetCountry::<Impl, OFFSET>,
-            AddressLines::<Impl, OFFSET>,
-            SetAddressLines::<Impl, OFFSET>,
-            Region::<Impl, OFFSET>,
-            SetRegion::<Impl, OFFSET>,
-            City::<Impl, OFFSET>,
-            SetCity::<Impl, OFFSET>,
-            DependentLocality::<Impl, OFFSET>,
-            SetDependentLocality::<Impl, OFFSET>,
-            PostalCode::<Impl, OFFSET>,
-            SetPostalCode::<Impl, OFFSET>,
-            SortingCode::<Impl, OFFSET>,
-            SetSortingCode::<Impl, OFFSET>,
-            LanguageCode::<Impl, OFFSET>,
-            SetLanguageCode::<Impl, OFFSET>,
-            Organization::<Impl, OFFSET>,
-            SetOrganization::<Impl, OFFSET>,
-            Recipient::<Impl, OFFSET>,
-            SetRecipient::<Impl, OFFSET>,
-            PhoneNumber::<Impl, OFFSET>,
-            SetPhoneNumber::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
+            Country::<Impl, IMPL_OFFSET>,
+            SetCountry::<Impl, IMPL_OFFSET>,
+            AddressLines::<Impl, IMPL_OFFSET>,
+            SetAddressLines::<Impl, IMPL_OFFSET>,
+            Region::<Impl, IMPL_OFFSET>,
+            SetRegion::<Impl, IMPL_OFFSET>,
+            City::<Impl, IMPL_OFFSET>,
+            SetCity::<Impl, IMPL_OFFSET>,
+            DependentLocality::<Impl, IMPL_OFFSET>,
+            SetDependentLocality::<Impl, IMPL_OFFSET>,
+            PostalCode::<Impl, IMPL_OFFSET>,
+            SetPostalCode::<Impl, IMPL_OFFSET>,
+            SortingCode::<Impl, IMPL_OFFSET>,
+            SetSortingCode::<Impl, IMPL_OFFSET>,
+            LanguageCode::<Impl, IMPL_OFFSET>,
+            SetLanguageCode::<Impl, IMPL_OFFSET>,
+            Organization::<Impl, IMPL_OFFSET>,
+            SetOrganization::<Impl, IMPL_OFFSET>,
+            Recipient::<Impl, IMPL_OFFSET>,
+            SetRecipient::<Impl, IMPL_OFFSET>,
+            PhoneNumber::<Impl, IMPL_OFFSET>,
+            SetPhoneNumber::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentAddress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -250,7 +253,7 @@ impl ::windows::core::RuntimeName for IPaymentCanMakePaymentResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentCanMakePaymentResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultImpl, const OFFSET: isize>() -> IPaymentCanMakePaymentResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCanMakePaymentResultVtbl {
         unsafe extern "system" fn Status<Impl: IPaymentCanMakePaymentResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentCanMakePaymentResultStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -262,7 +265,10 @@ impl IPaymentCanMakePaymentResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCanMakePaymentResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCanMakePaymentResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentCanMakePaymentResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -275,7 +281,7 @@ impl ::windows::core::RuntimeName for IPaymentCanMakePaymentResultFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentCanMakePaymentResultFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultFactoryImpl, const OFFSET: isize>() -> IPaymentCanMakePaymentResultFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCanMakePaymentResultFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentCanMakePaymentResultFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentCanMakePaymentResultStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(value) {
@@ -287,7 +293,10 @@ impl IPaymentCanMakePaymentResultFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCanMakePaymentResultFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCanMakePaymentResultFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentCanMakePaymentResultFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -305,7 +314,7 @@ impl ::windows::core::RuntimeName for IPaymentCurrencyAmount {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentCurrencyAmountVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>() -> IPaymentCurrencyAmountVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCurrencyAmountVtbl {
         unsafe extern "system" fn Currency<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Currency() {
@@ -351,7 +360,10 @@ impl IPaymentCurrencyAmountVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCurrencyAmount>, ::windows::core::GetTrustLevel, Currency::<Impl, OFFSET>, SetCurrency::<Impl, OFFSET>, CurrencySystem::<Impl, OFFSET>, SetCurrencySystem::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCurrencyAmount>, ::windows::core::GetTrustLevel, Currency::<Impl, IMPL_OFFSET>, SetCurrency::<Impl, IMPL_OFFSET>, CurrencySystem::<Impl, IMPL_OFFSET>, SetCurrencySystem::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentCurrencyAmount as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -365,7 +377,7 @@ impl ::windows::core::RuntimeName for IPaymentCurrencyAmountFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentCurrencyAmountFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountFactoryImpl, const OFFSET: isize>() -> IPaymentCurrencyAmountFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCurrencyAmountFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentCurrencyAmountFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&currency as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -392,10 +404,13 @@ impl IPaymentCurrencyAmountFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCurrencyAmountFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithCurrencySystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentCurrencyAmountFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithCurrencySystem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentCurrencyAmountFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsImpl: Sized {
     fn Total(&self) -> ::windows::core::Result<PaymentItem>;
     fn SetTotal(&self, value: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<()>;
@@ -406,13 +421,13 @@ pub trait IPaymentDetailsImpl: Sized {
     fn Modifiers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>;
     fn SetModifiers(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsImpl, const OFFSET: isize>() -> IPaymentDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsVtbl {
         unsafe extern "system" fn Total<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Total() {
@@ -474,35 +489,38 @@ impl IPaymentDetailsVtbl {
             (*this).SetModifiers(&*(&value as *const <super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPaymentDetails>,
             ::windows::core::GetTrustLevel,
-            Total::<Impl, OFFSET>,
-            SetTotal::<Impl, OFFSET>,
-            DisplayItems::<Impl, OFFSET>,
-            SetDisplayItems::<Impl, OFFSET>,
-            ShippingOptions::<Impl, OFFSET>,
-            SetShippingOptions::<Impl, OFFSET>,
-            Modifiers::<Impl, OFFSET>,
-            SetModifiers::<Impl, OFFSET>,
+            Total::<Impl, IMPL_OFFSET>,
+            SetTotal::<Impl, IMPL_OFFSET>,
+            DisplayItems::<Impl, IMPL_OFFSET>,
+            SetDisplayItems::<Impl, IMPL_OFFSET>,
+            ShippingOptions::<Impl, IMPL_OFFSET>,
+            SetShippingOptions::<Impl, IMPL_OFFSET>,
+            Modifiers::<Impl, IMPL_OFFSET>,
+            SetModifiers::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentDetails as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsFactoryImpl: Sized {
     fn Create(&self, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetails>;
     fn CreateWithDisplayItems(&self, total: &::core::option::Option<PaymentItem>, displayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetails>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetailsFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetailsFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentDetailsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsFactoryImpl, const OFFSET: isize>() -> IPaymentDetailsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentDetailsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, total: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&total as *const <PaymentItem as ::windows::core::Abi>::Abi as *const <PaymentItem as ::windows::core::DefaultType>::DefaultType)) {
@@ -525,23 +543,26 @@ impl IPaymentDetailsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentDetailsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithDisplayItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentDetailsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithDisplayItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentDetailsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsModifierImpl: Sized {
     fn JsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SupportedMethodIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn Total(&self) -> ::windows::core::Result<PaymentItem>;
     fn AdditionalDisplayItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetailsModifier";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentDetailsModifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierImpl, const OFFSET: isize>() -> IPaymentDetailsModifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsModifierVtbl {
         unsafe extern "system" fn JsonData<Impl: IPaymentDetailsModifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JsonData() {
@@ -586,22 +607,25 @@ impl IPaymentDetailsModifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentDetailsModifier>, ::windows::core::GetTrustLevel, JsonData::<Impl, OFFSET>, SupportedMethodIds::<Impl, OFFSET>, Total::<Impl, OFFSET>, AdditionalDisplayItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentDetailsModifier>, ::windows::core::GetTrustLevel, JsonData::<Impl, IMPL_OFFSET>, SupportedMethodIds::<Impl, IMPL_OFFSET>, Total::<Impl, IMPL_OFFSET>, AdditionalDisplayItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentDetailsModifier as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsModifierFactoryImpl: Sized {
     fn Create(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetailsModifier>;
     fn CreateWithAdditionalDisplayItems(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetailsModifier>;
     fn CreateWithAdditionalDisplayItemsAndJsonData(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetailsModifierFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetailsModifierFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentDetailsModifierFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierFactoryImpl, const OFFSET: isize>() -> IPaymentDetailsModifierFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsModifierFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentDetailsModifierFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&total as *const <PaymentItem as ::windows::core::Abi>::Abi as *const <PaymentItem as ::windows::core::DefaultType>::DefaultType)) {
@@ -644,7 +668,10 @@ impl IPaymentDetailsModifierFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentDetailsModifierFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithAdditionalDisplayItems::<Impl, OFFSET>, CreateWithAdditionalDisplayItemsAndJsonData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentDetailsModifierFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAdditionalDisplayItems::<Impl, IMPL_OFFSET>, CreateWithAdditionalDisplayItemsAndJsonData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentDetailsModifierFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -662,7 +689,7 @@ impl ::windows::core::RuntimeName for IPaymentItem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemImpl, const OFFSET: isize>() -> IPaymentItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentItemVtbl {
         unsafe extern "system" fn Label<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
@@ -708,7 +735,10 @@ impl IPaymentItemVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPending(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentItem>, ::windows::core::GetTrustLevel, Label::<Impl, OFFSET>, SetLabel::<Impl, OFFSET>, Amount::<Impl, OFFSET>, SetAmount::<Impl, OFFSET>, Pending::<Impl, OFFSET>, SetPending::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentItem>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>, SetLabel::<Impl, IMPL_OFFSET>, Amount::<Impl, IMPL_OFFSET>, SetAmount::<Impl, IMPL_OFFSET>, Pending::<Impl, IMPL_OFFSET>, SetPending::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -721,7 +751,7 @@ impl ::windows::core::RuntimeName for IPaymentItemFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentItemFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemFactoryImpl, const OFFSET: isize>() -> IPaymentItemFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentItemFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&amount as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType)) {
@@ -733,22 +763,25 @@ impl IPaymentItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentItemFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentItemFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentItemFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentMediatorImpl: Sized {
     fn GetSupportedMethodIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn SubmitPaymentRequestAsync(&self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
     fn SubmitPaymentRequestWithChangeHandlerAsync(&self, paymentrequest: &::core::option::Option<PaymentRequest>, changehandler: &::core::option::Option<PaymentRequestChangedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMediator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentMediatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediatorImpl, const OFFSET: isize>() -> IPaymentMediatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMediatorVtbl {
         unsafe extern "system" fn GetSupportedMethodIdsAsync<Impl: IPaymentMediatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedMethodIdsAsync() {
@@ -782,20 +815,23 @@ impl IPaymentMediatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMediator>, ::windows::core::GetTrustLevel, GetSupportedMethodIdsAsync::<Impl, OFFSET>, SubmitPaymentRequestAsync::<Impl, OFFSET>, SubmitPaymentRequestWithChangeHandlerAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMediator>, ::windows::core::GetTrustLevel, GetSupportedMethodIdsAsync::<Impl, IMPL_OFFSET>, SubmitPaymentRequestAsync::<Impl, IMPL_OFFSET>, SubmitPaymentRequestWithChangeHandlerAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentMediator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentMediator2Impl: Sized {
     fn CanMakePaymentAsync(&self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMediator2 {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMediator2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPaymentMediator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediator2Impl, const OFFSET: isize>() -> IPaymentMediator2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMediator2Vtbl {
         unsafe extern "system" fn CanMakePaymentAsync<Impl: IPaymentMediator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMakePaymentAsync(&*(&paymentrequest as *const <PaymentRequest as ::windows::core::Abi>::Abi as *const <PaymentRequest as ::windows::core::DefaultType>::DefaultType)) {
@@ -807,21 +843,24 @@ impl IPaymentMediator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMediator2>, ::windows::core::GetTrustLevel, CanMakePaymentAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMediator2>, ::windows::core::GetTrustLevel, CanMakePaymentAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentMediator2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentMerchantInfoImpl: Sized {
     fn PackageFullName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMerchantInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPaymentMerchantInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoImpl, const OFFSET: isize>() -> IPaymentMerchantInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMerchantInfoVtbl {
         unsafe extern "system" fn PackageFullName<Impl: IPaymentMerchantInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageFullName() {
@@ -844,20 +883,23 @@ impl IPaymentMerchantInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMerchantInfo>, ::windows::core::GetTrustLevel, PackageFullName::<Impl, OFFSET>, Uri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMerchantInfo>, ::windows::core::GetTrustLevel, PackageFullName::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentMerchantInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentMerchantInfoFactoryImpl: Sized {
     fn Create(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<PaymentMerchantInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMerchantInfoFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMerchantInfoFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPaymentMerchantInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoFactoryImpl, const OFFSET: isize>() -> IPaymentMerchantInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMerchantInfoFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentMerchantInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -869,21 +911,24 @@ impl IPaymentMerchantInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMerchantInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMerchantInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentMerchantInfoFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentMethodDataImpl: Sized {
     fn SupportedMethodIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn JsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMethodData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentMethodDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataImpl, const OFFSET: isize>() -> IPaymentMethodDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMethodDataVtbl {
         unsafe extern "system" fn SupportedMethodIds<Impl: IPaymentMethodDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedMethodIds() {
@@ -906,21 +951,24 @@ impl IPaymentMethodDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMethodData>, ::windows::core::GetTrustLevel, SupportedMethodIds::<Impl, OFFSET>, JsonData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMethodData>, ::windows::core::GetTrustLevel, SupportedMethodIds::<Impl, IMPL_OFFSET>, JsonData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentMethodData as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentMethodDataFactoryImpl: Sized {
     fn Create(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PaymentMethodData>;
     fn CreateWithJsonData(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMethodDataFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMethodDataFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentMethodDataFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataFactoryImpl, const OFFSET: isize>() -> IPaymentMethodDataFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMethodDataFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentMethodDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -943,7 +991,10 @@ impl IPaymentMethodDataFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMethodDataFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithJsonData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentMethodDataFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithJsonData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentMethodDataFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -965,7 +1016,7 @@ impl ::windows::core::RuntimeName for IPaymentOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentOptionsImpl, const OFFSET: isize>() -> IPaymentOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentOptionsVtbl {
         unsafe extern "system" fn RequestPayerEmail<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPayerEmail() {
@@ -1042,39 +1093,42 @@ impl IPaymentOptionsVtbl {
             (*this).SetShippingType(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPaymentOptions>,
             ::windows::core::GetTrustLevel,
-            RequestPayerEmail::<Impl, OFFSET>,
-            SetRequestPayerEmail::<Impl, OFFSET>,
-            RequestPayerName::<Impl, OFFSET>,
-            SetRequestPayerName::<Impl, OFFSET>,
-            RequestPayerPhoneNumber::<Impl, OFFSET>,
-            SetRequestPayerPhoneNumber::<Impl, OFFSET>,
-            RequestShipping::<Impl, OFFSET>,
-            SetRequestShipping::<Impl, OFFSET>,
-            ShippingType::<Impl, OFFSET>,
-            SetShippingType::<Impl, OFFSET>,
+            RequestPayerEmail::<Impl, IMPL_OFFSET>,
+            SetRequestPayerEmail::<Impl, IMPL_OFFSET>,
+            RequestPayerName::<Impl, IMPL_OFFSET>,
+            SetRequestPayerName::<Impl, IMPL_OFFSET>,
+            RequestPayerPhoneNumber::<Impl, IMPL_OFFSET>,
+            SetRequestPayerPhoneNumber::<Impl, IMPL_OFFSET>,
+            RequestShipping::<Impl, IMPL_OFFSET>,
+            SetRequestShipping::<Impl, IMPL_OFFSET>,
+            ShippingType::<Impl, IMPL_OFFSET>,
+            SetShippingType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentRequestImpl: Sized {
     fn MerchantInfo(&self) -> ::windows::core::Result<PaymentMerchantInfo>;
     fn Details(&self) -> ::windows::core::Result<PaymentDetails>;
     fn MethodData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>>;
     fn Options(&self) -> ::windows::core::Result<PaymentOptions>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequest";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestImpl, const OFFSET: isize>() -> IPaymentRequestVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestVtbl {
         unsafe extern "system" fn MerchantInfo<Impl: IPaymentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MerchantInfo() {
@@ -1119,7 +1173,10 @@ impl IPaymentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequest>, ::windows::core::GetTrustLevel, MerchantInfo::<Impl, OFFSET>, Details::<Impl, OFFSET>, MethodData::<Impl, OFFSET>, Options::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequest>, ::windows::core::GetTrustLevel, MerchantInfo::<Impl, IMPL_OFFSET>, Details::<Impl, IMPL_OFFSET>, MethodData::<Impl, IMPL_OFFSET>, Options::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1132,7 +1189,7 @@ impl ::windows::core::RuntimeName for IPaymentRequest2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequest2Impl, const OFFSET: isize>() -> IPaymentRequest2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequest2Vtbl {
         unsafe extern "system" fn Id<Impl: IPaymentRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1144,7 +1201,10 @@ impl IPaymentRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequest2>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequest2>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequest2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1160,7 +1220,7 @@ impl ::windows::core::RuntimeName for IPaymentRequestChangedArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentRequestChangedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedArgsImpl, const OFFSET: isize>() -> IPaymentRequestChangedArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedArgsVtbl {
         unsafe extern "system" fn ChangeKind<Impl: IPaymentRequestChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestChangeKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeKind() {
@@ -1198,7 +1258,10 @@ impl IPaymentRequestChangedArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Acknowledge(&*(&changeresult as *const <PaymentRequestChangedResult as ::windows::core::Abi>::Abi as *const <PaymentRequestChangedResult as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestChangedArgs>, ::windows::core::GetTrustLevel, ChangeKind::<Impl, OFFSET>, ShippingAddress::<Impl, OFFSET>, SelectedShippingOption::<Impl, OFFSET>, Acknowledge::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestChangedArgs>, ::windows::core::GetTrustLevel, ChangeKind::<Impl, IMPL_OFFSET>, ShippingAddress::<Impl, IMPL_OFFSET>, SelectedShippingOption::<Impl, IMPL_OFFSET>, Acknowledge::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequestChangedArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1216,7 +1279,7 @@ impl ::windows::core::RuntimeName for IPaymentRequestChangedResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentRequestChangedResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>() -> IPaymentRequestChangedResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedResultVtbl {
         unsafe extern "system" fn ChangeAcceptedByMerchant<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeAcceptedByMerchant() {
@@ -1263,19 +1326,22 @@ impl IPaymentRequestChangedResultVtbl {
             (*this).SetUpdatedPaymentDetails(&*(&value as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPaymentRequestChangedResult>,
             ::windows::core::GetTrustLevel,
-            ChangeAcceptedByMerchant::<Impl, OFFSET>,
-            SetChangeAcceptedByMerchant::<Impl, OFFSET>,
-            Message::<Impl, OFFSET>,
-            SetMessage::<Impl, OFFSET>,
-            UpdatedPaymentDetails::<Impl, OFFSET>,
-            SetUpdatedPaymentDetails::<Impl, OFFSET>,
+            ChangeAcceptedByMerchant::<Impl, IMPL_OFFSET>,
+            SetChangeAcceptedByMerchant::<Impl, IMPL_OFFSET>,
+            Message::<Impl, IMPL_OFFSET>,
+            SetMessage::<Impl, IMPL_OFFSET>,
+            UpdatedPaymentDetails::<Impl, IMPL_OFFSET>,
+            SetUpdatedPaymentDetails::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequestChangedResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1289,7 +1355,7 @@ impl ::windows::core::RuntimeName for IPaymentRequestChangedResultFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentRequestChangedResultFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultFactoryImpl, const OFFSET: isize>() -> IPaymentRequestChangedResultFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedResultFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentRequestChangedResultFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(changeacceptedbymerchant) {
@@ -1312,22 +1378,25 @@ impl IPaymentRequestChangedResultFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestChangedResultFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithPaymentDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestChangedResultFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPaymentDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequestChangedResultFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentRequestFactoryImpl: Sized {
     fn Create(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>) -> ::windows::core::Result<PaymentRequest>;
     fn CreateWithMerchantInfo(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>) -> ::windows::core::Result<PaymentRequest>;
     fn CreateWithMerchantInfoAndOptions(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>) -> ::windows::core::Result<PaymentRequest>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentRequestFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentRequestFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactoryImpl, const OFFSET: isize>() -> IPaymentRequestFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&details as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType), &*(&methoddata as *const <super::super::Foundation::Collections::IIterable<PaymentMethodData> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<PaymentMethodData> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1370,20 +1439,23 @@ impl IPaymentRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithMerchantInfo::<Impl, OFFSET>, CreateWithMerchantInfoAndOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithMerchantInfo::<Impl, IMPL_OFFSET>, CreateWithMerchantInfoAndOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequestFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentRequestFactory2Impl: Sized {
     fn CreateWithMerchantInfoOptionsAndId(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentRequestFactory2 {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestFactory2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPaymentRequestFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactory2Impl, const OFFSET: isize>() -> IPaymentRequestFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestFactory2Vtbl {
         unsafe extern "system" fn CreateWithMerchantInfoOptionsAndId<Impl: IPaymentRequestFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, options: ::windows::core::RawPtr, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithMerchantInfoOptionsAndId(
@@ -1401,7 +1473,10 @@ impl IPaymentRequestFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestFactory2>, ::windows::core::GetTrustLevel, CreateWithMerchantInfoOptionsAndId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestFactory2>, ::windows::core::GetTrustLevel, CreateWithMerchantInfoOptionsAndId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequestFactory2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1415,7 +1490,7 @@ impl ::windows::core::RuntimeName for IPaymentRequestSubmitResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentRequestSubmitResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestSubmitResultImpl, const OFFSET: isize>() -> IPaymentRequestSubmitResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestSubmitResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestSubmitResultVtbl {
         unsafe extern "system" fn Status<Impl: IPaymentRequestSubmitResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1438,10 +1513,13 @@ impl IPaymentRequestSubmitResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestSubmitResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Response::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentRequestSubmitResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Response::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentRequestSubmitResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentResponseImpl: Sized {
     fn PaymentToken(&self) -> ::windows::core::Result<PaymentToken>;
     fn ShippingOption(&self) -> ::windows::core::Result<PaymentShippingOption>;
@@ -1451,13 +1529,13 @@ pub trait IPaymentResponseImpl: Sized {
     fn PayerPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentResponse";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPaymentResponseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentResponseImpl, const OFFSET: isize>() -> IPaymentResponseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentResponseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentResponseVtbl {
         unsafe extern "system" fn PaymentToken<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaymentToken() {
@@ -1535,7 +1613,24 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentResponse>, ::windows::core::GetTrustLevel, PaymentToken::<Impl, OFFSET>, ShippingOption::<Impl, OFFSET>, ShippingAddress::<Impl, OFFSET>, PayerEmail::<Impl, OFFSET>, PayerName::<Impl, OFFSET>, PayerPhoneNumber::<Impl, OFFSET>, CompleteAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPaymentResponse>,
+            ::windows::core::GetTrustLevel,
+            PaymentToken::<Impl, IMPL_OFFSET>,
+            ShippingOption::<Impl, IMPL_OFFSET>,
+            ShippingAddress::<Impl, IMPL_OFFSET>,
+            PayerEmail::<Impl, IMPL_OFFSET>,
+            PayerName::<Impl, IMPL_OFFSET>,
+            PayerPhoneNumber::<Impl, IMPL_OFFSET>,
+            CompleteAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentResponse as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1555,7 +1650,7 @@ impl ::windows::core::RuntimeName for IPaymentShippingOption {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentShippingOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionImpl, const OFFSET: isize>() -> IPaymentShippingOptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentShippingOptionVtbl {
         unsafe extern "system" fn Label<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
@@ -1616,7 +1711,25 @@ impl IPaymentShippingOptionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSelected(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentShippingOption>, ::windows::core::GetTrustLevel, Label::<Impl, OFFSET>, SetLabel::<Impl, OFFSET>, Amount::<Impl, OFFSET>, SetAmount::<Impl, OFFSET>, Tag::<Impl, OFFSET>, SetTag::<Impl, OFFSET>, IsSelected::<Impl, OFFSET>, SetIsSelected::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPaymentShippingOption>,
+            ::windows::core::GetTrustLevel,
+            Label::<Impl, IMPL_OFFSET>,
+            SetLabel::<Impl, IMPL_OFFSET>,
+            Amount::<Impl, IMPL_OFFSET>,
+            SetAmount::<Impl, IMPL_OFFSET>,
+            Tag::<Impl, IMPL_OFFSET>,
+            SetTag::<Impl, IMPL_OFFSET>,
+            IsSelected::<Impl, IMPL_OFFSET>,
+            SetIsSelected::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentShippingOption as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1631,7 +1744,7 @@ impl ::windows::core::RuntimeName for IPaymentShippingOptionFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentShippingOptionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionFactoryImpl, const OFFSET: isize>() -> IPaymentShippingOptionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentShippingOptionFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentShippingOptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&amount as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType)) {
@@ -1670,7 +1783,10 @@ impl IPaymentShippingOptionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentShippingOptionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithSelected::<Impl, OFFSET>, CreateWithSelectedAndTag::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentShippingOptionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithSelected::<Impl, IMPL_OFFSET>, CreateWithSelectedAndTag::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentShippingOptionFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1684,7 +1800,7 @@ impl ::windows::core::RuntimeName for IPaymentToken {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentTokenVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenImpl, const OFFSET: isize>() -> IPaymentTokenVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentTokenVtbl {
         unsafe extern "system" fn PaymentMethodId<Impl: IPaymentTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaymentMethodId() {
@@ -1707,7 +1823,10 @@ impl IPaymentTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentToken>, ::windows::core::GetTrustLevel, PaymentMethodId::<Impl, OFFSET>, JsonDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentToken>, ::windows::core::GetTrustLevel, PaymentMethodId::<Impl, IMPL_OFFSET>, JsonDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentToken as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1721,7 +1840,7 @@ impl ::windows::core::RuntimeName for IPaymentTokenFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPaymentTokenFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenFactoryImpl, const OFFSET: isize>() -> IPaymentTokenFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentTokenFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPaymentTokenFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&paymentmethodid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1744,6 +1863,9 @@ impl IPaymentTokenFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentTokenFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithJsonDetails::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaymentTokenFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithJsonDetails::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaymentTokenFactory as ::windows::core::Interface>::IID
     }
 }

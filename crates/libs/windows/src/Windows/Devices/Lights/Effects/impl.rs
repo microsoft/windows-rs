@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILampArrayBitmapEffectImpl: Sized {
     fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -10,13 +10,13 @@ pub trait ILampArrayBitmapEffectImpl: Sized {
     fn BitmapRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveBitmapRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayBitmapEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILampArrayBitmapEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBitmapEffectImpl, const OFFSET: isize>() -> ILampArrayBitmapEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBitmapEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayBitmapEffectVtbl {
         unsafe extern "system" fn Duration<Impl: ILampArrayBitmapEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
@@ -89,22 +89,25 @@ impl ILampArrayBitmapEffectVtbl {
             (*this).RemoveBitmapRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampArrayBitmapEffect>,
             ::windows::core::GetTrustLevel,
-            Duration::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            StartDelay::<Impl, OFFSET>,
-            SetStartDelay::<Impl, OFFSET>,
-            UpdateInterval::<Impl, OFFSET>,
-            SetUpdateInterval::<Impl, OFFSET>,
-            SuggestedBitmapSize::<Impl, OFFSET>,
-            BitmapRequested::<Impl, OFFSET>,
-            RemoveBitmapRequested::<Impl, OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay::<Impl, IMPL_OFFSET>,
+            UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            SuggestedBitmapSize::<Impl, IMPL_OFFSET>,
+            BitmapRequested::<Impl, IMPL_OFFSET>,
+            RemoveBitmapRequested::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayBitmapEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -117,7 +120,7 @@ impl ::windows::core::RuntimeName for ILampArrayBitmapEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampArrayBitmapEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBitmapEffectFactoryImpl, const OFFSET: isize>() -> ILampArrayBitmapEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBitmapEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayBitmapEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ILampArrayBitmapEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&lamparray as *const <super::LampArray as ::windows::core::Abi>::Abi as *const <super::LampArray as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)) {
@@ -129,21 +132,24 @@ impl ILampArrayBitmapEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBitmapEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBitmapEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayBitmapEffectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ILampArrayBitmapRequestedEventArgsImpl: Sized {
     fn SinceStarted(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn UpdateBitmap(&self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayBitmapRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ILampArrayBitmapRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBitmapRequestedEventArgsImpl, const OFFSET: isize>() -> ILampArrayBitmapRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBitmapRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayBitmapRequestedEventArgsVtbl {
         unsafe extern "system" fn SinceStarted<Impl: ILampArrayBitmapRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SinceStarted() {
@@ -159,10 +165,13 @@ impl ILampArrayBitmapRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateBitmap(&*(&bitmap as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBitmapRequestedEventArgs>, ::windows::core::GetTrustLevel, SinceStarted::<Impl, OFFSET>, UpdateBitmap::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBitmapRequestedEventArgs>, ::windows::core::GetTrustLevel, SinceStarted::<Impl, IMPL_OFFSET>, UpdateBitmap::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayBitmapRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayBlinkEffectImpl: Sized {
     fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
     fn SetColor(&self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
@@ -181,13 +190,13 @@ pub trait ILampArrayBlinkEffectImpl: Sized {
     fn RepetitionMode(&self) -> ::windows::core::Result<LampArrayRepetitionMode>;
     fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayBlinkEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ILampArrayBlinkEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBlinkEffectImpl, const OFFSET: isize>() -> ILampArrayBlinkEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBlinkEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayBlinkEffectVtbl {
         unsafe extern "system" fn Color<Impl: ILampArrayBlinkEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
@@ -309,29 +318,32 @@ impl ILampArrayBlinkEffectVtbl {
             (*this).SetRepetitionMode(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampArrayBlinkEffect>,
             ::windows::core::GetTrustLevel,
-            Color::<Impl, OFFSET>,
-            SetColor::<Impl, OFFSET>,
-            AttackDuration::<Impl, OFFSET>,
-            SetAttackDuration::<Impl, OFFSET>,
-            SustainDuration::<Impl, OFFSET>,
-            SetSustainDuration::<Impl, OFFSET>,
-            DecayDuration::<Impl, OFFSET>,
-            SetDecayDuration::<Impl, OFFSET>,
-            RepetitionDelay::<Impl, OFFSET>,
-            SetRepetitionDelay::<Impl, OFFSET>,
-            StartDelay::<Impl, OFFSET>,
-            SetStartDelay::<Impl, OFFSET>,
-            Occurrences::<Impl, OFFSET>,
-            SetOccurrences::<Impl, OFFSET>,
-            RepetitionMode::<Impl, OFFSET>,
-            SetRepetitionMode::<Impl, OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            AttackDuration::<Impl, IMPL_OFFSET>,
+            SetAttackDuration::<Impl, IMPL_OFFSET>,
+            SustainDuration::<Impl, IMPL_OFFSET>,
+            SetSustainDuration::<Impl, IMPL_OFFSET>,
+            DecayDuration::<Impl, IMPL_OFFSET>,
+            SetDecayDuration::<Impl, IMPL_OFFSET>,
+            RepetitionDelay::<Impl, IMPL_OFFSET>,
+            SetRepetitionDelay::<Impl, IMPL_OFFSET>,
+            StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay::<Impl, IMPL_OFFSET>,
+            Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences::<Impl, IMPL_OFFSET>,
+            RepetitionMode::<Impl, IMPL_OFFSET>,
+            SetRepetitionMode::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayBlinkEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -344,7 +356,7 @@ impl ::windows::core::RuntimeName for ILampArrayBlinkEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampArrayBlinkEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBlinkEffectFactoryImpl, const OFFSET: isize>() -> ILampArrayBlinkEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayBlinkEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayBlinkEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ILampArrayBlinkEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&lamparray as *const <super::LampArray as ::windows::core::Abi>::Abi as *const <super::LampArray as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)) {
@@ -356,10 +368,13 @@ impl ILampArrayBlinkEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBlinkEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayBlinkEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayBlinkEffectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayColorRampEffectImpl: Sized {
     fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
     fn SetColor(&self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
@@ -370,13 +385,13 @@ pub trait ILampArrayColorRampEffectImpl: Sized {
     fn CompletionBehavior(&self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior>;
     fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayColorRampEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ILampArrayColorRampEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayColorRampEffectImpl, const OFFSET: isize>() -> ILampArrayColorRampEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayColorRampEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayColorRampEffectVtbl {
         unsafe extern "system" fn Color<Impl: ILampArrayColorRampEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
@@ -438,21 +453,24 @@ impl ILampArrayColorRampEffectVtbl {
             (*this).SetCompletionBehavior(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampArrayColorRampEffect>,
             ::windows::core::GetTrustLevel,
-            Color::<Impl, OFFSET>,
-            SetColor::<Impl, OFFSET>,
-            RampDuration::<Impl, OFFSET>,
-            SetRampDuration::<Impl, OFFSET>,
-            StartDelay::<Impl, OFFSET>,
-            SetStartDelay::<Impl, OFFSET>,
-            CompletionBehavior::<Impl, OFFSET>,
-            SetCompletionBehavior::<Impl, OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            RampDuration::<Impl, IMPL_OFFSET>,
+            SetRampDuration::<Impl, IMPL_OFFSET>,
+            StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay::<Impl, IMPL_OFFSET>,
+            CompletionBehavior::<Impl, IMPL_OFFSET>,
+            SetCompletionBehavior::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayColorRampEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -465,7 +483,7 @@ impl ::windows::core::RuntimeName for ILampArrayColorRampEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampArrayColorRampEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayColorRampEffectFactoryImpl, const OFFSET: isize>() -> ILampArrayColorRampEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayColorRampEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayColorRampEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ILampArrayColorRampEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&lamparray as *const <super::LampArray as ::windows::core::Abi>::Abi as *const <super::LampArray as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)) {
@@ -477,10 +495,13 @@ impl ILampArrayColorRampEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayColorRampEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayColorRampEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayColorRampEffectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILampArrayCustomEffectImpl: Sized {
     fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -489,13 +510,13 @@ pub trait ILampArrayCustomEffectImpl: Sized {
     fn UpdateRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveUpdateRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayCustomEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILampArrayCustomEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayCustomEffectImpl, const OFFSET: isize>() -> ILampArrayCustomEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayCustomEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayCustomEffectVtbl {
         unsafe extern "system" fn Duration<Impl: ILampArrayCustomEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
@@ -541,7 +562,23 @@ impl ILampArrayCustomEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdateRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayCustomEffect>, ::windows::core::GetTrustLevel, Duration::<Impl, OFFSET>, SetDuration::<Impl, OFFSET>, UpdateInterval::<Impl, OFFSET>, SetUpdateInterval::<Impl, OFFSET>, UpdateRequested::<Impl, OFFSET>, RemoveUpdateRequested::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ILampArrayCustomEffect>,
+            ::windows::core::GetTrustLevel,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            UpdateRequested::<Impl, IMPL_OFFSET>,
+            RemoveUpdateRequested::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayCustomEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -554,7 +591,7 @@ impl ::windows::core::RuntimeName for ILampArrayCustomEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampArrayCustomEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayCustomEffectFactoryImpl, const OFFSET: isize>() -> ILampArrayCustomEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayCustomEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayCustomEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ILampArrayCustomEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&lamparray as *const <super::LampArray as ::windows::core::Abi>::Abi as *const <super::LampArray as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)) {
@@ -566,7 +603,10 @@ impl ILampArrayCustomEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayCustomEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayCustomEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayCustomEffectFactory as ::windows::core::Interface>::IID
     }
 }
 pub trait ILampArrayEffectImpl: Sized {
@@ -577,7 +617,7 @@ impl ::windows::core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
 }
 impl ILampArrayEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffectImpl, const OFFSET: isize>() -> ILampArrayEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayEffectVtbl {
         unsafe extern "system" fn ZIndex<Impl: ILampArrayEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZIndex() {
@@ -593,7 +633,10 @@ impl ILampArrayEffectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetZIndex(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayEffect>, ::windows::core::GetTrustLevel, ZIndex::<Impl, OFFSET>, SetZIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayEffect>, ::windows::core::GetTrustLevel, ZIndex::<Impl, IMPL_OFFSET>, SetZIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -616,7 +659,7 @@ impl ::windows::core::RuntimeName for ILampArrayEffectPlaylist {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampArrayEffectPlaylistVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffectPlaylistImpl, const OFFSET: isize>() -> ILampArrayEffectPlaylistVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffectPlaylistImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayEffectPlaylistVtbl {
         unsafe extern "system" fn Append<Impl: ILampArrayEffectPlaylistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&effect as *const <ILampArrayEffect as ::windows::core::Abi>::Abi as *const <ILampArrayEffect as ::windows::core::DefaultType>::DefaultType)).into()
@@ -683,39 +726,42 @@ impl ILampArrayEffectPlaylistVtbl {
             (*this).SetRepetitionMode(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampArrayEffectPlaylist>,
             ::windows::core::GetTrustLevel,
-            Append::<Impl, OFFSET>,
-            OverrideZIndex::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            Pause::<Impl, OFFSET>,
-            EffectStartMode::<Impl, OFFSET>,
-            SetEffectStartMode::<Impl, OFFSET>,
-            Occurrences::<Impl, OFFSET>,
-            SetOccurrences::<Impl, OFFSET>,
-            RepetitionMode::<Impl, OFFSET>,
-            SetRepetitionMode::<Impl, OFFSET>,
+            Append::<Impl, IMPL_OFFSET>,
+            OverrideZIndex::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            EffectStartMode::<Impl, IMPL_OFFSET>,
+            SetEffectStartMode::<Impl, IMPL_OFFSET>,
+            Occurrences::<Impl, IMPL_OFFSET>,
+            SetOccurrences::<Impl, IMPL_OFFSET>,
+            RepetitionMode::<Impl, IMPL_OFFSET>,
+            SetRepetitionMode::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayEffectPlaylist as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILampArrayEffectPlaylistStaticsImpl: Sized {
     fn StartAll(&self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
     fn StopAll(&self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
     fn PauseAll(&self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayEffectPlaylistStatics {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffectPlaylistStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ILampArrayEffectPlaylistStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffectPlaylistStaticsImpl, const OFFSET: isize>() -> ILampArrayEffectPlaylistStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffectPlaylistStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayEffectPlaylistStaticsVtbl {
         unsafe extern "system" fn StartAll<Impl: ILampArrayEffectPlaylistStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAll(&*(&value as *const <super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist> as ::windows::core::DefaultType>::DefaultType)).into()
@@ -728,10 +774,13 @@ impl ILampArrayEffectPlaylistStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PauseAll(&*(&value as *const <super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayEffectPlaylistStatics>, ::windows::core::GetTrustLevel, StartAll::<Impl, OFFSET>, StopAll::<Impl, OFFSET>, PauseAll::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayEffectPlaylistStatics>, ::windows::core::GetTrustLevel, StartAll::<Impl, IMPL_OFFSET>, StopAll::<Impl, IMPL_OFFSET>, PauseAll::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayEffectPlaylistStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArraySolidEffectImpl: Sized {
     fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
     fn SetColor(&self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
@@ -742,13 +791,13 @@ pub trait ILampArraySolidEffectImpl: Sized {
     fn CompletionBehavior(&self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior>;
     fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArraySolidEffect";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ILampArraySolidEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArraySolidEffectImpl, const OFFSET: isize>() -> ILampArraySolidEffectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArraySolidEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArraySolidEffectVtbl {
         unsafe extern "system" fn Color<Impl: ILampArraySolidEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
@@ -810,21 +859,24 @@ impl ILampArraySolidEffectVtbl {
             (*this).SetCompletionBehavior(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILampArraySolidEffect>,
             ::windows::core::GetTrustLevel,
-            Color::<Impl, OFFSET>,
-            SetColor::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            StartDelay::<Impl, OFFSET>,
-            SetStartDelay::<Impl, OFFSET>,
-            CompletionBehavior::<Impl, OFFSET>,
-            SetCompletionBehavior::<Impl, OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            StartDelay::<Impl, IMPL_OFFSET>,
+            SetStartDelay::<Impl, IMPL_OFFSET>,
+            CompletionBehavior::<Impl, IMPL_OFFSET>,
+            SetCompletionBehavior::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArraySolidEffect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -837,7 +889,7 @@ impl ::windows::core::RuntimeName for ILampArraySolidEffectFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILampArraySolidEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArraySolidEffectFactoryImpl, const OFFSET: isize>() -> ILampArraySolidEffectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArraySolidEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArraySolidEffectFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ILampArraySolidEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&lamparray as *const <super::LampArray as ::windows::core::Abi>::Abi as *const <super::LampArray as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)) {
@@ -849,10 +901,13 @@ impl ILampArraySolidEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArraySolidEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArraySolidEffectFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArraySolidEffectFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayUpdateRequestedEventArgsImpl: Sized {
     fn SinceStarted(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetColor(&self, desiredcolor: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
@@ -860,13 +915,13 @@ pub trait ILampArrayUpdateRequestedEventArgsImpl: Sized {
     fn SetSingleColorForIndices(&self, desiredcolor: &super::super::super::UI::Color, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn SetColorsForIndices(&self, desiredcolors: &[<super::super::super::UI::Color as ::windows::core::DefaultType>::DefaultType], lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayUpdateRequestedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ILampArrayUpdateRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayUpdateRequestedEventArgsImpl, const OFFSET: isize>() -> ILampArrayUpdateRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayUpdateRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayUpdateRequestedEventArgsVtbl {
         unsafe extern "system" fn SinceStarted<Impl: ILampArrayUpdateRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SinceStarted() {
@@ -894,6 +949,21 @@ impl ILampArrayUpdateRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorsForIndices(::core::slice::from_raw_parts(::core::mem::transmute_copy(&desiredcolors), desiredColors_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&lampindexes), lampIndexes_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILampArrayUpdateRequestedEventArgs>, ::windows::core::GetTrustLevel, SinceStarted::<Impl, OFFSET>, SetColor::<Impl, OFFSET>, SetColorForIndex::<Impl, OFFSET>, SetSingleColorForIndices::<Impl, OFFSET>, SetColorsForIndices::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ILampArrayUpdateRequestedEventArgs>,
+            ::windows::core::GetTrustLevel,
+            SinceStarted::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            SetColorForIndex::<Impl, IMPL_OFFSET>,
+            SetSingleColorForIndices::<Impl, IMPL_OFFSET>,
+            SetColorsForIndices::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILampArrayUpdateRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }

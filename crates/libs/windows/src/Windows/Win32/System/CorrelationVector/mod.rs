@@ -81,12 +81,12 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
 #[doc = "*Required features: 'Win32_System_CorrelationVector', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: &::windows::core::GUID) -> u32 {
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: &::windows::core::GUID) -> u32;
+            fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(RtlInitializeCorrelationVector(::core::mem::transmute(correlationvector), ::core::mem::transmute(version), ::core::mem::transmute(guid)))
     }

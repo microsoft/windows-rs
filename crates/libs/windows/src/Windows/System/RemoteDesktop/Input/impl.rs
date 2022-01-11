@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IRemoteTextConnection {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteTextConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionImpl, const OFFSET: isize>() -> IRemoteTextConnectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteTextConnectionVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IRemoteTextConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -40,7 +40,10 @@ impl IRemoteTextConnectionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportDataReceived(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pdudata), pduData_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteTextConnection>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, OFFSET>, SetIsEnabled::<Impl, OFFSET>, RegisterThread::<Impl, OFFSET>, UnregisterThread::<Impl, OFFSET>, ReportDataReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteTextConnection>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, SetIsEnabled::<Impl, IMPL_OFFSET>, RegisterThread::<Impl, IMPL_OFFSET>, UnregisterThread::<Impl, IMPL_OFFSET>, ReportDataReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteTextConnection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -53,7 +56,7 @@ impl ::windows::core::RuntimeName for IRemoteTextConnectionFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteTextConnectionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionFactoryImpl, const OFFSET: isize>() -> IRemoteTextConnectionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteTextConnectionFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IRemoteTextConnectionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&connectionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pduforwarder as *const <RemoteTextConnectionDataHandler as ::windows::core::Abi>::Abi as *const <RemoteTextConnectionDataHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -65,6 +68,9 @@ impl IRemoteTextConnectionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteTextConnectionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteTextConnectionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRemoteTextConnectionFactory as ::windows::core::Interface>::IID
     }
 }

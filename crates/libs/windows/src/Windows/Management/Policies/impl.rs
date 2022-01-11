@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 pub trait INamedPolicyDataImpl: Sized {
     fn Area(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -14,13 +14,13 @@ pub trait INamedPolicyDataImpl: Sized {
     fn Changed(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.INamedPolicyData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl INamedPolicyDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedPolicyDataImpl, const OFFSET: isize>() -> INamedPolicyDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedPolicyDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INamedPolicyDataVtbl {
         unsafe extern "system" fn Area<Impl: INamedPolicyDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Area() {
@@ -158,40 +158,43 @@ impl INamedPolicyDataVtbl {
             (*this).RemoveChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INamedPolicyData>,
             ::windows::core::GetTrustLevel,
-            Area::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            IsManaged::<Impl, OFFSET>,
-            IsUserPolicy::<Impl, OFFSET>,
-            User::<Impl, OFFSET>,
-            GetBoolean::<Impl, OFFSET>,
-            GetBinary::<Impl, OFFSET>,
-            GetInt32::<Impl, OFFSET>,
-            GetInt64::<Impl, OFFSET>,
-            GetString::<Impl, OFFSET>,
-            Changed::<Impl, OFFSET>,
-            RemoveChanged::<Impl, OFFSET>,
+            Area::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            IsManaged::<Impl, IMPL_OFFSET>,
+            IsUserPolicy::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+            GetBoolean::<Impl, IMPL_OFFSET>,
+            GetBinary::<Impl, IMPL_OFFSET>,
+            GetInt32::<Impl, IMPL_OFFSET>,
+            GetInt64::<Impl, IMPL_OFFSET>,
+            GetString::<Impl, IMPL_OFFSET>,
+            Changed::<Impl, IMPL_OFFSET>,
+            RemoveChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INamedPolicyData as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait INamedPolicyStaticsImpl: Sized {
     fn GetPolicyFromPath(&self, area: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<NamedPolicyData>;
     fn GetPolicyFromPathForUser(&self, user: &::core::option::Option<super::super::System::User>, area: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<NamedPolicyData>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INamedPolicyStatics {
     const NAME: &'static str = "Windows.Management.Policies.INamedPolicyStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl INamedPolicyStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedPolicyStaticsImpl, const OFFSET: isize>() -> INamedPolicyStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedPolicyStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INamedPolicyStaticsVtbl {
         unsafe extern "system" fn GetPolicyFromPath<Impl: INamedPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, area: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPolicyFromPath(&*(&area as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -214,6 +217,9 @@ impl INamedPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INamedPolicyStatics>, ::windows::core::GetTrustLevel, GetPolicyFromPath::<Impl, OFFSET>, GetPolicyFromPathForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INamedPolicyStatics>, ::windows::core::GetTrustLevel, GetPolicyFromPath::<Impl, IMPL_OFFSET>, GetPolicyFromPathForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INamedPolicyStatics as ::windows::core::Interface>::IID
     }
 }

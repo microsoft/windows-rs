@@ -5,7 +5,7 @@ impl ::windows::core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
 }
 impl IAdaptiveCardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardImpl, const OFFSET: isize>() -> IAdaptiveCardVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveCardVtbl {
         unsafe extern "system" fn ToJson<Impl: IAdaptiveCardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToJson() {
@@ -17,7 +17,10 @@ impl IAdaptiveCardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveCard>, ::windows::core::GetTrustLevel, ToJson::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveCard>, ::windows::core::GetTrustLevel, ToJson::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdaptiveCard as ::windows::core::Interface>::IID
     }
 }
 pub trait IAdaptiveCardBuilderStaticsImpl: Sized {
@@ -27,7 +30,7 @@ impl ::windows::core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
 }
 impl IAdaptiveCardBuilderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardBuilderStaticsImpl, const OFFSET: isize>() -> IAdaptiveCardBuilderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardBuilderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveCardBuilderStaticsVtbl {
         unsafe extern "system" fn CreateAdaptiveCardFromJson<Impl: IAdaptiveCardBuilderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAdaptiveCardFromJson(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -39,22 +42,25 @@ impl IAdaptiveCardBuilderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveCardBuilderStatics>, ::windows::core::GetTrustLevel, CreateAdaptiveCardFromJson::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAdaptiveCardBuilderStatics>, ::windows::core::GetTrustLevel, CreateAdaptiveCardFromJson::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAdaptiveCardBuilderStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecurityAppManagerImpl: Sized {
     fn Register(&self, kind: SecurityAppKind, displayname: &::windows::core::HSTRING, detailsuri: &::core::option::Option<super::super::Foundation::Uri>, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID>;
     fn Unregister(&self, kind: SecurityAppKind, guidregistration: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn UpdateState(&self, kind: SecurityAppKind, guidregistration: &::windows::core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.ISecurityAppManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISecurityAppManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityAppManagerImpl, const OFFSET: isize>() -> ISecurityAppManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityAppManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityAppManagerVtbl {
         unsafe extern "system" fn Register<Impl: ISecurityAppManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: SecurityAppKind, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, detailsuri: ::windows::core::RawPtr, registerperuser: bool, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Register(kind, &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&detailsuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), registerperuser) {
@@ -74,7 +80,10 @@ impl ISecurityAppManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateState(kind, &*(&guidregistration as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), state, substatus, &*(&detailsuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecurityAppManager>, ::windows::core::GetTrustLevel, Register::<Impl, OFFSET>, Unregister::<Impl, OFFSET>, UpdateState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecurityAppManager>, ::windows::core::GetTrustLevel, Register::<Impl, IMPL_OFFSET>, Unregister::<Impl, IMPL_OFFSET>, UpdateState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecurityAppManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -89,7 +98,7 @@ impl ::windows::core::RuntimeName for IShareWindowCommandEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShareWindowCommandEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandEventArgsImpl, const OFFSET: isize>() -> IShareWindowCommandEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareWindowCommandEventArgsVtbl {
         unsafe extern "system" fn WindowId<Impl: IShareWindowCommandEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::WindowId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowId() {
@@ -116,10 +125,13 @@ impl IShareWindowCommandEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCommand(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareWindowCommandEventArgs>, ::windows::core::GetTrustLevel, WindowId::<Impl, OFFSET>, Command::<Impl, OFFSET>, SetCommand::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareWindowCommandEventArgs>, ::windows::core::GetTrustLevel, WindowId::<Impl, IMPL_OFFSET>, Command::<Impl, IMPL_OFFSET>, SetCommand::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShareWindowCommandEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IShareWindowCommandSourceImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -129,13 +141,13 @@ pub trait IShareWindowCommandSourceImpl: Sized {
     fn CommandInvoked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCommandInvoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.IShareWindowCommandSource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IShareWindowCommandSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceImpl, const OFFSET: isize>() -> IShareWindowCommandSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareWindowCommandSourceVtbl {
         unsafe extern "system" fn Start<Impl: IShareWindowCommandSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -179,20 +191,23 @@ impl IShareWindowCommandSourceVtbl {
             (*this).RemoveCommandInvoked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IShareWindowCommandSource>,
             ::windows::core::GetTrustLevel,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            ReportCommandChanged::<Impl, OFFSET>,
-            CommandRequested::<Impl, OFFSET>,
-            RemoveCommandRequested::<Impl, OFFSET>,
-            CommandInvoked::<Impl, OFFSET>,
-            RemoveCommandInvoked::<Impl, OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            ReportCommandChanged::<Impl, IMPL_OFFSET>,
+            CommandRequested::<Impl, IMPL_OFFSET>,
+            RemoveCommandRequested::<Impl, IMPL_OFFSET>,
+            CommandInvoked::<Impl, IMPL_OFFSET>,
+            RemoveCommandInvoked::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShareWindowCommandSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -205,7 +220,7 @@ impl ::windows::core::RuntimeName for IShareWindowCommandSourceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IShareWindowCommandSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceStaticsImpl, const OFFSET: isize>() -> IShareWindowCommandSourceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareWindowCommandSourceStaticsVtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IShareWindowCommandSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -217,10 +232,13 @@ impl IShareWindowCommandSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareWindowCommandSourceStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IShareWindowCommandSourceStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IShareWindowCommandSourceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITaskbarManagerImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn IsPinningAllowed(&self) -> ::windows::core::Result<bool>;
@@ -229,13 +247,13 @@ pub trait ITaskbarManagerImpl: Sized {
     fn RequestPinCurrentAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RequestPinAppListEntryAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.ITaskbarManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 impl ITaskbarManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskbarManagerImpl, const OFFSET: isize>() -> ITaskbarManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskbarManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITaskbarManagerVtbl {
         unsafe extern "system" fn IsSupported<Impl: ITaskbarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -303,34 +321,37 @@ impl ITaskbarManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ITaskbarManager>,
             ::windows::core::GetTrustLevel,
-            IsSupported::<Impl, OFFSET>,
-            IsPinningAllowed::<Impl, OFFSET>,
-            IsCurrentAppPinnedAsync::<Impl, OFFSET>,
-            IsAppListEntryPinnedAsync::<Impl, OFFSET>,
-            RequestPinCurrentAppAsync::<Impl, OFFSET>,
-            RequestPinAppListEntryAsync::<Impl, OFFSET>,
+            IsSupported::<Impl, IMPL_OFFSET>,
+            IsPinningAllowed::<Impl, IMPL_OFFSET>,
+            IsCurrentAppPinnedAsync::<Impl, IMPL_OFFSET>,
+            IsAppListEntryPinnedAsync::<Impl, IMPL_OFFSET>,
+            RequestPinCurrentAppAsync::<Impl, IMPL_OFFSET>,
+            RequestPinAppListEntryAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITaskbarManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "UI_StartScreen", feature = "implement_exclusive"))]
 pub trait ITaskbarManager2Impl: Sized + ITaskbarManagerImpl {
     fn IsSecondaryTilePinnedAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RequestPinSecondaryTileAsync(&self, secondarytile: &::core::option::Option<super::StartScreen::SecondaryTile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryUnpinSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "UI_StartScreen", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITaskbarManager2 {
     const NAME: &'static str = "Windows.UI.Shell.ITaskbarManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "UI_StartScreen", feature = "implement_exclusive"))]
 impl ITaskbarManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskbarManager2Impl, const OFFSET: isize>() -> ITaskbarManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskbarManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITaskbarManager2Vtbl {
         unsafe extern "system" fn IsSecondaryTilePinnedAsync<Impl: ITaskbarManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSecondaryTilePinnedAsync(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -364,7 +385,10 @@ impl ITaskbarManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITaskbarManager2>, ::windows::core::GetTrustLevel, IsSecondaryTilePinnedAsync::<Impl, OFFSET>, RequestPinSecondaryTileAsync::<Impl, OFFSET>, TryUnpinSecondaryTileAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITaskbarManager2>, ::windows::core::GetTrustLevel, IsSecondaryTilePinnedAsync::<Impl, IMPL_OFFSET>, RequestPinSecondaryTileAsync::<Impl, IMPL_OFFSET>, TryUnpinSecondaryTileAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITaskbarManager2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -377,7 +401,7 @@ impl ::windows::core::RuntimeName for ITaskbarManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITaskbarManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskbarManagerStaticsImpl, const OFFSET: isize>() -> ITaskbarManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskbarManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITaskbarManagerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: ITaskbarManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -389,6 +413,9 @@ impl ITaskbarManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITaskbarManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITaskbarManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITaskbarManagerStatics as ::windows::core::Interface>::IID
     }
 }

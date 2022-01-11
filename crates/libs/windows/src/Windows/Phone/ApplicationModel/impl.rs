@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IApplicationProfileStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IApplicationProfileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationProfileStaticsImpl, const OFFSET: isize>() -> IApplicationProfileStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationProfileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationProfileStaticsVtbl {
         unsafe extern "system" fn Modes<Impl: IApplicationProfileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Modes() {
@@ -20,6 +20,9 @@ impl IApplicationProfileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationProfileStatics>, ::windows::core::GetTrustLevel, Modes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationProfileStatics>, ::windows::core::GetTrustLevel, Modes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IApplicationProfileStatics as ::windows::core::Interface>::IID
     }
 }

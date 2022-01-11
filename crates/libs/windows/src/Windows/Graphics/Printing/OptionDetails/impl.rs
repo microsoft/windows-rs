@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IPrintBindingOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintBindingOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintBindingOptionDetailsImpl, const OFFSET: isize>() -> IPrintBindingOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintBindingOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintBindingOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintBindingOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -42,7 +42,10 @@ impl IPrintBindingOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintBindingOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintBindingOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintBindingOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,7 +61,7 @@ impl ::windows::core::RuntimeName for IPrintBorderingOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintBorderingOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintBorderingOptionDetailsImpl, const OFFSET: isize>() -> IPrintBorderingOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintBorderingOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintBorderingOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintBorderingOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -89,7 +92,10 @@ impl IPrintBorderingOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintBorderingOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintBorderingOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintBorderingOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -105,7 +111,7 @@ impl ::windows::core::RuntimeName for IPrintCollationOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCollationOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCollationOptionDetailsImpl, const OFFSET: isize>() -> IPrintCollationOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCollationOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCollationOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintCollationOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -136,7 +142,10 @@ impl IPrintCollationOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCollationOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCollationOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCollationOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -152,7 +161,7 @@ impl ::windows::core::RuntimeName for IPrintColorModeOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintColorModeOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintColorModeOptionDetailsImpl, const OFFSET: isize>() -> IPrintColorModeOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintColorModeOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintColorModeOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintColorModeOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -183,7 +192,10 @@ impl IPrintColorModeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintColorModeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintColorModeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintColorModeOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -199,7 +211,7 @@ impl ::windows::core::RuntimeName for IPrintCopiesOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCopiesOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCopiesOptionDetailsImpl, const OFFSET: isize>() -> IPrintCopiesOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCopiesOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCopiesOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintCopiesOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -230,7 +242,10 @@ impl IPrintCopiesOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCopiesOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCopiesOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCopiesOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -245,7 +260,7 @@ impl ::windows::core::RuntimeName for IPrintCustomItemDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCustomItemDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemDetailsImpl, const OFFSET: isize>() -> IPrintCustomItemDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomItemDetailsVtbl {
         unsafe extern "system" fn ItemId<Impl: IPrintCustomItemDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemId() {
@@ -272,38 +287,44 @@ impl IPrintCustomItemDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemDetails>, ::windows::core::GetTrustLevel, ItemId::<Impl, OFFSET>, SetItemDisplayName::<Impl, OFFSET>, ItemDisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemDetails>, ::windows::core::GetTrustLevel, ItemId::<Impl, IMPL_OFFSET>, SetItemDisplayName::<Impl, IMPL_OFFSET>, ItemDisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomItemDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrintCustomItemListOptionDetailsImpl: Sized + IPrintCustomOptionDetailsImpl + IPrintItemListOptionDetailsImpl + IPrintOptionDetailsImpl {
     fn AddItem(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintCustomItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrintCustomItemListOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemListOptionDetailsImpl, const OFFSET: isize>() -> IPrintCustomItemListOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemListOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomItemListOptionDetailsVtbl {
         unsafe extern "system" fn AddItem<Impl: IPrintCustomItemListOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddItem(&*(&itemid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails>, ::windows::core::GetTrustLevel, AddItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails>, ::windows::core::GetTrustLevel, AddItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomItemListOptionDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintCustomItemListOptionDetails2Impl: Sized {
     fn AddItem(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, description: &::windows::core::HSTRING, icon: &::core::option::Option<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintCustomItemListOptionDetails2 {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintCustomItemListOptionDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemListOptionDetails2Impl, const OFFSET: isize>() -> IPrintCustomItemListOptionDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemListOptionDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomItemListOptionDetails2Vtbl {
         unsafe extern "system" fn AddItem<Impl: IPrintCustomItemListOptionDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
@@ -315,7 +336,10 @@ impl IPrintCustomItemListOptionDetails2Vtbl {
                 )
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails2>, ::windows::core::GetTrustLevel, AddItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails2>, ::windows::core::GetTrustLevel, AddItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomItemListOptionDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -331,7 +355,7 @@ impl ::windows::core::RuntimeName for IPrintCustomItemListOptionDetails3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCustomItemListOptionDetails3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemListOptionDetails3Impl, const OFFSET: isize>() -> IPrintCustomItemListOptionDetails3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomItemListOptionDetails3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomItemListOptionDetails3Vtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintCustomItemListOptionDetails3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -362,7 +386,10 @@ impl IPrintCustomItemListOptionDetails3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails3>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomItemListOptionDetails3>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomItemListOptionDetails3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IPrintCustomOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
@@ -373,7 +400,7 @@ impl ::windows::core::RuntimeName for IPrintCustomOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails";
 }
 impl IPrintCustomOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomOptionDetailsImpl, const OFFSET: isize>() -> IPrintCustomOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomOptionDetailsVtbl {
         unsafe extern "system" fn SetDisplayName<Impl: IPrintCustomOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -389,7 +416,10 @@ impl IPrintCustomOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomOptionDetails>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomOptionDetails>, ::windows::core::GetTrustLevel, SetDisplayName::<Impl, IMPL_OFFSET>, DisplayName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -403,7 +433,7 @@ impl ::windows::core::RuntimeName for IPrintCustomTextOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCustomTextOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomTextOptionDetailsImpl, const OFFSET: isize>() -> IPrintCustomTextOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomTextOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomTextOptionDetailsVtbl {
         unsafe extern "system" fn SetMaxCharacters<Impl: IPrintCustomTextOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxCharacters(value).into()
@@ -419,7 +449,10 @@ impl IPrintCustomTextOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomTextOptionDetails>, ::windows::core::GetTrustLevel, SetMaxCharacters::<Impl, OFFSET>, MaxCharacters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomTextOptionDetails>, ::windows::core::GetTrustLevel, SetMaxCharacters::<Impl, IMPL_OFFSET>, MaxCharacters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomTextOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -435,7 +468,7 @@ impl ::windows::core::RuntimeName for IPrintCustomTextOptionDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCustomTextOptionDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomTextOptionDetails2Impl, const OFFSET: isize>() -> IPrintCustomTextOptionDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomTextOptionDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomTextOptionDetails2Vtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintCustomTextOptionDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -466,7 +499,10 @@ impl IPrintCustomTextOptionDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomTextOptionDetails2>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomTextOptionDetails2>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomTextOptionDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -482,7 +518,7 @@ impl ::windows::core::RuntimeName for IPrintCustomToggleOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintCustomToggleOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomToggleOptionDetailsImpl, const OFFSET: isize>() -> IPrintCustomToggleOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintCustomToggleOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintCustomToggleOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintCustomToggleOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -513,7 +549,10 @@ impl IPrintCustomToggleOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomToggleOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintCustomToggleOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintCustomToggleOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -529,7 +568,7 @@ impl ::windows::core::RuntimeName for IPrintDuplexOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintDuplexOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDuplexOptionDetailsImpl, const OFFSET: isize>() -> IPrintDuplexOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDuplexOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintDuplexOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintDuplexOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -560,7 +599,10 @@ impl IPrintDuplexOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDuplexOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDuplexOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintDuplexOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -576,7 +618,7 @@ impl ::windows::core::RuntimeName for IPrintHolePunchOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintHolePunchOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintHolePunchOptionDetailsImpl, const OFFSET: isize>() -> IPrintHolePunchOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintHolePunchOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintHolePunchOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintHolePunchOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -607,17 +649,23 @@ impl IPrintHolePunchOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintHolePunchOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintHolePunchOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintHolePunchOptionDetails as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 pub trait IPrintItemListOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
     fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>;
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPrintItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintItemListOptionDetails";
 }
+#[cfg(feature = "Foundation_Collections")]
 impl IPrintItemListOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintItemListOptionDetailsImpl, const OFFSET: isize>() -> IPrintItemListOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintItemListOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintItemListOptionDetailsVtbl {
         unsafe extern "system" fn Items<Impl: IPrintItemListOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
@@ -629,7 +677,10 @@ impl IPrintItemListOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintItemListOptionDetails>, ::windows::core::GetTrustLevel, Items::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintItemListOptionDetails>, ::windows::core::GetTrustLevel, Items::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintItemListOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -645,7 +696,7 @@ impl ::windows::core::RuntimeName for IPrintMediaSizeOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintMediaSizeOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintMediaSizeOptionDetailsImpl, const OFFSET: isize>() -> IPrintMediaSizeOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintMediaSizeOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintMediaSizeOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintMediaSizeOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -676,7 +727,10 @@ impl IPrintMediaSizeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintMediaSizeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintMediaSizeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintMediaSizeOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -692,7 +746,7 @@ impl ::windows::core::RuntimeName for IPrintMediaTypeOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintMediaTypeOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintMediaTypeOptionDetailsImpl, const OFFSET: isize>() -> IPrintMediaTypeOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintMediaTypeOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintMediaTypeOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintMediaTypeOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -723,7 +777,10 @@ impl IPrintMediaTypeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintMediaTypeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintMediaTypeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintMediaTypeOptionDetails as ::windows::core::Interface>::IID
     }
 }
 pub trait IPrintNumberOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
@@ -734,7 +791,7 @@ impl ::windows::core::RuntimeName for IPrintNumberOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails";
 }
 impl IPrintNumberOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintNumberOptionDetailsImpl, const OFFSET: isize>() -> IPrintNumberOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintNumberOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintNumberOptionDetailsVtbl {
         unsafe extern "system" fn MinValue<Impl: IPrintNumberOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinValue() {
@@ -757,7 +814,10 @@ impl IPrintNumberOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintNumberOptionDetails>, ::windows::core::GetTrustLevel, MinValue::<Impl, OFFSET>, MaxValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintNumberOptionDetails>, ::windows::core::GetTrustLevel, MinValue::<Impl, IMPL_OFFSET>, MaxValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintNumberOptionDetails as ::windows::core::Interface>::IID
     }
 }
 pub trait IPrintOptionDetailsImpl: Sized {
@@ -774,7 +834,7 @@ impl ::windows::core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
 }
 impl IPrintOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintOptionDetailsImpl, const OFFSET: isize>() -> IPrintOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintOptionDetailsVtbl {
         unsafe extern "system" fn OptionId<Impl: IPrintOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OptionId() {
@@ -849,7 +909,25 @@ impl IPrintOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintOptionDetails>, ::windows::core::GetTrustLevel, OptionId::<Impl, OFFSET>, OptionType::<Impl, OFFSET>, SetErrorText::<Impl, OFFSET>, ErrorText::<Impl, OFFSET>, SetState::<Impl, OFFSET>, State::<Impl, OFFSET>, Value::<Impl, OFFSET>, TrySetValue::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintOptionDetails>,
+            ::windows::core::GetTrustLevel,
+            OptionId::<Impl, IMPL_OFFSET>,
+            OptionType::<Impl, IMPL_OFFSET>,
+            SetErrorText::<Impl, IMPL_OFFSET>,
+            ErrorText::<Impl, IMPL_OFFSET>,
+            SetState::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            TrySetValue::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -865,7 +943,7 @@ impl ::windows::core::RuntimeName for IPrintOrientationOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintOrientationOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintOrientationOptionDetailsImpl, const OFFSET: isize>() -> IPrintOrientationOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintOrientationOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintOrientationOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintOrientationOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -896,7 +974,10 @@ impl IPrintOrientationOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintOrientationOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintOrientationOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintOrientationOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -912,7 +993,7 @@ impl ::windows::core::RuntimeName for IPrintPageRangeOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintPageRangeOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeOptionDetailsImpl, const OFFSET: isize>() -> IPrintPageRangeOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRangeOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintPageRangeOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -943,7 +1024,10 @@ impl IPrintPageRangeOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintPageRangeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintPageRangeOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintPageRangeOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -959,7 +1043,7 @@ impl ::windows::core::RuntimeName for IPrintQualityOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintQualityOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintQualityOptionDetailsImpl, const OFFSET: isize>() -> IPrintQualityOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintQualityOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintQualityOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintQualityOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -990,7 +1074,10 @@ impl IPrintQualityOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintQualityOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintQualityOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintQualityOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1006,7 +1093,7 @@ impl ::windows::core::RuntimeName for IPrintStapleOptionDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintStapleOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintStapleOptionDetailsImpl, const OFFSET: isize>() -> IPrintStapleOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintStapleOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintStapleOptionDetailsVtbl {
         unsafe extern "system" fn SetWarningText<Impl: IPrintStapleOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWarningText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -1037,7 +1124,10 @@ impl IPrintStapleOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintStapleOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, OFFSET>, WarningText::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Description::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintStapleOptionDetails>, ::windows::core::GetTrustLevel, SetWarningText::<Impl, IMPL_OFFSET>, WarningText::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintStapleOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1050,7 +1140,7 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintTaskOptionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionChangedEventArgsImpl, const OFFSET: isize>() -> IPrintTaskOptionChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionChangedEventArgsVtbl {
         unsafe extern "system" fn OptionId<Impl: IPrintTaskOptionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OptionId() {
@@ -1062,10 +1152,13 @@ impl IPrintTaskOptionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionChangedEventArgs>, ::windows::core::GetTrustLevel, OptionId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionChangedEventArgs>, ::windows::core::GetTrustLevel, OptionId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskOptionChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrintTaskOptionDetailsImpl: Sized {
     fn Options(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IPrintOptionDetails>>;
     fn CreateItemListOption(&self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomItemListOptionDetails>;
@@ -1075,13 +1168,13 @@ pub trait IPrintTaskOptionDetailsImpl: Sized {
     fn BeginValidation(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveBeginValidation(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTaskOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrintTaskOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionDetailsImpl, const OFFSET: isize>() -> IPrintTaskOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionDetailsVtbl {
         unsafe extern "system" fn Options<Impl: IPrintTaskOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
@@ -1146,20 +1239,23 @@ impl IPrintTaskOptionDetailsVtbl {
             (*this).RemoveBeginValidation(&*(&eventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetails>,
             ::windows::core::GetTrustLevel,
-            Options::<Impl, OFFSET>,
-            CreateItemListOption::<Impl, OFFSET>,
-            CreateTextOption::<Impl, OFFSET>,
-            OptionChanged::<Impl, OFFSET>,
-            RemoveOptionChanged::<Impl, OFFSET>,
-            BeginValidation::<Impl, OFFSET>,
-            RemoveBeginValidation::<Impl, OFFSET>,
+            Options::<Impl, IMPL_OFFSET>,
+            CreateItemListOption::<Impl, IMPL_OFFSET>,
+            CreateTextOption::<Impl, IMPL_OFFSET>,
+            OptionChanged::<Impl, IMPL_OFFSET>,
+            RemoveOptionChanged::<Impl, IMPL_OFFSET>,
+            BeginValidation::<Impl, IMPL_OFFSET>,
+            RemoveBeginValidation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskOptionDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1172,7 +1268,7 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintTaskOptionDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionDetails2Impl, const OFFSET: isize>() -> IPrintTaskOptionDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionDetails2Vtbl {
         unsafe extern "system" fn CreateToggleOption<Impl: IPrintTaskOptionDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToggleOption(&*(&optionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1184,7 +1280,10 @@ impl IPrintTaskOptionDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetails2>, ::windows::core::GetTrustLevel, CreateToggleOption::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetails2>, ::windows::core::GetTrustLevel, CreateToggleOption::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskOptionDetails2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1197,7 +1296,7 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionDetailsStatic {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintTaskOptionDetailsStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionDetailsStaticImpl, const OFFSET: isize>() -> IPrintTaskOptionDetailsStaticVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionDetailsStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionDetailsStaticVtbl {
         unsafe extern "system" fn GetFromPrintTaskOptions<Impl: IPrintTaskOptionDetailsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printtaskoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFromPrintTaskOptions(&*(&printtaskoptions as *const <super::PrintTaskOptions as ::windows::core::Abi>::Abi as *const <super::PrintTaskOptions as ::windows::core::DefaultType>::DefaultType)) {
@@ -1209,7 +1308,10 @@ impl IPrintTaskOptionDetailsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetailsStatic>, ::windows::core::GetTrustLevel, GetFromPrintTaskOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTaskOptionDetailsStatic>, ::windows::core::GetTrustLevel, GetFromPrintTaskOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTaskOptionDetailsStatic as ::windows::core::Interface>::IID
     }
 }
 pub trait IPrintTextOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
@@ -1219,7 +1321,7 @@ impl ::windows::core::RuntimeName for IPrintTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails";
 }
 impl IPrintTextOptionDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTextOptionDetailsImpl, const OFFSET: isize>() -> IPrintTextOptionDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTextOptionDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTextOptionDetailsVtbl {
         unsafe extern "system" fn MaxCharacters<Impl: IPrintTextOptionDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxCharacters() {
@@ -1231,6 +1333,9 @@ impl IPrintTextOptionDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTextOptionDetails>, ::windows::core::GetTrustLevel, MaxCharacters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTextOptionDetails>, ::windows::core::GetTrustLevel, MaxCharacters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTextOptionDetails as ::windows::core::Interface>::IID
     }
 }

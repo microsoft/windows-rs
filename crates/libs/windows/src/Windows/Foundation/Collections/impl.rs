@@ -8,7 +8,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IIterableVtbl<T> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIterableImpl<T>, const OFFSET: isize>() -> IIterableVtbl<T> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIterableImpl<T>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIterableVtbl<T> {
         unsafe extern "system" fn First<T: ::windows::core::RuntimeType + 'static, Impl: IIterableImpl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).First() {
@@ -20,7 +20,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterableVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIterable<T>>, ::windows::core::GetTrustLevel, First::<T, Impl, OFFSET>, ::core::marker::PhantomData::<T>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIterable<T>>, ::windows::core::GetTrustLevel, First::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIterable<T> as ::windows::core::Interface>::IID
     }
 }
 pub trait IIteratorImpl<T>: Sized
@@ -36,7 +39,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IIteratorVtbl<T> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIteratorImpl<T>, const OFFSET: isize>() -> IIteratorVtbl<T> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIteratorImpl<T>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIteratorVtbl<T> {
         unsafe extern "system" fn Current<T: ::windows::core::RuntimeType + 'static, Impl: IIteratorImpl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -81,7 +84,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IIteratorVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIterator<T>>, ::windows::core::GetTrustLevel, Current::<T, Impl, OFFSET>, HasCurrent::<T, Impl, OFFSET>, MoveNext::<T, Impl, OFFSET>, GetMany::<T, Impl, OFFSET>, ::core::marker::PhantomData::<T>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIterator<T>>, ::windows::core::GetTrustLevel, Current::<T, Impl, IMPL_OFFSET>, HasCurrent::<T, Impl, IMPL_OFFSET>, MoveNext::<T, Impl, IMPL_OFFSET>, GetMany::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIterator<T> as ::windows::core::Interface>::IID
     }
 }
 pub trait IKeyValuePairImpl<K, V>: Sized
@@ -96,7 +102,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     const NAME: &'static str = "Windows.Foundation.Collections.IKeyValuePair";
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IKeyValuePairVtbl<K, V> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyValuePairImpl<K, V>, const OFFSET: isize>() -> IKeyValuePairVtbl<K, V> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyValuePairImpl<K, V>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyValuePairVtbl<K, V> {
         unsafe extern "system" fn Key<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Impl: IKeyValuePairImpl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <K as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Key() {
@@ -119,7 +125,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyValuePair<K, V>>, ::windows::core::GetTrustLevel, Key::<K, V, Impl, OFFSET>, Value::<K, V, Impl, OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyValuePair<K, V>>, ::windows::core::GetTrustLevel, Key::<K, V, Impl, IMPL_OFFSET>, Value::<K, V, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKeyValuePair<K, V> as ::windows::core::Interface>::IID
     }
 }
 pub trait IMapImpl<K, V>: Sized + IIterableImpl<IKeyValuePair<K, V>>
@@ -139,7 +148,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     const NAME: &'static str = "Windows.Foundation.Collections.IMap";
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMapVtbl<K, V> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapImpl<K, V>, const OFFSET: isize>() -> IMapVtbl<K, V> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapImpl<K, V>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapVtbl<K, V> {
         unsafe extern "system" fn Lookup<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Impl: IMapImpl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, result__: *mut <V as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lookup(&*(&key as *const <K as ::windows::core::Abi>::Abi as *const <K as ::windows::core::DefaultType>::DefaultType)) {
@@ -204,22 +213,25 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (*this).Clear().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMap<K, V>>,
             ::windows::core::GetTrustLevel,
-            Lookup::<K, V, Impl, OFFSET>,
-            Size::<K, V, Impl, OFFSET>,
-            HasKey::<K, V, Impl, OFFSET>,
-            GetView::<K, V, Impl, OFFSET>,
-            Insert::<K, V, Impl, OFFSET>,
-            Remove::<K, V, Impl, OFFSET>,
-            Clear::<K, V, Impl, OFFSET>,
+            Lookup::<K, V, Impl, IMPL_OFFSET>,
+            Size::<K, V, Impl, IMPL_OFFSET>,
+            HasKey::<K, V, Impl, IMPL_OFFSET>,
+            GetView::<K, V, Impl, IMPL_OFFSET>,
+            Insert::<K, V, Impl, IMPL_OFFSET>,
+            Remove::<K, V, Impl, IMPL_OFFSET>,
+            Clear::<K, V, Impl, IMPL_OFFSET>,
             ::core::marker::PhantomData::<K>,
             ::core::marker::PhantomData::<V>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMap<K, V> as ::windows::core::Interface>::IID
     }
 }
 pub trait IMapChangedEventArgsImpl<K>: Sized
@@ -233,7 +245,7 @@ impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
     const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
 }
 impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgsVtbl<K> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapChangedEventArgsImpl<K>, const OFFSET: isize>() -> IMapChangedEventArgsVtbl<K> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapChangedEventArgsImpl<K>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapChangedEventArgsVtbl<K> {
         unsafe extern "system" fn CollectionChange<K: ::windows::core::RuntimeType + 'static, Impl: IMapChangedEventArgsImpl<K>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionChange() {
@@ -256,7 +268,10 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgsVtbl<K> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapChangedEventArgs<K>>, ::windows::core::GetTrustLevel, CollectionChange::<K, Impl, OFFSET>, Key::<K, Impl, OFFSET>, ::core::marker::PhantomData::<K>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapChangedEventArgs<K>>, ::windows::core::GetTrustLevel, CollectionChange::<K, Impl, IMPL_OFFSET>, Key::<K, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapChangedEventArgs<K> as ::windows::core::Interface>::IID
     }
 }
 pub trait IMapViewImpl<K, V>: Sized + IIterableImpl<IKeyValuePair<K, V>>
@@ -273,7 +288,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     const NAME: &'static str = "Windows.Foundation.Collections.IMapView";
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMapViewVtbl<K, V> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapViewImpl<K, V>, const OFFSET: isize>() -> IMapViewVtbl<K, V> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapViewImpl<K, V>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapViewVtbl<K, V> {
         unsafe extern "system" fn Lookup<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Impl: IMapViewImpl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, result__: *mut <V as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lookup(&*(&key as *const <K as ::windows::core::Abi>::Abi as *const <K as ::windows::core::DefaultType>::DefaultType)) {
@@ -311,7 +326,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Split(::core::mem::transmute_copy(&first), ::core::mem::transmute_copy(&second)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapView<K, V>>, ::windows::core::GetTrustLevel, Lookup::<K, V, Impl, OFFSET>, Size::<K, V, Impl, OFFSET>, HasKey::<K, V, Impl, OFFSET>, Split::<K, V, Impl, OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapView<K, V>>, ::windows::core::GetTrustLevel, Lookup::<K, V, Impl, IMPL_OFFSET>, Size::<K, V, Impl, IMPL_OFFSET>, HasKey::<K, V, Impl, IMPL_OFFSET>, Split::<K, V, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapView<K, V> as ::windows::core::Interface>::IID
     }
 }
 pub trait IObservableMapImpl<K, V>: Sized + IIterableImpl<IKeyValuePair<K, V>> + IMapImpl<K, V>
@@ -326,7 +344,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableMap";
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IObservableMapVtbl<K, V> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObservableMapImpl<K, V>, const OFFSET: isize>() -> IObservableMapVtbl<K, V> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObservableMapImpl<K, V>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObservableMapVtbl<K, V> {
         unsafe extern "system" fn MapChanged<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Impl: IObservableMapImpl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vhnd: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapChanged(&*(&vhnd as *const <MapChangedEventHandler<K, V> as ::windows::core::Abi>::Abi as *const <MapChangedEventHandler<K, V> as ::windows::core::DefaultType>::DefaultType)) {
@@ -342,7 +360,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMapChanged(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObservableMap<K, V>>, ::windows::core::GetTrustLevel, MapChanged::<K, V, Impl, OFFSET>, RemoveMapChanged::<K, V, Impl, OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObservableMap<K, V>>, ::windows::core::GetTrustLevel, MapChanged::<K, V, Impl, IMPL_OFFSET>, RemoveMapChanged::<K, V, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObservableMap<K, V> as ::windows::core::Interface>::IID
     }
 }
 pub trait IObservableVectorImpl<T>: Sized + IIterableImpl<T> + IVectorImpl<T>
@@ -356,7 +377,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableVector";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IObservableVectorVtbl<T> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObservableVectorImpl<T>, const OFFSET: isize>() -> IObservableVectorVtbl<T> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObservableVectorImpl<T>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObservableVectorVtbl<T> {
         unsafe extern "system" fn VectorChanged<T: ::windows::core::RuntimeType + 'static, Impl: IObservableVectorImpl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vhnd: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VectorChanged(&*(&vhnd as *const <VectorChangedEventHandler<T> as ::windows::core::Abi>::Abi as *const <VectorChangedEventHandler<T> as ::windows::core::DefaultType>::DefaultType)) {
@@ -372,7 +393,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVectorVtbl<T> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVectorChanged(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObservableVector<T>>, ::windows::core::GetTrustLevel, VectorChanged::<T, Impl, OFFSET>, RemoveVectorChanged::<T, Impl, OFFSET>, ::core::marker::PhantomData::<T>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObservableVector<T>>, ::windows::core::GetTrustLevel, VectorChanged::<T, Impl, IMPL_OFFSET>, RemoveVectorChanged::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObservableVector<T> as ::windows::core::Interface>::IID
     }
 }
 pub trait IPropertySetImpl: Sized + IIterableImpl<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> + IMapImpl<::windows::core::HSTRING, ::windows::core::IInspectable> + IObservableMapImpl<::windows::core::HSTRING, ::windows::core::IInspectable> {}
@@ -380,8 +404,11 @@ impl ::windows::core::RuntimeName for IPropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.IPropertySet";
 }
 impl IPropertySetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetImpl, const OFFSET: isize>() -> IPropertySetVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertySet>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPropertySetVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertySet>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPropertySet as ::windows::core::Interface>::IID
     }
 }
 pub trait IVectorImpl<T>: Sized + IIterableImpl<T>
@@ -405,7 +432,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IVectorVtbl<T> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVectorImpl<T>, const OFFSET: isize>() -> IVectorVtbl<T> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVectorImpl<T>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVectorVtbl<T> {
         unsafe extern "system" fn GetAt<T: ::windows::core::RuntimeType + 'static, Impl: IVectorImpl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAt(index) {
@@ -490,26 +517,29 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorVtbl<T> {
             (*this).ReplaceAll(::core::slice::from_raw_parts(::core::mem::transmute_copy(&items), items_array_size as _)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IVector<T>>,
             ::windows::core::GetTrustLevel,
-            GetAt::<T, Impl, OFFSET>,
-            Size::<T, Impl, OFFSET>,
-            GetView::<T, Impl, OFFSET>,
-            IndexOf::<T, Impl, OFFSET>,
-            SetAt::<T, Impl, OFFSET>,
-            InsertAt::<T, Impl, OFFSET>,
-            RemoveAt::<T, Impl, OFFSET>,
-            Append::<T, Impl, OFFSET>,
-            RemoveAtEnd::<T, Impl, OFFSET>,
-            Clear::<T, Impl, OFFSET>,
-            GetMany::<T, Impl, OFFSET>,
-            ReplaceAll::<T, Impl, OFFSET>,
+            GetAt::<T, Impl, IMPL_OFFSET>,
+            Size::<T, Impl, IMPL_OFFSET>,
+            GetView::<T, Impl, IMPL_OFFSET>,
+            IndexOf::<T, Impl, IMPL_OFFSET>,
+            SetAt::<T, Impl, IMPL_OFFSET>,
+            InsertAt::<T, Impl, IMPL_OFFSET>,
+            RemoveAt::<T, Impl, IMPL_OFFSET>,
+            Append::<T, Impl, IMPL_OFFSET>,
+            RemoveAtEnd::<T, Impl, IMPL_OFFSET>,
+            Clear::<T, Impl, IMPL_OFFSET>,
+            GetMany::<T, Impl, IMPL_OFFSET>,
+            ReplaceAll::<T, Impl, IMPL_OFFSET>,
             ::core::marker::PhantomData::<T>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVector<T> as ::windows::core::Interface>::IID
     }
 }
 pub trait IVectorChangedEventArgsImpl: Sized {
@@ -520,7 +550,7 @@ impl ::windows::core::RuntimeName for IVectorChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorChangedEventArgs";
 }
 impl IVectorChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVectorChangedEventArgsImpl, const OFFSET: isize>() -> IVectorChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVectorChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVectorChangedEventArgsVtbl {
         unsafe extern "system" fn CollectionChange<Impl: IVectorChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionChange() {
@@ -543,7 +573,10 @@ impl IVectorChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVectorChangedEventArgs>, ::windows::core::GetTrustLevel, CollectionChange::<Impl, OFFSET>, Index::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVectorChangedEventArgs>, ::windows::core::GetTrustLevel, CollectionChange::<Impl, IMPL_OFFSET>, Index::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVectorChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 pub trait IVectorViewImpl<T>: Sized + IIterableImpl<T>
@@ -559,7 +592,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IVectorViewVtbl<T> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVectorViewImpl<T>, const OFFSET: isize>() -> IVectorViewVtbl<T> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVectorViewImpl<T>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVectorViewVtbl<T> {
         unsafe extern "system" fn GetAt<T: ::windows::core::RuntimeType + 'static, Impl: IVectorViewImpl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAt(index) {
@@ -604,6 +637,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorViewVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVectorView<T>>, ::windows::core::GetTrustLevel, GetAt::<T, Impl, OFFSET>, Size::<T, Impl, OFFSET>, IndexOf::<T, Impl, OFFSET>, GetMany::<T, Impl, OFFSET>, ::core::marker::PhantomData::<T>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVectorView<T>>, ::windows::core::GetTrustLevel, GetAt::<T, Impl, IMPL_OFFSET>, Size::<T, Impl, IMPL_OFFSET>, IndexOf::<T, Impl, IMPL_OFFSET>, GetMany::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVectorView<T> as ::windows::core::Interface>::IID
     }
 }

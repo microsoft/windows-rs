@@ -1,4 +1,4 @@
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialFeedChildItemImpl: Sized {
     fn Author(&self) -> ::windows::core::Result<SocialUserInfo>;
     fn PrimaryContent(&self) -> ::windows::core::Result<SocialFeedContent>;
@@ -11,13 +11,13 @@ pub trait ISocialFeedChildItemImpl: Sized {
     fn SharedItem(&self) -> ::windows::core::Result<SocialFeedSharedItem>;
     fn SetSharedItem(&self, value: &::core::option::Option<SocialFeedSharedItem>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialFeedChildItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialFeedChildItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedChildItemImpl, const OFFSET: isize>() -> ISocialFeedChildItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedChildItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialFeedChildItemVtbl {
         unsafe extern "system" fn Author<Impl: ISocialFeedChildItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Author() {
@@ -108,26 +108,29 @@ impl ISocialFeedChildItemVtbl {
             (*this).SetSharedItem(&*(&value as *const <SocialFeedSharedItem as ::windows::core::Abi>::Abi as *const <SocialFeedSharedItem as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISocialFeedChildItem>,
             ::windows::core::GetTrustLevel,
-            Author::<Impl, OFFSET>,
-            PrimaryContent::<Impl, OFFSET>,
-            SecondaryContent::<Impl, OFFSET>,
-            Timestamp::<Impl, OFFSET>,
-            SetTimestamp::<Impl, OFFSET>,
-            TargetUri::<Impl, OFFSET>,
-            SetTargetUri::<Impl, OFFSET>,
-            Thumbnails::<Impl, OFFSET>,
-            SharedItem::<Impl, OFFSET>,
-            SetSharedItem::<Impl, OFFSET>,
+            Author::<Impl, IMPL_OFFSET>,
+            PrimaryContent::<Impl, IMPL_OFFSET>,
+            SecondaryContent::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp::<Impl, IMPL_OFFSET>,
+            TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri::<Impl, IMPL_OFFSET>,
+            Thumbnails::<Impl, IMPL_OFFSET>,
+            SharedItem::<Impl, IMPL_OFFSET>,
+            SetSharedItem::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialFeedChildItem as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialFeedContentImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -136,13 +139,13 @@ pub trait ISocialFeedContentImpl: Sized {
     fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetTargetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialFeedContent {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.ISocialFeedContent";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialFeedContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedContentImpl, const OFFSET: isize>() -> ISocialFeedContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialFeedContentVtbl {
         unsafe extern "system" fn Title<Impl: ISocialFeedContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -188,10 +191,13 @@ impl ISocialFeedContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialFeedContent>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, Message::<Impl, OFFSET>, SetMessage::<Impl, OFFSET>, TargetUri::<Impl, OFFSET>, SetTargetUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialFeedContent>, ::windows::core::GetTrustLevel, Title::<Impl, IMPL_OFFSET>, SetTitle::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>, SetMessage::<Impl, IMPL_OFFSET>, TargetUri::<Impl, IMPL_OFFSET>, SetTargetUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialFeedContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialFeedItemImpl: Sized {
     fn Author(&self) -> ::windows::core::Result<SocialUserInfo>;
     fn PrimaryContent(&self) -> ::windows::core::Result<SocialFeedContent>;
@@ -214,13 +220,13 @@ pub trait ISocialFeedItemImpl: Sized {
     fn Style(&self) -> ::windows::core::Result<SocialFeedItemStyle>;
     fn SetStyle(&self, value: SocialFeedItemStyle) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialFeedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.ISocialFeedItem";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialFeedItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedItemImpl, const OFFSET: isize>() -> ISocialFeedItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialFeedItemVtbl {
         unsafe extern "system" fn Author<Impl: ISocialFeedItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Author() {
@@ -386,36 +392,39 @@ impl ISocialFeedItemVtbl {
             (*this).SetStyle(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISocialFeedItem>,
             ::windows::core::GetTrustLevel,
-            Author::<Impl, OFFSET>,
-            PrimaryContent::<Impl, OFFSET>,
-            SecondaryContent::<Impl, OFFSET>,
-            Timestamp::<Impl, OFFSET>,
-            SetTimestamp::<Impl, OFFSET>,
-            TargetUri::<Impl, OFFSET>,
-            SetTargetUri::<Impl, OFFSET>,
-            Thumbnails::<Impl, OFFSET>,
-            SharedItem::<Impl, OFFSET>,
-            SetSharedItem::<Impl, OFFSET>,
-            BadgeStyle::<Impl, OFFSET>,
-            SetBadgeStyle::<Impl, OFFSET>,
-            BadgeCountValue::<Impl, OFFSET>,
-            SetBadgeCountValue::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            ChildItem::<Impl, OFFSET>,
-            SetChildItem::<Impl, OFFSET>,
-            Style::<Impl, OFFSET>,
-            SetStyle::<Impl, OFFSET>,
+            Author::<Impl, IMPL_OFFSET>,
+            PrimaryContent::<Impl, IMPL_OFFSET>,
+            SecondaryContent::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp::<Impl, IMPL_OFFSET>,
+            TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri::<Impl, IMPL_OFFSET>,
+            Thumbnails::<Impl, IMPL_OFFSET>,
+            SharedItem::<Impl, IMPL_OFFSET>,
+            SetSharedItem::<Impl, IMPL_OFFSET>,
+            BadgeStyle::<Impl, IMPL_OFFSET>,
+            SetBadgeStyle::<Impl, IMPL_OFFSET>,
+            BadgeCountValue::<Impl, IMPL_OFFSET>,
+            SetBadgeCountValue::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            ChildItem::<Impl, IMPL_OFFSET>,
+            SetChildItem::<Impl, IMPL_OFFSET>,
+            Style::<Impl, IMPL_OFFSET>,
+            SetStyle::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialFeedItem as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialFeedSharedItemImpl: Sized {
     fn OriginalSource(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetOriginalSource(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -427,13 +436,13 @@ pub trait ISocialFeedSharedItemImpl: Sized {
     fn SetThumbnail(&self, value: &::core::option::Option<SocialItemThumbnail>) -> ::windows::core::Result<()>;
     fn Thumbnail(&self) -> ::windows::core::Result<SocialItemThumbnail>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialFeedSharedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialFeedSharedItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedSharedItemImpl, const OFFSET: isize>() -> ISocialFeedSharedItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialFeedSharedItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialFeedSharedItemVtbl {
         unsafe extern "system" fn OriginalSource<Impl: ISocialFeedSharedItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OriginalSource() {
@@ -506,25 +515,28 @@ impl ISocialFeedSharedItemVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISocialFeedSharedItem>,
             ::windows::core::GetTrustLevel,
-            OriginalSource::<Impl, OFFSET>,
-            SetOriginalSource::<Impl, OFFSET>,
-            Content::<Impl, OFFSET>,
-            Timestamp::<Impl, OFFSET>,
-            SetTimestamp::<Impl, OFFSET>,
-            TargetUri::<Impl, OFFSET>,
-            SetTargetUri::<Impl, OFFSET>,
-            SetThumbnail::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
+            OriginalSource::<Impl, IMPL_OFFSET>,
+            SetOriginalSource::<Impl, IMPL_OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            SetTimestamp::<Impl, IMPL_OFFSET>,
+            TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri::<Impl, IMPL_OFFSET>,
+            SetThumbnail::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialFeedSharedItem as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialItemThumbnailImpl: Sized {
     fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetTargetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -534,13 +546,13 @@ pub trait ISocialItemThumbnailImpl: Sized {
     fn SetBitmapSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
     fn SetImageAsync(&self, image: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialItemThumbnail {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialItemThumbnailVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialItemThumbnailImpl, const OFFSET: isize>() -> ISocialItemThumbnailVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialItemThumbnailImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialItemThumbnailVtbl {
         unsafe extern "system" fn TargetUri<Impl: ISocialItemThumbnailImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetUri() {
@@ -597,10 +609,27 @@ impl ISocialItemThumbnailVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocialItemThumbnail>, ::windows::core::GetTrustLevel, TargetUri::<Impl, OFFSET>, SetTargetUri::<Impl, OFFSET>, ImageUri::<Impl, OFFSET>, SetImageUri::<Impl, OFFSET>, BitmapSize::<Impl, OFFSET>, SetBitmapSize::<Impl, OFFSET>, SetImageAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISocialItemThumbnail>,
+            ::windows::core::GetTrustLevel,
+            TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri::<Impl, IMPL_OFFSET>,
+            ImageUri::<Impl, IMPL_OFFSET>,
+            SetImageUri::<Impl, IMPL_OFFSET>,
+            BitmapSize::<Impl, IMPL_OFFSET>,
+            SetBitmapSize::<Impl, IMPL_OFFSET>,
+            SetImageAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialItemThumbnail as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISocialUserInfoImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -611,13 +640,13 @@ pub trait ISocialUserInfoImpl: Sized {
     fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetTargetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocialUserInfo {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.ISocialUserInfo";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISocialUserInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialUserInfoImpl, const OFFSET: isize>() -> ISocialUserInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocialUserInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocialUserInfoVtbl {
         unsafe extern "system" fn DisplayName<Impl: ISocialUserInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -679,20 +708,23 @@ impl ISocialUserInfoVtbl {
             (*this).SetTargetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISocialUserInfo>,
             ::windows::core::GetTrustLevel,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            UserName::<Impl, OFFSET>,
-            SetUserName::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            TargetUri::<Impl, OFFSET>,
-            SetTargetUri::<Impl, OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            UserName::<Impl, IMPL_OFFSET>,
+            SetUserName::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            TargetUri::<Impl, IMPL_OFFSET>,
+            SetTargetUri::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocialUserInfo as ::windows::core::Interface>::IID
     }
 }

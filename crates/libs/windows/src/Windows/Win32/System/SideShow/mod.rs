@@ -902,12 +902,12 @@ pub struct ISideShowPropVariantCollectionVtbl(
 pub struct ISideShowSession(::windows::core::IUnknown);
 impl ISideShowSession {
     #[doc = "*Required features: 'Win32_System_SideShow'*"]
-    pub unsafe fn RegisterContent(&self, in_applicationid: &::windows::core::GUID, in_endpointid: &::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager> {
+    pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(in_endpointid), ::core::mem::transmute(&mut result__)).from_abi::<ISideShowContentManager>(result__)
     }
     #[doc = "*Required features: 'Win32_System_SideShow'*"]
-    pub unsafe fn RegisterNotifications(&self, in_applicationid: &::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager> {
+    pub unsafe fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(&mut result__)).from_abi::<ISideShowNotificationManager>(result__)
     }
@@ -958,8 +958,8 @@ pub struct ISideShowSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: &::windows::core::GUID, in_endpointid: &::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: &::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_System_SideShow'*"]

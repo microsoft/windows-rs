@@ -1,16 +1,16 @@
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IImageVariableDescriptorPreviewImpl: Sized + ILearningModelVariableDescriptorPreviewImpl {
     fn BitmapPixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat>;
     fn Width(&self) -> ::windows::core::Result<u32>;
     fn Height(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.IImageVariableDescriptorPreview";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl IImageVariableDescriptorPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageVariableDescriptorPreviewImpl, const OFFSET: isize>() -> IImageVariableDescriptorPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageVariableDescriptorPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageVariableDescriptorPreviewVtbl {
         unsafe extern "system" fn BitmapPixelFormat<Impl: IImageVariableDescriptorPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapPixelFormat() {
@@ -44,7 +44,10 @@ impl IImageVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageVariableDescriptorPreview>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, OFFSET>, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IImageVariableDescriptorPreview>, ::windows::core::GetTrustLevel, BitmapPixelFormat::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IImageVariableDescriptorPreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -66,7 +69,7 @@ impl ::windows::core::RuntimeName for IInferencingOptionsPreview {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IInferencingOptionsPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInferencingOptionsPreviewImpl, const OFFSET: isize>() -> IInferencingOptionsPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInferencingOptionsPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInferencingOptionsPreviewVtbl {
         unsafe extern "system" fn PreferredDeviceKind<Impl: IInferencingOptionsPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LearningModelDeviceKindPreview) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredDeviceKind() {
@@ -143,23 +146,26 @@ impl IInferencingOptionsPreviewVtbl {
             (*this).SetReclaimMemoryAfterEvaluation(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IInferencingOptionsPreview>,
             ::windows::core::GetTrustLevel,
-            PreferredDeviceKind::<Impl, OFFSET>,
-            SetPreferredDeviceKind::<Impl, OFFSET>,
-            IsTracingEnabled::<Impl, OFFSET>,
-            SetIsTracingEnabled::<Impl, OFFSET>,
-            MaxBatchSize::<Impl, OFFSET>,
-            SetMaxBatchSize::<Impl, OFFSET>,
-            MinimizeMemoryAllocation::<Impl, OFFSET>,
-            SetMinimizeMemoryAllocation::<Impl, OFFSET>,
-            ReclaimMemoryAfterEvaluation::<Impl, OFFSET>,
-            SetReclaimMemoryAfterEvaluation::<Impl, OFFSET>,
+            PreferredDeviceKind::<Impl, IMPL_OFFSET>,
+            SetPreferredDeviceKind::<Impl, IMPL_OFFSET>,
+            IsTracingEnabled::<Impl, IMPL_OFFSET>,
+            SetIsTracingEnabled::<Impl, IMPL_OFFSET>,
+            MaxBatchSize::<Impl, IMPL_OFFSET>,
+            SetMaxBatchSize::<Impl, IMPL_OFFSET>,
+            MinimizeMemoryAllocation::<Impl, IMPL_OFFSET>,
+            SetMinimizeMemoryAllocation::<Impl, IMPL_OFFSET>,
+            ReclaimMemoryAfterEvaluation::<Impl, IMPL_OFFSET>,
+            SetReclaimMemoryAfterEvaluation::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInferencingOptionsPreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
@@ -174,7 +180,7 @@ impl ::windows::core::RuntimeName for ILearningModelBindingPreview {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ILearningModelBindingPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelBindingPreviewImpl, const OFFSET: isize>() -> ILearningModelBindingPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelBindingPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelBindingPreviewVtbl {
         unsafe extern "system" fn Bind<Impl: ILearningModelBindingPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Bind(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
@@ -193,7 +199,10 @@ impl ILearningModelBindingPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingPreview>, ::windows::core::GetTrustLevel, Bind::<Impl, OFFSET>, BindWithProperties::<Impl, OFFSET>, Clear::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingPreview>, ::windows::core::GetTrustLevel, Bind::<Impl, IMPL_OFFSET>, BindWithProperties::<Impl, IMPL_OFFSET>, Clear::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelBindingPreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -206,7 +215,7 @@ impl ::windows::core::RuntimeName for ILearningModelBindingPreviewFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ILearningModelBindingPreviewFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelBindingPreviewFactoryImpl, const OFFSET: isize>() -> ILearningModelBindingPreviewFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelBindingPreviewFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelBindingPreviewFactoryVtbl {
         unsafe extern "system" fn CreateFromModel<Impl: ILearningModelBindingPreviewFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, model: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromModel(&*(&model as *const <LearningModelPreview as ::windows::core::Abi>::Abi as *const <LearningModelPreview as ::windows::core::DefaultType>::DefaultType)) {
@@ -218,10 +227,13 @@ impl ILearningModelBindingPreviewFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingPreviewFactory>, ::windows::core::GetTrustLevel, CreateFromModel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelBindingPreviewFactory>, ::windows::core::GetTrustLevel, CreateFromModel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelBindingPreviewFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ILearningModelDescriptionPreviewImpl: Sized {
     fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -232,13 +244,13 @@ pub trait ILearningModelDescriptionPreviewImpl: Sized {
     fn InputFeatures(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>>;
     fn OutputFeatures(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILearningModelDescriptionPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ILearningModelDescriptionPreview";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ILearningModelDescriptionPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelDescriptionPreviewImpl, const OFFSET: isize>() -> ILearningModelDescriptionPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelDescriptionPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelDescriptionPreviewVtbl {
         unsafe extern "system" fn Author<Impl: ILearningModelDescriptionPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Author() {
@@ -328,35 +340,38 @@ impl ILearningModelDescriptionPreviewVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ILearningModelDescriptionPreview>,
             ::windows::core::GetTrustLevel,
-            Author::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            Domain::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            Version::<Impl, OFFSET>,
-            Metadata::<Impl, OFFSET>,
-            InputFeatures::<Impl, OFFSET>,
-            OutputFeatures::<Impl, OFFSET>,
+            Author::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Domain::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Version::<Impl, IMPL_OFFSET>,
+            Metadata::<Impl, IMPL_OFFSET>,
+            InputFeatures::<Impl, IMPL_OFFSET>,
+            OutputFeatures::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelDescriptionPreview as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ILearningModelEvaluationResultPreviewImpl: Sized {
     fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Outputs(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILearningModelEvaluationResultPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ILearningModelEvaluationResultPreview";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ILearningModelEvaluationResultPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelEvaluationResultPreviewImpl, const OFFSET: isize>() -> ILearningModelEvaluationResultPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelEvaluationResultPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelEvaluationResultPreviewVtbl {
         unsafe extern "system" fn CorrelationId<Impl: ILearningModelEvaluationResultPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CorrelationId() {
@@ -379,10 +394,13 @@ impl ILearningModelEvaluationResultPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelEvaluationResultPreview>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, OFFSET>, Outputs::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelEvaluationResultPreview>, ::windows::core::GetTrustLevel, CorrelationId::<Impl, IMPL_OFFSET>, Outputs::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelEvaluationResultPreview as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ILearningModelPreviewImpl: Sized {
     fn EvaluateAsync(&self, binding: &::core::option::Option<LearningModelBindingPreview>, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>;
     fn EvaluateFeaturesAsync(&self, features: &::core::option::Option<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>;
@@ -390,13 +408,13 @@ pub trait ILearningModelPreviewImpl: Sized {
     fn InferencingOptions(&self) -> ::windows::core::Result<InferencingOptionsPreview>;
     fn SetInferencingOptions(&self, value: &::core::option::Option<InferencingOptionsPreview>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILearningModelPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ILearningModelPreview";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ILearningModelPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelPreviewImpl, const OFFSET: isize>() -> ILearningModelPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelPreviewVtbl {
         unsafe extern "system" fn EvaluateAsync<Impl: ILearningModelPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binding: ::windows::core::RawPtr, correlationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EvaluateAsync(&*(&binding as *const <LearningModelBindingPreview as ::windows::core::Abi>::Abi as *const <LearningModelBindingPreview as ::windows::core::DefaultType>::DefaultType), &*(&correlationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -448,21 +466,24 @@ impl ILearningModelPreviewVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInferencingOptions(&*(&value as *const <InferencingOptionsPreview as ::windows::core::Abi>::Abi as *const <InferencingOptionsPreview as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelPreview>, ::windows::core::GetTrustLevel, EvaluateAsync::<Impl, OFFSET>, EvaluateFeaturesAsync::<Impl, OFFSET>, Description::<Impl, OFFSET>, InferencingOptions::<Impl, OFFSET>, SetInferencingOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelPreview>, ::windows::core::GetTrustLevel, EvaluateAsync::<Impl, IMPL_OFFSET>, EvaluateFeaturesAsync::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, InferencingOptions::<Impl, IMPL_OFFSET>, SetInferencingOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelPreview as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ILearningModelPreviewStaticsImpl: Sized {
     fn LoadModelFromStorageFileAsync(&self, modelfile: &::core::option::Option<super::super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>;
     fn LoadModelFromStreamAsync(&self, modelstream: &::core::option::Option<super::super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILearningModelPreviewStatics {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ILearningModelPreviewStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ILearningModelPreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelPreviewStaticsImpl, const OFFSET: isize>() -> ILearningModelPreviewStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelPreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelPreviewStaticsVtbl {
         unsafe extern "system" fn LoadModelFromStorageFileAsync<Impl: ILearningModelPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modelfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadModelFromStorageFileAsync(&*(&modelfile as *const <super::super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -485,7 +506,10 @@ impl ILearningModelPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelPreviewStatics>, ::windows::core::GetTrustLevel, LoadModelFromStorageFileAsync::<Impl, OFFSET>, LoadModelFromStreamAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelPreviewStatics>, ::windows::core::GetTrustLevel, LoadModelFromStorageFileAsync::<Impl, IMPL_OFFSET>, LoadModelFromStreamAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelPreviewStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "deprecated")]
@@ -501,7 +525,7 @@ impl ::windows::core::RuntimeName for ILearningModelVariableDescriptorPreview {
 }
 #[cfg(feature = "deprecated")]
 impl ILearningModelVariableDescriptorPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelVariableDescriptorPreviewImpl, const OFFSET: isize>() -> ILearningModelVariableDescriptorPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelVariableDescriptorPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelVariableDescriptorPreviewVtbl {
         unsafe extern "system" fn Name<Impl: ILearningModelVariableDescriptorPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -546,23 +570,26 @@ impl ILearningModelVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelVariableDescriptorPreview>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, Description::<Impl, OFFSET>, ModelFeatureKind::<Impl, OFFSET>, IsRequired::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILearningModelVariableDescriptorPreview>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, ModelFeatureKind::<Impl, IMPL_OFFSET>, IsRequired::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelVariableDescriptorPreview as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IMapVariableDescriptorPreviewImpl: Sized + ILearningModelVariableDescriptorPreviewImpl {
     fn KeyKind(&self) -> ::windows::core::Result<FeatureElementKindPreview>;
     fn ValidStringKeys(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>;
     fn ValidIntegerKeys(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<i64>>;
     fn Fields(&self) -> ::windows::core::Result<ILearningModelVariableDescriptorPreview>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMapVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.IMapVariableDescriptorPreview";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IMapVariableDescriptorPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapVariableDescriptorPreviewImpl, const OFFSET: isize>() -> IMapVariableDescriptorPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMapVariableDescriptorPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMapVariableDescriptorPreviewVtbl {
         unsafe extern "system" fn KeyKind<Impl: IMapVariableDescriptorPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyKind() {
@@ -607,7 +634,10 @@ impl IMapVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapVariableDescriptorPreview>, ::windows::core::GetTrustLevel, KeyKind::<Impl, OFFSET>, ValidStringKeys::<Impl, OFFSET>, ValidIntegerKeys::<Impl, OFFSET>, Fields::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapVariableDescriptorPreview>, ::windows::core::GetTrustLevel, KeyKind::<Impl, IMPL_OFFSET>, ValidStringKeys::<Impl, IMPL_OFFSET>, ValidIntegerKeys::<Impl, IMPL_OFFSET>, Fields::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMapVariableDescriptorPreview as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -620,7 +650,7 @@ impl ::windows::core::RuntimeName for ISequenceVariableDescriptorPreview {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISequenceVariableDescriptorPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISequenceVariableDescriptorPreviewImpl, const OFFSET: isize>() -> ISequenceVariableDescriptorPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISequenceVariableDescriptorPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISequenceVariableDescriptorPreviewVtbl {
         unsafe extern "system" fn ElementType<Impl: ISequenceVariableDescriptorPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementType() {
@@ -632,21 +662,24 @@ impl ISequenceVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISequenceVariableDescriptorPreview>, ::windows::core::GetTrustLevel, ElementType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISequenceVariableDescriptorPreview>, ::windows::core::GetTrustLevel, ElementType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISequenceVariableDescriptorPreview as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ITensorVariableDescriptorPreviewImpl: Sized + ILearningModelVariableDescriptorPreviewImpl {
     fn DataType(&self) -> ::windows::core::Result<FeatureElementKindPreview>;
     fn Shape(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<i64>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITensorVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ITensorVariableDescriptorPreview";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ITensorVariableDescriptorPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensorVariableDescriptorPreviewImpl, const OFFSET: isize>() -> ITensorVariableDescriptorPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensorVariableDescriptorPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITensorVariableDescriptorPreviewVtbl {
         unsafe extern "system" fn DataType<Impl: ITensorVariableDescriptorPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataType() {
@@ -669,6 +702,9 @@ impl ITensorVariableDescriptorPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorVariableDescriptorPreview>, ::windows::core::GetTrustLevel, DataType::<Impl, OFFSET>, Shape::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITensorVariableDescriptorPreview>, ::windows::core::GetTrustLevel, DataType::<Impl, IMPL_OFFSET>, Shape::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITensorVariableDescriptorPreview as ::windows::core::Interface>::IID
     }
 }

@@ -6,8 +6,11 @@ impl ::windows::core::RuntimeName for ICustomXamlResourceLoader {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomXamlResourceLoaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderImpl, const OFFSET: isize>() -> ICustomXamlResourceLoaderVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoader>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomXamlResourceLoaderVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoader>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomXamlResourceLoader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -20,7 +23,7 @@ impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomXamlResourceLoaderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderFactoryImpl, const OFFSET: isize>() -> ICustomXamlResourceLoaderFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomXamlResourceLoaderFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ICustomXamlResourceLoaderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -32,7 +35,10 @@ impl ICustomXamlResourceLoaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoaderFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoaderFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomXamlResourceLoaderFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,7 +51,7 @@ impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderOverrides {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomXamlResourceLoaderOverridesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderOverridesImpl, const OFFSET: isize>() -> ICustomXamlResourceLoaderOverridesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderOverridesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomXamlResourceLoaderOverridesVtbl {
         unsafe extern "system" fn GetResource<Impl: ICustomXamlResourceLoaderOverridesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResource(
@@ -62,7 +68,10 @@ impl ICustomXamlResourceLoaderOverridesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoaderOverrides>, ::windows::core::GetTrustLevel, GetResource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoaderOverrides>, ::windows::core::GetTrustLevel, GetResource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomXamlResourceLoaderOverrides as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -76,7 +85,7 @@ impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomXamlResourceLoaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderStaticsImpl, const OFFSET: isize>() -> ICustomXamlResourceLoaderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomXamlResourceLoaderStaticsVtbl {
         unsafe extern "system" fn Current<Impl: ICustomXamlResourceLoaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -92,6 +101,9 @@ impl ICustomXamlResourceLoaderStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrent(&*(&value as *const <CustomXamlResourceLoader as ::windows::core::Abi>::Abi as *const <CustomXamlResourceLoader as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoaderStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>, SetCurrent::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomXamlResourceLoaderStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, SetCurrent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomXamlResourceLoaderStatics as ::windows::core::Interface>::IID
     }
 }

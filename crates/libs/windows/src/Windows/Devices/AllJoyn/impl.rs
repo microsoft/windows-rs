@@ -1,4 +1,4 @@
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynAboutDataImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -22,13 +22,13 @@ pub trait IAllJoynAboutDataImpl: Sized {
     fn AppId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetAppId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynAboutData {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAboutData";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynAboutDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataImpl, const OFFSET: isize>() -> IAllJoynAboutDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -198,37 +198,40 @@ impl IAllJoynAboutDataVtbl {
             (*this).SetAppId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynAboutData>,
             ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
-            DefaultAppName::<Impl, OFFSET>,
-            SetDefaultAppName::<Impl, OFFSET>,
-            AppNames::<Impl, OFFSET>,
-            DateOfManufacture::<Impl, OFFSET>,
-            SetDateOfManufacture::<Impl, OFFSET>,
-            DefaultDescription::<Impl, OFFSET>,
-            SetDefaultDescription::<Impl, OFFSET>,
-            Descriptions::<Impl, OFFSET>,
-            DefaultManufacturer::<Impl, OFFSET>,
-            SetDefaultManufacturer::<Impl, OFFSET>,
-            Manufacturers::<Impl, OFFSET>,
-            ModelNumber::<Impl, OFFSET>,
-            SetModelNumber::<Impl, OFFSET>,
-            SoftwareVersion::<Impl, OFFSET>,
-            SetSoftwareVersion::<Impl, OFFSET>,
-            SupportUrl::<Impl, OFFSET>,
-            SetSupportUrl::<Impl, OFFSET>,
-            AppId::<Impl, OFFSET>,
-            SetAppId::<Impl, OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            DefaultAppName::<Impl, IMPL_OFFSET>,
+            SetDefaultAppName::<Impl, IMPL_OFFSET>,
+            AppNames::<Impl, IMPL_OFFSET>,
+            DateOfManufacture::<Impl, IMPL_OFFSET>,
+            SetDateOfManufacture::<Impl, IMPL_OFFSET>,
+            DefaultDescription::<Impl, IMPL_OFFSET>,
+            SetDefaultDescription::<Impl, IMPL_OFFSET>,
+            Descriptions::<Impl, IMPL_OFFSET>,
+            DefaultManufacturer::<Impl, IMPL_OFFSET>,
+            SetDefaultManufacturer::<Impl, IMPL_OFFSET>,
+            Manufacturers::<Impl, IMPL_OFFSET>,
+            ModelNumber::<Impl, IMPL_OFFSET>,
+            SetModelNumber::<Impl, IMPL_OFFSET>,
+            SoftwareVersion::<Impl, IMPL_OFFSET>,
+            SetSoftwareVersion::<Impl, IMPL_OFFSET>,
+            SupportUrl::<Impl, IMPL_OFFSET>,
+            SetSupportUrl::<Impl, IMPL_OFFSET>,
+            AppId::<Impl, IMPL_OFFSET>,
+            SetAppId::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAboutData as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynAboutDataViewImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
@@ -247,13 +250,13 @@ pub trait IAllJoynAboutDataViewImpl: Sized {
     fn DeviceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Manufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynAboutDataView {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAboutDataView";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynAboutDataViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>() -> IAllJoynAboutDataViewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataViewVtbl {
         unsafe extern "system" fn Status<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -431,43 +434,46 @@ impl IAllJoynAboutDataViewVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynAboutDataView>,
             ::windows::core::GetTrustLevel,
-            Status::<Impl, OFFSET>,
-            Properties::<Impl, OFFSET>,
-            AJSoftwareVersion::<Impl, OFFSET>,
-            AppId::<Impl, OFFSET>,
-            DateOfManufacture::<Impl, OFFSET>,
-            DefaultLanguage::<Impl, OFFSET>,
-            DeviceId::<Impl, OFFSET>,
-            HardwareVersion::<Impl, OFFSET>,
-            ModelNumber::<Impl, OFFSET>,
-            SoftwareVersion::<Impl, OFFSET>,
-            SupportedLanguages::<Impl, OFFSET>,
-            SupportUrl::<Impl, OFFSET>,
-            AppName::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            DeviceName::<Impl, OFFSET>,
-            Manufacturer::<Impl, OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            AJSoftwareVersion::<Impl, IMPL_OFFSET>,
+            AppId::<Impl, IMPL_OFFSET>,
+            DateOfManufacture::<Impl, IMPL_OFFSET>,
+            DefaultLanguage::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            HardwareVersion::<Impl, IMPL_OFFSET>,
+            ModelNumber::<Impl, IMPL_OFFSET>,
+            SoftwareVersion::<Impl, IMPL_OFFSET>,
+            SupportedLanguages::<Impl, IMPL_OFFSET>,
+            SupportUrl::<Impl, IMPL_OFFSET>,
+            AppName::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            DeviceName::<Impl, IMPL_OFFSET>,
+            Manufacturer::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAboutDataView as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynAboutDataViewStaticsImpl: Sized {
     fn GetDataBySessionPortAsync(&self, uniquename: &::windows::core::HSTRING, busattachment: &::core::option::Option<AllJoynBusAttachment>, sessionport: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
     fn GetDataBySessionPortWithLanguageAsync(&self, uniquename: &::windows::core::HSTRING, busattachment: &::core::option::Option<AllJoynBusAttachment>, sessionport: u16, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynAboutDataViewStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAboutDataViewStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynAboutDataViewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewStaticsImpl, const OFFSET: isize>() -> IAllJoynAboutDataViewStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataViewStaticsVtbl {
         unsafe extern "system" fn GetDataBySessionPortAsync<Impl: IAllJoynAboutDataViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataBySessionPortAsync(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&busattachment as *const <AllJoynBusAttachment as ::windows::core::Abi>::Abi as *const <AllJoynBusAttachment as ::windows::core::DefaultType>::DefaultType), sessionport) {
@@ -495,7 +501,10 @@ impl IAllJoynAboutDataViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAboutDataViewStatics>, ::windows::core::GetTrustLevel, GetDataBySessionPortAsync::<Impl, OFFSET>, GetDataBySessionPortWithLanguageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAboutDataViewStatics>, ::windows::core::GetTrustLevel, GetDataBySessionPortAsync::<Impl, IMPL_OFFSET>, GetDataBySessionPortWithLanguageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAboutDataViewStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "deprecated")]
@@ -508,12 +517,15 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoiner {
 }
 #[cfg(feature = "deprecated")]
 impl IAllJoynAcceptSessionJoinerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerImpl, const OFFSET: isize>() -> IAllJoynAcceptSessionJoinerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerVtbl {
         unsafe extern "system" fn Accept<Impl: IAllJoynAcceptSessionJoinerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoiner>, ::windows::core::GetTrustLevel, Accept::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoiner>, ::windows::core::GetTrustLevel, Accept::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAcceptSessionJoiner as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -531,7 +543,7 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoinerEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsVtbl {
         unsafe extern "system" fn UniqueName<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
@@ -591,7 +603,23 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoinerEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, OFFSET>, SessionPort::<Impl, OFFSET>, TrafficType::<Impl, OFFSET>, SamePhysicalNode::<Impl, OFFSET>, SameNetwork::<Impl, OFFSET>, Accept::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoinerEventArgs>,
+            ::windows::core::GetTrustLevel,
+            UniqueName::<Impl, IMPL_OFFSET>,
+            SessionPort::<Impl, IMPL_OFFSET>,
+            TrafficType::<Impl, IMPL_OFFSET>,
+            SamePhysicalNode::<Impl, IMPL_OFFSET>,
+            SameNetwork::<Impl, IMPL_OFFSET>,
+            Accept::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAcceptSessionJoinerEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -604,7 +632,7 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoinerEventArgsFactor
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynAcceptSessionJoinerEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sessionport, traffictype, proximity, &*(&acceptsessionjoiner as *const <IAllJoynAcceptSessionJoiner as ::windows::core::Abi>::Abi as *const <IAllJoynAcceptSessionJoiner as ::windows::core::DefaultType>::DefaultType)) {
@@ -616,7 +644,10 @@ impl IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoinerEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAcceptSessionJoinerEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAcceptSessionJoinerEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -631,7 +662,7 @@ impl ::windows::core::RuntimeName for IAllJoynAuthenticationCompleteEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynAuthenticationCompleteEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const OFFSET: isize>() -> IAllJoynAuthenticationCompleteEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAuthenticationCompleteEventArgsVtbl {
         unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanism() {
@@ -665,10 +696,13 @@ impl IAllJoynAuthenticationCompleteEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAuthenticationCompleteEventArgs>, ::windows::core::GetTrustLevel, AuthenticationMechanism::<Impl, OFFSET>, PeerUniqueName::<Impl, OFFSET>, Succeeded::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynAuthenticationCompleteEventArgs>, ::windows::core::GetTrustLevel, AuthenticationMechanism::<Impl, IMPL_OFFSET>, PeerUniqueName::<Impl, IMPL_OFFSET>, Succeeded::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynAuthenticationCompleteEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynBusAttachmentImpl: Sized {
     fn AboutData(&self) -> ::windows::core::Result<AllJoynAboutData>;
     fn ConnectionSpecification(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -687,13 +721,13 @@ pub trait IAllJoynBusAttachmentImpl: Sized {
     fn AuthenticationComplete(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAuthenticationCompleteEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAuthenticationComplete(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynBusAttachment {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachment";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusAttachmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>() -> IAllJoynBusAttachmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentVtbl {
         unsafe extern "system" fn AboutData<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AboutData() {
@@ -829,32 +863,35 @@ impl IAllJoynBusAttachmentVtbl {
             (*this).RemoveAuthenticationComplete(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachment>,
             ::windows::core::GetTrustLevel,
-            AboutData::<Impl, OFFSET>,
-            ConnectionSpecification::<Impl, OFFSET>,
-            State::<Impl, OFFSET>,
-            UniqueName::<Impl, OFFSET>,
-            PingAsync::<Impl, OFFSET>,
-            Connect::<Impl, OFFSET>,
-            Disconnect::<Impl, OFFSET>,
-            StateChanged::<Impl, OFFSET>,
-            RemoveStateChanged::<Impl, OFFSET>,
-            AuthenticationMechanisms::<Impl, OFFSET>,
-            CredentialsRequested::<Impl, OFFSET>,
-            RemoveCredentialsRequested::<Impl, OFFSET>,
-            CredentialsVerificationRequested::<Impl, OFFSET>,
-            RemoveCredentialsVerificationRequested::<Impl, OFFSET>,
-            AuthenticationComplete::<Impl, OFFSET>,
-            RemoveAuthenticationComplete::<Impl, OFFSET>,
+            AboutData::<Impl, IMPL_OFFSET>,
+            ConnectionSpecification::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            UniqueName::<Impl, IMPL_OFFSET>,
+            PingAsync::<Impl, IMPL_OFFSET>,
+            Connect::<Impl, IMPL_OFFSET>,
+            Disconnect::<Impl, IMPL_OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            AuthenticationMechanisms::<Impl, IMPL_OFFSET>,
+            CredentialsRequested::<Impl, IMPL_OFFSET>,
+            RemoveCredentialsRequested::<Impl, IMPL_OFFSET>,
+            CredentialsVerificationRequested::<Impl, IMPL_OFFSET>,
+            RemoveCredentialsVerificationRequested::<Impl, IMPL_OFFSET>,
+            AuthenticationComplete::<Impl, IMPL_OFFSET>,
+            RemoveAuthenticationComplete::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusAttachment as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynBusAttachment2Impl: Sized {
     fn GetAboutDataAsync(&self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
     fn GetAboutDataWithLanguageAsync(&self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
@@ -863,13 +900,13 @@ pub trait IAllJoynBusAttachment2Impl: Sized {
     fn SessionJoined(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynSessionJoinedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSessionJoined(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynBusAttachment2 {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachment2";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusAttachment2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>() -> IAllJoynBusAttachment2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachment2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachment2Vtbl {
         unsafe extern "system" fn GetAboutDataAsync<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAboutDataAsync(&*(&serviceinfo as *const <AllJoynServiceInfo as ::windows::core::Abi>::Abi as *const <AllJoynServiceInfo as ::windows::core::DefaultType>::DefaultType)) {
@@ -923,19 +960,22 @@ impl IAllJoynBusAttachment2Vtbl {
             (*this).RemoveSessionJoined(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachment2>,
             ::windows::core::GetTrustLevel,
-            GetAboutDataAsync::<Impl, OFFSET>,
-            GetAboutDataWithLanguageAsync::<Impl, OFFSET>,
-            AcceptSessionJoinerRequested::<Impl, OFFSET>,
-            RemoveAcceptSessionJoinerRequested::<Impl, OFFSET>,
-            SessionJoined::<Impl, OFFSET>,
-            RemoveSessionJoined::<Impl, OFFSET>,
+            GetAboutDataAsync::<Impl, IMPL_OFFSET>,
+            GetAboutDataWithLanguageAsync::<Impl, IMPL_OFFSET>,
+            AcceptSessionJoinerRequested::<Impl, IMPL_OFFSET>,
+            RemoveAcceptSessionJoinerRequested::<Impl, IMPL_OFFSET>,
+            SessionJoined::<Impl, IMPL_OFFSET>,
+            RemoveSessionJoined::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusAttachment2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -948,7 +988,7 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachmentFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusAttachmentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentFactoryImpl, const OFFSET: isize>() -> IAllJoynBusAttachmentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynBusAttachmentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionspecification: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&connectionspecification as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -960,7 +1000,10 @@ impl IAllJoynBusAttachmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusAttachmentFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -974,7 +1017,7 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachmentStateChangedEventArgs
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusAttachmentStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStateChangedEventArgsImpl, const OFFSET: isize>() -> IAllJoynBusAttachmentStateChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentStateChangedEventArgsVtbl {
         unsafe extern "system" fn State<Impl: IAllJoynBusAttachmentStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynBusAttachmentState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
@@ -997,21 +1040,24 @@ impl IAllJoynBusAttachmentStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentStateChangedEventArgs>, ::windows::core::GetTrustLevel, State::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusAttachmentStateChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynBusAttachmentStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<AllJoynBusAttachment>;
     fn GetWatcher(&self, requiredinterfaces: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Enumeration::DeviceWatcher>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynBusAttachmentStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachmentStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusAttachmentStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStaticsImpl, const OFFSET: isize>() -> IAllJoynBusAttachmentStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IAllJoynBusAttachmentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -1034,10 +1080,13 @@ impl IAllJoynBusAttachmentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusAttachmentStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetWatcher::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusAttachmentStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynBusObjectImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -1047,13 +1096,13 @@ pub trait IAllJoynBusObjectImpl: Sized {
     fn Stopped(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AllJoynBusObject, AllJoynBusObjectStoppedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStopped(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynBusObject {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusObject";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectImpl, const OFFSET: isize>() -> IAllJoynBusObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectVtbl {
         unsafe extern "system" fn Start<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
@@ -1103,7 +1152,24 @@ impl IAllJoynBusObjectVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObject>, ::windows::core::GetTrustLevel, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, AddProducer::<Impl, OFFSET>, BusAttachment::<Impl, OFFSET>, Session::<Impl, OFFSET>, Stopped::<Impl, OFFSET>, RemoveStopped::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAllJoynBusObject>,
+            ::windows::core::GetTrustLevel,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            AddProducer::<Impl, IMPL_OFFSET>,
+            BusAttachment::<Impl, IMPL_OFFSET>,
+            Session::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1117,7 +1183,7 @@ impl ::windows::core::RuntimeName for IAllJoynBusObjectFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectFactoryImpl, const OFFSET: isize>() -> IAllJoynBusObjectFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynBusObjectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&objectpath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1140,7 +1206,10 @@ impl IAllJoynBusObjectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithBusAttachment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithBusAttachment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusObjectFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1153,7 +1222,7 @@ impl ::windows::core::RuntimeName for IAllJoynBusObjectStoppedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusObjectStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsImpl, const OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IAllJoynBusObjectStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1165,7 +1234,10 @@ impl IAllJoynBusObjectStoppedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusObjectStoppedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1178,7 +1250,7 @@ impl ::windows::core::RuntimeName for IAllJoynBusObjectStoppedEventArgsFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynBusObjectStoppedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(status) {
@@ -1190,10 +1262,13 @@ impl IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynBusObjectStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynBusObjectStoppedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynCredentialsImpl: Sized {
     fn AuthenticationMechanism(&self) -> ::windows::core::Result<AllJoynAuthenticationMechanism>;
     fn Certificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
@@ -1203,13 +1278,13 @@ pub trait IAllJoynCredentialsImpl: Sized {
     fn Timeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynCredentials {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynCredentials";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynCredentialsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsImpl, const OFFSET: isize>() -> IAllJoynCredentialsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsVtbl {
         unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanism() {
@@ -1267,23 +1342,26 @@ impl IAllJoynCredentialsVtbl {
             (*this).SetTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynCredentials>,
             ::windows::core::GetTrustLevel,
-            AuthenticationMechanism::<Impl, OFFSET>,
-            Certificate::<Impl, OFFSET>,
-            SetCertificate::<Impl, OFFSET>,
-            PasswordCredential::<Impl, OFFSET>,
-            SetPasswordCredential::<Impl, OFFSET>,
-            Timeout::<Impl, OFFSET>,
-            SetTimeout::<Impl, OFFSET>,
+            AuthenticationMechanism::<Impl, IMPL_OFFSET>,
+            Certificate::<Impl, IMPL_OFFSET>,
+            SetCertificate::<Impl, IMPL_OFFSET>,
+            PasswordCredential::<Impl, IMPL_OFFSET>,
+            SetPasswordCredential::<Impl, IMPL_OFFSET>,
+            Timeout::<Impl, IMPL_OFFSET>,
+            SetTimeout::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynCredentials as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynCredentialsRequestedEventArgsImpl: Sized {
     fn AttemptCount(&self) -> ::windows::core::Result<u16>;
     fn Credentials(&self) -> ::windows::core::Result<AllJoynCredentials>;
@@ -1291,13 +1369,13 @@ pub trait IAllJoynCredentialsRequestedEventArgsImpl: Sized {
     fn RequestedUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynCredentialsRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynCredentialsRequestedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynCredentialsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>() -> IAllJoynCredentialsRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsRequestedEventArgsVtbl {
         unsafe extern "system" fn AttemptCount<Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttemptCount() {
@@ -1353,10 +1431,13 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynCredentialsRequestedEventArgs>, ::windows::core::GetTrustLevel, AttemptCount::<Impl, OFFSET>, Credentials::<Impl, OFFSET>, PeerUniqueName::<Impl, OFFSET>, RequestedUserName::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynCredentialsRequestedEventArgs>, ::windows::core::GetTrustLevel, AttemptCount::<Impl, IMPL_OFFSET>, Credentials::<Impl, IMPL_OFFSET>, PeerUniqueName::<Impl, IMPL_OFFSET>, RequestedUserName::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynCredentialsRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynCredentialsVerificationRequestedEventArgsImpl: Sized {
     fn AuthenticationMechanism(&self) -> ::windows::core::Result<AllJoynAuthenticationMechanism>;
     fn PeerUniqueName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1367,13 +1448,13 @@ pub trait IAllJoynCredentialsVerificationRequestedEventArgsImpl: Sized {
     fn Accept(&self) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynCredentialsVerificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>() -> IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
         unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanism() {
@@ -1456,21 +1537,24 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynCredentialsVerificationRequestedEventArgs>,
             ::windows::core::GetTrustLevel,
-            AuthenticationMechanism::<Impl, OFFSET>,
-            PeerUniqueName::<Impl, OFFSET>,
-            PeerCertificate::<Impl, OFFSET>,
-            PeerCertificateErrorSeverity::<Impl, OFFSET>,
-            PeerCertificateErrors::<Impl, OFFSET>,
-            PeerIntermediateCertificates::<Impl, OFFSET>,
-            Accept::<Impl, OFFSET>,
-            GetDeferral::<Impl, OFFSET>,
+            AuthenticationMechanism::<Impl, IMPL_OFFSET>,
+            PeerUniqueName::<Impl, IMPL_OFFSET>,
+            PeerCertificate::<Impl, IMPL_OFFSET>,
+            PeerCertificateErrorSeverity::<Impl, IMPL_OFFSET>,
+            PeerCertificateErrors::<Impl, IMPL_OFFSET>,
+            PeerIntermediateCertificates::<Impl, IMPL_OFFSET>,
+            Accept::<Impl, IMPL_OFFSET>,
+            GetDeferral::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynCredentialsVerificationRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1483,7 +1567,7 @@ impl ::windows::core::RuntimeName for IAllJoynMessageInfo {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynMessageInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoImpl, const OFFSET: isize>() -> IAllJoynMessageInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynMessageInfoVtbl {
         unsafe extern "system" fn SenderUniqueName<Impl: IAllJoynMessageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SenderUniqueName() {
@@ -1495,7 +1579,10 @@ impl IAllJoynMessageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynMessageInfo>, ::windows::core::GetTrustLevel, SenderUniqueName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynMessageInfo>, ::windows::core::GetTrustLevel, SenderUniqueName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynMessageInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1508,7 +1595,7 @@ impl ::windows::core::RuntimeName for IAllJoynMessageInfoFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynMessageInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoFactoryImpl, const OFFSET: isize>() -> IAllJoynMessageInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynMessageInfoFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynMessageInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, senderuniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&senderuniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1520,7 +1607,10 @@ impl IAllJoynMessageInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynMessageInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynMessageInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynMessageInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1533,12 +1623,15 @@ impl ::windows::core::RuntimeName for IAllJoynProducer {
 }
 #[cfg(feature = "deprecated")]
 impl IAllJoynProducerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerImpl, const OFFSET: isize>() -> IAllJoynProducerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerVtbl {
         unsafe extern "system" fn SetBusObject<Impl: IAllJoynProducerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBusObject(&*(&busobject as *const <AllJoynBusObject as ::windows::core::Abi>::Abi as *const <AllJoynBusObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducer>, ::windows::core::GetTrustLevel, SetBusObject::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducer>, ::windows::core::GetTrustLevel, SetBusObject::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynProducer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1551,7 +1644,7 @@ impl ::windows::core::RuntimeName for IAllJoynProducerStoppedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynProducerStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsImpl, const OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IAllJoynProducerStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1563,7 +1656,10 @@ impl IAllJoynProducerStoppedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducerStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducerStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynProducerStoppedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1576,7 +1672,7 @@ impl ::windows::core::RuntimeName for IAllJoynProducerStoppedEventArgsFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynProducerStoppedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynProducerStoppedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(status) {
@@ -1588,7 +1684,10 @@ impl IAllJoynProducerStoppedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducerStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynProducerStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynProducerStoppedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1603,7 +1702,7 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfo {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynServiceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoImpl, const OFFSET: isize>() -> IAllJoynServiceInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoVtbl {
         unsafe extern "system" fn UniqueName<Impl: IAllJoynServiceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
@@ -1637,7 +1736,10 @@ impl IAllJoynServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfo>, ::windows::core::GetTrustLevel, UniqueName::<Impl, OFFSET>, ObjectPath::<Impl, OFFSET>, SessionPort::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfo>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>, ObjectPath::<Impl, IMPL_OFFSET>, SessionPort::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynServiceInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1650,7 +1752,7 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynServiceInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoFactoryImpl, const OFFSET: isize>() -> IAllJoynServiceInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynServiceInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&objectpath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sessionport) {
@@ -1662,7 +1764,10 @@ impl IAllJoynServiceInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynServiceInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1675,7 +1780,7 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoRemovedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynServiceInfoRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsImpl, const OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsVtbl {
         unsafe extern "system" fn UniqueName<Impl: IAllJoynServiceInfoRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
@@ -1687,7 +1792,10 @@ impl IAllJoynServiceInfoRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoRemovedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoRemovedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynServiceInfoRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1700,7 +1808,7 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoRemovedEventArgsFactory
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynServiceInfoRemovedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1712,20 +1820,23 @@ impl IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoRemovedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoRemovedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynServiceInfoRemovedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynServiceInfoStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynServiceInfo>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynServiceInfoStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynServiceInfoStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynServiceInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoStaticsImpl, const OFFSET: isize>() -> IAllJoynServiceInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IAllJoynServiceInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1737,10 +1848,13 @@ impl IAllJoynServiceInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynServiceInfoStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynServiceInfoStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynSessionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<i32>;
     fn Status(&self) -> ::windows::core::Result<i32>;
@@ -1752,13 +1866,13 @@ pub trait IAllJoynSessionImpl: Sized {
     fn Lost(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionLostEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveLost(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynSession {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSession";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionImpl, const OFFSET: isize>() -> IAllJoynSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionVtbl {
         unsafe extern "system" fn Id<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1838,22 +1952,25 @@ impl IAllJoynSessionVtbl {
             (*this).RemoveLost(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynSession>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            RemoveMemberAsync::<Impl, OFFSET>,
-            MemberAdded::<Impl, OFFSET>,
-            RemoveMemberAdded::<Impl, OFFSET>,
-            MemberRemoved::<Impl, OFFSET>,
-            RemoveMemberRemoved::<Impl, OFFSET>,
-            Lost::<Impl, OFFSET>,
-            RemoveLost::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            RemoveMemberAsync::<Impl, IMPL_OFFSET>,
+            MemberAdded::<Impl, IMPL_OFFSET>,
+            RemoveMemberAdded::<Impl, IMPL_OFFSET>,
+            MemberRemoved::<Impl, IMPL_OFFSET>,
+            RemoveMemberRemoved::<Impl, IMPL_OFFSET>,
+            Lost::<Impl, IMPL_OFFSET>,
+            RemoveLost::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1866,7 +1983,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionJoinedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionJoinedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsImpl, const OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsVtbl {
         unsafe extern "system" fn Session<Impl: IAllJoynSessionJoinedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
@@ -1878,7 +1995,10 @@ impl IAllJoynSessionJoinedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionJoinedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionJoinedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionJoinedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1891,7 +2011,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionJoinedEventArgsFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionJoinedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynSessionJoinedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&session as *const <AllJoynSession as ::windows::core::Abi>::Abi as *const <AllJoynSession as ::windows::core::DefaultType>::DefaultType)) {
@@ -1903,7 +2023,10 @@ impl IAllJoynSessionJoinedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionJoinedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionJoinedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionJoinedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1916,7 +2039,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionLostEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionLostEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsImpl, const OFFSET: isize>() -> IAllJoynSessionLostEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionLostEventArgsVtbl {
         unsafe extern "system" fn Reason<Impl: IAllJoynSessionLostEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynSessionLostReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -1928,7 +2051,10 @@ impl IAllJoynSessionLostEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionLostEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionLostEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionLostEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1941,7 +2067,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionLostEventArgsFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionLostEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynSessionLostEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionLostEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynSessionLostEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AllJoynSessionLostReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(reason) {
@@ -1953,7 +2079,10 @@ impl IAllJoynSessionLostEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionLostEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionLostEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionLostEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1966,7 +2095,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberAddedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionMemberAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsImpl, const OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsVtbl {
         unsafe extern "system" fn UniqueName<Impl: IAllJoynSessionMemberAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
@@ -1978,7 +2107,10 @@ impl IAllJoynSessionMemberAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberAddedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberAddedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionMemberAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1991,7 +2123,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberAddedEventArgsFactory
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynSessionMemberAddedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2003,7 +2135,10 @@ impl IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberAddedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberAddedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionMemberAddedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2016,7 +2151,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberRemovedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionMemberRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsImpl, const OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsVtbl {
         unsafe extern "system" fn UniqueName<Impl: IAllJoynSessionMemberRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
@@ -2028,7 +2163,10 @@ impl IAllJoynSessionMemberRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberRemovedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberRemovedEventArgs>, ::windows::core::GetTrustLevel, UniqueName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionMemberRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2041,7 +2179,7 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberRemovedEventArgsFacto
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynSessionMemberRemovedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2053,21 +2191,24 @@ impl IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberRemovedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionMemberRemovedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionMemberRemovedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAllJoynSessionStaticsImpl: Sized {
     fn GetFromServiceInfoAsync(&self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>>;
     fn GetFromServiceInfoAndBusAttachmentAsync(&self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>, busattachment: &::core::option::Option<AllJoynBusAttachment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAllJoynSessionStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynSessionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionStaticsImpl, const OFFSET: isize>() -> IAllJoynSessionStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionStaticsVtbl {
         unsafe extern "system" fn GetFromServiceInfoAsync<Impl: IAllJoynSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFromServiceInfoAsync(&*(&serviceinfo as *const <AllJoynServiceInfo as ::windows::core::Abi>::Abi as *const <AllJoynServiceInfo as ::windows::core::DefaultType>::DefaultType)) {
@@ -2090,7 +2231,10 @@ impl IAllJoynSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionStatics>, ::windows::core::GetTrustLevel, GetFromServiceInfoAsync::<Impl, OFFSET>, GetFromServiceInfoAndBusAttachmentAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynSessionStatics>, ::windows::core::GetTrustLevel, GetFromServiceInfoAsync::<Impl, IMPL_OFFSET>, GetFromServiceInfoAndBusAttachmentAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynSessionStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2120,7 +2264,7 @@ impl ::windows::core::RuntimeName for IAllJoynStatusStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynStatusStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>() -> IAllJoynStatusStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynStatusStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynStatusStaticsVtbl {
         unsafe extern "system" fn Ok<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ok() {
@@ -2320,31 +2464,34 @@ impl IAllJoynStatusStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAllJoynStatusStatics>,
             ::windows::core::GetTrustLevel,
-            Ok::<Impl, OFFSET>,
-            Fail::<Impl, OFFSET>,
-            OperationTimedOut::<Impl, OFFSET>,
-            OtherEndClosed::<Impl, OFFSET>,
-            ConnectionRefused::<Impl, OFFSET>,
-            AuthenticationFailed::<Impl, OFFSET>,
-            AuthenticationRejectedByUser::<Impl, OFFSET>,
-            SslConnectFailed::<Impl, OFFSET>,
-            SslIdentityVerificationFailed::<Impl, OFFSET>,
-            InsufficientSecurity::<Impl, OFFSET>,
-            InvalidArgument1::<Impl, OFFSET>,
-            InvalidArgument2::<Impl, OFFSET>,
-            InvalidArgument3::<Impl, OFFSET>,
-            InvalidArgument4::<Impl, OFFSET>,
-            InvalidArgument5::<Impl, OFFSET>,
-            InvalidArgument6::<Impl, OFFSET>,
-            InvalidArgument7::<Impl, OFFSET>,
-            InvalidArgument8::<Impl, OFFSET>,
+            Ok::<Impl, IMPL_OFFSET>,
+            Fail::<Impl, IMPL_OFFSET>,
+            OperationTimedOut::<Impl, IMPL_OFFSET>,
+            OtherEndClosed::<Impl, IMPL_OFFSET>,
+            ConnectionRefused::<Impl, IMPL_OFFSET>,
+            AuthenticationFailed::<Impl, IMPL_OFFSET>,
+            AuthenticationRejectedByUser::<Impl, IMPL_OFFSET>,
+            SslConnectFailed::<Impl, IMPL_OFFSET>,
+            SslIdentityVerificationFailed::<Impl, IMPL_OFFSET>,
+            InsufficientSecurity::<Impl, IMPL_OFFSET>,
+            InvalidArgument1::<Impl, IMPL_OFFSET>,
+            InvalidArgument2::<Impl, IMPL_OFFSET>,
+            InvalidArgument3::<Impl, IMPL_OFFSET>,
+            InvalidArgument4::<Impl, IMPL_OFFSET>,
+            InvalidArgument5::<Impl, IMPL_OFFSET>,
+            InvalidArgument6::<Impl, IMPL_OFFSET>,
+            InvalidArgument7::<Impl, IMPL_OFFSET>,
+            InvalidArgument8::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynStatusStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2357,7 +2504,7 @@ impl ::windows::core::RuntimeName for IAllJoynWatcherStoppedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynWatcherStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsImpl, const OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IAllJoynWatcherStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2369,7 +2516,10 @@ impl IAllJoynWatcherStoppedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynWatcherStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynWatcherStoppedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynWatcherStoppedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2382,7 +2532,7 @@ impl ::windows::core::RuntimeName for IAllJoynWatcherStoppedEventArgsFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IAllJoynWatcherStoppedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsFactoryImpl, const OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IAllJoynWatcherStoppedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(status) {
@@ -2394,6 +2544,9 @@ impl IAllJoynWatcherStoppedEventArgsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynWatcherStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAllJoynWatcherStoppedEventArgsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAllJoynWatcherStoppedEventArgsFactory as ::windows::core::Interface>::IID
     }
 }

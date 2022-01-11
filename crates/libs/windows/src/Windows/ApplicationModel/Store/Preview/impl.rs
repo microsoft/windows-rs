@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IDeliveryOptimizationSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDeliveryOptimizationSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsImpl, const OFFSET: isize>() -> IDeliveryOptimizationSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeliveryOptimizationSettingsVtbl {
         unsafe extern "system" fn DownloadMode<Impl: IDeliveryOptimizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeliveryOptimizationDownloadMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadMode() {
@@ -32,7 +32,10 @@ impl IDeliveryOptimizationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeliveryOptimizationSettings>, ::windows::core::GetTrustLevel, DownloadMode::<Impl, OFFSET>, DownloadModeSource::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeliveryOptimizationSettings>, ::windows::core::GetTrustLevel, DownloadMode::<Impl, IMPL_OFFSET>, DownloadModeSource::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeliveryOptimizationSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,7 +48,7 @@ impl ::windows::core::RuntimeName for IDeliveryOptimizationSettingsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDeliveryOptimizationSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsStaticsImpl, const OFFSET: isize>() -> IDeliveryOptimizationSettingsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeliveryOptimizationSettingsStaticsVtbl {
         unsafe extern "system" fn GetCurrentSettings<Impl: IDeliveryOptimizationSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSettings() {
@@ -57,10 +60,13 @@ impl IDeliveryOptimizationSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeliveryOptimizationSettingsStatics>, ::windows::core::GetTrustLevel, GetCurrentSettings::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeliveryOptimizationSettingsStatics>, ::windows::core::GetTrustLevel, GetCurrentSettings::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeliveryOptimizationSettingsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStaticsImpl: Sized {
     fn SetSystemConfiguration(&self, cataloghardwaremanufacturerid: &::windows::core::HSTRING, catalogstorecontentmodifierid: &::windows::core::HSTRING, systemconfigurationexpiration: &super::super::super::Foundation::DateTime, cataloghardwaredescriptor: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetMobileOperatorConfiguration(&self, mobileoperatorid: &::windows::core::HSTRING, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()>;
@@ -69,13 +75,13 @@ pub trait IStoreConfigurationStaticsImpl: Sized {
     fn HardwareManufacturerInfo(&self) -> ::windows::core::Result<StoreHardwareManufacturerInfo>;
     fn FilterUnsupportedSystemFeaturesAsync(&self, systemfeatures: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreConfigurationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>() -> IStoreConfigurationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStaticsVtbl {
         unsafe extern "system" fn SetSystemConfiguration<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cataloghardwaremanufacturerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, catalogstorecontentmodifierid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
@@ -129,33 +135,36 @@ impl IStoreConfigurationStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics>,
             ::windows::core::GetTrustLevel,
-            SetSystemConfiguration::<Impl, OFFSET>,
-            SetMobileOperatorConfiguration::<Impl, OFFSET>,
-            SetStoreWebAccountId::<Impl, OFFSET>,
-            IsStoreWebAccountId::<Impl, OFFSET>,
-            HardwareManufacturerInfo::<Impl, OFFSET>,
-            FilterUnsupportedSystemFeaturesAsync::<Impl, OFFSET>,
+            SetSystemConfiguration::<Impl, IMPL_OFFSET>,
+            SetMobileOperatorConfiguration::<Impl, IMPL_OFFSET>,
+            SetStoreWebAccountId::<Impl, IMPL_OFFSET>,
+            IsStoreWebAccountId::<Impl, IMPL_OFFSET>,
+            HardwareManufacturerInfo::<Impl, IMPL_OFFSET>,
+            FilterUnsupportedSystemFeaturesAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreConfigurationStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics2Impl: Sized {
     fn PurchasePromptingPolicy(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
     fn SetPurchasePromptingPolicy(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreConfigurationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics2Impl, const OFFSET: isize>() -> IStoreConfigurationStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics2Vtbl {
         unsafe extern "system" fn PurchasePromptingPolicy<Impl: IStoreConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PurchasePromptingPolicy() {
@@ -171,10 +180,13 @@ impl IStoreConfigurationStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPurchasePromptingPolicy(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics2>, ::windows::core::GetTrustLevel, PurchasePromptingPolicy::<Impl, OFFSET>, SetPurchasePromptingPolicy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics2>, ::windows::core::GetTrustLevel, PurchasePromptingPolicy::<Impl, IMPL_OFFSET>, SetPurchasePromptingPolicy::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreConfigurationStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics3Impl: Sized {
     fn HasStoreWebAccount(&self) -> ::windows::core::Result<bool>;
     fn HasStoreWebAccountForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
@@ -184,13 +196,13 @@ pub trait IStoreConfigurationStatics3Impl: Sized {
     fn GetPurchasePromptingPolicyForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
     fn SetPurchasePromptingPolicyForUser(&self, user: &::core::option::Option<super::super::super::System::User>, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl IStoreConfigurationStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>() -> IStoreConfigurationStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics3Vtbl {
         unsafe extern "system" fn HasStoreWebAccount<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasStoreWebAccount() {
@@ -255,23 +267,26 @@ impl IStoreConfigurationStatics3Vtbl {
             (*this).SetPurchasePromptingPolicyForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics3>,
             ::windows::core::GetTrustLevel,
-            HasStoreWebAccount::<Impl, OFFSET>,
-            HasStoreWebAccountForUser::<Impl, OFFSET>,
-            GetStoreLogDataAsync::<Impl, OFFSET>,
-            SetStoreWebAccountIdForUser::<Impl, OFFSET>,
-            IsStoreWebAccountIdForUser::<Impl, OFFSET>,
-            GetPurchasePromptingPolicyForUser::<Impl, OFFSET>,
-            SetPurchasePromptingPolicyForUser::<Impl, OFFSET>,
+            HasStoreWebAccount::<Impl, IMPL_OFFSET>,
+            HasStoreWebAccountForUser::<Impl, IMPL_OFFSET>,
+            GetStoreLogDataAsync::<Impl, IMPL_OFFSET>,
+            SetStoreWebAccountIdForUser::<Impl, IMPL_OFFSET>,
+            IsStoreWebAccountIdForUser::<Impl, IMPL_OFFSET>,
+            GetPurchasePromptingPolicyForUser::<Impl, IMPL_OFFSET>,
+            SetPurchasePromptingPolicyForUser::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreConfigurationStatics3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics4Impl: Sized {
     fn GetStoreWebAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetStoreWebAccountIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -282,13 +297,13 @@ pub trait IStoreConfigurationStatics4Impl: Sized {
     fn ShouldRestrictToEnterpriseStoreOnly(&self) -> ::windows::core::Result<bool>;
     fn ShouldRestrictToEnterpriseStoreOnlyForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics4 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IStoreConfigurationStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>() -> IStoreConfigurationStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics4Vtbl {
         unsafe extern "system" fn GetStoreWebAccountId<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStoreWebAccountId() {
@@ -364,24 +379,27 @@ impl IStoreConfigurationStatics4Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics4>,
             ::windows::core::GetTrustLevel,
-            GetStoreWebAccountId::<Impl, OFFSET>,
-            GetStoreWebAccountIdForUser::<Impl, OFFSET>,
-            SetEnterpriseStoreWebAccountId::<Impl, OFFSET>,
-            SetEnterpriseStoreWebAccountIdForUser::<Impl, OFFSET>,
-            GetEnterpriseStoreWebAccountId::<Impl, OFFSET>,
-            GetEnterpriseStoreWebAccountIdForUser::<Impl, OFFSET>,
-            ShouldRestrictToEnterpriseStoreOnly::<Impl, OFFSET>,
-            ShouldRestrictToEnterpriseStoreOnlyForUser::<Impl, OFFSET>,
+            GetStoreWebAccountId::<Impl, IMPL_OFFSET>,
+            GetStoreWebAccountIdForUser::<Impl, IMPL_OFFSET>,
+            SetEnterpriseStoreWebAccountId::<Impl, IMPL_OFFSET>,
+            SetEnterpriseStoreWebAccountIdForUser::<Impl, IMPL_OFFSET>,
+            GetEnterpriseStoreWebAccountId::<Impl, IMPL_OFFSET>,
+            GetEnterpriseStoreWebAccountIdForUser::<Impl, IMPL_OFFSET>,
+            ShouldRestrictToEnterpriseStoreOnly::<Impl, IMPL_OFFSET>,
+            ShouldRestrictToEnterpriseStoreOnlyForUser::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreConfigurationStatics4 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics5Impl: Sized {
     fn IsPinToDesktopSupported(&self) -> ::windows::core::Result<bool>;
     fn IsPinToTaskbarSupported(&self) -> ::windows::core::Result<bool>;
@@ -389,13 +407,13 @@ pub trait IStoreConfigurationStatics5Impl: Sized {
     fn PinToDesktop(&self, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PinToDesktopForUser(&self, user: &::core::option::Option<super::super::super::System::User>, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics5 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IStoreConfigurationStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>() -> IStoreConfigurationStatics5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics5Vtbl {
         unsafe extern "system" fn IsPinToDesktopSupported<Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPinToDesktopSupported() {
@@ -437,7 +455,22 @@ impl IStoreConfigurationStatics5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PinToDesktopForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&apppackagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics5>, ::windows::core::GetTrustLevel, IsPinToDesktopSupported::<Impl, OFFSET>, IsPinToTaskbarSupported::<Impl, OFFSET>, IsPinToStartSupported::<Impl, OFFSET>, PinToDesktop::<Impl, OFFSET>, PinToDesktopForUser::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IStoreConfigurationStatics5>,
+            ::windows::core::GetTrustLevel,
+            IsPinToDesktopSupported::<Impl, IMPL_OFFSET>,
+            IsPinToTaskbarSupported::<Impl, IMPL_OFFSET>,
+            IsPinToStartSupported::<Impl, IMPL_OFFSET>,
+            PinToDesktop::<Impl, IMPL_OFFSET>,
+            PinToDesktopForUser::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreConfigurationStatics5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -453,7 +486,7 @@ impl ::windows::core::RuntimeName for IStoreHardwareManufacturerInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreHardwareManufacturerInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreHardwareManufacturerInfoImpl, const OFFSET: isize>() -> IStoreHardwareManufacturerInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreHardwareManufacturerInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreHardwareManufacturerInfoVtbl {
         unsafe extern "system" fn HardwareManufacturerId<Impl: IStoreHardwareManufacturerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareManufacturerId() {
@@ -498,21 +531,24 @@ impl IStoreHardwareManufacturerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreHardwareManufacturerInfo>, ::windows::core::GetTrustLevel, HardwareManufacturerId::<Impl, OFFSET>, StoreContentModifierId::<Impl, OFFSET>, ModelName::<Impl, OFFSET>, ManufacturerName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreHardwareManufacturerInfo>, ::windows::core::GetTrustLevel, HardwareManufacturerId::<Impl, IMPL_OFFSET>, StoreContentModifierId::<Impl, IMPL_OFFSET>, ModelName::<Impl, IMPL_OFFSET>, ManufacturerName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreHardwareManufacturerInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorePreviewImpl: Sized {
     fn RequestProductPurchaseByProductIdAndSkuIdAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>>;
     fn LoadAddOnProductInfosAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStorePreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStorePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewImpl, const OFFSET: isize>() -> IStorePreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewVtbl {
         unsafe extern "system" fn RequestProductPurchaseByProductIdAndSkuIdAsync<Impl: IStorePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, skuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseByProductIdAndSkuIdAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&skuid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -535,10 +571,13 @@ impl IStorePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePreview>, ::windows::core::GetTrustLevel, RequestProductPurchaseByProductIdAndSkuIdAsync::<Impl, OFFSET>, LoadAddOnProductInfosAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePreview>, ::windows::core::GetTrustLevel, RequestProductPurchaseByProductIdAndSkuIdAsync::<Impl, IMPL_OFFSET>, LoadAddOnProductInfosAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePreview as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorePreviewProductInfoImpl: Sized {
     fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ProductType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -546,13 +585,13 @@ pub trait IStorePreviewProductInfoImpl: Sized {
     fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SkuInfoList(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePreviewProductInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorePreviewProductInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>() -> IStorePreviewProductInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewProductInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewProductInfoVtbl {
         unsafe extern "system" fn ProductId<Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
@@ -608,7 +647,10 @@ impl IStorePreviewProductInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePreviewProductInfo>, ::windows::core::GetTrustLevel, ProductId::<Impl, OFFSET>, ProductType::<Impl, OFFSET>, Title::<Impl, OFFSET>, Description::<Impl, OFFSET>, SkuInfoList::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePreviewProductInfo>, ::windows::core::GetTrustLevel, ProductId::<Impl, IMPL_OFFSET>, ProductType::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SkuInfoList::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePreviewProductInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -621,7 +663,7 @@ impl ::windows::core::RuntimeName for IStorePreviewPurchaseResults {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorePreviewPurchaseResultsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewPurchaseResultsImpl, const OFFSET: isize>() -> IStorePreviewPurchaseResultsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewPurchaseResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewPurchaseResultsVtbl {
         unsafe extern "system" fn ProductPurchaseStatus<Impl: IStorePreviewPurchaseResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StorePreviewProductPurchaseStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductPurchaseStatus() {
@@ -633,7 +675,10 @@ impl IStorePreviewPurchaseResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePreviewPurchaseResults>, ::windows::core::GetTrustLevel, ProductPurchaseStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePreviewPurchaseResults>, ::windows::core::GetTrustLevel, ProductPurchaseStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePreviewPurchaseResults as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -654,7 +699,7 @@ impl ::windows::core::RuntimeName for IStorePreviewSkuInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorePreviewSkuInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>() -> IStorePreviewSkuInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewSkuInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewSkuInfoVtbl {
         unsafe extern "system" fn ProductId<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
@@ -755,36 +800,39 @@ impl IStorePreviewSkuInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStorePreviewSkuInfo>,
             ::windows::core::GetTrustLevel,
-            ProductId::<Impl, OFFSET>,
-            SkuId::<Impl, OFFSET>,
-            SkuType::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            CustomDeveloperData::<Impl, OFFSET>,
-            CurrencyCode::<Impl, OFFSET>,
-            FormattedListPrice::<Impl, OFFSET>,
-            ExtendedData::<Impl, OFFSET>,
+            ProductId::<Impl, IMPL_OFFSET>,
+            SkuId::<Impl, IMPL_OFFSET>,
+            SkuType::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            CustomDeveloperData::<Impl, IMPL_OFFSET>,
+            CurrencyCode::<Impl, IMPL_OFFSET>,
+            FormattedListPrice::<Impl, IMPL_OFFSET>,
+            ExtendedData::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePreviewSkuInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
 pub trait IWebAuthenticationCoreManagerHelperImpl: Sized {
     fn RequestTokenWithUIElementHostingAsync(&self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
     fn RequestTokenWithUIElementHostingAndWebAccountAsync(&self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, webaccount: &::core::option::Option<super::super::super::Security::Credentials::WebAccount>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationCoreManagerHelper {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IWebAuthenticationCoreManagerHelper";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
 impl IWebAuthenticationCoreManagerHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerHelperImpl, const OFFSET: isize>() -> IWebAuthenticationCoreManagerHelperVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationCoreManagerHelperVtbl {
         unsafe extern "system" fn RequestTokenWithUIElementHostingAsync<Impl: IWebAuthenticationCoreManagerHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, uielement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestTokenWithUIElementHostingAsync(&*(&request as *const <super::super::super::Security::Authentication::Web::Core::WebTokenRequest as ::windows::core::Abi>::Abi as *const <super::super::super::Security::Authentication::Web::Core::WebTokenRequest as ::windows::core::DefaultType>::DefaultType), &*(&uielement as *const <super::super::super::UI::Xaml::UIElement as ::windows::core::Abi>::Abi as *const <super::super::super::UI::Xaml::UIElement as ::windows::core::DefaultType>::DefaultType)) {
@@ -811,6 +859,9 @@ impl IWebAuthenticationCoreManagerHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationCoreManagerHelper>, ::windows::core::GetTrustLevel, RequestTokenWithUIElementHostingAsync::<Impl, OFFSET>, RequestTokenWithUIElementHostingAndWebAccountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWebAuthenticationCoreManagerHelper>, ::windows::core::GetTrustLevel, RequestTokenWithUIElementHostingAsync::<Impl, IMPL_OFFSET>, RequestTokenWithUIElementHostingAndWebAccountAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWebAuthenticationCoreManagerHelper as ::windows::core::Interface>::IID
     }
 }

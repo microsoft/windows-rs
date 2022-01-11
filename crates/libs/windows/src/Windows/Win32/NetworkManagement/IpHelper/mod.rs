@@ -76,12 +76,12 @@ pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const NET_L
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: &::windows::core::GUID, compartmentid: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::core::GUID, compartmentid: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertCompartmentGuidToId(compartmentguid: &::windows::core::GUID, compartmentid: *mut u32) -> super::super::Foundation::NTSTATUS;
+            fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::core::GUID, compartmentid: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
         ConvertCompartmentGuidToId(::core::mem::transmute(compartmentguid), ::core::mem::transmute(compartmentid)).ok()
     }
@@ -121,12 +121,12 @@ pub unsafe fn ConvertInterfaceAliasToLuid<'a, Param0: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: &::windows::core::GUID, interfaceluid: *mut NET_LUID_LH) -> ::windows::core::Result<()> {
+pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::core::GUID, interfaceluid: *mut NET_LUID_LH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceGuidToLuid(interfaceguid: &::windows::core::GUID, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::core::GUID, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
         }
         ConvertInterfaceGuidToLuid(::core::mem::transmute(interfaceguid), ::core::mem::transmute(interfaceluid)).ok()
     }
@@ -1956,12 +1956,12 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connec
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNetworkInformation(networkguid: &::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNetworkInformation(networkguid: &::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> super::super::Foundation::NTSTATUS;
+            fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> super::super::Foundation::NTSTATUS;
         }
         GetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), ::core::mem::transmute(siteid), ::core::mem::transmute(networkname), ::core::mem::transmute(length)).ok()
     }
@@ -11139,12 +11139,12 @@ pub unsafe fn SetJobCompartmentId<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetNetworkInformation<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(networkguid: &::windows::core::GUID, compartmentid: u32, networkname: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn SetNetworkInformation<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetNetworkInformation(networkguid: &::windows::core::GUID, compartmentid: u32, networkname: super::super::Foundation::PWSTR) -> super::super::Foundation::NTSTATUS;
+            fn SetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: super::super::Foundation::PWSTR) -> super::super::Foundation::NTSTATUS;
         }
         SetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), networkname.into_param().abi()).ok()
     }

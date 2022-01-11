@@ -1,14 +1,14 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPreallocatedWorkItemImpl: Sized {
     fn RunAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.IPreallocatedWorkItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPreallocatedWorkItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreallocatedWorkItemImpl, const OFFSET: isize>() -> IPreallocatedWorkItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreallocatedWorkItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreallocatedWorkItemVtbl {
         unsafe extern "system" fn RunAsync<Impl: IPreallocatedWorkItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunAsync() {
@@ -20,22 +20,25 @@ impl IPreallocatedWorkItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreallocatedWorkItem>, ::windows::core::GetTrustLevel, RunAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreallocatedWorkItem>, ::windows::core::GetTrustLevel, RunAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPreallocatedWorkItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPreallocatedWorkItemFactoryImpl: Sized {
     fn CreateWorkItem(&self, handler: &::core::option::Option<super::WorkItemHandler>) -> ::windows::core::Result<PreallocatedWorkItem>;
     fn CreateWorkItemWithPriority(&self, handler: &::core::option::Option<super::WorkItemHandler>, priority: super::WorkItemPriority) -> ::windows::core::Result<PreallocatedWorkItem>;
     fn CreateWorkItemWithPriorityAndOptions(&self, handler: &::core::option::Option<super::WorkItemHandler>, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::core::Result<PreallocatedWorkItem>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPreallocatedWorkItemFactory {
     const NAME: &'static str = "Windows.System.Threading.Core.IPreallocatedWorkItemFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPreallocatedWorkItemFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreallocatedWorkItemFactoryImpl, const OFFSET: isize>() -> IPreallocatedWorkItemFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreallocatedWorkItemFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreallocatedWorkItemFactoryVtbl {
         unsafe extern "system" fn CreateWorkItem<Impl: IPreallocatedWorkItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWorkItem(&*(&handler as *const <super::WorkItemHandler as ::windows::core::Abi>::Abi as *const <super::WorkItemHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -69,7 +72,10 @@ impl IPreallocatedWorkItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreallocatedWorkItemFactory>, ::windows::core::GetTrustLevel, CreateWorkItem::<Impl, OFFSET>, CreateWorkItemWithPriority::<Impl, OFFSET>, CreateWorkItemWithPriorityAndOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPreallocatedWorkItemFactory>, ::windows::core::GetTrustLevel, CreateWorkItem::<Impl, IMPL_OFFSET>, CreateWorkItemWithPriority::<Impl, IMPL_OFFSET>, CreateWorkItemWithPriorityAndOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPreallocatedWorkItemFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -83,7 +89,7 @@ impl ::windows::core::RuntimeName for ISignalNotifier {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISignalNotifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignalNotifierImpl, const OFFSET: isize>() -> ISignalNotifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignalNotifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignalNotifierVtbl {
         unsafe extern "system" fn Enable<Impl: ISignalNotifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enable().into()
@@ -92,23 +98,26 @@ impl ISignalNotifierVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Terminate().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignalNotifier>, ::windows::core::GetTrustLevel, Enable::<Impl, OFFSET>, Terminate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignalNotifier>, ::windows::core::GetTrustLevel, Enable::<Impl, IMPL_OFFSET>, Terminate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISignalNotifier as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISignalNotifierStaticsImpl: Sized {
     fn AttachToEvent(&self, name: &::windows::core::HSTRING, handler: &::core::option::Option<SignalHandler>) -> ::windows::core::Result<SignalNotifier>;
     fn AttachToEventWithTimeout(&self, name: &::windows::core::HSTRING, handler: &::core::option::Option<SignalHandler>, timeout: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>;
     fn AttachToSemaphore(&self, name: &::windows::core::HSTRING, handler: &::core::option::Option<SignalHandler>) -> ::windows::core::Result<SignalNotifier>;
     fn AttachToSemaphoreWithTimeout(&self, name: &::windows::core::HSTRING, handler: &::core::option::Option<SignalHandler>, timeout: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISignalNotifierStatics {
     const NAME: &'static str = "Windows.System.Threading.Core.ISignalNotifierStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISignalNotifierStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignalNotifierStaticsImpl, const OFFSET: isize>() -> ISignalNotifierStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignalNotifierStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignalNotifierStaticsVtbl {
         unsafe extern "system" fn AttachToEvent<Impl: ISignalNotifierStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttachToEvent(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&handler as *const <SignalHandler as ::windows::core::Abi>::Abi as *const <SignalHandler as ::windows::core::DefaultType>::DefaultType)) {
@@ -161,6 +170,9 @@ impl ISignalNotifierStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignalNotifierStatics>, ::windows::core::GetTrustLevel, AttachToEvent::<Impl, OFFSET>, AttachToEventWithTimeout::<Impl, OFFSET>, AttachToSemaphore::<Impl, OFFSET>, AttachToSemaphoreWithTimeout::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISignalNotifierStatics>, ::windows::core::GetTrustLevel, AttachToEvent::<Impl, IMPL_OFFSET>, AttachToEventWithTimeout::<Impl, IMPL_OFFSET>, AttachToSemaphore::<Impl, IMPL_OFFSET>, AttachToSemaphoreWithTimeout::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISignalNotifierStatics as ::windows::core::Interface>::IID
     }
 }

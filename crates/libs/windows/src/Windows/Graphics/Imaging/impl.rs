@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IBitmapBuffer {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBitmapBufferVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapBufferImpl, const OFFSET: isize>() -> IBitmapBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapBufferVtbl {
         unsafe extern "system" fn GetPlaneCount<Impl: IBitmapBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPlaneCount() {
@@ -32,23 +32,26 @@ impl IBitmapBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapBuffer>, ::windows::core::GetTrustLevel, GetPlaneCount::<Impl, OFFSET>, GetPlaneDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapBuffer>, ::windows::core::GetTrustLevel, GetPlaneCount::<Impl, IMPL_OFFSET>, GetPlaneDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapBuffer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBitmapCodecInformationImpl: Sized {
     fn CodecId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn FileExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MimeTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapCodecInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBitmapCodecInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapCodecInformationImpl, const OFFSET: isize>() -> IBitmapCodecInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapCodecInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapCodecInformationVtbl {
         unsafe extern "system" fn CodecId<Impl: IBitmapCodecInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CodecId() {
@@ -93,10 +96,13 @@ impl IBitmapCodecInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapCodecInformation>, ::windows::core::GetTrustLevel, CodecId::<Impl, OFFSET>, FileExtensions::<Impl, OFFSET>, FriendlyName::<Impl, OFFSET>, MimeTypes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapCodecInformation>, ::windows::core::GetTrustLevel, CodecId::<Impl, IMPL_OFFSET>, FileExtensions::<Impl, IMPL_OFFSET>, FriendlyName::<Impl, IMPL_OFFSET>, MimeTypes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapCodecInformation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBitmapDecoderImpl: Sized {
     fn BitmapContainerProperties(&self) -> ::windows::core::Result<BitmapPropertiesView>;
     fn DecoderInformation(&self) -> ::windows::core::Result<BitmapCodecInformation>;
@@ -104,13 +110,13 @@ pub trait IBitmapDecoderImpl: Sized {
     fn GetPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
     fn GetFrameAsync(&self, frameindex: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapDecoder";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBitmapDecoderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDecoderImpl, const OFFSET: isize>() -> IBitmapDecoderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDecoderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapDecoderVtbl {
         unsafe extern "system" fn BitmapContainerProperties<Impl: IBitmapDecoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapContainerProperties() {
@@ -166,10 +172,13 @@ impl IBitmapDecoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapDecoder>, ::windows::core::GetTrustLevel, BitmapContainerProperties::<Impl, OFFSET>, DecoderInformation::<Impl, OFFSET>, FrameCount::<Impl, OFFSET>, GetPreviewAsync::<Impl, OFFSET>, GetFrameAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapDecoder>, ::windows::core::GetTrustLevel, BitmapContainerProperties::<Impl, IMPL_OFFSET>, DecoderInformation::<Impl, IMPL_OFFSET>, FrameCount::<Impl, IMPL_OFFSET>, GetPreviewAsync::<Impl, IMPL_OFFSET>, GetFrameAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapDecoder as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBitmapDecoderStaticsImpl: Sized {
     fn BmpDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn JpegDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -182,13 +191,13 @@ pub trait IBitmapDecoderStaticsImpl: Sized {
     fn CreateAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>;
     fn CreateWithIdAsync(&self, decoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapDecoderStatics {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapDecoderStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBitmapDecoderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDecoderStaticsImpl, const OFFSET: isize>() -> IBitmapDecoderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDecoderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapDecoderStaticsVtbl {
         unsafe extern "system" fn BmpDecoderId<Impl: IBitmapDecoderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BmpDecoderId() {
@@ -300,23 +309,26 @@ impl IBitmapDecoderStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBitmapDecoderStatics>,
             ::windows::core::GetTrustLevel,
-            BmpDecoderId::<Impl, OFFSET>,
-            JpegDecoderId::<Impl, OFFSET>,
-            PngDecoderId::<Impl, OFFSET>,
-            TiffDecoderId::<Impl, OFFSET>,
-            GifDecoderId::<Impl, OFFSET>,
-            JpegXRDecoderId::<Impl, OFFSET>,
-            IcoDecoderId::<Impl, OFFSET>,
-            GetDecoderInformationEnumerator::<Impl, OFFSET>,
-            CreateAsync::<Impl, OFFSET>,
-            CreateWithIdAsync::<Impl, OFFSET>,
+            BmpDecoderId::<Impl, IMPL_OFFSET>,
+            JpegDecoderId::<Impl, IMPL_OFFSET>,
+            PngDecoderId::<Impl, IMPL_OFFSET>,
+            TiffDecoderId::<Impl, IMPL_OFFSET>,
+            GifDecoderId::<Impl, IMPL_OFFSET>,
+            JpegXRDecoderId::<Impl, IMPL_OFFSET>,
+            IcoDecoderId::<Impl, IMPL_OFFSET>,
+            GetDecoderInformationEnumerator::<Impl, IMPL_OFFSET>,
+            CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateWithIdAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapDecoderStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -330,7 +342,7 @@ impl ::windows::core::RuntimeName for IBitmapDecoderStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBitmapDecoderStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDecoderStatics2Impl, const OFFSET: isize>() -> IBitmapDecoderStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDecoderStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapDecoderStatics2Vtbl {
         unsafe extern "system" fn HeifDecoderId<Impl: IBitmapDecoderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeifDecoderId() {
@@ -353,10 +365,13 @@ impl IBitmapDecoderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapDecoderStatics2>, ::windows::core::GetTrustLevel, HeifDecoderId::<Impl, OFFSET>, WebpDecoderId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapDecoderStatics2>, ::windows::core::GetTrustLevel, HeifDecoderId::<Impl, IMPL_OFFSET>, WebpDecoderId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapDecoderStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBitmapEncoderImpl: Sized {
     fn EncoderInformation(&self) -> ::windows::core::Result<BitmapCodecInformation>;
     fn BitmapProperties(&self) -> ::windows::core::Result<BitmapProperties>;
@@ -373,13 +388,13 @@ pub trait IBitmapEncoderImpl: Sized {
     fn GoToNextFrameWithEncodingOptionsAsync(&self, encodingoptions: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapEncoder";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBitmapEncoderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderImpl, const OFFSET: isize>() -> IBitmapEncoderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapEncoderVtbl {
         unsafe extern "system" fn EncoderInformation<Impl: IBitmapEncoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncoderInformation() {
@@ -507,30 +522,33 @@ impl IBitmapEncoderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBitmapEncoder>,
             ::windows::core::GetTrustLevel,
-            EncoderInformation::<Impl, OFFSET>,
-            BitmapProperties::<Impl, OFFSET>,
-            BitmapContainerProperties::<Impl, OFFSET>,
-            IsThumbnailGenerated::<Impl, OFFSET>,
-            SetIsThumbnailGenerated::<Impl, OFFSET>,
-            GeneratedThumbnailWidth::<Impl, OFFSET>,
-            SetGeneratedThumbnailWidth::<Impl, OFFSET>,
-            GeneratedThumbnailHeight::<Impl, OFFSET>,
-            SetGeneratedThumbnailHeight::<Impl, OFFSET>,
-            BitmapTransform::<Impl, OFFSET>,
-            SetPixelData::<Impl, OFFSET>,
-            GoToNextFrameAsync::<Impl, OFFSET>,
-            GoToNextFrameWithEncodingOptionsAsync::<Impl, OFFSET>,
-            FlushAsync::<Impl, OFFSET>,
+            EncoderInformation::<Impl, IMPL_OFFSET>,
+            BitmapProperties::<Impl, IMPL_OFFSET>,
+            BitmapContainerProperties::<Impl, IMPL_OFFSET>,
+            IsThumbnailGenerated::<Impl, IMPL_OFFSET>,
+            SetIsThumbnailGenerated::<Impl, IMPL_OFFSET>,
+            GeneratedThumbnailWidth::<Impl, IMPL_OFFSET>,
+            SetGeneratedThumbnailWidth::<Impl, IMPL_OFFSET>,
+            GeneratedThumbnailHeight::<Impl, IMPL_OFFSET>,
+            SetGeneratedThumbnailHeight::<Impl, IMPL_OFFSET>,
+            BitmapTransform::<Impl, IMPL_OFFSET>,
+            SetPixelData::<Impl, IMPL_OFFSET>,
+            GoToNextFrameAsync::<Impl, IMPL_OFFSET>,
+            GoToNextFrameWithEncodingOptionsAsync::<Impl, IMPL_OFFSET>,
+            FlushAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapEncoder as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBitmapEncoderStaticsImpl: Sized {
     fn BmpEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn JpegEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -544,13 +562,13 @@ pub trait IBitmapEncoderStaticsImpl: Sized {
     fn CreateForTranscodingAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, bitmapdecoder: &::core::option::Option<BitmapDecoder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
     fn CreateForInPlacePropertyEncodingAsync(&self, bitmapdecoder: &::core::option::Option<BitmapDecoder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapEncoderStatics {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapEncoderStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IBitmapEncoderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderStaticsImpl, const OFFSET: isize>() -> IBitmapEncoderStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapEncoderStaticsVtbl {
         unsafe extern "system" fn BmpEncoderId<Impl: IBitmapEncoderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BmpEncoderId() {
@@ -677,24 +695,27 @@ impl IBitmapEncoderStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBitmapEncoderStatics>,
             ::windows::core::GetTrustLevel,
-            BmpEncoderId::<Impl, OFFSET>,
-            JpegEncoderId::<Impl, OFFSET>,
-            PngEncoderId::<Impl, OFFSET>,
-            TiffEncoderId::<Impl, OFFSET>,
-            GifEncoderId::<Impl, OFFSET>,
-            JpegXREncoderId::<Impl, OFFSET>,
-            GetEncoderInformationEnumerator::<Impl, OFFSET>,
-            CreateAsync::<Impl, OFFSET>,
-            CreateWithEncodingOptionsAsync::<Impl, OFFSET>,
-            CreateForTranscodingAsync::<Impl, OFFSET>,
-            CreateForInPlacePropertyEncodingAsync::<Impl, OFFSET>,
+            BmpEncoderId::<Impl, IMPL_OFFSET>,
+            JpegEncoderId::<Impl, IMPL_OFFSET>,
+            PngEncoderId::<Impl, IMPL_OFFSET>,
+            TiffEncoderId::<Impl, IMPL_OFFSET>,
+            GifEncoderId::<Impl, IMPL_OFFSET>,
+            JpegXREncoderId::<Impl, IMPL_OFFSET>,
+            GetEncoderInformationEnumerator::<Impl, IMPL_OFFSET>,
+            CreateAsync::<Impl, IMPL_OFFSET>,
+            CreateWithEncodingOptionsAsync::<Impl, IMPL_OFFSET>,
+            CreateForTranscodingAsync::<Impl, IMPL_OFFSET>,
+            CreateForInPlacePropertyEncodingAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapEncoderStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -707,7 +728,7 @@ impl ::windows::core::RuntimeName for IBitmapEncoderStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBitmapEncoderStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderStatics2Impl, const OFFSET: isize>() -> IBitmapEncoderStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapEncoderStatics2Vtbl {
         unsafe extern "system" fn HeifEncoderId<Impl: IBitmapEncoderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeifEncoderId() {
@@ -719,7 +740,10 @@ impl IBitmapEncoderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapEncoderStatics2>, ::windows::core::GetTrustLevel, HeifEncoderId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapEncoderStatics2>, ::windows::core::GetTrustLevel, HeifEncoderId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapEncoderStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -732,14 +756,18 @@ impl ::windows::core::RuntimeName for IBitmapEncoderWithSoftwareBitmap {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBitmapEncoderWithSoftwareBitmapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderWithSoftwareBitmapImpl, const OFFSET: isize>() -> IBitmapEncoderWithSoftwareBitmapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapEncoderWithSoftwareBitmapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapEncoderWithSoftwareBitmapVtbl {
         unsafe extern "system" fn SetSoftwareBitmap<Impl: IBitmapEncoderWithSoftwareBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSoftwareBitmap(&*(&bitmap as *const <SoftwareBitmap as ::windows::core::Abi>::Abi as *const <SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapEncoderWithSoftwareBitmap>, ::windows::core::GetTrustLevel, SetSoftwareBitmap::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapEncoderWithSoftwareBitmap>, ::windows::core::GetTrustLevel, SetSoftwareBitmap::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapEncoderWithSoftwareBitmap as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBitmapFrameImpl: Sized {
     fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
     fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView>;
@@ -754,11 +782,13 @@ pub trait IBitmapFrameImpl: Sized {
     fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
     fn GetPixelDataTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IBitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrame";
 }
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl IBitmapFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapFrameImpl, const OFFSET: isize>() -> IBitmapFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapFrameVtbl {
         unsafe extern "system" fn GetThumbnailAsync<Impl: IBitmapFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThumbnailAsync() {
@@ -892,37 +922,43 @@ impl IBitmapFrameVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBitmapFrame>,
             ::windows::core::GetTrustLevel,
-            GetThumbnailAsync::<Impl, OFFSET>,
-            BitmapProperties::<Impl, OFFSET>,
-            BitmapPixelFormat::<Impl, OFFSET>,
-            BitmapAlphaMode::<Impl, OFFSET>,
-            DpiX::<Impl, OFFSET>,
-            DpiY::<Impl, OFFSET>,
-            PixelWidth::<Impl, OFFSET>,
-            PixelHeight::<Impl, OFFSET>,
-            OrientedPixelWidth::<Impl, OFFSET>,
-            OrientedPixelHeight::<Impl, OFFSET>,
-            GetPixelDataAsync::<Impl, OFFSET>,
-            GetPixelDataTransformedAsync::<Impl, OFFSET>,
+            GetThumbnailAsync::<Impl, IMPL_OFFSET>,
+            BitmapProperties::<Impl, IMPL_OFFSET>,
+            BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            DpiX::<Impl, IMPL_OFFSET>,
+            DpiY::<Impl, IMPL_OFFSET>,
+            PixelWidth::<Impl, IMPL_OFFSET>,
+            PixelHeight::<Impl, IMPL_OFFSET>,
+            OrientedPixelWidth::<Impl, IMPL_OFFSET>,
+            OrientedPixelHeight::<Impl, IMPL_OFFSET>,
+            GetPixelDataAsync::<Impl, IMPL_OFFSET>,
+            GetPixelDataTransformedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapFrame as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBitmapFrameWithSoftwareBitmapImpl: Sized + IBitmapFrameImpl {
     fn GetSoftwareBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
     fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
     fn GetSoftwareBitmapTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap";
 }
+#[cfg(feature = "Foundation")]
 impl IBitmapFrameWithSoftwareBitmapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapFrameWithSoftwareBitmapImpl, const OFFSET: isize>() -> IBitmapFrameWithSoftwareBitmapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapFrameWithSoftwareBitmapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapFrameWithSoftwareBitmapVtbl {
         unsafe extern "system" fn GetSoftwareBitmapAsync<Impl: IBitmapFrameWithSoftwareBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSoftwareBitmapAsync() {
@@ -956,20 +992,23 @@ impl IBitmapFrameWithSoftwareBitmapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapFrameWithSoftwareBitmap>, ::windows::core::GetTrustLevel, GetSoftwareBitmapAsync::<Impl, OFFSET>, GetSoftwareBitmapConvertedAsync::<Impl, OFFSET>, GetSoftwareBitmapTransformedAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapFrameWithSoftwareBitmap>, ::windows::core::GetTrustLevel, GetSoftwareBitmapAsync::<Impl, IMPL_OFFSET>, GetSoftwareBitmapConvertedAsync::<Impl, IMPL_OFFSET>, GetSoftwareBitmapTransformedAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapFrameWithSoftwareBitmap as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBitmapPropertiesImpl: Sized + IBitmapPropertiesViewImpl {
     fn SetPropertiesAsync(&self, propertiestoset: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBitmapPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapPropertiesImpl, const OFFSET: isize>() -> IBitmapPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapPropertiesVtbl {
         unsafe extern "system" fn SetPropertiesAsync<Impl: IBitmapPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertiestoset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPropertiesAsync(&*(&propertiestoset as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>> as ::windows::core::DefaultType>::DefaultType)) {
@@ -981,17 +1020,23 @@ impl IBitmapPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapProperties>, ::windows::core::GetTrustLevel, SetPropertiesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapProperties>, ::windows::core::GetTrustLevel, SetPropertiesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapProperties as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IBitmapPropertiesViewImpl: Sized {
     fn GetPropertiesAsync(&self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IBitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapPropertiesView";
 }
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IBitmapPropertiesViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapPropertiesViewImpl, const OFFSET: isize>() -> IBitmapPropertiesViewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapPropertiesViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapPropertiesViewVtbl {
         unsafe extern "system" fn GetPropertiesAsync<Impl: IBitmapPropertiesViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertiesAsync(&*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1003,7 +1048,10 @@ impl IBitmapPropertiesViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapPropertiesView>, ::windows::core::GetTrustLevel, GetPropertiesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapPropertiesView>, ::windows::core::GetTrustLevel, GetPropertiesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapPropertiesView as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1027,7 +1075,7 @@ impl ::windows::core::RuntimeName for IBitmapTransform {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBitmapTransformVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapTransformImpl, const OFFSET: isize>() -> IBitmapTransformVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapTransformImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapTransformVtbl {
         unsafe extern "system" fn ScaledWidth<Impl: IBitmapTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaledWidth() {
@@ -1119,39 +1167,42 @@ impl IBitmapTransformVtbl {
             (*this).SetBounds(&*(&value as *const <BitmapBounds as ::windows::core::Abi>::Abi as *const <BitmapBounds as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBitmapTransform>,
             ::windows::core::GetTrustLevel,
-            ScaledWidth::<Impl, OFFSET>,
-            SetScaledWidth::<Impl, OFFSET>,
-            ScaledHeight::<Impl, OFFSET>,
-            SetScaledHeight::<Impl, OFFSET>,
-            InterpolationMode::<Impl, OFFSET>,
-            SetInterpolationMode::<Impl, OFFSET>,
-            Flip::<Impl, OFFSET>,
-            SetFlip::<Impl, OFFSET>,
-            Rotation::<Impl, OFFSET>,
-            SetRotation::<Impl, OFFSET>,
-            Bounds::<Impl, OFFSET>,
-            SetBounds::<Impl, OFFSET>,
+            ScaledWidth::<Impl, IMPL_OFFSET>,
+            SetScaledWidth::<Impl, IMPL_OFFSET>,
+            ScaledHeight::<Impl, IMPL_OFFSET>,
+            SetScaledHeight::<Impl, IMPL_OFFSET>,
+            InterpolationMode::<Impl, IMPL_OFFSET>,
+            SetInterpolationMode::<Impl, IMPL_OFFSET>,
+            Flip::<Impl, IMPL_OFFSET>,
+            SetFlip::<Impl, IMPL_OFFSET>,
+            Rotation::<Impl, IMPL_OFFSET>,
+            SetRotation::<Impl, IMPL_OFFSET>,
+            Bounds::<Impl, IMPL_OFFSET>,
+            SetBounds::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapTransform as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBitmapTypedValueImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn Type(&self) -> ::windows::core::Result<super::super::Foundation::PropertyType>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapTypedValue";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBitmapTypedValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapTypedValueImpl, const OFFSET: isize>() -> IBitmapTypedValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapTypedValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapTypedValueVtbl {
         unsafe extern "system" fn Value<Impl: IBitmapTypedValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
@@ -1174,20 +1225,23 @@ impl IBitmapTypedValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapTypedValue>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, Type::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapTypedValue>, ::windows::core::GetTrustLevel, Value::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapTypedValue as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBitmapTypedValueFactoryImpl: Sized {
     fn Create(&self, value: &::core::option::Option<::windows::core::IInspectable>, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapTypedValueFactory {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapTypedValueFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBitmapTypedValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapTypedValueFactoryImpl, const OFFSET: isize>() -> IBitmapTypedValueFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapTypedValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapTypedValueFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IBitmapTypedValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, r#type: super::super::Foundation::PropertyType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), r#type) {
@@ -1199,7 +1253,10 @@ impl IBitmapTypedValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapTypedValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBitmapTypedValueFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBitmapTypedValueFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1212,7 +1269,7 @@ impl ::windows::core::RuntimeName for IPixelDataProvider {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPixelDataProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPixelDataProviderImpl, const OFFSET: isize>() -> IPixelDataProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPixelDataProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPixelDataProviderVtbl {
         unsafe extern "system" fn DetachPixelData<Impl: IPixelDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetachPixelData() {
@@ -1225,10 +1282,13 @@ impl IPixelDataProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPixelDataProvider>, ::windows::core::GetTrustLevel, DetachPixelData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPixelDataProvider>, ::windows::core::GetTrustLevel, DetachPixelData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPixelDataProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISoftwareBitmapImpl: Sized + IClosableImpl {
     fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat>;
     fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode>;
@@ -1245,13 +1305,13 @@ pub trait ISoftwareBitmapImpl: Sized + IClosableImpl {
     fn CopyToBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn GetReadOnlyView(&self) -> ::windows::core::Result<SoftwareBitmap>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.ISoftwareBitmap";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISoftwareBitmapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapImpl, const OFFSET: isize>() -> ISoftwareBitmapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISoftwareBitmapVtbl {
         unsafe extern "system" fn BitmapPixelFormat<Impl: ISoftwareBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BitmapPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapPixelFormat() {
@@ -1372,27 +1432,30 @@ impl ISoftwareBitmapVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISoftwareBitmap>,
             ::windows::core::GetTrustLevel,
-            BitmapPixelFormat::<Impl, OFFSET>,
-            BitmapAlphaMode::<Impl, OFFSET>,
-            PixelWidth::<Impl, OFFSET>,
-            PixelHeight::<Impl, OFFSET>,
-            IsReadOnly::<Impl, OFFSET>,
-            SetDpiX::<Impl, OFFSET>,
-            DpiX::<Impl, OFFSET>,
-            SetDpiY::<Impl, OFFSET>,
-            DpiY::<Impl, OFFSET>,
-            LockBuffer::<Impl, OFFSET>,
-            CopyTo::<Impl, OFFSET>,
-            CopyFromBuffer::<Impl, OFFSET>,
-            CopyToBuffer::<Impl, OFFSET>,
-            GetReadOnlyView::<Impl, OFFSET>,
+            BitmapPixelFormat::<Impl, IMPL_OFFSET>,
+            BitmapAlphaMode::<Impl, IMPL_OFFSET>,
+            PixelWidth::<Impl, IMPL_OFFSET>,
+            PixelHeight::<Impl, IMPL_OFFSET>,
+            IsReadOnly::<Impl, IMPL_OFFSET>,
+            SetDpiX::<Impl, IMPL_OFFSET>,
+            DpiX::<Impl, IMPL_OFFSET>,
+            SetDpiY::<Impl, IMPL_OFFSET>,
+            DpiY::<Impl, IMPL_OFFSET>,
+            LockBuffer::<Impl, IMPL_OFFSET>,
+            CopyTo::<Impl, IMPL_OFFSET>,
+            CopyFromBuffer::<Impl, IMPL_OFFSET>,
+            CopyToBuffer::<Impl, IMPL_OFFSET>,
+            GetReadOnlyView::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISoftwareBitmap as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1406,7 +1469,7 @@ impl ::windows::core::RuntimeName for ISoftwareBitmapFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISoftwareBitmapFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapFactoryImpl, const OFFSET: isize>() -> ISoftwareBitmapFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISoftwareBitmapFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISoftwareBitmapFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: BitmapPixelFormat, width: i32, height: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(format, width, height) {
@@ -1429,10 +1492,13 @@ impl ISoftwareBitmapFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithAlpha::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithAlpha::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISoftwareBitmapFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISoftwareBitmapStaticsImpl: Sized {
     fn Copy(&self, source: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<SoftwareBitmap>;
     fn Convert(&self, source: &::core::option::Option<SoftwareBitmap>, format: BitmapPixelFormat) -> ::windows::core::Result<SoftwareBitmap>;
@@ -1442,13 +1508,13 @@ pub trait ISoftwareBitmapStaticsImpl: Sized {
     fn CreateCopyFromSurfaceAsync(&self, surface: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
     fn CreateCopyWithAlphaFromSurfaceAsync(&self, surface: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISoftwareBitmapStatics {
     const NAME: &'static str = "Windows.Graphics.Imaging.ISoftwareBitmapStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISoftwareBitmapStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapStaticsImpl, const OFFSET: isize>() -> ISoftwareBitmapStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISoftwareBitmapStaticsVtbl {
         unsafe extern "system" fn Copy<Impl: ISoftwareBitmapStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Copy(&*(&source as *const <SoftwareBitmap as ::windows::core::Abi>::Abi as *const <SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
@@ -1527,19 +1593,22 @@ impl ISoftwareBitmapStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISoftwareBitmapStatics>,
             ::windows::core::GetTrustLevel,
-            Copy::<Impl, OFFSET>,
-            Convert::<Impl, OFFSET>,
-            ConvertWithAlpha::<Impl, OFFSET>,
-            CreateCopyFromBuffer::<Impl, OFFSET>,
-            CreateCopyWithAlphaFromBuffer::<Impl, OFFSET>,
-            CreateCopyFromSurfaceAsync::<Impl, OFFSET>,
-            CreateCopyWithAlphaFromSurfaceAsync::<Impl, OFFSET>,
+            Copy::<Impl, IMPL_OFFSET>,
+            Convert::<Impl, IMPL_OFFSET>,
+            ConvertWithAlpha::<Impl, IMPL_OFFSET>,
+            CreateCopyFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateCopyWithAlphaFromBuffer::<Impl, IMPL_OFFSET>,
+            CreateCopyFromSurfaceAsync::<Impl, IMPL_OFFSET>,
+            CreateCopyWithAlphaFromSurfaceAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISoftwareBitmapStatics as ::windows::core::Interface>::IID
     }
 }

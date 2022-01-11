@@ -1050,12 +1050,12 @@ pub const GUID_YSIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0
 pub const GUID_YSIZEPIXEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn GetActiveObject(rclsid: &::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+pub unsafe fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetActiveObject(rclsid: &::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         GetActiveObject(::core::mem::transmute(rclsid), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppunk)).ok()
     }
@@ -1080,12 +1080,12 @@ pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::core::Result<*mut super:
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: &::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: &::windows::core::GUID) -> ::windows::core::Result<IRecordInfo> {
+pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::core::GUID) -> ::windows::core::Result<IRecordInfo> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRecordInfoFromGuids(rguidtypelib: &::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: &::windows::core::GUID, pprecinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::core::GUID, pprecinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         GetRecordInfoFromGuids(::core::mem::transmute(rguidtypelib), ::core::mem::transmute(uvermajor), ::core::mem::transmute(uverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(rguidtypeinfo), ::core::mem::transmute(&mut result__)).from_abi::<IRecordInfo>(result__)
@@ -1442,7 +1442,7 @@ impl IClassFactory2 {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstanceLic<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, punkouter: Param0, punkreserved: Param1, riid: &::windows::core::GUID, bstrkey: Param3, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateInstanceLic<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, punkouter: Param0, punkreserved: Param1, riid: *const ::windows::core::GUID, bstrkey: Param3, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), ::core::mem::transmute(riid), bstrkey.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
 }
@@ -1516,7 +1516,7 @@ pub struct IClassFactory2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
@@ -1524,7 +1524,7 @@ pub struct IClassFactory2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, pbstrkey: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, bstrkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, bstrkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -1648,7 +1648,7 @@ pub struct IContinueCallbackVtbl(
 pub struct ICreateErrorInfo(::windows::core::IUnknown);
 impl ICreateErrorInfo {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn SetGUID(&self, rguid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
@@ -1717,7 +1717,7 @@ pub struct ICreateErrorInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsource: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1731,7 +1731,7 @@ pub struct ICreateErrorInfoVtbl(
 pub struct ICreateTypeInfo(::windows::core::IUnknown);
 impl ICreateTypeInfo {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn SetGuid(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -1882,7 +1882,7 @@ pub struct ICreateTypeInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utypeflags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -1924,7 +1924,7 @@ pub struct ICreateTypeInfoVtbl(
 pub struct ICreateTypeInfo2(::windows::core::IUnknown);
 impl ICreateTypeInfo2 {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn SetGuid(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -2051,27 +2051,27 @@ impl ICreateTypeInfo2 {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetCustData(&self, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCustData(&self, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetFuncCustData(&self, index: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexfunc), ::core::mem::transmute(indexparam), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetVarCustData(&self, index: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -2162,7 +2162,7 @@ pub struct ICreateTypeInfo2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utypeflags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -2204,15 +2204,15 @@ pub struct ICreateTypeInfo2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
@@ -2241,7 +2241,7 @@ impl ICreateTypeLib {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn SetGuid(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
@@ -2322,7 +2322,7 @@ pub struct ICreateTypeLibVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2352,7 +2352,7 @@ impl ICreateTypeLib2 {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn SetGuid(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
@@ -2388,7 +2388,7 @@ impl ICreateTypeLib2 {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetCustData(&self, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCustData(&self, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -2472,7 +2472,7 @@ pub struct ICreateTypeLib2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdoc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szhelpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2483,7 +2483,7 @@ pub struct ICreateTypeLib2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2878,12 +2878,12 @@ impl IDispatchEx {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
@@ -3002,9 +3002,9 @@ pub struct IDispatchExVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -3823,12 +3823,12 @@ impl IFontDisp {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
@@ -3906,9 +3906,9 @@ pub struct IFontDispVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -3929,12 +3929,12 @@ impl IFontEventsDisp {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
@@ -4012,9 +4012,9 @@ pub struct IFontEventsDispVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -4028,7 +4028,7 @@ pub const IGNOREMIME_TEXT: IGNOREMIME = 2i32;
 pub struct IGetOleObject(::windows::core::IUnknown);
 impl IGetOleObject {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn GetOleObject(&self, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetOleObject(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
     }
 }
@@ -4074,13 +4074,13 @@ unsafe impl ::windows::core::Interface for IGetOleObject {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetOleObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IGetOleObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IGetVBAObject(::windows::core::IUnknown);
 impl IGetVBAObject {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn GetObject(&self, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetObject(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj), ::core::mem::transmute(dwreserved)).ok()
     }
 }
@@ -4130,7 +4130,7 @@ pub struct IGetVBAObjectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1u32;
@@ -4326,7 +4326,7 @@ pub struct IObjectWithSiteVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punksite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
@@ -4781,12 +4781,12 @@ pub struct IOleClientSiteVtbl(
 pub struct IOleCommandTarget(::windows::core::IUnknown);
 impl IOleCommandTarget {
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn QueryStatus(&self, pguidcmdgroup: &::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcmdgroup), ::core::mem::transmute(ccmds), ::core::mem::transmute(prgcmds), ::core::mem::transmute(pcmdtext)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Exec(&self, pguidcmdgroup: &::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcmdgroup), ::core::mem::transmute(ncmdid), ::core::mem::transmute(ncmdexecopt), ::core::mem::transmute(pvain), ::core::mem::transmute(pvaout)).ok()
     }
 }
@@ -4836,8 +4836,8 @@ pub struct IOleCommandTargetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: &::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: &::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -6779,9 +6779,9 @@ pub struct IOleItemContainerVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, dwspeedneeded: u32, pbc: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, dwspeedneeded: u32, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitem: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -6801,7 +6801,7 @@ impl IOleLink {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSourceMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSourceMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi(), ::core::mem::transmute(rclsid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
@@ -6893,7 +6893,7 @@ pub struct IOleLinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwupdateopt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr, rclsid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -7689,7 +7689,7 @@ impl IOleUIObjInfoA {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpclassid), ::core::mem::transmute(lpwformat), ::core::mem::transmute(lpconvertdefaultclassid), ::core::mem::transmute(lplpclsidexclude), ::core::mem::transmute(lpcclsidexclude)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(clsidnew)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -7751,7 +7751,7 @@ pub struct IOleUIObjInfoAVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PSTR, lplpsztype: *mut super::super::Foundation::PSTR, lplpszshorttype: *mut super::super::Foundation::PSTR, lplpszlocation: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7770,7 +7770,7 @@ impl IOleUIObjInfoW {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(lpclassid), ::core::mem::transmute(lpwformat), ::core::mem::transmute(lpconvertdefaultclassid), ::core::mem::transmute(lplpclsidexclude), ::core::mem::transmute(lpcclsidexclude)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobject), ::core::mem::transmute(clsidnew)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -7832,7 +7832,7 @@ pub struct IOleUIObjInfoWVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PWSTR, lplpsztype: *mut super::super::Foundation::PWSTR, lplpszshorttype: *mut super::super::Foundation::PWSTR, lplpszlocation: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -8759,12 +8759,12 @@ impl IPictureDisp {
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
@@ -8842,9 +8842,9 @@ pub struct IPictureDispVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -10259,7 +10259,7 @@ pub struct ITypeFactory(::windows::core::IUnknown);
 impl ITypeFactory {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateFromTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(&self, ptypeinfo: Param0, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn CreateFromTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(&self, ptypeinfo: Param0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ptypeinfo.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -10310,7 +10310,7 @@ pub struct ITypeFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeinfo: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeinfo: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: 'Win32_System_Ole'*"]
@@ -11115,12 +11115,12 @@ pub const LP_VGACOLOR: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LoadRegTypeLib(rguid: &::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32) -> ::windows::core::Result<super::Com::ITypeLib> {
+pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32) -> ::windows::core::Result<super::Com::ITypeLib> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadRegTypeLib(rguid: &::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, pptlib: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn LoadRegTypeLib(rguid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, pptlib: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         LoadRegTypeLib(::core::mem::transmute(rguid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::ITypeLib>(result__)
@@ -13965,12 +13965,12 @@ pub unsafe fn OleBuildVersion() -> u32 {
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreate<'a, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreate<'a, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreate(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreate(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreate(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -13979,12 +13979,12 @@ pub unsafe fn OleCreate<'a, Param4: ::windows::core::IntoParam<'a, IOleClientSit
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(clsid: &::windows::core::GUID, punkouter: Param1, riid: &::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(clsid: *const ::windows::core::GUID, punkouter: Param1, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateDefaultHandler(clsid: &::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateDefaultHandler(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateDefaultHandler(::core::mem::transmute(clsid), punkouter.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpobj)).ok()
     }
@@ -13994,12 +13994,12 @@ pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::Com::IClassFactory>>(clsid: &::windows::core::GUID, punkouter: Param1, flags: u32, pcf: Param3, riid: &::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::Com::IClassFactory>>(clsid: *const ::windows::core::GUID, punkouter: Param1, flags: u32, pcf: Param3, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateEmbeddingHelper(clsid: &::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, flags: u32, pcf: ::windows::core::RawPtr, riid: &::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateEmbeddingHelper(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, flags: u32, pcf: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateEmbeddingHelper(::core::mem::transmute(clsid), punkouter.into_param().abi(), ::core::mem::transmute(flags), pcf.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpobj)).ok()
     }
@@ -14009,12 +14009,12 @@ pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::core::IntoParam<'a
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateEx<'a, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateEx<'a, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateEx(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateEx(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateEx(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14024,12 +14024,12 @@ pub unsafe fn OleCreateEx<'a, Param7: ::windows::core::IntoParam<'a, super::Com:
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: &::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: &::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateFontIndirect(::core::mem::transmute(lpfontdesc), ::core::mem::transmute(riid), ::core::mem::transmute(lplpvobj)).ok()
     }
@@ -14039,12 +14039,12 @@ pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: &::windows:
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateFromData(psrcdataobj: ::windows::core::RawPtr, riid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateFromData(psrcdataobj: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14054,12 +14054,12 @@ pub unsafe fn OleCreateFromData<'a, Param0: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateFromDataEx(psrcdataobj: ::windows::core::RawPtr, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateFromDataEx(psrcdataobj: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateFromDataEx(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14069,12 +14069,12 @@ pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, IOleClientSite>, Param6: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: &::windows::core::GUID, lpszfilename: Param1, riid: &::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param5, pstg: Param6, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, IOleClientSite>, Param6: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, lpszfilename: Param1, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param5, pstg: Param6, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateFromFile(rclsid: &::windows::core::GUID, lpszfilename: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateFromFile(rclsid: *const ::windows::core::GUID, lpszfilename: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateFromFile(::core::mem::transmute(rclsid), lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14084,12 +14084,12 @@ pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param10: ::windows::core::IntoParam<'a, IOleClientSite>, Param11: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: &::windows::core::GUID, lpszfilename: Param1, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param8, rgdwconnection: *mut u32, pclientsite: Param10, pstg: Param11, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param10: ::windows::core::IntoParam<'a, IOleClientSite>, Param11: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, lpszfilename: Param1, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param8, rgdwconnection: *mut u32, pclientsite: Param10, pstg: Param11, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateFromFileEx(rclsid: &::windows::core::GUID, lpszfilename: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateFromFileEx(rclsid: *const ::windows::core::GUID, lpszfilename: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateFromFileEx(::core::mem::transmute(rclsid), lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14099,12 +14099,12 @@ pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateLink<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: &::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateLink<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateLink(pmklinksrc: ::windows::core::RawPtr, riid: &::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateLink(pmklinksrc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateLink(pmklinksrc.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14114,12 +14114,12 @@ pub unsafe fn OleCreateLink<'a, Param0: ::windows::core::IntoParam<'a, super::Co
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateLinkEx(pmklinksrc: ::windows::core::RawPtr, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateLinkEx(pmklinksrc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateLinkEx(pmklinksrc.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14129,12 +14129,12 @@ pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateLinkFromData(psrcdataobj: ::windows::core::RawPtr, riid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateLinkFromData(psrcdataobj: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateLinkFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14144,12 +14144,12 @@ pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateLinkFromDataEx(psrcdataobj: ::windows::core::RawPtr, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateLinkFromDataEx(psrcdataobj: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateLinkFromDataEx(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14159,12 +14159,12 @@ pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: &::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateLinkToFile(lpszfilename: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateLinkToFile(lpszfilename: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateLinkToFile(lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14174,12 +14174,12 @@ pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateLinkToFileEx(lpszfilename: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateLinkToFileEx(lpszfilename: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: ::windows::core::RawPtr, rgdwconnection: *mut u32, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateLinkToFileEx(lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14204,12 +14204,12 @@ pub unsafe fn OleCreateMenuDescriptor<'a, Param0: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppictdesc: *mut PICTDESC, riid: &::windows::core::GUID, fown: Param2, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppictdesc: *mut PICTDESC, riid: *const ::windows::core::GUID, fown: Param2, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: &::windows::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: *const ::windows::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), ::core::mem::transmute(riid), fown.into_param().abi(), ::core::mem::transmute(lplpvobj)).ok()
     }
@@ -14249,12 +14249,12 @@ pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::wi
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleCreateStaticFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, iid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleCreateStaticFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, iid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleCreateStaticFromData(psrcdataobj: ::windows::core::RawPtr, iid: &::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleCreateStaticFromData(psrcdataobj: ::windows::core::RawPtr, iid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: ::windows::core::RawPtr, pstg: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleCreateStaticFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14336,12 +14336,12 @@ pub unsafe fn OleFlushClipboard() -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn OleGetAutoConvert(clsidold: &::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleGetAutoConvert(clsidold: &::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         OleGetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(pclsidnew)).ok()
     }
@@ -14382,12 +14382,12 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::core::option:
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: &::windows::core::GUID, lpszlabel: Param1, fusetypeaslabel: Param2) -> isize {
+pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::core::GUID, lpszlabel: Param1, fusetypeaslabel: Param2) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleGetIconOfClass(rclsid: &::windows::core::GUID, lpszlabel: super::super::Foundation::PWSTR, fusetypeaslabel: super::super::Foundation::BOOL) -> isize;
+            fn OleGetIconOfClass(rclsid: *const ::windows::core::GUID, lpszlabel: super::super::Foundation::PWSTR, fusetypeaslabel: super::super::Foundation::BOOL) -> isize;
         }
         ::core::mem::transmute(OleGetIconOfClass(::core::mem::transmute(rclsid), lpszlabel.into_param().abi(), fusetypeaslabel.into_param().abi()))
     }
@@ -14471,12 +14471,12 @@ pub unsafe fn OleIsRunning<'a, Param0: ::windows::core::IntoParam<'a, IOleObject
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleLoad<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::core::IntoParam<'a, IOleClientSite>>(pstg: Param0, riid: &::windows::core::GUID, pclientsite: Param2, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleLoad<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::core::IntoParam<'a, IOleClientSite>>(pstg: Param0, riid: *const ::windows::core::GUID, pclientsite: Param2, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleLoad(pstg: ::windows::core::RawPtr, riid: &::windows::core::GUID, pclientsite: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleLoad(pstg: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, pclientsite: ::windows::core::RawPtr, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleLoad(pstg.into_param().abi(), ::core::mem::transmute(riid), pclientsite.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14486,12 +14486,12 @@ pub unsafe fn OleLoad<'a, Param0: ::windows::core::IntoParam<'a, super::Com::Str
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>>(pstm: Param0, iidinterface: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>>(pstm: Param0, iidinterface: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleLoadFromStream(pstm: ::windows::core::RawPtr, iidinterface: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleLoadFromStream(pstm: ::windows::core::RawPtr, iidinterface: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleLoadFromStream(pstm.into_param().abi(), ::core::mem::transmute(iidinterface), ::core::mem::transmute(ppvobj)).ok()
     }
@@ -14501,12 +14501,12 @@ pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OleLoadPicture<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: &::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleLoadPicture<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleLoadPicture(lpstream: ::windows::core::RawPtr, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: &::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleLoadPicture(lpstream: ::windows::core::RawPtr, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleLoadPicture(lpstream.into_param().abi(), ::core::mem::transmute(lsize), frunmode.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpvobj)).ok()
     }
@@ -14516,12 +14516,12 @@ pub unsafe fn OleLoadPicture<'a, Param0: ::windows::core::IntoParam<'a, super::C
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: &::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleLoadPictureEx(lpstream: ::windows::core::RawPtr, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: &::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleLoadPictureEx(lpstream: ::windows::core::RawPtr, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleLoadPictureEx(lpstream.into_param().abi(), ::core::mem::transmute(lsize), frunmode.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(xsizedesired), ::core::mem::transmute(ysizedesired), ::core::mem::transmute(dwflags), ::core::mem::transmute(lplpvobj)).ok()
     }
@@ -14563,12 +14563,12 @@ pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szurlorpath: Param0, punkcaller: Param1, dwreserved: u32, clrreserved: u32, riid: &::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szurlorpath: Param0, punkcaller: Param1, dwreserved: u32, clrreserved: u32, riid: *const ::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleLoadPicturePath(szurlorpath: super::super::Foundation::PWSTR, punkcaller: *mut ::core::ffi::c_void, dwreserved: u32, clrreserved: u32, riid: &::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn OleLoadPicturePath(szurlorpath: super::super::Foundation::PWSTR, punkcaller: *mut ::core::ffi::c_void, dwreserved: u32, clrreserved: u32, riid: *const ::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         OleLoadPicturePath(szurlorpath.into_param().abi(), punkcaller.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(clrreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppvret)).ok()
     }
@@ -14683,12 +14683,12 @@ pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleRegEnumFormatEtc(clsid: &::windows::core::GUID, dwdirection: u32) -> ::windows::core::Result<super::Com::IEnumFORMATETC> {
+pub unsafe fn OleRegEnumFormatEtc(clsid: *const ::windows::core::GUID, dwdirection: u32) -> ::windows::core::Result<super::Com::IEnumFORMATETC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleRegEnumFormatEtc(clsid: &::windows::core::GUID, dwdirection: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn OleRegEnumFormatEtc(clsid: *const ::windows::core::GUID, dwdirection: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         OleRegEnumFormatEtc(::core::mem::transmute(clsid), ::core::mem::transmute(dwdirection), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IEnumFORMATETC>(result__)
@@ -14698,12 +14698,12 @@ pub unsafe fn OleRegEnumFormatEtc(clsid: &::windows::core::GUID, dwdirection: u3
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn OleRegEnumVerbs(clsid: &::windows::core::GUID) -> ::windows::core::Result<IEnumOLEVERB> {
+pub unsafe fn OleRegEnumVerbs(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumOLEVERB> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleRegEnumVerbs(clsid: &::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn OleRegEnumVerbs(clsid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         OleRegEnumVerbs(::core::mem::transmute(clsid), ::core::mem::transmute(&mut result__)).from_abi::<IEnumOLEVERB>(result__)
@@ -14713,12 +14713,12 @@ pub unsafe fn OleRegEnumVerbs(clsid: &::windows::core::GUID) -> ::windows::core:
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn OleRegGetMiscStatus(clsid: &::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn OleRegGetMiscStatus(clsid: *const ::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleRegGetMiscStatus(clsid: &::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT;
+            fn OleRegGetMiscStatus(clsid: *const ::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT;
         }
         OleRegGetMiscStatus(::core::mem::transmute(clsid), ::core::mem::transmute(dwaspect), ::core::mem::transmute(pdwstatus)).ok()
     }
@@ -14728,12 +14728,12 @@ pub unsafe fn OleRegGetMiscStatus(clsid: &::windows::core::GUID, dwaspect: u32, 
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleRegGetUserType(clsid: &::windows::core::GUID, dwformoftype: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleRegGetUserType(clsid: &::windows::core::GUID, dwformoftype: u32, pszusertype: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+            fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: u32, pszusertype: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
         OleRegGetUserType(::core::mem::transmute(clsid), ::core::mem::transmute(dwformoftype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
@@ -14802,12 +14802,12 @@ pub unsafe fn OleSaveToStream<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn OleSetAutoConvert(clsidold: &::windows::core::GUID, clsidnew: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn OleSetAutoConvert(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleSetAutoConvert(clsidold: &::windows::core::GUID, clsidnew: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn OleSetAutoConvert(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         OleSetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(clsidnew)).ok()
     }
@@ -14952,12 +14952,12 @@ pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: &::windows::core::GUID, fislinkedobject: Param1, wformat: u16) -> super::super::Foundation::BOOL {
+pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::core::GUID, fislinkedobject: Param1, wformat: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUICanConvertOrActivateAs(rclsid: &::windows::core::GUID, fislinkedobject: super::super::Foundation::BOOL, wformat: u16) -> super::super::Foundation::BOOL;
+            fn OleUICanConvertOrActivateAs(rclsid: *const ::windows::core::GUID, fislinkedobject: super::super::Foundation::BOOL, wformat: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(OleUICanConvertOrActivateAs(::core::mem::transmute(rclsid), fislinkedobject.into_param().abi(), ::core::mem::transmute(wformat)))
     }
@@ -15988,12 +15988,12 @@ impl ::core::default::Default for QACONTROL {
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn QueryPathOfRegTypeLib(guid: &::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::core::Result<*mut u16> {
+pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::core::Result<*mut u16> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryPathOfRegTypeLib(guid: &::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32, lpbstrpathname: *mut *mut u16) -> ::windows::core::HRESULT;
+            fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32, lpbstrpathname: *mut *mut u16) -> ::windows::core::HRESULT;
         }
         let mut result__: *mut u16 = ::core::mem::zeroed();
         QueryPathOfRegTypeLib(::core::mem::transmute(guid), ::core::mem::transmute(wmaj), ::core::mem::transmute(wmin), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
@@ -16023,12 +16023,12 @@ pub const REGKIND_REGISTER: REGKIND = 1i32;
 pub const REGKIND_NONE: REGKIND = 2i32;
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[inline]
-pub unsafe fn RegisterActiveObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, rclsid: &::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterActiveObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, rclsid: *const ::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterActiveObject(punk: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::HRESULT;
+            fn RegisterActiveObject(punk: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::HRESULT;
         }
         RegisterActiveObject(punk.into_param().abi(), ::core::mem::transmute(rclsid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwregister)).ok()
     }
@@ -16605,12 +16605,12 @@ pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY) {
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         SafeArraySetIID(::core::mem::transmute(psa), ::core::mem::transmute(guid)).ok()
     }
@@ -16791,12 +16791,12 @@ pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = 3i32;
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UnRegisterTypeLib(libid: &::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
+pub unsafe fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnRegisterTypeLib(libid: &::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
+            fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
         }
         UnRegisterTypeLib(::core::mem::transmute(libid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
     }
@@ -16806,12 +16806,12 @@ pub unsafe fn UnRegisterTypeLib(libid: &::windows::core::GUID, wvermajor: u16, w
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UnRegisterTypeLibForUser(libid: &::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
+pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnRegisterTypeLibForUser(libid: &::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
+            fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
         }
         UnRegisterTypeLibForUser(::core::mem::transmute(libid), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
     }

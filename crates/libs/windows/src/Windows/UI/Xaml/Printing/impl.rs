@@ -1,14 +1,14 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IAddPagesEventArgsImpl: Sized {
     fn PrintTaskOptions(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAddPagesEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.IAddPagesEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl IAddPagesEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddPagesEventArgsImpl, const OFFSET: isize>() -> IAddPagesEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddPagesEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddPagesEventArgsVtbl {
         unsafe extern "system" fn PrintTaskOptions<Impl: IAddPagesEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintTaskOptions() {
@@ -20,7 +20,10 @@ impl IAddPagesEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAddPagesEventArgs>, ::windows::core::GetTrustLevel, PrintTaskOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAddPagesEventArgs>, ::windows::core::GetTrustLevel, PrintTaskOptions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAddPagesEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,7 +36,7 @@ impl ::windows::core::RuntimeName for IGetPreviewPageEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGetPreviewPageEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetPreviewPageEventArgsImpl, const OFFSET: isize>() -> IGetPreviewPageEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetPreviewPageEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetPreviewPageEventArgsVtbl {
         unsafe extern "system" fn PageNumber<Impl: IGetPreviewPageEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageNumber() {
@@ -45,21 +48,24 @@ impl IGetPreviewPageEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetPreviewPageEventArgs>, ::windows::core::GetTrustLevel, PageNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetPreviewPageEventArgs>, ::windows::core::GetTrustLevel, PageNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetPreviewPageEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IPaginateEventArgsImpl: Sized {
     fn PrintTaskOptions(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions>;
     fn CurrentPreviewPageNumber(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaginateEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.IPaginateEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl IPaginateEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaginateEventArgsImpl, const OFFSET: isize>() -> IPaginateEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaginateEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaginateEventArgsVtbl {
         unsafe extern "system" fn PrintTaskOptions<Impl: IPaginateEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintTaskOptions() {
@@ -82,10 +88,13 @@ impl IPaginateEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaginateEventArgs>, ::windows::core::GetTrustLevel, PrintTaskOptions::<Impl, OFFSET>, CurrentPreviewPageNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPaginateEventArgs>, ::windows::core::GetTrustLevel, PrintTaskOptions::<Impl, IMPL_OFFSET>, CurrentPreviewPageNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPaginateEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IPrintDocumentImpl: Sized {
     fn DocumentSource(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrintDocumentSource>;
     fn Paginate(&self, handler: &::core::option::Option<PaginateEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -100,13 +109,13 @@ pub trait IPrintDocumentImpl: Sized {
     fn SetPreviewPage(&self, pagenumber: i32, pagevisual: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
     fn InvalidatePreview(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintDocument {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.IPrintDocument";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl IPrintDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentImpl, const OFFSET: isize>() -> IPrintDocumentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintDocumentVtbl {
         unsafe extern "system" fn DocumentSource<Impl: IPrintDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentSource() {
@@ -184,25 +193,28 @@ impl IPrintDocumentVtbl {
             (*this).InvalidatePreview().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintDocument>,
             ::windows::core::GetTrustLevel,
-            DocumentSource::<Impl, OFFSET>,
-            Paginate::<Impl, OFFSET>,
-            RemovePaginate::<Impl, OFFSET>,
-            GetPreviewPage::<Impl, OFFSET>,
-            RemoveGetPreviewPage::<Impl, OFFSET>,
-            AddPages::<Impl, OFFSET>,
-            RemoveAddPages::<Impl, OFFSET>,
-            AddPage::<Impl, OFFSET>,
-            AddPagesComplete::<Impl, OFFSET>,
-            SetPreviewPageCount::<Impl, OFFSET>,
-            SetPreviewPage::<Impl, OFFSET>,
-            InvalidatePreview::<Impl, OFFSET>,
+            DocumentSource::<Impl, IMPL_OFFSET>,
+            Paginate::<Impl, IMPL_OFFSET>,
+            RemovePaginate::<Impl, IMPL_OFFSET>,
+            GetPreviewPage::<Impl, IMPL_OFFSET>,
+            RemoveGetPreviewPage::<Impl, IMPL_OFFSET>,
+            AddPages::<Impl, IMPL_OFFSET>,
+            RemoveAddPages::<Impl, IMPL_OFFSET>,
+            AddPage::<Impl, IMPL_OFFSET>,
+            AddPagesComplete::<Impl, IMPL_OFFSET>,
+            SetPreviewPageCount::<Impl, IMPL_OFFSET>,
+            SetPreviewPage::<Impl, IMPL_OFFSET>,
+            InvalidatePreview::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintDocument as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -215,7 +227,7 @@ impl ::windows::core::RuntimeName for IPrintDocumentFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintDocumentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentFactoryImpl, const OFFSET: isize>() -> IPrintDocumentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintDocumentFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IPrintDocumentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
@@ -227,7 +239,10 @@ impl IPrintDocumentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDocumentFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDocumentFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintDocumentFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -240,7 +255,7 @@ impl ::windows::core::RuntimeName for IPrintDocumentStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintDocumentStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentStaticsImpl, const OFFSET: isize>() -> IPrintDocumentStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintDocumentStaticsVtbl {
         unsafe extern "system" fn DocumentSourceProperty<Impl: IPrintDocumentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentSourceProperty() {
@@ -252,6 +267,9 @@ impl IPrintDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDocumentStatics>, ::windows::core::GetTrustLevel, DocumentSourceProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintDocumentStatics>, ::windows::core::GetTrustLevel, DocumentSourceProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintDocumentStatics as ::windows::core::Interface>::IID
     }
 }

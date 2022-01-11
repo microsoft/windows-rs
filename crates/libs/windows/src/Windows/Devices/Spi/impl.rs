@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpiBusInfoImpl: Sized {
     fn ChipSelectLineCount(&self) -> ::windows::core::Result<i32>;
     fn MinClockFrequency(&self) -> ::windows::core::Result<i32>;
     fn MaxClockFrequency(&self) -> ::windows::core::Result<i32>;
     fn SupportedDataBitLengths(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpiBusInfo {
     const NAME: &'static str = "Windows.Devices.Spi.ISpiBusInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISpiBusInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiBusInfoImpl, const OFFSET: isize>() -> ISpiBusInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiBusInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiBusInfoVtbl {
         unsafe extern "system" fn ChipSelectLineCount<Impl: ISpiBusInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChipSelectLineCount() {
@@ -56,7 +56,10 @@ impl ISpiBusInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiBusInfo>, ::windows::core::GetTrustLevel, ChipSelectLineCount::<Impl, OFFSET>, MinClockFrequency::<Impl, OFFSET>, MaxClockFrequency::<Impl, OFFSET>, SupportedDataBitLengths::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiBusInfo>, ::windows::core::GetTrustLevel, ChipSelectLineCount::<Impl, IMPL_OFFSET>, MinClockFrequency::<Impl, IMPL_OFFSET>, MaxClockFrequency::<Impl, IMPL_OFFSET>, SupportedDataBitLengths::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiBusInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -78,7 +81,7 @@ impl ::windows::core::RuntimeName for ISpiConnectionSettings {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpiConnectionSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiConnectionSettingsImpl, const OFFSET: isize>() -> ISpiConnectionSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiConnectionSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiConnectionSettingsVtbl {
         unsafe extern "system" fn ChipSelectLine<Impl: ISpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChipSelectLine() {
@@ -155,23 +158,26 @@ impl ISpiConnectionSettingsVtbl {
             (*this).SetSharingMode(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpiConnectionSettings>,
             ::windows::core::GetTrustLevel,
-            ChipSelectLine::<Impl, OFFSET>,
-            SetChipSelectLine::<Impl, OFFSET>,
-            Mode::<Impl, OFFSET>,
-            SetMode::<Impl, OFFSET>,
-            DataBitLength::<Impl, OFFSET>,
-            SetDataBitLength::<Impl, OFFSET>,
-            ClockFrequency::<Impl, OFFSET>,
-            SetClockFrequency::<Impl, OFFSET>,
-            SharingMode::<Impl, OFFSET>,
-            SetSharingMode::<Impl, OFFSET>,
+            ChipSelectLine::<Impl, IMPL_OFFSET>,
+            SetChipSelectLine::<Impl, IMPL_OFFSET>,
+            Mode::<Impl, IMPL_OFFSET>,
+            SetMode::<Impl, IMPL_OFFSET>,
+            DataBitLength::<Impl, IMPL_OFFSET>,
+            SetDataBitLength::<Impl, IMPL_OFFSET>,
+            ClockFrequency::<Impl, IMPL_OFFSET>,
+            SetClockFrequency::<Impl, IMPL_OFFSET>,
+            SharingMode::<Impl, IMPL_OFFSET>,
+            SetSharingMode::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiConnectionSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -184,7 +190,7 @@ impl ::windows::core::RuntimeName for ISpiConnectionSettingsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpiConnectionSettingsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiConnectionSettingsFactoryImpl, const OFFSET: isize>() -> ISpiConnectionSettingsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiConnectionSettingsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiConnectionSettingsFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISpiConnectionSettingsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(chipselectline) {
@@ -196,7 +202,10 @@ impl ISpiConnectionSettingsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiConnectionSettingsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiConnectionSettingsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -209,7 +218,7 @@ impl ::windows::core::RuntimeName for ISpiController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpiControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerImpl, const OFFSET: isize>() -> ISpiControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiControllerVtbl {
         unsafe extern "system" fn GetDevice<Impl: ISpiControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDevice(&*(&settings as *const <SpiConnectionSettings as ::windows::core::Abi>::Abi as *const <SpiConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
@@ -221,21 +230,24 @@ impl ISpiControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiController>, ::windows::core::GetTrustLevel, GetDevice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiController>, ::windows::core::GetTrustLevel, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiController as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpiControllerStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiController>>;
     fn GetControllersAsync(&self, provider: &::core::option::Option<Provider::ISpiProvider>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpiControllerStatics {
     const NAME: &'static str = "Windows.Devices.Spi.ISpiControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpiControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerStaticsImpl, const OFFSET: isize>() -> ISpiControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiControllerStaticsVtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: ISpiControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -258,7 +270,10 @@ impl ISpiControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiControllerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>, GetControllersAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiControllerStatics>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>, GetControllersAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiControllerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -276,7 +291,7 @@ impl ::windows::core::RuntimeName for ISpiDevice {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISpiDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiDeviceImpl, const OFFSET: isize>() -> ISpiDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiDeviceVtbl {
         unsafe extern "system" fn DeviceId<Impl: ISpiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -315,20 +330,26 @@ impl ISpiDeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferFullDuplex(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiDevice>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, ConnectionSettings::<Impl, OFFSET>, Write::<Impl, OFFSET>, Read::<Impl, OFFSET>, TransferSequential::<Impl, OFFSET>, TransferFullDuplex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiDevice>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, ConnectionSettings::<Impl, IMPL_OFFSET>, Write::<Impl, IMPL_OFFSET>, Read::<Impl, IMPL_OFFSET>, TransferSequential::<Impl, IMPL_OFFSET>, TransferFullDuplex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiDevice as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait ISpiDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetBusInfo(&self, busid: &::windows::core::HSTRING) -> ::windows::core::Result<SpiBusInfo>;
     fn FromIdAsync(&self, busid: &::windows::core::HSTRING, settings: &::core::option::Option<SpiConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISpiDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Spi.ISpiDeviceStatics";
 }
+#[cfg(feature = "Foundation")]
 impl ISpiDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiDeviceStaticsImpl, const OFFSET: isize>() -> ISpiDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ISpiDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -373,6 +394,9 @@ impl ISpiDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, OFFSET>, GetBusInfo::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpiDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>, GetBusInfo::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpiDeviceStatics as ::windows::core::Interface>::IID
     }
 }

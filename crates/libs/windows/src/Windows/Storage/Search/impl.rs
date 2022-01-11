@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContentIndexerImpl: Sized {
     fn AddAsync(&self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn UpdateAsync(&self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -8,13 +8,13 @@ pub trait IContentIndexerImpl: Sized {
     fn RetrievePropertiesAsync(&self, contentid: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>;
     fn Revision(&self) -> ::windows::core::Result<u64>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContentIndexerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerImpl, const OFFSET: isize>() -> IContentIndexerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerVtbl {
         unsafe extern "system" fn AddAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexablecontent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAsync(&*(&indexablecontent as *const <IIndexableContent as ::windows::core::Abi>::Abi as *const <IIndexableContent as ::windows::core::DefaultType>::DefaultType)) {
@@ -92,10 +92,27 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexer>, ::windows::core::GetTrustLevel, AddAsync::<Impl, OFFSET>, UpdateAsync::<Impl, OFFSET>, DeleteAsync::<Impl, OFFSET>, DeleteMultipleAsync::<Impl, OFFSET>, DeleteAllAsync::<Impl, OFFSET>, RetrievePropertiesAsync::<Impl, OFFSET>, Revision::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IContentIndexer>,
+            ::windows::core::GetTrustLevel,
+            AddAsync::<Impl, IMPL_OFFSET>,
+            UpdateAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            DeleteMultipleAsync::<Impl, IMPL_OFFSET>,
+            DeleteAllAsync::<Impl, IMPL_OFFSET>,
+            RetrievePropertiesAsync::<Impl, IMPL_OFFSET>,
+            Revision::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentIndexer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentIndexerQueryImpl: Sized {
     fn GetCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
@@ -104,13 +121,13 @@ pub trait IContentIndexerQueryImpl: Sized {
     fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>;
     fn QueryFolder(&self) -> ::windows::core::Result<super::StorageFolder>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexerQuery";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContentIndexerQueryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryImpl, const OFFSET: isize>() -> IContentIndexerQueryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerQueryVtbl {
         unsafe extern "system" fn GetCountAsync<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCountAsync() {
@@ -177,22 +194,38 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerQuery>, ::windows::core::GetTrustLevel, GetCountAsync::<Impl, OFFSET>, GetPropertiesAsync::<Impl, OFFSET>, GetPropertiesRangeAsync::<Impl, OFFSET>, GetAsync::<Impl, OFFSET>, GetRangeAsync::<Impl, OFFSET>, QueryFolder::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IContentIndexerQuery>,
+            ::windows::core::GetTrustLevel,
+            GetCountAsync::<Impl, IMPL_OFFSET>,
+            GetPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetPropertiesRangeAsync::<Impl, IMPL_OFFSET>,
+            GetAsync::<Impl, IMPL_OFFSET>,
+            GetRangeAsync::<Impl, IMPL_OFFSET>,
+            QueryFolder::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentIndexerQuery as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContentIndexerQueryOperationsImpl: Sized {
     fn CreateQueryWithSortOrderAndLanguage(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>, searchfilterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexerQuery>;
     fn CreateQueryWithSortOrder(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>) -> ::windows::core::Result<ContentIndexerQuery>;
     fn CreateQuery(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<ContentIndexerQuery>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentIndexerQueryOperations {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexerQueryOperations";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContentIndexerQueryOperationsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryOperationsImpl, const OFFSET: isize>() -> IContentIndexerQueryOperationsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerQueryOperationsVtbl {
         unsafe extern "system" fn CreateQueryWithSortOrderAndLanguage<Impl: IContentIndexerQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, sortorder: ::windows::core::RawPtr, searchfilterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQueryWithSortOrderAndLanguage(
@@ -235,7 +268,10 @@ impl IContentIndexerQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerQueryOperations>, ::windows::core::GetTrustLevel, CreateQueryWithSortOrderAndLanguage::<Impl, OFFSET>, CreateQueryWithSortOrder::<Impl, OFFSET>, CreateQuery::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerQueryOperations>, ::windows::core::GetTrustLevel, CreateQueryWithSortOrderAndLanguage::<Impl, IMPL_OFFSET>, CreateQueryWithSortOrder::<Impl, IMPL_OFFSET>, CreateQuery::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentIndexerQueryOperations as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -249,7 +285,7 @@ impl ::windows::core::RuntimeName for IContentIndexerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContentIndexerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerStaticsImpl, const OFFSET: isize>() -> IContentIndexerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerStaticsVtbl {
         unsafe extern "system" fn GetIndexerWithName<Impl: IContentIndexerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIndexerWithName(&*(&indexname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -272,9 +308,13 @@ impl IContentIndexerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerStatics>, ::windows::core::GetTrustLevel, GetIndexerWithName::<Impl, OFFSET>, GetIndexer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentIndexerStatics>, ::windows::core::GetTrustLevel, GetIndexerWithName::<Impl, IMPL_OFFSET>, GetIndexer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentIndexerStatics as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IIndexableContentImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -284,11 +324,13 @@ pub trait IIndexableContentImpl: Sized {
     fn StreamContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetStreamContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IIndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IIndexableContent";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IIndexableContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexableContentImpl, const OFFSET: isize>() -> IIndexableContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexableContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndexableContentVtbl {
         unsafe extern "system" fn Id<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -345,10 +387,27 @@ impl IIndexableContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamContentType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexableContent>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Stream::<Impl, OFFSET>, SetStream::<Impl, OFFSET>, StreamContentType::<Impl, OFFSET>, SetStreamContentType::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IIndexableContent>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            Stream::<Impl, IMPL_OFFSET>,
+            SetStream::<Impl, IMPL_OFFSET>,
+            StreamContentType::<Impl, IMPL_OFFSET>,
+            SetStreamContentType::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIndexableContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
 pub trait IQueryOptionsImpl: Sized {
     fn FileTypeFilter(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn FolderDepth(&self) -> ::windows::core::Result<FolderDepth>;
@@ -369,13 +428,13 @@ pub trait IQueryOptionsImpl: Sized {
     fn SetThumbnailPrefetch(&self, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<()>;
     fn SetPropertyPrefetch(&self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.IQueryOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
 impl IQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsImpl, const OFFSET: isize>() -> IQueryOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsVtbl {
         unsafe extern "system" fn FileTypeFilter<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileTypeFilter() {
@@ -519,45 +578,48 @@ impl IQueryOptionsVtbl {
             (*this).SetPropertyPrefetch(options, &*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IQueryOptions>,
             ::windows::core::GetTrustLevel,
-            FileTypeFilter::<Impl, OFFSET>,
-            FolderDepth::<Impl, OFFSET>,
-            SetFolderDepth::<Impl, OFFSET>,
-            ApplicationSearchFilter::<Impl, OFFSET>,
-            SetApplicationSearchFilter::<Impl, OFFSET>,
-            UserSearchFilter::<Impl, OFFSET>,
-            SetUserSearchFilter::<Impl, OFFSET>,
-            Language::<Impl, OFFSET>,
-            SetLanguage::<Impl, OFFSET>,
-            IndexerOption::<Impl, OFFSET>,
-            SetIndexerOption::<Impl, OFFSET>,
-            SortOrder::<Impl, OFFSET>,
-            GroupPropertyName::<Impl, OFFSET>,
-            DateStackOption::<Impl, OFFSET>,
-            SaveToString::<Impl, OFFSET>,
-            LoadFromString::<Impl, OFFSET>,
-            SetThumbnailPrefetch::<Impl, OFFSET>,
-            SetPropertyPrefetch::<Impl, OFFSET>,
+            FileTypeFilter::<Impl, IMPL_OFFSET>,
+            FolderDepth::<Impl, IMPL_OFFSET>,
+            SetFolderDepth::<Impl, IMPL_OFFSET>,
+            ApplicationSearchFilter::<Impl, IMPL_OFFSET>,
+            SetApplicationSearchFilter::<Impl, IMPL_OFFSET>,
+            UserSearchFilter::<Impl, IMPL_OFFSET>,
+            SetUserSearchFilter::<Impl, IMPL_OFFSET>,
+            Language::<Impl, IMPL_OFFSET>,
+            SetLanguage::<Impl, IMPL_OFFSET>,
+            IndexerOption::<Impl, IMPL_OFFSET>,
+            SetIndexerOption::<Impl, IMPL_OFFSET>,
+            SortOrder::<Impl, IMPL_OFFSET>,
+            GroupPropertyName::<Impl, IMPL_OFFSET>,
+            DateStackOption::<Impl, IMPL_OFFSET>,
+            SaveToString::<Impl, IMPL_OFFSET>,
+            LoadFromString::<Impl, IMPL_OFFSET>,
+            SetThumbnailPrefetch::<Impl, IMPL_OFFSET>,
+            SetPropertyPrefetch::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IQueryOptionsFactoryImpl: Sized {
     fn CreateCommonFileQuery(&self, query: CommonFileQuery, filetypefilter: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<QueryOptions>;
     fn CreateCommonFolderQuery(&self, query: CommonFolderQuery) -> ::windows::core::Result<QueryOptions>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQueryOptionsFactory {
     const NAME: &'static str = "Windows.Storage.Search.IQueryOptionsFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IQueryOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsFactoryImpl, const OFFSET: isize>() -> IQueryOptionsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsFactoryVtbl {
         unsafe extern "system" fn CreateCommonFileQuery<Impl: IQueryOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, filetypefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommonFileQuery(query, &*(&filetypefilter as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -580,20 +642,23 @@ impl IQueryOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateCommonFileQuery::<Impl, OFFSET>, CreateCommonFolderQuery::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateCommonFileQuery::<Impl, IMPL_OFFSET>, CreateCommonFolderQuery::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryOptionsFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IQueryOptionsWithProviderFilterImpl: Sized {
     fn StorageProviderIdFilter(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQueryOptionsWithProviderFilter {
     const NAME: &'static str = "Windows.Storage.Search.IQueryOptionsWithProviderFilter";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IQueryOptionsWithProviderFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsWithProviderFilterImpl, const OFFSET: isize>() -> IQueryOptionsWithProviderFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsWithProviderFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsWithProviderFilterVtbl {
         unsafe extern "system" fn StorageProviderIdFilter<Impl: IQueryOptionsWithProviderFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageProviderIdFilter() {
@@ -605,21 +670,24 @@ impl IQueryOptionsWithProviderFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQueryOptionsWithProviderFilter>, ::windows::core::GetTrustLevel, StorageProviderIdFilter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IQueryOptionsWithProviderFilter>, ::windows::core::GetTrustLevel, StorageProviderIdFilter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryOptionsWithProviderFilter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageFileQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
     fn GetFilesAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFilesAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFileQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFileQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageFileQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResultImpl, const OFFSET: isize>() -> IStorageFileQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFileQueryResultVtbl {
         unsafe extern "system" fn GetFilesAsync<Impl: IStorageFileQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsync(startindex, maxnumberofitems) {
@@ -642,20 +710,23 @@ impl IStorageFileQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFileQueryResult>, ::windows::core::GetTrustLevel, GetFilesAsync::<Impl, OFFSET>, GetFilesAsyncDefaultStartAndCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFileQueryResult>, ::windows::core::GetTrustLevel, GetFilesAsync::<Impl, IMPL_OFFSET>, GetFilesAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageFileQueryResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageFileQueryResult2Impl: Sized + IStorageQueryResultBaseImpl {
     fn GetMatchingPropertiesWithRanges(&self, file: &::core::option::Option<super::StorageFile>) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFileQueryResult2 {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFileQueryResult2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageFileQueryResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResult2Impl, const OFFSET: isize>() -> IStorageFileQueryResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFileQueryResult2Vtbl {
         unsafe extern "system" fn GetMatchingPropertiesWithRanges<Impl: IStorageFileQueryResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMatchingPropertiesWithRanges(&*(&file as *const <super::StorageFile as ::windows::core::Abi>::Abi as *const <super::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
@@ -667,9 +738,13 @@ impl IStorageFileQueryResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFileQueryResult2>, ::windows::core::GetTrustLevel, GetMatchingPropertiesWithRanges::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFileQueryResult2>, ::windows::core::GetTrustLevel, GetMatchingPropertiesWithRanges::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageFileQueryResult2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IStorageFolderQueryOperationsImpl: Sized {
     fn GetIndexedStateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> ::windows::core::Result<StorageFileQueryResult>;
@@ -689,11 +764,13 @@ pub trait IStorageFolderQueryOperationsImpl: Sized {
     fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> ::windows::core::Result<bool>;
     fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> ::windows::core::Result<bool>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageFolderQueryOperations {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryOperations";
 }
+#[cfg(feature = "Foundation")]
 impl IStorageFolderQueryOperationsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>() -> IStorageFolderQueryOperationsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryOperationsVtbl {
         unsafe extern "system" fn GetIndexedStateAsync<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIndexedStateAsync() {
@@ -882,44 +959,47 @@ impl IStorageFolderQueryOperationsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStorageFolderQueryOperations>,
             ::windows::core::GetTrustLevel,
-            GetIndexedStateAsync::<Impl, OFFSET>,
-            CreateFileQueryOverloadDefault::<Impl, OFFSET>,
-            CreateFileQuery::<Impl, OFFSET>,
-            CreateFileQueryWithOptions::<Impl, OFFSET>,
-            CreateFolderQueryOverloadDefault::<Impl, OFFSET>,
-            CreateFolderQuery::<Impl, OFFSET>,
-            CreateFolderQueryWithOptions::<Impl, OFFSET>,
-            CreateItemQuery::<Impl, OFFSET>,
-            CreateItemQueryWithOptions::<Impl, OFFSET>,
-            GetFilesAsync::<Impl, OFFSET>,
-            GetFilesAsyncOverloadDefaultStartAndCount::<Impl, OFFSET>,
-            GetFoldersAsync::<Impl, OFFSET>,
-            GetFoldersAsyncOverloadDefaultStartAndCount::<Impl, OFFSET>,
-            GetItemsAsync::<Impl, OFFSET>,
-            AreQueryOptionsSupported::<Impl, OFFSET>,
-            IsCommonFolderQuerySupported::<Impl, OFFSET>,
-            IsCommonFileQuerySupported::<Impl, OFFSET>,
+            GetIndexedStateAsync::<Impl, IMPL_OFFSET>,
+            CreateFileQueryOverloadDefault::<Impl, IMPL_OFFSET>,
+            CreateFileQuery::<Impl, IMPL_OFFSET>,
+            CreateFileQueryWithOptions::<Impl, IMPL_OFFSET>,
+            CreateFolderQueryOverloadDefault::<Impl, IMPL_OFFSET>,
+            CreateFolderQuery::<Impl, IMPL_OFFSET>,
+            CreateFolderQueryWithOptions::<Impl, IMPL_OFFSET>,
+            CreateItemQuery::<Impl, IMPL_OFFSET>,
+            CreateItemQueryWithOptions::<Impl, IMPL_OFFSET>,
+            GetFilesAsync::<Impl, IMPL_OFFSET>,
+            GetFilesAsyncOverloadDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetFoldersAsync::<Impl, IMPL_OFFSET>,
+            GetFoldersAsyncOverloadDefaultStartAndCount::<Impl, IMPL_OFFSET>,
+            GetItemsAsync::<Impl, IMPL_OFFSET>,
+            AreQueryOptionsSupported::<Impl, IMPL_OFFSET>,
+            IsCommonFolderQuerySupported::<Impl, IMPL_OFFSET>,
+            IsCommonFileQuerySupported::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageFolderQueryOperations as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageFolderQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
     fn GetFoldersAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetFoldersAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFolderQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageFolderQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryResultImpl, const OFFSET: isize>() -> IStorageFolderQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryResultVtbl {
         unsafe extern "system" fn GetFoldersAsync<Impl: IStorageFolderQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsync(startindex, maxnumberofitems) {
@@ -942,21 +1022,24 @@ impl IStorageFolderQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFolderQueryResult>, ::windows::core::GetTrustLevel, GetFoldersAsync::<Impl, OFFSET>, GetFoldersAsyncDefaultStartAndCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageFolderQueryResult>, ::windows::core::GetTrustLevel, GetFoldersAsync::<Impl, IMPL_OFFSET>, GetFoldersAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageFolderQueryResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageItemQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
     fn GetItemsAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
     fn GetItemsAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageItemQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.IStorageItemQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorageItemQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemQueryResultImpl, const OFFSET: isize>() -> IStorageItemQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemQueryResultVtbl {
         unsafe extern "system" fn GetItemsAsync<Impl: IStorageItemQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsync(startindex, maxnumberofitems) {
@@ -979,7 +1062,10 @@ impl IStorageItemQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemQueryResult>, ::windows::core::GetTrustLevel, GetItemsAsync::<Impl, OFFSET>, GetItemsAsyncDefaultStartAndCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageItemQueryResult>, ::windows::core::GetTrustLevel, GetItemsAsync::<Impl, IMPL_OFFSET>, GetItemsAsyncDefaultStartAndCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageItemQueryResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -993,7 +1079,7 @@ impl ::windows::core::RuntimeName for IStorageLibraryChangeTrackerTriggerDetails
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryChangeTrackerTriggerDetailsImpl, const OFFSET: isize>() -> IStorageLibraryChangeTrackerTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryChangeTrackerTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryChangeTrackerTriggerDetailsVtbl {
         unsafe extern "system" fn Folder<Impl: IStorageLibraryChangeTrackerTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Folder() {
@@ -1016,21 +1102,24 @@ impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryChangeTrackerTriggerDetails>, ::windows::core::GetTrustLevel, Folder::<Impl, OFFSET>, ChangeTracker::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryChangeTrackerTriggerDetails>, ::windows::core::GetTrustLevel, Folder::<Impl, IMPL_OFFSET>, ChangeTracker::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageLibraryChangeTrackerTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageLibraryContentChangedTriggerDetailsImpl: Sized {
     fn Folder(&self) -> ::windows::core::Result<super::StorageFolder>;
     fn CreateModifiedSinceQuery(&self, lastquerytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<StorageItemQueryResult>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.IStorageLibraryContentChangedTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStorageLibraryContentChangedTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerDetailsImpl, const OFFSET: isize>() -> IStorageLibraryContentChangedTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryContentChangedTriggerDetailsVtbl {
         unsafe extern "system" fn Folder<Impl: IStorageLibraryContentChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Folder() {
@@ -1053,9 +1142,13 @@ impl IStorageLibraryContentChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTriggerDetails>, ::windows::core::GetTrustLevel, Folder::<Impl, OFFSET>, CreateModifiedSinceQuery::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTriggerDetails>, ::windows::core::GetTrustLevel, Folder::<Impl, IMPL_OFFSET>, CreateModifiedSinceQuery::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageLibraryContentChangedTriggerDetails as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IStorageQueryResultBaseImpl: Sized {
     fn GetItemCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> ::windows::core::Result<super::StorageFolder>;
@@ -1067,11 +1160,13 @@ pub trait IStorageQueryResultBaseImpl: Sized {
     fn GetCurrentQueryOptions(&self) -> ::windows::core::Result<QueryOptions>;
     fn ApplyNewQueryOptions(&self, newqueryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
+#[cfg(feature = "Foundation")]
 impl IStorageQueryResultBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>() -> IStorageQueryResultBaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageQueryResultBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageQueryResultBaseVtbl {
         unsafe extern "system" fn GetItemCountAsync<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemCountAsync() {
@@ -1151,22 +1246,25 @@ impl IStorageQueryResultBaseVtbl {
             (*this).ApplyNewQueryOptions(&*(&newqueryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStorageQueryResultBase>,
             ::windows::core::GetTrustLevel,
-            GetItemCountAsync::<Impl, OFFSET>,
-            Folder::<Impl, OFFSET>,
-            ContentsChanged::<Impl, OFFSET>,
-            RemoveContentsChanged::<Impl, OFFSET>,
-            OptionsChanged::<Impl, OFFSET>,
-            RemoveOptionsChanged::<Impl, OFFSET>,
-            FindStartIndexAsync::<Impl, OFFSET>,
-            GetCurrentQueryOptions::<Impl, OFFSET>,
-            ApplyNewQueryOptions::<Impl, OFFSET>,
+            GetItemCountAsync::<Impl, IMPL_OFFSET>,
+            Folder::<Impl, IMPL_OFFSET>,
+            ContentsChanged::<Impl, IMPL_OFFSET>,
+            RemoveContentsChanged::<Impl, IMPL_OFFSET>,
+            OptionsChanged::<Impl, IMPL_OFFSET>,
+            RemoveOptionsChanged::<Impl, IMPL_OFFSET>,
+            FindStartIndexAsync::<Impl, IMPL_OFFSET>,
+            GetCurrentQueryOptions::<Impl, IMPL_OFFSET>,
+            ApplyNewQueryOptions::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageQueryResultBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1182,7 +1280,7 @@ impl ::windows::core::RuntimeName for IValueAndLanguage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IValueAndLanguageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueAndLanguageImpl, const OFFSET: isize>() -> IValueAndLanguageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueAndLanguageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueAndLanguageVtbl {
         unsafe extern "system" fn Language<Impl: IValueAndLanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
@@ -1213,6 +1311,9 @@ impl IValueAndLanguageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValueAndLanguage>, ::windows::core::GetTrustLevel, Language::<Impl, OFFSET>, SetLanguage::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValueAndLanguage>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, SetLanguage::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IValueAndLanguage as ::windows::core::Interface>::IID
     }
 }

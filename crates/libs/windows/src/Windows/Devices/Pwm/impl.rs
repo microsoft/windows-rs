@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for IPwmController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPwmControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerImpl, const OFFSET: isize>() -> IPwmControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPwmControllerVtbl {
         unsafe extern "system" fn PinCount<Impl: IPwmControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinCount() {
@@ -80,20 +80,36 @@ impl IPwmControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmController>, ::windows::core::GetTrustLevel, PinCount::<Impl, OFFSET>, ActualFrequency::<Impl, OFFSET>, SetDesiredFrequency::<Impl, OFFSET>, MinFrequency::<Impl, OFFSET>, MaxFrequency::<Impl, OFFSET>, OpenPin::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPwmController>,
+            ::windows::core::GetTrustLevel,
+            PinCount::<Impl, IMPL_OFFSET>,
+            ActualFrequency::<Impl, IMPL_OFFSET>,
+            SetDesiredFrequency::<Impl, IMPL_OFFSET>,
+            MinFrequency::<Impl, IMPL_OFFSET>,
+            MaxFrequency::<Impl, IMPL_OFFSET>,
+            OpenPin::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPwmController as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPwmControllerStaticsImpl: Sized {
     fn GetControllersAsync(&self, provider: &::core::option::Option<Provider::IPwmProvider>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPwmControllerStatics {
     const NAME: &'static str = "Windows.Devices.Pwm.IPwmControllerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPwmControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerStaticsImpl, const OFFSET: isize>() -> IPwmControllerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPwmControllerStaticsVtbl {
         unsafe extern "system" fn GetControllersAsync<Impl: IPwmControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllersAsync(&*(&provider as *const <Provider::IPwmProvider as ::windows::core::Abi>::Abi as *const <Provider::IPwmProvider as ::windows::core::DefaultType>::DefaultType)) {
@@ -105,20 +121,23 @@ impl IPwmControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics>, ::windows::core::GetTrustLevel, GetControllersAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPwmControllerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPwmControllerStatics2Impl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPwmControllerStatics2 {
     const NAME: &'static str = "Windows.Devices.Pwm.IPwmControllerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPwmControllerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerStatics2Impl, const OFFSET: isize>() -> IPwmControllerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPwmControllerStatics2Vtbl {
         unsafe extern "system" fn GetDefaultAsync<Impl: IPwmControllerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
@@ -130,22 +149,25 @@ impl IPwmControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics2>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics2>, ::windows::core::GetTrustLevel, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPwmControllerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPwmControllerStatics3Impl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPwmControllerStatics3 {
     const NAME: &'static str = "Windows.Devices.Pwm.IPwmControllerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPwmControllerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerStatics3Impl, const OFFSET: isize>() -> IPwmControllerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmControllerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPwmControllerStatics3Vtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: IPwmControllerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -179,7 +201,10 @@ impl IPwmControllerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics3>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPwmControllerStatics3>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPwmControllerStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -199,7 +224,7 @@ impl ::windows::core::RuntimeName for IPwmPin {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPwmPinVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmPinImpl, const OFFSET: isize>() -> IPwmPinVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPwmPinImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPwmPinVtbl {
         unsafe extern "system" fn Controller<Impl: IPwmPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Controller() {
@@ -261,20 +286,23 @@ impl IPwmPinVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPwmPin>,
             ::windows::core::GetTrustLevel,
-            Controller::<Impl, OFFSET>,
-            GetActiveDutyCyclePercentage::<Impl, OFFSET>,
-            SetActiveDutyCyclePercentage::<Impl, OFFSET>,
-            Polarity::<Impl, OFFSET>,
-            SetPolarity::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
-            IsStarted::<Impl, OFFSET>,
+            Controller::<Impl, IMPL_OFFSET>,
+            GetActiveDutyCyclePercentage::<Impl, IMPL_OFFSET>,
+            SetActiveDutyCyclePercentage::<Impl, IMPL_OFFSET>,
+            Polarity::<Impl, IMPL_OFFSET>,
+            SetPolarity::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            IsStarted::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPwmPin as ::windows::core::Interface>::IID
     }
 }

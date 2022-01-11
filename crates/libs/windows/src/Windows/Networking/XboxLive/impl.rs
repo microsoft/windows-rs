@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IXboxLiveDeviceAddressImpl: Sized {
     fn SnapshotChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSnapshotChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -10,13 +10,13 @@ pub trait IXboxLiveDeviceAddressImpl: Sized {
     fn IsLocal(&self) -> ::windows::core::Result<bool>;
     fn NetworkAccessKind(&self) -> ::windows::core::Result<XboxLiveNetworkAccessKind>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveDeviceAddress";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IXboxLiveDeviceAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>() -> IXboxLiveDeviceAddressVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveDeviceAddressVtbl {
         unsafe extern "system" fn SnapshotChanged<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SnapshotChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -103,25 +103,28 @@ impl IXboxLiveDeviceAddressVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IXboxLiveDeviceAddress>,
             ::windows::core::GetTrustLevel,
-            SnapshotChanged::<Impl, OFFSET>,
-            RemoveSnapshotChanged::<Impl, OFFSET>,
-            GetSnapshotAsBase64::<Impl, OFFSET>,
-            GetSnapshotAsBuffer::<Impl, OFFSET>,
-            GetSnapshotAsBytes::<Impl, OFFSET>,
-            Compare::<Impl, OFFSET>,
-            IsValid::<Impl, OFFSET>,
-            IsLocal::<Impl, OFFSET>,
-            NetworkAccessKind::<Impl, OFFSET>,
+            SnapshotChanged::<Impl, IMPL_OFFSET>,
+            RemoveSnapshotChanged::<Impl, IMPL_OFFSET>,
+            GetSnapshotAsBase64::<Impl, IMPL_OFFSET>,
+            GetSnapshotAsBuffer::<Impl, IMPL_OFFSET>,
+            GetSnapshotAsBytes::<Impl, IMPL_OFFSET>,
+            Compare::<Impl, IMPL_OFFSET>,
+            IsValid::<Impl, IMPL_OFFSET>,
+            IsLocal::<Impl, IMPL_OFFSET>,
+            NetworkAccessKind::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveDeviceAddress as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IXboxLiveDeviceAddressStaticsImpl: Sized {
     fn CreateFromSnapshotBase64(&self, base64: &::windows::core::HSTRING) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn CreateFromSnapshotBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<XboxLiveDeviceAddress>;
@@ -129,13 +132,13 @@ pub trait IXboxLiveDeviceAddressStaticsImpl: Sized {
     fn GetLocal(&self) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn MaxSnapshotBytesSize(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveDeviceAddressStatics {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveDeviceAddressStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IXboxLiveDeviceAddressStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>() -> IXboxLiveDeviceAddressStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveDeviceAddressStaticsVtbl {
         unsafe extern "system" fn CreateFromSnapshotBase64<Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, base64: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSnapshotBase64(&*(&base64 as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -191,10 +194,25 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveDeviceAddressStatics>, ::windows::core::GetTrustLevel, CreateFromSnapshotBase64::<Impl, OFFSET>, CreateFromSnapshotBuffer::<Impl, OFFSET>, CreateFromSnapshotBytes::<Impl, OFFSET>, GetLocal::<Impl, OFFSET>, MaxSnapshotBytesSize::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IXboxLiveDeviceAddressStatics>,
+            ::windows::core::GetTrustLevel,
+            CreateFromSnapshotBase64::<Impl, IMPL_OFFSET>,
+            CreateFromSnapshotBuffer::<Impl, IMPL_OFFSET>,
+            CreateFromSnapshotBytes::<Impl, IMPL_OFFSET>,
+            GetLocal::<Impl, IMPL_OFFSET>,
+            MaxSnapshotBytesSize::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveDeviceAddressStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IXboxLiveEndpointPairImpl: Sized {
     fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -209,13 +227,13 @@ pub trait IXboxLiveEndpointPairImpl: Sized {
     fn LocalHostName(&self) -> ::windows::core::Result<super::HostName>;
     fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPair";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IXboxLiveEndpointPairVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>() -> IXboxLiveEndpointPairVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairVtbl {
         unsafe extern "system" fn StateChanged<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -328,25 +346,28 @@ impl IXboxLiveEndpointPairVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPair>,
             ::windows::core::GetTrustLevel,
-            StateChanged::<Impl, OFFSET>,
-            RemoveStateChanged::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            GetRemoteSocketAddressBytes::<Impl, OFFSET>,
-            GetLocalSocketAddressBytes::<Impl, OFFSET>,
-            State::<Impl, OFFSET>,
-            Template::<Impl, OFFSET>,
-            RemoteDeviceAddress::<Impl, OFFSET>,
-            RemoteHostName::<Impl, OFFSET>,
-            RemotePort::<Impl, OFFSET>,
-            LocalHostName::<Impl, OFFSET>,
-            LocalPort::<Impl, OFFSET>,
+            StateChanged::<Impl, IMPL_OFFSET>,
+            RemoveStateChanged::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetRemoteSocketAddressBytes::<Impl, IMPL_OFFSET>,
+            GetLocalSocketAddressBytes::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            Template::<Impl, IMPL_OFFSET>,
+            RemoteDeviceAddress::<Impl, IMPL_OFFSET>,
+            RemoteHostName::<Impl, IMPL_OFFSET>,
+            RemotePort::<Impl, IMPL_OFFSET>,
+            LocalHostName::<Impl, IMPL_OFFSET>,
+            LocalPort::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveEndpointPair as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -362,7 +383,7 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairCreationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXboxLiveEndpointPairCreationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairCreationResultImpl, const OFFSET: isize>() -> IXboxLiveEndpointPairCreationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairCreationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairCreationResultVtbl {
         unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveEndpointPairCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAddress() {
@@ -407,7 +428,10 @@ impl IXboxLiveEndpointPairCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairCreationResult>, ::windows::core::GetTrustLevel, DeviceAddress::<Impl, OFFSET>, Status::<Impl, OFFSET>, IsExistingPathEvaluation::<Impl, OFFSET>, EndpointPair::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairCreationResult>, ::windows::core::GetTrustLevel, DeviceAddress::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, IsExistingPathEvaluation::<Impl, IMPL_OFFSET>, EndpointPair::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveEndpointPairCreationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -421,7 +445,7 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairStateChangedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXboxLiveEndpointPairStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStateChangedEventArgsImpl, const OFFSET: isize>() -> IXboxLiveEndpointPairStateChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairStateChangedEventArgsVtbl {
         unsafe extern "system" fn OldState<Impl: IXboxLiveEndpointPairStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldState() {
@@ -444,7 +468,10 @@ impl IXboxLiveEndpointPairStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairStateChangedEventArgs>, ::windows::core::GetTrustLevel, OldState::<Impl, OFFSET>, NewState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairStateChangedEventArgs>, ::windows::core::GetTrustLevel, OldState::<Impl, IMPL_OFFSET>, NewState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveEndpointPairStateChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -458,7 +485,7 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXboxLiveEndpointPairStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStaticsImpl, const OFFSET: isize>() -> IXboxLiveEndpointPairStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairStaticsVtbl {
         unsafe extern "system" fn FindEndpointPairBySocketAddressBytes<Impl: IXboxLiveEndpointPairStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localSocketAddress_array_size: u32, localsocketaddress: *const u8, remoteSocketAddress_array_size: u32, remotesocketaddress: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindEndpointPairBySocketAddressBytes(::core::slice::from_raw_parts(::core::mem::transmute_copy(&localsocketaddress), localSocketAddress_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&remotesocketaddress), remoteSocketAddress_array_size as _)) {
@@ -486,10 +513,13 @@ impl IXboxLiveEndpointPairStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairStatics>, ::windows::core::GetTrustLevel, FindEndpointPairBySocketAddressBytes::<Impl, OFFSET>, FindEndpointPairByHostNamesAndPorts::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairStatics>, ::windows::core::GetTrustLevel, FindEndpointPairBySocketAddressBytes::<Impl, IMPL_OFFSET>, FindEndpointPairByHostNamesAndPorts::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveEndpointPairStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IXboxLiveEndpointPairTemplateImpl: Sized {
     fn InboundEndpointPairCreated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInboundEndpointPairCreated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -505,13 +535,13 @@ pub trait IXboxLiveEndpointPairTemplateImpl: Sized {
     fn AcceptorBoundPortRangeUpper(&self) -> ::windows::core::Result<u16>;
     fn EndpointPairs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IXboxLiveEndpointPairTemplateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>() -> IXboxLiveEndpointPairTemplateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairTemplateVtbl {
         unsafe extern "system" fn InboundEndpointPairCreated<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundEndpointPairCreated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -658,40 +688,43 @@ impl IXboxLiveEndpointPairTemplateVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairTemplate>,
             ::windows::core::GetTrustLevel,
-            InboundEndpointPairCreated::<Impl, OFFSET>,
-            RemoveInboundEndpointPairCreated::<Impl, OFFSET>,
-            CreateEndpointPairDefaultAsync::<Impl, OFFSET>,
-            CreateEndpointPairWithBehaviorsAsync::<Impl, OFFSET>,
-            CreateEndpointPairForPortsDefaultAsync::<Impl, OFFSET>,
-            CreateEndpointPairForPortsWithBehaviorsAsync::<Impl, OFFSET>,
-            Name::<Impl, OFFSET>,
-            SocketKind::<Impl, OFFSET>,
-            InitiatorBoundPortRangeLower::<Impl, OFFSET>,
-            InitiatorBoundPortRangeUpper::<Impl, OFFSET>,
-            AcceptorBoundPortRangeLower::<Impl, OFFSET>,
-            AcceptorBoundPortRangeUpper::<Impl, OFFSET>,
-            EndpointPairs::<Impl, OFFSET>,
+            InboundEndpointPairCreated::<Impl, IMPL_OFFSET>,
+            RemoveInboundEndpointPairCreated::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairDefaultAsync::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairWithBehaviorsAsync::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairForPortsDefaultAsync::<Impl, IMPL_OFFSET>,
+            CreateEndpointPairForPortsWithBehaviorsAsync::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SocketKind::<Impl, IMPL_OFFSET>,
+            InitiatorBoundPortRangeLower::<Impl, IMPL_OFFSET>,
+            InitiatorBoundPortRangeUpper::<Impl, IMPL_OFFSET>,
+            AcceptorBoundPortRangeLower::<Impl, IMPL_OFFSET>,
+            AcceptorBoundPortRangeUpper::<Impl, IMPL_OFFSET>,
+            EndpointPairs::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveEndpointPairTemplate as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IXboxLiveEndpointPairTemplateStaticsImpl: Sized {
     fn GetTemplateByName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<XboxLiveEndpointPairTemplate>;
     fn Templates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveEndpointPairTemplateStatics {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplateStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IXboxLiveEndpointPairTemplateStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateStaticsImpl, const OFFSET: isize>() -> IXboxLiveEndpointPairTemplateStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairTemplateStaticsVtbl {
         unsafe extern "system" fn GetTemplateByName<Impl: IXboxLiveEndpointPairTemplateStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTemplateByName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -714,7 +747,10 @@ impl IXboxLiveEndpointPairTemplateStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairTemplateStatics>, ::windows::core::GetTrustLevel, GetTemplateByName::<Impl, OFFSET>, Templates::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveEndpointPairTemplateStatics>, ::windows::core::GetTrustLevel, GetTemplateByName::<Impl, IMPL_OFFSET>, Templates::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveEndpointPairTemplateStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -727,7 +763,7 @@ impl ::windows::core::RuntimeName for IXboxLiveInboundEndpointPairCreatedEventAr
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveInboundEndpointPairCreatedEventArgsImpl, const OFFSET: isize>() -> IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveInboundEndpointPairCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
         unsafe extern "system" fn EndpointPair<Impl: IXboxLiveInboundEndpointPairCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointPair() {
@@ -739,10 +775,13 @@ impl IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveInboundEndpointPairCreatedEventArgs>, ::windows::core::GetTrustLevel, EndpointPair::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveInboundEndpointPairCreatedEventArgs>, ::windows::core::GetTrustLevel, EndpointPair::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveInboundEndpointPairCreatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IXboxLiveQualityOfServiceMeasurementImpl: Sized {
     fn MeasureAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn GetMetricResultsForDevice(&self, deviceaddress: &::core::option::Option<XboxLiveDeviceAddress>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>;
@@ -761,13 +800,13 @@ pub trait IXboxLiveQualityOfServiceMeasurementImpl: Sized {
     fn MetricResults(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>;
     fn PrivatePayloadResults(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IXboxLiveQualityOfServiceMeasurementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementVtbl {
         unsafe extern "system" fn MeasureAsync<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MeasureAsync() {
@@ -924,32 +963,35 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMeasurement>,
             ::windows::core::GetTrustLevel,
-            MeasureAsync::<Impl, OFFSET>,
-            GetMetricResultsForDevice::<Impl, OFFSET>,
-            GetMetricResultsForMetric::<Impl, OFFSET>,
-            GetMetricResult::<Impl, OFFSET>,
-            GetPrivatePayloadResult::<Impl, OFFSET>,
-            Metrics::<Impl, OFFSET>,
-            DeviceAddresses::<Impl, OFFSET>,
-            ShouldRequestPrivatePayloads::<Impl, OFFSET>,
-            SetShouldRequestPrivatePayloads::<Impl, OFFSET>,
-            TimeoutInMilliseconds::<Impl, OFFSET>,
-            SetTimeoutInMilliseconds::<Impl, OFFSET>,
-            NumberOfProbesToAttempt::<Impl, OFFSET>,
-            SetNumberOfProbesToAttempt::<Impl, OFFSET>,
-            NumberOfResultsPending::<Impl, OFFSET>,
-            MetricResults::<Impl, OFFSET>,
-            PrivatePayloadResults::<Impl, OFFSET>,
+            MeasureAsync::<Impl, IMPL_OFFSET>,
+            GetMetricResultsForDevice::<Impl, IMPL_OFFSET>,
+            GetMetricResultsForMetric::<Impl, IMPL_OFFSET>,
+            GetMetricResult::<Impl, IMPL_OFFSET>,
+            GetPrivatePayloadResult::<Impl, IMPL_OFFSET>,
+            Metrics::<Impl, IMPL_OFFSET>,
+            DeviceAddresses::<Impl, IMPL_OFFSET>,
+            ShouldRequestPrivatePayloads::<Impl, IMPL_OFFSET>,
+            SetShouldRequestPrivatePayloads::<Impl, IMPL_OFFSET>,
+            TimeoutInMilliseconds::<Impl, IMPL_OFFSET>,
+            SetTimeoutInMilliseconds::<Impl, IMPL_OFFSET>,
+            NumberOfProbesToAttempt::<Impl, IMPL_OFFSET>,
+            SetNumberOfProbesToAttempt::<Impl, IMPL_OFFSET>,
+            NumberOfResultsPending::<Impl, IMPL_OFFSET>,
+            MetricResults::<Impl, IMPL_OFFSET>,
+            PrivatePayloadResults::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveQualityOfServiceMeasurement as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IXboxLiveQualityOfServiceMeasurementStaticsImpl: Sized {
     fn PublishPrivatePayloadBytes(&self, payload: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn ClearPrivatePayload(&self) -> ::windows::core::Result<()>;
@@ -963,13 +1005,13 @@ pub trait IXboxLiveQualityOfServiceMeasurementStaticsImpl: Sized {
     fn SetPublishedPrivatePayload(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn MaxPrivatePayloadSize(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveQualityOfServiceMeasurementStatics {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurementStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
         unsafe extern "system" fn PublishPrivatePayloadBytes<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, payload_array_size: u32, payload: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PublishPrivatePayloadBytes(::core::slice::from_raw_parts(::core::mem::transmute_copy(&payload), payload_array_size as _)).into()
@@ -1050,24 +1092,27 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMeasurementStatics>,
             ::windows::core::GetTrustLevel,
-            PublishPrivatePayloadBytes::<Impl, OFFSET>,
-            ClearPrivatePayload::<Impl, OFFSET>,
-            MaxSimultaneousProbeConnections::<Impl, OFFSET>,
-            SetMaxSimultaneousProbeConnections::<Impl, OFFSET>,
-            IsSystemOutboundBandwidthConstrained::<Impl, OFFSET>,
-            SetIsSystemOutboundBandwidthConstrained::<Impl, OFFSET>,
-            IsSystemInboundBandwidthConstrained::<Impl, OFFSET>,
-            SetIsSystemInboundBandwidthConstrained::<Impl, OFFSET>,
-            PublishedPrivatePayload::<Impl, OFFSET>,
-            SetPublishedPrivatePayload::<Impl, OFFSET>,
-            MaxPrivatePayloadSize::<Impl, OFFSET>,
+            PublishPrivatePayloadBytes::<Impl, IMPL_OFFSET>,
+            ClearPrivatePayload::<Impl, IMPL_OFFSET>,
+            MaxSimultaneousProbeConnections::<Impl, IMPL_OFFSET>,
+            SetMaxSimultaneousProbeConnections::<Impl, IMPL_OFFSET>,
+            IsSystemOutboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            SetIsSystemOutboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            IsSystemInboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            SetIsSystemInboundBandwidthConstrained::<Impl, IMPL_OFFSET>,
+            PublishedPrivatePayload::<Impl, IMPL_OFFSET>,
+            SetPublishedPrivatePayload::<Impl, IMPL_OFFSET>,
+            MaxPrivatePayloadSize::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveQualityOfServiceMeasurementStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1083,7 +1128,7 @@ impl ::windows::core::RuntimeName for IXboxLiveQualityOfServiceMetricResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXboxLiveQualityOfServiceMetricResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMetricResultImpl, const OFFSET: isize>() -> IXboxLiveQualityOfServiceMetricResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMetricResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMetricResultVtbl {
         unsafe extern "system" fn Status<Impl: IXboxLiveQualityOfServiceMetricResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1128,22 +1173,25 @@ impl IXboxLiveQualityOfServiceMetricResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMetricResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, DeviceAddress::<Impl, OFFSET>, Metric::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServiceMetricResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, DeviceAddress::<Impl, IMPL_OFFSET>, Metric::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveQualityOfServiceMetricResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IXboxLiveQualityOfServicePrivatePayloadResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<XboxLiveQualityOfServiceMeasurementStatus>;
     fn DeviceAddress(&self) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn Value(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const OFFSET: isize>() -> IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
         unsafe extern "system" fn Status<Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1177,6 +1225,9 @@ impl IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServicePrivatePayloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, DeviceAddress::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXboxLiveQualityOfServicePrivatePayloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, DeviceAddress::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXboxLiveQualityOfServicePrivatePayloadResult as ::windows::core::Interface>::IID
     }
 }

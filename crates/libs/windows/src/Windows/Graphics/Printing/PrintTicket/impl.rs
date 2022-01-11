@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketCapabilitiesImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -21,13 +21,13 @@ pub trait IPrintTicketCapabilitiesImpl: Sized {
     fn GetFeature(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketFeature>;
     fn GetParameterDefinition(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterDefinition>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketCapabilities";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IPrintTicketCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>() -> IPrintTicketCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketCapabilitiesVtbl {
         unsafe extern "system" fn Name<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -249,36 +249,39 @@ impl IPrintTicketCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintTicketCapabilities>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            XmlNamespace::<Impl, OFFSET>,
-            XmlNode::<Impl, OFFSET>,
-            DocumentBindingFeature::<Impl, OFFSET>,
-            DocumentCollateFeature::<Impl, OFFSET>,
-            DocumentDuplexFeature::<Impl, OFFSET>,
-            DocumentHolePunchFeature::<Impl, OFFSET>,
-            DocumentInputBinFeature::<Impl, OFFSET>,
-            DocumentNUpFeature::<Impl, OFFSET>,
-            DocumentStapleFeature::<Impl, OFFSET>,
-            JobPasscodeFeature::<Impl, OFFSET>,
-            PageBorderlessFeature::<Impl, OFFSET>,
-            PageMediaSizeFeature::<Impl, OFFSET>,
-            PageMediaTypeFeature::<Impl, OFFSET>,
-            PageOrientationFeature::<Impl, OFFSET>,
-            PageOutputColorFeature::<Impl, OFFSET>,
-            PageOutputQualityFeature::<Impl, OFFSET>,
-            PageResolutionFeature::<Impl, OFFSET>,
-            GetFeature::<Impl, OFFSET>,
-            GetParameterDefinition::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode::<Impl, IMPL_OFFSET>,
+            DocumentBindingFeature::<Impl, IMPL_OFFSET>,
+            DocumentCollateFeature::<Impl, IMPL_OFFSET>,
+            DocumentDuplexFeature::<Impl, IMPL_OFFSET>,
+            DocumentHolePunchFeature::<Impl, IMPL_OFFSET>,
+            DocumentInputBinFeature::<Impl, IMPL_OFFSET>,
+            DocumentNUpFeature::<Impl, IMPL_OFFSET>,
+            DocumentStapleFeature::<Impl, IMPL_OFFSET>,
+            JobPasscodeFeature::<Impl, IMPL_OFFSET>,
+            PageBorderlessFeature::<Impl, IMPL_OFFSET>,
+            PageMediaSizeFeature::<Impl, IMPL_OFFSET>,
+            PageMediaTypeFeature::<Impl, IMPL_OFFSET>,
+            PageOrientationFeature::<Impl, IMPL_OFFSET>,
+            PageOutputColorFeature::<Impl, IMPL_OFFSET>,
+            PageOutputQualityFeature::<Impl, IMPL_OFFSET>,
+            PageResolutionFeature::<Impl, IMPL_OFFSET>,
+            GetFeature::<Impl, IMPL_OFFSET>,
+            GetParameterDefinition::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTicketCapabilities as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrintTicketFeatureImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -290,13 +293,13 @@ pub trait IPrintTicketFeatureImpl: Sized {
     fn SetSelectedOption(&self, value: &::core::option::Option<PrintTicketOption>) -> ::windows::core::Result<()>;
     fn SelectionType(&self) -> ::windows::core::Result<PrintTicketFeatureSelectionType>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketFeature";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPrintTicketFeatureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketFeatureImpl, const OFFSET: isize>() -> IPrintTicketFeatureVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketFeatureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketFeatureVtbl {
         unsafe extern "system" fn Name<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -390,25 +393,28 @@ impl IPrintTicketFeatureVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintTicketFeature>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            XmlNamespace::<Impl, OFFSET>,
-            XmlNode::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            GetOption::<Impl, OFFSET>,
-            Options::<Impl, OFFSET>,
-            GetSelectedOption::<Impl, OFFSET>,
-            SetSelectedOption::<Impl, OFFSET>,
-            SelectionType::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            GetOption::<Impl, IMPL_OFFSET>,
+            Options::<Impl, IMPL_OFFSET>,
+            GetSelectedOption::<Impl, IMPL_OFFSET>,
+            SetSelectedOption::<Impl, IMPL_OFFSET>,
+            SelectionType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTicketFeature as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketOptionImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -419,13 +425,13 @@ pub trait IPrintTicketOptionImpl: Sized {
     fn GetPropertyValue(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketValue>;
     fn GetScoredPropertyValue(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketValue>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketOption";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IPrintTicketOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketOptionImpl, const OFFSET: isize>() -> IPrintTicketOptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketOptionVtbl {
         unsafe extern "system" fn Name<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -515,24 +521,27 @@ impl IPrintTicketOptionVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPrintTicketOption>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            XmlNamespace::<Impl, OFFSET>,
-            XmlNode::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            GetPropertyNode::<Impl, OFFSET>,
-            GetScoredPropertyNode::<Impl, OFFSET>,
-            GetPropertyValue::<Impl, OFFSET>,
-            GetScoredPropertyValue::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            GetPropertyNode::<Impl, IMPL_OFFSET>,
+            GetScoredPropertyNode::<Impl, IMPL_OFFSET>,
+            GetPropertyValue::<Impl, IMPL_OFFSET>,
+            GetScoredPropertyValue::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTicketOption as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketParameterDefinitionImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -542,13 +551,13 @@ pub trait IPrintTicketParameterDefinitionImpl: Sized {
     fn RangeMin(&self) -> ::windows::core::Result<i32>;
     fn RangeMax(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterDefinition";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IPrintTicketParameterDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>() -> IPrintTicketParameterDefinitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketParameterDefinitionVtbl {
         unsafe extern "system" fn Name<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -626,10 +635,27 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketParameterDefinition>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, XmlNamespace::<Impl, OFFSET>, XmlNode::<Impl, OFFSET>, DataType::<Impl, OFFSET>, UnitType::<Impl, OFFSET>, RangeMin::<Impl, OFFSET>, RangeMax::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintTicketParameterDefinition>,
+            ::windows::core::GetTrustLevel,
+            Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode::<Impl, IMPL_OFFSET>,
+            DataType::<Impl, IMPL_OFFSET>,
+            UnitType::<Impl, IMPL_OFFSET>,
+            RangeMin::<Impl, IMPL_OFFSET>,
+            RangeMax::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTicketParameterDefinition as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketParameterInitializerImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -637,13 +663,13 @@ pub trait IPrintTicketParameterInitializerImpl: Sized {
     fn SetValue(&self, value: &::core::option::Option<PrintTicketValue>) -> ::windows::core::Result<()>;
     fn Value(&self) -> ::windows::core::Result<PrintTicketValue>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterInitializer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl IPrintTicketParameterInitializerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>() -> IPrintTicketParameterInitializerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterInitializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketParameterInitializerVtbl {
         unsafe extern "system" fn Name<Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -692,7 +718,10 @@ impl IPrintTicketParameterInitializerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketParameterInitializer>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, XmlNamespace::<Impl, OFFSET>, XmlNode::<Impl, OFFSET>, SetValue::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketParameterInitializer>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, XmlNamespace::<Impl, IMPL_OFFSET>, XmlNode::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTicketParameterInitializer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -707,7 +736,7 @@ impl ::windows::core::RuntimeName for IPrintTicketValue {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintTicketValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketValueImpl, const OFFSET: isize>() -> IPrintTicketValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketValueVtbl {
         unsafe extern "system" fn Type<Impl: IPrintTicketValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketValueType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -741,10 +770,13 @@ impl IPrintTicketValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketValue>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, GetValueAsInteger::<Impl, OFFSET>, GetValueAsString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintTicketValue>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, GetValueAsInteger::<Impl, IMPL_OFFSET>, GetValueAsString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintTicketValue as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWorkflowPrintTicketImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -773,13 +805,13 @@ pub trait IWorkflowPrintTicketImpl: Sized {
     fn SetParameterInitializerAsString(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING, stringvalue: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterInitializer>;
     fn MergeAndValidateTicket(&self, deltashematicket: &::core::option::Option<WorkflowPrintTicket>) -> ::windows::core::Result<WorkflowPrintTicket>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl IWorkflowPrintTicketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>() -> IWorkflowPrintTicketVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkflowPrintTicketVtbl {
         unsafe extern "system" fn Name<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1071,39 +1103,42 @@ impl IWorkflowPrintTicketVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWorkflowPrintTicket>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            XmlNamespace::<Impl, OFFSET>,
-            XmlNode::<Impl, OFFSET>,
-            GetCapabilities::<Impl, OFFSET>,
-            DocumentBindingFeature::<Impl, OFFSET>,
-            DocumentCollateFeature::<Impl, OFFSET>,
-            DocumentDuplexFeature::<Impl, OFFSET>,
-            DocumentHolePunchFeature::<Impl, OFFSET>,
-            DocumentInputBinFeature::<Impl, OFFSET>,
-            DocumentNUpFeature::<Impl, OFFSET>,
-            DocumentStapleFeature::<Impl, OFFSET>,
-            JobPasscodeFeature::<Impl, OFFSET>,
-            PageBorderlessFeature::<Impl, OFFSET>,
-            PageMediaSizeFeature::<Impl, OFFSET>,
-            PageMediaTypeFeature::<Impl, OFFSET>,
-            PageOrientationFeature::<Impl, OFFSET>,
-            PageOutputColorFeature::<Impl, OFFSET>,
-            PageOutputQualityFeature::<Impl, OFFSET>,
-            PageResolutionFeature::<Impl, OFFSET>,
-            GetFeature::<Impl, OFFSET>,
-            NotifyXmlChangedAsync::<Impl, OFFSET>,
-            ValidateAsync::<Impl, OFFSET>,
-            GetParameterInitializer::<Impl, OFFSET>,
-            SetParameterInitializerAsInteger::<Impl, OFFSET>,
-            SetParameterInitializerAsString::<Impl, OFFSET>,
-            MergeAndValidateTicket::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            XmlNamespace::<Impl, IMPL_OFFSET>,
+            XmlNode::<Impl, IMPL_OFFSET>,
+            GetCapabilities::<Impl, IMPL_OFFSET>,
+            DocumentBindingFeature::<Impl, IMPL_OFFSET>,
+            DocumentCollateFeature::<Impl, IMPL_OFFSET>,
+            DocumentDuplexFeature::<Impl, IMPL_OFFSET>,
+            DocumentHolePunchFeature::<Impl, IMPL_OFFSET>,
+            DocumentInputBinFeature::<Impl, IMPL_OFFSET>,
+            DocumentNUpFeature::<Impl, IMPL_OFFSET>,
+            DocumentStapleFeature::<Impl, IMPL_OFFSET>,
+            JobPasscodeFeature::<Impl, IMPL_OFFSET>,
+            PageBorderlessFeature::<Impl, IMPL_OFFSET>,
+            PageMediaSizeFeature::<Impl, IMPL_OFFSET>,
+            PageMediaTypeFeature::<Impl, IMPL_OFFSET>,
+            PageOrientationFeature::<Impl, IMPL_OFFSET>,
+            PageOutputColorFeature::<Impl, IMPL_OFFSET>,
+            PageOutputQualityFeature::<Impl, IMPL_OFFSET>,
+            PageResolutionFeature::<Impl, IMPL_OFFSET>,
+            GetFeature::<Impl, IMPL_OFFSET>,
+            NotifyXmlChangedAsync::<Impl, IMPL_OFFSET>,
+            ValidateAsync::<Impl, IMPL_OFFSET>,
+            GetParameterInitializer::<Impl, IMPL_OFFSET>,
+            SetParameterInitializerAsInteger::<Impl, IMPL_OFFSET>,
+            SetParameterInitializerAsString::<Impl, IMPL_OFFSET>,
+            MergeAndValidateTicket::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWorkflowPrintTicket as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1117,7 +1152,7 @@ impl ::windows::core::RuntimeName for IWorkflowPrintTicketValidationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWorkflowPrintTicketValidationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketValidationResultImpl, const OFFSET: isize>() -> IWorkflowPrintTicketValidationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketValidationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkflowPrintTicketValidationResultVtbl {
         unsafe extern "system" fn Validated<Impl: IWorkflowPrintTicketValidationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Validated() {
@@ -1140,6 +1175,9 @@ impl IWorkflowPrintTicketValidationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkflowPrintTicketValidationResult>, ::windows::core::GetTrustLevel, Validated::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkflowPrintTicketValidationResult>, ::windows::core::GetTrustLevel, Validated::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWorkflowPrintTicketValidationResult as ::windows::core::Interface>::IID
     }
 }

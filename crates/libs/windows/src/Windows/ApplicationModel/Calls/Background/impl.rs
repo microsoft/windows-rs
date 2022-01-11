@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IPhoneCallBlockedTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallBlockedTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneCallBlockedTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallBlockedTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallBlockedTriggerDetailsVtbl {
         unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
@@ -44,7 +44,10 @@ impl IPhoneCallBlockedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallBlockedTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, OFFSET>, LineId::<Impl, OFFSET>, CallBlockedReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallBlockedTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, IMPL_OFFSET>, LineId::<Impl, IMPL_OFFSET>, CallBlockedReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallBlockedTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,7 +61,7 @@ impl ::windows::core::RuntimeName for IPhoneCallOriginDataRequestTriggerDetails 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOriginDataRequestTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneCallOriginDataRequestTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneCallOriginDataRequestTriggerDetailsVtbl {
         unsafe extern "system" fn RequestId<Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
@@ -81,10 +84,13 @@ impl IPhoneCallOriginDataRequestTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginDataRequestTriggerDetails>, ::windows::core::GetTrustLevel, RequestId::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginDataRequestTriggerDetails>, ::windows::core::GetTrustLevel, RequestId::<Impl, IMPL_OFFSET>, PhoneNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneCallOriginDataRequestTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneIncomingCallDismissedTriggerDetailsImpl: Sized {
     fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -93,13 +99,13 @@ pub trait IPhoneIncomingCallDismissedTriggerDetailsImpl: Sized {
     fn TextReplyMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Reason(&self) -> ::windows::core::Result<PhoneIncomingCallDismissedReason>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallDismissedTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneIncomingCallDismissedTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneIncomingCallDismissedTriggerDetailsVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -166,7 +172,23 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallDismissedTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, DismissalTime::<Impl, OFFSET>, TextReplyMessage::<Impl, OFFSET>, Reason::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallDismissedTriggerDetails>,
+            ::windows::core::GetTrustLevel,
+            LineId::<Impl, IMPL_OFFSET>,
+            PhoneNumber::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            DismissalTime::<Impl, IMPL_OFFSET>,
+            TextReplyMessage::<Impl, IMPL_OFFSET>,
+            Reason::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneIncomingCallDismissedTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -180,7 +202,7 @@ impl ::windows::core::RuntimeName for IPhoneIncomingCallNotificationTriggerDetai
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneIncomingCallNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneIncomingCallNotificationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneIncomingCallNotificationTriggerDetailsVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -203,7 +225,10 @@ impl IPhoneIncomingCallNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallNotificationTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, CallId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallNotificationTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, CallId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneIncomingCallNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -218,7 +243,7 @@ impl ::windows::core::RuntimeName for IPhoneLineChangedTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineChangedTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneLineChangedTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineChangedTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneLineChangedTriggerDetailsVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -252,7 +277,10 @@ impl IPhoneLineChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineChangedTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, ChangeType::<Impl, OFFSET>, HasLinePropertyChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineChangedTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, ChangeType::<Impl, IMPL_OFFSET>, HasLinePropertyChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneLineChangedTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -267,7 +295,7 @@ impl ::windows::core::RuntimeName for IPhoneNewVoicemailMessageTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneNewVoicemailMessageTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNewVoicemailMessageTriggerDetailsVtbl {
         unsafe extern "system" fn LineId<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
@@ -301,6 +329,9 @@ impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNewVoicemailMessageTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, VoicemailCount::<Impl, OFFSET>, OperatorMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNewVoicemailMessageTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, IMPL_OFFSET>, VoicemailCount::<Impl, IMPL_OFFSET>, OperatorMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNewVoicemailMessageTriggerDetails as ::windows::core::Interface>::IID
     }
 }

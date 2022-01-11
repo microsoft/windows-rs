@@ -2777,12 +2777,12 @@ pub unsafe fn WinVerifyTrustEx<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustAddActionID(pgactionid: &::windows::core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustAddActionID(pgactionid: &::windows::core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL;
+            fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WintrustAddActionID(::core::mem::transmute(pgactionid), ::core::mem::transmute(fdwflags), ::core::mem::transmute(psprovinfo)))
     }
@@ -2851,12 +2851,12 @@ pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::core::GUI
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustRemoveActionID(pgactionid: &::windows::core::GUID) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustRemoveActionID(pgactionid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustRemoveActionID(pgactionid: &::windows::core::GUID) -> super::super::Foundation::BOOL;
+            fn WintrustRemoveActionID(pgactionid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WintrustRemoveActionID(::core::mem::transmute(pgactionid)))
     }

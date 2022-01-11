@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppDisplayInfoImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetLogo(&self, size: &super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDisplayInfo {
     const NAME: &'static str = "Windows.ApplicationModel.IAppDisplayInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IAppDisplayInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppDisplayInfoImpl, const OFFSET: isize>() -> IAppDisplayInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppDisplayInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppDisplayInfoVtbl {
         unsafe extern "system" fn DisplayName<Impl: IAppDisplayInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -44,7 +44,10 @@ impl IAppDisplayInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppDisplayInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Description::<Impl, OFFSET>, GetLogo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppDisplayInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, GetLogo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppDisplayInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -60,7 +63,7 @@ impl ::windows::core::RuntimeName for IAppInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfoImpl, const OFFSET: isize>() -> IAppInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInfoVtbl {
         unsafe extern "system" fn Id<Impl: IAppInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -105,7 +108,10 @@ impl IAppInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, AppUserModelId::<Impl, OFFSET>, DisplayInfo::<Impl, OFFSET>, PackageFamilyName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, AppUserModelId::<Impl, IMPL_OFFSET>, DisplayInfo::<Impl, IMPL_OFFSET>, PackageFamilyName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -118,7 +124,7 @@ impl ::windows::core::RuntimeName for IAppInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfo2Impl, const OFFSET: isize>() -> IAppInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInfo2Vtbl {
         unsafe extern "system" fn Package<Impl: IAppInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
@@ -130,7 +136,10 @@ impl IAppInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo2>, ::windows::core::GetTrustLevel, Package::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo2>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInfo2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -143,7 +152,7 @@ impl ::windows::core::RuntimeName for IAppInfo3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInfo3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfo3Impl, const OFFSET: isize>() -> IAppInfo3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfo3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInfo3Vtbl {
         unsafe extern "system" fn ExecutionContext<Impl: IAppInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppExecutionContext) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExecutionContext() {
@@ -155,7 +164,10 @@ impl IAppInfo3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo3>, ::windows::core::GetTrustLevel, ExecutionContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo3>, ::windows::core::GetTrustLevel, ExecutionContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInfo3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -168,7 +180,7 @@ impl ::windows::core::RuntimeName for IAppInfo4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInfo4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfo4Impl, const OFFSET: isize>() -> IAppInfo4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfo4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInfo4Vtbl {
         unsafe extern "system" fn SupportedFileExtensions<Impl: IAppInfo4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedFileExtensions() {
@@ -181,22 +193,25 @@ impl IAppInfo4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo4>, ::windows::core::GetTrustLevel, SupportedFileExtensions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfo4>, ::windows::core::GetTrustLevel, SupportedFileExtensions::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInfo4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInfoStaticsImpl: Sized {
     fn Current(&self) -> ::windows::core::Result<AppInfo>;
     fn GetFromAppUserModelId(&self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>;
     fn GetFromAppUserModelIdForUser(&self, user: &::core::option::Option<super::System::User>, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInfoStatics {
     const NAME: &'static str = "Windows.ApplicationModel.IAppInfoStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IAppInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfoStaticsImpl, const OFFSET: isize>() -> IAppInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInfoStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IAppInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -230,20 +245,23 @@ impl IAppInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfoStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>, GetFromAppUserModelId::<Impl, OFFSET>, GetFromAppUserModelIdForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInfoStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, GetFromAppUserModelId::<Impl, IMPL_OFFSET>, GetFromAppUserModelIdForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInfoStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppInstallerInfoImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.IAppInstallerInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppInstallerInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallerInfoImpl, const OFFSET: isize>() -> IAppInstallerInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallerInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallerInfoVtbl {
         unsafe extern "system" fn Uri<Impl: IAppInstallerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -255,10 +273,13 @@ impl IAppInstallerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallerInfo>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstallerInfo>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallerInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallerInfo2Impl: Sized {
     fn OnLaunch(&self) -> ::windows::core::Result<bool>;
     fn HoursBetweenUpdateChecks(&self) -> ::windows::core::Result<u32>;
@@ -276,13 +297,13 @@ pub trait IAppInstallerInfo2Impl: Sized {
     fn OptionalPackageUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
     fn PolicySource(&self) -> ::windows::core::Result<AppInstallerPolicySource>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallerInfo2 {
     const NAME: &'static str = "Windows.ApplicationModel.IAppInstallerInfo2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppInstallerInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallerInfo2Impl, const OFFSET: isize>() -> IAppInstallerInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstallerInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstallerInfo2Vtbl {
         unsafe extern "system" fn OnLaunch<Impl: IAppInstallerInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnLaunch() {
@@ -449,28 +470,31 @@ impl IAppInstallerInfo2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppInstallerInfo2>,
             ::windows::core::GetTrustLevel,
-            OnLaunch::<Impl, OFFSET>,
-            HoursBetweenUpdateChecks::<Impl, OFFSET>,
-            ShowPrompt::<Impl, OFFSET>,
-            UpdateBlocksActivation::<Impl, OFFSET>,
-            AutomaticBackgroundTask::<Impl, OFFSET>,
-            ForceUpdateFromAnyVersion::<Impl, OFFSET>,
-            IsAutoRepairEnabled::<Impl, OFFSET>,
-            Version::<Impl, OFFSET>,
-            LastChecked::<Impl, OFFSET>,
-            PausedUntil::<Impl, OFFSET>,
-            UpdateUris::<Impl, OFFSET>,
-            RepairUris::<Impl, OFFSET>,
-            DependencyPackageUris::<Impl, OFFSET>,
-            OptionalPackageUris::<Impl, OFFSET>,
-            PolicySource::<Impl, OFFSET>,
+            OnLaunch::<Impl, IMPL_OFFSET>,
+            HoursBetweenUpdateChecks::<Impl, IMPL_OFFSET>,
+            ShowPrompt::<Impl, IMPL_OFFSET>,
+            UpdateBlocksActivation::<Impl, IMPL_OFFSET>,
+            AutomaticBackgroundTask::<Impl, IMPL_OFFSET>,
+            ForceUpdateFromAnyVersion::<Impl, IMPL_OFFSET>,
+            IsAutoRepairEnabled::<Impl, IMPL_OFFSET>,
+            Version::<Impl, IMPL_OFFSET>,
+            LastChecked::<Impl, IMPL_OFFSET>,
+            PausedUntil::<Impl, IMPL_OFFSET>,
+            UpdateUris::<Impl, IMPL_OFFSET>,
+            RepairUris::<Impl, IMPL_OFFSET>,
+            DependencyPackageUris::<Impl, IMPL_OFFSET>,
+            OptionalPackageUris::<Impl, IMPL_OFFSET>,
+            PolicySource::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstallerInfo2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -485,7 +509,7 @@ impl ::windows::core::RuntimeName for IAppInstance {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppInstanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstanceImpl, const OFFSET: isize>() -> IAppInstanceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstanceVtbl {
         unsafe extern "system" fn Key<Impl: IAppInstanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Key() {
@@ -512,10 +536,13 @@ impl IAppInstanceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RedirectActivationTo().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstance>, ::windows::core::GetTrustLevel, Key::<Impl, OFFSET>, IsCurrentInstance::<Impl, OFFSET>, RedirectActivationTo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstance>, ::windows::core::GetTrustLevel, Key::<Impl, IMPL_OFFSET>, IsCurrentInstance::<Impl, IMPL_OFFSET>, RedirectActivationTo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstance as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstanceStaticsImpl: Sized {
     fn RecommendedInstance(&self) -> ::windows::core::Result<AppInstance>;
     fn GetActivatedEventArgs(&self) -> ::windows::core::Result<Activation::IActivatedEventArgs>;
@@ -523,13 +550,13 @@ pub trait IAppInstanceStaticsImpl: Sized {
     fn Unregister(&self) -> ::windows::core::Result<()>;
     fn GetInstances(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppInstance>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstanceStatics {
     const NAME: &'static str = "Windows.ApplicationModel.IAppInstanceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAppInstanceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstanceStaticsImpl, const OFFSET: isize>() -> IAppInstanceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppInstanceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppInstanceStaticsVtbl {
         unsafe extern "system" fn RecommendedInstance<Impl: IAppInstanceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecommendedInstance() {
@@ -578,7 +605,22 @@ impl IAppInstanceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppInstanceStatics>, ::windows::core::GetTrustLevel, RecommendedInstance::<Impl, OFFSET>, GetActivatedEventArgs::<Impl, OFFSET>, FindOrRegisterInstanceForKey::<Impl, OFFSET>, Unregister::<Impl, OFFSET>, GetInstances::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAppInstanceStatics>,
+            ::windows::core::GetTrustLevel,
+            RecommendedInstance::<Impl, IMPL_OFFSET>,
+            GetActivatedEventArgs::<Impl, IMPL_OFFSET>,
+            FindOrRegisterInstanceForKey::<Impl, IMPL_OFFSET>,
+            Unregister::<Impl, IMPL_OFFSET>,
+            GetInstances::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppInstanceStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -591,12 +633,15 @@ impl ::windows::core::RuntimeName for ICameraApplicationManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICameraApplicationManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraApplicationManagerStaticsImpl, const OFFSET: isize>() -> ICameraApplicationManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraApplicationManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraApplicationManagerStaticsVtbl {
         unsafe extern "system" fn ShowInstalledApplicationsUI<Impl: ICameraApplicationManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowInstalledApplicationsUI().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraApplicationManagerStatics>, ::windows::core::GetTrustLevel, ShowInstalledApplicationsUI::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraApplicationManagerStatics>, ::windows::core::GetTrustLevel, ShowInstalledApplicationsUI::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICameraApplicationManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -609,7 +654,7 @@ impl ::windows::core::RuntimeName for IDesignModeStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDesignModeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesignModeStaticsImpl, const OFFSET: isize>() -> IDesignModeStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesignModeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesignModeStaticsVtbl {
         unsafe extern "system" fn DesignModeEnabled<Impl: IDesignModeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesignModeEnabled() {
@@ -621,7 +666,10 @@ impl IDesignModeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignModeStatics>, ::windows::core::GetTrustLevel, DesignModeEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignModeStatics>, ::windows::core::GetTrustLevel, DesignModeEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDesignModeStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -634,7 +682,7 @@ impl ::windows::core::RuntimeName for IDesignModeStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDesignModeStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesignModeStatics2Impl, const OFFSET: isize>() -> IDesignModeStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesignModeStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesignModeStatics2Vtbl {
         unsafe extern "system" fn DesignMode2Enabled<Impl: IDesignModeStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesignMode2Enabled() {
@@ -646,17 +694,23 @@ impl IDesignModeStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignModeStatics2>, ::windows::core::GetTrustLevel, DesignMode2Enabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDesignModeStatics2>, ::windows::core::GetTrustLevel, DesignMode2Enabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDesignModeStatics2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IEnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
 }
+#[cfg(feature = "Foundation")]
 impl IEnteredBackgroundEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnteredBackgroundEventArgsImpl, const OFFSET: isize>() -> IEnteredBackgroundEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnteredBackgroundEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnteredBackgroundEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IEnteredBackgroundEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -668,7 +722,10 @@ impl IEnteredBackgroundEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnteredBackgroundEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnteredBackgroundEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnteredBackgroundEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -682,7 +739,7 @@ impl ::windows::core::RuntimeName for IFullTrustProcessLaunchResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFullTrustProcessLaunchResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullTrustProcessLaunchResultImpl, const OFFSET: isize>() -> IFullTrustProcessLaunchResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullTrustProcessLaunchResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFullTrustProcessLaunchResultVtbl {
         unsafe extern "system" fn LaunchResult<Impl: IFullTrustProcessLaunchResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FullTrustLaunchResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchResult() {
@@ -705,23 +762,26 @@ impl IFullTrustProcessLaunchResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullTrustProcessLaunchResult>, ::windows::core::GetTrustLevel, LaunchResult::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullTrustProcessLaunchResult>, ::windows::core::GetTrustLevel, LaunchResult::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFullTrustProcessLaunchResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFullTrustProcessLauncherStaticsImpl: Sized {
     fn LaunchFullTrustProcessForCurrentAppAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
     fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(&self, parametergroupid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
     fn LaunchFullTrustProcessForAppAsync(&self, fulltrustpackagerelativeappid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
     fn LaunchFullTrustProcessForAppWithParametersAsync(&self, fulltrustpackagerelativeappid: &::windows::core::HSTRING, parametergroupid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFullTrustProcessLauncherStatics {
     const NAME: &'static str = "Windows.ApplicationModel.IFullTrustProcessLauncherStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFullTrustProcessLauncherStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullTrustProcessLauncherStaticsImpl, const OFFSET: isize>() -> IFullTrustProcessLauncherStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullTrustProcessLauncherStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFullTrustProcessLauncherStaticsVtbl {
         unsafe extern "system" fn LaunchFullTrustProcessForCurrentAppAsync<Impl: IFullTrustProcessLauncherStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchFullTrustProcessForCurrentAppAsync() {
@@ -767,31 +827,34 @@ impl IFullTrustProcessLauncherStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IFullTrustProcessLauncherStatics>,
             ::windows::core::GetTrustLevel,
-            LaunchFullTrustProcessForCurrentAppAsync::<Impl, OFFSET>,
-            LaunchFullTrustProcessForCurrentAppWithParametersAsync::<Impl, OFFSET>,
-            LaunchFullTrustProcessForAppAsync::<Impl, OFFSET>,
-            LaunchFullTrustProcessForAppWithParametersAsync::<Impl, OFFSET>,
+            LaunchFullTrustProcessForCurrentAppAsync::<Impl, IMPL_OFFSET>,
+            LaunchFullTrustProcessForCurrentAppWithParametersAsync::<Impl, IMPL_OFFSET>,
+            LaunchFullTrustProcessForAppAsync::<Impl, IMPL_OFFSET>,
+            LaunchFullTrustProcessForAppWithParametersAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFullTrustProcessLauncherStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFullTrustProcessLauncherStatics2Impl: Sized {
     fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(&self, commandline: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>;
     fn LaunchFullTrustProcessForAppWithArgumentsAsync(&self, fulltrustpackagerelativeappid: &::windows::core::HSTRING, commandline: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFullTrustProcessLauncherStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IFullTrustProcessLauncherStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IFullTrustProcessLauncherStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullTrustProcessLauncherStatics2Impl, const OFFSET: isize>() -> IFullTrustProcessLauncherStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullTrustProcessLauncherStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFullTrustProcessLauncherStatics2Vtbl {
         unsafe extern "system" fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync<Impl: IFullTrustProcessLauncherStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandline: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(&*(&commandline as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -814,17 +877,23 @@ impl IFullTrustProcessLauncherStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullTrustProcessLauncherStatics2>, ::windows::core::GetTrustLevel, LaunchFullTrustProcessForCurrentAppWithArgumentsAsync::<Impl, OFFSET>, LaunchFullTrustProcessForAppWithArgumentsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullTrustProcessLauncherStatics2>, ::windows::core::GetTrustLevel, LaunchFullTrustProcessForCurrentAppWithArgumentsAsync::<Impl, IMPL_OFFSET>, LaunchFullTrustProcessForAppWithArgumentsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFullTrustProcessLauncherStatics2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ILeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
 }
+#[cfg(feature = "Foundation")]
 impl ILeavingBackgroundEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILeavingBackgroundEventArgsImpl, const OFFSET: isize>() -> ILeavingBackgroundEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILeavingBackgroundEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILeavingBackgroundEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ILeavingBackgroundEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -836,22 +905,25 @@ impl ILeavingBackgroundEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILeavingBackgroundEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILeavingBackgroundEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILeavingBackgroundEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILimitedAccessFeatureRequestResultImpl: Sized {
     fn FeatureId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Status(&self) -> ::windows::core::Result<LimitedAccessFeatureStatus>;
     fn EstimatedRemovalDate(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILimitedAccessFeatureRequestResult {
     const NAME: &'static str = "Windows.ApplicationModel.ILimitedAccessFeatureRequestResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ILimitedAccessFeatureRequestResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILimitedAccessFeatureRequestResultImpl, const OFFSET: isize>() -> ILimitedAccessFeatureRequestResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILimitedAccessFeatureRequestResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILimitedAccessFeatureRequestResultVtbl {
         unsafe extern "system" fn FeatureId<Impl: ILimitedAccessFeatureRequestResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FeatureId() {
@@ -885,7 +957,10 @@ impl ILimitedAccessFeatureRequestResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILimitedAccessFeatureRequestResult>, ::windows::core::GetTrustLevel, FeatureId::<Impl, OFFSET>, Status::<Impl, OFFSET>, EstimatedRemovalDate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILimitedAccessFeatureRequestResult>, ::windows::core::GetTrustLevel, FeatureId::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, EstimatedRemovalDate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILimitedAccessFeatureRequestResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -898,7 +973,7 @@ impl ::windows::core::RuntimeName for ILimitedAccessFeaturesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILimitedAccessFeaturesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILimitedAccessFeaturesStaticsImpl, const OFFSET: isize>() -> ILimitedAccessFeaturesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILimitedAccessFeaturesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILimitedAccessFeaturesStaticsVtbl {
         unsafe extern "system" fn TryUnlockFeature<Impl: ILimitedAccessFeaturesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, featureid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, attestation: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUnlockFeature(
@@ -914,23 +989,26 @@ impl ILimitedAccessFeaturesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILimitedAccessFeaturesStatics>, ::windows::core::GetTrustLevel, TryUnlockFeature::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILimitedAccessFeaturesStatics>, ::windows::core::GetTrustLevel, TryUnlockFeature::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILimitedAccessFeaturesStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPackageImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<PackageId>;
     fn InstalledLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
     fn IsFramework(&self) -> ::windows::core::Result<bool>;
     fn Dependencies(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IPackageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageImpl, const OFFSET: isize>() -> IPackageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageVtbl {
         unsafe extern "system" fn Id<Impl: IPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -975,10 +1053,13 @@ impl IPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, InstalledLocation::<Impl, OFFSET>, IsFramework::<Impl, OFFSET>, Dependencies::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, InstalledLocation::<Impl, IMPL_OFFSET>, IsFramework::<Impl, IMPL_OFFSET>, Dependencies::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackage2Impl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PublisherDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -988,13 +1069,13 @@ pub trait IPackage2Impl: Sized {
     fn IsBundle(&self) -> ::windows::core::Result<bool>;
     fn IsDevelopmentMode(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPackage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage2Impl, const OFFSET: isize>() -> IPackage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage2Vtbl {
         unsafe extern "system" fn DisplayName<Impl: IPackage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -1072,22 +1153,39 @@ impl IPackage2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage2>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, PublisherDisplayName::<Impl, OFFSET>, Description::<Impl, OFFSET>, Logo::<Impl, OFFSET>, IsResourcePackage::<Impl, OFFSET>, IsBundle::<Impl, OFFSET>, IsDevelopmentMode::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPackage2>,
+            ::windows::core::GetTrustLevel,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            PublisherDisplayName::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            Logo::<Impl, IMPL_OFFSET>,
+            IsResourcePackage::<Impl, IMPL_OFFSET>,
+            IsBundle::<Impl, IMPL_OFFSET>,
+            IsDevelopmentMode::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackage3Impl: Sized {
     fn Status(&self) -> ::windows::core::Result<PackageStatus>;
     fn InstalledDate(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
     fn GetAppListEntriesAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<Core::AppListEntry>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage3 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPackage3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage3Impl, const OFFSET: isize>() -> IPackage3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage3Vtbl {
         unsafe extern "system" fn Status<Impl: IPackage3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -1121,22 +1219,25 @@ impl IPackage3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage3>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, InstalledDate::<Impl, OFFSET>, GetAppListEntriesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage3>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, InstalledDate::<Impl, IMPL_OFFSET>, GetAppListEntriesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackage4Impl: Sized {
     fn SignatureKind(&self) -> ::windows::core::Result<PackageSignatureKind>;
     fn IsOptional(&self) -> ::windows::core::Result<bool>;
     fn VerifyContentIntegrityAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage4 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPackage4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage4Impl, const OFFSET: isize>() -> IPackage4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage4Vtbl {
         unsafe extern "system" fn SignatureKind<Impl: IPackage4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PackageSignatureKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignatureKind() {
@@ -1170,10 +1271,13 @@ impl IPackage4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage4>, ::windows::core::GetTrustLevel, SignatureKind::<Impl, OFFSET>, IsOptional::<Impl, OFFSET>, VerifyContentIntegrityAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage4>, ::windows::core::GetTrustLevel, SignatureKind::<Impl, IMPL_OFFSET>, IsOptional::<Impl, IMPL_OFFSET>, VerifyContentIntegrityAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackage5Impl: Sized {
     fn GetContentGroupsAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
     fn GetContentGroupAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageContentGroup>>;
@@ -1181,13 +1285,13 @@ pub trait IPackage5Impl: Sized {
     fn StageContentGroupsWithPriorityAsync(&self, names: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
     fn SetInUseAsync(&self, inuse: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage5 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPackage5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage5Impl, const OFFSET: isize>() -> IPackage5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage5Vtbl {
         unsafe extern "system" fn GetContentGroupsAsync<Impl: IPackage5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContentGroupsAsync() {
@@ -1243,21 +1347,36 @@ impl IPackage5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage5>, ::windows::core::GetTrustLevel, GetContentGroupsAsync::<Impl, OFFSET>, GetContentGroupAsync::<Impl, OFFSET>, StageContentGroupsAsync::<Impl, OFFSET>, StageContentGroupsWithPriorityAsync::<Impl, OFFSET>, SetInUseAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPackage5>,
+            ::windows::core::GetTrustLevel,
+            GetContentGroupsAsync::<Impl, IMPL_OFFSET>,
+            GetContentGroupAsync::<Impl, IMPL_OFFSET>,
+            StageContentGroupsAsync::<Impl, IMPL_OFFSET>,
+            StageContentGroupsWithPriorityAsync::<Impl, IMPL_OFFSET>,
+            SetInUseAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackage6Impl: Sized {
     fn GetAppInstallerInfo(&self) -> ::windows::core::Result<AppInstallerInfo>;
     fn CheckUpdateAvailabilityAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageUpdateAvailabilityResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage6 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage6";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPackage6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage6Impl, const OFFSET: isize>() -> IPackage6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage6Vtbl {
         unsafe extern "system" fn GetAppInstallerInfo<Impl: IPackage6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppInstallerInfo() {
@@ -1280,21 +1399,24 @@ impl IPackage6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage6>, ::windows::core::GetTrustLevel, GetAppInstallerInfo::<Impl, OFFSET>, CheckUpdateAvailabilityAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage6>, ::windows::core::GetTrustLevel, GetAppInstallerInfo::<Impl, IMPL_OFFSET>, CheckUpdateAvailabilityAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage6 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPackage7Impl: Sized {
     fn MutableLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
     fn EffectiveLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage7 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage7";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl IPackage7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage7Impl, const OFFSET: isize>() -> IPackage7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage7Vtbl {
         unsafe extern "system" fn MutableLocation<Impl: IPackage7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MutableLocation() {
@@ -1317,10 +1439,13 @@ impl IPackage7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage7>, ::windows::core::GetTrustLevel, MutableLocation::<Impl, OFFSET>, EffectiveLocation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackage7>, ::windows::core::GetTrustLevel, MutableLocation::<Impl, IMPL_OFFSET>, EffectiveLocation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage7 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPackage8Impl: Sized {
     fn EffectiveExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
     fn MachineExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
@@ -1335,13 +1460,13 @@ pub trait IPackage8Impl: Sized {
     fn GetAppListEntries(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Core::AppListEntry>>;
     fn IsStub(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage8 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackage8";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPackage8Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage8Impl, const OFFSET: isize>() -> IPackage8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackage8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackage8Vtbl {
         unsafe extern "system" fn EffectiveExternalLocation<Impl: IPackage8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EffectiveExternalLocation() {
@@ -1475,28 +1600,31 @@ impl IPackage8Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPackage8>,
             ::windows::core::GetTrustLevel,
-            EffectiveExternalLocation::<Impl, OFFSET>,
-            MachineExternalLocation::<Impl, OFFSET>,
-            UserExternalLocation::<Impl, OFFSET>,
-            InstalledPath::<Impl, OFFSET>,
-            MutablePath::<Impl, OFFSET>,
-            EffectivePath::<Impl, OFFSET>,
-            EffectiveExternalPath::<Impl, OFFSET>,
-            MachineExternalPath::<Impl, OFFSET>,
-            UserExternalPath::<Impl, OFFSET>,
-            GetLogoAsRandomAccessStreamReference::<Impl, OFFSET>,
-            GetAppListEntries::<Impl, OFFSET>,
-            IsStub::<Impl, OFFSET>,
+            EffectiveExternalLocation::<Impl, IMPL_OFFSET>,
+            MachineExternalLocation::<Impl, IMPL_OFFSET>,
+            UserExternalLocation::<Impl, IMPL_OFFSET>,
+            InstalledPath::<Impl, IMPL_OFFSET>,
+            MutablePath::<Impl, IMPL_OFFSET>,
+            EffectivePath::<Impl, IMPL_OFFSET>,
+            EffectiveExternalPath::<Impl, IMPL_OFFSET>,
+            MachineExternalPath::<Impl, IMPL_OFFSET>,
+            UserExternalPath::<Impl, IMPL_OFFSET>,
+            GetLogoAsRandomAccessStreamReference::<Impl, IMPL_OFFSET>,
+            GetAppListEntries::<Impl, IMPL_OFFSET>,
+            IsStub::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackage8 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackageCatalogImpl: Sized {
     fn PackageStaging(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemovePackageStaging(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1509,13 +1637,13 @@ pub trait IPackageCatalogImpl: Sized {
     fn PackageStatusChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemovePackageStatusChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalog";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPackageCatalogVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogImpl, const OFFSET: isize>() -> IPackageCatalogVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalogVtbl {
         unsafe extern "system" fn PackageStaging<Impl: IPackageCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageStaging(&*(&handler as *const <super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs> as ::windows::core::Abi>::Abi as *const <super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1592,38 +1720,41 @@ impl IPackageCatalogVtbl {
             (*this).RemovePackageStatusChanged(&*(&token as *const <super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPackageCatalog>,
             ::windows::core::GetTrustLevel,
-            PackageStaging::<Impl, OFFSET>,
-            RemovePackageStaging::<Impl, OFFSET>,
-            PackageInstalling::<Impl, OFFSET>,
-            RemovePackageInstalling::<Impl, OFFSET>,
-            PackageUpdating::<Impl, OFFSET>,
-            RemovePackageUpdating::<Impl, OFFSET>,
-            PackageUninstalling::<Impl, OFFSET>,
-            RemovePackageUninstalling::<Impl, OFFSET>,
-            PackageStatusChanged::<Impl, OFFSET>,
-            RemovePackageStatusChanged::<Impl, OFFSET>,
+            PackageStaging::<Impl, IMPL_OFFSET>,
+            RemovePackageStaging::<Impl, IMPL_OFFSET>,
+            PackageInstalling::<Impl, IMPL_OFFSET>,
+            RemovePackageInstalling::<Impl, IMPL_OFFSET>,
+            PackageUpdating::<Impl, IMPL_OFFSET>,
+            RemovePackageUpdating::<Impl, IMPL_OFFSET>,
+            PackageUninstalling::<Impl, IMPL_OFFSET>,
+            RemovePackageUninstalling::<Impl, IMPL_OFFSET>,
+            PackageStatusChanged::<Impl, IMPL_OFFSET>,
+            RemovePackageStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalog as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackageCatalog2Impl: Sized {
     fn PackageContentGroupStaging(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
     fn RemovePackageContentGroupStaging(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn AddOptionalPackageAsync(&self, optionalpackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalog2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPackageCatalog2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalog2Impl, const OFFSET: isize>() -> IPackageCatalog2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalog2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalog2Vtbl {
         unsafe extern "system" fn PackageContentGroupStaging<Impl: IPackageCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageContentGroupStaging(&*(&handler as *const <super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs> as ::windows::core::Abi>::Abi as *const <super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1650,20 +1781,23 @@ impl IPackageCatalog2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalog2>, ::windows::core::GetTrustLevel, PackageContentGroupStaging::<Impl, OFFSET>, RemovePackageContentGroupStaging::<Impl, OFFSET>, AddOptionalPackageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalog2>, ::windows::core::GetTrustLevel, PackageContentGroupStaging::<Impl, IMPL_OFFSET>, RemovePackageContentGroupStaging::<Impl, IMPL_OFFSET>, AddOptionalPackageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalog2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalog3Impl: Sized {
     fn RemoveOptionalPackagesAsync(&self, optionalpackagefamilynames: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog3 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalog3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPackageCatalog3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalog3Impl, const OFFSET: isize>() -> IPackageCatalog3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalog3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalog3Vtbl {
         unsafe extern "system" fn RemoveOptionalPackagesAsync<Impl: IPackageCatalog3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionalpackagefamilynames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveOptionalPackagesAsync(&*(&optionalpackagefamilynames as *const <super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1675,21 +1809,24 @@ impl IPackageCatalog3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalog3>, ::windows::core::GetTrustLevel, RemoveOptionalPackagesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalog3>, ::windows::core::GetTrustLevel, RemoveOptionalPackagesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalog3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalog4Impl: Sized {
     fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &::windows::core::HSTRING, resourceid: &::windows::core::HSTRING, options: AddResourcePackageOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>;
     fn RemoveResourcePackagesAsync(&self, resourcepackages: &::core::option::Option<super::Foundation::Collections::IIterable<Package>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog4 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalog4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPackageCatalog4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalog4Impl, const OFFSET: isize>() -> IPackageCatalog4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalog4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalog4Vtbl {
         unsafe extern "system" fn AddResourcePackageAsync<Impl: IPackageCatalog4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcepackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AddResourcePackageOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddResourcePackageAsync(&*(&resourcepackagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&resourceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), options) {
@@ -1712,7 +1849,10 @@ impl IPackageCatalog4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalog4>, ::windows::core::GetTrustLevel, AddResourcePackageAsync::<Impl, OFFSET>, RemoveResourcePackagesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalog4>, ::windows::core::GetTrustLevel, AddResourcePackageAsync::<Impl, IMPL_OFFSET>, RemoveResourcePackagesAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalog4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1726,7 +1866,7 @@ impl ::windows::core::RuntimeName for IPackageCatalogAddOptionalPackageResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageCatalogAddOptionalPackageResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogAddOptionalPackageResultImpl, const OFFSET: isize>() -> IPackageCatalogAddOptionalPackageResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogAddOptionalPackageResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalogAddOptionalPackageResultVtbl {
         unsafe extern "system" fn Package<Impl: IPackageCatalogAddOptionalPackageResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
@@ -1749,7 +1889,10 @@ impl IPackageCatalogAddOptionalPackageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogAddOptionalPackageResult>, ::windows::core::GetTrustLevel, Package::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogAddOptionalPackageResult>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalogAddOptionalPackageResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1764,7 +1907,7 @@ impl ::windows::core::RuntimeName for IPackageCatalogAddResourcePackageResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageCatalogAddResourcePackageResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogAddResourcePackageResultImpl, const OFFSET: isize>() -> IPackageCatalogAddResourcePackageResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogAddResourcePackageResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalogAddResourcePackageResultVtbl {
         unsafe extern "system" fn Package<Impl: IPackageCatalogAddResourcePackageResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
@@ -1798,21 +1941,24 @@ impl IPackageCatalogAddResourcePackageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogAddResourcePackageResult>, ::windows::core::GetTrustLevel, Package::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogAddResourcePackageResult>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>, IsComplete::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalogAddResourcePackageResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalogRemoveOptionalPackagesResultImpl: Sized {
     fn PackagesRemoved(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalogRemoveOptionalPackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogRemoveOptionalPackagesResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPackageCatalogRemoveOptionalPackagesResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogRemoveOptionalPackagesResultImpl, const OFFSET: isize>() -> IPackageCatalogRemoveOptionalPackagesResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogRemoveOptionalPackagesResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalogRemoveOptionalPackagesResultVtbl {
         unsafe extern "system" fn PackagesRemoved<Impl: IPackageCatalogRemoveOptionalPackagesResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackagesRemoved() {
@@ -1835,21 +1981,24 @@ impl IPackageCatalogRemoveOptionalPackagesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogRemoveOptionalPackagesResult>, ::windows::core::GetTrustLevel, PackagesRemoved::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogRemoveOptionalPackagesResult>, ::windows::core::GetTrustLevel, PackagesRemoved::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalogRemoveOptionalPackagesResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalogRemoveResourcePackagesResultImpl: Sized {
     fn PackagesRemoved(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalogRemoveResourcePackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogRemoveResourcePackagesResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPackageCatalogRemoveResourcePackagesResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogRemoveResourcePackagesResultImpl, const OFFSET: isize>() -> IPackageCatalogRemoveResourcePackagesResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogRemoveResourcePackagesResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalogRemoveResourcePackagesResultVtbl {
         unsafe extern "system" fn PackagesRemoved<Impl: IPackageCatalogRemoveResourcePackagesResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackagesRemoved() {
@@ -1872,7 +2021,10 @@ impl IPackageCatalogRemoveResourcePackagesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogRemoveResourcePackagesResult>, ::windows::core::GetTrustLevel, PackagesRemoved::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogRemoveResourcePackagesResult>, ::windows::core::GetTrustLevel, PackagesRemoved::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalogRemoveResourcePackagesResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1886,7 +2038,7 @@ impl ::windows::core::RuntimeName for IPackageCatalogStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageCatalogStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogStaticsImpl, const OFFSET: isize>() -> IPackageCatalogStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageCatalogStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageCatalogStaticsVtbl {
         unsafe extern "system" fn OpenForCurrentPackage<Impl: IPackageCatalogStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenForCurrentPackage() {
@@ -1909,7 +2061,10 @@ impl IPackageCatalogStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogStatics>, ::windows::core::GetTrustLevel, OpenForCurrentPackage::<Impl, OFFSET>, OpenForCurrentUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageCatalogStatics>, ::windows::core::GetTrustLevel, OpenForCurrentPackage::<Impl, IMPL_OFFSET>, OpenForCurrentUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalogStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1925,7 +2080,7 @@ impl ::windows::core::RuntimeName for IPackageContentGroup {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageContentGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageContentGroupImpl, const OFFSET: isize>() -> IPackageContentGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageContentGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageContentGroupVtbl {
         unsafe extern "system" fn Package<Impl: IPackageContentGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
@@ -1970,7 +2125,10 @@ impl IPackageContentGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageContentGroup>, ::windows::core::GetTrustLevel, Package::<Impl, OFFSET>, Name::<Impl, OFFSET>, State::<Impl, OFFSET>, IsRequired::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageContentGroup>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, IsRequired::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageContentGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1989,7 +2147,7 @@ impl ::windows::core::RuntimeName for IPackageContentGroupStagingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageContentGroupStagingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageContentGroupStagingEventArgsImpl, const OFFSET: isize>() -> IPackageContentGroupStagingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageContentGroupStagingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageContentGroupStagingEventArgsVtbl {
         unsafe extern "system" fn ActivityId<Impl: IPackageContentGroupStagingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
@@ -2068,20 +2226,23 @@ impl IPackageContentGroupStagingEventArgsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPackageContentGroupStagingEventArgs>,
             ::windows::core::GetTrustLevel,
-            ActivityId::<Impl, OFFSET>,
-            Package::<Impl, OFFSET>,
-            Progress::<Impl, OFFSET>,
-            IsComplete::<Impl, OFFSET>,
-            ErrorCode::<Impl, OFFSET>,
-            ContentGroupName::<Impl, OFFSET>,
-            IsContentGroupRequired::<Impl, OFFSET>,
+            ActivityId::<Impl, IMPL_OFFSET>,
+            Package::<Impl, IMPL_OFFSET>,
+            Progress::<Impl, IMPL_OFFSET>,
+            IsComplete::<Impl, IMPL_OFFSET>,
+            ErrorCode::<Impl, IMPL_OFFSET>,
+            ContentGroupName::<Impl, IMPL_OFFSET>,
+            IsContentGroupRequired::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageContentGroupStagingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2094,7 +2255,7 @@ impl ::windows::core::RuntimeName for IPackageContentGroupStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageContentGroupStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageContentGroupStaticsImpl, const OFFSET: isize>() -> IPackageContentGroupStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageContentGroupStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageContentGroupStaticsVtbl {
         unsafe extern "system" fn RequiredGroupName<Impl: IPackageContentGroupStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequiredGroupName() {
@@ -2106,10 +2267,13 @@ impl IPackageContentGroupStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageContentGroupStatics>, ::windows::core::GetTrustLevel, RequiredGroupName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageContentGroupStatics>, ::windows::core::GetTrustLevel, RequiredGroupName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageContentGroupStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPackageIdImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Version(&self) -> ::windows::core::Result<PackageVersion>;
@@ -2120,13 +2284,13 @@ pub trait IPackageIdImpl: Sized {
     fn FullName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageId {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageId";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IPackageIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageIdImpl, const OFFSET: isize>() -> IPackageIdVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageIdVtbl {
         unsafe extern "system" fn Name<Impl: IPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -2215,7 +2379,25 @@ impl IPackageIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageId>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, Version::<Impl, OFFSET>, Architecture::<Impl, OFFSET>, ResourceId::<Impl, OFFSET>, Publisher::<Impl, OFFSET>, PublisherId::<Impl, OFFSET>, FullName::<Impl, OFFSET>, FamilyName::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPackageId>,
+            ::windows::core::GetTrustLevel,
+            Name::<Impl, IMPL_OFFSET>,
+            Version::<Impl, IMPL_OFFSET>,
+            Architecture::<Impl, IMPL_OFFSET>,
+            ResourceId::<Impl, IMPL_OFFSET>,
+            Publisher::<Impl, IMPL_OFFSET>,
+            PublisherId::<Impl, IMPL_OFFSET>,
+            FullName::<Impl, IMPL_OFFSET>,
+            FamilyName::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageId as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2229,7 +2411,7 @@ impl ::windows::core::RuntimeName for IPackageIdWithMetadata {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageIdWithMetadataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageIdWithMetadataImpl, const OFFSET: isize>() -> IPackageIdWithMetadataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageIdWithMetadataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageIdWithMetadataVtbl {
         unsafe extern "system" fn ProductId<Impl: IPackageIdWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
@@ -2252,7 +2434,10 @@ impl IPackageIdWithMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageIdWithMetadata>, ::windows::core::GetTrustLevel, ProductId::<Impl, OFFSET>, Author::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageIdWithMetadata>, ::windows::core::GetTrustLevel, ProductId::<Impl, IMPL_OFFSET>, Author::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageIdWithMetadata as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2269,7 +2454,7 @@ impl ::windows::core::RuntimeName for IPackageInstallingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageInstallingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageInstallingEventArgsImpl, const OFFSET: isize>() -> IPackageInstallingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageInstallingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageInstallingEventArgsVtbl {
         unsafe extern "system" fn ActivityId<Impl: IPackageInstallingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
@@ -2325,7 +2510,10 @@ impl IPackageInstallingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageInstallingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, OFFSET>, Package::<Impl, OFFSET>, Progress::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageInstallingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>, IsComplete::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageInstallingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2342,7 +2530,7 @@ impl ::windows::core::RuntimeName for IPackageStagingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageStagingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStagingEventArgsImpl, const OFFSET: isize>() -> IPackageStagingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStagingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageStagingEventArgsVtbl {
         unsafe extern "system" fn ActivityId<Impl: IPackageStagingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
@@ -2398,7 +2586,10 @@ impl IPackageStagingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStagingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, OFFSET>, Package::<Impl, OFFSET>, Progress::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStagingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>, IsComplete::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageStagingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2411,7 +2602,7 @@ impl ::windows::core::RuntimeName for IPackageStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStaticsImpl, const OFFSET: isize>() -> IPackageStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IPackageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -2423,7 +2614,10 @@ impl IPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2447,7 +2641,7 @@ impl ::windows::core::RuntimeName for IPackageStatus {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStatusImpl, const OFFSET: isize>() -> IPackageStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageStatusVtbl {
         unsafe extern "system" fn VerifyIsOK<Impl: IPackageStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerifyIsOK() {
@@ -2581,25 +2775,28 @@ impl IPackageStatusVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPackageStatus>,
             ::windows::core::GetTrustLevel,
-            VerifyIsOK::<Impl, OFFSET>,
-            NotAvailable::<Impl, OFFSET>,
-            PackageOffline::<Impl, OFFSET>,
-            DataOffline::<Impl, OFFSET>,
-            Disabled::<Impl, OFFSET>,
-            NeedsRemediation::<Impl, OFFSET>,
-            LicenseIssue::<Impl, OFFSET>,
-            Modified::<Impl, OFFSET>,
-            Tampered::<Impl, OFFSET>,
-            DependencyIssue::<Impl, OFFSET>,
-            Servicing::<Impl, OFFSET>,
-            DeploymentInProgress::<Impl, OFFSET>,
+            VerifyIsOK::<Impl, IMPL_OFFSET>,
+            NotAvailable::<Impl, IMPL_OFFSET>,
+            PackageOffline::<Impl, IMPL_OFFSET>,
+            DataOffline::<Impl, IMPL_OFFSET>,
+            Disabled::<Impl, IMPL_OFFSET>,
+            NeedsRemediation::<Impl, IMPL_OFFSET>,
+            LicenseIssue::<Impl, IMPL_OFFSET>,
+            Modified::<Impl, IMPL_OFFSET>,
+            Tampered::<Impl, IMPL_OFFSET>,
+            DependencyIssue::<Impl, IMPL_OFFSET>,
+            Servicing::<Impl, IMPL_OFFSET>,
+            DeploymentInProgress::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageStatus as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2612,7 +2809,7 @@ impl ::windows::core::RuntimeName for IPackageStatus2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageStatus2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStatus2Impl, const OFFSET: isize>() -> IPackageStatus2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStatus2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageStatus2Vtbl {
         unsafe extern "system" fn IsPartiallyStaged<Impl: IPackageStatus2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPartiallyStaged() {
@@ -2624,7 +2821,10 @@ impl IPackageStatus2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStatus2>, ::windows::core::GetTrustLevel, IsPartiallyStaged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStatus2>, ::windows::core::GetTrustLevel, IsPartiallyStaged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageStatus2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2637,7 +2837,7 @@ impl ::windows::core::RuntimeName for IPackageStatusChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStatusChangedEventArgsImpl, const OFFSET: isize>() -> IPackageStatusChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageStatusChangedEventArgsVtbl {
         unsafe extern "system" fn Package<Impl: IPackageStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
@@ -2649,7 +2849,10 @@ impl IPackageStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Package::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageStatusChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2666,7 +2869,7 @@ impl ::windows::core::RuntimeName for IPackageUninstallingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageUninstallingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUninstallingEventArgsImpl, const OFFSET: isize>() -> IPackageUninstallingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUninstallingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageUninstallingEventArgsVtbl {
         unsafe extern "system" fn ActivityId<Impl: IPackageUninstallingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
@@ -2722,7 +2925,10 @@ impl IPackageUninstallingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageUninstallingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, OFFSET>, Package::<Impl, OFFSET>, Progress::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageUninstallingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>, IsComplete::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageUninstallingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2736,7 +2942,7 @@ impl ::windows::core::RuntimeName for IPackageUpdateAvailabilityResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageUpdateAvailabilityResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUpdateAvailabilityResultImpl, const OFFSET: isize>() -> IPackageUpdateAvailabilityResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUpdateAvailabilityResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageUpdateAvailabilityResultVtbl {
         unsafe extern "system" fn Availability<Impl: IPackageUpdateAvailabilityResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PackageUpdateAvailability) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Availability() {
@@ -2759,7 +2965,10 @@ impl IPackageUpdateAvailabilityResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageUpdateAvailabilityResult>, ::windows::core::GetTrustLevel, Availability::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageUpdateAvailabilityResult>, ::windows::core::GetTrustLevel, Availability::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageUpdateAvailabilityResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2777,7 +2986,7 @@ impl ::windows::core::RuntimeName for IPackageUpdatingEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPackageUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUpdatingEventArgsImpl, const OFFSET: isize>() -> IPackageUpdatingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageUpdatingEventArgsVtbl {
         unsafe extern "system" fn ActivityId<Impl: IPackageUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
@@ -2844,22 +3053,38 @@ impl IPackageUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageUpdatingEventArgs>, ::windows::core::GetTrustLevel, ActivityId::<Impl, OFFSET>, SourcePackage::<Impl, OFFSET>, TargetPackage::<Impl, OFFSET>, Progress::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPackageUpdatingEventArgs>,
+            ::windows::core::GetTrustLevel,
+            ActivityId::<Impl, IMPL_OFFSET>,
+            SourcePackage::<Impl, IMPL_OFFSET>,
+            TargetPackage::<Impl, IMPL_OFFSET>,
+            Progress::<Impl, IMPL_OFFSET>,
+            IsComplete::<Impl, IMPL_OFFSET>,
+            ErrorCode::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageUpdatingEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackageWithMetadataImpl: Sized {
     fn InstallDate(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
     fn GetThumbnailToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Launch(&self, parameters: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageWithMetadata {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageWithMetadata";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPackageWithMetadataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageWithMetadataImpl, const OFFSET: isize>() -> IPackageWithMetadataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageWithMetadataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageWithMetadataVtbl {
         unsafe extern "system" fn InstallDate<Impl: IPackageWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstallDate() {
@@ -2886,23 +3111,26 @@ impl IPackageWithMetadataVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Launch(&*(&parameters as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageWithMetadata>, ::windows::core::GetTrustLevel, InstallDate::<Impl, OFFSET>, GetThumbnailToken::<Impl, OFFSET>, Launch::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPackageWithMetadata>, ::windows::core::GetTrustLevel, InstallDate::<Impl, IMPL_OFFSET>, GetThumbnailToken::<Impl, IMPL_OFFSET>, Launch::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageWithMetadata as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStartupTaskImpl: Sized {
     fn RequestEnableAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTaskState>>;
     fn Disable(&self) -> ::windows::core::Result<()>;
     fn State(&self) -> ::windows::core::Result<StartupTaskState>;
     fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartupTask {
     const NAME: &'static str = "Windows.ApplicationModel.IStartupTask";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStartupTaskVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartupTaskImpl, const OFFSET: isize>() -> IStartupTaskVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartupTaskImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartupTaskVtbl {
         unsafe extern "system" fn RequestEnableAsync<Impl: IStartupTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestEnableAsync() {
@@ -2940,21 +3168,24 @@ impl IStartupTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartupTask>, ::windows::core::GetTrustLevel, RequestEnableAsync::<Impl, OFFSET>, Disable::<Impl, OFFSET>, State::<Impl, OFFSET>, TaskId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartupTask>, ::windows::core::GetTrustLevel, RequestEnableAsync::<Impl, IMPL_OFFSET>, Disable::<Impl, IMPL_OFFSET>, State::<Impl, IMPL_OFFSET>, TaskId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStartupTask as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStartupTaskStaticsImpl: Sized {
     fn GetForCurrentPackageAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StartupTask>>>;
     fn GetAsync(&self, taskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTask>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartupTaskStatics {
     const NAME: &'static str = "Windows.ApplicationModel.IStartupTaskStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStartupTaskStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartupTaskStaticsImpl, const OFFSET: isize>() -> IStartupTaskStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartupTaskStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartupTaskStaticsVtbl {
         unsafe extern "system" fn GetForCurrentPackageAsync<Impl: IStartupTaskStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentPackageAsync() {
@@ -2977,7 +3208,10 @@ impl IStartupTaskStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartupTaskStatics>, ::windows::core::GetTrustLevel, GetForCurrentPackageAsync::<Impl, OFFSET>, GetAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStartupTaskStatics>, ::windows::core::GetTrustLevel, GetForCurrentPackageAsync::<Impl, IMPL_OFFSET>, GetAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStartupTaskStatics as ::windows::core::Interface>::IID
     }
 }
 pub trait ISuspendingDeferralImpl: Sized {
@@ -2987,12 +3221,15 @@ impl ::windows::core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
 }
 impl ISuspendingDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingDeferralImpl, const OFFSET: isize>() -> ISuspendingDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuspendingDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: ISuspendingDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuspendingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuspendingDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISuspendingDeferral as ::windows::core::Interface>::IID
     }
 }
 pub trait ISuspendingEventArgsImpl: Sized {
@@ -3002,7 +3239,7 @@ impl ::windows::core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
 }
 impl ISuspendingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingEventArgsImpl, const OFFSET: isize>() -> ISuspendingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuspendingEventArgsVtbl {
         unsafe extern "system" fn SuspendingOperation<Impl: ISuspendingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuspendingOperation() {
@@ -3014,18 +3251,24 @@ impl ISuspendingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuspendingEventArgs>, ::windows::core::GetTrustLevel, SuspendingOperation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuspendingEventArgs>, ::windows::core::GetTrustLevel, SuspendingOperation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISuspendingEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait ISuspendingOperationImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<SuspendingDeferral>;
     fn Deadline(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ISuspendingOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingOperationImpl, const OFFSET: isize>() -> ISuspendingOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuspendingOperationVtbl {
         unsafe extern "system" fn GetDeferral<Impl: ISuspendingOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -3048,6 +3291,9 @@ impl ISuspendingOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuspendingOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>, Deadline::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISuspendingOperation>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>, Deadline::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISuspendingOperation as ::windows::core::Interface>::IID
     }
 }

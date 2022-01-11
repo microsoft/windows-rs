@@ -12389,12 +12389,12 @@ pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::windows::core::I
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WebAuthNCancelCurrentOperation(pcancellationid: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         WebAuthNCancelCurrentOperation(::core::mem::transmute(pcancellationid)).ok()
     }

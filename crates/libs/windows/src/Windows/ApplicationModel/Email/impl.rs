@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailAttachmentImpl: Sized {
     fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetData(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailAttachment";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IEmailAttachmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachmentImpl, const OFFSET: isize>() -> IEmailAttachmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailAttachmentVtbl {
         unsafe extern "system" fn FileName<Impl: IEmailAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileName() {
@@ -42,7 +42,10 @@ impl IEmailAttachmentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAttachment>, ::windows::core::GetTrustLevel, FileName::<Impl, OFFSET>, SetFileName::<Impl, OFFSET>, Data::<Impl, OFFSET>, SetData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAttachment>, ::windows::core::GetTrustLevel, FileName::<Impl, IMPL_OFFSET>, SetFileName::<Impl, IMPL_OFFSET>, Data::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailAttachment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -68,7 +71,7 @@ impl ::windows::core::RuntimeName for IEmailAttachment2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailAttachment2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachment2Impl, const OFFSET: isize>() -> IEmailAttachment2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachment2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailAttachment2Vtbl {
         unsafe extern "system" fn Id<Impl: IEmailAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -182,40 +185,43 @@ impl IEmailAttachment2Vtbl {
             (*this).SetMimeType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailAttachment2>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            ContentId::<Impl, OFFSET>,
-            SetContentId::<Impl, OFFSET>,
-            ContentLocation::<Impl, OFFSET>,
-            SetContentLocation::<Impl, OFFSET>,
-            DownloadState::<Impl, OFFSET>,
-            SetDownloadState::<Impl, OFFSET>,
-            EstimatedDownloadSizeInBytes::<Impl, OFFSET>,
-            SetEstimatedDownloadSizeInBytes::<Impl, OFFSET>,
-            IsFromBaseMessage::<Impl, OFFSET>,
-            IsInline::<Impl, OFFSET>,
-            SetIsInline::<Impl, OFFSET>,
-            MimeType::<Impl, OFFSET>,
-            SetMimeType::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            ContentId::<Impl, IMPL_OFFSET>,
+            SetContentId::<Impl, IMPL_OFFSET>,
+            ContentLocation::<Impl, IMPL_OFFSET>,
+            SetContentLocation::<Impl, IMPL_OFFSET>,
+            DownloadState::<Impl, IMPL_OFFSET>,
+            SetDownloadState::<Impl, IMPL_OFFSET>,
+            EstimatedDownloadSizeInBytes::<Impl, IMPL_OFFSET>,
+            SetEstimatedDownloadSizeInBytes::<Impl, IMPL_OFFSET>,
+            IsFromBaseMessage::<Impl, IMPL_OFFSET>,
+            IsInline::<Impl, IMPL_OFFSET>,
+            SetIsInline::<Impl, IMPL_OFFSET>,
+            MimeType::<Impl, IMPL_OFFSET>,
+            SetMimeType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailAttachment2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailAttachmentFactoryImpl: Sized {
     fn Create(&self, filename: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<EmailAttachment>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailAttachmentFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailAttachmentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IEmailAttachmentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachmentFactoryImpl, const OFFSET: isize>() -> IEmailAttachmentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachmentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailAttachmentFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IEmailAttachmentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&filename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)) {
@@ -227,20 +233,23 @@ impl IEmailAttachmentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAttachmentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAttachmentFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailAttachmentFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailAttachmentFactory2Impl: Sized {
     fn Create(&self, filename: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<EmailAttachment>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailAttachmentFactory2 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailAttachmentFactory2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IEmailAttachmentFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachmentFactory2Impl, const OFFSET: isize>() -> IEmailAttachmentFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAttachmentFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailAttachmentFactory2Vtbl {
         unsafe extern "system" fn Create<Impl: IEmailAttachmentFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, mimetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
@@ -256,10 +265,13 @@ impl IEmailAttachmentFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAttachmentFactory2>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAttachmentFactory2>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailAttachmentFactory2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailConversationImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -277,13 +289,13 @@ pub trait IEmailConversationImpl: Sized {
     fn FindMessagesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>>;
     fn FindMessagesWithCountAsync(&self, count: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailConversation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailConversationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailConversationImpl, const OFFSET: isize>() -> IEmailConversationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailConversationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailConversationVtbl {
         unsafe extern "system" fn Id<Impl: IEmailConversationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -450,42 +462,45 @@ impl IEmailConversationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailConversation>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            MailboxId::<Impl, OFFSET>,
-            FlagState::<Impl, OFFSET>,
-            HasAttachment::<Impl, OFFSET>,
-            Importance::<Impl, OFFSET>,
-            LastEmailResponseKind::<Impl, OFFSET>,
-            MessageCount::<Impl, OFFSET>,
-            MostRecentMessageId::<Impl, OFFSET>,
-            MostRecentMessageTime::<Impl, OFFSET>,
-            Preview::<Impl, OFFSET>,
-            LatestSender::<Impl, OFFSET>,
-            Subject::<Impl, OFFSET>,
-            UnreadMessageCount::<Impl, OFFSET>,
-            FindMessagesAsync::<Impl, OFFSET>,
-            FindMessagesWithCountAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            MailboxId::<Impl, IMPL_OFFSET>,
+            FlagState::<Impl, IMPL_OFFSET>,
+            HasAttachment::<Impl, IMPL_OFFSET>,
+            Importance::<Impl, IMPL_OFFSET>,
+            LastEmailResponseKind::<Impl, IMPL_OFFSET>,
+            MessageCount::<Impl, IMPL_OFFSET>,
+            MostRecentMessageId::<Impl, IMPL_OFFSET>,
+            MostRecentMessageTime::<Impl, IMPL_OFFSET>,
+            Preview::<Impl, IMPL_OFFSET>,
+            LatestSender::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            UnreadMessageCount::<Impl, IMPL_OFFSET>,
+            FindMessagesAsync::<Impl, IMPL_OFFSET>,
+            FindMessagesWithCountAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailConversation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailConversationBatchImpl: Sized {
     fn Conversations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmailConversation>>;
     fn Status(&self) -> ::windows::core::Result<EmailBatchStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailConversationBatch";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailConversationBatchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailConversationBatchImpl, const OFFSET: isize>() -> IEmailConversationBatchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailConversationBatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailConversationBatchVtbl {
         unsafe extern "system" fn Conversations<Impl: IEmailConversationBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Conversations() {
@@ -508,20 +523,23 @@ impl IEmailConversationBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailConversationBatch>, ::windows::core::GetTrustLevel, Conversations::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailConversationBatch>, ::windows::core::GetTrustLevel, Conversations::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailConversationBatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailConversationReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversationBatch>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailConversationReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailConversationReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailConversationReaderImpl, const OFFSET: isize>() -> IEmailConversationReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailConversationReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailConversationReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IEmailConversationReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -533,10 +551,13 @@ impl IEmailConversationReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailConversationReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailConversationReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailConversationReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailFolderImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -564,13 +585,13 @@ pub trait IEmailFolderImpl: Sized {
     fn TrySaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn SaveMessageAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailFolder";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailFolderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailFolderImpl, const OFFSET: isize>() -> IEmailFolderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailFolderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailFolderVtbl {
         unsafe extern "system" fn Id<Impl: IEmailFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -819,41 +840,44 @@ impl IEmailFolderVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailFolder>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            MailboxId::<Impl, OFFSET>,
-            ParentFolderId::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            IsSyncEnabled::<Impl, OFFSET>,
-            SetIsSyncEnabled::<Impl, OFFSET>,
-            LastSuccessfulSyncTime::<Impl, OFFSET>,
-            SetLastSuccessfulSyncTime::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            CreateFolderAsync::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            FindChildFoldersAsync::<Impl, OFFSET>,
-            GetConversationReader::<Impl, OFFSET>,
-            GetConversationReaderWithOptions::<Impl, OFFSET>,
-            GetMessageAsync::<Impl, OFFSET>,
-            GetMessageReader::<Impl, OFFSET>,
-            GetMessageReaderWithOptions::<Impl, OFFSET>,
-            GetMessageCountsAsync::<Impl, OFFSET>,
-            TryMoveAsync::<Impl, OFFSET>,
-            TryMoveWithNewNameAsync::<Impl, OFFSET>,
-            TrySaveAsync::<Impl, OFFSET>,
-            SaveMessageAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            MailboxId::<Impl, IMPL_OFFSET>,
+            ParentFolderId::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            IsSyncEnabled::<Impl, IMPL_OFFSET>,
+            SetIsSyncEnabled::<Impl, IMPL_OFFSET>,
+            LastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            SetLastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            CreateFolderAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            FindChildFoldersAsync::<Impl, IMPL_OFFSET>,
+            GetConversationReader::<Impl, IMPL_OFFSET>,
+            GetConversationReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetMessageAsync::<Impl, IMPL_OFFSET>,
+            GetMessageReader::<Impl, IMPL_OFFSET>,
+            GetMessageReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetMessageCountsAsync::<Impl, IMPL_OFFSET>,
+            TryMoveAsync::<Impl, IMPL_OFFSET>,
+            TryMoveWithNewNameAsync::<Impl, IMPL_OFFSET>,
+            TrySaveAsync::<Impl, IMPL_OFFSET>,
+            SaveMessageAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailFolder as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailIrmInfoImpl: Sized {
     fn CanEdit(&self) -> ::windows::core::Result<bool>;
     fn SetCanEdit(&self, value: bool) -> ::windows::core::Result<()>;
@@ -880,13 +904,13 @@ pub trait IEmailIrmInfoImpl: Sized {
     fn Template(&self) -> ::windows::core::Result<EmailIrmTemplate>;
     fn SetTemplate(&self, value: &::core::option::Option<EmailIrmTemplate>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailIrmInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailIrmInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmInfoImpl, const OFFSET: isize>() -> IEmailIrmInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailIrmInfoVtbl {
         unsafe extern "system" fn CanEdit<Impl: IEmailIrmInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanEdit() {
@@ -1068,50 +1092,53 @@ impl IEmailIrmInfoVtbl {
             (*this).SetTemplate(&*(&value as *const <EmailIrmTemplate as ::windows::core::Abi>::Abi as *const <EmailIrmTemplate as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailIrmInfo>,
             ::windows::core::GetTrustLevel,
-            CanEdit::<Impl, OFFSET>,
-            SetCanEdit::<Impl, OFFSET>,
-            CanExtractData::<Impl, OFFSET>,
-            SetCanExtractData::<Impl, OFFSET>,
-            CanForward::<Impl, OFFSET>,
-            SetCanForward::<Impl, OFFSET>,
-            CanModifyRecipientsOnResponse::<Impl, OFFSET>,
-            SetCanModifyRecipientsOnResponse::<Impl, OFFSET>,
-            CanPrintData::<Impl, OFFSET>,
-            SetCanPrintData::<Impl, OFFSET>,
-            CanRemoveIrmOnResponse::<Impl, OFFSET>,
-            SetCanRemoveIrmOnResponse::<Impl, OFFSET>,
-            CanReply::<Impl, OFFSET>,
-            SetCanReply::<Impl, OFFSET>,
-            CanReplyAll::<Impl, OFFSET>,
-            SetCanReplyAll::<Impl, OFFSET>,
-            ExpirationDate::<Impl, OFFSET>,
-            SetExpirationDate::<Impl, OFFSET>,
-            IsIrmOriginator::<Impl, OFFSET>,
-            SetIsIrmOriginator::<Impl, OFFSET>,
-            IsProgramaticAccessAllowed::<Impl, OFFSET>,
-            SetIsProgramaticAccessAllowed::<Impl, OFFSET>,
-            Template::<Impl, OFFSET>,
-            SetTemplate::<Impl, OFFSET>,
+            CanEdit::<Impl, IMPL_OFFSET>,
+            SetCanEdit::<Impl, IMPL_OFFSET>,
+            CanExtractData::<Impl, IMPL_OFFSET>,
+            SetCanExtractData::<Impl, IMPL_OFFSET>,
+            CanForward::<Impl, IMPL_OFFSET>,
+            SetCanForward::<Impl, IMPL_OFFSET>,
+            CanModifyRecipientsOnResponse::<Impl, IMPL_OFFSET>,
+            SetCanModifyRecipientsOnResponse::<Impl, IMPL_OFFSET>,
+            CanPrintData::<Impl, IMPL_OFFSET>,
+            SetCanPrintData::<Impl, IMPL_OFFSET>,
+            CanRemoveIrmOnResponse::<Impl, IMPL_OFFSET>,
+            SetCanRemoveIrmOnResponse::<Impl, IMPL_OFFSET>,
+            CanReply::<Impl, IMPL_OFFSET>,
+            SetCanReply::<Impl, IMPL_OFFSET>,
+            CanReplyAll::<Impl, IMPL_OFFSET>,
+            SetCanReplyAll::<Impl, IMPL_OFFSET>,
+            ExpirationDate::<Impl, IMPL_OFFSET>,
+            SetExpirationDate::<Impl, IMPL_OFFSET>,
+            IsIrmOriginator::<Impl, IMPL_OFFSET>,
+            SetIsIrmOriginator::<Impl, IMPL_OFFSET>,
+            IsProgramaticAccessAllowed::<Impl, IMPL_OFFSET>,
+            SetIsProgramaticAccessAllowed::<Impl, IMPL_OFFSET>,
+            Template::<Impl, IMPL_OFFSET>,
+            SetTemplate::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailIrmInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailIrmInfoFactoryImpl: Sized {
     fn Create(&self, expiration: &super::super::Foundation::DateTime, irmtemplate: &::core::option::Option<EmailIrmTemplate>) -> ::windows::core::Result<EmailIrmInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailIrmInfoFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailIrmInfoFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailIrmInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmInfoFactoryImpl, const OFFSET: isize>() -> IEmailIrmInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailIrmInfoFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IEmailIrmInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expiration: super::super::Foundation::DateTime, irmtemplate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&expiration as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&irmtemplate as *const <EmailIrmTemplate as ::windows::core::Abi>::Abi as *const <EmailIrmTemplate as ::windows::core::DefaultType>::DefaultType)) {
@@ -1123,7 +1150,10 @@ impl IEmailIrmInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailIrmInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailIrmInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailIrmInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1141,7 +1171,7 @@ impl ::windows::core::RuntimeName for IEmailIrmTemplate {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailIrmTemplateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmTemplateImpl, const OFFSET: isize>() -> IEmailIrmTemplateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmTemplateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailIrmTemplateVtbl {
         unsafe extern "system" fn Id<Impl: IEmailIrmTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1187,7 +1217,10 @@ impl IEmailIrmTemplateVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailIrmTemplate>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, Description::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailIrmTemplate>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailIrmTemplate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1200,7 +1233,7 @@ impl ::windows::core::RuntimeName for IEmailIrmTemplateFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailIrmTemplateFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmTemplateFactoryImpl, const OFFSET: isize>() -> IEmailIrmTemplateFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailIrmTemplateFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailIrmTemplateFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IEmailIrmTemplateFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&description as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1212,7 +1245,10 @@ impl IEmailIrmTemplateFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailIrmTemplateFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailIrmTemplateFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailIrmTemplateFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1228,7 +1264,7 @@ impl ::windows::core::RuntimeName for IEmailItemCounts {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailItemCountsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailItemCountsImpl, const OFFSET: isize>() -> IEmailItemCountsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailItemCountsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailItemCountsVtbl {
         unsafe extern "system" fn Flagged<Impl: IEmailItemCountsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Flagged() {
@@ -1273,10 +1309,13 @@ impl IEmailItemCountsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailItemCounts>, ::windows::core::GetTrustLevel, Flagged::<Impl, OFFSET>, Important::<Impl, OFFSET>, Total::<Impl, OFFSET>, Unread::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailItemCounts>, ::windows::core::GetTrustLevel, Flagged::<Impl, IMPL_OFFSET>, Important::<Impl, IMPL_OFFSET>, Total::<Impl, IMPL_OFFSET>, Unread::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailItemCounts as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailboxImpl: Sized {
     fn Capabilities(&self) -> ::windows::core::Result<EmailMailboxCapabilities>;
     fn ChangeTracker(&self) -> ::windows::core::Result<EmailMailboxChangeTracker>;
@@ -1329,13 +1368,13 @@ pub trait IEmailMailboxImpl: Sized {
     fn TrySetAutoReplySettingsAsync(&self, autoreplysettings: &::core::option::Option<EmailMailboxAutoReplySettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryGetAutoReplySettingsAsync(&self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailbox";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMailboxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxImpl, const OFFSET: isize>() -> IEmailMailboxVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxVtbl {
         unsafe extern "system" fn Capabilities<Impl: IEmailMailboxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
@@ -1881,78 +1920,81 @@ impl IEmailMailboxVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMailbox>,
             ::windows::core::GetTrustLevel,
-            Capabilities::<Impl, OFFSET>,
-            ChangeTracker::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            IsOwnedByCurrentApp::<Impl, OFFSET>,
-            IsDataEncryptedUnderLock::<Impl, OFFSET>,
-            MailAddress::<Impl, OFFSET>,
-            SetMailAddress::<Impl, OFFSET>,
-            MailAddressAliases::<Impl, OFFSET>,
-            OtherAppReadAccess::<Impl, OFFSET>,
-            SetOtherAppReadAccess::<Impl, OFFSET>,
-            OtherAppWriteAccess::<Impl, OFFSET>,
-            SetOtherAppWriteAccess::<Impl, OFFSET>,
-            Policies::<Impl, OFFSET>,
-            SourceDisplayName::<Impl, OFFSET>,
-            SyncManager::<Impl, OFFSET>,
-            UserDataAccountId::<Impl, OFFSET>,
-            GetConversationReader::<Impl, OFFSET>,
-            GetConversationReaderWithOptions::<Impl, OFFSET>,
-            GetMessageReader::<Impl, OFFSET>,
-            GetMessageReaderWithOptions::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            GetConversationAsync::<Impl, OFFSET>,
-            GetFolderAsync::<Impl, OFFSET>,
-            GetMessageAsync::<Impl, OFFSET>,
-            GetSpecialFolderAsync::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
-            MarkMessageAsSeenAsync::<Impl, OFFSET>,
-            MarkFolderAsSeenAsync::<Impl, OFFSET>,
-            MarkMessageReadAsync::<Impl, OFFSET>,
-            ChangeMessageFlagStateAsync::<Impl, OFFSET>,
-            TryMoveMessageAsync::<Impl, OFFSET>,
-            TryMoveFolderAsync::<Impl, OFFSET>,
-            TryMoveFolderWithNewNameAsync::<Impl, OFFSET>,
-            DeleteMessageAsync::<Impl, OFFSET>,
-            MarkFolderSyncEnabledAsync::<Impl, OFFSET>,
-            SendMessageAsync::<Impl, OFFSET>,
-            SaveDraftAsync::<Impl, OFFSET>,
-            DownloadMessageAsync::<Impl, OFFSET>,
-            DownloadAttachmentAsync::<Impl, OFFSET>,
-            CreateResponseMessageAsync::<Impl, OFFSET>,
-            TryUpdateMeetingResponseAsync::<Impl, OFFSET>,
-            TryForwardMeetingAsync::<Impl, OFFSET>,
-            TryProposeNewTimeForMeetingAsync::<Impl, OFFSET>,
-            MailboxChanged::<Impl, OFFSET>,
-            RemoveMailboxChanged::<Impl, OFFSET>,
-            SmartSendMessageAsync::<Impl, OFFSET>,
-            TrySetAutoReplySettingsAsync::<Impl, OFFSET>,
-            TryGetAutoReplySettingsAsync::<Impl, OFFSET>,
+            Capabilities::<Impl, IMPL_OFFSET>,
+            ChangeTracker::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            IsOwnedByCurrentApp::<Impl, IMPL_OFFSET>,
+            IsDataEncryptedUnderLock::<Impl, IMPL_OFFSET>,
+            MailAddress::<Impl, IMPL_OFFSET>,
+            SetMailAddress::<Impl, IMPL_OFFSET>,
+            MailAddressAliases::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            OtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            Policies::<Impl, IMPL_OFFSET>,
+            SourceDisplayName::<Impl, IMPL_OFFSET>,
+            SyncManager::<Impl, IMPL_OFFSET>,
+            UserDataAccountId::<Impl, IMPL_OFFSET>,
+            GetConversationReader::<Impl, IMPL_OFFSET>,
+            GetConversationReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetMessageReader::<Impl, IMPL_OFFSET>,
+            GetMessageReaderWithOptions::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetConversationAsync::<Impl, IMPL_OFFSET>,
+            GetFolderAsync::<Impl, IMPL_OFFSET>,
+            GetMessageAsync::<Impl, IMPL_OFFSET>,
+            GetSpecialFolderAsync::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            MarkMessageAsSeenAsync::<Impl, IMPL_OFFSET>,
+            MarkFolderAsSeenAsync::<Impl, IMPL_OFFSET>,
+            MarkMessageReadAsync::<Impl, IMPL_OFFSET>,
+            ChangeMessageFlagStateAsync::<Impl, IMPL_OFFSET>,
+            TryMoveMessageAsync::<Impl, IMPL_OFFSET>,
+            TryMoveFolderAsync::<Impl, IMPL_OFFSET>,
+            TryMoveFolderWithNewNameAsync::<Impl, IMPL_OFFSET>,
+            DeleteMessageAsync::<Impl, IMPL_OFFSET>,
+            MarkFolderSyncEnabledAsync::<Impl, IMPL_OFFSET>,
+            SendMessageAsync::<Impl, IMPL_OFFSET>,
+            SaveDraftAsync::<Impl, IMPL_OFFSET>,
+            DownloadMessageAsync::<Impl, IMPL_OFFSET>,
+            DownloadAttachmentAsync::<Impl, IMPL_OFFSET>,
+            CreateResponseMessageAsync::<Impl, IMPL_OFFSET>,
+            TryUpdateMeetingResponseAsync::<Impl, IMPL_OFFSET>,
+            TryForwardMeetingAsync::<Impl, IMPL_OFFSET>,
+            TryProposeNewTimeForMeetingAsync::<Impl, IMPL_OFFSET>,
+            MailboxChanged::<Impl, IMPL_OFFSET>,
+            RemoveMailboxChanged::<Impl, IMPL_OFFSET>,
+            SmartSendMessageAsync::<Impl, IMPL_OFFSET>,
+            TrySetAutoReplySettingsAsync::<Impl, IMPL_OFFSET>,
+            TryGetAutoReplySettingsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailbox as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailbox2Impl: Sized + IEmailMailboxImpl {
     fn LinkedMailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NetworkId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox2 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailbox2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMailbox2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox2Impl, const OFFSET: isize>() -> IEmailMailbox2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailbox2Vtbl {
         unsafe extern "system" fn LinkedMailboxId<Impl: IEmailMailbox2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkedMailboxId() {
@@ -1986,10 +2028,13 @@ impl IEmailMailbox2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox2>, ::windows::core::GetTrustLevel, LinkedMailboxId::<Impl, OFFSET>, NetworkAccountId::<Impl, OFFSET>, NetworkId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox2>, ::windows::core::GetTrustLevel, LinkedMailboxId::<Impl, IMPL_OFFSET>, NetworkAccountId::<Impl, IMPL_OFFSET>, NetworkId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailbox2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailbox3Impl: Sized + IEmailMailboxImpl + IEmailMailbox2Impl {
     fn ResolveRecipientsAsync(&self, recipients: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>>;
     fn ValidateCertificatesAsync(&self, certificates: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>;
@@ -1997,13 +2042,13 @@ pub trait IEmailMailbox3Impl: Sized + IEmailMailboxImpl + IEmailMailbox2Impl {
     fn TryCreateFolderAsync(&self, parentfolderid: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>>;
     fn TryDeleteFolderAsync(&self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox3 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailbox3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMailbox3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox3Impl, const OFFSET: isize>() -> IEmailMailbox3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailbox3Vtbl {
         unsafe extern "system" fn ResolveRecipientsAsync<Impl: IEmailMailbox3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recipients: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolveRecipientsAsync(&*(&recipients as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
@@ -2059,20 +2104,35 @@ impl IEmailMailbox3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox3>, ::windows::core::GetTrustLevel, ResolveRecipientsAsync::<Impl, OFFSET>, ValidateCertificatesAsync::<Impl, OFFSET>, TryEmptyFolderAsync::<Impl, OFFSET>, TryCreateFolderAsync::<Impl, OFFSET>, TryDeleteFolderAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEmailMailbox3>,
+            ::windows::core::GetTrustLevel,
+            ResolveRecipientsAsync::<Impl, IMPL_OFFSET>,
+            ValidateCertificatesAsync::<Impl, IMPL_OFFSET>,
+            TryEmptyFolderAsync::<Impl, IMPL_OFFSET>,
+            TryCreateFolderAsync::<Impl, IMPL_OFFSET>,
+            TryDeleteFolderAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailbox3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailbox4Impl: Sized {
     fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox4 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailbox4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMailbox4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox4Impl, const OFFSET: isize>() -> IEmailMailbox4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailbox4Vtbl {
         unsafe extern "system" fn RegisterSyncManagerAsync<Impl: IEmailMailbox4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterSyncManagerAsync() {
@@ -2084,7 +2144,10 @@ impl IEmailMailbox4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox4>, ::windows::core::GetTrustLevel, RegisterSyncManagerAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox4>, ::windows::core::GetTrustLevel, RegisterSyncManagerAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailbox4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2097,7 +2160,7 @@ impl ::windows::core::RuntimeName for IEmailMailbox5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailbox5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox5Impl, const OFFSET: isize>() -> IEmailMailbox5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailbox5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailbox5Vtbl {
         unsafe extern "system" fn GetChangeTracker<Impl: IEmailMailbox5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChangeTracker(&*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2109,7 +2172,10 @@ impl IEmailMailbox5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox5>, ::windows::core::GetTrustLevel, GetChangeTracker::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailbox5>, ::windows::core::GetTrustLevel, GetChangeTracker::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailbox5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2123,7 +2189,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxAction {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxActionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxActionImpl, const OFFSET: isize>() -> IEmailMailboxActionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxActionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxActionVtbl {
         unsafe extern "system" fn Kind<Impl: IEmailMailboxActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailMailboxActionKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -2146,7 +2212,10 @@ impl IEmailMailboxActionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxAction>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>, ChangeNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxAction>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>, ChangeNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxAction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2162,7 +2231,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxAutoReply {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxAutoReplyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxAutoReplyImpl, const OFFSET: isize>() -> IEmailMailboxAutoReplyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxAutoReplyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxAutoReplyVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IEmailMailboxAutoReplyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -2193,10 +2262,13 @@ impl IEmailMailboxAutoReplyVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResponse(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxAutoReply>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, OFFSET>, SetIsEnabled::<Impl, OFFSET>, Response::<Impl, OFFSET>, SetResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxAutoReply>, ::windows::core::GetTrustLevel, IsEnabled::<Impl, IMPL_OFFSET>, SetIsEnabled::<Impl, IMPL_OFFSET>, Response::<Impl, IMPL_OFFSET>, SetResponse::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxAutoReply as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxAutoReplySettingsImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -2210,13 +2282,13 @@ pub trait IEmailMailboxAutoReplySettingsImpl: Sized {
     fn KnownExternalReply(&self) -> ::windows::core::Result<EmailMailboxAutoReply>;
     fn UnknownExternalReply(&self) -> ::windows::core::Result<EmailMailboxAutoReply>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMailboxAutoReplySettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxAutoReplySettingsImpl, const OFFSET: isize>() -> IEmailMailboxAutoReplySettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxAutoReplySettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxAutoReplySettingsVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IEmailMailboxAutoReplySettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -2311,24 +2383,27 @@ impl IEmailMailboxAutoReplySettingsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMailboxAutoReplySettings>,
             ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
-            ResponseKind::<Impl, OFFSET>,
-            SetResponseKind::<Impl, OFFSET>,
-            StartTime::<Impl, OFFSET>,
-            SetStartTime::<Impl, OFFSET>,
-            EndTime::<Impl, OFFSET>,
-            SetEndTime::<Impl, OFFSET>,
-            InternalReply::<Impl, OFFSET>,
-            KnownExternalReply::<Impl, OFFSET>,
-            UnknownExternalReply::<Impl, OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            ResponseKind::<Impl, IMPL_OFFSET>,
+            SetResponseKind::<Impl, IMPL_OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
+            EndTime::<Impl, IMPL_OFFSET>,
+            SetEndTime::<Impl, IMPL_OFFSET>,
+            InternalReply::<Impl, IMPL_OFFSET>,
+            KnownExternalReply::<Impl, IMPL_OFFSET>,
+            UnknownExternalReply::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxAutoReplySettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2348,7 +2423,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCapabilitiesImpl, const OFFSET: isize>() -> IEmailMailboxCapabilitiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCapabilitiesVtbl {
         unsafe extern "system" fn CanForwardMeetings<Impl: IEmailMailboxCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanForwardMeetings() {
@@ -2438,21 +2513,24 @@ impl IEmailMailboxCapabilitiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMailboxCapabilities>,
             ::windows::core::GetTrustLevel,
-            CanForwardMeetings::<Impl, OFFSET>,
-            CanGetAndSetExternalAutoReplies::<Impl, OFFSET>,
-            CanGetAndSetInternalAutoReplies::<Impl, OFFSET>,
-            CanUpdateMeetingResponses::<Impl, OFFSET>,
-            CanServerSearchFolders::<Impl, OFFSET>,
-            CanServerSearchMailbox::<Impl, OFFSET>,
-            CanProposeNewTimeForMeetings::<Impl, OFFSET>,
-            CanSmartSend::<Impl, OFFSET>,
+            CanForwardMeetings::<Impl, IMPL_OFFSET>,
+            CanGetAndSetExternalAutoReplies::<Impl, IMPL_OFFSET>,
+            CanGetAndSetInternalAutoReplies::<Impl, IMPL_OFFSET>,
+            CanUpdateMeetingResponses::<Impl, IMPL_OFFSET>,
+            CanServerSearchFolders::<Impl, IMPL_OFFSET>,
+            CanServerSearchMailbox::<Impl, IMPL_OFFSET>,
+            CanProposeNewTimeForMeetings::<Impl, IMPL_OFFSET>,
+            CanSmartSend::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxCapabilities as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2470,7 +2548,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxCapabilities2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCapabilities2Impl, const OFFSET: isize>() -> IEmailMailboxCapabilities2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCapabilities2Vtbl {
         unsafe extern "system" fn CanResolveRecipients<Impl: IEmailMailboxCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanResolveRecipients() {
@@ -2537,7 +2615,23 @@ impl IEmailMailboxCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxCapabilities2>, ::windows::core::GetTrustLevel, CanResolveRecipients::<Impl, OFFSET>, CanValidateCertificates::<Impl, OFFSET>, CanEmptyFolder::<Impl, OFFSET>, CanCreateFolder::<Impl, OFFSET>, CanDeleteFolder::<Impl, OFFSET>, CanMoveFolder::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEmailMailboxCapabilities2>,
+            ::windows::core::GetTrustLevel,
+            CanResolveRecipients::<Impl, IMPL_OFFSET>,
+            CanValidateCertificates::<Impl, IMPL_OFFSET>,
+            CanEmptyFolder::<Impl, IMPL_OFFSET>,
+            CanCreateFolder::<Impl, IMPL_OFFSET>,
+            CanDeleteFolder::<Impl, IMPL_OFFSET>,
+            CanMoveFolder::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxCapabilities2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2563,7 +2657,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxCapabilities3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxCapabilities3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCapabilities3Impl, const OFFSET: isize>() -> IEmailMailboxCapabilities3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCapabilities3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCapabilities3Vtbl {
         unsafe extern "system" fn SetCanForwardMeetings<Impl: IEmailMailboxCapabilities3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanForwardMeetings(value).into()
@@ -2621,43 +2715,46 @@ impl IEmailMailboxCapabilities3Vtbl {
             (*this).SetCanMoveFolder(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMailboxCapabilities3>,
             ::windows::core::GetTrustLevel,
-            SetCanForwardMeetings::<Impl, OFFSET>,
-            SetCanGetAndSetExternalAutoReplies::<Impl, OFFSET>,
-            SetCanGetAndSetInternalAutoReplies::<Impl, OFFSET>,
-            SetCanUpdateMeetingResponses::<Impl, OFFSET>,
-            SetCanServerSearchFolders::<Impl, OFFSET>,
-            SetCanServerSearchMailbox::<Impl, OFFSET>,
-            SetCanProposeNewTimeForMeetings::<Impl, OFFSET>,
-            SetCanSmartSend::<Impl, OFFSET>,
-            SetCanResolveRecipients::<Impl, OFFSET>,
-            SetCanValidateCertificates::<Impl, OFFSET>,
-            SetCanEmptyFolder::<Impl, OFFSET>,
-            SetCanCreateFolder::<Impl, OFFSET>,
-            SetCanDeleteFolder::<Impl, OFFSET>,
-            SetCanMoveFolder::<Impl, OFFSET>,
+            SetCanForwardMeetings::<Impl, IMPL_OFFSET>,
+            SetCanGetAndSetExternalAutoReplies::<Impl, IMPL_OFFSET>,
+            SetCanGetAndSetInternalAutoReplies::<Impl, IMPL_OFFSET>,
+            SetCanUpdateMeetingResponses::<Impl, IMPL_OFFSET>,
+            SetCanServerSearchFolders::<Impl, IMPL_OFFSET>,
+            SetCanServerSearchMailbox::<Impl, IMPL_OFFSET>,
+            SetCanProposeNewTimeForMeetings::<Impl, IMPL_OFFSET>,
+            SetCanSmartSend::<Impl, IMPL_OFFSET>,
+            SetCanResolveRecipients::<Impl, IMPL_OFFSET>,
+            SetCanValidateCertificates::<Impl, IMPL_OFFSET>,
+            SetCanEmptyFolder::<Impl, IMPL_OFFSET>,
+            SetCanCreateFolder::<Impl, IMPL_OFFSET>,
+            SetCanDeleteFolder::<Impl, IMPL_OFFSET>,
+            SetCanMoveFolder::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxCapabilities3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailboxChangeImpl: Sized {
     fn ChangeType(&self) -> ::windows::core::Result<EmailMailboxChangeType>;
     fn MailboxActions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailMailboxAction>>;
     fn Message(&self) -> ::windows::core::Result<EmailMessage>;
     fn Folder(&self) -> ::windows::core::Result<EmailFolder>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxChange";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMailboxChangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangeImpl, const OFFSET: isize>() -> IEmailMailboxChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxChangeVtbl {
         unsafe extern "system" fn ChangeType<Impl: IEmailMailboxChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailMailboxChangeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeType() {
@@ -2702,22 +2799,25 @@ impl IEmailMailboxChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, OFFSET>, MailboxActions::<Impl, OFFSET>, Message::<Impl, OFFSET>, Folder::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>, MailboxActions::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>, Folder::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxChange as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailboxChangeReaderImpl: Sized {
     fn AcceptChanges(&self) -> ::windows::core::Result<()>;
     fn AcceptChangesThrough(&self, lastchangetoacknowledge: &::core::option::Option<EmailMailboxChange>) -> ::windows::core::Result<()>;
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxChangeReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMailboxChangeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangeReaderImpl, const OFFSET: isize>() -> IEmailMailboxChangeReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxChangeReaderVtbl {
         unsafe extern "system" fn AcceptChanges<Impl: IEmailMailboxChangeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptChanges().into()
@@ -2737,7 +2837,10 @@ impl IEmailMailboxChangeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, OFFSET>, AcceptChangesThrough::<Impl, OFFSET>, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, IMPL_OFFSET>, AcceptChangesThrough::<Impl, IMPL_OFFSET>, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxChangeReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2753,7 +2856,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxChangeTracker {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxChangeTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangeTrackerImpl, const OFFSET: isize>() -> IEmailMailboxChangeTrackerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangeTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxChangeTrackerVtbl {
         unsafe extern "system" fn IsTracking<Impl: IEmailMailboxChangeTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTracking() {
@@ -2784,7 +2887,10 @@ impl IEmailMailboxChangeTrackerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangeTracker>, ::windows::core::GetTrustLevel, IsTracking::<Impl, OFFSET>, Enable::<Impl, OFFSET>, GetChangeReader::<Impl, OFFSET>, Reset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangeTracker>, ::windows::core::GetTrustLevel, IsTracking::<Impl, IMPL_OFFSET>, Enable::<Impl, IMPL_OFFSET>, GetChangeReader::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxChangeTracker as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2797,12 +2903,15 @@ impl ::windows::core::RuntimeName for IEmailMailboxChangedDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxChangedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangedDeferralImpl, const OFFSET: isize>() -> IEmailMailboxChangedDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxChangedDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IEmailMailboxChangedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxChangedDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2815,7 +2924,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangedEventArgsImpl, const OFFSET: isize>() -> IEmailMailboxChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -2827,7 +2936,10 @@ impl IEmailMailboxChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2841,7 +2953,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxCreateFolderResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxCreateFolderResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCreateFolderResultImpl, const OFFSET: isize>() -> IEmailMailboxCreateFolderResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCreateFolderResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCreateFolderResultVtbl {
         unsafe extern "system" fn Status<Impl: IEmailMailboxCreateFolderResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailMailboxCreateFolderStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2864,23 +2976,26 @@ impl IEmailMailboxCreateFolderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxCreateFolderResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Folder::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxCreateFolderResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, Folder::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxCreateFolderResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxPoliciesImpl: Sized {
     fn AllowedSmimeEncryptionAlgorithmNegotiation(&self) -> ::windows::core::Result<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation>;
     fn AllowSmimeSoftCertificates(&self) -> ::windows::core::Result<bool>;
     fn RequiredSmimeEncryptionAlgorithm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>;
     fn RequiredSmimeSigningAlgorithm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxPolicies";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMailboxPoliciesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxPoliciesImpl, const OFFSET: isize>() -> IEmailMailboxPoliciesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxPoliciesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxPoliciesVtbl {
         unsafe extern "system" fn AllowedSmimeEncryptionAlgorithmNegotiation<Impl: IEmailMailboxPoliciesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedSmimeEncryptionAlgorithmNegotiation() {
@@ -2925,7 +3040,21 @@ impl IEmailMailboxPoliciesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxPolicies>, ::windows::core::GetTrustLevel, AllowedSmimeEncryptionAlgorithmNegotiation::<Impl, OFFSET>, AllowSmimeSoftCertificates::<Impl, OFFSET>, RequiredSmimeEncryptionAlgorithm::<Impl, OFFSET>, RequiredSmimeSigningAlgorithm::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEmailMailboxPolicies>,
+            ::windows::core::GetTrustLevel,
+            AllowedSmimeEncryptionAlgorithmNegotiation::<Impl, IMPL_OFFSET>,
+            AllowSmimeSoftCertificates::<Impl, IMPL_OFFSET>,
+            RequiredSmimeEncryptionAlgorithm::<Impl, IMPL_OFFSET>,
+            RequiredSmimeSigningAlgorithm::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxPolicies as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2939,7 +3068,7 @@ impl ::windows::core::RuntimeName for IEmailMailboxPolicies2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMailboxPolicies2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxPolicies2Impl, const OFFSET: isize>() -> IEmailMailboxPolicies2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxPolicies2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxPolicies2Vtbl {
         unsafe extern "system" fn MustEncryptSmimeMessages<Impl: IEmailMailboxPolicies2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MustEncryptSmimeMessages() {
@@ -2962,10 +3091,13 @@ impl IEmailMailboxPolicies2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxPolicies2>, ::windows::core::GetTrustLevel, MustEncryptSmimeMessages::<Impl, OFFSET>, MustSignSmimeMessages::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxPolicies2>, ::windows::core::GetTrustLevel, MustEncryptSmimeMessages::<Impl, IMPL_OFFSET>, MustSignSmimeMessages::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxPolicies2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxPolicies3Impl: Sized {
     fn SetAllowedSmimeEncryptionAlgorithmNegotiation(&self, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::core::Result<()>;
     fn SetAllowSmimeSoftCertificates(&self, value: bool) -> ::windows::core::Result<()>;
@@ -2974,13 +3106,13 @@ pub trait IEmailMailboxPolicies3Impl: Sized {
     fn SetMustEncryptSmimeMessages(&self, value: bool) -> ::windows::core::Result<()>;
     fn SetMustSignSmimeMessages(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxPolicies3 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxPolicies3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMailboxPolicies3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxPolicies3Impl, const OFFSET: isize>() -> IEmailMailboxPolicies3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxPolicies3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxPolicies3Vtbl {
         unsafe extern "system" fn SetAllowedSmimeEncryptionAlgorithmNegotiation<Impl: IEmailMailboxPolicies3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowedSmimeEncryptionAlgorithmNegotiation(value).into()
@@ -3006,22 +3138,25 @@ impl IEmailMailboxPolicies3Vtbl {
             (*this).SetMustSignSmimeMessages(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMailboxPolicies3>,
             ::windows::core::GetTrustLevel,
-            SetAllowedSmimeEncryptionAlgorithmNegotiation::<Impl, OFFSET>,
-            SetAllowSmimeSoftCertificates::<Impl, OFFSET>,
-            SetRequiredSmimeEncryptionAlgorithm::<Impl, OFFSET>,
-            SetRequiredSmimeSigningAlgorithm::<Impl, OFFSET>,
-            SetMustEncryptSmimeMessages::<Impl, OFFSET>,
-            SetMustSignSmimeMessages::<Impl, OFFSET>,
+            SetAllowedSmimeEncryptionAlgorithmNegotiation::<Impl, IMPL_OFFSET>,
+            SetAllowSmimeSoftCertificates::<Impl, IMPL_OFFSET>,
+            SetRequiredSmimeEncryptionAlgorithm::<Impl, IMPL_OFFSET>,
+            SetRequiredSmimeSigningAlgorithm::<Impl, IMPL_OFFSET>,
+            SetMustEncryptSmimeMessages::<Impl, IMPL_OFFSET>,
+            SetMustSignSmimeMessages::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxPolicies3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxSyncManagerImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<EmailMailboxSyncStatus>;
     fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -3030,13 +3165,13 @@ pub trait IEmailMailboxSyncManagerImpl: Sized {
     fn SyncStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSyncStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxSyncManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMailboxSyncManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManagerImpl, const OFFSET: isize>() -> IEmailMailboxSyncManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSyncManagerVtbl {
         unsafe extern "system" fn Status<Impl: IEmailMailboxSyncManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailMailboxSyncStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -3096,22 +3231,38 @@ impl IEmailMailboxSyncManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSyncStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSyncManager>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, LastSuccessfulSyncTime::<Impl, OFFSET>, LastAttemptedSyncTime::<Impl, OFFSET>, SyncAsync::<Impl, OFFSET>, SyncStatusChanged::<Impl, OFFSET>, RemoveSyncStatusChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEmailMailboxSyncManager>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, IMPL_OFFSET>,
+            LastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            LastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
+            SyncAsync::<Impl, IMPL_OFFSET>,
+            SyncStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSyncStatusChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxSyncManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxSyncManager2Impl: Sized {
     fn SetStatus(&self, value: EmailMailboxSyncStatus) -> ::windows::core::Result<()>;
     fn SetLastSuccessfulSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
     fn SetLastAttemptedSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxSyncManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMailboxSyncManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMailboxSyncManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManager2Impl, const OFFSET: isize>() -> IEmailMailboxSyncManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSyncManager2Vtbl {
         unsafe extern "system" fn SetStatus<Impl: IEmailMailboxSyncManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: EmailMailboxSyncStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStatus(value).into()
@@ -3124,22 +3275,25 @@ impl IEmailMailboxSyncManager2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLastAttemptedSyncTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSyncManager2>, ::windows::core::GetTrustLevel, SetStatus::<Impl, OFFSET>, SetLastSuccessfulSyncTime::<Impl, OFFSET>, SetLastAttemptedSyncTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMailboxSyncManager2>, ::windows::core::GetTrustLevel, SetStatus::<Impl, IMPL_OFFSET>, SetLastSuccessfulSyncTime::<Impl, IMPL_OFFSET>, SetLastAttemptedSyncTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMailboxSyncManager2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IEmailManagerForUserImpl: Sized {
     fn ShowComposeNewEmailAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IEmailManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerForUserImpl, const OFFSET: isize>() -> IEmailManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailManagerForUserVtbl {
         unsafe extern "system" fn ShowComposeNewEmailAsync<Impl: IEmailManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowComposeNewEmailAsync(&*(&message as *const <EmailMessage as ::windows::core::Abi>::Abi as *const <EmailMessage as ::windows::core::DefaultType>::DefaultType)) {
@@ -3173,20 +3327,23 @@ impl IEmailManagerForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerForUser>, ::windows::core::GetTrustLevel, ShowComposeNewEmailAsync::<Impl, OFFSET>, RequestStoreAsync::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerForUser>, ::windows::core::GetTrustLevel, ShowComposeNewEmailAsync::<Impl, IMPL_OFFSET>, RequestStoreAsync::<Impl, IMPL_OFFSET>, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailManagerForUser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailManagerStaticsImpl: Sized {
     fn ShowComposeNewEmailAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerStaticsImpl, const OFFSET: isize>() -> IEmailManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailManagerStaticsVtbl {
         unsafe extern "system" fn ShowComposeNewEmailAsync<Impl: IEmailManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowComposeNewEmailAsync(&*(&message as *const <EmailMessage as ::windows::core::Abi>::Abi as *const <EmailMessage as ::windows::core::DefaultType>::DefaultType)) {
@@ -3198,20 +3355,23 @@ impl IEmailManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerStatics>, ::windows::core::GetTrustLevel, ShowComposeNewEmailAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerStatics>, ::windows::core::GetTrustLevel, ShowComposeNewEmailAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailManagerStatics2Impl: Sized {
     fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerStatics2Impl, const OFFSET: isize>() -> IEmailManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailManagerStatics2Vtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IEmailManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: EmailStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync(accesstype) {
@@ -3223,20 +3383,23 @@ impl IEmailManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerStatics2>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerStatics2>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IEmailManagerStatics3Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<EmailManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailManagerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IEmailManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerStatics3Impl, const OFFSET: isize>() -> IEmailManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailManagerStatics3Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IEmailManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -3248,10 +3411,13 @@ impl IEmailManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerStatics3>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailManagerStatics3>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailManagerStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMeetingInfoImpl: Sized {
     fn AllowNewTimeProposal(&self) -> ::windows::core::Result<bool>;
     fn SetAllowNewTimeProposal(&self, value: bool) -> ::windows::core::Result<()>;
@@ -3280,13 +3446,13 @@ pub trait IEmailMeetingInfoImpl: Sized {
     fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn SetStartTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMeetingInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMeetingInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMeetingInfoImpl, const OFFSET: isize>() -> IEmailMeetingInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMeetingInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMeetingInfoVtbl {
         unsafe extern "system" fn AllowNewTimeProposal<Impl: IEmailMeetingInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowNewTimeProposal() {
@@ -3483,39 +3649,42 @@ impl IEmailMeetingInfoVtbl {
             (*this).SetStartTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMeetingInfo>,
             ::windows::core::GetTrustLevel,
-            AllowNewTimeProposal::<Impl, OFFSET>,
-            SetAllowNewTimeProposal::<Impl, OFFSET>,
-            AppointmentRoamingId::<Impl, OFFSET>,
-            SetAppointmentRoamingId::<Impl, OFFSET>,
-            AppointmentOriginalStartTime::<Impl, OFFSET>,
-            SetAppointmentOriginalStartTime::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            SetDuration::<Impl, OFFSET>,
-            IsAllDay::<Impl, OFFSET>,
-            SetIsAllDay::<Impl, OFFSET>,
-            IsResponseRequested::<Impl, OFFSET>,
-            SetIsResponseRequested::<Impl, OFFSET>,
-            Location::<Impl, OFFSET>,
-            SetLocation::<Impl, OFFSET>,
-            ProposedStartTime::<Impl, OFFSET>,
-            SetProposedStartTime::<Impl, OFFSET>,
-            ProposedDuration::<Impl, OFFSET>,
-            SetProposedDuration::<Impl, OFFSET>,
-            RecurrenceStartTime::<Impl, OFFSET>,
-            SetRecurrenceStartTime::<Impl, OFFSET>,
-            Recurrence::<Impl, OFFSET>,
-            SetRecurrence::<Impl, OFFSET>,
-            RemoteChangeNumber::<Impl, OFFSET>,
-            SetRemoteChangeNumber::<Impl, OFFSET>,
-            StartTime::<Impl, OFFSET>,
-            SetStartTime::<Impl, OFFSET>,
+            AllowNewTimeProposal::<Impl, IMPL_OFFSET>,
+            SetAllowNewTimeProposal::<Impl, IMPL_OFFSET>,
+            AppointmentRoamingId::<Impl, IMPL_OFFSET>,
+            SetAppointmentRoamingId::<Impl, IMPL_OFFSET>,
+            AppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            SetAppointmentOriginalStartTime::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            IsAllDay::<Impl, IMPL_OFFSET>,
+            SetIsAllDay::<Impl, IMPL_OFFSET>,
+            IsResponseRequested::<Impl, IMPL_OFFSET>,
+            SetIsResponseRequested::<Impl, IMPL_OFFSET>,
+            Location::<Impl, IMPL_OFFSET>,
+            SetLocation::<Impl, IMPL_OFFSET>,
+            ProposedStartTime::<Impl, IMPL_OFFSET>,
+            SetProposedStartTime::<Impl, IMPL_OFFSET>,
+            ProposedDuration::<Impl, IMPL_OFFSET>,
+            SetProposedDuration::<Impl, IMPL_OFFSET>,
+            RecurrenceStartTime::<Impl, IMPL_OFFSET>,
+            SetRecurrenceStartTime::<Impl, IMPL_OFFSET>,
+            Recurrence::<Impl, IMPL_OFFSET>,
+            SetRecurrence::<Impl, IMPL_OFFSET>,
+            RemoteChangeNumber::<Impl, IMPL_OFFSET>,
+            SetRemoteChangeNumber::<Impl, IMPL_OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMeetingInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3528,7 +3697,7 @@ impl ::windows::core::RuntimeName for IEmailMeetingInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailMeetingInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMeetingInfo2Impl, const OFFSET: isize>() -> IEmailMeetingInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMeetingInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMeetingInfo2Vtbl {
         unsafe extern "system" fn IsReportedOutOfDateByServer<Impl: IEmailMeetingInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReportedOutOfDateByServer() {
@@ -3540,10 +3709,13 @@ impl IEmailMeetingInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMeetingInfo2>, ::windows::core::GetTrustLevel, IsReportedOutOfDateByServer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMeetingInfo2>, ::windows::core::GetTrustLevel, IsReportedOutOfDateByServer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMeetingInfo2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMessageImpl: Sized {
     fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetSubject(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -3554,13 +3726,13 @@ pub trait IEmailMessageImpl: Sized {
     fn Bcc(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
     fn Attachments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailAttachment>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessageImpl, const OFFSET: isize>() -> IEmailMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMessageVtbl {
         unsafe extern "system" fn Subject<Impl: IEmailMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subject() {
@@ -3635,10 +3807,28 @@ impl IEmailMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessage>, ::windows::core::GetTrustLevel, Subject::<Impl, OFFSET>, SetSubject::<Impl, OFFSET>, Body::<Impl, OFFSET>, SetBody::<Impl, OFFSET>, To::<Impl, OFFSET>, CC::<Impl, OFFSET>, Bcc::<Impl, OFFSET>, Attachments::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IEmailMessage>,
+            ::windows::core::GetTrustLevel,
+            Subject::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            CC::<Impl, IMPL_OFFSET>,
+            Bcc::<Impl, IMPL_OFFSET>,
+            Attachments::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMessage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailMessage2Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -3686,13 +3876,13 @@ pub trait IEmailMessage2Impl: Sized {
     fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetBodyStream(&self, r#type: EmailMessageBodyKind, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage2 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMessage2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IEmailMessage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessage2Impl, const OFFSET: isize>() -> IEmailMessage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMessage2Vtbl {
         unsafe extern "system" fn Id<Impl: IEmailMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -4070,74 +4260,77 @@ impl IEmailMessage2Vtbl {
             (*this).SetBodyStream(r#type, &*(&stream as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailMessage2>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            MailboxId::<Impl, OFFSET>,
-            ConversationId::<Impl, OFFSET>,
-            FolderId::<Impl, OFFSET>,
-            AllowInternetImages::<Impl, OFFSET>,
-            SetAllowInternetImages::<Impl, OFFSET>,
-            ChangeNumber::<Impl, OFFSET>,
-            DownloadState::<Impl, OFFSET>,
-            SetDownloadState::<Impl, OFFSET>,
-            EstimatedDownloadSizeInBytes::<Impl, OFFSET>,
-            SetEstimatedDownloadSizeInBytes::<Impl, OFFSET>,
-            FlagState::<Impl, OFFSET>,
-            SetFlagState::<Impl, OFFSET>,
-            HasPartialBodies::<Impl, OFFSET>,
-            Importance::<Impl, OFFSET>,
-            SetImportance::<Impl, OFFSET>,
-            InResponseToMessageId::<Impl, OFFSET>,
-            IrmInfo::<Impl, OFFSET>,
-            SetIrmInfo::<Impl, OFFSET>,
-            IsDraftMessage::<Impl, OFFSET>,
-            IsRead::<Impl, OFFSET>,
-            SetIsRead::<Impl, OFFSET>,
-            IsSeen::<Impl, OFFSET>,
-            SetIsSeen::<Impl, OFFSET>,
-            IsServerSearchMessage::<Impl, OFFSET>,
-            IsSmartSendable::<Impl, OFFSET>,
-            MessageClass::<Impl, OFFSET>,
-            SetMessageClass::<Impl, OFFSET>,
-            NormalizedSubject::<Impl, OFFSET>,
-            OriginalCodePage::<Impl, OFFSET>,
-            SetOriginalCodePage::<Impl, OFFSET>,
-            Preview::<Impl, OFFSET>,
-            SetPreview::<Impl, OFFSET>,
-            LastResponseKind::<Impl, OFFSET>,
-            SetLastResponseKind::<Impl, OFFSET>,
-            Sender::<Impl, OFFSET>,
-            SetSender::<Impl, OFFSET>,
-            SentTime::<Impl, OFFSET>,
-            SetSentTime::<Impl, OFFSET>,
-            MeetingInfo::<Impl, OFFSET>,
-            SetMeetingInfo::<Impl, OFFSET>,
-            GetBodyStream::<Impl, OFFSET>,
-            SetBodyStream::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            MailboxId::<Impl, IMPL_OFFSET>,
+            ConversationId::<Impl, IMPL_OFFSET>,
+            FolderId::<Impl, IMPL_OFFSET>,
+            AllowInternetImages::<Impl, IMPL_OFFSET>,
+            SetAllowInternetImages::<Impl, IMPL_OFFSET>,
+            ChangeNumber::<Impl, IMPL_OFFSET>,
+            DownloadState::<Impl, IMPL_OFFSET>,
+            SetDownloadState::<Impl, IMPL_OFFSET>,
+            EstimatedDownloadSizeInBytes::<Impl, IMPL_OFFSET>,
+            SetEstimatedDownloadSizeInBytes::<Impl, IMPL_OFFSET>,
+            FlagState::<Impl, IMPL_OFFSET>,
+            SetFlagState::<Impl, IMPL_OFFSET>,
+            HasPartialBodies::<Impl, IMPL_OFFSET>,
+            Importance::<Impl, IMPL_OFFSET>,
+            SetImportance::<Impl, IMPL_OFFSET>,
+            InResponseToMessageId::<Impl, IMPL_OFFSET>,
+            IrmInfo::<Impl, IMPL_OFFSET>,
+            SetIrmInfo::<Impl, IMPL_OFFSET>,
+            IsDraftMessage::<Impl, IMPL_OFFSET>,
+            IsRead::<Impl, IMPL_OFFSET>,
+            SetIsRead::<Impl, IMPL_OFFSET>,
+            IsSeen::<Impl, IMPL_OFFSET>,
+            SetIsSeen::<Impl, IMPL_OFFSET>,
+            IsServerSearchMessage::<Impl, IMPL_OFFSET>,
+            IsSmartSendable::<Impl, IMPL_OFFSET>,
+            MessageClass::<Impl, IMPL_OFFSET>,
+            SetMessageClass::<Impl, IMPL_OFFSET>,
+            NormalizedSubject::<Impl, IMPL_OFFSET>,
+            OriginalCodePage::<Impl, IMPL_OFFSET>,
+            SetOriginalCodePage::<Impl, IMPL_OFFSET>,
+            Preview::<Impl, IMPL_OFFSET>,
+            SetPreview::<Impl, IMPL_OFFSET>,
+            LastResponseKind::<Impl, IMPL_OFFSET>,
+            SetLastResponseKind::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            SetSender::<Impl, IMPL_OFFSET>,
+            SentTime::<Impl, IMPL_OFFSET>,
+            SetSentTime::<Impl, IMPL_OFFSET>,
+            MeetingInfo::<Impl, IMPL_OFFSET>,
+            SetMeetingInfo::<Impl, IMPL_OFFSET>,
+            GetBodyStream::<Impl, IMPL_OFFSET>,
+            SetBodyStream::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMessage2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailMessage3Impl: Sized {
     fn SmimeData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetSmimeData(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
     fn SmimeKind(&self) -> ::windows::core::Result<EmailMessageSmimeKind>;
     fn SetSmimeKind(&self, value: EmailMessageSmimeKind) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage3 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMessage3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IEmailMessage3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessage3Impl, const OFFSET: isize>() -> IEmailMessage3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessage3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMessage3Vtbl {
         unsafe extern "system" fn SmimeData<Impl: IEmailMessage3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmimeData() {
@@ -4168,22 +4361,25 @@ impl IEmailMessage3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSmimeKind(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessage3>, ::windows::core::GetTrustLevel, SmimeData::<Impl, OFFSET>, SetSmimeData::<Impl, OFFSET>, SmimeKind::<Impl, OFFSET>, SetSmimeKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessage3>, ::windows::core::GetTrustLevel, SmimeData::<Impl, IMPL_OFFSET>, SetSmimeData::<Impl, IMPL_OFFSET>, SmimeKind::<Impl, IMPL_OFFSET>, SetSmimeKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMessage3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMessage4Impl: Sized {
     fn ReplyTo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
     fn SentRepresenting(&self) -> ::windows::core::Result<EmailRecipient>;
     fn SetSentRepresenting(&self, value: &::core::option::Option<EmailRecipient>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage4 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMessage4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMessage4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessage4Impl, const OFFSET: isize>() -> IEmailMessage4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessage4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMessage4Vtbl {
         unsafe extern "system" fn ReplyTo<Impl: IEmailMessage4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReplyTo() {
@@ -4210,21 +4406,24 @@ impl IEmailMessage4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSentRepresenting(&*(&value as *const <EmailRecipient as ::windows::core::Abi>::Abi as *const <EmailRecipient as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessage4>, ::windows::core::GetTrustLevel, ReplyTo::<Impl, OFFSET>, SentRepresenting::<Impl, OFFSET>, SetSentRepresenting::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessage4>, ::windows::core::GetTrustLevel, ReplyTo::<Impl, IMPL_OFFSET>, SentRepresenting::<Impl, IMPL_OFFSET>, SetSentRepresenting::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMessage4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMessageBatchImpl: Sized {
     fn Messages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
     fn Status(&self) -> ::windows::core::Result<EmailBatchStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMessageBatch";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailMessageBatchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessageBatchImpl, const OFFSET: isize>() -> IEmailMessageBatchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessageBatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMessageBatchVtbl {
         unsafe extern "system" fn Messages<Impl: IEmailMessageBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Messages() {
@@ -4247,20 +4446,23 @@ impl IEmailMessageBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessageBatch>, ::windows::core::GetTrustLevel, Messages::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessageBatch>, ::windows::core::GetTrustLevel, Messages::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMessageBatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMessageReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessageBatch>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailMessageReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IEmailMessageReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessageReaderImpl, const OFFSET: isize>() -> IEmailMessageReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMessageReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMessageReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IEmailMessageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -4272,10 +4474,13 @@ impl IEmailMessageReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessageReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailMessageReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailMessageReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailQueryOptionsImpl: Sized {
     fn TextSearch(&self) -> ::windows::core::Result<EmailQueryTextSearch>;
     fn SortDirection(&self) -> ::windows::core::Result<EmailQuerySortDirection>;
@@ -4286,13 +4491,13 @@ pub trait IEmailQueryOptionsImpl: Sized {
     fn SetKind(&self, value: EmailQueryKind) -> ::windows::core::Result<()>;
     fn FolderIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailQueryOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailQueryOptionsImpl, const OFFSET: isize>() -> IEmailQueryOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailQueryOptionsVtbl {
         unsafe extern "system" fn TextSearch<Impl: IEmailQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextSearch() {
@@ -4361,21 +4566,24 @@ impl IEmailQueryOptionsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailQueryOptions>,
             ::windows::core::GetTrustLevel,
-            TextSearch::<Impl, OFFSET>,
-            SortDirection::<Impl, OFFSET>,
-            SetSortDirection::<Impl, OFFSET>,
-            SortProperty::<Impl, OFFSET>,
-            SetSortProperty::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            SetKind::<Impl, OFFSET>,
-            FolderIds::<Impl, OFFSET>,
+            TextSearch::<Impl, IMPL_OFFSET>,
+            SortDirection::<Impl, IMPL_OFFSET>,
+            SetSortDirection::<Impl, IMPL_OFFSET>,
+            SortProperty::<Impl, IMPL_OFFSET>,
+            SetSortProperty::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            SetKind::<Impl, IMPL_OFFSET>,
+            FolderIds::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailQueryOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4389,7 +4597,7 @@ impl ::windows::core::RuntimeName for IEmailQueryOptionsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailQueryOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailQueryOptionsFactoryImpl, const OFFSET: isize>() -> IEmailQueryOptionsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailQueryOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailQueryOptionsFactoryVtbl {
         unsafe extern "system" fn CreateWithText<Impl: IEmailQueryOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithText(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4412,7 +4620,10 @@ impl IEmailQueryOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateWithText::<Impl, OFFSET>, CreateWithTextAndFields::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateWithText::<Impl, IMPL_OFFSET>, CreateWithTextAndFields::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailQueryOptionsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4430,7 +4641,7 @@ impl ::windows::core::RuntimeName for IEmailQueryTextSearch {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailQueryTextSearchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailQueryTextSearchImpl, const OFFSET: isize>() -> IEmailQueryTextSearchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailQueryTextSearchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailQueryTextSearchVtbl {
         unsafe extern "system" fn Fields<Impl: IEmailQueryTextSearchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailQuerySearchFields) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Fields() {
@@ -4476,7 +4687,10 @@ impl IEmailQueryTextSearchVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailQueryTextSearch>, ::windows::core::GetTrustLevel, Fields::<Impl, OFFSET>, SetFields::<Impl, OFFSET>, SearchScope::<Impl, OFFSET>, SetSearchScope::<Impl, OFFSET>, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailQueryTextSearch>, ::windows::core::GetTrustLevel, Fields::<Impl, IMPL_OFFSET>, SetFields::<Impl, IMPL_OFFSET>, SearchScope::<Impl, IMPL_OFFSET>, SetSearchScope::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailQueryTextSearch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4492,7 +4706,7 @@ impl ::windows::core::RuntimeName for IEmailRecipient {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailRecipientVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientImpl, const OFFSET: isize>() -> IEmailRecipientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailRecipientVtbl {
         unsafe extern "system" fn Name<Impl: IEmailRecipientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -4523,7 +4737,10 @@ impl IEmailRecipientVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddress(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipient>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Address::<Impl, OFFSET>, SetAddress::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipient>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Address::<Impl, IMPL_OFFSET>, SetAddress::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailRecipient as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4537,7 +4754,7 @@ impl ::windows::core::RuntimeName for IEmailRecipientFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailRecipientFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientFactoryImpl, const OFFSET: isize>() -> IEmailRecipientFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailRecipientFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IEmailRecipientFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&address as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4560,21 +4777,24 @@ impl IEmailRecipientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipientFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipientFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailRecipientFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IEmailRecipientResolutionResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<EmailRecipientResolutionStatus>;
     fn PublicKeys(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailRecipientResolutionResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IEmailRecipientResolutionResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientResolutionResultImpl, const OFFSET: isize>() -> IEmailRecipientResolutionResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientResolutionResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailRecipientResolutionResultVtbl {
         unsafe extern "system" fn Status<Impl: IEmailRecipientResolutionResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EmailRecipientResolutionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -4597,21 +4817,24 @@ impl IEmailRecipientResolutionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipientResolutionResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, PublicKeys::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipientResolutionResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, PublicKeys::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailRecipientResolutionResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IEmailRecipientResolutionResult2Impl: Sized {
     fn SetStatus(&self, value: EmailRecipientResolutionStatus) -> ::windows::core::Result<()>;
     fn SetPublicKeys(&self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailRecipientResolutionResult2 {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailRecipientResolutionResult2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl IEmailRecipientResolutionResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientResolutionResult2Impl, const OFFSET: isize>() -> IEmailRecipientResolutionResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailRecipientResolutionResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailRecipientResolutionResult2Vtbl {
         unsafe extern "system" fn SetStatus<Impl: IEmailRecipientResolutionResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: EmailRecipientResolutionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStatus(value).into()
@@ -4620,10 +4843,13 @@ impl IEmailRecipientResolutionResult2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublicKeys(&*(&value as *const <super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipientResolutionResult2>, ::windows::core::GetTrustLevel, SetStatus::<Impl, OFFSET>, SetPublicKeys::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailRecipientResolutionResult2>, ::windows::core::GetTrustLevel, SetStatus::<Impl, IMPL_OFFSET>, SetPublicKeys::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailRecipientResolutionResult2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailStoreImpl: Sized {
     fn FindMailboxesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>>;
     fn GetConversationReader(&self) -> ::windows::core::Result<EmailConversationReader>;
@@ -4637,13 +4863,13 @@ pub trait IEmailStoreImpl: Sized {
     fn CreateMailboxAsync(&self, accountname: &::windows::core::HSTRING, accountaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
     fn CreateMailboxInAccountAsync(&self, accountname: &::windows::core::HSTRING, accountaddress: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.IEmailStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IEmailStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreImpl, const OFFSET: isize>() -> IEmailStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailStoreVtbl {
         unsafe extern "system" fn FindMailboxesAsync<Impl: IEmailStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindMailboxesAsync() {
@@ -4770,24 +4996,27 @@ impl IEmailStoreVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IEmailStore>,
             ::windows::core::GetTrustLevel,
-            FindMailboxesAsync::<Impl, OFFSET>,
-            GetConversationReader::<Impl, OFFSET>,
-            GetConversationReaderWithOptions::<Impl, OFFSET>,
-            GetMessageReader::<Impl, OFFSET>,
-            GetMessageReaderWithOptions::<Impl, OFFSET>,
-            GetMailboxAsync::<Impl, OFFSET>,
-            GetConversationAsync::<Impl, OFFSET>,
-            GetFolderAsync::<Impl, OFFSET>,
-            GetMessageAsync::<Impl, OFFSET>,
-            CreateMailboxAsync::<Impl, OFFSET>,
-            CreateMailboxInAccountAsync::<Impl, OFFSET>,
+            FindMailboxesAsync::<Impl, IMPL_OFFSET>,
+            GetConversationReader::<Impl, IMPL_OFFSET>,
+            GetConversationReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetMessageReader::<Impl, IMPL_OFFSET>,
+            GetMessageReaderWithOptions::<Impl, IMPL_OFFSET>,
+            GetMailboxAsync::<Impl, IMPL_OFFSET>,
+            GetConversationAsync::<Impl, IMPL_OFFSET>,
+            GetFolderAsync::<Impl, IMPL_OFFSET>,
+            GetMessageAsync::<Impl, IMPL_OFFSET>,
+            CreateMailboxAsync::<Impl, IMPL_OFFSET>,
+            CreateMailboxInAccountAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailStore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4798,7 +5027,10 @@ impl ::windows::core::RuntimeName for IEmailStoreNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailStoreNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IEmailStoreNotificationTriggerDetailsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailStoreNotificationTriggerDetails>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailStoreNotificationTriggerDetailsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailStoreNotificationTriggerDetails>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailStoreNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }

@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for ISyndicationAttribute {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationAttributeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationAttributeImpl, const OFFSET: isize>() -> ISyndicationAttributeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationAttributeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationAttributeVtbl {
         unsafe extern "system" fn Name<Impl: ISyndicationAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -59,7 +59,10 @@ impl ISyndicationAttributeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationAttribute>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Namespace::<Impl, OFFSET>, SetNamespace::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationAttribute>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Namespace::<Impl, IMPL_OFFSET>, SetNamespace::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationAttribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -72,7 +75,7 @@ impl ::windows::core::RuntimeName for ISyndicationAttributeFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationAttributeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationAttributeFactoryImpl, const OFFSET: isize>() -> ISyndicationAttributeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationAttributeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationAttributeFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationAttribute<Impl: ISyndicationAttributeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, attributenamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, attributevalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationAttribute(
@@ -88,10 +91,13 @@ impl ISyndicationAttributeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationAttributeFactory>, ::windows::core::GetTrustLevel, CreateSyndicationAttribute::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationAttributeFactory>, ::windows::core::GetTrustLevel, CreateSyndicationAttribute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationAttributeFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationCategoryImpl: Sized + ISyndicationNodeImpl {
     fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -100,13 +106,13 @@ pub trait ISyndicationCategoryImpl: Sized + ISyndicationNodeImpl {
     fn Term(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTerm(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationCategory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISyndicationCategoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationCategoryImpl, const OFFSET: isize>() -> ISyndicationCategoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationCategoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationCategoryVtbl {
         unsafe extern "system" fn Label<Impl: ISyndicationCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
@@ -152,7 +158,10 @@ impl ISyndicationCategoryVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTerm(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationCategory>, ::windows::core::GetTrustLevel, Label::<Impl, OFFSET>, SetLabel::<Impl, OFFSET>, Scheme::<Impl, OFFSET>, SetScheme::<Impl, OFFSET>, Term::<Impl, OFFSET>, SetTerm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationCategory>, ::windows::core::GetTrustLevel, Label::<Impl, IMPL_OFFSET>, SetLabel::<Impl, IMPL_OFFSET>, Scheme::<Impl, IMPL_OFFSET>, SetScheme::<Impl, IMPL_OFFSET>, Term::<Impl, IMPL_OFFSET>, SetTerm::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationCategory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -166,7 +175,7 @@ impl ::windows::core::RuntimeName for ISyndicationCategoryFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationCategoryFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationCategoryFactoryImpl, const OFFSET: isize>() -> ISyndicationCategoryFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationCategoryFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationCategoryFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationCategory<Impl: ISyndicationCategoryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationCategory(&*(&term as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -189,9 +198,13 @@ impl ISyndicationCategoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationCategoryFactory>, ::windows::core::GetTrustLevel, CreateSyndicationCategory::<Impl, OFFSET>, CreateSyndicationCategoryEx::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationCategoryFactory>, ::windows::core::GetTrustLevel, CreateSyndicationCategory::<Impl, IMPL_OFFSET>, CreateSyndicationCategoryEx::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationCategoryFactory as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 pub trait ISyndicationClientImpl: Sized {
     fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
@@ -206,11 +219,13 @@ pub trait ISyndicationClientImpl: Sized {
     fn SetRequestHeader(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn RetrieveFeedAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for ISyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationClient";
 }
+#[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 impl ISyndicationClientVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClientImpl, const OFFSET: isize>() -> ISyndicationClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationClientVtbl {
         unsafe extern "system" fn ServerCredential<Impl: ISyndicationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCredential() {
@@ -302,38 +317,41 @@ impl ISyndicationClientVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISyndicationClient>,
             ::windows::core::GetTrustLevel,
-            ServerCredential::<Impl, OFFSET>,
-            SetServerCredential::<Impl, OFFSET>,
-            ProxyCredential::<Impl, OFFSET>,
-            SetProxyCredential::<Impl, OFFSET>,
-            MaxResponseBufferSize::<Impl, OFFSET>,
-            SetMaxResponseBufferSize::<Impl, OFFSET>,
-            Timeout::<Impl, OFFSET>,
-            SetTimeout::<Impl, OFFSET>,
-            BypassCacheOnRetrieve::<Impl, OFFSET>,
-            SetBypassCacheOnRetrieve::<Impl, OFFSET>,
-            SetRequestHeader::<Impl, OFFSET>,
-            RetrieveFeedAsync::<Impl, OFFSET>,
+            ServerCredential::<Impl, IMPL_OFFSET>,
+            SetServerCredential::<Impl, IMPL_OFFSET>,
+            ProxyCredential::<Impl, IMPL_OFFSET>,
+            SetProxyCredential::<Impl, IMPL_OFFSET>,
+            MaxResponseBufferSize::<Impl, IMPL_OFFSET>,
+            SetMaxResponseBufferSize::<Impl, IMPL_OFFSET>,
+            Timeout::<Impl, IMPL_OFFSET>,
+            SetTimeout::<Impl, IMPL_OFFSET>,
+            BypassCacheOnRetrieve::<Impl, IMPL_OFFSET>,
+            SetBypassCacheOnRetrieve::<Impl, IMPL_OFFSET>,
+            SetRequestHeader::<Impl, IMPL_OFFSET>,
+            RetrieveFeedAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationClient as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait ISyndicationClientFactoryImpl: Sized {
     fn CreateSyndicationClient(&self, servercredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<SyndicationClient>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationClientFactory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationClientFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ISyndicationClientFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClientFactoryImpl, const OFFSET: isize>() -> ISyndicationClientFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClientFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationClientFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationClient<Impl: ISyndicationClientFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servercredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationClient(&*(&servercredential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)) {
@@ -345,21 +363,24 @@ impl ISyndicationClientFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationClientFactory>, ::windows::core::GetTrustLevel, CreateSyndicationClient::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationClientFactory>, ::windows::core::GetTrustLevel, CreateSyndicationClient::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationClientFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationContentImpl: Sized + ISyndicationNodeImpl + ISyndicationTextImpl {
     fn SourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetSourceUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationContent";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISyndicationContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationContentImpl, const OFFSET: isize>() -> ISyndicationContentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationContentVtbl {
         unsafe extern "system" fn SourceUri<Impl: ISyndicationContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceUri() {
@@ -375,21 +396,24 @@ impl ISyndicationContentVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationContent>, ::windows::core::GetTrustLevel, SourceUri::<Impl, OFFSET>, SetSourceUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationContent>, ::windows::core::GetTrustLevel, SourceUri::<Impl, IMPL_OFFSET>, SetSourceUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationContentFactoryImpl: Sized {
     fn CreateSyndicationContent(&self, text: &::windows::core::HSTRING, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationContent>;
     fn CreateSyndicationContentWithSourceUri(&self, sourceuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationContent>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationContentFactory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationContentFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISyndicationContentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationContentFactoryImpl, const OFFSET: isize>() -> ISyndicationContentFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationContentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationContentFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationContent<Impl: ISyndicationContentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: SyndicationTextType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationContent(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), r#type) {
@@ -412,7 +436,10 @@ impl ISyndicationContentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationContentFactory>, ::windows::core::GetTrustLevel, CreateSyndicationContent::<Impl, OFFSET>, CreateSyndicationContentWithSourceUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationContentFactory>, ::windows::core::GetTrustLevel, CreateSyndicationContent::<Impl, IMPL_OFFSET>, CreateSyndicationContentWithSourceUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationContentFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -425,7 +452,7 @@ impl ::windows::core::RuntimeName for ISyndicationErrorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationErrorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationErrorStaticsImpl, const OFFSET: isize>() -> ISyndicationErrorStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationErrorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationErrorStaticsVtbl {
         unsafe extern "system" fn GetStatus<Impl: ISyndicationErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut SyndicationErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus(hresult) {
@@ -437,10 +464,13 @@ impl ISyndicationErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationErrorStatics>, ::windows::core::GetTrustLevel, GetStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationErrorStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationFeedImpl: Sized + ISyndicationNodeImpl {
     fn Authors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
     fn Categories(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>>;
@@ -471,13 +501,13 @@ pub trait ISyndicationFeedImpl: Sized + ISyndicationNodeImpl {
     fn Load(&self, feed: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn LoadFromXml(&self, feeddocument: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationFeed";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISyndicationFeedVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationFeedImpl, const OFFSET: isize>() -> ISyndicationFeedVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationFeedImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationFeedVtbl {
         unsafe extern "system" fn Authors<Impl: ISyndicationFeedImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Authors() {
@@ -717,54 +747,57 @@ impl ISyndicationFeedVtbl {
             (*this).LoadFromXml(&*(&feeddocument as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISyndicationFeed>,
             ::windows::core::GetTrustLevel,
-            Authors::<Impl, OFFSET>,
-            Categories::<Impl, OFFSET>,
-            Contributors::<Impl, OFFSET>,
-            Generator::<Impl, OFFSET>,
-            SetGenerator::<Impl, OFFSET>,
-            IconUri::<Impl, OFFSET>,
-            SetIconUri::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            SetId::<Impl, OFFSET>,
-            Items::<Impl, OFFSET>,
-            LastUpdatedTime::<Impl, OFFSET>,
-            SetLastUpdatedTime::<Impl, OFFSET>,
-            Links::<Impl, OFFSET>,
-            ImageUri::<Impl, OFFSET>,
-            SetImageUri::<Impl, OFFSET>,
-            Rights::<Impl, OFFSET>,
-            SetRights::<Impl, OFFSET>,
-            Subtitle::<Impl, OFFSET>,
-            SetSubtitle::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            FirstUri::<Impl, OFFSET>,
-            LastUri::<Impl, OFFSET>,
-            NextUri::<Impl, OFFSET>,
-            PreviousUri::<Impl, OFFSET>,
-            SourceFormat::<Impl, OFFSET>,
-            Load::<Impl, OFFSET>,
-            LoadFromXml::<Impl, OFFSET>,
+            Authors::<Impl, IMPL_OFFSET>,
+            Categories::<Impl, IMPL_OFFSET>,
+            Contributors::<Impl, IMPL_OFFSET>,
+            Generator::<Impl, IMPL_OFFSET>,
+            SetGenerator::<Impl, IMPL_OFFSET>,
+            IconUri::<Impl, IMPL_OFFSET>,
+            SetIconUri::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            Items::<Impl, IMPL_OFFSET>,
+            LastUpdatedTime::<Impl, IMPL_OFFSET>,
+            SetLastUpdatedTime::<Impl, IMPL_OFFSET>,
+            Links::<Impl, IMPL_OFFSET>,
+            ImageUri::<Impl, IMPL_OFFSET>,
+            SetImageUri::<Impl, IMPL_OFFSET>,
+            Rights::<Impl, IMPL_OFFSET>,
+            SetRights::<Impl, IMPL_OFFSET>,
+            Subtitle::<Impl, IMPL_OFFSET>,
+            SetSubtitle::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            FirstUri::<Impl, IMPL_OFFSET>,
+            LastUri::<Impl, IMPL_OFFSET>,
+            NextUri::<Impl, IMPL_OFFSET>,
+            PreviousUri::<Impl, IMPL_OFFSET>,
+            SourceFormat::<Impl, IMPL_OFFSET>,
+            Load::<Impl, IMPL_OFFSET>,
+            LoadFromXml::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationFeed as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationFeedFactoryImpl: Sized {
     fn CreateSyndicationFeed(&self, title: &::windows::core::HSTRING, subtitle: &::windows::core::HSTRING, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationFeed>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationFeedFactory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationFeedFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISyndicationFeedFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationFeedFactoryImpl, const OFFSET: isize>() -> ISyndicationFeedFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationFeedFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationFeedFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationFeed<Impl: ISyndicationFeedFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, subtitle: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationFeed(
@@ -780,10 +813,13 @@ impl ISyndicationFeedFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationFeedFactory>, ::windows::core::GetTrustLevel, CreateSyndicationFeed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationFeedFactory>, ::windows::core::GetTrustLevel, CreateSyndicationFeed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationFeedFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationGeneratorImpl: Sized {
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -792,13 +828,13 @@ pub trait ISyndicationGeneratorImpl: Sized {
     fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetVersion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationGenerator";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISyndicationGeneratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationGeneratorImpl, const OFFSET: isize>() -> ISyndicationGeneratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationGeneratorVtbl {
         unsafe extern "system" fn Text<Impl: ISyndicationGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
@@ -844,7 +880,10 @@ impl ISyndicationGeneratorVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVersion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationGenerator>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, Uri::<Impl, OFFSET>, SetUri::<Impl, OFFSET>, Version::<Impl, OFFSET>, SetVersion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationGenerator>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>, Version::<Impl, IMPL_OFFSET>, SetVersion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationGenerator as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -857,7 +896,7 @@ impl ::windows::core::RuntimeName for ISyndicationGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationGeneratorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationGeneratorFactoryImpl, const OFFSET: isize>() -> ISyndicationGeneratorFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationGeneratorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationGeneratorFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationGenerator<Impl: ISyndicationGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationGenerator(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -869,10 +908,13 @@ impl ISyndicationGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationGeneratorFactory>, ::windows::core::GetTrustLevel, CreateSyndicationGenerator::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationGeneratorFactory>, ::windows::core::GetTrustLevel, CreateSyndicationGenerator::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationGeneratorFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationItemImpl: Sized + ISyndicationNodeImpl {
     fn Authors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
     fn Categories(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>>;
@@ -903,13 +945,13 @@ pub trait ISyndicationItemImpl: Sized + ISyndicationNodeImpl {
     fn Load(&self, item: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn LoadFromXml(&self, itemdocument: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISyndicationItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationItemImpl, const OFFSET: isize>() -> ISyndicationItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationItemVtbl {
         unsafe extern "system" fn Authors<Impl: ISyndicationItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Authors() {
@@ -1142,54 +1184,57 @@ impl ISyndicationItemVtbl {
             (*this).LoadFromXml(&*(&itemdocument as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISyndicationItem>,
             ::windows::core::GetTrustLevel,
-            Authors::<Impl, OFFSET>,
-            Categories::<Impl, OFFSET>,
-            Contributors::<Impl, OFFSET>,
-            Content::<Impl, OFFSET>,
-            SetContent::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            SetId::<Impl, OFFSET>,
-            LastUpdatedTime::<Impl, OFFSET>,
-            SetLastUpdatedTime::<Impl, OFFSET>,
-            Links::<Impl, OFFSET>,
-            PublishedDate::<Impl, OFFSET>,
-            SetPublishedDate::<Impl, OFFSET>,
-            Rights::<Impl, OFFSET>,
-            SetRights::<Impl, OFFSET>,
-            Source::<Impl, OFFSET>,
-            SetSource::<Impl, OFFSET>,
-            Summary::<Impl, OFFSET>,
-            SetSummary::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            CommentsUri::<Impl, OFFSET>,
-            SetCommentsUri::<Impl, OFFSET>,
-            EditUri::<Impl, OFFSET>,
-            EditMediaUri::<Impl, OFFSET>,
-            ETag::<Impl, OFFSET>,
-            ItemUri::<Impl, OFFSET>,
-            Load::<Impl, OFFSET>,
-            LoadFromXml::<Impl, OFFSET>,
+            Authors::<Impl, IMPL_OFFSET>,
+            Categories::<Impl, IMPL_OFFSET>,
+            Contributors::<Impl, IMPL_OFFSET>,
+            Content::<Impl, IMPL_OFFSET>,
+            SetContent::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            LastUpdatedTime::<Impl, IMPL_OFFSET>,
+            SetLastUpdatedTime::<Impl, IMPL_OFFSET>,
+            Links::<Impl, IMPL_OFFSET>,
+            PublishedDate::<Impl, IMPL_OFFSET>,
+            SetPublishedDate::<Impl, IMPL_OFFSET>,
+            Rights::<Impl, IMPL_OFFSET>,
+            SetRights::<Impl, IMPL_OFFSET>,
+            Source::<Impl, IMPL_OFFSET>,
+            SetSource::<Impl, IMPL_OFFSET>,
+            Summary::<Impl, IMPL_OFFSET>,
+            SetSummary::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            CommentsUri::<Impl, IMPL_OFFSET>,
+            SetCommentsUri::<Impl, IMPL_OFFSET>,
+            EditUri::<Impl, IMPL_OFFSET>,
+            EditMediaUri::<Impl, IMPL_OFFSET>,
+            ETag::<Impl, IMPL_OFFSET>,
+            ItemUri::<Impl, IMPL_OFFSET>,
+            Load::<Impl, IMPL_OFFSET>,
+            LoadFromXml::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationItem as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationItemFactoryImpl: Sized {
     fn CreateSyndicationItem(&self, title: &::windows::core::HSTRING, content: &::core::option::Option<SyndicationContent>, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationItem>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationItemFactory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationItemFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISyndicationItemFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationItemFactoryImpl, const OFFSET: isize>() -> ISyndicationItemFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationItemFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationItemFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationItem<Impl: ISyndicationItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, content: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationItem(&*(&title as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&content as *const <SyndicationContent as ::windows::core::Abi>::Abi as *const <SyndicationContent as ::windows::core::DefaultType>::DefaultType), &*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -1201,10 +1246,13 @@ impl ISyndicationItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationItemFactory>, ::windows::core::GetTrustLevel, CreateSyndicationItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationItemFactory>, ::windows::core::GetTrustLevel, CreateSyndicationItem::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationItemFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationLinkImpl: Sized + ISyndicationNodeImpl {
     fn Length(&self) -> ::windows::core::Result<u32>;
     fn SetLength(&self, value: u32) -> ::windows::core::Result<()>;
@@ -1219,13 +1267,13 @@ pub trait ISyndicationLinkImpl: Sized + ISyndicationNodeImpl {
     fn ResourceLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetResourceLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationLink";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISyndicationLinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationLinkImpl, const OFFSET: isize>() -> ISyndicationLinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationLinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationLinkVtbl {
         unsafe extern "system" fn Length<Impl: ISyndicationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
@@ -1317,39 +1365,42 @@ impl ISyndicationLinkVtbl {
             (*this).SetResourceLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISyndicationLink>,
             ::windows::core::GetTrustLevel,
-            Length::<Impl, OFFSET>,
-            SetLength::<Impl, OFFSET>,
-            MediaType::<Impl, OFFSET>,
-            SetMediaType::<Impl, OFFSET>,
-            Relationship::<Impl, OFFSET>,
-            SetRelationship::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            Uri::<Impl, OFFSET>,
-            SetUri::<Impl, OFFSET>,
-            ResourceLanguage::<Impl, OFFSET>,
-            SetResourceLanguage::<Impl, OFFSET>,
+            Length::<Impl, IMPL_OFFSET>,
+            SetLength::<Impl, IMPL_OFFSET>,
+            MediaType::<Impl, IMPL_OFFSET>,
+            SetMediaType::<Impl, IMPL_OFFSET>,
+            Relationship::<Impl, IMPL_OFFSET>,
+            SetRelationship::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            Uri::<Impl, IMPL_OFFSET>,
+            SetUri::<Impl, IMPL_OFFSET>,
+            ResourceLanguage::<Impl, IMPL_OFFSET>,
+            SetResourceLanguage::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationLink as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationLinkFactoryImpl: Sized {
     fn CreateSyndicationLink(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationLink>;
     fn CreateSyndicationLinkEx(&self, uri: &::core::option::Option<super::super::Foundation::Uri>, relationship: &::windows::core::HSTRING, title: &::windows::core::HSTRING, mediatype: &::windows::core::HSTRING, length: u32) -> ::windows::core::Result<SyndicationLink>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationLinkFactory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationLinkFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISyndicationLinkFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationLinkFactoryImpl, const OFFSET: isize>() -> ISyndicationLinkFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationLinkFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationLinkFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationLink<Impl: ISyndicationLinkFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationLink(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
@@ -1378,9 +1429,13 @@ impl ISyndicationLinkFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationLinkFactory>, ::windows::core::GetTrustLevel, CreateSyndicationLink::<Impl, OFFSET>, CreateSyndicationLinkEx::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationLinkFactory>, ::windows::core::GetTrustLevel, CreateSyndicationLink::<Impl, IMPL_OFFSET>, CreateSyndicationLinkEx::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationLinkFactory as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISyndicationNodeImpl: Sized {
     fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetNodeName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1396,11 +1451,13 @@ pub trait ISyndicationNodeImpl: Sized {
     fn ElementExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
     fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationNode";
 }
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ISyndicationNodeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNodeImpl, const OFFSET: isize>() -> ISyndicationNodeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNodeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationNodeVtbl {
         unsafe extern "system" fn NodeName<Impl: ISyndicationNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NodeName() {
@@ -1510,26 +1567,29 @@ impl ISyndicationNodeVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISyndicationNode>,
             ::windows::core::GetTrustLevel,
-            NodeName::<Impl, OFFSET>,
-            SetNodeName::<Impl, OFFSET>,
-            NodeNamespace::<Impl, OFFSET>,
-            SetNodeNamespace::<Impl, OFFSET>,
-            NodeValue::<Impl, OFFSET>,
-            SetNodeValue::<Impl, OFFSET>,
-            Language::<Impl, OFFSET>,
-            SetLanguage::<Impl, OFFSET>,
-            BaseUri::<Impl, OFFSET>,
-            SetBaseUri::<Impl, OFFSET>,
-            AttributeExtensions::<Impl, OFFSET>,
-            ElementExtensions::<Impl, OFFSET>,
-            GetXmlDocument::<Impl, OFFSET>,
+            NodeName::<Impl, IMPL_OFFSET>,
+            SetNodeName::<Impl, IMPL_OFFSET>,
+            NodeNamespace::<Impl, IMPL_OFFSET>,
+            SetNodeNamespace::<Impl, IMPL_OFFSET>,
+            NodeValue::<Impl, IMPL_OFFSET>,
+            SetNodeValue::<Impl, IMPL_OFFSET>,
+            Language::<Impl, IMPL_OFFSET>,
+            SetLanguage::<Impl, IMPL_OFFSET>,
+            BaseUri::<Impl, IMPL_OFFSET>,
+            SetBaseUri::<Impl, IMPL_OFFSET>,
+            AttributeExtensions::<Impl, IMPL_OFFSET>,
+            ElementExtensions::<Impl, IMPL_OFFSET>,
+            GetXmlDocument::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1542,7 +1602,7 @@ impl ::windows::core::RuntimeName for ISyndicationNodeFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationNodeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNodeFactoryImpl, const OFFSET: isize>() -> ISyndicationNodeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNodeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationNodeFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationNode<Impl: ISyndicationNodeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nodenamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nodevalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationNode(
@@ -1558,10 +1618,13 @@ impl ISyndicationNodeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationNodeFactory>, ::windows::core::GetTrustLevel, CreateSyndicationNode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationNodeFactory>, ::windows::core::GetTrustLevel, CreateSyndicationNode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationNodeFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationPersonImpl: Sized + ISyndicationNodeImpl {
     fn Email(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetEmail(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1570,13 +1633,13 @@ pub trait ISyndicationPersonImpl: Sized + ISyndicationNodeImpl {
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationPerson";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISyndicationPersonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationPersonImpl, const OFFSET: isize>() -> ISyndicationPersonVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationPersonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationPersonVtbl {
         unsafe extern "system" fn Email<Impl: ISyndicationPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Email() {
@@ -1622,21 +1685,24 @@ impl ISyndicationPersonVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationPerson>, ::windows::core::GetTrustLevel, Email::<Impl, OFFSET>, SetEmail::<Impl, OFFSET>, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Uri::<Impl, OFFSET>, SetUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationPerson>, ::windows::core::GetTrustLevel, Email::<Impl, IMPL_OFFSET>, SetEmail::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationPerson as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationPersonFactoryImpl: Sized {
     fn CreateSyndicationPerson(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationPerson>;
     fn CreateSyndicationPersonEx(&self, name: &::windows::core::HSTRING, email: &::windows::core::HSTRING, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationPerson>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationPersonFactory {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationPersonFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISyndicationPersonFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationPersonFactoryImpl, const OFFSET: isize>() -> ISyndicationPersonFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationPersonFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationPersonFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationPerson<Impl: ISyndicationPersonFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationPerson(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1663,9 +1729,13 @@ impl ISyndicationPersonFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationPersonFactory>, ::windows::core::GetTrustLevel, CreateSyndicationPerson::<Impl, OFFSET>, CreateSyndicationPersonEx::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationPersonFactory>, ::windows::core::GetTrustLevel, CreateSyndicationPerson::<Impl, IMPL_OFFSET>, CreateSyndicationPersonEx::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationPersonFactory as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISyndicationTextImpl: Sized + ISyndicationNodeImpl {
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1674,11 +1744,13 @@ pub trait ISyndicationTextImpl: Sized + ISyndicationNodeImpl {
     fn Xml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetXml(&self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationText";
 }
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ISyndicationTextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationTextImpl, const OFFSET: isize>() -> ISyndicationTextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationTextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationTextVtbl {
         unsafe extern "system" fn Text<Impl: ISyndicationTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
@@ -1724,7 +1796,10 @@ impl ISyndicationTextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetXml(&*(&value as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationText>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, Type::<Impl, OFFSET>, SetType::<Impl, OFFSET>, Xml::<Impl, OFFSET>, SetXml::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationText>, ::windows::core::GetTrustLevel, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Xml::<Impl, IMPL_OFFSET>, SetXml::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationText as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1738,7 +1813,7 @@ impl ::windows::core::RuntimeName for ISyndicationTextFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISyndicationTextFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationTextFactoryImpl, const OFFSET: isize>() -> ISyndicationTextFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationTextFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISyndicationTextFactoryVtbl {
         unsafe extern "system" fn CreateSyndicationText<Impl: ISyndicationTextFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSyndicationText(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1761,6 +1836,9 @@ impl ISyndicationTextFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationTextFactory>, ::windows::core::GetTrustLevel, CreateSyndicationText::<Impl, OFFSET>, CreateSyndicationTextEx::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISyndicationTextFactory>, ::windows::core::GetTrustLevel, CreateSyndicationText::<Impl, IMPL_OFFSET>, CreateSyndicationTextEx::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISyndicationTextFactory as ::windows::core::Interface>::IID
     }
 }

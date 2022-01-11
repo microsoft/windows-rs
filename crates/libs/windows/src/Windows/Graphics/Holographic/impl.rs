@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicCameraImpl: Sized {
     fn RenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn ViewportScaleFactor(&self) -> ::windows::core::Result<f64>;
@@ -8,13 +8,13 @@ pub trait IHolographicCameraImpl: Sized {
     fn SetNearPlaneDistance(&self, value: f64) -> ::windows::core::Result<()>;
     fn SetFarPlaneDistance(&self, value: f64) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicCameraVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraImpl, const OFFSET: isize>() -> IHolographicCameraVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraVtbl {
         unsafe extern "system" fn RenderTargetSize<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderTargetSize() {
@@ -72,35 +72,38 @@ impl IHolographicCameraVtbl {
             (*this).SetFarPlaneDistance(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicCamera>,
             ::windows::core::GetTrustLevel,
-            RenderTargetSize::<Impl, OFFSET>,
-            ViewportScaleFactor::<Impl, OFFSET>,
-            SetViewportScaleFactor::<Impl, OFFSET>,
-            IsStereo::<Impl, OFFSET>,
-            Id::<Impl, OFFSET>,
-            SetNearPlaneDistance::<Impl, OFFSET>,
-            SetFarPlaneDistance::<Impl, OFFSET>,
+            RenderTargetSize::<Impl, IMPL_OFFSET>,
+            ViewportScaleFactor::<Impl, IMPL_OFFSET>,
+            SetViewportScaleFactor::<Impl, IMPL_OFFSET>,
+            IsStereo::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetNearPlaneDistance::<Impl, IMPL_OFFSET>,
+            SetFarPlaneDistance::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCamera as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicCamera2Impl: Sized + IHolographicCameraImpl {
     fn LeftViewportParameters(&self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
     fn RightViewportParameters(&self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
     fn Display(&self) -> ::windows::core::Result<HolographicDisplay>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCamera2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicCamera2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera2Impl, const OFFSET: isize>() -> IHolographicCamera2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera2Vtbl {
         unsafe extern "system" fn LeftViewportParameters<Impl: IHolographicCamera2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftViewportParameters() {
@@ -134,23 +137,26 @@ impl IHolographicCamera2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera2>, ::windows::core::GetTrustLevel, LeftViewportParameters::<Impl, OFFSET>, RightViewportParameters::<Impl, OFFSET>, Display::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera2>, ::windows::core::GetTrustLevel, LeftViewportParameters::<Impl, IMPL_OFFSET>, RightViewportParameters::<Impl, IMPL_OFFSET>, Display::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCamera2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicCamera3Impl: Sized + IHolographicCameraImpl + IHolographicCamera2Impl {
     fn IsPrimaryLayerEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsPrimaryLayerEnabled(&self, value: bool) -> ::windows::core::Result<()>;
     fn MaxQuadLayerCount(&self) -> ::windows::core::Result<u32>;
     fn QuadLayers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicQuadLayer>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCamera3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHolographicCamera3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera3Impl, const OFFSET: isize>() -> IHolographicCamera3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera3Vtbl {
         unsafe extern "system" fn IsPrimaryLayerEnabled<Impl: IHolographicCamera3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrimaryLayerEnabled() {
@@ -188,7 +194,10 @@ impl IHolographicCamera3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera3>, ::windows::core::GetTrustLevel, IsPrimaryLayerEnabled::<Impl, OFFSET>, SetIsPrimaryLayerEnabled::<Impl, OFFSET>, MaxQuadLayerCount::<Impl, OFFSET>, QuadLayers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera3>, ::windows::core::GetTrustLevel, IsPrimaryLayerEnabled::<Impl, IMPL_OFFSET>, SetIsPrimaryLayerEnabled::<Impl, IMPL_OFFSET>, MaxQuadLayerCount::<Impl, IMPL_OFFSET>, QuadLayers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCamera3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -201,7 +210,7 @@ impl ::windows::core::RuntimeName for IHolographicCamera4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicCamera4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera4Impl, const OFFSET: isize>() -> IHolographicCamera4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera4Vtbl {
         unsafe extern "system" fn CanOverrideViewport<Impl: IHolographicCamera4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanOverrideViewport() {
@@ -213,7 +222,10 @@ impl IHolographicCamera4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera4>, ::windows::core::GetTrustLevel, CanOverrideViewport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera4>, ::windows::core::GetTrustLevel, CanOverrideViewport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCamera4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -228,7 +240,7 @@ impl ::windows::core::RuntimeName for IHolographicCamera5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicCamera5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera5Impl, const OFFSET: isize>() -> IHolographicCamera5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera5Vtbl {
         unsafe extern "system" fn IsHardwareContentProtectionSupported<Impl: IHolographicCamera5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHardwareContentProtectionSupported() {
@@ -255,7 +267,10 @@ impl IHolographicCamera5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHardwareContentProtectionEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera5>, ::windows::core::GetTrustLevel, IsHardwareContentProtectionSupported::<Impl, OFFSET>, IsHardwareContentProtectionEnabled::<Impl, OFFSET>, SetIsHardwareContentProtectionEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera5>, ::windows::core::GetTrustLevel, IsHardwareContentProtectionSupported::<Impl, IMPL_OFFSET>, IsHardwareContentProtectionEnabled::<Impl, IMPL_OFFSET>, SetIsHardwareContentProtectionEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCamera5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -268,7 +283,7 @@ impl ::windows::core::RuntimeName for IHolographicCamera6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicCamera6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera6Impl, const OFFSET: isize>() -> IHolographicCamera6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera6Vtbl {
         unsafe extern "system" fn ViewConfiguration<Impl: IHolographicCamera6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewConfiguration() {
@@ -280,10 +295,13 @@ impl IHolographicCamera6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera6>, ::windows::core::GetTrustLevel, ViewConfiguration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCamera6>, ::windows::core::GetTrustLevel, ViewConfiguration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCamera6 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraPoseImpl: Sized {
     fn HolographicCamera(&self) -> ::windows::core::Result<HolographicCamera>;
     fn Viewport(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
@@ -294,13 +312,13 @@ pub trait IHolographicCameraPoseImpl: Sized {
     fn NearPlaneDistance(&self) -> ::windows::core::Result<f64>;
     fn FarPlaneDistance(&self) -> ::windows::core::Result<f64>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraPose";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicCameraPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPoseImpl, const OFFSET: isize>() -> IHolographicCameraPoseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraPoseVtbl {
         unsafe extern "system" fn HolographicCamera<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HolographicCamera() {
@@ -390,36 +408,39 @@ impl IHolographicCameraPoseVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicCameraPose>,
             ::windows::core::GetTrustLevel,
-            HolographicCamera::<Impl, OFFSET>,
-            Viewport::<Impl, OFFSET>,
-            TryGetViewTransform::<Impl, OFFSET>,
-            ProjectionTransform::<Impl, OFFSET>,
-            TryGetCullingFrustum::<Impl, OFFSET>,
-            TryGetVisibleFrustum::<Impl, OFFSET>,
-            NearPlaneDistance::<Impl, OFFSET>,
-            FarPlaneDistance::<Impl, OFFSET>,
+            HolographicCamera::<Impl, IMPL_OFFSET>,
+            Viewport::<Impl, IMPL_OFFSET>,
+            TryGetViewTransform::<Impl, IMPL_OFFSET>,
+            ProjectionTransform::<Impl, IMPL_OFFSET>,
+            TryGetCullingFrustum::<Impl, IMPL_OFFSET>,
+            TryGetVisibleFrustum::<Impl, IMPL_OFFSET>,
+            NearPlaneDistance::<Impl, IMPL_OFFSET>,
+            FarPlaneDistance::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraPose as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraPose2Impl: Sized {
     fn OverrideViewTransform(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, coordinatesystemtoviewtransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
     fn OverrideProjectionTransform(&self, projectiontransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
     fn OverrideViewport(&self, leftviewport: &super::super::Foundation::Rect, rightviewport: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraPose2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraPose2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicCameraPose2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPose2Impl, const OFFSET: isize>() -> IHolographicCameraPose2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPose2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraPose2Vtbl {
         unsafe extern "system" fn OverrideViewTransform<Impl: IHolographicCameraPose2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideViewTransform(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&coordinatesystemtoviewtransform as *const <HolographicStereoTransform as ::windows::core::Abi>::Abi as *const <HolographicStereoTransform as ::windows::core::DefaultType>::DefaultType)).into()
@@ -432,10 +453,13 @@ impl IHolographicCameraPose2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideViewport(&*(&leftviewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), &*(&rightviewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraPose2>, ::windows::core::GetTrustLevel, OverrideViewTransform::<Impl, OFFSET>, OverrideProjectionTransform::<Impl, OFFSET>, OverrideViewport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraPose2>, ::windows::core::GetTrustLevel, OverrideViewTransform::<Impl, IMPL_OFFSET>, OverrideProjectionTransform::<Impl, IMPL_OFFSET>, OverrideViewport::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraPose2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraRenderingParametersImpl: Sized {
     fn SetFocusPoint(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
     fn SetFocusPointWithNormal(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
@@ -443,13 +467,13 @@ pub trait IHolographicCameraRenderingParametersImpl: Sized {
     fn Direct3D11Device(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DDevice>;
     fn Direct3D11BackBuffer(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicCameraRenderingParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>() -> IHolographicCameraRenderingParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParametersVtbl {
         unsafe extern "system" fn SetFocusPoint<Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFocusPoint(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
@@ -497,22 +521,37 @@ impl IHolographicCameraRenderingParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters>, ::windows::core::GetTrustLevel, SetFocusPoint::<Impl, OFFSET>, SetFocusPointWithNormal::<Impl, OFFSET>, SetFocusPointWithNormalLinearVelocity::<Impl, OFFSET>, Direct3D11Device::<Impl, OFFSET>, Direct3D11BackBuffer::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters>,
+            ::windows::core::GetTrustLevel,
+            SetFocusPoint::<Impl, IMPL_OFFSET>,
+            SetFocusPointWithNormal::<Impl, IMPL_OFFSET>,
+            SetFocusPointWithNormalLinearVelocity::<Impl, IMPL_OFFSET>,
+            Direct3D11Device::<Impl, IMPL_OFFSET>,
+            Direct3D11BackBuffer::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraRenderingParameters as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraRenderingParameters2Impl: Sized + IHolographicCameraRenderingParametersImpl {
     fn ReprojectionMode(&self) -> ::windows::core::Result<HolographicReprojectionMode>;
     fn SetReprojectionMode(&self, value: HolographicReprojectionMode) -> ::windows::core::Result<()>;
     fn CommitDirect3D11DepthBuffer(&self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicCameraRenderingParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters2Impl, const OFFSET: isize>() -> IHolographicCameraRenderingParameters2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters2Vtbl {
         unsafe extern "system" fn ReprojectionMode<Impl: IHolographicCameraRenderingParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicReprojectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReprojectionMode() {
@@ -532,21 +571,24 @@ impl IHolographicCameraRenderingParameters2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitDirect3D11DepthBuffer(&*(&value as *const <super::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters2>, ::windows::core::GetTrustLevel, ReprojectionMode::<Impl, OFFSET>, SetReprojectionMode::<Impl, OFFSET>, CommitDirect3D11DepthBuffer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters2>, ::windows::core::GetTrustLevel, ReprojectionMode::<Impl, IMPL_OFFSET>, SetReprojectionMode::<Impl, IMPL_OFFSET>, CommitDirect3D11DepthBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraRenderingParameters2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraRenderingParameters3Impl: Sized + IHolographicCameraRenderingParametersImpl + IHolographicCameraRenderingParameters2Impl {
     fn IsContentProtectionEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicCameraRenderingParameters3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters3Impl, const OFFSET: isize>() -> IHolographicCameraRenderingParameters3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters3Vtbl {
         unsafe extern "system" fn IsContentProtectionEnabled<Impl: IHolographicCameraRenderingParameters3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContentProtectionEnabled() {
@@ -562,7 +604,10 @@ impl IHolographicCameraRenderingParameters3Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsContentProtectionEnabled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters3>, ::windows::core::GetTrustLevel, IsContentProtectionEnabled::<Impl, OFFSET>, SetIsContentProtectionEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters3>, ::windows::core::GetTrustLevel, IsContentProtectionEnabled::<Impl, IMPL_OFFSET>, SetIsContentProtectionEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraRenderingParameters3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -576,7 +621,7 @@ impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicCameraRenderingParameters4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters4Impl, const OFFSET: isize>() -> IHolographicCameraRenderingParameters4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters4Vtbl {
         unsafe extern "system" fn DepthReprojectionMethod<Impl: IHolographicCameraRenderingParameters4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DepthReprojectionMethod() {
@@ -592,21 +637,24 @@ impl IHolographicCameraRenderingParameters4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDepthReprojectionMethod(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters4>, ::windows::core::GetTrustLevel, DepthReprojectionMethod::<Impl, OFFSET>, SetDepthReprojectionMethod::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraRenderingParameters4>, ::windows::core::GetTrustLevel, DepthReprojectionMethod::<Impl, IMPL_OFFSET>, SetDepthReprojectionMethod::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraRenderingParameters4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IHolographicCameraViewportParametersImpl: Sized {
     fn HiddenAreaMesh(&self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
     fn VisibleAreaMesh(&self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraViewportParameters";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl IHolographicCameraViewportParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraViewportParametersImpl, const OFFSET: isize>() -> IHolographicCameraViewportParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraViewportParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraViewportParametersVtbl {
         unsafe extern "system" fn HiddenAreaMesh<Impl: IHolographicCameraViewportParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HiddenAreaMesh() {
@@ -631,10 +679,13 @@ impl IHolographicCameraViewportParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraViewportParameters>, ::windows::core::GetTrustLevel, HiddenAreaMesh::<Impl, OFFSET>, VisibleAreaMesh::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicCameraViewportParameters>, ::windows::core::GetTrustLevel, HiddenAreaMesh::<Impl, IMPL_OFFSET>, VisibleAreaMesh::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicCameraViewportParameters as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicDisplayImpl: Sized {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MaxViewportSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
@@ -643,13 +694,13 @@ pub trait IHolographicDisplayImpl: Sized {
     fn AdapterId(&self) -> ::windows::core::Result<HolographicAdapterId>;
     fn SpatialLocator(&self) -> ::windows::core::Result<super::super::Perception::Spatial::SpatialLocator>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicDisplay";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicDisplayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayImpl, const OFFSET: isize>() -> IHolographicDisplayVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplayVtbl {
         unsafe extern "system" fn DisplayName<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
@@ -716,7 +767,10 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, MaxViewportSize::<Impl, OFFSET>, IsStereo::<Impl, OFFSET>, IsOpaque::<Impl, OFFSET>, AdapterId::<Impl, OFFSET>, SpatialLocator::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay>, ::windows::core::GetTrustLevel, DisplayName::<Impl, IMPL_OFFSET>, MaxViewportSize::<Impl, IMPL_OFFSET>, IsStereo::<Impl, IMPL_OFFSET>, IsOpaque::<Impl, IMPL_OFFSET>, AdapterId::<Impl, IMPL_OFFSET>, SpatialLocator::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicDisplay as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -729,7 +783,7 @@ impl ::windows::core::RuntimeName for IHolographicDisplay2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicDisplay2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay2Impl, const OFFSET: isize>() -> IHolographicDisplay2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay2Vtbl {
         unsafe extern "system" fn RefreshRate<Impl: IHolographicDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RefreshRate() {
@@ -741,7 +795,10 @@ impl IHolographicDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay2>, ::windows::core::GetTrustLevel, RefreshRate::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay2>, ::windows::core::GetTrustLevel, RefreshRate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicDisplay2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -754,7 +811,7 @@ impl ::windows::core::RuntimeName for IHolographicDisplay3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicDisplay3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay3Impl, const OFFSET: isize>() -> IHolographicDisplay3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay3Vtbl {
         unsafe extern "system" fn TryGetViewConfiguration<Impl: IHolographicDisplay3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: HolographicViewConfigurationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetViewConfiguration(kind) {
@@ -766,7 +823,10 @@ impl IHolographicDisplay3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay3>, ::windows::core::GetTrustLevel, TryGetViewConfiguration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplay3>, ::windows::core::GetTrustLevel, TryGetViewConfiguration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicDisplay3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -779,7 +839,7 @@ impl ::windows::core::RuntimeName for IHolographicDisplayStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicDisplayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayStaticsImpl, const OFFSET: isize>() -> IHolographicDisplayStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplayStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IHolographicDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -791,10 +851,13 @@ impl IHolographicDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplayStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicDisplayStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicDisplayStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicFrameImpl: Sized {
     fn AddedCameras(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
     fn RemovedCameras(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
@@ -806,13 +869,13 @@ pub trait IHolographicFrameImpl: Sized {
     fn PresentUsingCurrentPredictionWithBehavior(&self, waitbehavior: HolographicFramePresentWaitBehavior) -> ::windows::core::Result<HolographicFramePresentResult>;
     fn WaitForFrameToFinish(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrame";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHolographicFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameImpl, const OFFSET: isize>() -> IHolographicFrameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameVtbl {
         unsafe extern "system" fn AddedCameras<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddedCameras() {
@@ -899,35 +962,38 @@ impl IHolographicFrameVtbl {
             (*this).WaitForFrameToFinish().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicFrame>,
             ::windows::core::GetTrustLevel,
-            AddedCameras::<Impl, OFFSET>,
-            RemovedCameras::<Impl, OFFSET>,
-            GetRenderingParameters::<Impl, OFFSET>,
-            Duration::<Impl, OFFSET>,
-            CurrentPrediction::<Impl, OFFSET>,
-            UpdateCurrentPrediction::<Impl, OFFSET>,
-            PresentUsingCurrentPrediction::<Impl, OFFSET>,
-            PresentUsingCurrentPredictionWithBehavior::<Impl, OFFSET>,
-            WaitForFrameToFinish::<Impl, OFFSET>,
+            AddedCameras::<Impl, IMPL_OFFSET>,
+            RemovedCameras::<Impl, IMPL_OFFSET>,
+            GetRenderingParameters::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            CurrentPrediction::<Impl, IMPL_OFFSET>,
+            UpdateCurrentPrediction::<Impl, IMPL_OFFSET>,
+            PresentUsingCurrentPrediction::<Impl, IMPL_OFFSET>,
+            PresentUsingCurrentPredictionWithBehavior::<Impl, IMPL_OFFSET>,
+            WaitForFrameToFinish::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFrame as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicFrame2Impl: Sized + IHolographicFrameImpl {
     fn GetQuadLayerUpdateParameters(&self, layer: &::core::option::Option<HolographicQuadLayer>) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrame2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrame2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHolographicFrame2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame2Impl, const OFFSET: isize>() -> IHolographicFrame2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame2Vtbl {
         unsafe extern "system" fn GetQuadLayerUpdateParameters<Impl: IHolographicFrame2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetQuadLayerUpdateParameters(&*(&layer as *const <HolographicQuadLayer as ::windows::core::Abi>::Abi as *const <HolographicQuadLayer as ::windows::core::DefaultType>::DefaultType)) {
@@ -939,7 +1005,10 @@ impl IHolographicFrame2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrame2>, ::windows::core::GetTrustLevel, GetQuadLayerUpdateParameters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrame2>, ::windows::core::GetTrustLevel, GetQuadLayerUpdateParameters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFrame2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -952,7 +1021,7 @@ impl ::windows::core::RuntimeName for IHolographicFrame3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicFrame3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame3Impl, const OFFSET: isize>() -> IHolographicFrame3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame3Vtbl {
         unsafe extern "system" fn Id<Impl: IHolographicFrame3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -964,21 +1033,24 @@ impl IHolographicFrame3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrame3>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrame3>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFrame3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 pub trait IHolographicFramePredictionImpl: Sized {
     fn CameraPoses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCameraPose>>;
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Perception::PerceptionTimestamp>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFramePrediction";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 impl IHolographicFramePredictionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePredictionImpl, const OFFSET: isize>() -> IHolographicFramePredictionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePredictionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePredictionVtbl {
         unsafe extern "system" fn CameraPoses<Impl: IHolographicFramePredictionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraPoses() {
@@ -1001,20 +1073,23 @@ impl IHolographicFramePredictionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePrediction>, ::windows::core::GetTrustLevel, CameraPoses::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePrediction>, ::windows::core::GetTrustLevel, CameraPoses::<Impl, IMPL_OFFSET>, Timestamp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFramePrediction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IHolographicFramePresentationMonitorImpl: Sized + IClosableImpl {
     fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicFramePresentationReport>>;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFramePresentationMonitor";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl IHolographicFramePresentationMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationMonitorImpl, const OFFSET: isize>() -> IHolographicFramePresentationMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePresentationMonitorVtbl {
         unsafe extern "system" fn ReadReports<Impl: IHolographicFramePresentationMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadReports() {
@@ -1026,10 +1101,13 @@ impl IHolographicFramePresentationMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePresentationMonitor>, ::windows::core::GetTrustLevel, ReadReports::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePresentationMonitor>, ::windows::core::GetTrustLevel, ReadReports::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFramePresentationMonitor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IHolographicFramePresentationReportImpl: Sized {
     fn CompositorGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn AppGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1037,13 +1115,13 @@ pub trait IHolographicFramePresentationReportImpl: Sized {
     fn MissedPresentationOpportunityCount(&self) -> ::windows::core::Result<u32>;
     fn PresentationCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFramePresentationReport";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IHolographicFramePresentationReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>() -> IHolographicFramePresentationReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePresentationReportVtbl {
         unsafe extern "system" fn CompositorGpuDuration<Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositorGpuDuration() {
@@ -1099,10 +1177,25 @@ impl IHolographicFramePresentationReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFramePresentationReport>, ::windows::core::GetTrustLevel, CompositorGpuDuration::<Impl, OFFSET>, AppGpuDuration::<Impl, OFFSET>, AppGpuOverrun::<Impl, OFFSET>, MissedPresentationOpportunityCount::<Impl, OFFSET>, PresentationCount::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHolographicFramePresentationReport>,
+            ::windows::core::GetTrustLevel,
+            CompositorGpuDuration::<Impl, IMPL_OFFSET>,
+            AppGpuDuration::<Impl, IMPL_OFFSET>,
+            AppGpuOverrun::<Impl, IMPL_OFFSET>,
+            MissedPresentationOpportunityCount::<Impl, IMPL_OFFSET>,
+            PresentationCount::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFramePresentationReport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicFrameRenderingReportImpl: Sized {
     fn FrameId(&self) -> ::windows::core::Result<HolographicFrameId>;
     fn MissedLatchCount(&self) -> ::windows::core::Result<u32>;
@@ -1110,13 +1203,13 @@ pub trait IHolographicFrameRenderingReportImpl: Sized {
     fn SystemRelativeActualGpuFinishTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SystemRelativeTargetLatchTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrameRenderingReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicFrameRenderingReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>() -> IHolographicFrameRenderingReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameRenderingReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameRenderingReportVtbl {
         unsafe extern "system" fn FrameId<Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameId() {
@@ -1172,20 +1265,35 @@ impl IHolographicFrameRenderingReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrameRenderingReport>, ::windows::core::GetTrustLevel, FrameId::<Impl, OFFSET>, MissedLatchCount::<Impl, OFFSET>, SystemRelativeFrameReadyTime::<Impl, OFFSET>, SystemRelativeActualGpuFinishTime::<Impl, OFFSET>, SystemRelativeTargetLatchTime::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHolographicFrameRenderingReport>,
+            ::windows::core::GetTrustLevel,
+            FrameId::<Impl, IMPL_OFFSET>,
+            MissedLatchCount::<Impl, IMPL_OFFSET>,
+            SystemRelativeFrameReadyTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeActualGpuFinishTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeTargetLatchTime::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFrameRenderingReport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicFrameScanoutMonitorImpl: Sized + IClosableImpl {
     fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicFrameScanoutReport>>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHolographicFrameScanoutMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutMonitorImpl, const OFFSET: isize>() -> IHolographicFrameScanoutMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameScanoutMonitorVtbl {
         unsafe extern "system" fn ReadReports<Impl: IHolographicFrameScanoutMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadReports() {
@@ -1197,10 +1305,13 @@ impl IHolographicFrameScanoutMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrameScanoutMonitor>, ::windows::core::GetTrustLevel, ReadReports::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrameScanoutMonitor>, ::windows::core::GetTrustLevel, ReadReports::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFrameScanoutMonitor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicFrameScanoutReportImpl: Sized {
     fn RenderingReport(&self) -> ::windows::core::Result<HolographicFrameRenderingReport>;
     fn MissedScanoutCount(&self) -> ::windows::core::Result<u32>;
@@ -1208,13 +1319,13 @@ pub trait IHolographicFrameScanoutReportImpl: Sized {
     fn SystemRelativeScanoutStartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SystemRelativePhotonTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrameScanoutReport";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicFrameScanoutReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>() -> IHolographicFrameScanoutReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameScanoutReportVtbl {
         unsafe extern "system" fn RenderingReport<Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderingReport() {
@@ -1270,21 +1381,36 @@ impl IHolographicFrameScanoutReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicFrameScanoutReport>, ::windows::core::GetTrustLevel, RenderingReport::<Impl, OFFSET>, MissedScanoutCount::<Impl, OFFSET>, SystemRelativeLatchTime::<Impl, OFFSET>, SystemRelativeScanoutStartTime::<Impl, OFFSET>, SystemRelativePhotonTime::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHolographicFrameScanoutReport>,
+            ::windows::core::GetTrustLevel,
+            RenderingReport::<Impl, IMPL_OFFSET>,
+            MissedScanoutCount::<Impl, IMPL_OFFSET>,
+            SystemRelativeLatchTime::<Impl, IMPL_OFFSET>,
+            SystemRelativeScanoutStartTime::<Impl, IMPL_OFFSET>,
+            SystemRelativePhotonTime::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicFrameScanoutReport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerImpl: Sized {
     fn PixelFormat(&self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat>;
     fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayer";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl IHolographicQuadLayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerImpl, const OFFSET: isize>() -> IHolographicQuadLayerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerVtbl {
         unsafe extern "system" fn PixelFormat<Impl: IHolographicQuadLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelFormat() {
@@ -1307,21 +1433,24 @@ impl IHolographicQuadLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayer>, ::windows::core::GetTrustLevel, PixelFormat::<Impl, OFFSET>, Size::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayer>, ::windows::core::GetTrustLevel, PixelFormat::<Impl, IMPL_OFFSET>, Size::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicQuadLayer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerFactoryImpl: Sized {
     fn Create(&self, size: &super::super::Foundation::Size) -> ::windows::core::Result<HolographicQuadLayer>;
     fn CreateWithPixelFormat(&self, size: &super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<HolographicQuadLayer>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerFactory {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl IHolographicQuadLayerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerFactoryImpl, const OFFSET: isize>() -> IHolographicQuadLayerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IHolographicQuadLayerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&size as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)) {
@@ -1344,10 +1473,13 @@ impl IHolographicQuadLayerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithPixelFormat::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithPixelFormat::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicQuadLayerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerUpdateParametersImpl: Sized {
     fn AcquireBufferToUpdateContent(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
     fn UpdateViewport(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
@@ -1356,13 +1488,13 @@ pub trait IHolographicQuadLayerUpdateParametersImpl: Sized {
     fn UpdateLocationWithStationaryMode(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
     fn UpdateLocationWithDisplayRelativeMode(&self, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl IHolographicQuadLayerUpdateParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>() -> IHolographicQuadLayerUpdateParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParametersVtbl {
         unsafe extern "system" fn AcquireBufferToUpdateContent<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcquireBufferToUpdateContent() {
@@ -1401,33 +1533,36 @@ impl IHolographicQuadLayerUpdateParametersVtbl {
             (*this).UpdateLocationWithDisplayRelativeMode(&*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&orientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerUpdateParameters>,
             ::windows::core::GetTrustLevel,
-            AcquireBufferToUpdateContent::<Impl, OFFSET>,
-            UpdateViewport::<Impl, OFFSET>,
-            UpdateContentProtectionEnabled::<Impl, OFFSET>,
-            UpdateExtents::<Impl, OFFSET>,
-            UpdateLocationWithStationaryMode::<Impl, OFFSET>,
-            UpdateLocationWithDisplayRelativeMode::<Impl, OFFSET>,
+            AcquireBufferToUpdateContent::<Impl, IMPL_OFFSET>,
+            UpdateViewport::<Impl, IMPL_OFFSET>,
+            UpdateContentProtectionEnabled::<Impl, IMPL_OFFSET>,
+            UpdateExtents::<Impl, IMPL_OFFSET>,
+            UpdateLocationWithStationaryMode::<Impl, IMPL_OFFSET>,
+            UpdateLocationWithDisplayRelativeMode::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicQuadLayerUpdateParameters as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerUpdateParameters2Impl: Sized {
     fn CanAcquireWithHardwareProtection(&self) -> ::windows::core::Result<bool>;
     fn AcquireBufferToUpdateContentWithHardwareProtection(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParameters2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl IHolographicQuadLayerUpdateParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParameters2Impl, const OFFSET: isize>() -> IHolographicQuadLayerUpdateParameters2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParameters2Vtbl {
         unsafe extern "system" fn CanAcquireWithHardwareProtection<Impl: IHolographicQuadLayerUpdateParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanAcquireWithHardwareProtection() {
@@ -1450,10 +1585,13 @@ impl IHolographicQuadLayerUpdateParameters2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerUpdateParameters2>, ::windows::core::GetTrustLevel, CanAcquireWithHardwareProtection::<Impl, OFFSET>, AcquireBufferToUpdateContentWithHardwareProtection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicQuadLayerUpdateParameters2>, ::windows::core::GetTrustLevel, CanAcquireWithHardwareProtection::<Impl, IMPL_OFFSET>, AcquireBufferToUpdateContentWithHardwareProtection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicQuadLayerUpdateParameters2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceImpl: Sized {
     fn PrimaryAdapterId(&self) -> ::windows::core::Result<HolographicAdapterId>;
     fn SetDirect3D11Device(&self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
@@ -1463,13 +1601,13 @@ pub trait IHolographicSpaceImpl: Sized {
     fn RemoveCameraRemoved(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CreateNextFrame(&self) -> ::windows::core::Result<HolographicFrame>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpace";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl IHolographicSpaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceImpl, const OFFSET: isize>() -> IHolographicSpaceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceVtbl {
         unsafe extern "system" fn PrimaryAdapterId<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicAdapterId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryAdapterId() {
@@ -1527,23 +1665,26 @@ impl IHolographicSpaceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicSpace>,
             ::windows::core::GetTrustLevel,
-            PrimaryAdapterId::<Impl, OFFSET>,
-            SetDirect3D11Device::<Impl, OFFSET>,
-            CameraAdded::<Impl, OFFSET>,
-            RemoveCameraAdded::<Impl, OFFSET>,
-            CameraRemoved::<Impl, OFFSET>,
-            RemoveCameraRemoved::<Impl, OFFSET>,
-            CreateNextFrame::<Impl, OFFSET>,
+            PrimaryAdapterId::<Impl, IMPL_OFFSET>,
+            SetDirect3D11Device::<Impl, IMPL_OFFSET>,
+            CameraAdded::<Impl, IMPL_OFFSET>,
+            RemoveCameraAdded::<Impl, IMPL_OFFSET>,
+            CameraRemoved::<Impl, IMPL_OFFSET>,
+            RemoveCameraRemoved::<Impl, IMPL_OFFSET>,
+            CreateNextFrame::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpace as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicSpace2Impl: Sized {
     fn UserPresence(&self) -> ::windows::core::Result<HolographicSpaceUserPresence>;
     fn UserPresenceChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1552,13 +1693,13 @@ pub trait IHolographicSpace2Impl: Sized {
     fn WaitForNextFrameReadyWithHeadStart(&self, requestedheadstartduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn CreateFramePresentationMonitor(&self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFramePresentationMonitor>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpace2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpace2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicSpace2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace2Impl, const OFFSET: isize>() -> IHolographicSpace2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace2Vtbl {
         unsafe extern "system" fn UserPresence<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicSpaceUserPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserPresence() {
@@ -1605,19 +1746,22 @@ impl IHolographicSpace2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicSpace2>,
             ::windows::core::GetTrustLevel,
-            UserPresence::<Impl, OFFSET>,
-            UserPresenceChanged::<Impl, OFFSET>,
-            RemoveUserPresenceChanged::<Impl, OFFSET>,
-            WaitForNextFrameReady::<Impl, OFFSET>,
-            WaitForNextFrameReadyWithHeadStart::<Impl, OFFSET>,
-            CreateFramePresentationMonitor::<Impl, OFFSET>,
+            UserPresence::<Impl, IMPL_OFFSET>,
+            UserPresenceChanged::<Impl, IMPL_OFFSET>,
+            RemoveUserPresenceChanged::<Impl, IMPL_OFFSET>,
+            WaitForNextFrameReady::<Impl, IMPL_OFFSET>,
+            WaitForNextFrameReadyWithHeadStart::<Impl, IMPL_OFFSET>,
+            CreateFramePresentationMonitor::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpace2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1630,7 +1774,7 @@ impl ::windows::core::RuntimeName for IHolographicSpace3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicSpace3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace3Impl, const OFFSET: isize>() -> IHolographicSpace3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace3Vtbl {
         unsafe extern "system" fn CreateFrameScanoutMonitor<Impl: IHolographicSpace3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFrameScanoutMonitor(maxqueuedreports) {
@@ -1642,21 +1786,24 @@ impl IHolographicSpace3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpace3>, ::windows::core::GetTrustLevel, CreateFrameScanoutMonitor::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpace3>, ::windows::core::GetTrustLevel, CreateFrameScanoutMonitor::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpace3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceCameraAddedEventArgsImpl: Sized {
     fn Camera(&self) -> ::windows::core::Result<HolographicCamera>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicSpaceCameraAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraAddedEventArgsImpl, const OFFSET: isize>() -> IHolographicSpaceCameraAddedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceCameraAddedEventArgsVtbl {
         unsafe extern "system" fn Camera<Impl: IHolographicSpaceCameraAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
@@ -1679,7 +1826,10 @@ impl IHolographicSpaceCameraAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceCameraAddedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceCameraAddedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpaceCameraAddedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1692,7 +1842,7 @@ impl ::windows::core::RuntimeName for IHolographicSpaceCameraRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicSpaceCameraRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraRemovedEventArgsImpl, const OFFSET: isize>() -> IHolographicSpaceCameraRemovedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceCameraRemovedEventArgsVtbl {
         unsafe extern "system" fn Camera<Impl: IHolographicSpaceCameraRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
@@ -1704,20 +1854,23 @@ impl IHolographicSpaceCameraRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceCameraRemovedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceCameraRemovedEventArgs>, ::windows::core::GetTrustLevel, Camera::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpaceCameraRemovedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceStaticsImpl: Sized {
     fn CreateForCoreWindow(&self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<HolographicSpace>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpaceStatics {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl IHolographicSpaceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStaticsImpl, const OFFSET: isize>() -> IHolographicSpaceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStaticsVtbl {
         unsafe extern "system" fn CreateForCoreWindow<Impl: IHolographicSpaceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForCoreWindow(&*(&window as *const <super::super::UI::Core::CoreWindow as ::windows::core::Abi>::Abi as *const <super::super::UI::Core::CoreWindow as ::windows::core::DefaultType>::DefaultType)) {
@@ -1729,23 +1882,26 @@ impl IHolographicSpaceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics>, ::windows::core::GetTrustLevel, CreateForCoreWindow::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics>, ::windows::core::GetTrustLevel, CreateForCoreWindow::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpaceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceStatics2Impl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn IsAvailable(&self) -> ::windows::core::Result<bool>;
     fn IsAvailableChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveIsAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpaceStatics2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHolographicSpaceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics2Impl, const OFFSET: isize>() -> IHolographicSpaceStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics2Vtbl {
         unsafe extern "system" fn IsSupported<Impl: IHolographicSpaceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
@@ -1783,7 +1939,10 @@ impl IHolographicSpaceStatics2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, IsAvailable::<Impl, OFFSET>, IsAvailableChanged::<Impl, OFFSET>, RemoveIsAvailableChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics2>, ::windows::core::GetTrustLevel, IsSupported::<Impl, IMPL_OFFSET>, IsAvailable::<Impl, IMPL_OFFSET>, IsAvailableChanged::<Impl, IMPL_OFFSET>, RemoveIsAvailableChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpaceStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1796,7 +1955,7 @@ impl ::windows::core::RuntimeName for IHolographicSpaceStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicSpaceStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics3Impl, const OFFSET: isize>() -> IHolographicSpaceStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics3Vtbl {
         unsafe extern "system" fn IsConfigured<Impl: IHolographicSpaceStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConfigured() {
@@ -1808,10 +1967,13 @@ impl IHolographicSpaceStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics3>, ::windows::core::GetTrustLevel, IsConfigured::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicSpaceStatics3>, ::windows::core::GetTrustLevel, IsConfigured::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicSpaceStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IHolographicViewConfigurationImpl: Sized {
     fn NativeRenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn RenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
@@ -1826,13 +1988,13 @@ pub trait IHolographicViewConfigurationImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicViewConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl IHolographicViewConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>() -> IHolographicViewConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicViewConfigurationVtbl {
         unsafe extern "system" fn NativeRenderTargetSize<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NativeRenderTargetSize() {
@@ -1952,38 +2114,41 @@ impl IHolographicViewConfigurationVtbl {
             (*this).SetIsEnabled(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHolographicViewConfiguration>,
             ::windows::core::GetTrustLevel,
-            NativeRenderTargetSize::<Impl, OFFSET>,
-            RenderTargetSize::<Impl, OFFSET>,
-            RequestRenderTargetSize::<Impl, OFFSET>,
-            SupportedPixelFormats::<Impl, OFFSET>,
-            PixelFormat::<Impl, OFFSET>,
-            SetPixelFormat::<Impl, OFFSET>,
-            IsStereo::<Impl, OFFSET>,
-            RefreshRate::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            Display::<Impl, OFFSET>,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
+            NativeRenderTargetSize::<Impl, IMPL_OFFSET>,
+            RenderTargetSize::<Impl, IMPL_OFFSET>,
+            RequestRenderTargetSize::<Impl, IMPL_OFFSET>,
+            SupportedPixelFormats::<Impl, IMPL_OFFSET>,
+            PixelFormat::<Impl, IMPL_OFFSET>,
+            SetPixelFormat::<Impl, IMPL_OFFSET>,
+            IsStereo::<Impl, IMPL_OFFSET>,
+            RefreshRate::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            Display::<Impl, IMPL_OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicViewConfiguration as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicViewConfiguration2Impl: Sized {
     fn SupportedDepthReprojectionMethods(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicDepthReprojectionMethod>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicViewConfiguration2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicViewConfiguration2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IHolographicViewConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfiguration2Impl, const OFFSET: isize>() -> IHolographicViewConfiguration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicViewConfiguration2Vtbl {
         unsafe extern "system" fn SupportedDepthReprojectionMethods<Impl: IHolographicViewConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedDepthReprojectionMethods() {
@@ -1995,6 +2160,9 @@ impl IHolographicViewConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicViewConfiguration2>, ::windows::core::GetTrustLevel, SupportedDepthReprojectionMethods::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicViewConfiguration2>, ::windows::core::GetTrustLevel, SupportedDepthReprojectionMethods::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHolographicViewConfiguration2 as ::windows::core::Interface>::IID
     }
 }

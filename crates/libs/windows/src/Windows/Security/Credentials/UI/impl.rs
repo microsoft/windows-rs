@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICredentialPickerOptionsImpl: Sized {
     fn SetCaption(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -21,13 +21,13 @@ pub trait ICredentialPickerOptionsImpl: Sized {
     fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows::core::Result<()>;
     fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.ICredentialPickerOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICredentialPickerOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialPickerOptionsImpl, const OFFSET: isize>() -> ICredentialPickerOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialPickerOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICredentialPickerOptionsVtbl {
         unsafe extern "system" fn SetCaption<Impl: ICredentialPickerOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCaption(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -179,36 +179,39 @@ impl ICredentialPickerOptionsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICredentialPickerOptions>,
             ::windows::core::GetTrustLevel,
-            SetCaption::<Impl, OFFSET>,
-            Caption::<Impl, OFFSET>,
-            SetMessage::<Impl, OFFSET>,
-            Message::<Impl, OFFSET>,
-            SetErrorCode::<Impl, OFFSET>,
-            ErrorCode::<Impl, OFFSET>,
-            SetTargetName::<Impl, OFFSET>,
-            TargetName::<Impl, OFFSET>,
-            SetAuthenticationProtocol::<Impl, OFFSET>,
-            AuthenticationProtocol::<Impl, OFFSET>,
-            SetCustomAuthenticationProtocol::<Impl, OFFSET>,
-            CustomAuthenticationProtocol::<Impl, OFFSET>,
-            SetPreviousCredential::<Impl, OFFSET>,
-            PreviousCredential::<Impl, OFFSET>,
-            SetAlwaysDisplayDialog::<Impl, OFFSET>,
-            AlwaysDisplayDialog::<Impl, OFFSET>,
-            SetCallerSavesCredential::<Impl, OFFSET>,
-            CallerSavesCredential::<Impl, OFFSET>,
-            SetCredentialSaveOption::<Impl, OFFSET>,
-            CredentialSaveOption::<Impl, OFFSET>,
+            SetCaption::<Impl, IMPL_OFFSET>,
+            Caption::<Impl, IMPL_OFFSET>,
+            SetMessage::<Impl, IMPL_OFFSET>,
+            Message::<Impl, IMPL_OFFSET>,
+            SetErrorCode::<Impl, IMPL_OFFSET>,
+            ErrorCode::<Impl, IMPL_OFFSET>,
+            SetTargetName::<Impl, IMPL_OFFSET>,
+            TargetName::<Impl, IMPL_OFFSET>,
+            SetAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            AuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            SetCustomAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            CustomAuthenticationProtocol::<Impl, IMPL_OFFSET>,
+            SetPreviousCredential::<Impl, IMPL_OFFSET>,
+            PreviousCredential::<Impl, IMPL_OFFSET>,
+            SetAlwaysDisplayDialog::<Impl, IMPL_OFFSET>,
+            AlwaysDisplayDialog::<Impl, IMPL_OFFSET>,
+            SetCallerSavesCredential::<Impl, IMPL_OFFSET>,
+            CallerSavesCredential::<Impl, IMPL_OFFSET>,
+            SetCredentialSaveOption::<Impl, IMPL_OFFSET>,
+            CredentialSaveOption::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICredentialPickerOptions as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICredentialPickerResultsImpl: Sized {
     fn ErrorCode(&self) -> ::windows::core::Result<u32>;
     fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption>;
@@ -218,13 +221,13 @@ pub trait ICredentialPickerResultsImpl: Sized {
     fn CredentialUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CredentialPassword(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.ICredentialPickerResults";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ICredentialPickerResultsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialPickerResultsImpl, const OFFSET: isize>() -> ICredentialPickerResultsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialPickerResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICredentialPickerResultsVtbl {
         unsafe extern "system" fn ErrorCode<Impl: ICredentialPickerResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
@@ -303,35 +306,38 @@ impl ICredentialPickerResultsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ICredentialPickerResults>,
             ::windows::core::GetTrustLevel,
-            ErrorCode::<Impl, OFFSET>,
-            CredentialSaveOption::<Impl, OFFSET>,
-            CredentialSaved::<Impl, OFFSET>,
-            Credential::<Impl, OFFSET>,
-            CredentialDomainName::<Impl, OFFSET>,
-            CredentialUserName::<Impl, OFFSET>,
-            CredentialPassword::<Impl, OFFSET>,
+            ErrorCode::<Impl, IMPL_OFFSET>,
+            CredentialSaveOption::<Impl, IMPL_OFFSET>,
+            CredentialSaved::<Impl, IMPL_OFFSET>,
+            Credential::<Impl, IMPL_OFFSET>,
+            CredentialDomainName::<Impl, IMPL_OFFSET>,
+            CredentialUserName::<Impl, IMPL_OFFSET>,
+            CredentialPassword::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICredentialPickerResults as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICredentialPickerStaticsImpl: Sized {
     fn PickWithOptionsAsync(&self, options: &::core::option::Option<CredentialPickerOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
     fn PickWithMessageAsync(&self, targetname: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
     fn PickWithCaptionAsync(&self, targetname: &::windows::core::HSTRING, message: &::windows::core::HSTRING, caption: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialPickerStatics {
     const NAME: &'static str = "Windows.Security.Credentials.UI.ICredentialPickerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ICredentialPickerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialPickerStaticsImpl, const OFFSET: isize>() -> ICredentialPickerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialPickerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICredentialPickerStaticsVtbl {
         unsafe extern "system" fn PickWithOptionsAsync<Impl: ICredentialPickerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PickWithOptionsAsync(&*(&options as *const <CredentialPickerOptions as ::windows::core::Abi>::Abi as *const <CredentialPickerOptions as ::windows::core::DefaultType>::DefaultType)) {
@@ -369,21 +375,24 @@ impl ICredentialPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialPickerStatics>, ::windows::core::GetTrustLevel, PickWithOptionsAsync::<Impl, OFFSET>, PickWithMessageAsync::<Impl, OFFSET>, PickWithCaptionAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICredentialPickerStatics>, ::windows::core::GetTrustLevel, PickWithOptionsAsync::<Impl, IMPL_OFFSET>, PickWithMessageAsync::<Impl, IMPL_OFFSET>, PickWithCaptionAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICredentialPickerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserConsentVerifierStaticsImpl: Sized {
     fn CheckAvailabilityAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>>;
     fn RequestVerificationAsync(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserConsentVerifierStatics {
     const NAME: &'static str = "Windows.Security.Credentials.UI.IUserConsentVerifierStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IUserConsentVerifierStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserConsentVerifierStaticsImpl, const OFFSET: isize>() -> IUserConsentVerifierStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserConsentVerifierStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserConsentVerifierStaticsVtbl {
         unsafe extern "system" fn CheckAvailabilityAsync<Impl: IUserConsentVerifierStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckAvailabilityAsync() {
@@ -406,6 +415,9 @@ impl IUserConsentVerifierStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserConsentVerifierStatics>, ::windows::core::GetTrustLevel, CheckAvailabilityAsync::<Impl, OFFSET>, RequestVerificationAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserConsentVerifierStatics>, ::windows::core::GetTrustLevel, CheckAvailabilityAsync::<Impl, IMPL_OFFSET>, RequestVerificationAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserConsentVerifierStatics as ::windows::core::Interface>::IID
     }
 }

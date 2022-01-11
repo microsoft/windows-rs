@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INamedResourceImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn Candidates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
@@ -7,13 +7,13 @@ pub trait INamedResourceImpl: Sized {
     fn ResolveAll(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
     fn ResolveAllForContext(&self, resourcecontext: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INamedResource {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.INamedResource";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl INamedResourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedResourceImpl, const OFFSET: isize>() -> INamedResourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedResourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INamedResourceVtbl {
         unsafe extern "system" fn Uri<Impl: INamedResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -80,10 +80,13 @@ impl INamedResourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INamedResource>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, Candidates::<Impl, OFFSET>, Resolve::<Impl, OFFSET>, ResolveForContext::<Impl, OFFSET>, ResolveAll::<Impl, OFFSET>, ResolveAllForContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INamedResource>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, Candidates::<Impl, IMPL_OFFSET>, Resolve::<Impl, IMPL_OFFSET>, ResolveForContext::<Impl, IMPL_OFFSET>, ResolveAll::<Impl, IMPL_OFFSET>, ResolveAllForContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INamedResource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IResourceCandidateImpl: Sized {
     fn Qualifiers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>;
     fn IsMatch(&self) -> ::windows::core::Result<bool>;
@@ -93,13 +96,13 @@ pub trait IResourceCandidateImpl: Sized {
     fn GetValueAsFileAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>;
     fn GetQualifierValue(&self, qualifiername: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceCandidate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IResourceCandidateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCandidateImpl, const OFFSET: isize>() -> IResourceCandidateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCandidateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceCandidateVtbl {
         unsafe extern "system" fn Qualifiers<Impl: IResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Qualifiers() {
@@ -177,20 +180,37 @@ impl IResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCandidate>, ::windows::core::GetTrustLevel, Qualifiers::<Impl, OFFSET>, IsMatch::<Impl, OFFSET>, IsMatchAsDefault::<Impl, OFFSET>, IsDefault::<Impl, OFFSET>, ValueAsString::<Impl, OFFSET>, GetValueAsFileAsync::<Impl, OFFSET>, GetQualifierValue::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IResourceCandidate>,
+            ::windows::core::GetTrustLevel,
+            Qualifiers::<Impl, IMPL_OFFSET>,
+            IsMatch::<Impl, IMPL_OFFSET>,
+            IsMatchAsDefault::<Impl, IMPL_OFFSET>,
+            IsDefault::<Impl, IMPL_OFFSET>,
+            ValueAsString::<Impl, IMPL_OFFSET>,
+            GetValueAsFileAsync::<Impl, IMPL_OFFSET>,
+            GetQualifierValue::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceCandidate as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IResourceCandidate2Impl: Sized {
     fn GetValueAsStreamAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceCandidate2 {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceCandidate2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IResourceCandidate2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCandidate2Impl, const OFFSET: isize>() -> IResourceCandidate2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCandidate2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceCandidate2Vtbl {
         unsafe extern "system" fn GetValueAsStreamAsync<Impl: IResourceCandidate2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetValueAsStreamAsync() {
@@ -202,7 +222,10 @@ impl IResourceCandidate2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCandidate2>, ::windows::core::GetTrustLevel, GetValueAsStreamAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCandidate2>, ::windows::core::GetTrustLevel, GetValueAsStreamAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceCandidate2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -215,7 +238,7 @@ impl ::windows::core::RuntimeName for IResourceCandidate3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceCandidate3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCandidate3Impl, const OFFSET: isize>() -> IResourceCandidate3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceCandidate3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceCandidate3Vtbl {
         unsafe extern "system" fn Kind<Impl: IResourceCandidate3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ResourceCandidateKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -227,10 +250,13 @@ impl IResourceCandidate3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCandidate3>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceCandidate3>, ::windows::core::GetTrustLevel, Kind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceCandidate3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceContextImpl: Sized {
     fn QualifierValues(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -240,13 +266,13 @@ pub trait IResourceContextImpl: Sized {
     fn Languages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn SetLanguages(&self, languages: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContext {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceContext";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IResourceContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextImpl, const OFFSET: isize>() -> IResourceContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceContextVtbl {
         unsafe extern "system" fn QualifierValues<Impl: IResourceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualifierValues() {
@@ -296,20 +322,37 @@ impl IResourceContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLanguages(&*(&languages as *const <super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContext>, ::windows::core::GetTrustLevel, QualifierValues::<Impl, OFFSET>, Reset::<Impl, OFFSET>, ResetQualifierValues::<Impl, OFFSET>, OverrideToMatch::<Impl, OFFSET>, Clone::<Impl, OFFSET>, Languages::<Impl, OFFSET>, SetLanguages::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IResourceContext>,
+            ::windows::core::GetTrustLevel,
+            QualifierValues::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ResetQualifierValues::<Impl, IMPL_OFFSET>,
+            OverrideToMatch::<Impl, IMPL_OFFSET>,
+            Clone::<Impl, IMPL_OFFSET>,
+            Languages::<Impl, IMPL_OFFSET>,
+            SetLanguages::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceContextStaticsImpl: Sized {
     fn CreateMatchingContext(&self, result: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>) -> ::windows::core::Result<ResourceContext>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContextStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceContextStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IResourceContextStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStaticsImpl, const OFFSET: isize>() -> IResourceContextStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceContextStaticsVtbl {
         unsafe extern "system" fn CreateMatchingContext<Impl: IResourceContextStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMatchingContext(&*(&result as *const <super::super::super::Foundation::Collections::IIterable<ResourceQualifier> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<ResourceQualifier> as ::windows::core::DefaultType>::DefaultType)) {
@@ -321,10 +364,13 @@ impl IResourceContextStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContextStatics>, ::windows::core::GetTrustLevel, CreateMatchingContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContextStatics>, ::windows::core::GetTrustLevel, CreateMatchingContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceContextStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceContextStatics2Impl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<ResourceContext>;
     fn SetGlobalQualifierValue(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -332,13 +378,13 @@ pub trait IResourceContextStatics2Impl: Sized {
     fn ResetGlobalQualifierValuesForSpecifiedQualifiers(&self, qualifiernames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
     fn GetForViewIndependentUse(&self) -> ::windows::core::Result<ResourceContext>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContextStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceContextStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IResourceContextStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStatics2Impl, const OFFSET: isize>() -> IResourceContextStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceContextStatics2Vtbl {
         unsafe extern "system" fn GetForCurrentView<Impl: IResourceContextStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
@@ -374,18 +420,21 @@ impl IResourceContextStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IResourceContextStatics2>,
             ::windows::core::GetTrustLevel,
-            GetForCurrentView::<Impl, OFFSET>,
-            SetGlobalQualifierValue::<Impl, OFFSET>,
-            ResetGlobalQualifierValues::<Impl, OFFSET>,
-            ResetGlobalQualifierValuesForSpecifiedQualifiers::<Impl, OFFSET>,
-            GetForViewIndependentUse::<Impl, OFFSET>,
+            GetForCurrentView::<Impl, IMPL_OFFSET>,
+            SetGlobalQualifierValue::<Impl, IMPL_OFFSET>,
+            ResetGlobalQualifierValues::<Impl, IMPL_OFFSET>,
+            ResetGlobalQualifierValuesForSpecifiedQualifiers::<Impl, IMPL_OFFSET>,
+            GetForViewIndependentUse::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceContextStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -398,25 +447,28 @@ impl ::windows::core::RuntimeName for IResourceContextStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceContextStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStatics3Impl, const OFFSET: isize>() -> IResourceContextStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceContextStatics3Vtbl {
         unsafe extern "system" fn SetGlobalQualifierValueWithPersistence<Impl: IResourceContextStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, persistence: ResourceQualifierPersistence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGlobalQualifierValueWithPersistence(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), persistence).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContextStatics3>, ::windows::core::GetTrustLevel, SetGlobalQualifierValueWithPersistence::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContextStatics3>, ::windows::core::GetTrustLevel, SetGlobalQualifierValueWithPersistence::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceContextStatics3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IResourceContextStatics4Impl: Sized {
     fn GetForUIContext(&self, context: &::core::option::Option<super::super::super::UI::UIContext>) -> ::windows::core::Result<ResourceContext>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContextStatics4 {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceContextStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl IResourceContextStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStatics4Impl, const OFFSET: isize>() -> IResourceContextStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceContextStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceContextStatics4Vtbl {
         unsafe extern "system" fn GetForUIContext<Impl: IResourceContextStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUIContext(&*(&context as *const <super::super::super::UI::UIContext as ::windows::core::Abi>::Abi as *const <super::super::super::UI::UIContext as ::windows::core::DefaultType>::DefaultType)) {
@@ -428,10 +480,13 @@ impl IResourceContextStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContextStatics4>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceContextStatics4>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceContextStatics4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IResourceManagerImpl: Sized {
     fn MainResourceMap(&self) -> ::windows::core::Result<ResourceMap>;
     fn AllResourceMaps(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ResourceMap>>;
@@ -439,13 +494,13 @@ pub trait IResourceManagerImpl: Sized {
     fn LoadPriFiles(&self, files: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>) -> ::windows::core::Result<()>;
     fn UnloadPriFiles(&self, files: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceManager {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IResourceManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerImpl, const OFFSET: isize>() -> IResourceManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerVtbl {
         unsafe extern "system" fn MainResourceMap<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MainResourceMap() {
@@ -487,21 +542,24 @@ impl IResourceManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnloadPriFiles(&*(&files as *const <super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceManager>, ::windows::core::GetTrustLevel, MainResourceMap::<Impl, OFFSET>, AllResourceMaps::<Impl, OFFSET>, DefaultContext::<Impl, OFFSET>, LoadPriFiles::<Impl, OFFSET>, UnloadPriFiles::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceManager>, ::windows::core::GetTrustLevel, MainResourceMap::<Impl, IMPL_OFFSET>, AllResourceMaps::<Impl, IMPL_OFFSET>, DefaultContext::<Impl, IMPL_OFFSET>, LoadPriFiles::<Impl, IMPL_OFFSET>, UnloadPriFiles::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceManager2Impl: Sized {
     fn GetAllNamedResourcesForPackage(&self, packagename: &::windows::core::HSTRING, resourcelayoutinfo: &ResourceLayoutInfo) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<NamedResource>>;
     fn GetAllSubtreesForPackage(&self, packagename: &::windows::core::HSTRING, resourcelayoutinfo: &ResourceLayoutInfo) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceMap>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IResourceManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManager2Impl, const OFFSET: isize>() -> IResourceManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManager2Vtbl {
         unsafe extern "system" fn GetAllNamedResourcesForPackage<Impl: IResourceManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, resourcelayoutinfo: ResourceLayoutInfo, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllNamedResourcesForPackage(&*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&resourcelayoutinfo as *const <ResourceLayoutInfo as ::windows::core::Abi>::Abi as *const <ResourceLayoutInfo as ::windows::core::DefaultType>::DefaultType)) {
@@ -524,7 +582,10 @@ impl IResourceManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceManager2>, ::windows::core::GetTrustLevel, GetAllNamedResourcesForPackage::<Impl, OFFSET>, GetAllSubtreesForPackage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceManager2>, ::windows::core::GetTrustLevel, GetAllNamedResourcesForPackage::<Impl, IMPL_OFFSET>, GetAllSubtreesForPackage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceManager2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -538,7 +599,7 @@ impl ::windows::core::RuntimeName for IResourceManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerStaticsImpl, const OFFSET: isize>() -> IResourceManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerStaticsVtbl {
         unsafe extern "system" fn Current<Impl: IResourceManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
@@ -561,23 +622,26 @@ impl IResourceManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>, IsResourceReference::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, IMPL_OFFSET>, IsResourceReference::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceMapImpl: Sized + IIterableImpl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>> + IMapViewImpl<::windows::core::HSTRING, NamedResource> {
     fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn GetValue(&self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceCandidate>;
     fn GetValueForContext(&self, resource: &::windows::core::HSTRING, context: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<ResourceCandidate>;
     fn GetSubtree(&self, reference: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceMap>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.IResourceMap";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IResourceMapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceMapImpl, const OFFSET: isize>() -> IResourceMapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceMapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceMapVtbl {
         unsafe extern "system" fn Uri<Impl: IResourceMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -622,7 +686,10 @@ impl IResourceMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceMap>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, GetValue::<Impl, OFFSET>, GetValueForContext::<Impl, OFFSET>, GetSubtree::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceMap>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, GetValue::<Impl, IMPL_OFFSET>, GetValueForContext::<Impl, IMPL_OFFSET>, GetSubtree::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceMap as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -639,7 +706,7 @@ impl ::windows::core::RuntimeName for IResourceQualifier {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceQualifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceQualifierImpl, const OFFSET: isize>() -> IResourceQualifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceQualifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceQualifierVtbl {
         unsafe extern "system" fn QualifierName<Impl: IResourceQualifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualifierName() {
@@ -695,6 +762,9 @@ impl IResourceQualifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceQualifier>, ::windows::core::GetTrustLevel, QualifierName::<Impl, OFFSET>, QualifierValue::<Impl, OFFSET>, IsDefault::<Impl, OFFSET>, IsMatch::<Impl, OFFSET>, Score::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceQualifier>, ::windows::core::GetTrustLevel, QualifierName::<Impl, IMPL_OFFSET>, QualifierValue::<Impl, IMPL_OFFSET>, IsDefault::<Impl, IMPL_OFFSET>, IsMatch::<Impl, IMPL_OFFSET>, Score::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IResourceQualifier as ::windows::core::Interface>::IID
     }
 }

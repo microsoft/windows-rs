@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IPhoneNumberFormatter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNumberFormatterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberFormatterImpl, const OFFSET: isize>() -> IPhoneNumberFormatterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberFormatterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNumberFormatterVtbl {
         unsafe extern "system" fn Format<Impl: IPhoneNumberFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, number: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format(&*(&number as *const <PhoneNumberInfo as ::windows::core::Abi>::Abi as *const <PhoneNumberInfo as ::windows::core::DefaultType>::DefaultType)) {
@@ -68,7 +68,22 @@ impl IPhoneNumberFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberFormatter>, ::windows::core::GetTrustLevel, Format::<Impl, OFFSET>, FormatWithOutputFormat::<Impl, OFFSET>, FormatPartialString::<Impl, OFFSET>, FormatString::<Impl, OFFSET>, FormatStringWithLeftToRightMarkers::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhoneNumberFormatter>,
+            ::windows::core::GetTrustLevel,
+            Format::<Impl, IMPL_OFFSET>,
+            FormatWithOutputFormat::<Impl, IMPL_OFFSET>,
+            FormatPartialString::<Impl, IMPL_OFFSET>,
+            FormatString::<Impl, IMPL_OFFSET>,
+            FormatStringWithLeftToRightMarkers::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNumberFormatter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -84,7 +99,7 @@ impl ::windows::core::RuntimeName for IPhoneNumberFormatterStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNumberFormatterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberFormatterStaticsImpl, const OFFSET: isize>() -> IPhoneNumberFormatterStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberFormatterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNumberFormatterStaticsVtbl {
         unsafe extern "system" fn TryCreate<Impl: IPhoneNumberFormatterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TryCreate(&*(&regioncode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&phonenumber)).into()
@@ -122,7 +137,10 @@ impl IPhoneNumberFormatterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberFormatterStatics>, ::windows::core::GetTrustLevel, TryCreate::<Impl, OFFSET>, GetCountryCodeForRegion::<Impl, OFFSET>, GetNationalDirectDialingPrefixForRegion::<Impl, OFFSET>, WrapWithLeftToRightMarkers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberFormatterStatics>, ::windows::core::GetTrustLevel, TryCreate::<Impl, IMPL_OFFSET>, GetCountryCodeForRegion::<Impl, IMPL_OFFSET>, GetNationalDirectDialingPrefixForRegion::<Impl, IMPL_OFFSET>, WrapWithLeftToRightMarkers::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNumberFormatterStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -142,7 +160,7 @@ impl ::windows::core::RuntimeName for IPhoneNumberInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNumberInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberInfoImpl, const OFFSET: isize>() -> IPhoneNumberInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNumberInfoVtbl {
         unsafe extern "system" fn CountryCode<Impl: IPhoneNumberInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CountryCode() {
@@ -232,21 +250,24 @@ impl IPhoneNumberInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPhoneNumberInfo>,
             ::windows::core::GetTrustLevel,
-            CountryCode::<Impl, OFFSET>,
-            PhoneNumber::<Impl, OFFSET>,
-            GetLengthOfGeographicalAreaCode::<Impl, OFFSET>,
-            GetNationalSignificantNumber::<Impl, OFFSET>,
-            GetLengthOfNationalDestinationCode::<Impl, OFFSET>,
-            PredictNumberKind::<Impl, OFFSET>,
-            GetGeographicRegionCode::<Impl, OFFSET>,
-            CheckNumberMatch::<Impl, OFFSET>,
+            CountryCode::<Impl, IMPL_OFFSET>,
+            PhoneNumber::<Impl, IMPL_OFFSET>,
+            GetLengthOfGeographicalAreaCode::<Impl, IMPL_OFFSET>,
+            GetNationalSignificantNumber::<Impl, IMPL_OFFSET>,
+            GetLengthOfNationalDestinationCode::<Impl, IMPL_OFFSET>,
+            PredictNumberKind::<Impl, IMPL_OFFSET>,
+            GetGeographicRegionCode::<Impl, IMPL_OFFSET>,
+            CheckNumberMatch::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNumberInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -259,7 +280,7 @@ impl ::windows::core::RuntimeName for IPhoneNumberInfoFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNumberInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberInfoFactoryImpl, const OFFSET: isize>() -> IPhoneNumberInfoFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNumberInfoFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPhoneNumberInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&number as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -271,7 +292,10 @@ impl IPhoneNumberInfoFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberInfoFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNumberInfoFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -285,7 +309,7 @@ impl ::windows::core::RuntimeName for IPhoneNumberInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNumberInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberInfoStaticsImpl, const OFFSET: isize>() -> IPhoneNumberInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNumberInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneNumberInfoStaticsVtbl {
         unsafe extern "system" fn TryParse<Impl: IPhoneNumberInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&phonenumber)) {
@@ -308,6 +332,9 @@ impl IPhoneNumberInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberInfoStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, OFFSET>, TryParseWithRegion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNumberInfoStatics>, ::windows::core::GetTrustLevel, TryParse::<Impl, IMPL_OFFSET>, TryParseWithRegion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneNumberInfoStatics as ::windows::core::Interface>::IID
     }
 }

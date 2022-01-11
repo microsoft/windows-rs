@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOemSupportInfoImpl: Sized {
     fn SupportLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn SupportAppLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn SupportProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.IOemSupportInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IOemSupportInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOemSupportInfoImpl, const OFFSET: isize>() -> IOemSupportInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOemSupportInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOemSupportInfoVtbl {
         unsafe extern "system" fn SupportLink<Impl: IOemSupportInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportLink() {
@@ -44,7 +44,10 @@ impl IOemSupportInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOemSupportInfo>, ::windows::core::GetTrustLevel, SupportLink::<Impl, OFFSET>, SupportAppLink::<Impl, OFFSET>, SupportProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOemSupportInfo>, ::windows::core::GetTrustLevel, SupportLink::<Impl, IMPL_OFFSET>, SupportAppLink::<Impl, IMPL_OFFSET>, SupportProvider::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOemSupportInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -57,7 +60,7 @@ impl ::windows::core::RuntimeName for ISmbiosInformationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmbiosInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmbiosInformationStaticsImpl, const OFFSET: isize>() -> ISmbiosInformationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmbiosInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmbiosInformationStaticsVtbl {
         unsafe extern "system" fn SerialNumber<Impl: ISmbiosInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerialNumber() {
@@ -69,7 +72,10 @@ impl ISmbiosInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmbiosInformationStatics>, ::windows::core::GetTrustLevel, SerialNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmbiosInformationStatics>, ::windows::core::GetTrustLevel, SerialNumber::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmbiosInformationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -88,7 +94,7 @@ impl ::windows::core::RuntimeName for ISystemSupportDeviceInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemSupportDeviceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSupportDeviceInfoImpl, const OFFSET: isize>() -> ISystemSupportDeviceInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSupportDeviceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemSupportDeviceInfoVtbl {
         unsafe extern "system" fn OperatingSystem<Impl: ISystemSupportDeviceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperatingSystem() {
@@ -167,20 +173,23 @@ impl ISystemSupportDeviceInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISystemSupportDeviceInfo>,
             ::windows::core::GetTrustLevel,
-            OperatingSystem::<Impl, OFFSET>,
-            FriendlyName::<Impl, OFFSET>,
-            SystemManufacturer::<Impl, OFFSET>,
-            SystemProductName::<Impl, OFFSET>,
-            SystemSku::<Impl, OFFSET>,
-            SystemHardwareVersion::<Impl, OFFSET>,
-            SystemFirmwareVersion::<Impl, OFFSET>,
+            OperatingSystem::<Impl, IMPL_OFFSET>,
+            FriendlyName::<Impl, IMPL_OFFSET>,
+            SystemManufacturer::<Impl, IMPL_OFFSET>,
+            SystemProductName::<Impl, IMPL_OFFSET>,
+            SystemSku::<Impl, IMPL_OFFSET>,
+            SystemHardwareVersion::<Impl, IMPL_OFFSET>,
+            SystemFirmwareVersion::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemSupportDeviceInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -194,7 +203,7 @@ impl ::windows::core::RuntimeName for ISystemSupportInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemSupportInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSupportInfoStaticsImpl, const OFFSET: isize>() -> ISystemSupportInfoStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSupportInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemSupportInfoStaticsVtbl {
         unsafe extern "system" fn LocalSystemEdition<Impl: ISystemSupportInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalSystemEdition() {
@@ -217,7 +226,10 @@ impl ISystemSupportInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemSupportInfoStatics>, ::windows::core::GetTrustLevel, LocalSystemEdition::<Impl, OFFSET>, OemSupportInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemSupportInfoStatics>, ::windows::core::GetTrustLevel, LocalSystemEdition::<Impl, IMPL_OFFSET>, OemSupportInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemSupportInfoStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -230,7 +242,7 @@ impl ::windows::core::RuntimeName for ISystemSupportInfoStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemSupportInfoStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSupportInfoStatics2Impl, const OFFSET: isize>() -> ISystemSupportInfoStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSupportInfoStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemSupportInfoStatics2Vtbl {
         unsafe extern "system" fn LocalDeviceInfo<Impl: ISystemSupportInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalDeviceInfo() {
@@ -242,6 +254,9 @@ impl ISystemSupportInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemSupportInfoStatics2>, ::windows::core::GetTrustLevel, LocalDeviceInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemSupportInfoStatics2>, ::windows::core::GetTrustLevel, LocalDeviceInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemSupportInfoStatics2 as ::windows::core::Interface>::IID
     }
 }

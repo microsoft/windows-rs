@@ -2869,12 +2869,12 @@ pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut ::core::ffi::c_void, lpdwsu
 #[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: &::windows::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32 {
+pub unsafe fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: *const ::windows::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: &::windows::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32;
+            fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: *const ::windows::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32;
         }
         ::core::mem::transmute(WinHttpQueryConnectionGroup(::core::mem::transmute(hinternet), ::core::mem::transmute(pguidconnection), ::core::mem::transmute(ullflags), ::core::mem::transmute(ppresult)))
     }

@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IKnownSimpleHapticsControllerWaveformsStat
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
         unsafe extern "system" fn Click<Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Click() {
@@ -68,7 +68,10 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSimpleHapticsControllerWaveformsStatics>, ::windows::core::GetTrustLevel, Click::<Impl, OFFSET>, BuzzContinuous::<Impl, OFFSET>, RumbleContinuous::<Impl, OFFSET>, Press::<Impl, OFFSET>, Release::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSimpleHapticsControllerWaveformsStatics>, ::windows::core::GetTrustLevel, Click::<Impl, IMPL_OFFSET>, BuzzContinuous::<Impl, IMPL_OFFSET>, RumbleContinuous::<Impl, IMPL_OFFSET>, Press::<Impl, IMPL_OFFSET>, Release::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownSimpleHapticsControllerWaveformsStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -90,7 +93,7 @@ impl ::windows::core::RuntimeName for IKnownSimpleHapticsControllerWaveformsStat
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
         unsafe extern "system" fn BrushContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrushContinuous() {
@@ -202,26 +205,29 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IKnownSimpleHapticsControllerWaveformsStatics2>,
             ::windows::core::GetTrustLevel,
-            BrushContinuous::<Impl, OFFSET>,
-            ChiselMarkerContinuous::<Impl, OFFSET>,
-            EraserContinuous::<Impl, OFFSET>,
-            Error::<Impl, OFFSET>,
-            GalaxyPenContinuous::<Impl, OFFSET>,
-            Hover::<Impl, OFFSET>,
-            InkContinuous::<Impl, OFFSET>,
-            MarkerContinuous::<Impl, OFFSET>,
-            PencilContinuous::<Impl, OFFSET>,
-            Success::<Impl, OFFSET>,
+            BrushContinuous::<Impl, IMPL_OFFSET>,
+            ChiselMarkerContinuous::<Impl, IMPL_OFFSET>,
+            EraserContinuous::<Impl, IMPL_OFFSET>,
+            Error::<Impl, IMPL_OFFSET>,
+            GalaxyPenContinuous::<Impl, IMPL_OFFSET>,
+            Hover::<Impl, IMPL_OFFSET>,
+            InkContinuous::<Impl, IMPL_OFFSET>,
+            MarkerContinuous::<Impl, IMPL_OFFSET>,
+            PencilContinuous::<Impl, IMPL_OFFSET>,
+            Success::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownSimpleHapticsControllerWaveformsStatics2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISimpleHapticsControllerImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SupportedFeedback(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>>;
@@ -235,13 +241,13 @@ pub trait ISimpleHapticsControllerImpl: Sized {
     fn SendHapticFeedbackForDuration(&self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64, playduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SendHapticFeedbackForPlayCount(&self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64, playcount: i32, replaypauseinterval: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.ISimpleHapticsController";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISimpleHapticsControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>() -> ISimpleHapticsControllerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleHapticsControllerVtbl {
         unsafe extern "system" fn Id<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -329,38 +335,41 @@ impl ISimpleHapticsControllerVtbl {
             (*this).SendHapticFeedbackForPlayCount(&*(&feedback as *const <SimpleHapticsControllerFeedback as ::windows::core::Abi>::Abi as *const <SimpleHapticsControllerFeedback as ::windows::core::DefaultType>::DefaultType), intensity, playcount, &*(&replaypauseinterval as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISimpleHapticsController>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            SupportedFeedback::<Impl, OFFSET>,
-            IsIntensitySupported::<Impl, OFFSET>,
-            IsPlayCountSupported::<Impl, OFFSET>,
-            IsPlayDurationSupported::<Impl, OFFSET>,
-            IsReplayPauseIntervalSupported::<Impl, OFFSET>,
-            StopFeedback::<Impl, OFFSET>,
-            SendHapticFeedback::<Impl, OFFSET>,
-            SendHapticFeedbackWithIntensity::<Impl, OFFSET>,
-            SendHapticFeedbackForDuration::<Impl, OFFSET>,
-            SendHapticFeedbackForPlayCount::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SupportedFeedback::<Impl, IMPL_OFFSET>,
+            IsIntensitySupported::<Impl, IMPL_OFFSET>,
+            IsPlayCountSupported::<Impl, IMPL_OFFSET>,
+            IsPlayDurationSupported::<Impl, IMPL_OFFSET>,
+            IsReplayPauseIntervalSupported::<Impl, IMPL_OFFSET>,
+            StopFeedback::<Impl, IMPL_OFFSET>,
+            SendHapticFeedback::<Impl, IMPL_OFFSET>,
+            SendHapticFeedbackWithIntensity::<Impl, IMPL_OFFSET>,
+            SendHapticFeedbackForDuration::<Impl, IMPL_OFFSET>,
+            SendHapticFeedbackForPlayCount::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISimpleHapticsController as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISimpleHapticsControllerFeedbackImpl: Sized {
     fn Waveform(&self) -> ::windows::core::Result<u16>;
     fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.ISimpleHapticsControllerFeedback";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISimpleHapticsControllerFeedbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerFeedbackImpl, const OFFSET: isize>() -> ISimpleHapticsControllerFeedbackVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerFeedbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleHapticsControllerFeedbackVtbl {
         unsafe extern "system" fn Waveform<Impl: ISimpleHapticsControllerFeedbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Waveform() {
@@ -383,7 +392,10 @@ impl ISimpleHapticsControllerFeedbackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleHapticsControllerFeedback>, ::windows::core::GetTrustLevel, Waveform::<Impl, OFFSET>, Duration::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISimpleHapticsControllerFeedback>, ::windows::core::GetTrustLevel, Waveform::<Impl, IMPL_OFFSET>, Duration::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISimpleHapticsControllerFeedback as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -397,7 +409,7 @@ impl ::windows::core::RuntimeName for IVibrationDevice {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVibrationDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceImpl, const OFFSET: isize>() -> IVibrationDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceVtbl {
         unsafe extern "system" fn Id<Impl: IVibrationDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -420,10 +432,13 @@ impl IVibrationDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVibrationDevice>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, SimpleHapticsController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVibrationDevice>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, SimpleHapticsController::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVibrationDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVibrationDeviceStaticsImpl: Sized {
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -431,13 +446,13 @@ pub trait IVibrationDeviceStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>;
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<VibrationDevice>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVibrationDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Haptics.IVibrationDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IVibrationDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>() -> IVibrationDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceStaticsVtbl {
         unsafe extern "system" fn RequestAccessAsync<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
@@ -493,6 +508,9 @@ impl IVibrationDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVibrationDeviceStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>, FindAllAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVibrationDeviceStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>, FindAllAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IVibrationDeviceStatics as ::windows::core::Interface>::IID
     }
 }

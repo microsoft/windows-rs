@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivitySensorTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>>;
     fn ReportInterval(&self) -> ::windows::core::Result<u32>;
     fn SupportedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>>;
     fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IActivitySensorTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IActivitySensorTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivitySensorTriggerImpl, const OFFSET: isize>() -> IActivitySensorTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivitySensorTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivitySensorTriggerVtbl {
         unsafe extern "system" fn SubscribedActivities<Impl: IActivitySensorTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscribedActivities() {
@@ -56,7 +56,10 @@ impl IActivitySensorTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTrigger>, ::windows::core::GetTrustLevel, SubscribedActivities::<Impl, OFFSET>, ReportInterval::<Impl, OFFSET>, SupportedActivities::<Impl, OFFSET>, MinimumReportInterval::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTrigger>, ::windows::core::GetTrustLevel, SubscribedActivities::<Impl, IMPL_OFFSET>, ReportInterval::<Impl, IMPL_OFFSET>, SupportedActivities::<Impl, IMPL_OFFSET>, MinimumReportInterval::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivitySensorTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -69,7 +72,7 @@ impl ::windows::core::RuntimeName for IActivitySensorTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IActivitySensorTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivitySensorTriggerFactoryImpl, const OFFSET: isize>() -> IActivitySensorTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivitySensorTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivitySensorTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IActivitySensorTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportintervalinmilliseconds: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(reportintervalinmilliseconds) {
@@ -81,21 +84,24 @@ impl IActivitySensorTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IActivitySensorTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivitySensorTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAlarmApplicationManagerStaticsImpl: Sized {
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>>;
     fn GetAccessStatus(&self) -> ::windows::core::Result<AlarmAccessStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAlarmApplicationManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IAlarmApplicationManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAlarmApplicationManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmApplicationManagerStaticsImpl, const OFFSET: isize>() -> IAlarmApplicationManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmApplicationManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlarmApplicationManagerStaticsVtbl {
         unsafe extern "system" fn RequestAccessAsync<Impl: IAlarmApplicationManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
@@ -118,7 +124,10 @@ impl IAlarmApplicationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmApplicationManagerStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, OFFSET>, GetAccessStatus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmApplicationManagerStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, IMPL_OFFSET>, GetAccessStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlarmApplicationManagerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -132,7 +141,7 @@ impl ::windows::core::RuntimeName for IAppBroadcastTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppBroadcastTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerImpl, const OFFSET: isize>() -> IAppBroadcastTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastTriggerVtbl {
         unsafe extern "system" fn SetProviderInfo<Impl: IAppBroadcastTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProviderInfo(&*(&value as *const <AppBroadcastTriggerProviderInfo as ::windows::core::Abi>::Abi as *const <AppBroadcastTriggerProviderInfo as ::windows::core::DefaultType>::DefaultType)).into()
@@ -148,7 +157,10 @@ impl IAppBroadcastTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastTrigger>, ::windows::core::GetTrustLevel, SetProviderInfo::<Impl, OFFSET>, ProviderInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastTrigger>, ::windows::core::GetTrustLevel, SetProviderInfo::<Impl, IMPL_OFFSET>, ProviderInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppBroadcastTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -161,7 +173,7 @@ impl ::windows::core::RuntimeName for IAppBroadcastTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppBroadcastTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerFactoryImpl, const OFFSET: isize>() -> IAppBroadcastTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastTriggerFactoryVtbl {
         unsafe extern "system" fn CreateAppBroadcastTrigger<Impl: IAppBroadcastTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAppBroadcastTrigger(&*(&providerkey as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -173,10 +185,13 @@ impl IAppBroadcastTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastTriggerFactory>, ::windows::core::GetTrustLevel, CreateAppBroadcastTrigger::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppBroadcastTriggerFactory>, ::windows::core::GetTrustLevel, CreateAppBroadcastTrigger::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppBroadcastTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastTriggerProviderInfoImpl: Sized {
     fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -191,13 +206,13 @@ pub trait IAppBroadcastTriggerProviderInfoImpl: Sized {
     fn SetMaxVideoHeight(&self, value: u32) -> ::windows::core::Result<()>;
     fn MaxVideoHeight(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IAppBroadcastTriggerProviderInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAppBroadcastTriggerProviderInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerProviderInfoImpl, const OFFSET: isize>() -> IAppBroadcastTriggerProviderInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerProviderInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastTriggerProviderInfoVtbl {
         unsafe extern "system" fn SetDisplayNameResource<Impl: IAppBroadcastTriggerProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayNameResource(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -289,39 +304,42 @@ impl IAppBroadcastTriggerProviderInfoVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAppBroadcastTriggerProviderInfo>,
             ::windows::core::GetTrustLevel,
-            SetDisplayNameResource::<Impl, OFFSET>,
-            DisplayNameResource::<Impl, OFFSET>,
-            SetLogoResource::<Impl, OFFSET>,
-            LogoResource::<Impl, OFFSET>,
-            SetVideoKeyFrameInterval::<Impl, OFFSET>,
-            VideoKeyFrameInterval::<Impl, OFFSET>,
-            SetMaxVideoBitrate::<Impl, OFFSET>,
-            MaxVideoBitrate::<Impl, OFFSET>,
-            SetMaxVideoWidth::<Impl, OFFSET>,
-            MaxVideoWidth::<Impl, OFFSET>,
-            SetMaxVideoHeight::<Impl, OFFSET>,
-            MaxVideoHeight::<Impl, OFFSET>,
+            SetDisplayNameResource::<Impl, IMPL_OFFSET>,
+            DisplayNameResource::<Impl, IMPL_OFFSET>,
+            SetLogoResource::<Impl, IMPL_OFFSET>,
+            LogoResource::<Impl, IMPL_OFFSET>,
+            SetVideoKeyFrameInterval::<Impl, IMPL_OFFSET>,
+            VideoKeyFrameInterval::<Impl, IMPL_OFFSET>,
+            SetMaxVideoBitrate::<Impl, IMPL_OFFSET>,
+            MaxVideoBitrate::<Impl, IMPL_OFFSET>,
+            SetMaxVideoWidth::<Impl, IMPL_OFFSET>,
+            MaxVideoWidth::<Impl, IMPL_OFFSET>,
+            SetMaxVideoHeight::<Impl, IMPL_OFFSET>,
+            MaxVideoHeight::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppBroadcastTriggerProviderInfo as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn RequestAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>;
     fn RequestAsyncWithArguments(&self, arguments: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IApplicationTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IApplicationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationTriggerImpl, const OFFSET: isize>() -> IApplicationTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationTriggerVtbl {
         unsafe extern "system" fn RequestAsync<Impl: IApplicationTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAsync() {
@@ -344,20 +362,23 @@ impl IApplicationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationTrigger>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, OFFSET>, RequestAsyncWithArguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationTrigger>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IApplicationTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationTriggerDetailsImpl: Sized {
     fn Arguments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IApplicationTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IApplicationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationTriggerDetailsImpl, const OFFSET: isize>() -> IApplicationTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationTriggerDetailsVtbl {
         unsafe extern "system" fn Arguments<Impl: IApplicationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
@@ -369,7 +390,10 @@ impl IApplicationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationTriggerDetails>, ::windows::core::GetTrustLevel, Arguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationTriggerDetails>, ::windows::core::GetTrustLevel, Arguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IApplicationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -380,8 +404,11 @@ impl ::windows::core::RuntimeName for IAppointmentStoreNotificationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppointmentStoreNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentStoreNotificationTriggerImpl, const OFFSET: isize>() -> IAppointmentStoreNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentStoreNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentStoreNotificationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppointmentStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppointmentStoreNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
 pub trait IBackgroundConditionImpl: Sized {}
@@ -389,11 +416,14 @@ impl ::windows::core::RuntimeName for IBackgroundCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundCondition";
 }
 impl IBackgroundConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundConditionImpl, const OFFSET: isize>() -> IBackgroundConditionVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundCondition>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundConditionVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundCondition>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundCondition as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBackgroundExecutionManagerStaticsImpl: Sized {
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>;
     fn RequestAccessForApplicationAsync(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>;
@@ -402,13 +432,13 @@ pub trait IBackgroundExecutionManagerStaticsImpl: Sized {
     fn GetAccessStatus(&self) -> ::windows::core::Result<BackgroundAccessStatus>;
     fn GetAccessStatusForApplication(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundAccessStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundExecutionManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBackgroundExecutionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundExecutionManagerStaticsImpl, const OFFSET: isize>() -> IBackgroundExecutionManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundExecutionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundExecutionManagerStaticsVtbl {
         unsafe extern "system" fn RequestAccessAsync<Impl: IBackgroundExecutionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
@@ -462,32 +492,35 @@ impl IBackgroundExecutionManagerStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics>,
             ::windows::core::GetTrustLevel,
-            RequestAccessAsync::<Impl, OFFSET>,
-            RequestAccessForApplicationAsync::<Impl, OFFSET>,
-            RemoveAccess::<Impl, OFFSET>,
-            RemoveAccessForApplication::<Impl, OFFSET>,
-            GetAccessStatus::<Impl, OFFSET>,
-            GetAccessStatusForApplication::<Impl, OFFSET>,
+            RequestAccessAsync::<Impl, IMPL_OFFSET>,
+            RequestAccessForApplicationAsync::<Impl, IMPL_OFFSET>,
+            RemoveAccess::<Impl, IMPL_OFFSET>,
+            RemoveAccessForApplication::<Impl, IMPL_OFFSET>,
+            GetAccessStatus::<Impl, IMPL_OFFSET>,
+            GetAccessStatusForApplication::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundExecutionManagerStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBackgroundExecutionManagerStatics2Impl: Sized {
     fn RequestAccessKindAsync(&self, requestedaccess: BackgroundAccessRequestKind, reason: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundExecutionManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBackgroundExecutionManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundExecutionManagerStatics2Impl, const OFFSET: isize>() -> IBackgroundExecutionManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundExecutionManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundExecutionManagerStatics2Vtbl {
         unsafe extern "system" fn RequestAccessKindAsync<Impl: IBackgroundExecutionManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessKindAsync(requestedaccess, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -499,22 +532,25 @@ impl IBackgroundExecutionManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics2>, ::windows::core::GetTrustLevel, RequestAccessKindAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics2>, ::windows::core::GetTrustLevel, RequestAccessKindAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundExecutionManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBackgroundExecutionManagerStatics3Impl: Sized {
     fn RequestAccessKindForModernStandbyAsync(&self, requestedaccess: BackgroundAccessRequestKind, reason: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn GetAccessStatusForModernStandby(&self) -> ::windows::core::Result<BackgroundAccessStatus>;
     fn GetAccessStatusForModernStandbyForApplication(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundAccessStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundExecutionManagerStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBackgroundExecutionManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundExecutionManagerStatics3Impl, const OFFSET: isize>() -> IBackgroundExecutionManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundExecutionManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundExecutionManagerStatics3Vtbl {
         unsafe extern "system" fn RequestAccessKindForModernStandbyAsync<Impl: IBackgroundExecutionManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessKindForModernStandbyAsync(requestedaccess, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -548,7 +584,10 @@ impl IBackgroundExecutionManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics3>, ::windows::core::GetTrustLevel, RequestAccessKindForModernStandbyAsync::<Impl, OFFSET>, GetAccessStatusForModernStandby::<Impl, OFFSET>, GetAccessStatusForModernStandbyForApplication::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundExecutionManagerStatics3>, ::windows::core::GetTrustLevel, RequestAccessKindForModernStandbyAsync::<Impl, IMPL_OFFSET>, GetAccessStatusForModernStandby::<Impl, IMPL_OFFSET>, GetAccessStatusForModernStandbyForApplication::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundExecutionManagerStatics3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IBackgroundTaskImpl: Sized {
@@ -558,12 +597,15 @@ impl ::windows::core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
 }
 impl IBackgroundTaskVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskImpl, const OFFSET: isize>() -> IBackgroundTaskVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskVtbl {
         unsafe extern "system" fn Run<Impl: IBackgroundTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Run(&*(&taskinstance as *const <IBackgroundTaskInstance as ::windows::core::Abi>::Abi as *const <IBackgroundTaskInstance as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTask>, ::windows::core::GetTrustLevel, Run::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTask>, ::windows::core::GetTrustLevel, Run::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTask as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -582,7 +624,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskBuilder {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskBuilderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilderImpl, const OFFSET: isize>() -> IBackgroundTaskBuilderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskBuilderVtbl {
         unsafe extern "system" fn SetTaskEntryPoint<Impl: IBackgroundTaskBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTaskEntryPoint(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
@@ -632,7 +674,24 @@ impl IBackgroundTaskBuilderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder>, ::windows::core::GetTrustLevel, SetTaskEntryPoint::<Impl, OFFSET>, TaskEntryPoint::<Impl, OFFSET>, SetTrigger::<Impl, OFFSET>, AddCondition::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Name::<Impl, OFFSET>, Register::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder>,
+            ::windows::core::GetTrustLevel,
+            SetTaskEntryPoint::<Impl, IMPL_OFFSET>,
+            TaskEntryPoint::<Impl, IMPL_OFFSET>,
+            SetTrigger::<Impl, IMPL_OFFSET>,
+            AddCondition::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Register::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskBuilder as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -646,7 +705,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskBuilder2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskBuilder2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder2Impl, const OFFSET: isize>() -> IBackgroundTaskBuilder2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskBuilder2Vtbl {
         unsafe extern "system" fn SetCancelOnConditionLoss<Impl: IBackgroundTaskBuilder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCancelOnConditionLoss(value).into()
@@ -662,7 +721,10 @@ impl IBackgroundTaskBuilder2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder2>, ::windows::core::GetTrustLevel, SetCancelOnConditionLoss::<Impl, OFFSET>, CancelOnConditionLoss::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder2>, ::windows::core::GetTrustLevel, SetCancelOnConditionLoss::<Impl, IMPL_OFFSET>, CancelOnConditionLoss::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskBuilder2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -676,7 +738,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskBuilder3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskBuilder3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder3Impl, const OFFSET: isize>() -> IBackgroundTaskBuilder3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskBuilder3Vtbl {
         unsafe extern "system" fn SetIsNetworkRequested<Impl: IBackgroundTaskBuilder3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsNetworkRequested(value).into()
@@ -692,7 +754,10 @@ impl IBackgroundTaskBuilder3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder3>, ::windows::core::GetTrustLevel, SetIsNetworkRequested::<Impl, OFFSET>, IsNetworkRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder3>, ::windows::core::GetTrustLevel, SetIsNetworkRequested::<Impl, IMPL_OFFSET>, IsNetworkRequested::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskBuilder3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -706,7 +771,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskBuilder4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskBuilder4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder4Impl, const OFFSET: isize>() -> IBackgroundTaskBuilder4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskBuilder4Vtbl {
         unsafe extern "system" fn TaskGroup<Impl: IBackgroundTaskBuilder4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TaskGroup() {
@@ -722,7 +787,10 @@ impl IBackgroundTaskBuilder4Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTaskGroup(&*(&value as *const <BackgroundTaskRegistrationGroup as ::windows::core::Abi>::Abi as *const <BackgroundTaskRegistrationGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder4>, ::windows::core::GetTrustLevel, TaskGroup::<Impl, OFFSET>, SetTaskGroup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder4>, ::windows::core::GetTrustLevel, TaskGroup::<Impl, IMPL_OFFSET>, SetTaskGroup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskBuilder4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -735,12 +803,15 @@ impl ::windows::core::RuntimeName for IBackgroundTaskBuilder5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskBuilder5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder5Impl, const OFFSET: isize>() -> IBackgroundTaskBuilder5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskBuilder5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskBuilder5Vtbl {
         unsafe extern "system" fn SetTaskEntryPointClsid<Impl: IBackgroundTaskBuilder5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskentrypoint: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTaskEntryPointClsid(&*(&taskentrypoint as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder5>, ::windows::core::GetTrustLevel, SetTaskEntryPointClsid::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskBuilder5>, ::windows::core::GetTrustLevel, SetTaskEntryPointClsid::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskBuilder5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -754,7 +825,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskCompletedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskCompletedEventArgsImpl, const OFFSET: isize>() -> IBackgroundTaskCompletedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskCompletedEventArgsVtbl {
         unsafe extern "system" fn InstanceId<Impl: IBackgroundTaskCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
@@ -770,7 +841,10 @@ impl IBackgroundTaskCompletedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CheckResult().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskCompletedEventArgs>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>, CheckResult::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskCompletedEventArgs>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>, CheckResult::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -783,14 +857,18 @@ impl ::windows::core::RuntimeName for IBackgroundTaskDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskDeferralImpl, const OFFSET: isize>() -> IBackgroundTaskDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IBackgroundTaskDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskDeferral as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstanceImpl: Sized {
     fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Task(&self) -> ::windows::core::Result<BackgroundTaskRegistration>;
@@ -802,11 +880,13 @@ pub trait IBackgroundTaskInstanceImpl: Sized {
     fn SuspendedCount(&self) -> ::windows::core::Result<u32>;
     fn GetDeferral(&self) -> ::windows::core::Result<BackgroundTaskDeferral>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance";
 }
+#[cfg(feature = "Foundation")]
 impl IBackgroundTaskInstanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskInstanceImpl, const OFFSET: isize>() -> IBackgroundTaskInstanceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskInstanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskInstanceVtbl {
         unsafe extern "system" fn InstanceId<Impl: IBackgroundTaskInstanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
@@ -893,32 +973,38 @@ impl IBackgroundTaskInstanceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance>,
             ::windows::core::GetTrustLevel,
-            InstanceId::<Impl, OFFSET>,
-            Task::<Impl, OFFSET>,
-            Progress::<Impl, OFFSET>,
-            SetProgress::<Impl, OFFSET>,
-            TriggerDetails::<Impl, OFFSET>,
-            Canceled::<Impl, OFFSET>,
-            RemoveCanceled::<Impl, OFFSET>,
-            SuspendedCount::<Impl, OFFSET>,
-            GetDeferral::<Impl, OFFSET>,
+            InstanceId::<Impl, IMPL_OFFSET>,
+            Task::<Impl, IMPL_OFFSET>,
+            Progress::<Impl, IMPL_OFFSET>,
+            SetProgress::<Impl, IMPL_OFFSET>,
+            TriggerDetails::<Impl, IMPL_OFFSET>,
+            Canceled::<Impl, IMPL_OFFSET>,
+            RemoveCanceled::<Impl, IMPL_OFFSET>,
+            SuspendedCount::<Impl, IMPL_OFFSET>,
+            GetDeferral::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskInstance as ::windows::core::Interface>::IID
+    }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance2Impl: Sized + IBackgroundTaskInstanceImpl {
     fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance2";
 }
+#[cfg(feature = "Foundation")]
 impl IBackgroundTaskInstance2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskInstance2Impl, const OFFSET: isize>() -> IBackgroundTaskInstance2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskInstance2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskInstance2Vtbl {
         unsafe extern "system" fn GetThrottleCount<Impl: IBackgroundTaskInstance2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThrottleCount(counter) {
@@ -930,17 +1016,23 @@ impl IBackgroundTaskInstance2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance2>, ::windows::core::GetTrustLevel, GetThrottleCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance2>, ::windows::core::GetTrustLevel, GetThrottleCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskInstance2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IBackgroundTaskInstance4Impl: Sized + IBackgroundTaskInstanceImpl {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
+#[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance4 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskInstance4";
 }
+#[cfg(all(feature = "Foundation", feature = "System"))]
 impl IBackgroundTaskInstance4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskInstance4Impl, const OFFSET: isize>() -> IBackgroundTaskInstance4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskInstance4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskInstance4Vtbl {
         unsafe extern "system" fn User<Impl: IBackgroundTaskInstance4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -952,7 +1044,10 @@ impl IBackgroundTaskInstance4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance4>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskInstance4>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskInstance4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -966,7 +1061,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskProgressEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskProgressEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskProgressEventArgsImpl, const OFFSET: isize>() -> IBackgroundTaskProgressEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskProgressEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskProgressEventArgsVtbl {
         unsafe extern "system" fn InstanceId<Impl: IBackgroundTaskProgressEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
@@ -989,9 +1084,13 @@ impl IBackgroundTaskProgressEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskProgressEventArgs>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>, Progress::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskProgressEventArgs>, ::windows::core::GetTrustLevel, InstanceId::<Impl, IMPL_OFFSET>, Progress::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskProgressEventArgs as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistrationImpl: Sized {
     fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1001,11 +1100,13 @@ pub trait IBackgroundTaskRegistrationImpl: Sized {
     fn RemoveCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration";
 }
+#[cfg(feature = "Foundation")]
 impl IBackgroundTaskRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationImpl, const OFFSET: isize>() -> IBackgroundTaskRegistrationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistrationVtbl {
         unsafe extern "system" fn TaskId<Impl: IBackgroundTaskRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TaskId() {
@@ -1062,17 +1163,37 @@ impl IBackgroundTaskRegistrationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unregister(canceltask).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration>, ::windows::core::GetTrustLevel, TaskId::<Impl, OFFSET>, Name::<Impl, OFFSET>, Progress::<Impl, OFFSET>, RemoveProgress::<Impl, OFFSET>, Completed::<Impl, OFFSET>, RemoveCompleted::<Impl, OFFSET>, Unregister::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration>,
+            ::windows::core::GetTrustLevel,
+            TaskId::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            Progress::<Impl, IMPL_OFFSET>,
+            RemoveProgress::<Impl, IMPL_OFFSET>,
+            Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted::<Impl, IMPL_OFFSET>,
+            Unregister::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistration as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration2Impl: Sized + IBackgroundTaskRegistrationImpl {
     fn Trigger(&self) -> ::windows::core::Result<IBackgroundTrigger>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration2";
 }
+#[cfg(feature = "Foundation")]
 impl IBackgroundTaskRegistration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistration2Impl, const OFFSET: isize>() -> IBackgroundTaskRegistration2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistration2Vtbl {
         unsafe extern "system" fn Trigger<Impl: IBackgroundTaskRegistration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Trigger() {
@@ -1084,17 +1205,23 @@ impl IBackgroundTaskRegistration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration2>, ::windows::core::GetTrustLevel, Trigger::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration2>, ::windows::core::GetTrustLevel, Trigger::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistration2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration3Impl: Sized + IBackgroundTaskRegistrationImpl {
     fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration3 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistration3";
 }
+#[cfg(feature = "Foundation")]
 impl IBackgroundTaskRegistration3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistration3Impl, const OFFSET: isize>() -> IBackgroundTaskRegistration3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistration3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistration3Vtbl {
         unsafe extern "system" fn TaskGroup<Impl: IBackgroundTaskRegistration3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TaskGroup() {
@@ -1106,10 +1233,13 @@ impl IBackgroundTaskRegistration3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration3>, ::windows::core::GetTrustLevel, TaskGroup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistration3>, ::windows::core::GetTrustLevel, TaskGroup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistration3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBackgroundTaskRegistrationGroupImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1117,13 +1247,13 @@ pub trait IBackgroundTaskRegistrationGroupImpl: Sized {
     fn RemoveBackgroundActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn AllTasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, BackgroundTaskRegistration>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBackgroundTaskRegistrationGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationGroupImpl, const OFFSET: isize>() -> IBackgroundTaskRegistrationGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistrationGroupVtbl {
         unsafe extern "system" fn Id<Impl: IBackgroundTaskRegistrationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1172,7 +1302,10 @@ impl IBackgroundTaskRegistrationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationGroup>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Name::<Impl, OFFSET>, BackgroundActivated::<Impl, OFFSET>, RemoveBackgroundActivated::<Impl, OFFSET>, AllTasks::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationGroup>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, BackgroundActivated::<Impl, IMPL_OFFSET>, RemoveBackgroundActivated::<Impl, IMPL_OFFSET>, AllTasks::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistrationGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1186,7 +1319,7 @@ impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationGroupFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundTaskRegistrationGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationGroupFactoryImpl, const OFFSET: isize>() -> IBackgroundTaskRegistrationGroupFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistrationGroupFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IBackgroundTaskRegistrationGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1209,20 +1342,23 @@ impl IBackgroundTaskRegistrationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateWithName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistrationGroupFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBackgroundTaskRegistrationStaticsImpl: Sized {
     fn AllTasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBackgroundTaskRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationStaticsImpl, const OFFSET: isize>() -> IBackgroundTaskRegistrationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistrationStaticsVtbl {
         unsafe extern "system" fn AllTasks<Impl: IBackgroundTaskRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllTasks() {
@@ -1234,21 +1370,24 @@ impl IBackgroundTaskRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationStatics>, ::windows::core::GetTrustLevel, AllTasks::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationStatics>, ::windows::core::GetTrustLevel, AllTasks::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistrationStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBackgroundTaskRegistrationStatics2Impl: Sized {
     fn AllTaskGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, BackgroundTaskRegistrationGroup>>;
     fn GetTaskGroup(&self, groupid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IBackgroundTaskRegistrationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationStatics2Impl, const OFFSET: isize>() -> IBackgroundTaskRegistrationStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTaskRegistrationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTaskRegistrationStatics2Vtbl {
         unsafe extern "system" fn AllTaskGroups<Impl: IBackgroundTaskRegistrationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllTaskGroups() {
@@ -1271,7 +1410,10 @@ impl IBackgroundTaskRegistrationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationStatics2>, ::windows::core::GetTrustLevel, AllTaskGroups::<Impl, OFFSET>, GetTaskGroup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTaskRegistrationStatics2>, ::windows::core::GetTrustLevel, AllTaskGroups::<Impl, IMPL_OFFSET>, GetTaskGroup::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTaskRegistrationStatics2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IBackgroundTriggerImpl: Sized {}
@@ -1279,8 +1421,11 @@ impl ::windows::core::RuntimeName for IBackgroundTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTrigger";
 }
 impl IBackgroundTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTriggerImpl, const OFFSET: isize>() -> IBackgroundTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1293,7 +1438,7 @@ impl ::windows::core::RuntimeName for IBackgroundWorkCostStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackgroundWorkCostStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundWorkCostStaticsImpl, const OFFSET: isize>() -> IBackgroundWorkCostStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundWorkCostStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundWorkCostStaticsVtbl {
         unsafe extern "system" fn CurrentBackgroundWorkCost<Impl: IBackgroundWorkCostStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundWorkCostValue) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentBackgroundWorkCost() {
@@ -1305,20 +1450,23 @@ impl IBackgroundWorkCostStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundWorkCostStatics>, ::windows::core::GetTrustLevel, CurrentBackgroundWorkCost::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackgroundWorkCostStatics>, ::windows::core::GetTrustLevel, CurrentBackgroundWorkCost::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBackgroundWorkCostStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn Advertisement(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 impl IBluetoothLEAdvertisementPublisherTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherTriggerImpl, const OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherTriggerVtbl {
         unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementPublisherTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Advertisement() {
@@ -1330,10 +1478,13 @@ impl IBluetoothLEAdvertisementPublisherTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTrigger>, ::windows::core::GetTrustLevel, Advertisement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTrigger>, ::windows::core::GetTrustLevel, Advertisement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAdvertisementPublisherTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherTrigger2Impl: Sized {
     fn PreferredTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i16>>;
     fn SetPreferredTransmitPowerLevelInDBm(&self, value: &::core::option::Option<super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
@@ -1344,13 +1495,13 @@ pub trait IBluetoothLEAdvertisementPublisherTrigger2Impl: Sized {
     fn IncludeTransmitPowerLevel(&self) -> ::windows::core::Result<bool>;
     fn SetIncludeTransmitPowerLevel(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTrigger2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothLEAdvertisementPublisherTrigger2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherTrigger2Impl, const OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherTrigger2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherTrigger2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherTrigger2Vtbl {
         unsafe extern "system" fn PreferredTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisherTrigger2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredTransmitPowerLevelInDBm() {
@@ -1412,24 +1563,27 @@ impl IBluetoothLEAdvertisementPublisherTrigger2Vtbl {
             (*this).SetIncludeTransmitPowerLevel(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTrigger2>,
             ::windows::core::GetTrustLevel,
-            PreferredTransmitPowerLevelInDBm::<Impl, OFFSET>,
-            SetPreferredTransmitPowerLevelInDBm::<Impl, OFFSET>,
-            UseExtendedFormat::<Impl, OFFSET>,
-            SetUseExtendedFormat::<Impl, OFFSET>,
-            IsAnonymous::<Impl, OFFSET>,
-            SetIsAnonymous::<Impl, OFFSET>,
-            IncludeTransmitPowerLevel::<Impl, OFFSET>,
-            SetIncludeTransmitPowerLevel::<Impl, OFFSET>,
+            PreferredTransmitPowerLevelInDBm::<Impl, IMPL_OFFSET>,
+            SetPreferredTransmitPowerLevelInDBm::<Impl, IMPL_OFFSET>,
+            UseExtendedFormat::<Impl, IMPL_OFFSET>,
+            SetUseExtendedFormat::<Impl, IMPL_OFFSET>,
+            IsAnonymous::<Impl, IMPL_OFFSET>,
+            SetIsAnonymous::<Impl, IMPL_OFFSET>,
+            IncludeTransmitPowerLevel::<Impl, IMPL_OFFSET>,
+            SetIncludeTransmitPowerLevel::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAdvertisementPublisherTrigger2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth", feature = "Devices_Bluetooth_Advertisement", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementWatcherTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn MinSamplingInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn MaxSamplingInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1440,13 +1594,13 @@ pub trait IBluetoothLEAdvertisementWatcherTriggerImpl: Sized + IBackgroundTrigge
     fn AdvertisementFilter(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>;
     fn SetAdvertisementFilter(&self, value: &::core::option::Option<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth", feature = "Devices_Bluetooth_Advertisement", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth", feature = "Devices_Bluetooth_Advertisement", feature = "Foundation", feature = "implement_exclusive"))]
 impl IBluetoothLEAdvertisementWatcherTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherTriggerImpl, const OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherTriggerVtbl {
         unsafe extern "system" fn MinSamplingInterval<Impl: IBluetoothLEAdvertisementWatcherTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinSamplingInterval() {
@@ -1522,21 +1676,24 @@ impl IBluetoothLEAdvertisementWatcherTriggerVtbl {
             (*this).SetAdvertisementFilter(&*(&value as *const <super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter as ::windows::core::Abi>::Abi as *const <super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTrigger>,
             ::windows::core::GetTrustLevel,
-            MinSamplingInterval::<Impl, OFFSET>,
-            MaxSamplingInterval::<Impl, OFFSET>,
-            MinOutOfRangeTimeout::<Impl, OFFSET>,
-            MaxOutOfRangeTimeout::<Impl, OFFSET>,
-            SignalStrengthFilter::<Impl, OFFSET>,
-            SetSignalStrengthFilter::<Impl, OFFSET>,
-            AdvertisementFilter::<Impl, OFFSET>,
-            SetAdvertisementFilter::<Impl, OFFSET>,
+            MinSamplingInterval::<Impl, IMPL_OFFSET>,
+            MaxSamplingInterval::<Impl, IMPL_OFFSET>,
+            MinOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            MaxOutOfRangeTimeout::<Impl, IMPL_OFFSET>,
+            SignalStrengthFilter::<Impl, IMPL_OFFSET>,
+            SetSignalStrengthFilter::<Impl, IMPL_OFFSET>,
+            AdvertisementFilter::<Impl, IMPL_OFFSET>,
+            SetAdvertisementFilter::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAdvertisementWatcherTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1550,7 +1707,7 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherTrigger2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAdvertisementWatcherTrigger2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherTrigger2Impl, const OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherTrigger2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherTrigger2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherTrigger2Vtbl {
         unsafe extern "system" fn AllowExtendedAdvertisements<Impl: IBluetoothLEAdvertisementWatcherTrigger2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowExtendedAdvertisements() {
@@ -1566,7 +1723,10 @@ impl IBluetoothLEAdvertisementWatcherTrigger2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowExtendedAdvertisements(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTrigger2>, ::windows::core::GetTrustLevel, AllowExtendedAdvertisements::<Impl, OFFSET>, SetAllowExtendedAdvertisements::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTrigger2>, ::windows::core::GetTrustLevel, AllowExtendedAdvertisements::<Impl, IMPL_OFFSET>, SetAllowExtendedAdvertisements::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBluetoothLEAdvertisementWatcherTrigger2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1577,23 +1737,26 @@ impl ::windows::core::RuntimeName for ICachedFileUpdaterTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICachedFileUpdaterTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICachedFileUpdaterTriggerImpl, const OFFSET: isize>() -> ICachedFileUpdaterTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICachedFileUpdaterTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICachedFileUpdaterTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICachedFileUpdaterTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Provider", feature = "implement_exclusive"))]
 pub trait ICachedFileUpdaterTriggerDetailsImpl: Sized {
     fn UpdateTarget(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileTarget>;
     fn UpdateRequest(&self) -> ::windows::core::Result<super::super::Storage::Provider::FileUpdateRequest>;
     fn CanRequestUserInput(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Provider", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ICachedFileUpdaterTriggerDetails";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage_Provider", feature = "implement_exclusive"))]
 impl ICachedFileUpdaterTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICachedFileUpdaterTriggerDetailsImpl, const OFFSET: isize>() -> ICachedFileUpdaterTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICachedFileUpdaterTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICachedFileUpdaterTriggerDetailsVtbl {
         unsafe extern "system" fn UpdateTarget<Impl: ICachedFileUpdaterTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Storage::Provider::CachedFileTarget) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateTarget() {
@@ -1627,7 +1790,10 @@ impl ICachedFileUpdaterTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterTriggerDetails>, ::windows::core::GetTrustLevel, UpdateTarget::<Impl, OFFSET>, UpdateRequest::<Impl, OFFSET>, CanRequestUserInput::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterTriggerDetails>, ::windows::core::GetTrustLevel, UpdateTarget::<Impl, IMPL_OFFSET>, UpdateRequest::<Impl, IMPL_OFFSET>, CanRequestUserInput::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICachedFileUpdaterTriggerDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1638,8 +1804,11 @@ impl ::windows::core::RuntimeName for IChatMessageNotificationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerImpl, const OFFSET: isize>() -> IChatMessageNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageNotificationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageNotificationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1650,8 +1819,11 @@ impl ::windows::core::RuntimeName for IChatMessageReceivedNotificationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IChatMessageReceivedNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReceivedNotificationTriggerImpl, const OFFSET: isize>() -> IChatMessageReceivedNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReceivedNotificationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChatMessageReceivedNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChatMessageReceivedNotificationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IChatMessageReceivedNotificationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChatMessageReceivedNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1662,8 +1834,11 @@ impl ::windows::core::RuntimeName for ICommunicationBlockingAppSetAsActiveTrigge
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICommunicationBlockingAppSetAsActiveTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommunicationBlockingAppSetAsActiveTriggerImpl, const OFFSET: isize>() -> ICommunicationBlockingAppSetAsActiveTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommunicationBlockingAppSetAsActiveTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommunicationBlockingAppSetAsActiveTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommunicationBlockingAppSetAsActiveTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICommunicationBlockingAppSetAsActiveTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommunicationBlockingAppSetAsActiveTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1674,21 +1849,24 @@ impl ::windows::core::RuntimeName for IContactStoreNotificationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactStoreNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreNotificationTriggerImpl, const OFFSET: isize>() -> IContactStoreNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreNotificationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactStoreNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentPrefetchTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn WaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IContentPrefetchTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContentPrefetchTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetchTriggerImpl, const OFFSET: isize>() -> IContentPrefetchTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetchTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentPrefetchTriggerVtbl {
         unsafe extern "system" fn WaitInterval<Impl: IContentPrefetchTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WaitInterval() {
@@ -1700,20 +1878,23 @@ impl IContentPrefetchTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetchTrigger>, ::windows::core::GetTrustLevel, WaitInterval::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetchTrigger>, ::windows::core::GetTrustLevel, WaitInterval::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentPrefetchTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentPrefetchTriggerFactoryImpl: Sized {
     fn Create(&self, waitinterval: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ContentPrefetchTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentPrefetchTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IContentPrefetchTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContentPrefetchTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetchTriggerFactoryImpl, const OFFSET: isize>() -> IContentPrefetchTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetchTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentPrefetchTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IContentPrefetchTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, waitinterval: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&waitinterval as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
@@ -1725,7 +1906,10 @@ impl IContentPrefetchTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetchTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContentPrefetchTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContentPrefetchTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1739,7 +1923,7 @@ impl ::windows::core::RuntimeName for ICustomSystemEventTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomSystemEventTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSystemEventTriggerImpl, const OFFSET: isize>() -> ICustomSystemEventTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSystemEventTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSystemEventTriggerVtbl {
         unsafe extern "system" fn TriggerId<Impl: ICustomSystemEventTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerId() {
@@ -1762,7 +1946,10 @@ impl ICustomSystemEventTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSystemEventTrigger>, ::windows::core::GetTrustLevel, TriggerId::<Impl, OFFSET>, Recurrence::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSystemEventTrigger>, ::windows::core::GetTrustLevel, TriggerId::<Impl, IMPL_OFFSET>, Recurrence::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomSystemEventTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1775,7 +1962,7 @@ impl ::windows::core::RuntimeName for ICustomSystemEventTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICustomSystemEventTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSystemEventTriggerFactoryImpl, const OFFSET: isize>() -> ICustomSystemEventTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSystemEventTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSystemEventTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ICustomSystemEventTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recurrence: CustomSystemEventTriggerRecurrence, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&triggerid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), recurrence) {
@@ -1787,7 +1974,10 @@ impl ICustomSystemEventTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSystemEventTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICustomSystemEventTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICustomSystemEventTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1803,7 +1993,7 @@ impl ::windows::core::RuntimeName for IDeviceConnectionChangeTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDeviceConnectionChangeTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceConnectionChangeTriggerImpl, const OFFSET: isize>() -> IDeviceConnectionChangeTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceConnectionChangeTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceConnectionChangeTriggerVtbl {
         unsafe extern "system" fn DeviceId<Impl: IDeviceConnectionChangeTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -1841,20 +2031,23 @@ impl IDeviceConnectionChangeTriggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaintainConnection(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTrigger>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, CanMaintainConnection::<Impl, OFFSET>, MaintainConnection::<Impl, OFFSET>, SetMaintainConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTrigger>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, CanMaintainConnection::<Impl, IMPL_OFFSET>, MaintainConnection::<Impl, IMPL_OFFSET>, SetMaintainConnection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceConnectionChangeTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceConnectionChangeTriggerStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceConnectionChangeTriggerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IDeviceConnectionChangeTriggerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDeviceConnectionChangeTriggerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceConnectionChangeTriggerStaticsImpl, const OFFSET: isize>() -> IDeviceConnectionChangeTriggerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceConnectionChangeTriggerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceConnectionChangeTriggerStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IDeviceConnectionChangeTriggerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1866,7 +2059,10 @@ impl IDeviceConnectionChangeTriggerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTriggerStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceConnectionChangeTriggerStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceConnectionChangeTriggerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1880,7 +2076,7 @@ impl ::windows::core::RuntimeName for IDeviceManufacturerNotificationTrigger {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IDeviceManufacturerNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceManufacturerNotificationTriggerImpl, const OFFSET: isize>() -> IDeviceManufacturerNotificationTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceManufacturerNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceManufacturerNotificationTriggerVtbl {
         unsafe extern "system" fn TriggerQualifier<Impl: IDeviceManufacturerNotificationTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerQualifier() {
@@ -1903,7 +2099,10 @@ impl IDeviceManufacturerNotificationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceManufacturerNotificationTrigger>, ::windows::core::GetTrustLevel, TriggerQualifier::<Impl, OFFSET>, OneShot::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceManufacturerNotificationTrigger>, ::windows::core::GetTrustLevel, TriggerQualifier::<Impl, IMPL_OFFSET>, OneShot::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceManufacturerNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1916,7 +2115,7 @@ impl ::windows::core::RuntimeName for IDeviceManufacturerNotificationTriggerFact
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IDeviceManufacturerNotificationTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceManufacturerNotificationTriggerFactoryImpl, const OFFSET: isize>() -> IDeviceManufacturerNotificationTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceManufacturerNotificationTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceManufacturerNotificationTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IDeviceManufacturerNotificationTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggerqualifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&triggerqualifier as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), oneshot) {
@@ -1928,21 +2127,24 @@ impl IDeviceManufacturerNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceManufacturerNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceManufacturerNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceManufacturerNotificationTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceServicingTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn RequestAsyncSimple(&self, deviceid: &::windows::core::HSTRING, expectedduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
     fn RequestAsyncWithArguments(&self, deviceid: &::windows::core::HSTRING, expectedduration: &super::super::Foundation::TimeSpan, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IDeviceServicingTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDeviceServicingTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceServicingTriggerImpl, const OFFSET: isize>() -> IDeviceServicingTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceServicingTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceServicingTriggerVtbl {
         unsafe extern "system" fn RequestAsyncSimple<Impl: IDeviceServicingTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectedduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAsyncSimple(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&expectedduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
@@ -1969,21 +2171,24 @@ impl IDeviceServicingTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceServicingTrigger>, ::windows::core::GetTrustLevel, RequestAsyncSimple::<Impl, OFFSET>, RequestAsyncWithArguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceServicingTrigger>, ::windows::core::GetTrustLevel, RequestAsyncSimple::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceServicingTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceUseTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn RequestAsyncSimple(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
     fn RequestAsyncWithArguments(&self, deviceid: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IDeviceUseTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDeviceUseTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceUseTriggerImpl, const OFFSET: isize>() -> IDeviceUseTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceUseTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceUseTriggerVtbl {
         unsafe extern "system" fn RequestAsyncSimple<Impl: IDeviceUseTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAsyncSimple(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2006,7 +2211,10 @@ impl IDeviceUseTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceUseTrigger>, ::windows::core::GetTrustLevel, RequestAsyncSimple::<Impl, OFFSET>, RequestAsyncWithArguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceUseTrigger>, ::windows::core::GetTrustLevel, RequestAsyncSimple::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceUseTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2017,8 +2225,11 @@ impl ::windows::core::RuntimeName for IDeviceWatcherTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDeviceWatcherTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherTriggerImpl, const OFFSET: isize>() -> IDeviceWatcherTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceWatcherTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeviceWatcherTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceWatcherTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2029,21 +2240,24 @@ impl ::windows::core::RuntimeName for IEmailStoreNotificationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailStoreNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreNotificationTriggerImpl, const OFFSET: isize>() -> IEmailStoreNotificationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailStoreNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailStoreNotificationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailStoreNotificationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEmailStoreNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn Characteristic(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl IGattCharacteristicNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerImpl, const OFFSET: isize>() -> IGattCharacteristicNotificationTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicNotificationTriggerVtbl {
         unsafe extern "system" fn Characteristic<Impl: IGattCharacteristicNotificationTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristic() {
@@ -2055,20 +2269,23 @@ impl IGattCharacteristicNotificationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTrigger>, ::windows::core::GetTrustLevel, Characteristic::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTrigger>, ::windows::core::GetTrustLevel, Characteristic::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattCharacteristicNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTrigger2Impl: Sized {
     fn EventTriggeringMode(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTrigger2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "implement_exclusive"))]
 impl IGattCharacteristicNotificationTrigger2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTrigger2Impl, const OFFSET: isize>() -> IGattCharacteristicNotificationTrigger2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTrigger2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicNotificationTrigger2Vtbl {
         unsafe extern "system" fn EventTriggeringMode<Impl: IGattCharacteristicNotificationTrigger2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventTriggeringMode() {
@@ -2080,20 +2297,23 @@ impl IGattCharacteristicNotificationTrigger2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTrigger2>, ::windows::core::GetTrustLevel, EventTriggeringMode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTrigger2>, ::windows::core::GetTrustLevel, EventTriggeringMode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattCharacteristicNotificationTrigger2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerFactoryImpl: Sized {
     fn Create(&self, characteristic: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl IGattCharacteristicNotificationTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerFactoryImpl, const OFFSET: isize>() -> IGattCharacteristicNotificationTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicNotificationTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IGattCharacteristicNotificationTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&characteristic as *const <super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic as ::windows::core::Abi>::Abi as *const <super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic as ::windows::core::DefaultType>::DefaultType)) {
@@ -2105,20 +2325,23 @@ impl IGattCharacteristicNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattCharacteristicNotificationTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerFactory2Impl: Sized {
     fn CreateWithEventTriggeringMode(&self, characteristic: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerFactory2 {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl IGattCharacteristicNotificationTriggerFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerFactory2Impl, const OFFSET: isize>() -> IGattCharacteristicNotificationTriggerFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicNotificationTriggerFactory2Vtbl {
         unsafe extern "system" fn CreateWithEventTriggeringMode<Impl: IGattCharacteristicNotificationTriggerFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithEventTriggeringMode(&*(&characteristic as *const <super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic as ::windows::core::Abi>::Abi as *const <super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic as ::windows::core::DefaultType>::DefaultType), eventtriggeringmode) {
@@ -2130,23 +2353,26 @@ impl IGattCharacteristicNotificationTriggerFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerFactory2>, ::windows::core::GetTrustLevel, CreateWithEventTriggeringMode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerFactory2>, ::windows::core::GetTrustLevel, CreateWithEventTriggeringMode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattCharacteristicNotificationTriggerFactory2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderTriggerImpl: Sized {
     fn TriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Service(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService>;
     fn SetAdvertisingParameters(&self, value: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>) -> ::windows::core::Result<()>;
     fn AdvertisingParameters(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattServiceProviderTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl IGattServiceProviderTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerImpl, const OFFSET: isize>() -> IGattServiceProviderTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderTriggerVtbl {
         unsafe extern "system" fn TriggerId<Impl: IGattServiceProviderTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerId() {
@@ -2184,21 +2410,24 @@ impl IGattServiceProviderTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTrigger>, ::windows::core::GetTrustLevel, TriggerId::<Impl, OFFSET>, Service::<Impl, OFFSET>, SetAdvertisingParameters::<Impl, OFFSET>, AdvertisingParameters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTrigger>, ::windows::core::GetTrustLevel, TriggerId::<Impl, IMPL_OFFSET>, Service::<Impl, IMPL_OFFSET>, SetAdvertisingParameters::<Impl, IMPL_OFFSET>, AdvertisingParameters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattServiceProviderTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderTriggerResultImpl: Sized {
     fn Trigger(&self) -> ::windows::core::Result<GattServiceProviderTrigger>;
     fn Error(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::BluetoothError>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattServiceProviderTriggerResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth", feature = "implement_exclusive"))]
 impl IGattServiceProviderTriggerResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerResultImpl, const OFFSET: isize>() -> IGattServiceProviderTriggerResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderTriggerResultVtbl {
         unsafe extern "system" fn Trigger<Impl: IGattServiceProviderTriggerResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Trigger() {
@@ -2221,20 +2450,23 @@ impl IGattServiceProviderTriggerResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerResult>, ::windows::core::GetTrustLevel, Trigger::<Impl, OFFSET>, Error::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerResult>, ::windows::core::GetTrustLevel, Trigger::<Impl, IMPL_OFFSET>, Error::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattServiceProviderTriggerResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderTriggerStaticsImpl: Sized {
     fn CreateAsync(&self, triggerid: &::windows::core::HSTRING, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderTriggerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGattServiceProviderTriggerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGattServiceProviderTriggerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerStaticsImpl, const OFFSET: isize>() -> IGattServiceProviderTriggerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderTriggerStaticsVtbl {
         unsafe extern "system" fn CreateAsync<Impl: IGattServiceProviderTriggerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync(&*(&triggerid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
@@ -2246,21 +2478,24 @@ impl IGattServiceProviderTriggerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerStatics>, ::windows::core::GetTrustLevel, CreateAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGattServiceProviderTriggerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IGeovisitTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn MonitoringScope(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::VisitMonitoringScope>;
     fn SetMonitoringScope(&self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IGeovisitTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl IGeovisitTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitTriggerImpl, const OFFSET: isize>() -> IGeovisitTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitTriggerVtbl {
         unsafe extern "system" fn MonitoringScope<Impl: IGeovisitTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MonitoringScope() {
@@ -2276,7 +2511,10 @@ impl IGeovisitTriggerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMonitoringScope(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitTrigger>, ::windows::core::GetTrustLevel, MonitoringScope::<Impl, OFFSET>, SetMonitoringScope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGeovisitTrigger>, ::windows::core::GetTrustLevel, MonitoringScope::<Impl, IMPL_OFFSET>, SetMonitoringScope::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGeovisitTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2289,7 +2527,7 @@ impl ::windows::core::RuntimeName for ILocationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILocationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationTriggerImpl, const OFFSET: isize>() -> ILocationTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationTriggerVtbl {
         unsafe extern "system" fn TriggerType<Impl: ILocationTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LocationTriggerType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerType() {
@@ -2301,7 +2539,10 @@ impl ILocationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocationTrigger>, ::windows::core::GetTrustLevel, TriggerType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocationTrigger>, ::windows::core::GetTrustLevel, TriggerType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2314,7 +2555,7 @@ impl ::windows::core::RuntimeName for ILocationTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILocationTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationTriggerFactoryImpl, const OFFSET: isize>() -> ILocationTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ILocationTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggertype: LocationTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(triggertype) {
@@ -2326,7 +2567,10 @@ impl ILocationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILocationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocationTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2340,7 +2584,7 @@ impl ::windows::core::RuntimeName for IMaintenanceTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMaintenanceTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMaintenanceTriggerImpl, const OFFSET: isize>() -> IMaintenanceTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMaintenanceTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMaintenanceTriggerVtbl {
         unsafe extern "system" fn FreshnessTime<Impl: IMaintenanceTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FreshnessTime() {
@@ -2363,7 +2607,10 @@ impl IMaintenanceTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMaintenanceTrigger>, ::windows::core::GetTrustLevel, FreshnessTime::<Impl, OFFSET>, OneShot::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMaintenanceTrigger>, ::windows::core::GetTrustLevel, FreshnessTime::<Impl, IMPL_OFFSET>, OneShot::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMaintenanceTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2376,7 +2623,7 @@ impl ::windows::core::RuntimeName for IMaintenanceTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMaintenanceTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMaintenanceTriggerFactoryImpl, const OFFSET: isize>() -> IMaintenanceTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMaintenanceTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMaintenanceTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IMaintenanceTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(freshnesstime, oneshot) {
@@ -2388,21 +2635,24 @@ impl IMaintenanceTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMaintenanceTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMaintenanceTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMaintenanceTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProcessingTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn RequestAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>;
     fn RequestAsyncWithArguments(&self, arguments: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IMediaProcessingTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IMediaProcessingTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProcessingTriggerImpl, const OFFSET: isize>() -> IMediaProcessingTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProcessingTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProcessingTriggerVtbl {
         unsafe extern "system" fn RequestAsync<Impl: IMediaProcessingTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAsync() {
@@ -2425,7 +2675,10 @@ impl IMediaProcessingTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProcessingTrigger>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, OFFSET>, RequestAsyncWithArguments::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProcessingTrigger>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, IMPL_OFFSET>, RequestAsyncWithArguments::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaProcessingTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2436,8 +2689,11 @@ impl ::windows::core::RuntimeName for INetworkOperatorHotspotAuthenticationTrigg
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorHotspotAuthenticationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorHotspotAuthenticationTriggerImpl, const OFFSET: isize>() -> INetworkOperatorHotspotAuthenticationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorHotspotAuthenticationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorHotspotAuthenticationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkOperatorHotspotAuthenticationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorHotspotAuthenticationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkOperatorHotspotAuthenticationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2450,7 +2706,7 @@ impl ::windows::core::RuntimeName for INetworkOperatorNotificationTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorNotificationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorNotificationTriggerImpl, const OFFSET: isize>() -> INetworkOperatorNotificationTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorNotificationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkOperatorNotificationTriggerVtbl {
         unsafe extern "system" fn NetworkAccountId<Impl: INetworkOperatorNotificationTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccountId() {
@@ -2462,7 +2718,10 @@ impl INetworkOperatorNotificationTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationTrigger>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationTrigger>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkOperatorNotificationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2475,7 +2734,7 @@ impl ::windows::core::RuntimeName for INetworkOperatorNotificationTriggerFactory
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorNotificationTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorNotificationTriggerFactoryImpl, const OFFSET: isize>() -> INetworkOperatorNotificationTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorNotificationTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetworkOperatorNotificationTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: INetworkOperatorNotificationTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2487,21 +2746,24 @@ impl INetworkOperatorNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkOperatorNotificationTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 pub trait IPhoneTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn OneShot(&self) -> ::windows::core::Result<bool>;
     fn TriggerType(&self) -> ::windows::core::Result<super::Calls::Background::PhoneTriggerType>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IPhoneTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 impl IPhoneTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneTriggerImpl, const OFFSET: isize>() -> IPhoneTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneTriggerVtbl {
         unsafe extern "system" fn OneShot<Impl: IPhoneTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OneShot() {
@@ -2524,20 +2786,23 @@ impl IPhoneTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneTrigger>, ::windows::core::GetTrustLevel, OneShot::<Impl, OFFSET>, TriggerType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneTrigger>, ::windows::core::GetTrustLevel, OneShot::<Impl, IMPL_OFFSET>, TriggerType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 pub trait IPhoneTriggerFactoryImpl: Sized {
     fn Create(&self, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows::core::Result<PhoneTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IPhoneTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 impl IPhoneTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneTriggerFactoryImpl, const OFFSET: isize>() -> IPhoneTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhoneTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPhoneTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(r#type, oneshot) {
@@ -2549,7 +2814,10 @@ impl IPhoneTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPhoneTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2562,7 +2830,7 @@ impl ::windows::core::RuntimeName for IPushNotificationTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPushNotificationTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationTriggerFactoryImpl, const OFFSET: isize>() -> IPushNotificationTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPushNotificationTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPushNotificationTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IPushNotificationTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&applicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2574,7 +2842,10 @@ impl IPushNotificationTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPushNotificationTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPushNotificationTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2585,11 +2856,14 @@ impl ::windows::core::RuntimeName for IRcsEndUserMessageAvailableTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRcsEndUserMessageAvailableTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableTriggerImpl, const OFFSET: isize>() -> IRcsEndUserMessageAvailableTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRcsEndUserMessageAvailableTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRcsEndUserMessageAvailableTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRcsEndUserMessageAvailableTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRcsEndUserMessageAvailableTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IRfcommConnectionTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn InboundConnection(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation>;
     fn OutboundConnection(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation>;
@@ -2600,13 +2874,13 @@ pub trait IRfcommConnectionTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn RemoteHostName(&self) -> ::windows::core::Result<super::super::Networking::HostName>;
     fn SetRemoteHostName(&self, value: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IRfcommConnectionTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl IRfcommConnectionTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRfcommConnectionTriggerImpl, const OFFSET: isize>() -> IRfcommConnectionTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRfcommConnectionTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRfcommConnectionTriggerVtbl {
         unsafe extern "system" fn InboundConnection<Impl: IRfcommConnectionTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundConnection() {
@@ -2675,21 +2949,24 @@ impl IRfcommConnectionTriggerVtbl {
             (*this).SetRemoteHostName(&*(&value as *const <super::super::Networking::HostName as ::windows::core::Abi>::Abi as *const <super::super::Networking::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRfcommConnectionTrigger>,
             ::windows::core::GetTrustLevel,
-            InboundConnection::<Impl, OFFSET>,
-            OutboundConnection::<Impl, OFFSET>,
-            AllowMultipleConnections::<Impl, OFFSET>,
-            SetAllowMultipleConnections::<Impl, OFFSET>,
-            ProtectionLevel::<Impl, OFFSET>,
-            SetProtectionLevel::<Impl, OFFSET>,
-            RemoteHostName::<Impl, OFFSET>,
-            SetRemoteHostName::<Impl, OFFSET>,
+            InboundConnection::<Impl, IMPL_OFFSET>,
+            OutboundConnection::<Impl, IMPL_OFFSET>,
+            AllowMultipleConnections::<Impl, IMPL_OFFSET>,
+            SetAllowMultipleConnections::<Impl, IMPL_OFFSET>,
+            ProtectionLevel::<Impl, IMPL_OFFSET>,
+            SetProtectionLevel::<Impl, IMPL_OFFSET>,
+            RemoteHostName::<Impl, IMPL_OFFSET>,
+            SetRemoteHostName::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRfcommConnectionTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2700,8 +2977,11 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISecondaryAuthenticationFactorAuthenticationTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationTriggerImpl, const OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISecondaryAuthenticationFactorAuthenticationTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecondaryAuthenticationFactorAuthenticationTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2712,21 +2992,24 @@ impl ::windows::core::RuntimeName for ISensorDataThresholdTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISensorDataThresholdTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThresholdTriggerImpl, const OFFSET: isize>() -> ISensorDataThresholdTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThresholdTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISensorDataThresholdTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISensorDataThresholdTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sensors", feature = "implement_exclusive"))]
 pub trait ISensorDataThresholdTriggerFactoryImpl: Sized {
     fn Create(&self, threshold: &::core::option::Option<super::super::Devices::Sensors::ISensorDataThreshold>) -> ::windows::core::Result<SensorDataThresholdTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sensors", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISensorDataThresholdTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ISensorDataThresholdTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sensors", feature = "implement_exclusive"))]
 impl ISensorDataThresholdTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThresholdTriggerFactoryImpl, const OFFSET: isize>() -> ISensorDataThresholdTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThresholdTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISensorDataThresholdTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISensorDataThresholdTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threshold: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&threshold as *const <super::super::Devices::Sensors::ISensorDataThreshold as ::windows::core::Abi>::Abi as *const <super::super::Devices::Sensors::ISensorDataThreshold as ::windows::core::DefaultType>::DefaultType)) {
@@ -2738,20 +3021,23 @@ impl ISensorDataThresholdTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISensorDataThresholdTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISensorDataThresholdTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerImpl: Sized + IBackgroundTriggerImpl {
     fn TriggerType(&self) -> ::windows::core::Result<super::super::Devices::SmartCards::SmartCardTriggerType>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ISmartCardTrigger";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 impl ISmartCardTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerImpl, const OFFSET: isize>() -> ISmartCardTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerVtbl {
         unsafe extern "system" fn TriggerType<Impl: ISmartCardTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerType() {
@@ -2763,20 +3049,23 @@ impl ISmartCardTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTrigger>, ::windows::core::GetTrustLevel, TriggerType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTrigger>, ::windows::core::GetTrustLevel, TriggerType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerFactoryImpl: Sized {
     fn Create(&self, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::Result<SmartCardTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ISmartCardTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 impl ISmartCardTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerFactoryImpl, const OFFSET: isize>() -> ISmartCardTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISmartCardTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(triggertype) {
@@ -2788,20 +3077,23 @@ impl ISmartCardTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmartCardTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmartCardTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 pub trait ISmsMessageReceivedTriggerFactoryImpl: Sized {
     fn Create(&self, filterrules: &::core::option::Option<super::super::Devices::Sms::SmsFilterRules>) -> ::windows::core::Result<SmsMessageReceivedTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageReceivedTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ISmsMessageReceivedTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 impl ISmsMessageReceivedTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageReceivedTriggerFactoryImpl, const OFFSET: isize>() -> ISmsMessageReceivedTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageReceivedTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageReceivedTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISmsMessageReceivedTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filterrules: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&filterrules as *const <super::super::Devices::Sms::SmsFilterRules as ::windows::core::Abi>::Abi as *const <super::super::Devices::Sms::SmsFilterRules as ::windows::core::DefaultType>::DefaultType)) {
@@ -2813,7 +3105,10 @@ impl ISmsMessageReceivedTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessageReceivedTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2826,7 +3121,7 @@ impl ::windows::core::RuntimeName for ISocketActivityTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISocketActivityTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityTriggerImpl, const OFFSET: isize>() -> ISocketActivityTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityTriggerVtbl {
         unsafe extern "system" fn IsWakeFromLowPowerSupported<Impl: ISocketActivityTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWakeFromLowPowerSupported() {
@@ -2838,20 +3133,23 @@ impl ISocketActivityTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityTrigger>, ::windows::core::GetTrustLevel, IsWakeFromLowPowerSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISocketActivityTrigger>, ::windows::core::GetTrustLevel, IsWakeFromLowPowerSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISocketActivityTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IStorageLibraryChangeTrackerTriggerFactoryImpl: Sized {
     fn Create(&self, tracker: &::core::option::Option<super::super::Storage::StorageLibraryChangeTracker>) -> ::windows::core::Result<StorageLibraryChangeTrackerTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeTrackerTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IStorageLibraryChangeTrackerTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl IStorageLibraryChangeTrackerTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryChangeTrackerTriggerFactoryImpl, const OFFSET: isize>() -> IStorageLibraryChangeTrackerTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryChangeTrackerTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryChangeTrackerTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IStorageLibraryChangeTrackerTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracker: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&tracker as *const <super::super::Storage::StorageLibraryChangeTracker as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageLibraryChangeTracker as ::windows::core::DefaultType>::DefaultType)) {
@@ -2863,7 +3161,10 @@ impl IStorageLibraryChangeTrackerTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryChangeTrackerTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryChangeTrackerTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageLibraryChangeTrackerTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2874,22 +3175,25 @@ impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorageLibraryContentChangedTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerImpl, const OFFSET: isize>() -> IStorageLibraryContentChangedTriggerVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTrigger>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryContentChangedTriggerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTrigger>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageLibraryContentChangedTrigger as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IStorageLibraryContentChangedTriggerStaticsImpl: Sized {
     fn Create(&self, storagelibrary: &::core::option::Option<super::super::Storage::StorageLibrary>) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>;
     fn CreateFromLibraries(&self, storagelibraries: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTriggerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IStorageLibraryContentChangedTriggerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IStorageLibraryContentChangedTriggerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerStaticsImpl, const OFFSET: isize>() -> IStorageLibraryContentChangedTriggerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryContentChangedTriggerStaticsVtbl {
         unsafe extern "system" fn Create<Impl: IStorageLibraryContentChangedTriggerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storagelibrary: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&storagelibrary as *const <super::super::Storage::StorageLibrary as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageLibrary as ::windows::core::DefaultType>::DefaultType)) {
@@ -2912,7 +3216,10 @@ impl IStorageLibraryContentChangedTriggerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTriggerStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateFromLibraries::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorageLibraryContentChangedTriggerStatics>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>, CreateFromLibraries::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageLibraryContentChangedTriggerStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2925,7 +3232,7 @@ impl ::windows::core::RuntimeName for ISystemCondition {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemConditionImpl, const OFFSET: isize>() -> ISystemConditionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemConditionVtbl {
         unsafe extern "system" fn ConditionType<Impl: ISystemConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemConditionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConditionType() {
@@ -2937,7 +3244,10 @@ impl ISystemConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCondition>, ::windows::core::GetTrustLevel, ConditionType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCondition>, ::windows::core::GetTrustLevel, ConditionType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemCondition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2950,7 +3260,7 @@ impl ::windows::core::RuntimeName for ISystemConditionFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemConditionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemConditionFactoryImpl, const OFFSET: isize>() -> ISystemConditionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemConditionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemConditionFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISystemConditionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditiontype: SystemConditionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(conditiontype) {
@@ -2962,7 +3272,10 @@ impl ISystemConditionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemConditionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemConditionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemConditionFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2976,7 +3289,7 @@ impl ::windows::core::RuntimeName for ISystemTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemTriggerImpl, const OFFSET: isize>() -> ISystemTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemTriggerVtbl {
         unsafe extern "system" fn OneShot<Impl: ISystemTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OneShot() {
@@ -2999,7 +3312,10 @@ impl ISystemTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemTrigger>, ::windows::core::GetTrustLevel, OneShot::<Impl, OFFSET>, TriggerType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemTrigger>, ::windows::core::GetTrustLevel, OneShot::<Impl, IMPL_OFFSET>, TriggerType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3012,7 +3328,7 @@ impl ::windows::core::RuntimeName for ISystemTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemTriggerFactoryImpl, const OFFSET: isize>() -> ISystemTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ISystemTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, triggertype: SystemTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(triggertype, oneshot) {
@@ -3024,7 +3340,10 @@ impl ISystemTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3038,7 +3357,7 @@ impl ::windows::core::RuntimeName for ITimeTrigger {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITimeTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeTriggerImpl, const OFFSET: isize>() -> ITimeTriggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimeTriggerVtbl {
         unsafe extern "system" fn FreshnessTime<Impl: ITimeTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FreshnessTime() {
@@ -3061,7 +3380,10 @@ impl ITimeTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeTrigger>, ::windows::core::GetTrustLevel, FreshnessTime::<Impl, OFFSET>, OneShot::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeTrigger>, ::windows::core::GetTrustLevel, FreshnessTime::<Impl, IMPL_OFFSET>, OneShot::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimeTrigger as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3074,7 +3396,7 @@ impl ::windows::core::RuntimeName for ITimeTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITimeTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeTriggerFactoryImpl, const OFFSET: isize>() -> ITimeTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimeTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: ITimeTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(freshnesstime, oneshot) {
@@ -3086,7 +3408,10 @@ impl ITimeTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimeTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimeTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3099,7 +3424,7 @@ impl ::windows::core::RuntimeName for IToastNotificationActionTriggerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationActionTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationActionTriggerFactoryImpl, const OFFSET: isize>() -> IToastNotificationActionTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationActionTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationActionTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IToastNotificationActionTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&applicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3111,7 +3436,10 @@ impl IToastNotificationActionTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActionTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationActionTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationActionTriggerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3124,7 +3452,7 @@ impl ::windows::core::RuntimeName for IToastNotificationHistoryChangedTriggerFac
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationHistoryChangedTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryChangedTriggerFactoryImpl, const OFFSET: isize>() -> IToastNotificationHistoryChangedTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationHistoryChangedTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationHistoryChangedTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IToastNotificationHistoryChangedTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&applicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3136,20 +3464,23 @@ impl IToastNotificationHistoryChangedTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationHistoryChangedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IToastNotificationHistoryChangedTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait IUserNotificationChangedTriggerFactoryImpl: Sized {
     fn Create(&self, notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows::core::Result<UserNotificationChangedTrigger>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserNotificationChangedTriggerFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IUserNotificationChangedTriggerFactory";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl IUserNotificationChangedTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationChangedTriggerFactoryImpl, const OFFSET: isize>() -> IUserNotificationChangedTriggerFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationChangedTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationChangedTriggerFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IUserNotificationChangedTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationkinds: super::super::UI::Notifications::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(notificationkinds) {
@@ -3161,6 +3492,9 @@ impl IUserNotificationChangedTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationChangedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserNotificationChangedTriggerFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUserNotificationChangedTriggerFactory as ::windows::core::Interface>::IID
     }
 }

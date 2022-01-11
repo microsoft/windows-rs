@@ -1,4 +1,4 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmsAppMessageImpl: Sized + ISmsMessageBaseImpl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -23,13 +23,13 @@ pub trait ISmsAppMessageImpl: Sized + ISmsMessageBaseImpl {
     fn BinaryBody(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn SetBinaryBody(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsAppMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsAppMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmsAppMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsAppMessageImpl, const OFFSET: isize>() -> ISmsAppMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsAppMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsAppMessageVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISmsAppMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -203,35 +203,38 @@ impl ISmsAppMessageVtbl {
             (*this).SetBinaryBody(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsAppMessage>,
             ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            SetTo::<Impl, OFFSET>,
-            From::<Impl, OFFSET>,
-            Body::<Impl, OFFSET>,
-            SetBody::<Impl, OFFSET>,
-            CallbackNumber::<Impl, OFFSET>,
-            SetCallbackNumber::<Impl, OFFSET>,
-            IsDeliveryNotificationEnabled::<Impl, OFFSET>,
-            SetIsDeliveryNotificationEnabled::<Impl, OFFSET>,
-            RetryAttemptCount::<Impl, OFFSET>,
-            SetRetryAttemptCount::<Impl, OFFSET>,
-            Encoding::<Impl, OFFSET>,
-            SetEncoding::<Impl, OFFSET>,
-            PortNumber::<Impl, OFFSET>,
-            SetPortNumber::<Impl, OFFSET>,
-            TeleserviceId::<Impl, OFFSET>,
-            SetTeleserviceId::<Impl, OFFSET>,
-            ProtocolId::<Impl, OFFSET>,
-            SetProtocolId::<Impl, OFFSET>,
-            BinaryBody::<Impl, OFFSET>,
-            SetBinaryBody::<Impl, OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            SetTo::<Impl, IMPL_OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            CallbackNumber::<Impl, IMPL_OFFSET>,
+            SetCallbackNumber::<Impl, IMPL_OFFSET>,
+            IsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            RetryAttemptCount::<Impl, IMPL_OFFSET>,
+            SetRetryAttemptCount::<Impl, IMPL_OFFSET>,
+            Encoding::<Impl, IMPL_OFFSET>,
+            SetEncoding::<Impl, IMPL_OFFSET>,
+            PortNumber::<Impl, IMPL_OFFSET>,
+            SetPortNumber::<Impl, IMPL_OFFSET>,
+            TeleserviceId::<Impl, IMPL_OFFSET>,
+            SetTeleserviceId::<Impl, IMPL_OFFSET>,
+            ProtocolId::<Impl, IMPL_OFFSET>,
+            SetProtocolId::<Impl, IMPL_OFFSET>,
+            BinaryBody::<Impl, IMPL_OFFSET>,
+            SetBinaryBody::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsAppMessage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "deprecated")]
@@ -247,7 +250,7 @@ impl ::windows::core::RuntimeName for ISmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 impl ISmsBinaryMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessageImpl, const OFFSET: isize>() -> ISmsBinaryMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsBinaryMessageVtbl {
         unsafe extern "system" fn Format<Impl: ISmsBinaryMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsDataFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
@@ -279,10 +282,13 @@ impl ISmsBinaryMessageVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsBinaryMessage>, ::windows::core::GetTrustLevel, Format::<Impl, OFFSET>, SetFormat::<Impl, OFFSET>, GetData::<Impl, OFFSET>, SetData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsBinaryMessage>, ::windows::core::GetTrustLevel, Format::<Impl, IMPL_OFFSET>, SetFormat::<Impl, IMPL_OFFSET>, GetData::<Impl, IMPL_OFFSET>, SetData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsBinaryMessage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsBroadcastMessageImpl: Sized + ISmsMessageBaseImpl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -295,13 +301,13 @@ pub trait ISmsBroadcastMessageImpl: Sized + ISmsMessageBaseImpl {
     fn IsEmergencyAlert(&self) -> ::windows::core::Result<bool>;
     fn IsUserPopupRequested(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsBroadcastMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsBroadcastMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmsBroadcastMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBroadcastMessageImpl, const OFFSET: isize>() -> ISmsBroadcastMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBroadcastMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsBroadcastMessageVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISmsBroadcastMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -413,26 +419,29 @@ impl ISmsBroadcastMessageVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsBroadcastMessage>,
             ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            Body::<Impl, OFFSET>,
-            Channel::<Impl, OFFSET>,
-            GeographicalScope::<Impl, OFFSET>,
-            MessageCode::<Impl, OFFSET>,
-            UpdateNumber::<Impl, OFFSET>,
-            BroadcastType::<Impl, OFFSET>,
-            IsEmergencyAlert::<Impl, OFFSET>,
-            IsUserPopupRequested::<Impl, OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            Channel::<Impl, IMPL_OFFSET>,
+            GeographicalScope::<Impl, IMPL_OFFSET>,
+            MessageCode::<Impl, IMPL_OFFSET>,
+            UpdateNumber::<Impl, IMPL_OFFSET>,
+            BroadcastType::<Impl, IMPL_OFFSET>,
+            IsEmergencyAlert::<Impl, IMPL_OFFSET>,
+            IsUserPopupRequested::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsBroadcastMessage as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "deprecated")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait ISmsDeviceImpl: Sized {
     fn SendMessageAsync(&self, message: &::core::option::Option<ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
     fn CalculateLength(&self, message: &::core::option::Option<SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
@@ -445,13 +454,13 @@ pub trait ISmsDeviceImpl: Sized {
     fn SmsDeviceStatusChanged(&self, eventhandler: &::core::option::Option<SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSmsDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "deprecated")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice";
 }
-#[cfg(feature = "deprecated")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ISmsDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceImpl, const OFFSET: isize>() -> ISmsDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsDeviceVtbl {
         unsafe extern "system" fn SendMessageAsync<Impl: ISmsDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendMessageAsync(&*(&message as *const <ISmsMessage as ::windows::core::Abi>::Abi as *const <ISmsMessage as ::windows::core::DefaultType>::DefaultType)) {
@@ -549,26 +558,29 @@ impl ISmsDeviceVtbl {
             (*this).RemoveSmsDeviceStatusChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsDevice>,
             ::windows::core::GetTrustLevel,
-            SendMessageAsync::<Impl, OFFSET>,
-            CalculateLength::<Impl, OFFSET>,
-            AccountPhoneNumber::<Impl, OFFSET>,
-            CellularClass::<Impl, OFFSET>,
-            MessageStore::<Impl, OFFSET>,
-            DeviceStatus::<Impl, OFFSET>,
-            SmsMessageReceived::<Impl, OFFSET>,
-            RemoveSmsMessageReceived::<Impl, OFFSET>,
-            SmsDeviceStatusChanged::<Impl, OFFSET>,
-            RemoveSmsDeviceStatusChanged::<Impl, OFFSET>,
+            SendMessageAsync::<Impl, IMPL_OFFSET>,
+            CalculateLength::<Impl, IMPL_OFFSET>,
+            AccountPhoneNumber::<Impl, IMPL_OFFSET>,
+            CellularClass::<Impl, IMPL_OFFSET>,
+            MessageStore::<Impl, IMPL_OFFSET>,
+            DeviceStatus::<Impl, IMPL_OFFSET>,
+            SmsMessageReceived::<Impl, IMPL_OFFSET>,
+            RemoveSmsMessageReceived::<Impl, IMPL_OFFSET>,
+            SmsDeviceStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSmsDeviceStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsDevice as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsDevice2Impl: Sized {
     fn SmscAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetSmscAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -582,13 +594,13 @@ pub trait ISmsDevice2Impl: Sized {
     fn DeviceStatusChanged(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDevice2 {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmsDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice2Impl, const OFFSET: isize>() -> ISmsDevice2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsDevice2Vtbl {
         unsafe extern "system" fn SmscAddress<Impl: ISmsDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmscAddress() {
@@ -697,24 +709,27 @@ impl ISmsDevice2Vtbl {
             (*this).RemoveDeviceStatusChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsDevice2>,
             ::windows::core::GetTrustLevel,
-            SmscAddress::<Impl, OFFSET>,
-            SetSmscAddress::<Impl, OFFSET>,
-            DeviceId::<Impl, OFFSET>,
-            ParentDeviceId::<Impl, OFFSET>,
-            AccountPhoneNumber::<Impl, OFFSET>,
-            CellularClass::<Impl, OFFSET>,
-            DeviceStatus::<Impl, OFFSET>,
-            CalculateLength::<Impl, OFFSET>,
-            SendMessageAndGetResultAsync::<Impl, OFFSET>,
-            DeviceStatusChanged::<Impl, OFFSET>,
-            RemoveDeviceStatusChanged::<Impl, OFFSET>,
+            SmscAddress::<Impl, IMPL_OFFSET>,
+            SetSmscAddress::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            ParentDeviceId::<Impl, IMPL_OFFSET>,
+            AccountPhoneNumber::<Impl, IMPL_OFFSET>,
+            CellularClass::<Impl, IMPL_OFFSET>,
+            DeviceStatus::<Impl, IMPL_OFFSET>,
+            CalculateLength::<Impl, IMPL_OFFSET>,
+            SendMessageAndGetResultAsync::<Impl, IMPL_OFFSET>,
+            DeviceStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveDeviceStatusChanged::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsDevice2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -730,7 +745,7 @@ impl ::windows::core::RuntimeName for ISmsDevice2Statics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmsDevice2StaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice2StaticsImpl, const OFFSET: isize>() -> ISmsDevice2StaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice2StaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsDevice2StaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ISmsDevice2StaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -775,10 +790,13 @@ impl ISmsDevice2StaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDevice2Statics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromId::<Impl, OFFSET>, GetDefault::<Impl, OFFSET>, FromParentId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDevice2Statics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromId::<Impl, IMPL_OFFSET>, GetDefault::<Impl, IMPL_OFFSET>, FromParentId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsDevice2Statics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsDeviceMessageStoreImpl: Sized {
     fn DeleteMessageAsync(&self, messageid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -786,13 +804,13 @@ pub trait ISmsDeviceMessageStoreImpl: Sized {
     fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>;
     fn MaxMessages(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDeviceMessageStore";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsDeviceMessageStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceMessageStoreImpl, const OFFSET: isize>() -> ISmsDeviceMessageStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceMessageStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsDeviceMessageStoreVtbl {
         unsafe extern "system" fn DeleteMessageAsync<Impl: ISmsDeviceMessageStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteMessageAsync(messageid) {
@@ -848,22 +866,25 @@ impl ISmsDeviceMessageStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceMessageStore>, ::windows::core::GetTrustLevel, DeleteMessageAsync::<Impl, OFFSET>, DeleteMessagesAsync::<Impl, OFFSET>, GetMessageAsync::<Impl, OFFSET>, GetMessagesAsync::<Impl, OFFSET>, MaxMessages::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceMessageStore>, ::windows::core::GetTrustLevel, DeleteMessageAsync::<Impl, IMPL_OFFSET>, DeleteMessagesAsync::<Impl, IMPL_OFFSET>, GetMessageAsync::<Impl, IMPL_OFFSET>, GetMessagesAsync::<Impl, IMPL_OFFSET>, MaxMessages::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsDeviceMessageStore as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDeviceStatics";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceStaticsImpl, const OFFSET: isize>() -> ISmsDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsDeviceStaticsVtbl {
         unsafe extern "system" fn GetDeviceSelector<Impl: ISmsDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
@@ -897,20 +918,23 @@ impl ISmsDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, GetDefaultAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, IMPL_OFFSET>, FromIdAsync::<Impl, IMPL_OFFSET>, GetDefaultAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsDeviceStatics2Impl: Sized {
     fn FromNetworkAccountIdAsync(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDeviceStatics2 {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDeviceStatics2";
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsDeviceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceStatics2Impl, const OFFSET: isize>() -> ISmsDeviceStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDeviceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsDeviceStatics2Vtbl {
         unsafe extern "system" fn FromNetworkAccountIdAsync<Impl: ISmsDeviceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromNetworkAccountIdAsync(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -922,10 +946,13 @@ impl ISmsDeviceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceStatics2>, ::windows::core::GetTrustLevel, FromNetworkAccountIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsDeviceStatics2>, ::windows::core::GetTrustLevel, FromNetworkAccountIdAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsDeviceStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsFilterRuleImpl: Sized {
     fn MessageType(&self) -> ::windows::core::Result<SmsMessageType>;
     fn ImsiPrefixes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -942,13 +969,13 @@ pub trait ISmsFilterRuleImpl: Sized {
     fn BroadcastTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SmsBroadcastType>>;
     fn BroadcastChannels(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsFilterRule {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsFilterRule";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmsFilterRuleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRuleImpl, const OFFSET: isize>() -> ISmsFilterRuleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRuleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsFilterRuleVtbl {
         unsafe extern "system" fn MessageType<Impl: ISmsFilterRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
@@ -1097,27 +1124,30 @@ impl ISmsFilterRuleVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsFilterRule>,
             ::windows::core::GetTrustLevel,
-            MessageType::<Impl, OFFSET>,
-            ImsiPrefixes::<Impl, OFFSET>,
-            DeviceIds::<Impl, OFFSET>,
-            SenderNumbers::<Impl, OFFSET>,
-            TextMessagePrefixes::<Impl, OFFSET>,
-            PortNumbers::<Impl, OFFSET>,
-            CellularClass::<Impl, OFFSET>,
-            SetCellularClass::<Impl, OFFSET>,
-            ProtocolIds::<Impl, OFFSET>,
-            TeleserviceIds::<Impl, OFFSET>,
-            WapApplicationIds::<Impl, OFFSET>,
-            WapContentTypes::<Impl, OFFSET>,
-            BroadcastTypes::<Impl, OFFSET>,
-            BroadcastChannels::<Impl, OFFSET>,
+            MessageType::<Impl, IMPL_OFFSET>,
+            ImsiPrefixes::<Impl, IMPL_OFFSET>,
+            DeviceIds::<Impl, IMPL_OFFSET>,
+            SenderNumbers::<Impl, IMPL_OFFSET>,
+            TextMessagePrefixes::<Impl, IMPL_OFFSET>,
+            PortNumbers::<Impl, IMPL_OFFSET>,
+            CellularClass::<Impl, IMPL_OFFSET>,
+            SetCellularClass::<Impl, IMPL_OFFSET>,
+            ProtocolIds::<Impl, IMPL_OFFSET>,
+            TeleserviceIds::<Impl, IMPL_OFFSET>,
+            WapApplicationIds::<Impl, IMPL_OFFSET>,
+            WapContentTypes::<Impl, IMPL_OFFSET>,
+            BroadcastTypes::<Impl, IMPL_OFFSET>,
+            BroadcastChannels::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsFilterRule as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1130,7 +1160,7 @@ impl ::windows::core::RuntimeName for ISmsFilterRuleFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmsFilterRuleFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRuleFactoryImpl, const OFFSET: isize>() -> ISmsFilterRuleFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRuleFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsFilterRuleFactoryVtbl {
         unsafe extern "system" fn CreateFilterRule<Impl: ISmsFilterRuleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagetype: SmsMessageType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFilterRule(messagetype) {
@@ -1142,21 +1172,24 @@ impl ISmsFilterRuleFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRuleFactory>, ::windows::core::GetTrustLevel, CreateFilterRule::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRuleFactory>, ::windows::core::GetTrustLevel, CreateFilterRule::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsFilterRuleFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsFilterRulesImpl: Sized {
     fn ActionType(&self) -> ::windows::core::Result<SmsFilterActionType>;
     fn Rules(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SmsFilterRule>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsFilterRules {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsFilterRules";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmsFilterRulesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRulesImpl, const OFFSET: isize>() -> ISmsFilterRulesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRulesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsFilterRulesVtbl {
         unsafe extern "system" fn ActionType<Impl: ISmsFilterRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsFilterActionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActionType() {
@@ -1179,7 +1212,10 @@ impl ISmsFilterRulesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRules>, ::windows::core::GetTrustLevel, ActionType::<Impl, OFFSET>, Rules::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRules>, ::windows::core::GetTrustLevel, ActionType::<Impl, IMPL_OFFSET>, Rules::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsFilterRules as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1192,7 +1228,7 @@ impl ::windows::core::RuntimeName for ISmsFilterRulesFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmsFilterRulesFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRulesFactoryImpl, const OFFSET: isize>() -> ISmsFilterRulesFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsFilterRulesFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsFilterRulesFactoryVtbl {
         unsafe extern "system" fn CreateFilterRules<Impl: ISmsFilterRulesFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actiontype: SmsFilterActionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFilterRules(actiontype) {
@@ -1204,7 +1240,10 @@ impl ISmsFilterRulesFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRulesFactory>, ::windows::core::GetTrustLevel, CreateFilterRules::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsFilterRulesFactory>, ::windows::core::GetTrustLevel, CreateFilterRules::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsFilterRulesFactory as ::windows::core::Interface>::IID
     }
 }
 pub trait ISmsMessageImpl: Sized {
@@ -1215,7 +1254,7 @@ impl ::windows::core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
 }
 impl ISmsMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageImpl, const OFFSET: isize>() -> ISmsMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageVtbl {
         unsafe extern "system" fn Id<Impl: ISmsMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1238,7 +1277,10 @@ impl ISmsMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessage>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, MessageClass::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessage>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, MessageClass::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessage as ::windows::core::Interface>::IID
     }
 }
 pub trait ISmsMessageBaseImpl: Sized {
@@ -1252,7 +1294,7 @@ impl ::windows::core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
 }
 impl ISmsMessageBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBaseImpl, const OFFSET: isize>() -> ISmsMessageBaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageBaseVtbl {
         unsafe extern "system" fn MessageType<Impl: ISmsMessageBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
@@ -1308,7 +1350,10 @@ impl ISmsMessageBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageBase>, ::windows::core::GetTrustLevel, MessageType::<Impl, OFFSET>, DeviceId::<Impl, OFFSET>, CellularClass::<Impl, OFFSET>, MessageClass::<Impl, OFFSET>, SimIccId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageBase>, ::windows::core::GetTrustLevel, MessageType::<Impl, IMPL_OFFSET>, DeviceId::<Impl, IMPL_OFFSET>, CellularClass::<Impl, IMPL_OFFSET>, MessageClass::<Impl, IMPL_OFFSET>, SimIccId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessageBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1322,7 +1367,7 @@ impl ::windows::core::RuntimeName for ISmsMessageReceivedEventArgs {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageReceivedEventArgsImpl, const OFFSET: isize>() -> ISmsMessageReceivedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageReceivedEventArgsVtbl {
         unsafe extern "system" fn TextMessage<Impl: ISmsMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextMessage() {
@@ -1345,7 +1390,10 @@ impl ISmsMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, TextMessage::<Impl, OFFSET>, BinaryMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedEventArgs>, ::windows::core::GetTrustLevel, TextMessage::<Impl, IMPL_OFFSET>, BinaryMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessageReceivedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1366,7 +1414,7 @@ impl ::windows::core::RuntimeName for ISmsMessageReceivedTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISmsMessageReceivedTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageReceivedTriggerDetailsImpl, const OFFSET: isize>() -> ISmsMessageReceivedTriggerDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageReceivedTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageReceivedTriggerDetailsVtbl {
         unsafe extern "system" fn MessageType<Impl: ISmsMessageReceivedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
@@ -1453,38 +1501,41 @@ impl ISmsMessageReceivedTriggerDetailsVtbl {
             (*this).Accept().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsMessageReceivedTriggerDetails>,
             ::windows::core::GetTrustLevel,
-            MessageType::<Impl, OFFSET>,
-            TextMessage::<Impl, OFFSET>,
-            WapMessage::<Impl, OFFSET>,
-            AppMessage::<Impl, OFFSET>,
-            BroadcastMessage::<Impl, OFFSET>,
-            VoicemailMessage::<Impl, OFFSET>,
-            StatusMessage::<Impl, OFFSET>,
-            Drop::<Impl, OFFSET>,
-            Accept::<Impl, OFFSET>,
+            MessageType::<Impl, IMPL_OFFSET>,
+            TextMessage::<Impl, IMPL_OFFSET>,
+            WapMessage::<Impl, IMPL_OFFSET>,
+            AppMessage::<Impl, IMPL_OFFSET>,
+            BroadcastMessage::<Impl, IMPL_OFFSET>,
+            VoicemailMessage::<Impl, IMPL_OFFSET>,
+            StatusMessage::<Impl, IMPL_OFFSET>,
+            Drop::<Impl, IMPL_OFFSET>,
+            Accept::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessageReceivedTriggerDetails as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsMessageRegistrationImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Unregister(&self) -> ::windows::core::Result<()>;
     fn MessageReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageRegistration {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageRegistration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmsMessageRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageRegistrationImpl, const OFFSET: isize>() -> ISmsMessageRegistrationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageRegistrationVtbl {
         unsafe extern "system" fn Id<Impl: ISmsMessageRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1515,21 +1566,24 @@ impl ISmsMessageRegistrationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageRegistration>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Unregister::<Impl, OFFSET>, MessageReceived::<Impl, OFFSET>, RemoveMessageReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageRegistration>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Unregister::<Impl, IMPL_OFFSET>, MessageReceived::<Impl, IMPL_OFFSET>, RemoveMessageReceived::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessageRegistration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsMessageRegistrationStaticsImpl: Sized {
     fn AllRegistrations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>>;
     fn Register(&self, id: &::windows::core::HSTRING, filterrules: &::core::option::Option<SmsFilterRules>) -> ::windows::core::Result<SmsMessageRegistration>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageRegistrationStatics {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageRegistrationStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmsMessageRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageRegistrationStaticsImpl, const OFFSET: isize>() -> ISmsMessageRegistrationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsMessageRegistrationStaticsVtbl {
         unsafe extern "system" fn AllRegistrations<Impl: ISmsMessageRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllRegistrations() {
@@ -1552,7 +1606,10 @@ impl ISmsMessageRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageRegistrationStatics>, ::windows::core::GetTrustLevel, AllRegistrations::<Impl, OFFSET>, Register::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsMessageRegistrationStatics>, ::windows::core::GetTrustLevel, AllRegistrations::<Impl, IMPL_OFFSET>, Register::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsMessageRegistrationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1566,7 +1623,7 @@ impl ::windows::core::RuntimeName for ISmsReceivedEventDetails {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsReceivedEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsReceivedEventDetailsImpl, const OFFSET: isize>() -> ISmsReceivedEventDetailsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsReceivedEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsReceivedEventDetailsVtbl {
         unsafe extern "system" fn DeviceId<Impl: ISmsReceivedEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
@@ -1589,7 +1646,10 @@ impl ISmsReceivedEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsReceivedEventDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, MessageIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsReceivedEventDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, IMPL_OFFSET>, MessageIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsReceivedEventDetails as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1603,7 +1663,7 @@ impl ::windows::core::RuntimeName for ISmsReceivedEventDetails2 {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsReceivedEventDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsReceivedEventDetails2Impl, const OFFSET: isize>() -> ISmsReceivedEventDetails2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsReceivedEventDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsReceivedEventDetails2Vtbl {
         unsafe extern "system" fn MessageClass<Impl: ISmsReceivedEventDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageClass() {
@@ -1626,10 +1686,13 @@ impl ISmsReceivedEventDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsReceivedEventDetails2>, ::windows::core::GetTrustLevel, MessageClass::<Impl, OFFSET>, BinaryMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsReceivedEventDetails2>, ::windows::core::GetTrustLevel, MessageClass::<Impl, IMPL_OFFSET>, BinaryMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsReceivedEventDetails2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsSendMessageResultImpl: Sized {
     fn IsSuccessful(&self) -> ::windows::core::Result<bool>;
     fn MessageReferenceNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>>;
@@ -1639,13 +1702,13 @@ pub trait ISmsSendMessageResultImpl: Sized {
     fn NetworkCauseCode(&self) -> ::windows::core::Result<i32>;
     fn TransportFailureCause(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsSendMessageResult {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsSendMessageResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ISmsSendMessageResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsSendMessageResultImpl, const OFFSET: isize>() -> ISmsSendMessageResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsSendMessageResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsSendMessageResultVtbl {
         unsafe extern "system" fn IsSuccessful<Impl: ISmsSendMessageResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSuccessful() {
@@ -1724,23 +1787,26 @@ impl ISmsSendMessageResultVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsSendMessageResult>,
             ::windows::core::GetTrustLevel,
-            IsSuccessful::<Impl, OFFSET>,
-            MessageReferenceNumbers::<Impl, OFFSET>,
-            CellularClass::<Impl, OFFSET>,
-            ModemErrorCode::<Impl, OFFSET>,
-            IsErrorTransient::<Impl, OFFSET>,
-            NetworkCauseCode::<Impl, OFFSET>,
-            TransportFailureCause::<Impl, OFFSET>,
+            IsSuccessful::<Impl, IMPL_OFFSET>,
+            MessageReferenceNumbers::<Impl, IMPL_OFFSET>,
+            CellularClass::<Impl, IMPL_OFFSET>,
+            ModemErrorCode::<Impl, IMPL_OFFSET>,
+            IsErrorTransient::<Impl, IMPL_OFFSET>,
+            NetworkCauseCode::<Impl, IMPL_OFFSET>,
+            TransportFailureCause::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsSendMessageResult as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsStatusMessageImpl: Sized + ISmsMessageBaseImpl {
     fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1750,13 +1816,13 @@ pub trait ISmsStatusMessageImpl: Sized + ISmsMessageBaseImpl {
     fn ServiceCenterTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn DischargeTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsStatusMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsStatusMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmsStatusMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsStatusMessageImpl, const OFFSET: isize>() -> ISmsStatusMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsStatusMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsStatusMessageVtbl {
         unsafe extern "system" fn To<Impl: ISmsStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).To() {
@@ -1834,10 +1900,27 @@ impl ISmsStatusMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsStatusMessage>, ::windows::core::GetTrustLevel, To::<Impl, OFFSET>, From::<Impl, OFFSET>, Body::<Impl, OFFSET>, Status::<Impl, OFFSET>, MessageReferenceNumber::<Impl, OFFSET>, ServiceCenterTimestamp::<Impl, OFFSET>, DischargeTime::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmsStatusMessage>,
+            ::windows::core::GetTrustLevel,
+            To::<Impl, IMPL_OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            MessageReferenceNumber::<Impl, IMPL_OFFSET>,
+            ServiceCenterTimestamp::<Impl, IMPL_OFFSET>,
+            DischargeTime::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsStatusMessage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait ISmsTextMessageImpl: Sized + ISmsMessageImpl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn PartReferenceId(&self) -> ::windows::core::Result<u32>;
@@ -1853,13 +1936,13 @@ pub trait ISmsTextMessageImpl: Sized + ISmsMessageImpl {
     fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()>;
     fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
 }
-#[cfg(feature = "deprecated")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage";
 }
-#[cfg(feature = "deprecated")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ISmsTextMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessageImpl, const OFFSET: isize>() -> ISmsTextMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsTextMessageVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISmsTextMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -1976,29 +2059,32 @@ impl ISmsTextMessageVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsTextMessage>,
             ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, OFFSET>,
-            PartReferenceId::<Impl, OFFSET>,
-            PartNumber::<Impl, OFFSET>,
-            PartCount::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            SetTo::<Impl, OFFSET>,
-            From::<Impl, OFFSET>,
-            SetFrom::<Impl, OFFSET>,
-            Body::<Impl, OFFSET>,
-            SetBody::<Impl, OFFSET>,
-            Encoding::<Impl, OFFSET>,
-            SetEncoding::<Impl, OFFSET>,
-            ToBinaryMessages::<Impl, OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            PartReferenceId::<Impl, IMPL_OFFSET>,
+            PartNumber::<Impl, IMPL_OFFSET>,
+            PartCount::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            SetTo::<Impl, IMPL_OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            SetFrom::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            Encoding::<Impl, IMPL_OFFSET>,
+            SetEncoding::<Impl, IMPL_OFFSET>,
+            ToBinaryMessages::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsTextMessage as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsTextMessage2Impl: Sized + ISmsMessageBaseImpl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2017,13 +2103,13 @@ pub trait ISmsTextMessage2Impl: Sized + ISmsMessageBaseImpl {
     fn TeleserviceId(&self) -> ::windows::core::Result<i32>;
     fn ProtocolId(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsTextMessage2 {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmsTextMessage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage2Impl, const OFFSET: isize>() -> ISmsTextMessage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsTextMessage2Vtbl {
         unsafe extern "system" fn Timestamp<Impl: ISmsTextMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -2159,29 +2245,32 @@ impl ISmsTextMessage2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISmsTextMessage2>,
             ::windows::core::GetTrustLevel,
-            Timestamp::<Impl, OFFSET>,
-            To::<Impl, OFFSET>,
-            SetTo::<Impl, OFFSET>,
-            From::<Impl, OFFSET>,
-            Body::<Impl, OFFSET>,
-            SetBody::<Impl, OFFSET>,
-            Encoding::<Impl, OFFSET>,
-            SetEncoding::<Impl, OFFSET>,
-            CallbackNumber::<Impl, OFFSET>,
-            SetCallbackNumber::<Impl, OFFSET>,
-            IsDeliveryNotificationEnabled::<Impl, OFFSET>,
-            SetIsDeliveryNotificationEnabled::<Impl, OFFSET>,
-            RetryAttemptCount::<Impl, OFFSET>,
-            SetRetryAttemptCount::<Impl, OFFSET>,
-            TeleserviceId::<Impl, OFFSET>,
-            ProtocolId::<Impl, OFFSET>,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            SetTo::<Impl, IMPL_OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            Encoding::<Impl, IMPL_OFFSET>,
+            SetEncoding::<Impl, IMPL_OFFSET>,
+            CallbackNumber::<Impl, IMPL_OFFSET>,
+            SetCallbackNumber::<Impl, IMPL_OFFSET>,
+            IsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            SetIsDeliveryNotificationEnabled::<Impl, IMPL_OFFSET>,
+            RetryAttemptCount::<Impl, IMPL_OFFSET>,
+            SetRetryAttemptCount::<Impl, IMPL_OFFSET>,
+            TeleserviceId::<Impl, IMPL_OFFSET>,
+            ProtocolId::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsTextMessage2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2195,7 +2284,7 @@ impl ::windows::core::RuntimeName for ISmsTextMessageStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISmsTextMessageStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessageStaticsImpl, const OFFSET: isize>() -> ISmsTextMessageStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessageStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsTextMessageStaticsVtbl {
         unsafe extern "system" fn FromBinaryMessage<Impl: ISmsTextMessageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarymessage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromBinaryMessage(&*(&binarymessage as *const <SmsBinaryMessage as ::windows::core::Abi>::Abi as *const <SmsBinaryMessage as ::windows::core::DefaultType>::DefaultType)) {
@@ -2218,23 +2307,26 @@ impl ISmsTextMessageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsTextMessageStatics>, ::windows::core::GetTrustLevel, FromBinaryMessage::<Impl, OFFSET>, FromBinaryData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsTextMessageStatics>, ::windows::core::GetTrustLevel, FromBinaryMessage::<Impl, IMPL_OFFSET>, FromBinaryData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsTextMessageStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsVoicemailMessageImpl: Sized + ISmsMessageBaseImpl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MessageCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsVoicemailMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsVoicemailMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ISmsVoicemailMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsVoicemailMessageImpl, const OFFSET: isize>() -> ISmsVoicemailMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsVoicemailMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsVoicemailMessageVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISmsVoicemailMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -2279,10 +2371,13 @@ impl ISmsVoicemailMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsVoicemailMessage>, ::windows::core::GetTrustLevel, Timestamp::<Impl, OFFSET>, To::<Impl, OFFSET>, Body::<Impl, OFFSET>, MessageCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsVoicemailMessage>, ::windows::core::GetTrustLevel, Timestamp::<Impl, IMPL_OFFSET>, To::<Impl, IMPL_OFFSET>, Body::<Impl, IMPL_OFFSET>, MessageCount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsVoicemailMessage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmsWapMessageImpl: Sized + ISmsMessageBaseImpl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2292,13 +2387,13 @@ pub trait ISmsWapMessageImpl: Sized + ISmsMessageBaseImpl {
     fn BinaryBody(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsWapMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsWapMessage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISmsWapMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsWapMessageImpl, const OFFSET: isize>() -> ISmsWapMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsWapMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmsWapMessageVtbl {
         unsafe extern "system" fn Timestamp<Impl: ISmsWapMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
@@ -2376,6 +2471,23 @@ impl ISmsWapMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISmsWapMessage>, ::windows::core::GetTrustLevel, Timestamp::<Impl, OFFSET>, To::<Impl, OFFSET>, From::<Impl, OFFSET>, ApplicationId::<Impl, OFFSET>, ContentType::<Impl, OFFSET>, BinaryBody::<Impl, OFFSET>, Headers::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISmsWapMessage>,
+            ::windows::core::GetTrustLevel,
+            Timestamp::<Impl, IMPL_OFFSET>,
+            To::<Impl, IMPL_OFFSET>,
+            From::<Impl, IMPL_OFFSET>,
+            ApplicationId::<Impl, IMPL_OFFSET>,
+            ContentType::<Impl, IMPL_OFFSET>,
+            BinaryBody::<Impl, IMPL_OFFSET>,
+            Headers::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISmsWapMessage as ::windows::core::Interface>::IID
     }
 }

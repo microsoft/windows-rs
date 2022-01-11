@@ -1,17 +1,17 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAggregateContactManagerImpl: Sized {
     fn FindRawContactsAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
     fn TryLinkContactsAsync(&self, primarycontact: &::core::option::Option<Contact>, secondarycontact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
     fn UnlinkRawContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn TrySetPreferredSourceForPictureAsync(&self, aggregatecontact: &::core::option::Option<Contact>, rawcontact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAggregateContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IAggregateContactManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAggregateContactManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAggregateContactManagerImpl, const OFFSET: isize>() -> IAggregateContactManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAggregateContactManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAggregateContactManagerVtbl {
         unsafe extern "system" fn FindRawContactsAsync<Impl: IAggregateContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindRawContactsAsync(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType)) {
@@ -56,20 +56,23 @@ impl IAggregateContactManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAggregateContactManager>, ::windows::core::GetTrustLevel, FindRawContactsAsync::<Impl, OFFSET>, TryLinkContactsAsync::<Impl, OFFSET>, UnlinkRawContactAsync::<Impl, OFFSET>, TrySetPreferredSourceForPictureAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAggregateContactManager>, ::windows::core::GetTrustLevel, FindRawContactsAsync::<Impl, IMPL_OFFSET>, TryLinkContactsAsync::<Impl, IMPL_OFFSET>, UnlinkRawContactAsync::<Impl, IMPL_OFFSET>, TrySetPreferredSourceForPictureAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAggregateContactManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAggregateContactManager2Impl: Sized {
     fn SetRemoteIdentificationInformationAsync(&self, contactlistid: &::windows::core::HSTRING, remotesourceid: &::windows::core::HSTRING, accountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAggregateContactManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IAggregateContactManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IAggregateContactManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAggregateContactManager2Impl, const OFFSET: isize>() -> IAggregateContactManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAggregateContactManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAggregateContactManager2Vtbl {
         unsafe extern "system" fn SetRemoteIdentificationInformationAsync<Impl: IAggregateContactManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contactlistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotesourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, accountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetRemoteIdentificationInformationAsync(
@@ -85,10 +88,13 @@ impl IAggregateContactManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAggregateContactManager2>, ::windows::core::GetTrustLevel, SetRemoteIdentificationInformationAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAggregateContactManager2>, ::windows::core::GetTrustLevel, SetRemoteIdentificationInformationAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAggregateContactManager2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContactImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -96,13 +102,13 @@ pub trait IContactImpl: Sized {
     fn SetThumbnail(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
     fn Fields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IContactField>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContact {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContact";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IContactVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactImpl, const OFFSET: isize>() -> IContactVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactVtbl {
         unsafe extern "system" fn Name<Impl: IContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -144,10 +150,13 @@ impl IContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContact>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Thumbnail::<Impl, OFFSET>, SetThumbnail::<Impl, OFFSET>, Fields::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContact>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Thumbnail::<Impl, IMPL_OFFSET>, SetThumbnail::<Impl, IMPL_OFFSET>, Fields::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContact as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContact2Impl: Sized + IContactImpl {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -164,13 +173,13 @@ pub trait IContact2Impl: Sized + IContactImpl {
     fn Websites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactWebsite>>;
     fn ProviderProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContact2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContact2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IContact2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContact2Impl, const OFFSET: isize>() -> IContact2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContact2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContact2Vtbl {
         unsafe extern "system" fn Id<Impl: IContact2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -312,30 +321,33 @@ impl IContact2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContact2>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            SetId::<Impl, OFFSET>,
-            Notes::<Impl, OFFSET>,
-            SetNotes::<Impl, OFFSET>,
-            Phones::<Impl, OFFSET>,
-            Emails::<Impl, OFFSET>,
-            Addresses::<Impl, OFFSET>,
-            ConnectedServiceAccounts::<Impl, OFFSET>,
-            ImportantDates::<Impl, OFFSET>,
-            DataSuppliers::<Impl, OFFSET>,
-            JobInfo::<Impl, OFFSET>,
-            SignificantOthers::<Impl, OFFSET>,
-            Websites::<Impl, OFFSET>,
-            ProviderProperties::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            SetId::<Impl, IMPL_OFFSET>,
+            Notes::<Impl, IMPL_OFFSET>,
+            SetNotes::<Impl, IMPL_OFFSET>,
+            Phones::<Impl, IMPL_OFFSET>,
+            Emails::<Impl, IMPL_OFFSET>,
+            Addresses::<Impl, IMPL_OFFSET>,
+            ConnectedServiceAccounts::<Impl, IMPL_OFFSET>,
+            ImportantDates::<Impl, IMPL_OFFSET>,
+            DataSuppliers::<Impl, IMPL_OFFSET>,
+            JobInfo::<Impl, IMPL_OFFSET>,
+            SignificantOthers::<Impl, IMPL_OFFSET>,
+            Websites::<Impl, IMPL_OFFSET>,
+            ProviderProperties::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContact2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContact3Impl: Sized + IContactImpl + IContact2Impl {
     fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayPictureUserUpdateTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -361,13 +373,13 @@ pub trait IContact3Impl: Sized + IContactImpl + IContact2Impl {
     fn SetNickname(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SortName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContact3 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContact3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IContact3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContact3Impl, const OFFSET: isize>() -> IContact3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContact3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContact3Vtbl {
         unsafe extern "system" fn ContactListId<Impl: IContact3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactListId() {
@@ -573,36 +585,39 @@ impl IContact3Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContact3>,
             ::windows::core::GetTrustLevel,
-            ContactListId::<Impl, OFFSET>,
-            DisplayPictureUserUpdateTime::<Impl, OFFSET>,
-            SetDisplayPictureUserUpdateTime::<Impl, OFFSET>,
-            IsMe::<Impl, OFFSET>,
-            AggregateId::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            RingToneToken::<Impl, OFFSET>,
-            SetRingToneToken::<Impl, OFFSET>,
-            IsDisplayPictureManuallySet::<Impl, OFFSET>,
-            LargeDisplayPicture::<Impl, OFFSET>,
-            SmallDisplayPicture::<Impl, OFFSET>,
-            SourceDisplayPicture::<Impl, OFFSET>,
-            SetSourceDisplayPicture::<Impl, OFFSET>,
-            TextToneToken::<Impl, OFFSET>,
-            SetTextToneToken::<Impl, OFFSET>,
-            IsAggregate::<Impl, OFFSET>,
-            FullName::<Impl, OFFSET>,
-            DisplayNameOverride::<Impl, OFFSET>,
-            SetDisplayNameOverride::<Impl, OFFSET>,
-            Nickname::<Impl, OFFSET>,
-            SetNickname::<Impl, OFFSET>,
-            SortName::<Impl, OFFSET>,
+            ContactListId::<Impl, IMPL_OFFSET>,
+            DisplayPictureUserUpdateTime::<Impl, IMPL_OFFSET>,
+            SetDisplayPictureUserUpdateTime::<Impl, IMPL_OFFSET>,
+            IsMe::<Impl, IMPL_OFFSET>,
+            AggregateId::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            RingToneToken::<Impl, IMPL_OFFSET>,
+            SetRingToneToken::<Impl, IMPL_OFFSET>,
+            IsDisplayPictureManuallySet::<Impl, IMPL_OFFSET>,
+            LargeDisplayPicture::<Impl, IMPL_OFFSET>,
+            SmallDisplayPicture::<Impl, IMPL_OFFSET>,
+            SourceDisplayPicture::<Impl, IMPL_OFFSET>,
+            SetSourceDisplayPicture::<Impl, IMPL_OFFSET>,
+            TextToneToken::<Impl, IMPL_OFFSET>,
+            SetTextToneToken::<Impl, IMPL_OFFSET>,
+            IsAggregate::<Impl, IMPL_OFFSET>,
+            FullName::<Impl, IMPL_OFFSET>,
+            DisplayNameOverride::<Impl, IMPL_OFFSET>,
+            SetDisplayNameOverride::<Impl, IMPL_OFFSET>,
+            Nickname::<Impl, IMPL_OFFSET>,
+            SetNickname::<Impl, IMPL_OFFSET>,
+            SortName::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContact3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -628,7 +643,7 @@ impl ::windows::core::RuntimeName for IContactAddress {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAddressImpl, const OFFSET: isize>() -> IContactAddressVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAddressVtbl {
         unsafe extern "system" fn StreetAddress<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreetAddress() {
@@ -735,30 +750,33 @@ impl IContactAddressVtbl {
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactAddress>,
             ::windows::core::GetTrustLevel,
-            StreetAddress::<Impl, OFFSET>,
-            SetStreetAddress::<Impl, OFFSET>,
-            Locality::<Impl, OFFSET>,
-            SetLocality::<Impl, OFFSET>,
-            Region::<Impl, OFFSET>,
-            SetRegion::<Impl, OFFSET>,
-            Country::<Impl, OFFSET>,
-            SetCountry::<Impl, OFFSET>,
-            PostalCode::<Impl, OFFSET>,
-            SetPostalCode::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            SetKind::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
+            StreetAddress::<Impl, IMPL_OFFSET>,
+            SetStreetAddress::<Impl, IMPL_OFFSET>,
+            Locality::<Impl, IMPL_OFFSET>,
+            SetLocality::<Impl, IMPL_OFFSET>,
+            Region::<Impl, IMPL_OFFSET>,
+            SetRegion::<Impl, IMPL_OFFSET>,
+            Country::<Impl, IMPL_OFFSET>,
+            SetCountry::<Impl, IMPL_OFFSET>,
+            PostalCode::<Impl, IMPL_OFFSET>,
+            SetPostalCode::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            SetKind::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactAddress as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactAnnotationImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AnnotationListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -771,13 +789,13 @@ pub trait IContactAnnotationImpl: Sized {
     fn IsDisabled(&self) -> ::windows::core::Result<bool>;
     fn ProviderProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactAnnotation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactAnnotationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationImpl, const OFFSET: isize>() -> IContactAnnotationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAnnotationVtbl {
         unsafe extern "system" fn Id<Impl: IContactAnnotationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -868,23 +886,26 @@ impl IContactAnnotationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactAnnotation>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            AnnotationListId::<Impl, OFFSET>,
-            ContactId::<Impl, OFFSET>,
-            SetContactId::<Impl, OFFSET>,
-            RemoteId::<Impl, OFFSET>,
-            SetRemoteId::<Impl, OFFSET>,
-            SupportedOperations::<Impl, OFFSET>,
-            SetSupportedOperations::<Impl, OFFSET>,
-            IsDisabled::<Impl, OFFSET>,
-            ProviderProperties::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            AnnotationListId::<Impl, IMPL_OFFSET>,
+            ContactId::<Impl, IMPL_OFFSET>,
+            SetContactId::<Impl, IMPL_OFFSET>,
+            RemoteId::<Impl, IMPL_OFFSET>,
+            SetRemoteId::<Impl, IMPL_OFFSET>,
+            SupportedOperations::<Impl, IMPL_OFFSET>,
+            SetSupportedOperations::<Impl, IMPL_OFFSET>,
+            IsDisabled::<Impl, IMPL_OFFSET>,
+            ProviderProperties::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactAnnotation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -898,7 +919,7 @@ impl ::windows::core::RuntimeName for IContactAnnotation2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactAnnotation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotation2Impl, const OFFSET: isize>() -> IContactAnnotation2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAnnotation2Vtbl {
         unsafe extern "system" fn ContactListId<Impl: IContactAnnotation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactListId() {
@@ -914,10 +935,13 @@ impl IContactAnnotation2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContactListId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactAnnotation2>, ::windows::core::GetTrustLevel, ContactListId::<Impl, OFFSET>, SetContactListId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactAnnotation2>, ::windows::core::GetTrustLevel, ContactListId::<Impl, IMPL_OFFSET>, SetContactListId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactAnnotation2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactAnnotationListImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ProviderPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -929,13 +953,13 @@ pub trait IContactAnnotationListImpl: Sized {
     fn FindAnnotationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
     fn DeleteAnnotationAsync(&self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotationList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactAnnotationList";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactAnnotationListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationListImpl, const OFFSET: isize>() -> IContactAnnotationListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAnnotationListVtbl {
         unsafe extern "system" fn Id<Impl: IContactAnnotationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1036,25 +1060,28 @@ impl IContactAnnotationListVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactAnnotationList>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            ProviderPackageFamilyName::<Impl, OFFSET>,
-            UserDataAccountId::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            TrySaveAnnotationAsync::<Impl, OFFSET>,
-            GetAnnotationAsync::<Impl, OFFSET>,
-            FindAnnotationsByRemoteIdAsync::<Impl, OFFSET>,
-            FindAnnotationsAsync::<Impl, OFFSET>,
-            DeleteAnnotationAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            ProviderPackageFamilyName::<Impl, IMPL_OFFSET>,
+            UserDataAccountId::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            TrySaveAnnotationAsync::<Impl, IMPL_OFFSET>,
+            GetAnnotationAsync::<Impl, IMPL_OFFSET>,
+            FindAnnotationsByRemoteIdAsync::<Impl, IMPL_OFFSET>,
+            FindAnnotationsAsync::<Impl, IMPL_OFFSET>,
+            DeleteAnnotationAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactAnnotationList as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactAnnotationStoreImpl: Sized {
     fn FindContactIdsByEmailAsync(&self, emailaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn FindContactIdsByPhoneNumberAsync(&self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
@@ -1065,13 +1092,13 @@ pub trait IContactAnnotationStoreImpl: Sized {
     fn GetAnnotationListAsync(&self, annotationlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
     fn FindAnnotationListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotationStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactAnnotationStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactAnnotationStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationStoreImpl, const OFFSET: isize>() -> IContactAnnotationStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAnnotationStoreVtbl {
         unsafe extern "system" fn FindContactIdsByEmailAsync<Impl: IContactAnnotationStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emailaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindContactIdsByEmailAsync(&*(&emailaddress as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1161,34 +1188,37 @@ impl IContactAnnotationStoreVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactAnnotationStore>,
             ::windows::core::GetTrustLevel,
-            FindContactIdsByEmailAsync::<Impl, OFFSET>,
-            FindContactIdsByPhoneNumberAsync::<Impl, OFFSET>,
-            FindAnnotationsForContactAsync::<Impl, OFFSET>,
-            DisableAnnotationAsync::<Impl, OFFSET>,
-            CreateAnnotationListAsync::<Impl, OFFSET>,
-            CreateAnnotationListInAccountAsync::<Impl, OFFSET>,
-            GetAnnotationListAsync::<Impl, OFFSET>,
-            FindAnnotationListsAsync::<Impl, OFFSET>,
+            FindContactIdsByEmailAsync::<Impl, IMPL_OFFSET>,
+            FindContactIdsByPhoneNumberAsync::<Impl, IMPL_OFFSET>,
+            FindAnnotationsForContactAsync::<Impl, IMPL_OFFSET>,
+            DisableAnnotationAsync::<Impl, IMPL_OFFSET>,
+            CreateAnnotationListAsync::<Impl, IMPL_OFFSET>,
+            CreateAnnotationListInAccountAsync::<Impl, IMPL_OFFSET>,
+            GetAnnotationListAsync::<Impl, IMPL_OFFSET>,
+            FindAnnotationListsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactAnnotationStore as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactAnnotationStore2Impl: Sized {
     fn FindAnnotationsForContactListAsync(&self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotationStore2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactAnnotationStore2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactAnnotationStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationStore2Impl, const OFFSET: isize>() -> IContactAnnotationStore2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAnnotationStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAnnotationStore2Vtbl {
         unsafe extern "system" fn FindAnnotationsForContactListAsync<Impl: IContactAnnotationStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contactlistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAnnotationsForContactListAsync(&*(&contactlistid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1200,21 +1230,24 @@ impl IContactAnnotationStore2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactAnnotationStore2>, ::windows::core::GetTrustLevel, FindAnnotationsForContactListAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactAnnotationStore2>, ::windows::core::GetTrustLevel, FindAnnotationsForContactListAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactAnnotationStore2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactBatchImpl: Sized {
     fn Contacts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Contact>>;
     fn Status(&self) -> ::windows::core::Result<ContactBatchStatus>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactBatch";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactBatchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactBatchImpl, const OFFSET: isize>() -> IContactBatchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactBatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactBatchVtbl {
         unsafe extern "system" fn Contacts<Impl: IContactBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contacts() {
@@ -1237,7 +1270,10 @@ impl IContactBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactBatch>, ::windows::core::GetTrustLevel, Contacts::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactBatch>, ::windows::core::GetTrustLevel, Contacts::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactBatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -1250,12 +1286,15 @@ impl ::windows::core::RuntimeName for IContactCardDelayedDataLoader {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactCardDelayedDataLoaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCardDelayedDataLoaderImpl, const OFFSET: isize>() -> IContactCardDelayedDataLoaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCardDelayedDataLoaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactCardDelayedDataLoaderVtbl {
         unsafe extern "system" fn SetData<Impl: IContactCardDelayedDataLoaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCardDelayedDataLoader>, ::windows::core::GetTrustLevel, SetData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCardDelayedDataLoader>, ::windows::core::GetTrustLevel, SetData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactCardDelayedDataLoader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1271,7 +1310,7 @@ impl ::windows::core::RuntimeName for IContactCardOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactCardOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCardOptionsImpl, const OFFSET: isize>() -> IContactCardOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCardOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactCardOptionsVtbl {
         unsafe extern "system" fn HeaderKind<Impl: IContactCardOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactCardHeaderKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeaderKind() {
@@ -1302,20 +1341,23 @@ impl IContactCardOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialTabKind(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCardOptions>, ::windows::core::GetTrustLevel, HeaderKind::<Impl, OFFSET>, SetHeaderKind::<Impl, OFFSET>, InitialTabKind::<Impl, OFFSET>, SetInitialTabKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCardOptions>, ::windows::core::GetTrustLevel, HeaderKind::<Impl, IMPL_OFFSET>, SetHeaderKind::<Impl, IMPL_OFFSET>, InitialTabKind::<Impl, IMPL_OFFSET>, SetInitialTabKind::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactCardOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactCardOptions2Impl: Sized + IContactCardOptionsImpl {
     fn ServerSearchContactListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactCardOptions2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactCardOptions2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactCardOptions2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCardOptions2Impl, const OFFSET: isize>() -> IContactCardOptions2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCardOptions2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactCardOptions2Vtbl {
         unsafe extern "system" fn ServerSearchContactListIds<Impl: IContactCardOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerSearchContactListIds() {
@@ -1327,7 +1369,10 @@ impl IContactCardOptions2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCardOptions2>, ::windows::core::GetTrustLevel, ServerSearchContactListIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactCardOptions2>, ::windows::core::GetTrustLevel, ServerSearchContactListIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactCardOptions2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1341,7 +1386,7 @@ impl ::windows::core::RuntimeName for IContactChange {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactChangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeImpl, const OFFSET: isize>() -> IContactChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangeVtbl {
         unsafe extern "system" fn ChangeType<Impl: IContactChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactChangeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeType() {
@@ -1364,22 +1409,25 @@ impl IContactChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, OFFSET>, Contact::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChange>, ::windows::core::GetTrustLevel, ChangeType::<Impl, IMPL_OFFSET>, Contact::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactChange as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactChangeReaderImpl: Sized {
     fn AcceptChanges(&self) -> ::windows::core::Result<()>;
     fn AcceptChangesThrough(&self, lastchangetoaccept: &::core::option::Option<ContactChange>) -> ::windows::core::Result<()>;
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactChangeReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactChangeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeReaderImpl, const OFFSET: isize>() -> IContactChangeReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangeReaderVtbl {
         unsafe extern "system" fn AcceptChanges<Impl: IContactChangeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptChanges().into()
@@ -1399,7 +1447,10 @@ impl IContactChangeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, OFFSET>, AcceptChangesThrough::<Impl, OFFSET>, ReadBatchAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeReader>, ::windows::core::GetTrustLevel, AcceptChanges::<Impl, IMPL_OFFSET>, AcceptChangesThrough::<Impl, IMPL_OFFSET>, ReadBatchAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactChangeReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1414,7 +1465,7 @@ impl ::windows::core::RuntimeName for IContactChangeTracker {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactChangeTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeTrackerImpl, const OFFSET: isize>() -> IContactChangeTrackerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangeTrackerVtbl {
         unsafe extern "system" fn Enable<Impl: IContactChangeTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enable().into()
@@ -1434,7 +1485,10 @@ impl IContactChangeTrackerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeTracker>, ::windows::core::GetTrustLevel, Enable::<Impl, OFFSET>, GetChangeReader::<Impl, OFFSET>, Reset::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeTracker>, ::windows::core::GetTrustLevel, Enable::<Impl, IMPL_OFFSET>, GetChangeReader::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactChangeTracker as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1447,7 +1501,7 @@ impl ::windows::core::RuntimeName for IContactChangeTracker2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactChangeTracker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeTracker2Impl, const OFFSET: isize>() -> IContactChangeTracker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeTracker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangeTracker2Vtbl {
         unsafe extern "system" fn IsTracking<Impl: IContactChangeTracker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTracking() {
@@ -1459,7 +1513,10 @@ impl IContactChangeTracker2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeTracker2>, ::windows::core::GetTrustLevel, IsTracking::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangeTracker2>, ::windows::core::GetTrustLevel, IsTracking::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactChangeTracker2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1472,12 +1529,15 @@ impl ::windows::core::RuntimeName for IContactChangedDeferral {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactChangedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangedDeferralImpl, const OFFSET: isize>() -> IContactChangedDeferralVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangedDeferralVtbl {
         unsafe extern "system" fn Complete<Impl: IContactChangedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangedDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactChangedDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1490,7 +1550,7 @@ impl ::windows::core::RuntimeName for IContactChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangedEventArgsImpl, const OFFSET: isize>() -> IContactChangedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangedEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IContactChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -1502,7 +1562,10 @@ impl IContactChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactChangedEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1518,7 +1581,7 @@ impl ::windows::core::RuntimeName for IContactConnectedServiceAccount {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactConnectedServiceAccountVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactConnectedServiceAccountImpl, const OFFSET: isize>() -> IContactConnectedServiceAccountVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactConnectedServiceAccountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactConnectedServiceAccountVtbl {
         unsafe extern "system" fn Id<Impl: IContactConnectedServiceAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -1549,10 +1612,13 @@ impl IContactConnectedServiceAccountVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServiceName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactConnectedServiceAccount>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, ServiceName::<Impl, OFFSET>, SetServiceName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactConnectedServiceAccount>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, SetId::<Impl, IMPL_OFFSET>, ServiceName::<Impl, IMPL_OFFSET>, SetServiceName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactConnectedServiceAccount as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactDateImpl: Sized {
     fn Day(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn SetDay(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
@@ -1565,13 +1631,13 @@ pub trait IContactDateImpl: Sized {
     fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactDate {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactDate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactDateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactDateImpl, const OFFSET: isize>() -> IContactDateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactDateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactDateVtbl {
         unsafe extern "system" fn Day<Impl: IContactDateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Day() {
@@ -1648,23 +1714,26 @@ impl IContactDateVtbl {
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactDate>,
             ::windows::core::GetTrustLevel,
-            Day::<Impl, OFFSET>,
-            SetDay::<Impl, OFFSET>,
-            Month::<Impl, OFFSET>,
-            SetMonth::<Impl, OFFSET>,
-            Year::<Impl, OFFSET>,
-            SetYear::<Impl, OFFSET>,
-            Kind::<Impl, OFFSET>,
-            SetKind::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
+            Day::<Impl, IMPL_OFFSET>,
+            SetDay::<Impl, IMPL_OFFSET>,
+            Month::<Impl, IMPL_OFFSET>,
+            SetMonth::<Impl, IMPL_OFFSET>,
+            Year::<Impl, IMPL_OFFSET>,
+            SetYear::<Impl, IMPL_OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            SetKind::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactDate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1682,7 +1751,7 @@ impl ::windows::core::RuntimeName for IContactEmail {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactEmailVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactEmailImpl, const OFFSET: isize>() -> IContactEmailVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactEmailImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactEmailVtbl {
         unsafe extern "system" fn Address<Impl: IContactEmailImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Address() {
@@ -1728,7 +1797,10 @@ impl IContactEmailVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactEmail>, ::windows::core::GetTrustLevel, Address::<Impl, OFFSET>, SetAddress::<Impl, OFFSET>, Kind::<Impl, OFFSET>, SetKind::<Impl, OFFSET>, Description::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactEmail>, ::windows::core::GetTrustLevel, Address::<Impl, IMPL_OFFSET>, SetAddress::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, SetKind::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactEmail as ::windows::core::Interface>::IID
     }
 }
 pub trait IContactFieldImpl: Sized {
@@ -1741,7 +1813,7 @@ impl ::windows::core::RuntimeName for IContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
 }
 impl IContactFieldVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactFieldImpl, const OFFSET: isize>() -> IContactFieldVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactFieldImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactFieldVtbl {
         unsafe extern "system" fn Type<Impl: IContactFieldImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactFieldType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -1786,7 +1858,10 @@ impl IContactFieldVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactField>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, Category::<Impl, OFFSET>, Name::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactField>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, Category::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactField as ::windows::core::Interface>::IID
     }
 }
 pub trait IContactFieldFactoryImpl: Sized {
@@ -1798,7 +1873,7 @@ impl ::windows::core::RuntimeName for IContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
 }
 impl IContactFieldFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactFieldFactoryImpl, const OFFSET: isize>() -> IContactFieldFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactFieldFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactFieldFactoryVtbl {
         unsafe extern "system" fn CreateField_Default<Impl: IContactFieldFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: ContactFieldType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateField_Default(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), r#type) {
@@ -1832,7 +1907,10 @@ impl IContactFieldFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactFieldFactory>, ::windows::core::GetTrustLevel, CreateField_Default::<Impl, OFFSET>, CreateField_Category::<Impl, OFFSET>, CreateField_Custom::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactFieldFactory>, ::windows::core::GetTrustLevel, CreateField_Default::<Impl, IMPL_OFFSET>, CreateField_Category::<Impl, IMPL_OFFSET>, CreateField_Custom::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactFieldFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1843,11 +1921,14 @@ impl ::windows::core::RuntimeName for IContactGroup {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactGroupImpl, const OFFSET: isize>() -> IContactGroupVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactGroup>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactGroupVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactGroup>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactGroup as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContactInformationImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
@@ -1858,13 +1939,13 @@ pub trait IContactInformationImpl: Sized {
     fn CustomFields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
     fn QueryCustomFields(&self, customname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInformation";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IContactInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformationImpl, const OFFSET: isize>() -> IContactInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformationVtbl {
         unsafe extern "system" fn Name<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1954,37 +2035,40 @@ impl IContactInformationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactInformation>,
             ::windows::core::GetTrustLevel,
-            Name::<Impl, OFFSET>,
-            GetThumbnailAsync::<Impl, OFFSET>,
-            Emails::<Impl, OFFSET>,
-            PhoneNumbers::<Impl, OFFSET>,
-            Locations::<Impl, OFFSET>,
-            InstantMessages::<Impl, OFFSET>,
-            CustomFields::<Impl, OFFSET>,
-            QueryCustomFields::<Impl, OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            GetThumbnailAsync::<Impl, IMPL_OFFSET>,
+            Emails::<Impl, IMPL_OFFSET>,
+            PhoneNumbers::<Impl, IMPL_OFFSET>,
+            Locations::<Impl, IMPL_OFFSET>,
+            InstantMessages::<Impl, IMPL_OFFSET>,
+            CustomFields::<Impl, IMPL_OFFSET>,
+            QueryCustomFields::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactInformation as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactInstantMessageFieldImpl: Sized + IContactFieldImpl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Service(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LaunchUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactInstantMessageField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageField";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactInstantMessageFieldVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInstantMessageFieldImpl, const OFFSET: isize>() -> IContactInstantMessageFieldVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInstantMessageFieldImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInstantMessageFieldVtbl {
         unsafe extern "system" fn UserName<Impl: IContactInstantMessageFieldImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserName() {
@@ -2029,19 +2113,25 @@ impl IContactInstantMessageFieldVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactInstantMessageField>, ::windows::core::GetTrustLevel, UserName::<Impl, OFFSET>, Service::<Impl, OFFSET>, DisplayText::<Impl, OFFSET>, LaunchUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactInstantMessageField>, ::windows::core::GetTrustLevel, UserName::<Impl, IMPL_OFFSET>, Service::<Impl, IMPL_OFFSET>, DisplayText::<Impl, IMPL_OFFSET>, LaunchUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactInstantMessageField as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation")]
 pub trait IContactInstantMessageFieldFactoryImpl: Sized {
     fn CreateInstantMessage_Default(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_All(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IContactInstantMessageFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
 }
+#[cfg(feature = "Foundation")]
 impl IContactInstantMessageFieldFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInstantMessageFieldFactoryImpl, const OFFSET: isize>() -> IContactInstantMessageFieldFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInstantMessageFieldFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInstantMessageFieldFactoryVtbl {
         unsafe extern "system" fn CreateInstantMessage_Default<Impl: IContactInstantMessageFieldFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstantMessage_Default(&*(&username as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2081,7 +2171,10 @@ impl IContactInstantMessageFieldFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactInstantMessageFieldFactory>, ::windows::core::GetTrustLevel, CreateInstantMessage_Default::<Impl, OFFSET>, CreateInstantMessage_Category::<Impl, OFFSET>, CreateInstantMessage_All::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactInstantMessageFieldFactory>, ::windows::core::GetTrustLevel, CreateInstantMessage_Default::<Impl, IMPL_OFFSET>, CreateInstantMessage_Category::<Impl, IMPL_OFFSET>, CreateInstantMessage_All::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactInstantMessageFieldFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2109,7 +2202,7 @@ impl ::windows::core::RuntimeName for IContactJobInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactJobInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactJobInfoImpl, const OFFSET: isize>() -> IContactJobInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactJobInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactJobInfoVtbl {
         unsafe extern "system" fn CompanyName<Impl: IContactJobInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompanyName() {
@@ -2231,29 +2324,32 @@ impl IContactJobInfoVtbl {
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactJobInfo>,
             ::windows::core::GetTrustLevel,
-            CompanyName::<Impl, OFFSET>,
-            SetCompanyName::<Impl, OFFSET>,
-            CompanyYomiName::<Impl, OFFSET>,
-            SetCompanyYomiName::<Impl, OFFSET>,
-            Department::<Impl, OFFSET>,
-            SetDepartment::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            SetTitle::<Impl, OFFSET>,
-            Manager::<Impl, OFFSET>,
-            SetManager::<Impl, OFFSET>,
-            Office::<Impl, OFFSET>,
-            SetOffice::<Impl, OFFSET>,
-            CompanyAddress::<Impl, OFFSET>,
-            SetCompanyAddress::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            SetDescription::<Impl, OFFSET>,
+            CompanyName::<Impl, IMPL_OFFSET>,
+            SetCompanyName::<Impl, IMPL_OFFSET>,
+            CompanyYomiName::<Impl, IMPL_OFFSET>,
+            SetCompanyYomiName::<Impl, IMPL_OFFSET>,
+            Department::<Impl, IMPL_OFFSET>,
+            SetDepartment::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            Manager::<Impl, IMPL_OFFSET>,
+            SetManager::<Impl, IMPL_OFFSET>,
+            Office::<Impl, IMPL_OFFSET>,
+            SetOffice::<Impl, IMPL_OFFSET>,
+            CompanyAddress::<Impl, IMPL_OFFSET>,
+            SetCompanyAddress::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactJobInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2270,7 +2366,7 @@ impl ::windows::core::RuntimeName for IContactLaunchActionVerbsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactLaunchActionVerbsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactLaunchActionVerbsStaticsImpl, const OFFSET: isize>() -> IContactLaunchActionVerbsStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactLaunchActionVerbsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactLaunchActionVerbsStaticsVtbl {
         unsafe extern "system" fn Call<Impl: IContactLaunchActionVerbsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Call() {
@@ -2326,10 +2422,13 @@ impl IContactLaunchActionVerbsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactLaunchActionVerbsStatics>, ::windows::core::GetTrustLevel, Call::<Impl, OFFSET>, Message::<Impl, OFFSET>, Map::<Impl, OFFSET>, Post::<Impl, OFFSET>, VideoCall::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactLaunchActionVerbsStatics>, ::windows::core::GetTrustLevel, Call::<Impl, IMPL_OFFSET>, Message::<Impl, IMPL_OFFSET>, Map::<Impl, IMPL_OFFSET>, Post::<Impl, IMPL_OFFSET>, VideoCall::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactLaunchActionVerbsStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2357,13 +2456,13 @@ pub trait IContactListImpl: Sized {
     fn DeleteContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn GetContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactList";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListImpl, const OFFSET: isize>() -> IContactListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactListVtbl {
         unsafe extern "system" fn Id<Impl: IContactListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
@@ -2605,53 +2704,56 @@ impl IContactListVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactList>,
             ::windows::core::GetTrustLevel,
-            Id::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            SetDisplayName::<Impl, OFFSET>,
-            SourceDisplayName::<Impl, OFFSET>,
-            IsHidden::<Impl, OFFSET>,
-            SetIsHidden::<Impl, OFFSET>,
-            OtherAppReadAccess::<Impl, OFFSET>,
-            SetOtherAppReadAccess::<Impl, OFFSET>,
-            OtherAppWriteAccess::<Impl, OFFSET>,
-            SetOtherAppWriteAccess::<Impl, OFFSET>,
-            ChangeTracker::<Impl, OFFSET>,
-            SyncManager::<Impl, OFFSET>,
-            SupportsServerSearch::<Impl, OFFSET>,
-            UserDataAccountId::<Impl, OFFSET>,
-            ContactChanged::<Impl, OFFSET>,
-            RemoveContactChanged::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
-            DeleteAsync::<Impl, OFFSET>,
-            GetContactFromRemoteIdAsync::<Impl, OFFSET>,
-            GetMeContactAsync::<Impl, OFFSET>,
-            GetContactReader::<Impl, OFFSET>,
-            GetContactReaderWithOptions::<Impl, OFFSET>,
-            SaveContactAsync::<Impl, OFFSET>,
-            DeleteContactAsync::<Impl, OFFSET>,
-            GetContactAsync::<Impl, OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            SourceDisplayName::<Impl, IMPL_OFFSET>,
+            IsHidden::<Impl, IMPL_OFFSET>,
+            SetIsHidden::<Impl, IMPL_OFFSET>,
+            OtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppReadAccess::<Impl, IMPL_OFFSET>,
+            OtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            SetOtherAppWriteAccess::<Impl, IMPL_OFFSET>,
+            ChangeTracker::<Impl, IMPL_OFFSET>,
+            SyncManager::<Impl, IMPL_OFFSET>,
+            SupportsServerSearch::<Impl, IMPL_OFFSET>,
+            UserDataAccountId::<Impl, IMPL_OFFSET>,
+            ContactChanged::<Impl, IMPL_OFFSET>,
+            RemoveContactChanged::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
+            DeleteAsync::<Impl, IMPL_OFFSET>,
+            GetContactFromRemoteIdAsync::<Impl, IMPL_OFFSET>,
+            GetMeContactAsync::<Impl, IMPL_OFFSET>,
+            GetContactReader::<Impl, IMPL_OFFSET>,
+            GetContactReaderWithOptions::<Impl, IMPL_OFFSET>,
+            SaveContactAsync::<Impl, IMPL_OFFSET>,
+            DeleteContactAsync::<Impl, IMPL_OFFSET>,
+            GetContactAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactList as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactList2Impl: Sized {
     fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetSupportsServerSearch(&self, value: bool) -> ::windows::core::Result<()>;
     fn SyncConstraints(&self) -> ::windows::core::Result<ContactListSyncConstraints>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactList2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactList2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactList2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactList2Impl, const OFFSET: isize>() -> IContactList2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactList2Vtbl {
         unsafe extern "system" fn RegisterSyncManagerAsync<Impl: IContactList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterSyncManagerAsync() {
@@ -2678,7 +2780,10 @@ impl IContactList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactList2>, ::windows::core::GetTrustLevel, RegisterSyncManagerAsync::<Impl, OFFSET>, SetSupportsServerSearch::<Impl, OFFSET>, SyncConstraints::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactList2>, ::windows::core::GetTrustLevel, RegisterSyncManagerAsync::<Impl, IMPL_OFFSET>, SetSupportsServerSearch::<Impl, IMPL_OFFSET>, SyncConstraints::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactList2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2692,7 +2797,7 @@ impl ::windows::core::RuntimeName for IContactList3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactList3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactList3Impl, const OFFSET: isize>() -> IContactList3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactList3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactList3Vtbl {
         unsafe extern "system" fn LimitedWriteOperations<Impl: IContactList3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LimitedWriteOperations() {
@@ -2715,21 +2820,24 @@ impl IContactList3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactList3>, ::windows::core::GetTrustLevel, LimitedWriteOperations::<Impl, OFFSET>, GetChangeTracker::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactList3>, ::windows::core::GetTrustLevel, LimitedWriteOperations::<Impl, IMPL_OFFSET>, GetChangeTracker::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactList3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListLimitedWriteOperationsImpl: Sized {
     fn TryCreateOrUpdateContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryDeleteContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactListLimitedWriteOperations";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactListLimitedWriteOperationsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListLimitedWriteOperationsImpl, const OFFSET: isize>() -> IContactListLimitedWriteOperationsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListLimitedWriteOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactListLimitedWriteOperationsVtbl {
         unsafe extern "system" fn TryCreateOrUpdateContactAsync<Impl: IContactListLimitedWriteOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateOrUpdateContactAsync(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType)) {
@@ -2752,10 +2860,13 @@ impl IContactListLimitedWriteOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListLimitedWriteOperations>, ::windows::core::GetTrustLevel, TryCreateOrUpdateContactAsync::<Impl, OFFSET>, TryDeleteContactAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListLimitedWriteOperations>, ::windows::core::GetTrustLevel, TryCreateOrUpdateContactAsync::<Impl, IMPL_OFFSET>, TryDeleteContactAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactListLimitedWriteOperations as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncConstraintsImpl: Sized {
     fn CanSyncDescriptions(&self) -> ::windows::core::Result<bool>;
     fn SetCanSyncDescriptions(&self, value: bool) -> ::windows::core::Result<()>;
@@ -2814,13 +2925,13 @@ pub trait IContactListSyncConstraintsImpl: Sized {
     fn MaxWebsites(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
     fn SetMaxWebsites(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncConstraints {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactListSyncConstraints";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactListSyncConstraintsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListSyncConstraintsImpl, const OFFSET: isize>() -> IContactListSyncConstraintsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListSyncConstraintsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactListSyncConstraintsVtbl {
         unsafe extern "system" fn CanSyncDescriptions<Impl: IContactListSyncConstraintsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSyncDescriptions() {
@@ -3242,72 +3353,75 @@ impl IContactListSyncConstraintsVtbl {
             (*this).SetMaxWebsites(&*(&value as *const <super::super::Foundation::IReference<i32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<i32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactListSyncConstraints>,
             ::windows::core::GetTrustLevel,
-            CanSyncDescriptions::<Impl, OFFSET>,
-            SetCanSyncDescriptions::<Impl, OFFSET>,
-            MaxHomePhoneNumbers::<Impl, OFFSET>,
-            SetMaxHomePhoneNumbers::<Impl, OFFSET>,
-            MaxMobilePhoneNumbers::<Impl, OFFSET>,
-            SetMaxMobilePhoneNumbers::<Impl, OFFSET>,
-            MaxWorkPhoneNumbers::<Impl, OFFSET>,
-            SetMaxWorkPhoneNumbers::<Impl, OFFSET>,
-            MaxOtherPhoneNumbers::<Impl, OFFSET>,
-            SetMaxOtherPhoneNumbers::<Impl, OFFSET>,
-            MaxPagerPhoneNumbers::<Impl, OFFSET>,
-            SetMaxPagerPhoneNumbers::<Impl, OFFSET>,
-            MaxBusinessFaxPhoneNumbers::<Impl, OFFSET>,
-            SetMaxBusinessFaxPhoneNumbers::<Impl, OFFSET>,
-            MaxHomeFaxPhoneNumbers::<Impl, OFFSET>,
-            SetMaxHomeFaxPhoneNumbers::<Impl, OFFSET>,
-            MaxCompanyPhoneNumbers::<Impl, OFFSET>,
-            SetMaxCompanyPhoneNumbers::<Impl, OFFSET>,
-            MaxAssistantPhoneNumbers::<Impl, OFFSET>,
-            SetMaxAssistantPhoneNumbers::<Impl, OFFSET>,
-            MaxRadioPhoneNumbers::<Impl, OFFSET>,
-            SetMaxRadioPhoneNumbers::<Impl, OFFSET>,
-            MaxPersonalEmailAddresses::<Impl, OFFSET>,
-            SetMaxPersonalEmailAddresses::<Impl, OFFSET>,
-            MaxWorkEmailAddresses::<Impl, OFFSET>,
-            SetMaxWorkEmailAddresses::<Impl, OFFSET>,
-            MaxOtherEmailAddresses::<Impl, OFFSET>,
-            SetMaxOtherEmailAddresses::<Impl, OFFSET>,
-            MaxHomeAddresses::<Impl, OFFSET>,
-            SetMaxHomeAddresses::<Impl, OFFSET>,
-            MaxWorkAddresses::<Impl, OFFSET>,
-            SetMaxWorkAddresses::<Impl, OFFSET>,
-            MaxOtherAddresses::<Impl, OFFSET>,
-            SetMaxOtherAddresses::<Impl, OFFSET>,
-            MaxBirthdayDates::<Impl, OFFSET>,
-            SetMaxBirthdayDates::<Impl, OFFSET>,
-            MaxAnniversaryDates::<Impl, OFFSET>,
-            SetMaxAnniversaryDates::<Impl, OFFSET>,
-            MaxOtherDates::<Impl, OFFSET>,
-            SetMaxOtherDates::<Impl, OFFSET>,
-            MaxOtherRelationships::<Impl, OFFSET>,
-            SetMaxOtherRelationships::<Impl, OFFSET>,
-            MaxSpouseRelationships::<Impl, OFFSET>,
-            SetMaxSpouseRelationships::<Impl, OFFSET>,
-            MaxPartnerRelationships::<Impl, OFFSET>,
-            SetMaxPartnerRelationships::<Impl, OFFSET>,
-            MaxSiblingRelationships::<Impl, OFFSET>,
-            SetMaxSiblingRelationships::<Impl, OFFSET>,
-            MaxParentRelationships::<Impl, OFFSET>,
-            SetMaxParentRelationships::<Impl, OFFSET>,
-            MaxChildRelationships::<Impl, OFFSET>,
-            SetMaxChildRelationships::<Impl, OFFSET>,
-            MaxJobInfo::<Impl, OFFSET>,
-            SetMaxJobInfo::<Impl, OFFSET>,
-            MaxWebsites::<Impl, OFFSET>,
-            SetMaxWebsites::<Impl, OFFSET>,
+            CanSyncDescriptions::<Impl, IMPL_OFFSET>,
+            SetCanSyncDescriptions::<Impl, IMPL_OFFSET>,
+            MaxHomePhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxHomePhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxMobilePhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxMobilePhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxWorkPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxWorkPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxOtherPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxOtherPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxPagerPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxPagerPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxBusinessFaxPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxBusinessFaxPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxHomeFaxPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxHomeFaxPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxCompanyPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxCompanyPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxAssistantPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxAssistantPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxRadioPhoneNumbers::<Impl, IMPL_OFFSET>,
+            SetMaxRadioPhoneNumbers::<Impl, IMPL_OFFSET>,
+            MaxPersonalEmailAddresses::<Impl, IMPL_OFFSET>,
+            SetMaxPersonalEmailAddresses::<Impl, IMPL_OFFSET>,
+            MaxWorkEmailAddresses::<Impl, IMPL_OFFSET>,
+            SetMaxWorkEmailAddresses::<Impl, IMPL_OFFSET>,
+            MaxOtherEmailAddresses::<Impl, IMPL_OFFSET>,
+            SetMaxOtherEmailAddresses::<Impl, IMPL_OFFSET>,
+            MaxHomeAddresses::<Impl, IMPL_OFFSET>,
+            SetMaxHomeAddresses::<Impl, IMPL_OFFSET>,
+            MaxWorkAddresses::<Impl, IMPL_OFFSET>,
+            SetMaxWorkAddresses::<Impl, IMPL_OFFSET>,
+            MaxOtherAddresses::<Impl, IMPL_OFFSET>,
+            SetMaxOtherAddresses::<Impl, IMPL_OFFSET>,
+            MaxBirthdayDates::<Impl, IMPL_OFFSET>,
+            SetMaxBirthdayDates::<Impl, IMPL_OFFSET>,
+            MaxAnniversaryDates::<Impl, IMPL_OFFSET>,
+            SetMaxAnniversaryDates::<Impl, IMPL_OFFSET>,
+            MaxOtherDates::<Impl, IMPL_OFFSET>,
+            SetMaxOtherDates::<Impl, IMPL_OFFSET>,
+            MaxOtherRelationships::<Impl, IMPL_OFFSET>,
+            SetMaxOtherRelationships::<Impl, IMPL_OFFSET>,
+            MaxSpouseRelationships::<Impl, IMPL_OFFSET>,
+            SetMaxSpouseRelationships::<Impl, IMPL_OFFSET>,
+            MaxPartnerRelationships::<Impl, IMPL_OFFSET>,
+            SetMaxPartnerRelationships::<Impl, IMPL_OFFSET>,
+            MaxSiblingRelationships::<Impl, IMPL_OFFSET>,
+            SetMaxSiblingRelationships::<Impl, IMPL_OFFSET>,
+            MaxParentRelationships::<Impl, IMPL_OFFSET>,
+            SetMaxParentRelationships::<Impl, IMPL_OFFSET>,
+            MaxChildRelationships::<Impl, IMPL_OFFSET>,
+            SetMaxChildRelationships::<Impl, IMPL_OFFSET>,
+            MaxJobInfo::<Impl, IMPL_OFFSET>,
+            SetMaxJobInfo::<Impl, IMPL_OFFSET>,
+            MaxWebsites::<Impl, IMPL_OFFSET>,
+            SetMaxWebsites::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactListSyncConstraints as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncManagerImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<ContactListSyncStatus>;
     fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -3316,13 +3430,13 @@ pub trait IContactListSyncManagerImpl: Sized {
     fn SyncStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSyncStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactListSyncManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactListSyncManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListSyncManagerImpl, const OFFSET: isize>() -> IContactListSyncManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListSyncManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactListSyncManagerVtbl {
         unsafe extern "system" fn Status<Impl: IContactListSyncManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactListSyncStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -3382,22 +3496,38 @@ impl IContactListSyncManagerVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSyncStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListSyncManager>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, LastSuccessfulSyncTime::<Impl, OFFSET>, LastAttemptedSyncTime::<Impl, OFFSET>, SyncAsync::<Impl, OFFSET>, SyncStatusChanged::<Impl, OFFSET>, RemoveSyncStatusChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IContactListSyncManager>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, IMPL_OFFSET>,
+            LastSuccessfulSyncTime::<Impl, IMPL_OFFSET>,
+            LastAttemptedSyncTime::<Impl, IMPL_OFFSET>,
+            SyncAsync::<Impl, IMPL_OFFSET>,
+            SyncStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveSyncStatusChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactListSyncManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncManager2Impl: Sized {
     fn SetStatus(&self, value: ContactListSyncStatus) -> ::windows::core::Result<()>;
     fn SetLastSuccessfulSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
     fn SetLastAttemptedSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactListSyncManager2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactListSyncManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListSyncManager2Impl, const OFFSET: isize>() -> IContactListSyncManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactListSyncManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactListSyncManager2Vtbl {
         unsafe extern "system" fn SetStatus<Impl: IContactListSyncManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ContactListSyncStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStatus(value).into()
@@ -3410,7 +3540,10 @@ impl IContactListSyncManager2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLastAttemptedSyncTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListSyncManager2>, ::windows::core::GetTrustLevel, SetStatus::<Impl, OFFSET>, SetLastSuccessfulSyncTime::<Impl, OFFSET>, SetLastAttemptedSyncTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactListSyncManager2>, ::windows::core::GetTrustLevel, SetStatus::<Impl, IMPL_OFFSET>, SetLastSuccessfulSyncTime::<Impl, IMPL_OFFSET>, SetLastAttemptedSyncTime::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactListSyncManager2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3428,7 +3561,7 @@ impl ::windows::core::RuntimeName for IContactLocationField {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactLocationFieldVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactLocationFieldImpl, const OFFSET: isize>() -> IContactLocationFieldVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactLocationFieldImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactLocationFieldVtbl {
         unsafe extern "system" fn UnstructuredAddress<Impl: IContactLocationFieldImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnstructuredAddress() {
@@ -3495,7 +3628,10 @@ impl IContactLocationFieldVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactLocationField>, ::windows::core::GetTrustLevel, UnstructuredAddress::<Impl, OFFSET>, Street::<Impl, OFFSET>, City::<Impl, OFFSET>, Region::<Impl, OFFSET>, Country::<Impl, OFFSET>, PostalCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactLocationField>, ::windows::core::GetTrustLevel, UnstructuredAddress::<Impl, IMPL_OFFSET>, Street::<Impl, IMPL_OFFSET>, City::<Impl, IMPL_OFFSET>, Region::<Impl, IMPL_OFFSET>, Country::<Impl, IMPL_OFFSET>, PostalCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactLocationField as ::windows::core::Interface>::IID
     }
 }
 pub trait IContactLocationFieldFactoryImpl: Sized {
@@ -3507,7 +3643,7 @@ impl ::windows::core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
 }
 impl IContactLocationFieldFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactLocationFieldFactoryImpl, const OFFSET: isize>() -> IContactLocationFieldFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactLocationFieldFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactLocationFieldFactoryVtbl {
         unsafe extern "system" fn CreateLocation_Default<Impl: IContactLocationFieldFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unstructuredaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLocation_Default(&*(&unstructuredaddress as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -3549,10 +3685,13 @@ impl IContactLocationFieldFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactLocationFieldFactory>, ::windows::core::GetTrustLevel, CreateLocation_Default::<Impl, OFFSET>, CreateLocation_Category::<Impl, OFFSET>, CreateLocation_All::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactLocationFieldFactory>, ::windows::core::GetTrustLevel, CreateLocation_Default::<Impl, IMPL_OFFSET>, CreateLocation_Category::<Impl, IMPL_OFFSET>, CreateLocation_All::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactLocationFieldFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 pub trait IContactManagerForUserImpl: Sized {
     fn ConvertContactToVCardAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
     fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: &::core::option::Option<Contact>, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
@@ -3565,13 +3704,13 @@ pub trait IContactManagerForUserImpl: Sized {
     fn SetSystemSortOrder(&self, value: ContactNameOrder) -> ::windows::core::Result<()>;
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactManagerForUser";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl IContactManagerForUserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerForUserImpl, const OFFSET: isize>() -> IContactManagerForUserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerForUserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerForUserVtbl {
         unsafe extern "system" fn ConvertContactToVCardAsync<Impl: IContactManagerForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertContactToVCardAsync(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType)) {
@@ -3669,23 +3808,26 @@ impl IContactManagerForUserVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactManagerForUser>,
             ::windows::core::GetTrustLevel,
-            ConvertContactToVCardAsync::<Impl, OFFSET>,
-            ConvertContactToVCardAsyncWithMaxBytes::<Impl, OFFSET>,
-            ConvertVCardToContactAsync::<Impl, OFFSET>,
-            RequestStoreAsync::<Impl, OFFSET>,
-            RequestAnnotationStoreAsync::<Impl, OFFSET>,
-            SystemDisplayNameOrder::<Impl, OFFSET>,
-            SetSystemDisplayNameOrder::<Impl, OFFSET>,
-            SystemSortOrder::<Impl, OFFSET>,
-            SetSystemSortOrder::<Impl, OFFSET>,
-            User::<Impl, OFFSET>,
+            ConvertContactToVCardAsync::<Impl, IMPL_OFFSET>,
+            ConvertContactToVCardAsyncWithMaxBytes::<Impl, IMPL_OFFSET>,
+            ConvertVCardToContactAsync::<Impl, IMPL_OFFSET>,
+            RequestStoreAsync::<Impl, IMPL_OFFSET>,
+            RequestAnnotationStoreAsync::<Impl, IMPL_OFFSET>,
+            SystemDisplayNameOrder::<Impl, IMPL_OFFSET>,
+            SetSystemDisplayNameOrder::<Impl, IMPL_OFFSET>,
+            SystemSortOrder::<Impl, IMPL_OFFSET>,
+            SetSystemSortOrder::<Impl, IMPL_OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerForUser as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3698,27 +3840,30 @@ impl ::windows::core::RuntimeName for IContactManagerForUser2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactManagerForUser2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerForUser2Impl, const OFFSET: isize>() -> IContactManagerForUser2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerForUser2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerForUser2Vtbl {
         unsafe extern "system" fn ShowFullContactCard<Impl: IContactManagerForUser2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, fullcontactcardoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowFullContactCard(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType), &*(&fullcontactcardoptions as *const <FullContactCardOptions as ::windows::core::Abi>::Abi as *const <FullContactCardOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerForUser2>, ::windows::core::GetTrustLevel, ShowFullContactCard::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerForUser2>, ::windows::core::GetTrustLevel, ShowFullContactCard::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerForUser2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IContactManagerStaticsImpl: Sized {
     fn ShowContactCard(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
     fn ShowContactCardWithPlacement(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
     fn ShowDelayLoadedContactCard(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<ContactCardDelayedDataLoader>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl IContactManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStaticsImpl, const OFFSET: isize>() -> IContactManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerStaticsVtbl {
         unsafe extern "system" fn ShowContactCard<Impl: IContactManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContactCard(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType), &*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
@@ -3738,20 +3883,23 @@ impl IContactManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics>, ::windows::core::GetTrustLevel, ShowContactCard::<Impl, OFFSET>, ShowContactCardWithPlacement::<Impl, OFFSET>, ShowDelayLoadedContactCard::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics>, ::windows::core::GetTrustLevel, ShowContactCard::<Impl, IMPL_OFFSET>, ShowContactCardWithPlacement::<Impl, IMPL_OFFSET>, ShowDelayLoadedContactCard::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics2Impl: Sized + IContactManagerStaticsImpl {
     fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactManagerStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl IContactManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics2Impl, const OFFSET: isize>() -> IContactManagerStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerStatics2Vtbl {
         unsafe extern "system" fn RequestStoreAsync<Impl: IContactManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync() {
@@ -3763,10 +3911,13 @@ impl IContactManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics2>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics2>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics3Impl: Sized + IContactManagerStaticsImpl + IContactManagerStatics2Impl {
     fn ConvertContactToVCardAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
     fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: &::core::option::Option<Contact>, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
@@ -3783,13 +3934,13 @@ pub trait IContactManagerStatics3Impl: Sized + IContactManagerStaticsImpl + ICon
     fn SystemSortOrder(&self) -> ::windows::core::Result<ContactNameOrder>;
     fn SetSystemSortOrder(&self, value: ContactNameOrder) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactManagerStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl IContactManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics3Impl, const OFFSET: isize>() -> IContactManagerStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerStatics3Vtbl {
         unsafe extern "system" fn ConvertContactToVCardAsync<Impl: IContactManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertContactToVCardAsync(&*(&contact as *const <Contact as ::windows::core::Abi>::Abi as *const <Contact as ::windows::core::DefaultType>::DefaultType)) {
@@ -3929,40 +4080,43 @@ impl IContactManagerStatics3Vtbl {
             (*this).SetSystemSortOrder(value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactManagerStatics3>,
             ::windows::core::GetTrustLevel,
-            ConvertContactToVCardAsync::<Impl, OFFSET>,
-            ConvertContactToVCardAsyncWithMaxBytes::<Impl, OFFSET>,
-            ConvertVCardToContactAsync::<Impl, OFFSET>,
-            RequestStoreAsyncWithAccessType::<Impl, OFFSET>,
-            RequestAnnotationStoreAsync::<Impl, OFFSET>,
-            IsShowContactCardSupported::<Impl, OFFSET>,
-            ShowContactCardWithOptions::<Impl, OFFSET>,
-            IsShowDelayLoadedContactCardSupported::<Impl, OFFSET>,
-            ShowDelayLoadedContactCardWithOptions::<Impl, OFFSET>,
-            ShowFullContactCard::<Impl, OFFSET>,
-            SystemDisplayNameOrder::<Impl, OFFSET>,
-            SetSystemDisplayNameOrder::<Impl, OFFSET>,
-            SystemSortOrder::<Impl, OFFSET>,
-            SetSystemSortOrder::<Impl, OFFSET>,
+            ConvertContactToVCardAsync::<Impl, IMPL_OFFSET>,
+            ConvertContactToVCardAsyncWithMaxBytes::<Impl, IMPL_OFFSET>,
+            ConvertVCardToContactAsync::<Impl, IMPL_OFFSET>,
+            RequestStoreAsyncWithAccessType::<Impl, IMPL_OFFSET>,
+            RequestAnnotationStoreAsync::<Impl, IMPL_OFFSET>,
+            IsShowContactCardSupported::<Impl, IMPL_OFFSET>,
+            ShowContactCardWithOptions::<Impl, IMPL_OFFSET>,
+            IsShowDelayLoadedContactCardSupported::<Impl, IMPL_OFFSET>,
+            ShowDelayLoadedContactCardWithOptions::<Impl, IMPL_OFFSET>,
+            ShowFullContactCard::<Impl, IMPL_OFFSET>,
+            SystemDisplayNameOrder::<Impl, IMPL_OFFSET>,
+            SetSystemDisplayNameOrder::<Impl, IMPL_OFFSET>,
+            SystemSortOrder::<Impl, IMPL_OFFSET>,
+            SetSystemSortOrder::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerStatics3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics4Impl: Sized {
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ContactManagerForUser>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics4 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactManagerStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IContactManagerStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics4Impl, const OFFSET: isize>() -> IContactManagerStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerStatics4Vtbl {
         unsafe extern "system" fn GetForUser<Impl: IContactManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -3974,22 +4128,25 @@ impl IContactManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics4>, ::windows::core::GetTrustLevel, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics4>, ::windows::core::GetTrustLevel, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerStatics4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics5Impl: Sized {
     fn IsShowFullContactCardSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn IncludeMiddleNameInSystemDisplayAndSort(&self) -> ::windows::core::Result<bool>;
     fn SetIncludeMiddleNameInSystemDisplayAndSort(&self, value: bool) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics5 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactManagerStatics5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactManagerStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics5Impl, const OFFSET: isize>() -> IContactManagerStatics5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerStatics5Vtbl {
         unsafe extern "system" fn IsShowFullContactCardSupportedAsync<Impl: IContactManagerStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShowFullContactCardSupportedAsync() {
@@ -4016,22 +4173,25 @@ impl IContactManagerStatics5Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeMiddleNameInSystemDisplayAndSort(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics5>, ::windows::core::GetTrustLevel, IsShowFullContactCardSupportedAsync::<Impl, OFFSET>, IncludeMiddleNameInSystemDisplayAndSort::<Impl, OFFSET>, SetIncludeMiddleNameInSystemDisplayAndSort::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactManagerStatics5>, ::windows::core::GetTrustLevel, IsShowFullContactCardSupportedAsync::<Impl, IMPL_OFFSET>, IncludeMiddleNameInSystemDisplayAndSort::<Impl, IMPL_OFFSET>, SetIncludeMiddleNameInSystemDisplayAndSort::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactManagerStatics5 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactMatchReasonImpl: Sized {
     fn Field(&self) -> ::windows::core::Result<ContactMatchReasonKind>;
     fn Segments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>;
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactMatchReason {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactMatchReason";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactMatchReasonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactMatchReasonImpl, const OFFSET: isize>() -> IContactMatchReasonVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactMatchReasonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactMatchReasonVtbl {
         unsafe extern "system" fn Field<Impl: IContactMatchReasonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactMatchReasonKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Field() {
@@ -4065,7 +4225,10 @@ impl IContactMatchReasonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactMatchReason>, ::windows::core::GetTrustLevel, Field::<Impl, OFFSET>, Segments::<Impl, OFFSET>, Text::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactMatchReason>, ::windows::core::GetTrustLevel, Field::<Impl, IMPL_OFFSET>, Segments::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactMatchReason as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4093,7 +4256,7 @@ impl ::windows::core::RuntimeName for IContactName {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactNameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactNameImpl, const OFFSET: isize>() -> IContactNameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactNameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactNameVtbl {
         unsafe extern "system" fn FirstName<Impl: IContactNameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstName() {
@@ -4222,32 +4385,35 @@ impl IContactNameVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactName>,
             ::windows::core::GetTrustLevel,
-            FirstName::<Impl, OFFSET>,
-            SetFirstName::<Impl, OFFSET>,
-            LastName::<Impl, OFFSET>,
-            SetLastName::<Impl, OFFSET>,
-            MiddleName::<Impl, OFFSET>,
-            SetMiddleName::<Impl, OFFSET>,
-            YomiGivenName::<Impl, OFFSET>,
-            SetYomiGivenName::<Impl, OFFSET>,
-            YomiFamilyName::<Impl, OFFSET>,
-            SetYomiFamilyName::<Impl, OFFSET>,
-            HonorificNameSuffix::<Impl, OFFSET>,
-            SetHonorificNameSuffix::<Impl, OFFSET>,
-            HonorificNamePrefix::<Impl, OFFSET>,
-            SetHonorificNamePrefix::<Impl, OFFSET>,
-            DisplayName::<Impl, OFFSET>,
-            YomiDisplayName::<Impl, OFFSET>,
+            FirstName::<Impl, IMPL_OFFSET>,
+            SetFirstName::<Impl, IMPL_OFFSET>,
+            LastName::<Impl, IMPL_OFFSET>,
+            SetLastName::<Impl, IMPL_OFFSET>,
+            MiddleName::<Impl, IMPL_OFFSET>,
+            SetMiddleName::<Impl, IMPL_OFFSET>,
+            YomiGivenName::<Impl, IMPL_OFFSET>,
+            SetYomiGivenName::<Impl, IMPL_OFFSET>,
+            YomiFamilyName::<Impl, IMPL_OFFSET>,
+            SetYomiFamilyName::<Impl, IMPL_OFFSET>,
+            HonorificNameSuffix::<Impl, IMPL_OFFSET>,
+            SetHonorificNameSuffix::<Impl, IMPL_OFFSET>,
+            HonorificNamePrefix::<Impl, IMPL_OFFSET>,
+            SetHonorificNamePrefix::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            YomiDisplayName::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactName as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait IContactPanelImpl: Sized {
     fn ClosePanel(&self) -> ::windows::core::Result<()>;
     fn HeaderColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::UI::Color>>;
@@ -4257,13 +4423,13 @@ pub trait IContactPanelImpl: Sized {
     fn Closing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosing(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPanel {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactPanel";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl IContactPanelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPanelImpl, const OFFSET: isize>() -> IContactPanelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPanelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPanelVtbl {
         unsafe extern "system" fn ClosePanel<Impl: IContactPanelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClosePanel().into()
@@ -4314,33 +4480,36 @@ impl IContactPanelVtbl {
             (*this).RemoveClosing(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactPanel>,
             ::windows::core::GetTrustLevel,
-            ClosePanel::<Impl, OFFSET>,
-            HeaderColor::<Impl, OFFSET>,
-            SetHeaderColor::<Impl, OFFSET>,
-            LaunchFullAppRequested::<Impl, OFFSET>,
-            RemoveLaunchFullAppRequested::<Impl, OFFSET>,
-            Closing::<Impl, OFFSET>,
-            RemoveClosing::<Impl, OFFSET>,
+            ClosePanel::<Impl, IMPL_OFFSET>,
+            HeaderColor::<Impl, IMPL_OFFSET>,
+            SetHeaderColor::<Impl, IMPL_OFFSET>,
+            LaunchFullAppRequested::<Impl, IMPL_OFFSET>,
+            RemoveLaunchFullAppRequested::<Impl, IMPL_OFFSET>,
+            Closing::<Impl, IMPL_OFFSET>,
+            RemoveClosing::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPanel as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactPanelClosingEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPanelClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactPanelClosingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPanelClosingEventArgsImpl, const OFFSET: isize>() -> IContactPanelClosingEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPanelClosingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPanelClosingEventArgsVtbl {
         unsafe extern "system" fn GetDeferral<Impl: IContactPanelClosingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
@@ -4352,7 +4521,10 @@ impl IContactPanelClosingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPanelClosingEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPanelClosingEventArgs>, ::windows::core::GetTrustLevel, GetDeferral::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPanelClosingEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4366,7 +4538,7 @@ impl ::windows::core::RuntimeName for IContactPanelLaunchFullAppRequestedEventAr
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactPanelLaunchFullAppRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPanelLaunchFullAppRequestedEventArgsImpl, const OFFSET: isize>() -> IContactPanelLaunchFullAppRequestedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPanelLaunchFullAppRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPanelLaunchFullAppRequestedEventArgsVtbl {
         unsafe extern "system" fn Handled<Impl: IContactPanelLaunchFullAppRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
@@ -4382,7 +4554,10 @@ impl IContactPanelLaunchFullAppRequestedEventArgsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPanelLaunchFullAppRequestedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPanelLaunchFullAppRequestedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, IMPL_OFFSET>, SetHandled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPanelLaunchFullAppRequestedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4400,7 +4575,7 @@ impl ::windows::core::RuntimeName for IContactPhone {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactPhoneVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPhoneImpl, const OFFSET: isize>() -> IContactPhoneVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPhoneImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPhoneVtbl {
         unsafe extern "system" fn Number<Impl: IContactPhoneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Number() {
@@ -4446,10 +4621,13 @@ impl IContactPhoneVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPhone>, ::windows::core::GetTrustLevel, Number::<Impl, OFFSET>, SetNumber::<Impl, OFFSET>, Kind::<Impl, OFFSET>, SetKind::<Impl, OFFSET>, Description::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPhone>, ::windows::core::GetTrustLevel, Number::<Impl, IMPL_OFFSET>, SetNumber::<Impl, IMPL_OFFSET>, Kind::<Impl, IMPL_OFFSET>, SetKind::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPhone as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactPickerImpl: Sized {
     fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCommitButtonText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -4459,13 +4637,13 @@ pub trait IContactPickerImpl: Sized {
     fn PickSingleContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>;
     fn PickMultipleContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPicker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactPicker";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactPickerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerImpl, const OFFSET: isize>() -> IContactPickerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPickerVtbl {
         unsafe extern "system" fn CommitButtonText<Impl: IContactPickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommitButtonText() {
@@ -4530,35 +4708,38 @@ impl IContactPickerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactPicker>,
             ::windows::core::GetTrustLevel,
-            CommitButtonText::<Impl, OFFSET>,
-            SetCommitButtonText::<Impl, OFFSET>,
-            SelectionMode::<Impl, OFFSET>,
-            SetSelectionMode::<Impl, OFFSET>,
-            DesiredFields::<Impl, OFFSET>,
-            PickSingleContactAsync::<Impl, OFFSET>,
-            PickMultipleContactsAsync::<Impl, OFFSET>,
+            CommitButtonText::<Impl, IMPL_OFFSET>,
+            SetCommitButtonText::<Impl, IMPL_OFFSET>,
+            SelectionMode::<Impl, IMPL_OFFSET>,
+            SetSelectionMode::<Impl, IMPL_OFFSET>,
+            DesiredFields::<Impl, IMPL_OFFSET>,
+            PickSingleContactAsync::<Impl, IMPL_OFFSET>,
+            PickMultipleContactsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPicker as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactPicker2Impl: Sized {
     fn DesiredFieldsWithContactFieldType(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactFieldType>>;
     fn PickContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
     fn PickContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPicker2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactPicker2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactPicker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPicker2Impl, const OFFSET: isize>() -> IContactPicker2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPicker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPicker2Vtbl {
         unsafe extern "system" fn DesiredFieldsWithContactFieldType<Impl: IContactPicker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredFieldsWithContactFieldType() {
@@ -4592,20 +4773,23 @@ impl IContactPicker2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPicker2>, ::windows::core::GetTrustLevel, DesiredFieldsWithContactFieldType::<Impl, OFFSET>, PickContactAsync::<Impl, OFFSET>, PickContactsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPicker2>, ::windows::core::GetTrustLevel, DesiredFieldsWithContactFieldType::<Impl, IMPL_OFFSET>, PickContactAsync::<Impl, IMPL_OFFSET>, PickContactsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPicker2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IContactPicker3Impl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPicker3 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactPicker3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IContactPicker3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPicker3Impl, const OFFSET: isize>() -> IContactPicker3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPicker3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPicker3Vtbl {
         unsafe extern "system" fn User<Impl: IContactPicker3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -4617,21 +4801,24 @@ impl IContactPicker3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPicker3>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPicker3>, ::windows::core::GetTrustLevel, User::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPicker3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IContactPickerStaticsImpl: Sized {
     fn CreateForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ContactPicker>;
     fn IsSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPickerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactPickerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl IContactPickerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerStaticsImpl, const OFFSET: isize>() -> IContactPickerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPickerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPickerStaticsVtbl {
         unsafe extern "system" fn CreateForUser<Impl: IContactPickerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
@@ -4654,10 +4841,13 @@ impl IContactPickerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, OFFSET>, IsSupportedAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPickerStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, IMPL_OFFSET>, IsSupportedAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactPickerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactQueryOptionsImpl: Sized {
     fn TextSearch(&self) -> ::windows::core::Result<ContactQueryTextSearch>;
     fn ContactListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -4669,13 +4859,13 @@ pub trait IContactQueryOptionsImpl: Sized {
     fn SetDesiredOperations(&self, value: ContactAnnotationOperations) -> ::windows::core::Result<()>;
     fn AnnotationListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactQueryOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryOptionsImpl, const OFFSET: isize>() -> IContactQueryOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryOptionsVtbl {
         unsafe extern "system" fn TextSearch<Impl: IContactQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextSearch() {
@@ -4755,22 +4945,25 @@ impl IContactQueryOptionsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactQueryOptions>,
             ::windows::core::GetTrustLevel,
-            TextSearch::<Impl, OFFSET>,
-            ContactListIds::<Impl, OFFSET>,
-            IncludeContactsFromHiddenLists::<Impl, OFFSET>,
-            SetIncludeContactsFromHiddenLists::<Impl, OFFSET>,
-            DesiredFields::<Impl, OFFSET>,
-            SetDesiredFields::<Impl, OFFSET>,
-            DesiredOperations::<Impl, OFFSET>,
-            SetDesiredOperations::<Impl, OFFSET>,
-            AnnotationListIds::<Impl, OFFSET>,
+            TextSearch::<Impl, IMPL_OFFSET>,
+            ContactListIds::<Impl, IMPL_OFFSET>,
+            IncludeContactsFromHiddenLists::<Impl, IMPL_OFFSET>,
+            SetIncludeContactsFromHiddenLists::<Impl, IMPL_OFFSET>,
+            DesiredFields::<Impl, IMPL_OFFSET>,
+            SetDesiredFields::<Impl, IMPL_OFFSET>,
+            DesiredOperations::<Impl, IMPL_OFFSET>,
+            SetDesiredOperations::<Impl, IMPL_OFFSET>,
+            AnnotationListIds::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactQueryOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4784,7 +4977,7 @@ impl ::windows::core::RuntimeName for IContactQueryOptionsFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactQueryOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryOptionsFactoryImpl, const OFFSET: isize>() -> IContactQueryOptionsFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryOptionsFactoryVtbl {
         unsafe extern "system" fn CreateWithText<Impl: IContactQueryOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithText(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -4807,7 +5000,10 @@ impl IContactQueryOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateWithText::<Impl, OFFSET>, CreateWithTextAndFields::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactQueryOptionsFactory>, ::windows::core::GetTrustLevel, CreateWithText::<Impl, IMPL_OFFSET>, CreateWithTextAndFields::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactQueryOptionsFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4825,7 +5021,7 @@ impl ::windows::core::RuntimeName for IContactQueryTextSearch {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactQueryTextSearchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryTextSearchImpl, const OFFSET: isize>() -> IContactQueryTextSearchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryTextSearchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryTextSearchVtbl {
         unsafe extern "system" fn Fields<Impl: IContactQueryTextSearchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactQuerySearchFields) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Fields() {
@@ -4871,21 +5067,24 @@ impl IContactQueryTextSearchVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSearchScope(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactQueryTextSearch>, ::windows::core::GetTrustLevel, Fields::<Impl, OFFSET>, SetFields::<Impl, OFFSET>, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, SearchScope::<Impl, OFFSET>, SetSearchScope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactQueryTextSearch>, ::windows::core::GetTrustLevel, Fields::<Impl, IMPL_OFFSET>, SetFields::<Impl, IMPL_OFFSET>, Text::<Impl, IMPL_OFFSET>, SetText::<Impl, IMPL_OFFSET>, SearchScope::<Impl, IMPL_OFFSET>, SetSearchScope::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactQueryTextSearch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactReaderImpl: Sized {
     fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactBatch>>;
     fn GetMatchingPropertiesWithMatchReason(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactReader";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactReaderImpl, const OFFSET: isize>() -> IContactReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactReaderVtbl {
         unsafe extern "system" fn ReadBatchAsync<Impl: IContactReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBatchAsync() {
@@ -4908,7 +5107,10 @@ impl IContactReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, OFFSET>, GetMatchingPropertiesWithMatchReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactReader>, ::windows::core::GetTrustLevel, ReadBatchAsync::<Impl, IMPL_OFFSET>, GetMatchingPropertiesWithMatchReason::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4924,7 +5126,7 @@ impl ::windows::core::RuntimeName for IContactSignificantOther {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactSignificantOtherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactSignificantOtherImpl, const OFFSET: isize>() -> IContactSignificantOtherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactSignificantOtherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactSignificantOtherVtbl {
         unsafe extern "system" fn Name<Impl: IContactSignificantOtherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -4955,7 +5157,10 @@ impl IContactSignificantOtherVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactSignificantOther>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, Description::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactSignificantOther>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactSignificantOther as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4969,7 +5174,7 @@ impl ::windows::core::RuntimeName for IContactSignificantOther2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactSignificantOther2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactSignificantOther2Impl, const OFFSET: isize>() -> IContactSignificantOther2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactSignificantOther2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactSignificantOther2Vtbl {
         unsafe extern "system" fn Relationship<Impl: IContactSignificantOther2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactRelationship) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Relationship() {
@@ -4985,22 +5190,25 @@ impl IContactSignificantOther2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelationship(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactSignificantOther2>, ::windows::core::GetTrustLevel, Relationship::<Impl, OFFSET>, SetRelationship::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactSignificantOther2>, ::windows::core::GetTrustLevel, Relationship::<Impl, IMPL_OFFSET>, SetRelationship::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactSignificantOther2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactStoreImpl: Sized {
     fn FindContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
     fn FindContactsWithSearchTextAsync(&self, searchtext: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
     fn GetContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactStore";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreImpl, const OFFSET: isize>() -> IContactStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreVtbl {
         unsafe extern "system" fn FindContactsAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindContactsAsync() {
@@ -5034,10 +5242,13 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStore>, ::windows::core::GetTrustLevel, FindContactsAsync::<Impl, OFFSET>, FindContactsWithSearchTextAsync::<Impl, OFFSET>, GetContactAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStore>, ::windows::core::GetTrustLevel, FindContactsAsync::<Impl, IMPL_OFFSET>, FindContactsWithSearchTextAsync::<Impl, IMPL_OFFSET>, GetContactAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactStore as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactStore2Impl: Sized + IContactStoreImpl {
     fn ChangeTracker(&self) -> ::windows::core::Result<ContactChangeTracker>;
     fn ContactChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -5051,13 +5262,13 @@ pub trait IContactStore2Impl: Sized + IContactStoreImpl {
     fn GetContactReaderWithOptions(&self, options: &::core::option::Option<ContactQueryOptions>) -> ::windows::core::Result<ContactReader>;
     fn CreateContactListInAccountAsync(&self, displayname: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactStore2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactStore2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IContactStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore2Impl, const OFFSET: isize>() -> IContactStore2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStore2Vtbl {
         unsafe extern "system" fn ChangeTracker<Impl: IContactStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeTracker() {
@@ -5173,24 +5384,27 @@ impl IContactStore2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IContactStore2>,
             ::windows::core::GetTrustLevel,
-            ChangeTracker::<Impl, OFFSET>,
-            ContactChanged::<Impl, OFFSET>,
-            RemoveContactChanged::<Impl, OFFSET>,
-            AggregateContactManager::<Impl, OFFSET>,
-            FindContactListsAsync::<Impl, OFFSET>,
-            GetContactListAsync::<Impl, OFFSET>,
-            CreateContactListAsync::<Impl, OFFSET>,
-            GetMeContactAsync::<Impl, OFFSET>,
-            GetContactReader::<Impl, OFFSET>,
-            GetContactReaderWithOptions::<Impl, OFFSET>,
-            CreateContactListInAccountAsync::<Impl, OFFSET>,
+            ChangeTracker::<Impl, IMPL_OFFSET>,
+            ContactChanged::<Impl, IMPL_OFFSET>,
+            RemoveContactChanged::<Impl, IMPL_OFFSET>,
+            AggregateContactManager::<Impl, IMPL_OFFSET>,
+            FindContactListsAsync::<Impl, IMPL_OFFSET>,
+            GetContactListAsync::<Impl, IMPL_OFFSET>,
+            CreateContactListAsync::<Impl, IMPL_OFFSET>,
+            GetMeContactAsync::<Impl, IMPL_OFFSET>,
+            GetContactReader::<Impl, IMPL_OFFSET>,
+            GetContactReaderWithOptions::<Impl, IMPL_OFFSET>,
+            CreateContactListInAccountAsync::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactStore2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5203,7 +5417,7 @@ impl ::windows::core::RuntimeName for IContactStore3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactStore3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore3Impl, const OFFSET: isize>() -> IContactStore3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStore3Vtbl {
         unsafe extern "system" fn GetChangeTracker<Impl: IContactStore3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChangeTracker(&*(&identity as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -5215,7 +5429,10 @@ impl IContactStore3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStore3>, ::windows::core::GetTrustLevel, GetChangeTracker::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStore3>, ::windows::core::GetTrustLevel, GetChangeTracker::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactStore3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5226,24 +5443,27 @@ impl ::windows::core::RuntimeName for IContactStoreNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactStoreNotificationTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IContactStoreNotificationTriggerDetailsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStoreNotificationTriggerDetails>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreNotificationTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreNotificationTriggerDetailsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactStoreNotificationTriggerDetails>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactStoreNotificationTriggerDetails as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactWebsiteImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactWebsite {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactWebsite";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactWebsiteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactWebsiteImpl, const OFFSET: isize>() -> IContactWebsiteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactWebsiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactWebsiteVtbl {
         unsafe extern "system" fn Uri<Impl: IContactWebsiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -5274,21 +5494,24 @@ impl IContactWebsiteVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactWebsite>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, SetUri::<Impl, OFFSET>, Description::<Impl, OFFSET>, SetDescription::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactWebsite>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, SetUri::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>, SetDescription::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactWebsite as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactWebsite2Impl: Sized + IContactWebsiteImpl {
     fn RawValue(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetRawValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactWebsite2 {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactWebsite2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IContactWebsite2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactWebsite2Impl, const OFFSET: isize>() -> IContactWebsite2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactWebsite2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactWebsite2Vtbl {
         unsafe extern "system" fn RawValue<Impl: IContactWebsite2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawValue() {
@@ -5304,21 +5527,24 @@ impl IContactWebsite2Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRawValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactWebsite2>, ::windows::core::GetTrustLevel, RawValue::<Impl, OFFSET>, SetRawValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactWebsite2>, ::windows::core::GetTrustLevel, RawValue::<Impl, IMPL_OFFSET>, SetRawValue::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IContactWebsite2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 pub trait IFullContactCardOptionsImpl: Sized {
     fn DesiredRemainingView(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ViewSizePreference>;
     fn SetDesiredRemainingView(&self, value: super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFullContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IFullContactCardOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 impl IFullContactCardOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullContactCardOptionsImpl, const OFFSET: isize>() -> IFullContactCardOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFullContactCardOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFullContactCardOptionsVtbl {
         unsafe extern "system" fn DesiredRemainingView<Impl: IFullContactCardOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredRemainingView() {
@@ -5334,7 +5560,10 @@ impl IFullContactCardOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredRemainingView(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullContactCardOptions>, ::windows::core::GetTrustLevel, DesiredRemainingView::<Impl, OFFSET>, SetDesiredRemainingView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFullContactCardOptions>, ::windows::core::GetTrustLevel, DesiredRemainingView::<Impl, IMPL_OFFSET>, SetDesiredRemainingView::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFullContactCardOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -5352,7 +5581,7 @@ impl ::windows::core::RuntimeName for IKnownContactFieldStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownContactFieldStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownContactFieldStaticsImpl, const OFFSET: isize>() -> IKnownContactFieldStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownContactFieldStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownContactFieldStaticsVtbl {
         unsafe extern "system" fn Email<Impl: IKnownContactFieldStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Email() {
@@ -5419,20 +5648,36 @@ impl IKnownContactFieldStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownContactFieldStatics>, ::windows::core::GetTrustLevel, Email::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>, Location::<Impl, OFFSET>, InstantMessage::<Impl, OFFSET>, ConvertNameToType::<Impl, OFFSET>, ConvertTypeToName::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IKnownContactFieldStatics>,
+            ::windows::core::GetTrustLevel,
+            Email::<Impl, IMPL_OFFSET>,
+            PhoneNumber::<Impl, IMPL_OFFSET>,
+            Location::<Impl, IMPL_OFFSET>,
+            InstantMessage::<Impl, IMPL_OFFSET>,
+            ConvertNameToType::<Impl, IMPL_OFFSET>,
+            ConvertTypeToName::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKnownContactFieldStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPinnedContactIdsQueryResultImpl: Sized {
     fn ContactIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPinnedContactIdsQueryResult {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IPinnedContactIdsQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IPinnedContactIdsQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinnedContactIdsQueryResultImpl, const OFFSET: isize>() -> IPinnedContactIdsQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinnedContactIdsQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPinnedContactIdsQueryResultVtbl {
         unsafe extern "system" fn ContactIds<Impl: IPinnedContactIdsQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactIds() {
@@ -5444,10 +5689,13 @@ impl IPinnedContactIdsQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinnedContactIdsQueryResult>, ::windows::core::GetTrustLevel, ContactIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinnedContactIdsQueryResult>, ::windows::core::GetTrustLevel, ContactIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPinnedContactIdsQueryResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IPinnedContactManagerImpl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
     fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> ::windows::core::Result<bool>;
@@ -5458,13 +5706,13 @@ pub trait IPinnedContactManagerImpl: Sized {
     fn SignalContactActivity(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<()>;
     fn GetPinnedContactIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPinnedContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IPinnedContactManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IPinnedContactManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinnedContactManagerImpl, const OFFSET: isize>() -> IPinnedContactManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinnedContactManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPinnedContactManagerVtbl {
         unsafe extern "system" fn User<Impl: IPinnedContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -5547,36 +5795,39 @@ impl IPinnedContactManagerVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPinnedContactManager>,
             ::windows::core::GetTrustLevel,
-            User::<Impl, OFFSET>,
-            IsPinSurfaceSupported::<Impl, OFFSET>,
-            IsContactPinned::<Impl, OFFSET>,
-            RequestPinContactAsync::<Impl, OFFSET>,
-            RequestPinContactsAsync::<Impl, OFFSET>,
-            RequestUnpinContactAsync::<Impl, OFFSET>,
-            SignalContactActivity::<Impl, OFFSET>,
-            GetPinnedContactIdsAsync::<Impl, OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+            IsPinSurfaceSupported::<Impl, IMPL_OFFSET>,
+            IsContactPinned::<Impl, IMPL_OFFSET>,
+            RequestPinContactAsync::<Impl, IMPL_OFFSET>,
+            RequestPinContactsAsync::<Impl, IMPL_OFFSET>,
+            RequestUnpinContactAsync::<Impl, IMPL_OFFSET>,
+            SignalContactActivity::<Impl, IMPL_OFFSET>,
+            GetPinnedContactIdsAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPinnedContactManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPinnedContactManagerStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<PinnedContactManager>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PinnedContactManager>;
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPinnedContactManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IPinnedContactManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IPinnedContactManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinnedContactManagerStaticsImpl, const OFFSET: isize>() -> IPinnedContactManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinnedContactManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPinnedContactManagerStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IPinnedContactManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -5610,6 +5861,9 @@ impl IPinnedContactManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinnedContactManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPinnedContactManagerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>, IsSupported::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPinnedContactManagerStatics as ::windows::core::Interface>::IID
     }
 }

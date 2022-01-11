@@ -6,11 +6,14 @@ impl ::windows::core::RuntimeName for ICurrentSessionChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICurrentSessionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentSessionChangedEventArgsImpl, const OFFSET: isize>() -> ICurrentSessionChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentSessionChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentSessionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentSessionChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICurrentSessionChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICurrentSessionChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionImpl: Sized {
     fn SourceAppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TryGetMediaPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>>;
@@ -38,13 +41,13 @@ pub trait IGlobalSystemMediaTransportControlsSessionImpl: Sized {
     fn MediaPropertiesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMediaPropertiesChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSession";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGlobalSystemMediaTransportControlsSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionVtbl {
         unsafe extern "system" fn SourceAppUserModelId<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAppUserModelId() {
@@ -300,41 +303,44 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
             (*this).RemoveMediaPropertiesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSession>,
             ::windows::core::GetTrustLevel,
-            SourceAppUserModelId::<Impl, OFFSET>,
-            TryGetMediaPropertiesAsync::<Impl, OFFSET>,
-            GetTimelineProperties::<Impl, OFFSET>,
-            GetPlaybackInfo::<Impl, OFFSET>,
-            TryPlayAsync::<Impl, OFFSET>,
-            TryPauseAsync::<Impl, OFFSET>,
-            TryStopAsync::<Impl, OFFSET>,
-            TryRecordAsync::<Impl, OFFSET>,
-            TryFastForwardAsync::<Impl, OFFSET>,
-            TryRewindAsync::<Impl, OFFSET>,
-            TrySkipNextAsync::<Impl, OFFSET>,
-            TrySkipPreviousAsync::<Impl, OFFSET>,
-            TryChangeChannelUpAsync::<Impl, OFFSET>,
-            TryChangeChannelDownAsync::<Impl, OFFSET>,
-            TryTogglePlayPauseAsync::<Impl, OFFSET>,
-            TryChangeAutoRepeatModeAsync::<Impl, OFFSET>,
-            TryChangePlaybackRateAsync::<Impl, OFFSET>,
-            TryChangeShuffleActiveAsync::<Impl, OFFSET>,
-            TryChangePlaybackPositionAsync::<Impl, OFFSET>,
-            TimelinePropertiesChanged::<Impl, OFFSET>,
-            RemoveTimelinePropertiesChanged::<Impl, OFFSET>,
-            PlaybackInfoChanged::<Impl, OFFSET>,
-            RemovePlaybackInfoChanged::<Impl, OFFSET>,
-            MediaPropertiesChanged::<Impl, OFFSET>,
-            RemoveMediaPropertiesChanged::<Impl, OFFSET>,
+            SourceAppUserModelId::<Impl, IMPL_OFFSET>,
+            TryGetMediaPropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetTimelineProperties::<Impl, IMPL_OFFSET>,
+            GetPlaybackInfo::<Impl, IMPL_OFFSET>,
+            TryPlayAsync::<Impl, IMPL_OFFSET>,
+            TryPauseAsync::<Impl, IMPL_OFFSET>,
+            TryStopAsync::<Impl, IMPL_OFFSET>,
+            TryRecordAsync::<Impl, IMPL_OFFSET>,
+            TryFastForwardAsync::<Impl, IMPL_OFFSET>,
+            TryRewindAsync::<Impl, IMPL_OFFSET>,
+            TrySkipNextAsync::<Impl, IMPL_OFFSET>,
+            TrySkipPreviousAsync::<Impl, IMPL_OFFSET>,
+            TryChangeChannelUpAsync::<Impl, IMPL_OFFSET>,
+            TryChangeChannelDownAsync::<Impl, IMPL_OFFSET>,
+            TryTogglePlayPauseAsync::<Impl, IMPL_OFFSET>,
+            TryChangeAutoRepeatModeAsync::<Impl, IMPL_OFFSET>,
+            TryChangePlaybackRateAsync::<Impl, IMPL_OFFSET>,
+            TryChangeShuffleActiveAsync::<Impl, IMPL_OFFSET>,
+            TryChangePlaybackPositionAsync::<Impl, IMPL_OFFSET>,
+            TimelinePropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemoveTimelinePropertiesChanged::<Impl, IMPL_OFFSET>,
+            PlaybackInfoChanged::<Impl, IMPL_OFFSET>,
+            RemovePlaybackInfoChanged::<Impl, IMPL_OFFSET>,
+            MediaPropertiesChanged::<Impl, IMPL_OFFSET>,
+            RemoveMediaPropertiesChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSession as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionManagerImpl: Sized {
     fn GetCurrentSession(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSession>;
     fn GetSessions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<GlobalSystemMediaTransportControlsSession>>;
@@ -343,13 +349,13 @@ pub trait IGlobalSystemMediaTransportControlsSessionManagerImpl: Sized {
     fn SessionsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSessionsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManager";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerVtbl {
         unsafe extern "system" fn GetCurrentSession<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSession() {
@@ -403,32 +409,35 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
             (*this).RemoveSessionsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionManager>,
             ::windows::core::GetTrustLevel,
-            GetCurrentSession::<Impl, OFFSET>,
-            GetSessions::<Impl, OFFSET>,
-            CurrentSessionChanged::<Impl, OFFSET>,
-            RemoveCurrentSessionChanged::<Impl, OFFSET>,
-            SessionsChanged::<Impl, OFFSET>,
-            RemoveSessionsChanged::<Impl, OFFSET>,
+            GetCurrentSession::<Impl, IMPL_OFFSET>,
+            GetSessions::<Impl, IMPL_OFFSET>,
+            CurrentSessionChanged::<Impl, IMPL_OFFSET>,
+            RemoveCurrentSessionChanged::<Impl, IMPL_OFFSET>,
+            SessionsChanged::<Impl, IMPL_OFFSET>,
+            RemoveSessionsChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSessionManager as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl: Sized {
     fn RequestAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionManagerStatics {
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManagerStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
         unsafe extern "system" fn RequestAsync<Impl: IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAsync() {
@@ -440,10 +449,13 @@ impl IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionManagerStatics>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionManagerStatics>, ::windows::core::GetTrustLevel, RequestAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSessionManagerStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -456,13 +468,13 @@ pub trait IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl: Sized {
     fn PlaybackType(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>>;
     fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionMediaProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
         unsafe extern "system" fn Title<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
@@ -574,23 +586,26 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionMediaProperties>,
             ::windows::core::GetTrustLevel,
-            Title::<Impl, OFFSET>,
-            Subtitle::<Impl, OFFSET>,
-            AlbumArtist::<Impl, OFFSET>,
-            Artist::<Impl, OFFSET>,
-            AlbumTitle::<Impl, OFFSET>,
-            TrackNumber::<Impl, OFFSET>,
-            Genres::<Impl, OFFSET>,
-            AlbumTrackCount::<Impl, OFFSET>,
-            PlaybackType::<Impl, OFFSET>,
-            Thumbnail::<Impl, OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Subtitle::<Impl, IMPL_OFFSET>,
+            AlbumArtist::<Impl, IMPL_OFFSET>,
+            Artist::<Impl, IMPL_OFFSET>,
+            AlbumTitle::<Impl, IMPL_OFFSET>,
+            TrackNumber::<Impl, IMPL_OFFSET>,
+            Genres::<Impl, IMPL_OFFSET>,
+            AlbumTrackCount::<Impl, IMPL_OFFSET>,
+            PlaybackType::<Impl, IMPL_OFFSET>,
+            Thumbnail::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSessionMediaProperties as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -617,7 +632,7 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
         unsafe extern "system" fn IsPlayEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlayEnabled() {
@@ -784,31 +799,34 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionPlaybackControls>,
             ::windows::core::GetTrustLevel,
-            IsPlayEnabled::<Impl, OFFSET>,
-            IsPauseEnabled::<Impl, OFFSET>,
-            IsStopEnabled::<Impl, OFFSET>,
-            IsRecordEnabled::<Impl, OFFSET>,
-            IsFastForwardEnabled::<Impl, OFFSET>,
-            IsRewindEnabled::<Impl, OFFSET>,
-            IsNextEnabled::<Impl, OFFSET>,
-            IsPreviousEnabled::<Impl, OFFSET>,
-            IsChannelUpEnabled::<Impl, OFFSET>,
-            IsChannelDownEnabled::<Impl, OFFSET>,
-            IsPlayPauseToggleEnabled::<Impl, OFFSET>,
-            IsShuffleEnabled::<Impl, OFFSET>,
-            IsRepeatEnabled::<Impl, OFFSET>,
-            IsPlaybackRateEnabled::<Impl, OFFSET>,
-            IsPlaybackPositionEnabled::<Impl, OFFSET>,
+            IsPlayEnabled::<Impl, IMPL_OFFSET>,
+            IsPauseEnabled::<Impl, IMPL_OFFSET>,
+            IsStopEnabled::<Impl, IMPL_OFFSET>,
+            IsRecordEnabled::<Impl, IMPL_OFFSET>,
+            IsFastForwardEnabled::<Impl, IMPL_OFFSET>,
+            IsRewindEnabled::<Impl, IMPL_OFFSET>,
+            IsNextEnabled::<Impl, IMPL_OFFSET>,
+            IsPreviousEnabled::<Impl, IMPL_OFFSET>,
+            IsChannelUpEnabled::<Impl, IMPL_OFFSET>,
+            IsChannelDownEnabled::<Impl, IMPL_OFFSET>,
+            IsPlayPauseToggleEnabled::<Impl, IMPL_OFFSET>,
+            IsShuffleEnabled::<Impl, IMPL_OFFSET>,
+            IsRepeatEnabled::<Impl, IMPL_OFFSET>,
+            IsPlaybackRateEnabled::<Impl, IMPL_OFFSET>,
+            IsPlaybackPositionEnabled::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSessionPlaybackControls as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl: Sized {
     fn Controls(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls>;
     fn PlaybackStatus(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus>;
@@ -817,13 +835,13 @@ pub trait IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl: Sized {
     fn PlaybackRate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
     fn IsShuffleActive(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
         unsafe extern "system" fn Controls<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Controls() {
@@ -890,10 +908,26 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionPlaybackInfo>, ::windows::core::GetTrustLevel, Controls::<Impl, OFFSET>, PlaybackStatus::<Impl, OFFSET>, PlaybackType::<Impl, OFFSET>, AutoRepeatMode::<Impl, OFFSET>, PlaybackRate::<Impl, OFFSET>, IsShuffleActive::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionPlaybackInfo>,
+            ::windows::core::GetTrustLevel,
+            Controls::<Impl, IMPL_OFFSET>,
+            PlaybackStatus::<Impl, IMPL_OFFSET>,
+            PlaybackType::<Impl, IMPL_OFFSET>,
+            AutoRepeatMode::<Impl, IMPL_OFFSET>,
+            PlaybackRate::<Impl, IMPL_OFFSET>,
+            IsShuffleActive::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSessionPlaybackInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl: Sized {
     fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -902,13 +936,13 @@ pub trait IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl: Size
     fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn LastUpdatedTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionTimelineProperties";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
         unsafe extern "system" fn StartTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
@@ -975,7 +1009,23 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionTimelineProperties>, ::windows::core::GetTrustLevel, StartTime::<Impl, OFFSET>, EndTime::<Impl, OFFSET>, MinSeekTime::<Impl, OFFSET>, MaxSeekTime::<Impl, OFFSET>, Position::<Impl, OFFSET>, LastUpdatedTime::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGlobalSystemMediaTransportControlsSessionTimelineProperties>,
+            ::windows::core::GetTrustLevel,
+            StartTime::<Impl, IMPL_OFFSET>,
+            EndTime::<Impl, IMPL_OFFSET>,
+            MinSeekTime::<Impl, IMPL_OFFSET>,
+            MaxSeekTime::<Impl, IMPL_OFFSET>,
+            Position::<Impl, IMPL_OFFSET>,
+            LastUpdatedTime::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGlobalSystemMediaTransportControlsSessionTimelineProperties as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -986,8 +1036,11 @@ impl ::windows::core::RuntimeName for IMediaPropertiesChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaPropertiesChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPropertiesChangedEventArgsImpl, const OFFSET: isize>() -> IMediaPropertiesChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPropertiesChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPropertiesChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPropertiesChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaPropertiesChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMediaPropertiesChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -998,8 +1051,11 @@ impl ::windows::core::RuntimeName for IPlaybackInfoChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPlaybackInfoChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackInfoChangedEventArgsImpl, const OFFSET: isize>() -> IPlaybackInfoChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackInfoChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackInfoChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackInfoChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPlaybackInfoChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPlaybackInfoChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1010,8 +1066,11 @@ impl ::windows::core::RuntimeName for ISessionsChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISessionsChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISessionsChangedEventArgsImpl, const OFFSET: isize>() -> ISessionsChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISessionsChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISessionsChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISessionsChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISessionsChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISessionsChangedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1022,7 +1081,10 @@ impl ::windows::core::RuntimeName for ITimelinePropertiesChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITimelinePropertiesChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelinePropertiesChangedEventArgsImpl, const OFFSET: isize>() -> ITimelinePropertiesChangedEventArgsVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimelinePropertiesChangedEventArgs>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelinePropertiesChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelinePropertiesChangedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITimelinePropertiesChangedEventArgs>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITimelinePropertiesChangedEventArgs as ::windows::core::Interface>::IID
     }
 }

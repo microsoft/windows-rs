@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IDnssdRegistrationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDnssdRegistrationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdRegistrationResultImpl, const OFFSET: isize>() -> IDnssdRegistrationResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdRegistrationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDnssdRegistrationResultVtbl {
         unsafe extern "system" fn Status<Impl: IDnssdRegistrationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DnssdRegistrationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -44,10 +44,13 @@ impl IDnssdRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDnssdRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, IPAddress::<Impl, OFFSET>, HasInstanceNameChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDnssdRegistrationResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, IPAddress::<Impl, IMPL_OFFSET>, HasInstanceNameChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDnssdRegistrationResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Connectivity", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IDnssdServiceInstanceImpl: Sized {
     fn DnssdServiceInstanceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDnssdServiceInstanceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -65,13 +68,13 @@ pub trait IDnssdServiceInstanceImpl: Sized {
     fn RegisterDatagramSocketAsync1(&self, socket: &::core::option::Option<super::super::Sockets::DatagramSocket>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>;
     fn RegisterDatagramSocketAsync2(&self, socket: &::core::option::Option<super::super::Sockets::DatagramSocket>, adapter: &::core::option::Option<super::super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Connectivity", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Connectivity", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl IDnssdServiceInstanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdServiceInstanceImpl, const OFFSET: isize>() -> IDnssdServiceInstanceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdServiceInstanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDnssdServiceInstanceVtbl {
         unsafe extern "system" fn DnssdServiceInstanceName<Impl: IDnssdServiceInstanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DnssdServiceInstanceName() {
@@ -203,28 +206,31 @@ impl IDnssdServiceInstanceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDnssdServiceInstance>,
             ::windows::core::GetTrustLevel,
-            DnssdServiceInstanceName::<Impl, OFFSET>,
-            SetDnssdServiceInstanceName::<Impl, OFFSET>,
-            HostName::<Impl, OFFSET>,
-            SetHostName::<Impl, OFFSET>,
-            Port::<Impl, OFFSET>,
-            SetPort::<Impl, OFFSET>,
-            Priority::<Impl, OFFSET>,
-            SetPriority::<Impl, OFFSET>,
-            Weight::<Impl, OFFSET>,
-            SetWeight::<Impl, OFFSET>,
-            TextAttributes::<Impl, OFFSET>,
-            RegisterStreamSocketListenerAsync1::<Impl, OFFSET>,
-            RegisterStreamSocketListenerAsync2::<Impl, OFFSET>,
-            RegisterDatagramSocketAsync1::<Impl, OFFSET>,
-            RegisterDatagramSocketAsync2::<Impl, OFFSET>,
+            DnssdServiceInstanceName::<Impl, IMPL_OFFSET>,
+            SetDnssdServiceInstanceName::<Impl, IMPL_OFFSET>,
+            HostName::<Impl, IMPL_OFFSET>,
+            SetHostName::<Impl, IMPL_OFFSET>,
+            Port::<Impl, IMPL_OFFSET>,
+            SetPort::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            SetPriority::<Impl, IMPL_OFFSET>,
+            Weight::<Impl, IMPL_OFFSET>,
+            SetWeight::<Impl, IMPL_OFFSET>,
+            TextAttributes::<Impl, IMPL_OFFSET>,
+            RegisterStreamSocketListenerAsync1::<Impl, IMPL_OFFSET>,
+            RegisterStreamSocketListenerAsync2::<Impl, IMPL_OFFSET>,
+            RegisterDatagramSocketAsync1::<Impl, IMPL_OFFSET>,
+            RegisterDatagramSocketAsync2::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDnssdServiceInstance as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -237,7 +243,7 @@ impl ::windows::core::RuntimeName for IDnssdServiceInstanceFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDnssdServiceInstanceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdServiceInstanceFactoryImpl, const OFFSET: isize>() -> IDnssdServiceInstanceFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdServiceInstanceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDnssdServiceInstanceFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IDnssdServiceInstanceFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dnssdserviceinstancename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hostname: ::windows::core::RawPtr, port: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&dnssdserviceinstancename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&hostname as *const <super::super::HostName as ::windows::core::Abi>::Abi as *const <super::super::HostName as ::windows::core::DefaultType>::DefaultType), port) {
@@ -249,10 +255,13 @@ impl IDnssdServiceInstanceFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDnssdServiceInstanceFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDnssdServiceInstanceFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDnssdServiceInstanceFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDnssdServiceWatcherImpl: Sized {
     fn Added(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -264,13 +273,13 @@ pub trait IDnssdServiceWatcherImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IDnssdServiceWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdServiceWatcherImpl, const OFFSET: isize>() -> IDnssdServiceWatcherVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDnssdServiceWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDnssdServiceWatcherVtbl {
         unsafe extern "system" fn Added<Impl: IDnssdServiceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance> as ::windows::core::DefaultType>::DefaultType)) {
@@ -336,21 +345,24 @@ impl IDnssdServiceWatcherVtbl {
             (*this).Stop().into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IDnssdServiceWatcher>,
             ::windows::core::GetTrustLevel,
-            Added::<Impl, OFFSET>,
-            RemoveAdded::<Impl, OFFSET>,
-            EnumerationCompleted::<Impl, OFFSET>,
-            RemoveEnumerationCompleted::<Impl, OFFSET>,
-            Stopped::<Impl, OFFSET>,
-            RemoveStopped::<Impl, OFFSET>,
-            Status::<Impl, OFFSET>,
-            Start::<Impl, OFFSET>,
-            Stop::<Impl, OFFSET>,
+            Added::<Impl, IMPL_OFFSET>,
+            RemoveAdded::<Impl, IMPL_OFFSET>,
+            EnumerationCompleted::<Impl, IMPL_OFFSET>,
+            RemoveEnumerationCompleted::<Impl, IMPL_OFFSET>,
+            Stopped::<Impl, IMPL_OFFSET>,
+            RemoveStopped::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDnssdServiceWatcher as ::windows::core::Interface>::IID
     }
 }

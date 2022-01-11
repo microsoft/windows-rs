@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IStoreAcquireLicenseResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreAcquireLicenseResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAcquireLicenseResultImpl, const OFFSET: isize>() -> IStoreAcquireLicenseResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAcquireLicenseResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreAcquireLicenseResultVtbl {
         unsafe extern "system" fn StorePackageLicense<Impl: IStoreAcquireLicenseResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorePackageLicense() {
@@ -32,10 +32,13 @@ impl IStoreAcquireLicenseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAcquireLicenseResult>, ::windows::core::GetTrustLevel, StorePackageLicense::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAcquireLicenseResult>, ::windows::core::GetTrustLevel, StorePackageLicense::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreAcquireLicenseResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreAppLicenseImpl: Sized {
     fn SkuStoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsActive(&self) -> ::windows::core::Result<bool>;
@@ -47,13 +50,13 @@ pub trait IStoreAppLicenseImpl: Sized {
     fn IsTrialOwnedByThisUser(&self) -> ::windows::core::Result<bool>;
     fn TrialUniqueId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreAppLicense {
     const NAME: &'static str = "Windows.Services.Store.IStoreAppLicense";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreAppLicenseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAppLicenseImpl, const OFFSET: isize>() -> IStoreAppLicenseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAppLicenseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreAppLicenseVtbl {
         unsafe extern "system" fn SkuStoreId<Impl: IStoreAppLicenseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SkuStoreId() {
@@ -154,22 +157,25 @@ impl IStoreAppLicenseVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreAppLicense>,
             ::windows::core::GetTrustLevel,
-            SkuStoreId::<Impl, OFFSET>,
-            IsActive::<Impl, OFFSET>,
-            IsTrial::<Impl, OFFSET>,
-            ExpirationDate::<Impl, OFFSET>,
-            ExtendedJsonData::<Impl, OFFSET>,
-            AddOnLicenses::<Impl, OFFSET>,
-            TrialTimeRemaining::<Impl, OFFSET>,
-            IsTrialOwnedByThisUser::<Impl, OFFSET>,
-            TrialUniqueId::<Impl, OFFSET>,
+            SkuStoreId::<Impl, IMPL_OFFSET>,
+            IsActive::<Impl, IMPL_OFFSET>,
+            IsTrial::<Impl, IMPL_OFFSET>,
+            ExpirationDate::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            AddOnLicenses::<Impl, IMPL_OFFSET>,
+            TrialTimeRemaining::<Impl, IMPL_OFFSET>,
+            IsTrialOwnedByThisUser::<Impl, IMPL_OFFSET>,
+            TrialUniqueId::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreAppLicense as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -182,7 +188,7 @@ impl ::windows::core::RuntimeName for IStoreAppLicense2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreAppLicense2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAppLicense2Impl, const OFFSET: isize>() -> IStoreAppLicense2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAppLicense2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreAppLicense2Vtbl {
         unsafe extern "system" fn IsDiscLicense<Impl: IStoreAppLicense2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDiscLicense() {
@@ -194,10 +200,13 @@ impl IStoreAppLicense2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAppLicense2>, ::windows::core::GetTrustLevel, IsDiscLicense::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAppLicense2>, ::windows::core::GetTrustLevel, IsDiscLicense::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreAppLicense2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreAvailabilityImpl: Sized {
     fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -206,13 +215,13 @@ pub trait IStoreAvailabilityImpl: Sized {
     fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
     fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreAvailability {
     const NAME: &'static str = "Windows.Services.Store.IStoreAvailability";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreAvailabilityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAvailabilityImpl, const OFFSET: isize>() -> IStoreAvailabilityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreAvailabilityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreAvailabilityVtbl {
         unsafe extern "system" fn StoreId<Impl: IStoreAvailabilityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoreId() {
@@ -279,7 +288,23 @@ impl IStoreAvailabilityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreAvailability>, ::windows::core::GetTrustLevel, StoreId::<Impl, OFFSET>, EndDate::<Impl, OFFSET>, Price::<Impl, OFFSET>, ExtendedJsonData::<Impl, OFFSET>, RequestPurchaseAsync::<Impl, OFFSET>, RequestPurchaseWithPurchasePropertiesAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IStoreAvailability>,
+            ::windows::core::GetTrustLevel,
+            StoreId::<Impl, IMPL_OFFSET>,
+            EndDate::<Impl, IMPL_OFFSET>,
+            Price::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreAvailability as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -294,7 +319,7 @@ impl ::windows::core::RuntimeName for IStoreCanAcquireLicenseResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreCanAcquireLicenseResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreCanAcquireLicenseResultImpl, const OFFSET: isize>() -> IStoreCanAcquireLicenseResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreCanAcquireLicenseResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreCanAcquireLicenseResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IStoreCanAcquireLicenseResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -328,10 +353,13 @@ impl IStoreCanAcquireLicenseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreCanAcquireLicenseResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, LicensableSku::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreCanAcquireLicenseResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, LicensableSku::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreCanAcquireLicenseResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreCollectionDataImpl: Sized {
     fn IsTrial(&self) -> ::windows::core::Result<bool>;
     fn CampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -342,13 +370,13 @@ pub trait IStoreCollectionDataImpl: Sized {
     fn TrialTimeRemaining(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreCollectionData {
     const NAME: &'static str = "Windows.Services.Store.IStoreCollectionData";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreCollectionDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreCollectionDataImpl, const OFFSET: isize>() -> IStoreCollectionDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreCollectionDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreCollectionDataVtbl {
         unsafe extern "system" fn IsTrial<Impl: IStoreCollectionDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTrial() {
@@ -438,21 +466,24 @@ impl IStoreCollectionDataVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreCollectionData>,
             ::windows::core::GetTrustLevel,
-            IsTrial::<Impl, OFFSET>,
-            CampaignId::<Impl, OFFSET>,
-            DeveloperOfferId::<Impl, OFFSET>,
-            AcquiredDate::<Impl, OFFSET>,
-            StartDate::<Impl, OFFSET>,
-            EndDate::<Impl, OFFSET>,
-            TrialTimeRemaining::<Impl, OFFSET>,
-            ExtendedJsonData::<Impl, OFFSET>,
+            IsTrial::<Impl, IMPL_OFFSET>,
+            CampaignId::<Impl, IMPL_OFFSET>,
+            DeveloperOfferId::<Impl, IMPL_OFFSET>,
+            AcquiredDate::<Impl, IMPL_OFFSET>,
+            StartDate::<Impl, IMPL_OFFSET>,
+            EndDate::<Impl, IMPL_OFFSET>,
+            TrialTimeRemaining::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreCollectionData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -468,7 +499,7 @@ impl ::windows::core::RuntimeName for IStoreConsumableResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreConsumableResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConsumableResultImpl, const OFFSET: isize>() -> IStoreConsumableResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConsumableResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConsumableResultVtbl {
         unsafe extern "system" fn Status<Impl: IStoreConsumableResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StoreConsumableStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -513,10 +544,13 @@ impl IStoreConsumableResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreConsumableResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, TrackingId::<Impl, OFFSET>, BalanceRemaining::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreConsumableResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, TrackingId::<Impl, IMPL_OFFSET>, BalanceRemaining::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreConsumableResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreContextImpl: Sized {
     fn User(&self) -> ::windows::core::Result<super::super::System::User>;
     fn OfflineLicensesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreContext, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -540,13 +574,13 @@ pub trait IStoreContextImpl: Sized {
     fn RequestDownloadAndInstallStorePackageUpdatesAsync(&self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
     fn RequestDownloadAndInstallStorePackagesAsync(&self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext {
     const NAME: &'static str = "Windows.Services.Store.IStoreContext";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl IStoreContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContextImpl, const OFFSET: isize>() -> IStoreContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreContextVtbl {
         unsafe extern "system" fn User<Impl: IStoreContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
@@ -775,47 +809,50 @@ impl IStoreContextVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreContext>,
             ::windows::core::GetTrustLevel,
-            User::<Impl, OFFSET>,
-            OfflineLicensesChanged::<Impl, OFFSET>,
-            RemoveOfflineLicensesChanged::<Impl, OFFSET>,
-            GetCustomerPurchaseIdAsync::<Impl, OFFSET>,
-            GetCustomerCollectionsIdAsync::<Impl, OFFSET>,
-            GetAppLicenseAsync::<Impl, OFFSET>,
-            GetStoreProductForCurrentAppAsync::<Impl, OFFSET>,
-            GetStoreProductsAsync::<Impl, OFFSET>,
-            GetAssociatedStoreProductsAsync::<Impl, OFFSET>,
-            GetAssociatedStoreProductsWithPagingAsync::<Impl, OFFSET>,
-            GetUserCollectionAsync::<Impl, OFFSET>,
-            GetUserCollectionWithPagingAsync::<Impl, OFFSET>,
-            ReportConsumableFulfillmentAsync::<Impl, OFFSET>,
-            GetConsumableBalanceRemainingAsync::<Impl, OFFSET>,
-            AcquireStoreLicenseForOptionalPackageAsync::<Impl, OFFSET>,
-            RequestPurchaseAsync::<Impl, OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, OFFSET>,
-            GetAppAndOptionalStorePackageUpdatesAsync::<Impl, OFFSET>,
-            RequestDownloadStorePackageUpdatesAsync::<Impl, OFFSET>,
-            RequestDownloadAndInstallStorePackageUpdatesAsync::<Impl, OFFSET>,
-            RequestDownloadAndInstallStorePackagesAsync::<Impl, OFFSET>,
+            User::<Impl, IMPL_OFFSET>,
+            OfflineLicensesChanged::<Impl, IMPL_OFFSET>,
+            RemoveOfflineLicensesChanged::<Impl, IMPL_OFFSET>,
+            GetCustomerPurchaseIdAsync::<Impl, IMPL_OFFSET>,
+            GetCustomerCollectionsIdAsync::<Impl, IMPL_OFFSET>,
+            GetAppLicenseAsync::<Impl, IMPL_OFFSET>,
+            GetStoreProductForCurrentAppAsync::<Impl, IMPL_OFFSET>,
+            GetStoreProductsAsync::<Impl, IMPL_OFFSET>,
+            GetAssociatedStoreProductsAsync::<Impl, IMPL_OFFSET>,
+            GetAssociatedStoreProductsWithPagingAsync::<Impl, IMPL_OFFSET>,
+            GetUserCollectionAsync::<Impl, IMPL_OFFSET>,
+            GetUserCollectionWithPagingAsync::<Impl, IMPL_OFFSET>,
+            ReportConsumableFulfillmentAsync::<Impl, IMPL_OFFSET>,
+            GetConsumableBalanceRemainingAsync::<Impl, IMPL_OFFSET>,
+            AcquireStoreLicenseForOptionalPackageAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+            GetAppAndOptionalStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadAndInstallStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadAndInstallStorePackagesAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreContext as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreContext2Impl: Sized {
     fn FindStoreProductForPackageAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext2 {
     const NAME: &'static str = "Windows.Services.Store.IStoreContext2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreContext2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContext2Impl, const OFFSET: isize>() -> IStoreContext2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContext2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreContext2Vtbl {
         unsafe extern "system" fn FindStoreProductForPackageAsync<Impl: IStoreContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, package: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindStoreProductForPackageAsync(&*(&productkinds as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&package as *const <super::super::ApplicationModel::Package as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Package as ::windows::core::DefaultType>::DefaultType)) {
@@ -827,10 +864,13 @@ impl IStoreContext2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContext2>, ::windows::core::GetTrustLevel, FindStoreProductForPackageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContext2>, ::windows::core::GetTrustLevel, FindStoreProductForPackageAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreContext2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreContext3Impl: Sized {
     fn CanSilentlyDownloadStorePackageUpdates(&self) -> ::windows::core::Result<bool>;
     fn TrySilentDownloadStorePackageUpdatesAsync(&self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
@@ -847,13 +887,13 @@ pub trait IStoreContext3Impl: Sized {
     fn UninstallStorePackageAsync(&self, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
     fn UninstallStorePackageByStoreIdAsync(&self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext3 {
     const NAME: &'static str = "Windows.Services.Store.IStoreContext3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreContext3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContext3Impl, const OFFSET: isize>() -> IStoreContext3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContext3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreContext3Vtbl {
         unsafe extern "system" fn CanSilentlyDownloadStorePackageUpdates<Impl: IStoreContext3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSilentlyDownloadStorePackageUpdates() {
@@ -1013,41 +1053,44 @@ impl IStoreContext3Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreContext3>,
             ::windows::core::GetTrustLevel,
-            CanSilentlyDownloadStorePackageUpdates::<Impl, OFFSET>,
-            TrySilentDownloadStorePackageUpdatesAsync::<Impl, OFFSET>,
-            TrySilentDownloadAndInstallStorePackageUpdatesAsync::<Impl, OFFSET>,
-            CanAcquireStoreLicenseForOptionalPackageAsync::<Impl, OFFSET>,
-            CanAcquireStoreLicenseAsync::<Impl, OFFSET>,
-            GetStoreProductsWithOptionsAsync::<Impl, OFFSET>,
-            GetAssociatedStoreQueueItemsAsync::<Impl, OFFSET>,
-            GetStoreQueueItemsAsync::<Impl, OFFSET>,
-            RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync::<Impl, OFFSET>,
-            DownloadAndInstallStorePackagesAsync::<Impl, OFFSET>,
-            RequestUninstallStorePackageAsync::<Impl, OFFSET>,
-            RequestUninstallStorePackageByStoreIdAsync::<Impl, OFFSET>,
-            UninstallStorePackageAsync::<Impl, OFFSET>,
-            UninstallStorePackageByStoreIdAsync::<Impl, OFFSET>,
+            CanSilentlyDownloadStorePackageUpdates::<Impl, IMPL_OFFSET>,
+            TrySilentDownloadStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            TrySilentDownloadAndInstallStorePackageUpdatesAsync::<Impl, IMPL_OFFSET>,
+            CanAcquireStoreLicenseForOptionalPackageAsync::<Impl, IMPL_OFFSET>,
+            CanAcquireStoreLicenseAsync::<Impl, IMPL_OFFSET>,
+            GetStoreProductsWithOptionsAsync::<Impl, IMPL_OFFSET>,
+            GetAssociatedStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
+            GetStoreQueueItemsAsync::<Impl, IMPL_OFFSET>,
+            RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync::<Impl, IMPL_OFFSET>,
+            DownloadAndInstallStorePackagesAsync::<Impl, IMPL_OFFSET>,
+            RequestUninstallStorePackageAsync::<Impl, IMPL_OFFSET>,
+            RequestUninstallStorePackageByStoreIdAsync::<Impl, IMPL_OFFSET>,
+            UninstallStorePackageAsync::<Impl, IMPL_OFFSET>,
+            UninstallStorePackageByStoreIdAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreContext3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreContext4Impl: Sized {
     fn RequestRateAndReviewAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>;
     fn SetInstallOrderForAssociatedStoreQueueItemsAsync(&self, items: &::core::option::Option<super::super::Foundation::Collections::IIterable<StoreQueueItem>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext4 {
     const NAME: &'static str = "Windows.Services.Store.IStoreContext4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreContext4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContext4Impl, const OFFSET: isize>() -> IStoreContext4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContext4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreContext4Vtbl {
         unsafe extern "system" fn RequestRateAndReviewAppAsync<Impl: IStoreContext4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestRateAndReviewAppAsync() {
@@ -1070,21 +1113,24 @@ impl IStoreContext4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContext4>, ::windows::core::GetTrustLevel, RequestRateAndReviewAppAsync::<Impl, OFFSET>, SetInstallOrderForAssociatedStoreQueueItemsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContext4>, ::windows::core::GetTrustLevel, RequestRateAndReviewAppAsync::<Impl, IMPL_OFFSET>, SetInstallOrderForAssociatedStoreQueueItemsAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreContext4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreContextStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<StoreContext>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StoreContext>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContextStatics {
     const NAME: &'static str = "Windows.Services.Store.IStoreContextStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl IStoreContextStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContextStaticsImpl, const OFFSET: isize>() -> IStoreContextStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreContextStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreContextStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IStoreContextStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -1107,10 +1153,13 @@ impl IStoreContextStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContextStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreContextStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>, GetForUser::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreContextStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreImageImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn ImagePurposeTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1118,13 +1167,13 @@ pub trait IStoreImageImpl: Sized {
     fn Height(&self) -> ::windows::core::Result<u32>;
     fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreImage {
     const NAME: &'static str = "Windows.Services.Store.IStoreImage";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreImageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreImageImpl, const OFFSET: isize>() -> IStoreImageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreImageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreImageVtbl {
         unsafe extern "system" fn Uri<Impl: IStoreImageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -1180,10 +1229,13 @@ impl IStoreImageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreImage>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, ImagePurposeTag::<Impl, OFFSET>, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>, Caption::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreImage>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, ImagePurposeTag::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, Caption::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreImage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreLicenseImpl: Sized {
     fn SkuStoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsActive(&self) -> ::windows::core::Result<bool>;
@@ -1191,13 +1243,13 @@ pub trait IStoreLicenseImpl: Sized {
     fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreLicense {
     const NAME: &'static str = "Windows.Services.Store.IStoreLicense";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreLicenseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreLicenseImpl, const OFFSET: isize>() -> IStoreLicenseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreLicenseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreLicenseVtbl {
         unsafe extern "system" fn SkuStoreId<Impl: IStoreLicenseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SkuStoreId() {
@@ -1253,7 +1305,10 @@ impl IStoreLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreLicense>, ::windows::core::GetTrustLevel, SkuStoreId::<Impl, OFFSET>, IsActive::<Impl, OFFSET>, ExpirationDate::<Impl, OFFSET>, ExtendedJsonData::<Impl, OFFSET>, InAppOfferToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreLicense>, ::windows::core::GetTrustLevel, SkuStoreId::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, ExpirationDate::<Impl, IMPL_OFFSET>, ExtendedJsonData::<Impl, IMPL_OFFSET>, InAppOfferToken::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreLicense as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1267,7 +1322,7 @@ impl ::windows::core::RuntimeName for IStorePackageInstallOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorePackageInstallOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageInstallOptionsImpl, const OFFSET: isize>() -> IStorePackageInstallOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageInstallOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePackageInstallOptionsVtbl {
         unsafe extern "system" fn AllowForcedAppRestart<Impl: IStorePackageInstallOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowForcedAppRestart() {
@@ -1283,10 +1338,13 @@ impl IStorePackageInstallOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowForcedAppRestart(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageInstallOptions>, ::windows::core::GetTrustLevel, AllowForcedAppRestart::<Impl, OFFSET>, SetAllowForcedAppRestart::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageInstallOptions>, ::windows::core::GetTrustLevel, AllowForcedAppRestart::<Impl, IMPL_OFFSET>, SetAllowForcedAppRestart::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePackageInstallOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorePackageLicenseImpl: Sized + IClosableImpl {
     fn LicenseLost(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveLicenseLost(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1294,13 +1352,13 @@ pub trait IStorePackageLicenseImpl: Sized + IClosableImpl {
     fn IsValid(&self) -> ::windows::core::Result<bool>;
     fn ReleaseLicense(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageLicense {
     const NAME: &'static str = "Windows.Services.Store.IStorePackageLicense";
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl IStorePackageLicenseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageLicenseImpl, const OFFSET: isize>() -> IStorePackageLicenseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageLicenseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePackageLicenseVtbl {
         unsafe extern "system" fn LicenseLost<Impl: IStorePackageLicenseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LicenseLost(&*(&handler as *const <super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
@@ -1342,21 +1400,24 @@ impl IStorePackageLicenseVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseLicense().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageLicense>, ::windows::core::GetTrustLevel, LicenseLost::<Impl, OFFSET>, RemoveLicenseLost::<Impl, OFFSET>, Package::<Impl, OFFSET>, IsValid::<Impl, OFFSET>, ReleaseLicense::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageLicense>, ::windows::core::GetTrustLevel, LicenseLost::<Impl, IMPL_OFFSET>, RemoveLicenseLost::<Impl, IMPL_OFFSET>, Package::<Impl, IMPL_OFFSET>, IsValid::<Impl, IMPL_OFFSET>, ReleaseLicense::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePackageLicense as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 pub trait IStorePackageUpdateImpl: Sized {
     fn Package(&self) -> ::windows::core::Result<super::super::ApplicationModel::Package>;
     fn Mandatory(&self) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageUpdate {
     const NAME: &'static str = "Windows.Services.Store.IStorePackageUpdate";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 impl IStorePackageUpdateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageUpdateImpl, const OFFSET: isize>() -> IStorePackageUpdateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageUpdateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePackageUpdateVtbl {
         unsafe extern "system" fn Package<Impl: IStorePackageUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
@@ -1379,21 +1440,24 @@ impl IStorePackageUpdateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdate>, ::windows::core::GetTrustLevel, Package::<Impl, OFFSET>, Mandatory::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdate>, ::windows::core::GetTrustLevel, Package::<Impl, IMPL_OFFSET>, Mandatory::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePackageUpdate as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorePackageUpdateResultImpl: Sized {
     fn OverallState(&self) -> ::windows::core::Result<StorePackageUpdateState>;
     fn StorePackageUpdateStatuses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageUpdateResult {
     const NAME: &'static str = "Windows.Services.Store.IStorePackageUpdateResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorePackageUpdateResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageUpdateResultImpl, const OFFSET: isize>() -> IStorePackageUpdateResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageUpdateResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePackageUpdateResultVtbl {
         unsafe extern "system" fn OverallState<Impl: IStorePackageUpdateResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StorePackageUpdateState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OverallState() {
@@ -1416,20 +1480,23 @@ impl IStorePackageUpdateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdateResult>, ::windows::core::GetTrustLevel, OverallState::<Impl, OFFSET>, StorePackageUpdateStatuses::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdateResult>, ::windows::core::GetTrustLevel, OverallState::<Impl, IMPL_OFFSET>, StorePackageUpdateStatuses::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePackageUpdateResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorePackageUpdateResult2Impl: Sized {
     fn StoreQueueItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageUpdateResult2 {
     const NAME: &'static str = "Windows.Services.Store.IStorePackageUpdateResult2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStorePackageUpdateResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageUpdateResult2Impl, const OFFSET: isize>() -> IStorePackageUpdateResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePackageUpdateResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePackageUpdateResult2Vtbl {
         unsafe extern "system" fn StoreQueueItems<Impl: IStorePackageUpdateResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoreQueueItems() {
@@ -1441,10 +1508,13 @@ impl IStorePackageUpdateResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdateResult2>, ::windows::core::GetTrustLevel, StoreQueueItems::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePackageUpdateResult2>, ::windows::core::GetTrustLevel, StoreQueueItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePackageUpdateResult2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorePriceImpl: Sized {
     fn FormattedBasePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormattedPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1453,13 +1523,13 @@ pub trait IStorePriceImpl: Sized {
     fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormattedRecurrencePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePrice {
     const NAME: &'static str = "Windows.Services.Store.IStorePrice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStorePriceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePriceImpl, const OFFSET: isize>() -> IStorePriceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePriceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePriceVtbl {
         unsafe extern "system" fn FormattedBasePrice<Impl: IStorePriceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormattedBasePrice() {
@@ -1526,10 +1596,26 @@ impl IStorePriceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePrice>, ::windows::core::GetTrustLevel, FormattedBasePrice::<Impl, OFFSET>, FormattedPrice::<Impl, OFFSET>, IsOnSale::<Impl, OFFSET>, SaleEndDate::<Impl, OFFSET>, CurrencyCode::<Impl, OFFSET>, FormattedRecurrencePrice::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IStorePrice>,
+            ::windows::core::GetTrustLevel,
+            FormattedBasePrice::<Impl, IMPL_OFFSET>,
+            FormattedPrice::<Impl, IMPL_OFFSET>,
+            IsOnSale::<Impl, IMPL_OFFSET>,
+            SaleEndDate::<Impl, IMPL_OFFSET>,
+            CurrencyCode::<Impl, IMPL_OFFSET>,
+            FormattedRecurrencePrice::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePrice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductImpl: Sized {
     fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1550,13 +1636,13 @@ pub trait IStoreProductImpl: Sized {
     fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
     fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProduct {
     const NAME: &'static str = "Windows.Services.Store.IStoreProduct";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreProductVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductImpl, const OFFSET: isize>() -> IStoreProductVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreProductVtbl {
         unsafe extern "system" fn StoreId<Impl: IStoreProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoreId() {
@@ -1756,44 +1842,47 @@ impl IStoreProductVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreProduct>,
             ::windows::core::GetTrustLevel,
-            StoreId::<Impl, OFFSET>,
-            Language::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            ProductKind::<Impl, OFFSET>,
-            HasDigitalDownload::<Impl, OFFSET>,
-            Keywords::<Impl, OFFSET>,
-            Images::<Impl, OFFSET>,
-            Videos::<Impl, OFFSET>,
-            Skus::<Impl, OFFSET>,
-            IsInUserCollection::<Impl, OFFSET>,
-            Price::<Impl, OFFSET>,
-            ExtendedJsonData::<Impl, OFFSET>,
-            LinkUri::<Impl, OFFSET>,
-            GetIsAnySkuInstalledAsync::<Impl, OFFSET>,
-            RequestPurchaseAsync::<Impl, OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, OFFSET>,
-            InAppOfferToken::<Impl, OFFSET>,
+            StoreId::<Impl, IMPL_OFFSET>,
+            Language::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            ProductKind::<Impl, IMPL_OFFSET>,
+            HasDigitalDownload::<Impl, IMPL_OFFSET>,
+            Keywords::<Impl, IMPL_OFFSET>,
+            Images::<Impl, IMPL_OFFSET>,
+            Videos::<Impl, IMPL_OFFSET>,
+            Skus::<Impl, IMPL_OFFSET>,
+            IsInUserCollection::<Impl, IMPL_OFFSET>,
+            Price::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            LinkUri::<Impl, IMPL_OFFSET>,
+            GetIsAnySkuInstalledAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+            InAppOfferToken::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreProduct as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductOptionsImpl: Sized {
     fn ActionFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProductOptions {
     const NAME: &'static str = "Windows.Services.Store.IStoreProductOptions";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreProductOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductOptionsImpl, const OFFSET: isize>() -> IStoreProductOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreProductOptionsVtbl {
         unsafe extern "system" fn ActionFilters<Impl: IStoreProductOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActionFilters() {
@@ -1805,23 +1894,26 @@ impl IStoreProductOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductOptions>, ::windows::core::GetTrustLevel, ActionFilters::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductOptions>, ::windows::core::GetTrustLevel, ActionFilters::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreProductOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductPagedQueryResultImpl: Sized {
     fn Products(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>;
     fn HasMoreResults(&self) -> ::windows::core::Result<bool>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetNextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProductPagedQueryResult {
     const NAME: &'static str = "Windows.Services.Store.IStoreProductPagedQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreProductPagedQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductPagedQueryResultImpl, const OFFSET: isize>() -> IStoreProductPagedQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductPagedQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreProductPagedQueryResultVtbl {
         unsafe extern "system" fn Products<Impl: IStoreProductPagedQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Products() {
@@ -1866,21 +1958,24 @@ impl IStoreProductPagedQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductPagedQueryResult>, ::windows::core::GetTrustLevel, Products::<Impl, OFFSET>, HasMoreResults::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, GetNextAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductPagedQueryResult>, ::windows::core::GetTrustLevel, Products::<Impl, IMPL_OFFSET>, HasMoreResults::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, GetNextAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreProductPagedQueryResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductQueryResultImpl: Sized {
     fn Products(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProductQueryResult {
     const NAME: &'static str = "Windows.Services.Store.IStoreProductQueryResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreProductQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductQueryResultImpl, const OFFSET: isize>() -> IStoreProductQueryResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreProductQueryResultVtbl {
         unsafe extern "system" fn Products<Impl: IStoreProductQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Products() {
@@ -1903,7 +1998,10 @@ impl IStoreProductQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductQueryResult>, ::windows::core::GetTrustLevel, Products::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductQueryResult>, ::windows::core::GetTrustLevel, Products::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreProductQueryResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1917,7 +2015,7 @@ impl ::windows::core::RuntimeName for IStoreProductResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreProductResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductResultImpl, const OFFSET: isize>() -> IStoreProductResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreProductResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreProductResultVtbl {
         unsafe extern "system" fn Product<Impl: IStoreProductResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Product() {
@@ -1940,7 +2038,10 @@ impl IStoreProductResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductResult>, ::windows::core::GetTrustLevel, Product::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreProductResult>, ::windows::core::GetTrustLevel, Product::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreProductResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1956,7 +2057,7 @@ impl ::windows::core::RuntimeName for IStorePurchaseProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorePurchasePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePurchasePropertiesImpl, const OFFSET: isize>() -> IStorePurchasePropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePurchasePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePurchasePropertiesVtbl {
         unsafe extern "system" fn Name<Impl: IStorePurchasePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
@@ -1987,7 +2088,10 @@ impl IStorePurchasePropertiesVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExtendedJsonData(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchaseProperties>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, ExtendedJsonData::<Impl, OFFSET>, SetExtendedJsonData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchaseProperties>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, ExtendedJsonData::<Impl, IMPL_OFFSET>, SetExtendedJsonData::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePurchaseProperties as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2000,7 +2104,7 @@ impl ::windows::core::RuntimeName for IStorePurchasePropertiesFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorePurchasePropertiesFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePurchasePropertiesFactoryImpl, const OFFSET: isize>() -> IStorePurchasePropertiesFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePurchasePropertiesFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePurchasePropertiesFactoryVtbl {
         unsafe extern "system" fn Create<Impl: IStorePurchasePropertiesFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2012,7 +2116,10 @@ impl IStorePurchasePropertiesFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchasePropertiesFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchasePropertiesFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePurchasePropertiesFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2026,7 +2133,7 @@ impl ::windows::core::RuntimeName for IStorePurchaseResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStorePurchaseResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePurchaseResultImpl, const OFFSET: isize>() -> IStorePurchaseResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePurchaseResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePurchaseResultVtbl {
         unsafe extern "system" fn Status<Impl: IStorePurchaseResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StorePurchaseStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2049,10 +2156,13 @@ impl IStorePurchaseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchaseResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStorePurchaseResult>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorePurchaseResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreQueueItemImpl: Sized {
     fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2063,13 +2173,13 @@ pub trait IStoreQueueItemImpl: Sized {
     fn StatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreQueueItem {
     const NAME: &'static str = "Windows.Services.Store.IStoreQueueItem";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreQueueItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItemImpl, const OFFSET: isize>() -> IStoreQueueItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreQueueItemVtbl {
         unsafe extern "system" fn ProductId<Impl: IStoreQueueItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
@@ -2145,36 +2255,39 @@ impl IStoreQueueItemVtbl {
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreQueueItem>,
             ::windows::core::GetTrustLevel,
-            ProductId::<Impl, OFFSET>,
-            PackageFamilyName::<Impl, OFFSET>,
-            InstallKind::<Impl, OFFSET>,
-            GetCurrentStatus::<Impl, OFFSET>,
-            Completed::<Impl, OFFSET>,
-            RemoveCompleted::<Impl, OFFSET>,
-            StatusChanged::<Impl, OFFSET>,
-            RemoveStatusChanged::<Impl, OFFSET>,
+            ProductId::<Impl, IMPL_OFFSET>,
+            PackageFamilyName::<Impl, IMPL_OFFSET>,
+            InstallKind::<Impl, IMPL_OFFSET>,
+            GetCurrentStatus::<Impl, IMPL_OFFSET>,
+            Completed::<Impl, IMPL_OFFSET>,
+            RemoveCompleted::<Impl, IMPL_OFFSET>,
+            StatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveStatusChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreQueueItem as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreQueueItem2Impl: Sized {
     fn CancelInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn PauseInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ResumeInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreQueueItem2 {
     const NAME: &'static str = "Windows.Services.Store.IStoreQueueItem2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreQueueItem2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItem2Impl, const OFFSET: isize>() -> IStoreQueueItem2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreQueueItem2Vtbl {
         unsafe extern "system" fn CancelInstallAsync<Impl: IStoreQueueItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelInstallAsync() {
@@ -2208,7 +2321,10 @@ impl IStoreQueueItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItem2>, ::windows::core::GetTrustLevel, CancelInstallAsync::<Impl, OFFSET>, PauseInstallAsync::<Impl, OFFSET>, ResumeInstallAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItem2>, ::windows::core::GetTrustLevel, CancelInstallAsync::<Impl, IMPL_OFFSET>, PauseInstallAsync::<Impl, IMPL_OFFSET>, ResumeInstallAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreQueueItem2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2221,7 +2337,7 @@ impl ::windows::core::RuntimeName for IStoreQueueItemCompletedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreQueueItemCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItemCompletedEventArgsImpl, const OFFSET: isize>() -> IStoreQueueItemCompletedEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItemCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreQueueItemCompletedEventArgsVtbl {
         unsafe extern "system" fn Status<Impl: IStoreQueueItemCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
@@ -2233,7 +2349,10 @@ impl IStoreQueueItemCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItemCompletedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItemCompletedEventArgs>, ::windows::core::GetTrustLevel, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreQueueItemCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2249,7 +2368,7 @@ impl ::windows::core::RuntimeName for IStoreQueueItemStatus {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreQueueItemStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItemStatusImpl, const OFFSET: isize>() -> IStoreQueueItemStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreQueueItemStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreQueueItemStatusVtbl {
         unsafe extern "system" fn PackageInstallState<Impl: IStoreQueueItemStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StoreQueueItemState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageInstallState() {
@@ -2294,7 +2413,10 @@ impl IStoreQueueItemStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItemStatus>, ::windows::core::GetTrustLevel, PackageInstallState::<Impl, OFFSET>, PackageInstallExtendedState::<Impl, OFFSET>, UpdateStatus::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreQueueItemStatus>, ::windows::core::GetTrustLevel, PackageInstallState::<Impl, IMPL_OFFSET>, PackageInstallExtendedState::<Impl, IMPL_OFFSET>, UpdateStatus::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreQueueItemStatus as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2310,7 +2432,7 @@ impl ::windows::core::RuntimeName for IStoreRateAndReviewResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreRateAndReviewResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreRateAndReviewResultImpl, const OFFSET: isize>() -> IStoreRateAndReviewResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreRateAndReviewResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreRateAndReviewResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IStoreRateAndReviewResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -2355,20 +2477,23 @@ impl IStoreRateAndReviewResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreRateAndReviewResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, ExtendedJsonData::<Impl, OFFSET>, WasUpdated::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreRateAndReviewResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, ExtendedJsonData::<Impl, IMPL_OFFSET>, WasUpdated::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreRateAndReviewResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreRequestHelperStaticsImpl: Sized {
     fn SendRequestAsync(&self, context: &::core::option::Option<StoreContext>, requestkind: u32, parametersasjson: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreRequestHelperStatics {
     const NAME: &'static str = "Windows.Services.Store.IStoreRequestHelperStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreRequestHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreRequestHelperStaticsImpl, const OFFSET: isize>() -> IStoreRequestHelperStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreRequestHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreRequestHelperStaticsVtbl {
         unsafe extern "system" fn SendRequestAsync<Impl: IStoreRequestHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, requestkind: u32, parametersasjson: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendRequestAsync(&*(&context as *const <StoreContext as ::windows::core::Abi>::Abi as *const <StoreContext as ::windows::core::DefaultType>::DefaultType), requestkind, &*(&parametersasjson as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -2380,7 +2505,10 @@ impl IStoreRequestHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreRequestHelperStatics>, ::windows::core::GetTrustLevel, SendRequestAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreRequestHelperStatics>, ::windows::core::GetTrustLevel, SendRequestAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreRequestHelperStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2394,7 +2522,7 @@ impl ::windows::core::RuntimeName for IStoreSendRequestResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreSendRequestResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSendRequestResultImpl, const OFFSET: isize>() -> IStoreSendRequestResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSendRequestResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreSendRequestResultVtbl {
         unsafe extern "system" fn Response<Impl: IStoreSendRequestResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Response() {
@@ -2417,20 +2545,23 @@ impl IStoreSendRequestResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSendRequestResult>, ::windows::core::GetTrustLevel, Response::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSendRequestResult>, ::windows::core::GetTrustLevel, Response::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreSendRequestResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IStoreSendRequestResult2Impl: Sized {
     fn HttpStatusCode(&self) -> ::windows::core::Result<super::super::Web::Http::HttpStatusCode>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreSendRequestResult2 {
     const NAME: &'static str = "Windows.Services.Store.IStoreSendRequestResult2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 impl IStoreSendRequestResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSendRequestResult2Impl, const OFFSET: isize>() -> IStoreSendRequestResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSendRequestResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreSendRequestResult2Vtbl {
         unsafe extern "system" fn HttpStatusCode<Impl: IStoreSendRequestResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Web::Http::HttpStatusCode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HttpStatusCode() {
@@ -2442,10 +2573,13 @@ impl IStoreSendRequestResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSendRequestResult2>, ::windows::core::GetTrustLevel, HttpStatusCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSendRequestResult2>, ::windows::core::GetTrustLevel, HttpStatusCode::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreSendRequestResult2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreSkuImpl: Sized {
     fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2467,13 +2601,13 @@ pub trait IStoreSkuImpl: Sized {
     fn IsSubscription(&self) -> ::windows::core::Result<bool>;
     fn SubscriptionInfo(&self) -> ::windows::core::Result<StoreSubscriptionInfo>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreSku {
     const NAME: &'static str = "Windows.Services.Store.IStoreSku";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IStoreSkuVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSkuImpl, const OFFSET: isize>() -> IStoreSkuVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSkuImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreSkuVtbl {
         unsafe extern "system" fn StoreId<Impl: IStoreSkuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoreId() {
@@ -2684,32 +2818,35 @@ impl IStoreSkuVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStoreSku>,
             ::windows::core::GetTrustLevel,
-            StoreId::<Impl, OFFSET>,
-            Language::<Impl, OFFSET>,
-            Title::<Impl, OFFSET>,
-            Description::<Impl, OFFSET>,
-            IsTrial::<Impl, OFFSET>,
-            CustomDeveloperData::<Impl, OFFSET>,
-            Images::<Impl, OFFSET>,
-            Videos::<Impl, OFFSET>,
-            Availabilities::<Impl, OFFSET>,
-            Price::<Impl, OFFSET>,
-            ExtendedJsonData::<Impl, OFFSET>,
-            IsInUserCollection::<Impl, OFFSET>,
-            BundledSkus::<Impl, OFFSET>,
-            CollectionData::<Impl, OFFSET>,
-            GetIsInstalledAsync::<Impl, OFFSET>,
-            RequestPurchaseAsync::<Impl, OFFSET>,
-            RequestPurchaseWithPurchasePropertiesAsync::<Impl, OFFSET>,
-            IsSubscription::<Impl, OFFSET>,
-            SubscriptionInfo::<Impl, OFFSET>,
+            StoreId::<Impl, IMPL_OFFSET>,
+            Language::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            IsTrial::<Impl, IMPL_OFFSET>,
+            CustomDeveloperData::<Impl, IMPL_OFFSET>,
+            Images::<Impl, IMPL_OFFSET>,
+            Videos::<Impl, IMPL_OFFSET>,
+            Availabilities::<Impl, IMPL_OFFSET>,
+            Price::<Impl, IMPL_OFFSET>,
+            ExtendedJsonData::<Impl, IMPL_OFFSET>,
+            IsInUserCollection::<Impl, IMPL_OFFSET>,
+            BundledSkus::<Impl, IMPL_OFFSET>,
+            CollectionData::<Impl, IMPL_OFFSET>,
+            GetIsInstalledAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseAsync::<Impl, IMPL_OFFSET>,
+            RequestPurchaseWithPurchasePropertiesAsync::<Impl, IMPL_OFFSET>,
+            IsSubscription::<Impl, IMPL_OFFSET>,
+            SubscriptionInfo::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreSku as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2726,7 +2863,7 @@ impl ::windows::core::RuntimeName for IStoreSubscriptionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreSubscriptionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSubscriptionInfoImpl, const OFFSET: isize>() -> IStoreSubscriptionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreSubscriptionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreSubscriptionInfoVtbl {
         unsafe extern "system" fn BillingPeriod<Impl: IStoreSubscriptionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BillingPeriod() {
@@ -2782,7 +2919,10 @@ impl IStoreSubscriptionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSubscriptionInfo>, ::windows::core::GetTrustLevel, BillingPeriod::<Impl, OFFSET>, BillingPeriodUnit::<Impl, OFFSET>, HasTrialPeriod::<Impl, OFFSET>, TrialPeriod::<Impl, OFFSET>, TrialPeriodUnit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreSubscriptionInfo>, ::windows::core::GetTrustLevel, BillingPeriod::<Impl, IMPL_OFFSET>, BillingPeriodUnit::<Impl, IMPL_OFFSET>, HasTrialPeriod::<Impl, IMPL_OFFSET>, TrialPeriod::<Impl, IMPL_OFFSET>, TrialPeriodUnit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreSubscriptionInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2796,7 +2936,7 @@ impl ::windows::core::RuntimeName for IStoreUninstallStorePackageResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStoreUninstallStorePackageResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreUninstallStorePackageResultImpl, const OFFSET: isize>() -> IStoreUninstallStorePackageResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreUninstallStorePackageResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreUninstallStorePackageResultVtbl {
         unsafe extern "system" fn ExtendedError<Impl: IStoreUninstallStorePackageResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
@@ -2819,10 +2959,13 @@ impl IStoreUninstallStorePackageResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreUninstallStorePackageResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreUninstallStorePackageResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreUninstallStorePackageResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreVideoImpl: Sized {
     fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn VideoPurposeTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2831,13 +2974,13 @@ pub trait IStoreVideoImpl: Sized {
     fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PreviewImage(&self) -> ::windows::core::Result<StoreImage>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreVideo {
     const NAME: &'static str = "Windows.Services.Store.IStoreVideo";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IStoreVideoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreVideoImpl, const OFFSET: isize>() -> IStoreVideoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreVideoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreVideoVtbl {
         unsafe extern "system" fn Uri<Impl: IStoreVideoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
@@ -2904,6 +3047,9 @@ impl IStoreVideoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreVideo>, ::windows::core::GetTrustLevel, Uri::<Impl, OFFSET>, VideoPurposeTag::<Impl, OFFSET>, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>, Caption::<Impl, OFFSET>, PreviewImage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStoreVideo>, ::windows::core::GetTrustLevel, Uri::<Impl, IMPL_OFFSET>, VideoPurposeTag::<Impl, IMPL_OFFSET>, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, Caption::<Impl, IMPL_OFFSET>, PreviewImage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStoreVideo as ::windows::core::Interface>::IID
     }
 }

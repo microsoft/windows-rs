@@ -1,16 +1,16 @@
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIppAttributeErrorImpl: Sized {
     fn Reason(&self) -> ::windows::core::Result<IppAttributeErrorReason>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetUnsupportedValues(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IppAttributeValue>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IIppAttributeError";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIppAttributeErrorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppAttributeErrorImpl, const OFFSET: isize>() -> IIppAttributeErrorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppAttributeErrorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppAttributeErrorVtbl {
         unsafe extern "system" fn Reason<Impl: IIppAttributeErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IppAttributeErrorReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
@@ -44,10 +44,13 @@ impl IIppAttributeErrorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppAttributeError>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>, GetUnsupportedValues::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppAttributeError>, ::windows::core::GetTrustLevel, Reason::<Impl, IMPL_OFFSET>, ExtendedError::<Impl, IMPL_OFFSET>, GetUnsupportedValues::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppAttributeError as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIppAttributeValueImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<IppAttributeValueKind>;
     fn GetIntegerArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
@@ -69,13 +72,13 @@ pub trait IIppAttributeValueImpl: Sized {
     fn GetNaturalLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn GetMimeMediaTypeArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IIppAttributeValue";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIppAttributeValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppAttributeValueImpl, const OFFSET: isize>() -> IIppAttributeValueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppAttributeValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppAttributeValueVtbl {
         unsafe extern "system" fn Kind<Impl: IIppAttributeValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IppAttributeValueKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
@@ -286,35 +289,38 @@ impl IIppAttributeValueVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IIppAttributeValue>,
             ::windows::core::GetTrustLevel,
-            Kind::<Impl, OFFSET>,
-            GetIntegerArray::<Impl, OFFSET>,
-            GetBooleanArray::<Impl, OFFSET>,
-            GetEnumArray::<Impl, OFFSET>,
-            GetOctetStringArray::<Impl, OFFSET>,
-            GetDateTimeArray::<Impl, OFFSET>,
-            GetResolutionArray::<Impl, OFFSET>,
-            GetRangeOfIntegerArray::<Impl, OFFSET>,
-            GetCollectionArray::<Impl, OFFSET>,
-            GetTextWithLanguageArray::<Impl, OFFSET>,
-            GetNameWithLanguageArray::<Impl, OFFSET>,
-            GetTextWithoutLanguageArray::<Impl, OFFSET>,
-            GetNameWithoutLanguageArray::<Impl, OFFSET>,
-            GetKeywordArray::<Impl, OFFSET>,
-            GetUriArray::<Impl, OFFSET>,
-            GetUriSchemaArray::<Impl, OFFSET>,
-            GetCharsetArray::<Impl, OFFSET>,
-            GetNaturalLanguageArray::<Impl, OFFSET>,
-            GetMimeMediaTypeArray::<Impl, OFFSET>,
+            Kind::<Impl, IMPL_OFFSET>,
+            GetIntegerArray::<Impl, IMPL_OFFSET>,
+            GetBooleanArray::<Impl, IMPL_OFFSET>,
+            GetEnumArray::<Impl, IMPL_OFFSET>,
+            GetOctetStringArray::<Impl, IMPL_OFFSET>,
+            GetDateTimeArray::<Impl, IMPL_OFFSET>,
+            GetResolutionArray::<Impl, IMPL_OFFSET>,
+            GetRangeOfIntegerArray::<Impl, IMPL_OFFSET>,
+            GetCollectionArray::<Impl, IMPL_OFFSET>,
+            GetTextWithLanguageArray::<Impl, IMPL_OFFSET>,
+            GetNameWithLanguageArray::<Impl, IMPL_OFFSET>,
+            GetTextWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            GetNameWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            GetKeywordArray::<Impl, IMPL_OFFSET>,
+            GetUriArray::<Impl, IMPL_OFFSET>,
+            GetUriSchemaArray::<Impl, IMPL_OFFSET>,
+            GetCharsetArray::<Impl, IMPL_OFFSET>,
+            GetNaturalLanguageArray::<Impl, IMPL_OFFSET>,
+            GetMimeMediaTypeArray::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppAttributeValue as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IIppAttributeValueStaticsImpl: Sized {
     fn CreateUnsupported(&self) -> ::windows::core::Result<IppAttributeValue>;
     fn CreateUnknown(&self) -> ::windows::core::Result<IppAttributeValue>;
@@ -356,13 +362,13 @@ pub trait IIppAttributeValueStaticsImpl: Sized {
     fn CreateMimeMedia(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
     fn CreateMimeMediaArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppAttributeValueStatics {
     const NAME: &'static str = "Windows.Devices.Printers.IIppAttributeValueStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IIppAttributeValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppAttributeValueStaticsImpl, const OFFSET: isize>() -> IIppAttributeValueStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppAttributeValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppAttributeValueStaticsVtbl {
         unsafe extern "system" fn CreateUnsupported<Impl: IIppAttributeValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUnsupported() {
@@ -793,52 +799,55 @@ impl IIppAttributeValueStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IIppAttributeValueStatics>,
             ::windows::core::GetTrustLevel,
-            CreateUnsupported::<Impl, OFFSET>,
-            CreateUnknown::<Impl, OFFSET>,
-            CreateNoValue::<Impl, OFFSET>,
-            CreateInteger::<Impl, OFFSET>,
-            CreateIntegerArray::<Impl, OFFSET>,
-            CreateBoolean::<Impl, OFFSET>,
-            CreateBooleanArray::<Impl, OFFSET>,
-            CreateEnum::<Impl, OFFSET>,
-            CreateEnumArray::<Impl, OFFSET>,
-            CreateOctetString::<Impl, OFFSET>,
-            CreateOctetStringArray::<Impl, OFFSET>,
-            CreateDateTime::<Impl, OFFSET>,
-            CreateDateTimeArray::<Impl, OFFSET>,
-            CreateResolution::<Impl, OFFSET>,
-            CreateResolutionArray::<Impl, OFFSET>,
-            CreateRangeOfInteger::<Impl, OFFSET>,
-            CreateRangeOfIntegerArray::<Impl, OFFSET>,
-            CreateCollection::<Impl, OFFSET>,
-            CreateCollectionArray::<Impl, OFFSET>,
-            CreateTextWithLanguage::<Impl, OFFSET>,
-            CreateTextWithLanguageArray::<Impl, OFFSET>,
-            CreateNameWithLanguage::<Impl, OFFSET>,
-            CreateNameWithLanguageArray::<Impl, OFFSET>,
-            CreateTextWithoutLanguage::<Impl, OFFSET>,
-            CreateTextWithoutLanguageArray::<Impl, OFFSET>,
-            CreateNameWithoutLanguage::<Impl, OFFSET>,
-            CreateNameWithoutLanguageArray::<Impl, OFFSET>,
-            CreateKeyword::<Impl, OFFSET>,
-            CreateKeywordArray::<Impl, OFFSET>,
-            CreateUri::<Impl, OFFSET>,
-            CreateUriArray::<Impl, OFFSET>,
-            CreateUriSchema::<Impl, OFFSET>,
-            CreateUriSchemaArray::<Impl, OFFSET>,
-            CreateCharset::<Impl, OFFSET>,
-            CreateCharsetArray::<Impl, OFFSET>,
-            CreateNaturalLanguage::<Impl, OFFSET>,
-            CreateNaturalLanguageArray::<Impl, OFFSET>,
-            CreateMimeMedia::<Impl, OFFSET>,
-            CreateMimeMediaArray::<Impl, OFFSET>,
+            CreateUnsupported::<Impl, IMPL_OFFSET>,
+            CreateUnknown::<Impl, IMPL_OFFSET>,
+            CreateNoValue::<Impl, IMPL_OFFSET>,
+            CreateInteger::<Impl, IMPL_OFFSET>,
+            CreateIntegerArray::<Impl, IMPL_OFFSET>,
+            CreateBoolean::<Impl, IMPL_OFFSET>,
+            CreateBooleanArray::<Impl, IMPL_OFFSET>,
+            CreateEnum::<Impl, IMPL_OFFSET>,
+            CreateEnumArray::<Impl, IMPL_OFFSET>,
+            CreateOctetString::<Impl, IMPL_OFFSET>,
+            CreateOctetStringArray::<Impl, IMPL_OFFSET>,
+            CreateDateTime::<Impl, IMPL_OFFSET>,
+            CreateDateTimeArray::<Impl, IMPL_OFFSET>,
+            CreateResolution::<Impl, IMPL_OFFSET>,
+            CreateResolutionArray::<Impl, IMPL_OFFSET>,
+            CreateRangeOfInteger::<Impl, IMPL_OFFSET>,
+            CreateRangeOfIntegerArray::<Impl, IMPL_OFFSET>,
+            CreateCollection::<Impl, IMPL_OFFSET>,
+            CreateCollectionArray::<Impl, IMPL_OFFSET>,
+            CreateTextWithLanguage::<Impl, IMPL_OFFSET>,
+            CreateTextWithLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateNameWithLanguage::<Impl, IMPL_OFFSET>,
+            CreateNameWithLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateTextWithoutLanguage::<Impl, IMPL_OFFSET>,
+            CreateTextWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateNameWithoutLanguage::<Impl, IMPL_OFFSET>,
+            CreateNameWithoutLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateKeyword::<Impl, IMPL_OFFSET>,
+            CreateKeywordArray::<Impl, IMPL_OFFSET>,
+            CreateUri::<Impl, IMPL_OFFSET>,
+            CreateUriArray::<Impl, IMPL_OFFSET>,
+            CreateUriSchema::<Impl, IMPL_OFFSET>,
+            CreateUriSchemaArray::<Impl, IMPL_OFFSET>,
+            CreateCharset::<Impl, IMPL_OFFSET>,
+            CreateCharsetArray::<Impl, IMPL_OFFSET>,
+            CreateNaturalLanguage::<Impl, IMPL_OFFSET>,
+            CreateNaturalLanguageArray::<Impl, IMPL_OFFSET>,
+            CreateMimeMedia::<Impl, IMPL_OFFSET>,
+            CreateMimeMediaArray::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppAttributeValueStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -852,7 +861,7 @@ impl ::windows::core::RuntimeName for IIppIntegerRange {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIppIntegerRangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppIntegerRangeImpl, const OFFSET: isize>() -> IIppIntegerRangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppIntegerRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppIntegerRangeVtbl {
         unsafe extern "system" fn Start<Impl: IIppIntegerRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Start() {
@@ -875,7 +884,10 @@ impl IIppIntegerRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppIntegerRange>, ::windows::core::GetTrustLevel, Start::<Impl, OFFSET>, End::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppIntegerRange>, ::windows::core::GetTrustLevel, Start::<Impl, IMPL_OFFSET>, End::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppIntegerRange as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -888,7 +900,7 @@ impl ::windows::core::RuntimeName for IIppIntegerRangeFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIppIntegerRangeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppIntegerRangeFactoryImpl, const OFFSET: isize>() -> IIppIntegerRangeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppIntegerRangeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppIntegerRangeFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IIppIntegerRangeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: i32, end: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(start, end) {
@@ -900,10 +912,13 @@ impl IIppIntegerRangeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppIntegerRangeFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppIntegerRangeFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppIntegerRangeFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IIppPrintDeviceImpl: Sized {
     fn PrinterName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PrinterUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -912,13 +927,13 @@ pub trait IIppPrintDeviceImpl: Sized {
     fn SetPrinterAttributesFromBuffer(&self, printerattributesbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<IppSetAttributesResult>;
     fn SetPrinterAttributes(&self, printerattributes: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>) -> ::windows::core::Result<IppSetAttributesResult>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IIppPrintDevice";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IIppPrintDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppPrintDeviceImpl, const OFFSET: isize>() -> IIppPrintDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppPrintDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppPrintDeviceVtbl {
         unsafe extern "system" fn PrinterName<Impl: IIppPrintDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrinterName() {
@@ -986,19 +1001,22 @@ impl IIppPrintDeviceVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IIppPrintDevice>,
             ::windows::core::GetTrustLevel,
-            PrinterName::<Impl, OFFSET>,
-            PrinterUri::<Impl, OFFSET>,
-            GetPrinterAttributesAsBuffer::<Impl, OFFSET>,
-            GetPrinterAttributes::<Impl, OFFSET>,
-            SetPrinterAttributesFromBuffer::<Impl, OFFSET>,
-            SetPrinterAttributes::<Impl, OFFSET>,
+            PrinterName::<Impl, IMPL_OFFSET>,
+            PrinterUri::<Impl, IMPL_OFFSET>,
+            GetPrinterAttributesAsBuffer::<Impl, IMPL_OFFSET>,
+            GetPrinterAttributes::<Impl, IMPL_OFFSET>,
+            SetPrinterAttributesFromBuffer::<Impl, IMPL_OFFSET>,
+            SetPrinterAttributes::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppPrintDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1013,7 +1031,7 @@ impl ::windows::core::RuntimeName for IIppResolution {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIppResolutionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppResolutionImpl, const OFFSET: isize>() -> IIppResolutionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppResolutionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppResolutionVtbl {
         unsafe extern "system" fn Width<Impl: IIppResolutionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Width() {
@@ -1047,7 +1065,10 @@ impl IIppResolutionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppResolution>, ::windows::core::GetTrustLevel, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>, Unit::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppResolution>, ::windows::core::GetTrustLevel, Width::<Impl, IMPL_OFFSET>, Height::<Impl, IMPL_OFFSET>, Unit::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppResolution as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1060,7 +1081,7 @@ impl ::windows::core::RuntimeName for IIppResolutionFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIppResolutionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppResolutionFactoryImpl, const OFFSET: isize>() -> IIppResolutionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppResolutionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppResolutionFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IIppResolutionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: i32, height: i32, unit: IppResolutionUnit, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(width, height, unit) {
@@ -1072,21 +1093,24 @@ impl IIppResolutionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppResolutionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppResolutionFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppResolutionFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIppSetAttributesResultImpl: Sized {
     fn Succeeded(&self) -> ::windows::core::Result<bool>;
     fn AttributeErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeError>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IIppSetAttributesResult";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IIppSetAttributesResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppSetAttributesResultImpl, const OFFSET: isize>() -> IIppSetAttributesResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppSetAttributesResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppSetAttributesResultVtbl {
         unsafe extern "system" fn Succeeded<Impl: IIppSetAttributesResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
@@ -1109,7 +1133,10 @@ impl IIppSetAttributesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppSetAttributesResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, OFFSET>, AttributeErrors::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppSetAttributesResult>, ::windows::core::GetTrustLevel, Succeeded::<Impl, IMPL_OFFSET>, AttributeErrors::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppSetAttributesResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1123,7 +1150,7 @@ impl ::windows::core::RuntimeName for IIppTextWithLanguage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIppTextWithLanguageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppTextWithLanguageImpl, const OFFSET: isize>() -> IIppTextWithLanguageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppTextWithLanguageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppTextWithLanguageVtbl {
         unsafe extern "system" fn Language<Impl: IIppTextWithLanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
@@ -1146,7 +1173,10 @@ impl IIppTextWithLanguageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppTextWithLanguage>, ::windows::core::GetTrustLevel, Language::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppTextWithLanguage>, ::windows::core::GetTrustLevel, Language::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppTextWithLanguage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1159,7 +1189,7 @@ impl ::windows::core::RuntimeName for IIppTextWithLanguageFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIppTextWithLanguageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppTextWithLanguageFactoryImpl, const OFFSET: isize>() -> IIppTextWithLanguageFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIppTextWithLanguageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIppTextWithLanguageFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IIppTextWithLanguageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&language as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1171,7 +1201,10 @@ impl IIppTextWithLanguageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppTextWithLanguageFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIppTextWithLanguageFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIppTextWithLanguageFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1184,7 +1217,7 @@ impl ::windows::core::RuntimeName for IPrint3DDevice {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrint3DDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DDeviceImpl, const OFFSET: isize>() -> IPrint3DDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DDeviceVtbl {
         unsafe extern "system" fn PrintSchema<Impl: IPrint3DDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintSchema() {
@@ -1196,21 +1229,24 @@ impl IPrint3DDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DDevice>, ::windows::core::GetTrustLevel, PrintSchema::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DDevice>, ::windows::core::GetTrustLevel, PrintSchema::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DDeviceStaticsImpl: Sized {
     fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Printers.IPrint3DDeviceStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IPrint3DDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DDeviceStaticsImpl, const OFFSET: isize>() -> IPrint3DDeviceStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrint3DDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrint3DDeviceStaticsVtbl {
         unsafe extern "system" fn FromIdAsync<Impl: IPrint3DDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
@@ -1233,22 +1269,25 @@ impl IPrint3DDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrint3DDeviceStatics>, ::windows::core::GetTrustLevel, FromIdAsync::<Impl, IMPL_OFFSET>, GetDeviceSelector::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrint3DDeviceStatics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintSchemaImpl: Sized {
     fn GetDefaultPrintTicketAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
     fn GetCapabilitiesAsync(&self, constrainticket: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
     fn MergeAndValidateWithDefaultPrintTicketAsync(&self, deltaticket: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.IPrintSchema";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl IPrintSchemaVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaImpl, const OFFSET: isize>() -> IPrintSchemaVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintSchemaVtbl {
         unsafe extern "system" fn GetDefaultPrintTicketAsync<Impl: IPrintSchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultPrintTicketAsync() {
@@ -1282,6 +1321,9 @@ impl IPrintSchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSchema>, ::windows::core::GetTrustLevel, GetDefaultPrintTicketAsync::<Impl, OFFSET>, GetCapabilitiesAsync::<Impl, OFFSET>, MergeAndValidateWithDefaultPrintTicketAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSchema>, ::windows::core::GetTrustLevel, GetDefaultPrintTicketAsync::<Impl, IMPL_OFFSET>, GetCapabilitiesAsync::<Impl, IMPL_OFFSET>, MergeAndValidateWithDefaultPrintTicketAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintSchema as ::windows::core::Interface>::IID
     }
 }

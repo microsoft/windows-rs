@@ -6,8 +6,11 @@ impl ::windows::core::RuntimeName for IAnnotationPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAnnotationPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationPatternIdentifiersImpl, const OFFSET: isize>() -> IAnnotationPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnnotationPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAnnotationPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -24,7 +27,7 @@ impl ::windows::core::RuntimeName for IAnnotationPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAnnotationPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IAnnotationPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnnotationPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn AnnotationTypeIdProperty<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnnotationTypeIdProperty() {
@@ -80,7 +83,22 @@ impl IAnnotationPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, AnnotationTypeIdProperty::<Impl, OFFSET>, AnnotationTypeNameProperty::<Impl, OFFSET>, AuthorProperty::<Impl, OFFSET>, DateTimeProperty::<Impl, OFFSET>, TargetProperty::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiersStatics>,
+            ::windows::core::GetTrustLevel,
+            AnnotationTypeIdProperty::<Impl, IMPL_OFFSET>,
+            AnnotationTypeNameProperty::<Impl, IMPL_OFFSET>,
+            AuthorProperty::<Impl, IMPL_OFFSET>,
+            DateTimeProperty::<Impl, IMPL_OFFSET>,
+            TargetProperty::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAnnotationPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -96,7 +114,7 @@ impl ::windows::core::RuntimeName for IAutomationAnnotation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationAnnotationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationAnnotationImpl, const OFFSET: isize>() -> IAutomationAnnotationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationAnnotationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationAnnotationVtbl {
         unsafe extern "system" fn Type<Impl: IAutomationAnnotationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnnotationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
@@ -127,7 +145,10 @@ impl IAutomationAnnotationVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetElement(&*(&value as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotation>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, SetType::<Impl, OFFSET>, Element::<Impl, OFFSET>, SetElement::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotation>, ::windows::core::GetTrustLevel, Type::<Impl, IMPL_OFFSET>, SetType::<Impl, IMPL_OFFSET>, Element::<Impl, IMPL_OFFSET>, SetElement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationAnnotation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -141,7 +162,7 @@ impl ::windows::core::RuntimeName for IAutomationAnnotationFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationAnnotationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationAnnotationFactoryImpl, const OFFSET: isize>() -> IAutomationAnnotationFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationAnnotationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationAnnotationFactoryVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IAutomationAnnotationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AnnotationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(r#type) {
@@ -164,7 +185,10 @@ impl IAutomationAnnotationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>, CreateWithElementParameter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, IMPL_OFFSET>, CreateWithElementParameter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationAnnotationFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -178,7 +202,7 @@ impl ::windows::core::RuntimeName for IAutomationAnnotationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationAnnotationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationAnnotationStaticsImpl, const OFFSET: isize>() -> IAutomationAnnotationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationAnnotationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationAnnotationStaticsVtbl {
         unsafe extern "system" fn TypeProperty<Impl: IAutomationAnnotationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TypeProperty() {
@@ -201,7 +225,10 @@ impl IAutomationAnnotationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationStatics>, ::windows::core::GetTrustLevel, TypeProperty::<Impl, OFFSET>, ElementProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationStatics>, ::windows::core::GetTrustLevel, TypeProperty::<Impl, IMPL_OFFSET>, ElementProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationAnnotationStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -212,8 +239,11 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersImpl, const OFFSET: isize>() -> IAutomationElementIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -248,7 +278,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: isize>() -> IAutomationElementIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStaticsVtbl {
         unsafe extern "system" fn AcceleratorKeyProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceleratorKeyProperty() {
@@ -503,36 +533,39 @@ impl IAutomationElementIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            AcceleratorKeyProperty::<Impl, OFFSET>,
-            AccessKeyProperty::<Impl, OFFSET>,
-            AutomationIdProperty::<Impl, OFFSET>,
-            BoundingRectangleProperty::<Impl, OFFSET>,
-            ClassNameProperty::<Impl, OFFSET>,
-            ClickablePointProperty::<Impl, OFFSET>,
-            ControlTypeProperty::<Impl, OFFSET>,
-            HasKeyboardFocusProperty::<Impl, OFFSET>,
-            HelpTextProperty::<Impl, OFFSET>,
-            IsContentElementProperty::<Impl, OFFSET>,
-            IsControlElementProperty::<Impl, OFFSET>,
-            IsEnabledProperty::<Impl, OFFSET>,
-            IsKeyboardFocusableProperty::<Impl, OFFSET>,
-            IsOffscreenProperty::<Impl, OFFSET>,
-            IsPasswordProperty::<Impl, OFFSET>,
-            IsRequiredForFormProperty::<Impl, OFFSET>,
-            ItemStatusProperty::<Impl, OFFSET>,
-            ItemTypeProperty::<Impl, OFFSET>,
-            LabeledByProperty::<Impl, OFFSET>,
-            LocalizedControlTypeProperty::<Impl, OFFSET>,
-            NameProperty::<Impl, OFFSET>,
-            OrientationProperty::<Impl, OFFSET>,
-            LiveSettingProperty::<Impl, OFFSET>,
+            AcceleratorKeyProperty::<Impl, IMPL_OFFSET>,
+            AccessKeyProperty::<Impl, IMPL_OFFSET>,
+            AutomationIdProperty::<Impl, IMPL_OFFSET>,
+            BoundingRectangleProperty::<Impl, IMPL_OFFSET>,
+            ClassNameProperty::<Impl, IMPL_OFFSET>,
+            ClickablePointProperty::<Impl, IMPL_OFFSET>,
+            ControlTypeProperty::<Impl, IMPL_OFFSET>,
+            HasKeyboardFocusProperty::<Impl, IMPL_OFFSET>,
+            HelpTextProperty::<Impl, IMPL_OFFSET>,
+            IsContentElementProperty::<Impl, IMPL_OFFSET>,
+            IsControlElementProperty::<Impl, IMPL_OFFSET>,
+            IsEnabledProperty::<Impl, IMPL_OFFSET>,
+            IsKeyboardFocusableProperty::<Impl, IMPL_OFFSET>,
+            IsOffscreenProperty::<Impl, IMPL_OFFSET>,
+            IsPasswordProperty::<Impl, IMPL_OFFSET>,
+            IsRequiredForFormProperty::<Impl, IMPL_OFFSET>,
+            ItemStatusProperty::<Impl, IMPL_OFFSET>,
+            ItemTypeProperty::<Impl, IMPL_OFFSET>,
+            LabeledByProperty::<Impl, IMPL_OFFSET>,
+            LocalizedControlTypeProperty::<Impl, IMPL_OFFSET>,
+            NameProperty::<Impl, IMPL_OFFSET>,
+            OrientationProperty::<Impl, IMPL_OFFSET>,
+            LiveSettingProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -545,7 +578,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics2Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics2Vtbl {
         unsafe extern "system" fn ControlledPeersProperty<Impl: IAutomationElementIdentifiersStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlledPeersProperty() {
@@ -557,7 +590,10 @@ impl IAutomationElementIdentifiersStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics2>, ::windows::core::GetTrustLevel, ControlledPeersProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics2>, ::windows::core::GetTrustLevel, ControlledPeersProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -573,7 +609,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics3Vtbl {
         unsafe extern "system" fn PositionInSetProperty<Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionInSetProperty() {
@@ -618,7 +654,10 @@ impl IAutomationElementIdentifiersStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics3>, ::windows::core::GetTrustLevel, PositionInSetProperty::<Impl, OFFSET>, SizeOfSetProperty::<Impl, OFFSET>, LevelProperty::<Impl, OFFSET>, AnnotationsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics3>, ::windows::core::GetTrustLevel, PositionInSetProperty::<Impl, IMPL_OFFSET>, SizeOfSetProperty::<Impl, IMPL_OFFSET>, LevelProperty::<Impl, IMPL_OFFSET>, AnnotationsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -632,7 +671,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics4Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics4Vtbl {
         unsafe extern "system" fn LandmarkTypeProperty<Impl: IAutomationElementIdentifiersStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LandmarkTypeProperty() {
@@ -655,7 +694,10 @@ impl IAutomationElementIdentifiersStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics4>, ::windows::core::GetTrustLevel, LandmarkTypeProperty::<Impl, OFFSET>, LocalizedLandmarkTypeProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics4>, ::windows::core::GetTrustLevel, LandmarkTypeProperty::<Impl, IMPL_OFFSET>, LocalizedLandmarkTypeProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -673,7 +715,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics5Vtbl {
         unsafe extern "system" fn IsPeripheralProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPeripheralProperty() {
@@ -741,19 +783,22 @@ impl IAutomationElementIdentifiersStatics5Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics5>,
             ::windows::core::GetTrustLevel,
-            IsPeripheralProperty::<Impl, OFFSET>,
-            IsDataValidForFormProperty::<Impl, OFFSET>,
-            FullDescriptionProperty::<Impl, OFFSET>,
-            DescribedByProperty::<Impl, OFFSET>,
-            FlowsToProperty::<Impl, OFFSET>,
-            FlowsFromProperty::<Impl, OFFSET>,
+            IsPeripheralProperty::<Impl, IMPL_OFFSET>,
+            IsDataValidForFormProperty::<Impl, IMPL_OFFSET>,
+            FullDescriptionProperty::<Impl, IMPL_OFFSET>,
+            DescribedByProperty::<Impl, IMPL_OFFSET>,
+            FlowsToProperty::<Impl, IMPL_OFFSET>,
+            FlowsFromProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -766,7 +811,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics6Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics6Vtbl {
         unsafe extern "system" fn CultureProperty<Impl: IAutomationElementIdentifiersStatics6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CultureProperty() {
@@ -778,7 +823,10 @@ impl IAutomationElementIdentifiersStatics6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics6>, ::windows::core::GetTrustLevel, CultureProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics6>, ::windows::core::GetTrustLevel, CultureProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -791,7 +839,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics7 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics7Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics7Vtbl {
         unsafe extern "system" fn HeadingLevelProperty<Impl: IAutomationElementIdentifiersStatics7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeadingLevelProperty() {
@@ -803,7 +851,10 @@ impl IAutomationElementIdentifiersStatics7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics7>, ::windows::core::GetTrustLevel, HeadingLevelProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics7>, ::windows::core::GetTrustLevel, HeadingLevelProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -816,7 +867,7 @@ impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics8 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationElementIdentifiersStatics8Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics8Impl, const OFFSET: isize>() -> IAutomationElementIdentifiersStatics8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementIdentifiersStatics8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementIdentifiersStatics8Vtbl {
         unsafe extern "system" fn IsDialogProperty<Impl: IAutomationElementIdentifiersStatics8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDialogProperty() {
@@ -828,7 +879,10 @@ impl IAutomationElementIdentifiersStatics8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics8>, ::windows::core::GetTrustLevel, IsDialogProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics8>, ::windows::core::GetTrustLevel, IsDialogProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationElementIdentifiersStatics8 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -839,11 +893,14 @@ impl ::windows::core::RuntimeName for IAutomationProperties {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesImpl, const OFFSET: isize>() -> IAutomationPropertiesVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationProperties>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationProperties>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStaticsImpl: Sized {
     fn AcceleratorKeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetAcceleratorKey(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -876,13 +933,13 @@ pub trait IAutomationPropertiesStaticsImpl: Sized {
     fn GetLiveSetting(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLiveSetting>;
     fn SetLiveSetting(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationLiveSetting) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStaticsImpl, const OFFSET: isize>() -> IAutomationPropertiesStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStaticsVtbl {
         unsafe extern "system" fn AcceleratorKeyProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceleratorKeyProperty() {
@@ -1144,46 +1201,49 @@ impl IAutomationPropertiesStaticsVtbl {
             (*this).SetLiveSetting(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics>,
             ::windows::core::GetTrustLevel,
-            AcceleratorKeyProperty::<Impl, OFFSET>,
-            GetAcceleratorKey::<Impl, OFFSET>,
-            SetAcceleratorKey::<Impl, OFFSET>,
-            AccessKeyProperty::<Impl, OFFSET>,
-            GetAccessKey::<Impl, OFFSET>,
-            SetAccessKey::<Impl, OFFSET>,
-            AutomationIdProperty::<Impl, OFFSET>,
-            GetAutomationId::<Impl, OFFSET>,
-            SetAutomationId::<Impl, OFFSET>,
-            HelpTextProperty::<Impl, OFFSET>,
-            GetHelpText::<Impl, OFFSET>,
-            SetHelpText::<Impl, OFFSET>,
-            IsRequiredForFormProperty::<Impl, OFFSET>,
-            GetIsRequiredForForm::<Impl, OFFSET>,
-            SetIsRequiredForForm::<Impl, OFFSET>,
-            ItemStatusProperty::<Impl, OFFSET>,
-            GetItemStatus::<Impl, OFFSET>,
-            SetItemStatus::<Impl, OFFSET>,
-            ItemTypeProperty::<Impl, OFFSET>,
-            GetItemType::<Impl, OFFSET>,
-            SetItemType::<Impl, OFFSET>,
-            LabeledByProperty::<Impl, OFFSET>,
-            GetLabeledBy::<Impl, OFFSET>,
-            SetLabeledBy::<Impl, OFFSET>,
-            NameProperty::<Impl, OFFSET>,
-            GetName::<Impl, OFFSET>,
-            SetName::<Impl, OFFSET>,
-            LiveSettingProperty::<Impl, OFFSET>,
-            GetLiveSetting::<Impl, OFFSET>,
-            SetLiveSetting::<Impl, OFFSET>,
+            AcceleratorKeyProperty::<Impl, IMPL_OFFSET>,
+            GetAcceleratorKey::<Impl, IMPL_OFFSET>,
+            SetAcceleratorKey::<Impl, IMPL_OFFSET>,
+            AccessKeyProperty::<Impl, IMPL_OFFSET>,
+            GetAccessKey::<Impl, IMPL_OFFSET>,
+            SetAccessKey::<Impl, IMPL_OFFSET>,
+            AutomationIdProperty::<Impl, IMPL_OFFSET>,
+            GetAutomationId::<Impl, IMPL_OFFSET>,
+            SetAutomationId::<Impl, IMPL_OFFSET>,
+            HelpTextProperty::<Impl, IMPL_OFFSET>,
+            GetHelpText::<Impl, IMPL_OFFSET>,
+            SetHelpText::<Impl, IMPL_OFFSET>,
+            IsRequiredForFormProperty::<Impl, IMPL_OFFSET>,
+            GetIsRequiredForForm::<Impl, IMPL_OFFSET>,
+            SetIsRequiredForForm::<Impl, IMPL_OFFSET>,
+            ItemStatusProperty::<Impl, IMPL_OFFSET>,
+            GetItemStatus::<Impl, IMPL_OFFSET>,
+            SetItemStatus::<Impl, IMPL_OFFSET>,
+            ItemTypeProperty::<Impl, IMPL_OFFSET>,
+            GetItemType::<Impl, IMPL_OFFSET>,
+            SetItemType::<Impl, IMPL_OFFSET>,
+            LabeledByProperty::<Impl, IMPL_OFFSET>,
+            GetLabeledBy::<Impl, IMPL_OFFSET>,
+            SetLabeledBy::<Impl, IMPL_OFFSET>,
+            NameProperty::<Impl, IMPL_OFFSET>,
+            GetName::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            LiveSettingProperty::<Impl, IMPL_OFFSET>,
+            GetLiveSetting::<Impl, IMPL_OFFSET>,
+            SetLiveSetting::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics2Impl: Sized {
     fn AccessibilityViewProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetAccessibilityView(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AccessibilityView>;
@@ -1191,13 +1251,13 @@ pub trait IAutomationPropertiesStatics2Impl: Sized {
     fn ControlledPeersProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetControlledPeers(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::UIElement>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics2Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics2Vtbl {
         unsafe extern "system" fn AccessibilityViewProperty<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessibilityViewProperty() {
@@ -1246,10 +1306,25 @@ impl IAutomationPropertiesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics2>, ::windows::core::GetTrustLevel, AccessibilityViewProperty::<Impl, OFFSET>, GetAccessibilityView::<Impl, OFFSET>, SetAccessibilityView::<Impl, OFFSET>, ControlledPeersProperty::<Impl, OFFSET>, GetControlledPeers::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics2>,
+            ::windows::core::GetTrustLevel,
+            AccessibilityViewProperty::<Impl, IMPL_OFFSET>,
+            GetAccessibilityView::<Impl, IMPL_OFFSET>,
+            SetAccessibilityView::<Impl, IMPL_OFFSET>,
+            ControlledPeersProperty::<Impl, IMPL_OFFSET>,
+            GetControlledPeers::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics3Impl: Sized {
     fn PositionInSetProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetPositionInSet(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
@@ -1263,13 +1338,13 @@ pub trait IAutomationPropertiesStatics3Impl: Sized {
     fn AnnotationsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetAnnotations(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics3 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics3";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics3Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics3Vtbl {
         unsafe extern "system" fn PositionInSetProperty<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionInSetProperty() {
@@ -1371,27 +1446,30 @@ impl IAutomationPropertiesStatics3Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics3>,
             ::windows::core::GetTrustLevel,
-            PositionInSetProperty::<Impl, OFFSET>,
-            GetPositionInSet::<Impl, OFFSET>,
-            SetPositionInSet::<Impl, OFFSET>,
-            SizeOfSetProperty::<Impl, OFFSET>,
-            GetSizeOfSet::<Impl, OFFSET>,
-            SetSizeOfSet::<Impl, OFFSET>,
-            LevelProperty::<Impl, OFFSET>,
-            GetLevel::<Impl, OFFSET>,
-            SetLevel::<Impl, OFFSET>,
-            AnnotationsProperty::<Impl, OFFSET>,
-            GetAnnotations::<Impl, OFFSET>,
+            PositionInSetProperty::<Impl, IMPL_OFFSET>,
+            GetPositionInSet::<Impl, IMPL_OFFSET>,
+            SetPositionInSet::<Impl, IMPL_OFFSET>,
+            SizeOfSetProperty::<Impl, IMPL_OFFSET>,
+            GetSizeOfSet::<Impl, IMPL_OFFSET>,
+            SetSizeOfSet::<Impl, IMPL_OFFSET>,
+            LevelProperty::<Impl, IMPL_OFFSET>,
+            GetLevel::<Impl, IMPL_OFFSET>,
+            SetLevel::<Impl, IMPL_OFFSET>,
+            AnnotationsProperty::<Impl, IMPL_OFFSET>,
+            GetAnnotations::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics3 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics4Impl: Sized {
     fn LandmarkTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLandmarkType>;
@@ -1400,13 +1478,13 @@ pub trait IAutomationPropertiesStatics4Impl: Sized {
     fn GetLocalizedLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLocalizedLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics4 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics4";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics4Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics4Vtbl {
         unsafe extern "system" fn LandmarkTypeProperty<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LandmarkTypeProperty() {
@@ -1460,22 +1538,25 @@ impl IAutomationPropertiesStatics4Vtbl {
             (*this).SetLocalizedLandmarkType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics4>,
             ::windows::core::GetTrustLevel,
-            LandmarkTypeProperty::<Impl, OFFSET>,
-            GetLandmarkType::<Impl, OFFSET>,
-            SetLandmarkType::<Impl, OFFSET>,
-            LocalizedLandmarkTypeProperty::<Impl, OFFSET>,
-            GetLocalizedLandmarkType::<Impl, OFFSET>,
-            SetLocalizedLandmarkType::<Impl, OFFSET>,
+            LandmarkTypeProperty::<Impl, IMPL_OFFSET>,
+            GetLandmarkType::<Impl, IMPL_OFFSET>,
+            SetLandmarkType::<Impl, IMPL_OFFSET>,
+            LocalizedLandmarkTypeProperty::<Impl, IMPL_OFFSET>,
+            GetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
+            SetLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics4 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics5Impl: Sized {
     fn IsPeripheralProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetIsPeripheral(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
@@ -1496,13 +1577,13 @@ pub trait IAutomationPropertiesStatics5Impl: Sized {
     fn FlowsFromProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetFlowsFrom(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics5 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics5";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics5Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics5Vtbl {
         unsafe extern "system" fn IsPeripheralProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPeripheralProperty() {
@@ -1674,31 +1755,34 @@ impl IAutomationPropertiesStatics5Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics5>,
             ::windows::core::GetTrustLevel,
-            IsPeripheralProperty::<Impl, OFFSET>,
-            GetIsPeripheral::<Impl, OFFSET>,
-            SetIsPeripheral::<Impl, OFFSET>,
-            IsDataValidForFormProperty::<Impl, OFFSET>,
-            GetIsDataValidForForm::<Impl, OFFSET>,
-            SetIsDataValidForForm::<Impl, OFFSET>,
-            FullDescriptionProperty::<Impl, OFFSET>,
-            GetFullDescription::<Impl, OFFSET>,
-            SetFullDescription::<Impl, OFFSET>,
-            LocalizedControlTypeProperty::<Impl, OFFSET>,
-            GetLocalizedControlType::<Impl, OFFSET>,
-            SetLocalizedControlType::<Impl, OFFSET>,
-            DescribedByProperty::<Impl, OFFSET>,
-            GetDescribedBy::<Impl, OFFSET>,
-            FlowsToProperty::<Impl, OFFSET>,
-            GetFlowsTo::<Impl, OFFSET>,
-            FlowsFromProperty::<Impl, OFFSET>,
-            GetFlowsFrom::<Impl, OFFSET>,
+            IsPeripheralProperty::<Impl, IMPL_OFFSET>,
+            GetIsPeripheral::<Impl, IMPL_OFFSET>,
+            SetIsPeripheral::<Impl, IMPL_OFFSET>,
+            IsDataValidForFormProperty::<Impl, IMPL_OFFSET>,
+            GetIsDataValidForForm::<Impl, IMPL_OFFSET>,
+            SetIsDataValidForForm::<Impl, IMPL_OFFSET>,
+            FullDescriptionProperty::<Impl, IMPL_OFFSET>,
+            GetFullDescription::<Impl, IMPL_OFFSET>,
+            SetFullDescription::<Impl, IMPL_OFFSET>,
+            LocalizedControlTypeProperty::<Impl, IMPL_OFFSET>,
+            GetLocalizedControlType::<Impl, IMPL_OFFSET>,
+            SetLocalizedControlType::<Impl, IMPL_OFFSET>,
+            DescribedByProperty::<Impl, IMPL_OFFSET>,
+            GetDescribedBy::<Impl, IMPL_OFFSET>,
+            FlowsToProperty::<Impl, IMPL_OFFSET>,
+            GetFlowsTo::<Impl, IMPL_OFFSET>,
+            FlowsFromProperty::<Impl, IMPL_OFFSET>,
+            GetFlowsFrom::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1713,7 +1797,7 @@ impl ::windows::core::RuntimeName for IAutomationPropertiesStatics6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPropertiesStatics6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics6Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics6Vtbl {
         unsafe extern "system" fn CultureProperty<Impl: IAutomationPropertiesStatics6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CultureProperty() {
@@ -1740,22 +1824,25 @@ impl IAutomationPropertiesStatics6Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCulture(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics6>, ::windows::core::GetTrustLevel, CultureProperty::<Impl, OFFSET>, GetCulture::<Impl, OFFSET>, SetCulture::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics6>, ::windows::core::GetTrustLevel, CultureProperty::<Impl, IMPL_OFFSET>, GetCulture::<Impl, IMPL_OFFSET>, SetCulture::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics6 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics7Impl: Sized {
     fn HeadingLevelProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetHeadingLevel(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationHeadingLevel>;
     fn SetHeadingLevel(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationHeadingLevel) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics7 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics7";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStatics7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics7Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics7Vtbl {
         unsafe extern "system" fn HeadingLevelProperty<Impl: IAutomationPropertiesStatics7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeadingLevelProperty() {
@@ -1782,7 +1869,10 @@ impl IAutomationPropertiesStatics7Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHeadingLevel(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics7>, ::windows::core::GetTrustLevel, HeadingLevelProperty::<Impl, OFFSET>, GetHeadingLevel::<Impl, OFFSET>, SetHeadingLevel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics7>, ::windows::core::GetTrustLevel, HeadingLevelProperty::<Impl, IMPL_OFFSET>, GetHeadingLevel::<Impl, IMPL_OFFSET>, SetHeadingLevel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1797,7 +1887,7 @@ impl ::windows::core::RuntimeName for IAutomationPropertiesStatics8 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPropertiesStatics8Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics8Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics8Vtbl {
         unsafe extern "system" fn IsDialogProperty<Impl: IAutomationPropertiesStatics8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDialogProperty() {
@@ -1824,22 +1914,25 @@ impl IAutomationPropertiesStatics8Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDialog(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics8>, ::windows::core::GetTrustLevel, IsDialogProperty::<Impl, OFFSET>, GetIsDialog::<Impl, OFFSET>, SetIsDialog::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics8>, ::windows::core::GetTrustLevel, IsDialogProperty::<Impl, IMPL_OFFSET>, GetIsDialog::<Impl, IMPL_OFFSET>, SetIsDialog::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics8 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics9Impl: Sized {
     fn AutomationControlTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetAutomationControlType(&self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<Peers::AutomationControlType>;
     fn SetAutomationControlType(&self, element: &::core::option::Option<super::UIElement>, value: Peers::AutomationControlType) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics9 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics9";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl IAutomationPropertiesStatics9Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics9Impl, const OFFSET: isize>() -> IAutomationPropertiesStatics9Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertiesStatics9Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertiesStatics9Vtbl {
         unsafe extern "system" fn AutomationControlTypeProperty<Impl: IAutomationPropertiesStatics9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomationControlTypeProperty() {
@@ -1866,7 +1959,10 @@ impl IAutomationPropertiesStatics9Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomationControlType(&*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics9>, ::windows::core::GetTrustLevel, AutomationControlTypeProperty::<Impl, OFFSET>, GetAutomationControlType::<Impl, OFFSET>, SetAutomationControlType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics9>, ::windows::core::GetTrustLevel, AutomationControlTypeProperty::<Impl, IMPL_OFFSET>, GetAutomationControlType::<Impl, IMPL_OFFSET>, SetAutomationControlType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationPropertiesStatics9 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1877,8 +1973,11 @@ impl ::windows::core::RuntimeName for IAutomationProperty {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAutomationPropertyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertyImpl, const OFFSET: isize>() -> IAutomationPropertyVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationProperty>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationPropertyVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAutomationProperty>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAutomationProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1889,8 +1988,11 @@ impl ::windows::core::RuntimeName for IDockPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDockPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockPatternIdentifiersImpl, const OFFSET: isize>() -> IDockPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDockPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDockPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1903,7 +2005,7 @@ impl ::windows::core::RuntimeName for IDockPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDockPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IDockPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDockPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn DockPositionProperty<Impl: IDockPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DockPositionProperty() {
@@ -1915,7 +2017,10 @@ impl IDockPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DockPositionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DockPositionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDockPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1926,8 +2031,11 @@ impl ::windows::core::RuntimeName for IDragPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDragPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragPatternIdentifiersImpl, const OFFSET: isize>() -> IDragPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1943,7 +2051,7 @@ impl ::windows::core::RuntimeName for IDragPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDragPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IDragPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn DropEffectProperty<Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropEffectProperty() {
@@ -1988,7 +2096,10 @@ impl IDragPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DropEffectProperty::<Impl, OFFSET>, DropEffectsProperty::<Impl, OFFSET>, GrabbedItemsProperty::<Impl, OFFSET>, IsGrabbedProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DropEffectProperty::<Impl, IMPL_OFFSET>, DropEffectsProperty::<Impl, IMPL_OFFSET>, GrabbedItemsProperty::<Impl, IMPL_OFFSET>, IsGrabbedProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDragPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1999,8 +2110,11 @@ impl ::windows::core::RuntimeName for IDropTargetPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDropTargetPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetPatternIdentifiersImpl, const OFFSET: isize>() -> IDropTargetPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDropTargetPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2014,7 +2128,7 @@ impl ::windows::core::RuntimeName for IDropTargetPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDropTargetPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IDropTargetPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn DropTargetEffectProperty<Impl: IDropTargetPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropTargetEffectProperty() {
@@ -2037,7 +2151,10 @@ impl IDropTargetPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DropTargetEffectProperty::<Impl, OFFSET>, DropTargetEffectsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, DropTargetEffectProperty::<Impl, IMPL_OFFSET>, DropTargetEffectsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDropTargetPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2048,8 +2165,11 @@ impl ::windows::core::RuntimeName for IExpandCollapsePatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IExpandCollapsePatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapsePatternIdentifiersImpl, const OFFSET: isize>() -> IExpandCollapsePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapsePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpandCollapsePatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExpandCollapsePatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2062,7 +2182,7 @@ impl ::windows::core::RuntimeName for IExpandCollapsePatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IExpandCollapsePatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapsePatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IExpandCollapsePatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapsePatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpandCollapsePatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ExpandCollapseStateProperty<Impl: IExpandCollapsePatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpandCollapseStateProperty() {
@@ -2074,7 +2194,10 @@ impl IExpandCollapsePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ExpandCollapseStateProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ExpandCollapseStateProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IExpandCollapsePatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2085,8 +2208,11 @@ impl ::windows::core::RuntimeName for IGridItemPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGridItemPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemPatternIdentifiersImpl, const OFFSET: isize>() -> IGridItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridItemPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGridItemPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2103,7 +2229,7 @@ impl ::windows::core::RuntimeName for IGridItemPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGridItemPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IGridItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridItemPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ColumnProperty<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnProperty() {
@@ -2159,7 +2285,22 @@ impl IGridItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnProperty::<Impl, OFFSET>, ColumnSpanProperty::<Impl, OFFSET>, ContainingGridProperty::<Impl, OFFSET>, RowProperty::<Impl, OFFSET>, RowSpanProperty::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiersStatics>,
+            ::windows::core::GetTrustLevel,
+            ColumnProperty::<Impl, IMPL_OFFSET>,
+            ColumnSpanProperty::<Impl, IMPL_OFFSET>,
+            ContainingGridProperty::<Impl, IMPL_OFFSET>,
+            RowProperty::<Impl, IMPL_OFFSET>,
+            RowSpanProperty::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGridItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2170,8 +2311,11 @@ impl ::windows::core::RuntimeName for IGridPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGridPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridPatternIdentifiersImpl, const OFFSET: isize>() -> IGridPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGridPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2185,7 +2329,7 @@ impl ::windows::core::RuntimeName for IGridPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGridPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IGridPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ColumnCountProperty<Impl: IGridPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnCountProperty() {
@@ -2208,7 +2352,10 @@ impl IGridPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnCountProperty::<Impl, OFFSET>, RowCountProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnCountProperty::<Impl, IMPL_OFFSET>, RowCountProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGridPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2219,8 +2366,11 @@ impl ::windows::core::RuntimeName for IMultipleViewPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMultipleViewPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewPatternIdentifiersImpl, const OFFSET: isize>() -> IMultipleViewPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleViewPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMultipleViewPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2234,7 +2384,7 @@ impl ::windows::core::RuntimeName for IMultipleViewPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMultipleViewPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IMultipleViewPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleViewPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn CurrentViewProperty<Impl: IMultipleViewPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentViewProperty() {
@@ -2257,7 +2407,10 @@ impl IMultipleViewPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CurrentViewProperty::<Impl, OFFSET>, SupportedViewsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CurrentViewProperty::<Impl, IMPL_OFFSET>, SupportedViewsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMultipleViewPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2268,8 +2421,11 @@ impl ::windows::core::RuntimeName for IRangeValuePatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRangeValuePatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValuePatternIdentifiersImpl, const OFFSET: isize>() -> IRangeValuePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValuePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeValuePatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRangeValuePatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2287,7 +2443,7 @@ impl ::windows::core::RuntimeName for IRangeValuePatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRangeValuePatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IRangeValuePatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValuePatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeValuePatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn IsReadOnlyProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnlyProperty() {
@@ -2355,19 +2511,22 @@ impl IRangeValuePatternIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            IsReadOnlyProperty::<Impl, OFFSET>,
-            LargeChangeProperty::<Impl, OFFSET>,
-            MaximumProperty::<Impl, OFFSET>,
-            MinimumProperty::<Impl, OFFSET>,
-            SmallChangeProperty::<Impl, OFFSET>,
-            ValueProperty::<Impl, OFFSET>,
+            IsReadOnlyProperty::<Impl, IMPL_OFFSET>,
+            LargeChangeProperty::<Impl, IMPL_OFFSET>,
+            MaximumProperty::<Impl, IMPL_OFFSET>,
+            MinimumProperty::<Impl, IMPL_OFFSET>,
+            SmallChangeProperty::<Impl, IMPL_OFFSET>,
+            ValueProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRangeValuePatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2378,8 +2537,11 @@ impl ::windows::core::RuntimeName for IScrollPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IScrollPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollPatternIdentifiersImpl, const OFFSET: isize>() -> IScrollPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScrollPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2398,7 +2560,7 @@ impl ::windows::core::RuntimeName for IScrollPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IScrollPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IScrollPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn HorizontallyScrollableProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontallyScrollableProperty() {
@@ -2477,20 +2639,23 @@ impl IScrollPatternIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            HorizontallyScrollableProperty::<Impl, OFFSET>,
-            HorizontalScrollPercentProperty::<Impl, OFFSET>,
-            HorizontalViewSizeProperty::<Impl, OFFSET>,
-            NoScroll::<Impl, OFFSET>,
-            VerticallyScrollableProperty::<Impl, OFFSET>,
-            VerticalScrollPercentProperty::<Impl, OFFSET>,
-            VerticalViewSizeProperty::<Impl, OFFSET>,
+            HorizontallyScrollableProperty::<Impl, IMPL_OFFSET>,
+            HorizontalScrollPercentProperty::<Impl, IMPL_OFFSET>,
+            HorizontalViewSizeProperty::<Impl, IMPL_OFFSET>,
+            NoScroll::<Impl, IMPL_OFFSET>,
+            VerticallyScrollableProperty::<Impl, IMPL_OFFSET>,
+            VerticalScrollPercentProperty::<Impl, IMPL_OFFSET>,
+            VerticalViewSizeProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScrollPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2501,8 +2666,11 @@ impl ::windows::core::RuntimeName for ISelectionItemPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectionItemPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemPatternIdentifiersImpl, const OFFSET: isize>() -> ISelectionItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionItemPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectionItemPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2516,7 +2684,7 @@ impl ::windows::core::RuntimeName for ISelectionItemPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectionItemPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ISelectionItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionItemPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn IsSelectedProperty<Impl: ISelectionItemPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelectedProperty() {
@@ -2539,7 +2707,10 @@ impl ISelectionItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, IsSelectedProperty::<Impl, OFFSET>, SelectionContainerProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, IsSelectedProperty::<Impl, IMPL_OFFSET>, SelectionContainerProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectionItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2550,8 +2721,11 @@ impl ::windows::core::RuntimeName for ISelectionPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectionPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionPatternIdentifiersImpl, const OFFSET: isize>() -> ISelectionPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectionPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2566,7 +2740,7 @@ impl ::windows::core::RuntimeName for ISelectionPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectionPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ISelectionPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn CanSelectMultipleProperty<Impl: ISelectionPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSelectMultipleProperty() {
@@ -2600,7 +2774,10 @@ impl ISelectionPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CanSelectMultipleProperty::<Impl, OFFSET>, IsSelectionRequiredProperty::<Impl, OFFSET>, SelectionProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CanSelectMultipleProperty::<Impl, IMPL_OFFSET>, IsSelectionRequiredProperty::<Impl, IMPL_OFFSET>, SelectionProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISelectionPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2611,8 +2788,11 @@ impl ::windows::core::RuntimeName for ISpreadsheetItemPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpreadsheetItemPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemPatternIdentifiersImpl, const OFFSET: isize>() -> ISpreadsheetItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetItemPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpreadsheetItemPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2625,7 +2805,7 @@ impl ::windows::core::RuntimeName for ISpreadsheetItemPatternIdentifiersStatics 
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpreadsheetItemPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ISpreadsheetItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetItemPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn FormulaProperty<Impl: ISpreadsheetItemPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormulaProperty() {
@@ -2637,7 +2817,10 @@ impl ISpreadsheetItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, FormulaProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, FormulaProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpreadsheetItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2648,8 +2831,11 @@ impl ::windows::core::RuntimeName for IStylesPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStylesPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesPatternIdentifiersImpl, const OFFSET: isize>() -> IStylesPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStylesPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStylesPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2668,7 +2854,7 @@ impl ::windows::core::RuntimeName for IStylesPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IStylesPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IStylesPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStylesPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ExtendedPropertiesProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedPropertiesProperty() {
@@ -2747,20 +2933,23 @@ impl IStylesPatternIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            ExtendedPropertiesProperty::<Impl, OFFSET>,
-            FillColorProperty::<Impl, OFFSET>,
-            FillPatternColorProperty::<Impl, OFFSET>,
-            FillPatternStyleProperty::<Impl, OFFSET>,
-            ShapeProperty::<Impl, OFFSET>,
-            StyleIdProperty::<Impl, OFFSET>,
-            StyleNameProperty::<Impl, OFFSET>,
+            ExtendedPropertiesProperty::<Impl, IMPL_OFFSET>,
+            FillColorProperty::<Impl, IMPL_OFFSET>,
+            FillPatternColorProperty::<Impl, IMPL_OFFSET>,
+            FillPatternStyleProperty::<Impl, IMPL_OFFSET>,
+            ShapeProperty::<Impl, IMPL_OFFSET>,
+            StyleIdProperty::<Impl, IMPL_OFFSET>,
+            StyleNameProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStylesPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2771,8 +2960,11 @@ impl ::windows::core::RuntimeName for ITableItemPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITableItemPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemPatternIdentifiersImpl, const OFFSET: isize>() -> ITableItemPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableItemPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableItemPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2786,7 +2978,7 @@ impl ::windows::core::RuntimeName for ITableItemPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITableItemPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ITableItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableItemPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ColumnHeaderItemsProperty<Impl: ITableItemPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnHeaderItemsProperty() {
@@ -2809,7 +3001,10 @@ impl ITableItemPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnHeaderItemsProperty::<Impl, OFFSET>, RowHeaderItemsProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnHeaderItemsProperty::<Impl, IMPL_OFFSET>, RowHeaderItemsProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableItemPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2820,8 +3015,11 @@ impl ::windows::core::RuntimeName for ITablePatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITablePatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITablePatternIdentifiersImpl, const OFFSET: isize>() -> ITablePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITablePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITablePatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITablePatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2836,7 +3034,7 @@ impl ::windows::core::RuntimeName for ITablePatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITablePatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITablePatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ITablePatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITablePatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITablePatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ColumnHeadersProperty<Impl: ITablePatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnHeadersProperty() {
@@ -2870,7 +3068,10 @@ impl ITablePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnHeadersProperty::<Impl, OFFSET>, RowHeadersProperty::<Impl, OFFSET>, RowOrColumnMajorProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ColumnHeadersProperty::<Impl, IMPL_OFFSET>, RowHeadersProperty::<Impl, IMPL_OFFSET>, RowOrColumnMajorProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITablePatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2881,8 +3082,11 @@ impl ::windows::core::RuntimeName for ITogglePatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITogglePatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITogglePatternIdentifiersImpl, const OFFSET: isize>() -> ITogglePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITogglePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITogglePatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITogglePatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2895,7 +3099,7 @@ impl ::windows::core::RuntimeName for ITogglePatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITogglePatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITogglePatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ITogglePatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITogglePatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITogglePatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn ToggleStateProperty<Impl: ITogglePatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleStateProperty() {
@@ -2907,7 +3111,10 @@ impl ITogglePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ToggleStateProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, ToggleStateProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITogglePatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2918,8 +3125,11 @@ impl ::windows::core::RuntimeName for ITransformPattern2Identifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransformPattern2IdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPattern2IdentifiersImpl, const OFFSET: isize>() -> ITransformPattern2IdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPattern2Identifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPattern2IdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformPattern2IdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPattern2Identifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransformPattern2Identifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2935,7 +3145,7 @@ impl ::windows::core::RuntimeName for ITransformPattern2IdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransformPattern2IdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: isize>() -> ITransformPattern2IdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPattern2IdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformPattern2IdentifiersStaticsVtbl {
         unsafe extern "system" fn CanZoomProperty<Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanZoomProperty() {
@@ -2980,7 +3190,10 @@ impl ITransformPattern2IdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPattern2IdentifiersStatics>, ::windows::core::GetTrustLevel, CanZoomProperty::<Impl, OFFSET>, ZoomLevelProperty::<Impl, OFFSET>, MaxZoomProperty::<Impl, OFFSET>, MinZoomProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPattern2IdentifiersStatics>, ::windows::core::GetTrustLevel, CanZoomProperty::<Impl, IMPL_OFFSET>, ZoomLevelProperty::<Impl, IMPL_OFFSET>, MaxZoomProperty::<Impl, IMPL_OFFSET>, MinZoomProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransformPattern2IdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2991,8 +3204,11 @@ impl ::windows::core::RuntimeName for ITransformPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransformPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPatternIdentifiersImpl, const OFFSET: isize>() -> ITransformPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransformPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3007,7 +3223,7 @@ impl ::windows::core::RuntimeName for ITransformPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITransformPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> ITransformPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn CanMoveProperty<Impl: ITransformPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMoveProperty() {
@@ -3041,7 +3257,10 @@ impl ITransformPatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CanMoveProperty::<Impl, OFFSET>, CanResizeProperty::<Impl, OFFSET>, CanRotateProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiersStatics>, ::windows::core::GetTrustLevel, CanMoveProperty::<Impl, IMPL_OFFSET>, CanResizeProperty::<Impl, IMPL_OFFSET>, CanRotateProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransformPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3052,8 +3271,11 @@ impl ::windows::core::RuntimeName for IValuePatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IValuePatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValuePatternIdentifiersImpl, const OFFSET: isize>() -> IValuePatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValuePatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValuePatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IValuePatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3067,7 +3289,7 @@ impl ::windows::core::RuntimeName for IValuePatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IValuePatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValuePatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IValuePatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValuePatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValuePatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn IsReadOnlyProperty<Impl: IValuePatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnlyProperty() {
@@ -3090,7 +3312,10 @@ impl IValuePatternIdentifiersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, IsReadOnlyProperty::<Impl, OFFSET>, ValueProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiersStatics>, ::windows::core::GetTrustLevel, IsReadOnlyProperty::<Impl, IMPL_OFFSET>, ValueProperty::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IValuePatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3101,8 +3326,11 @@ impl ::windows::core::RuntimeName for IWindowPatternIdentifiers {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowPatternIdentifiersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowPatternIdentifiersImpl, const OFFSET: isize>() -> IWindowPatternIdentifiersVtbl {
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowPatternIdentifiersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowPatternIdentifiersVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiers>, ::windows::core::GetTrustLevel)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowPatternIdentifiers as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3120,7 +3348,7 @@ impl ::windows::core::RuntimeName for IWindowPatternIdentifiersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowPatternIdentifiersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: isize>() -> IWindowPatternIdentifiersStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowPatternIdentifiersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowPatternIdentifiersStaticsVtbl {
         unsafe extern "system" fn CanMaximizeProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMaximizeProperty() {
@@ -3188,18 +3416,21 @@ impl IWindowPatternIdentifiersStaticsVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiersStatics>,
             ::windows::core::GetTrustLevel,
-            CanMaximizeProperty::<Impl, OFFSET>,
-            CanMinimizeProperty::<Impl, OFFSET>,
-            IsModalProperty::<Impl, OFFSET>,
-            IsTopmostProperty::<Impl, OFFSET>,
-            WindowInteractionStateProperty::<Impl, OFFSET>,
-            WindowVisualStateProperty::<Impl, OFFSET>,
+            CanMaximizeProperty::<Impl, IMPL_OFFSET>,
+            CanMinimizeProperty::<Impl, IMPL_OFFSET>,
+            IsModalProperty::<Impl, IMPL_OFFSET>,
+            IsTopmostProperty::<Impl, IMPL_OFFSET>,
+            WindowInteractionStateProperty::<Impl, IMPL_OFFSET>,
+            WindowVisualStateProperty::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowPatternIdentifiersStatics as ::windows::core::Interface>::IID
     }
 }

@@ -1,3 +1,4 @@
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IGameListEntryImpl: Sized {
     fn DisplayInfo(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
     fn LaunchAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
@@ -5,11 +6,13 @@ pub trait IGameListEntryImpl: Sized {
     fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
     fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IGameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
 }
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
 impl IGameListEntryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListEntryImpl, const OFFSET: isize>() -> IGameListEntryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListEntryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameListEntryVtbl {
         unsafe extern "system" fn DisplayInfo<Impl: IGameListEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayInfo() {
@@ -65,10 +68,13 @@ impl IGameListEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameListEntry>, ::windows::core::GetTrustLevel, DisplayInfo::<Impl, OFFSET>, LaunchAsync::<Impl, OFFSET>, Category::<Impl, OFFSET>, Properties::<Impl, OFFSET>, SetCategoryAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameListEntry>, ::windows::core::GetTrustLevel, DisplayInfo::<Impl, IMPL_OFFSET>, LaunchAsync::<Impl, IMPL_OFFSET>, Category::<Impl, IMPL_OFFSET>, Properties::<Impl, IMPL_OFFSET>, SetCategoryAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameListEntry as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IGameListEntry2Impl: Sized + IGameListEntryImpl {
     fn LaunchableState(&self) -> ::windows::core::Result<GameListEntryLaunchableState>;
     fn LauncherExecutable(&self) -> ::windows::core::Result<super::super::super::Storage::IStorageFile>;
@@ -79,13 +85,13 @@ pub trait IGameListEntry2Impl: Sized + IGameListEntryImpl {
     fn SetTitleIdAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn GameModeConfiguration(&self) -> ::windows::core::Result<GameModeConfiguration>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameListEntry2 {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl IGameListEntry2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListEntry2Impl, const OFFSET: isize>() -> IGameListEntry2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListEntry2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameListEntry2Vtbl {
         unsafe extern "system" fn LaunchableState<Impl: IGameListEntry2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameListEntryLaunchableState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchableState() {
@@ -175,24 +181,27 @@ impl IGameListEntry2Vtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGameListEntry2>,
             ::windows::core::GetTrustLevel,
-            LaunchableState::<Impl, OFFSET>,
-            LauncherExecutable::<Impl, OFFSET>,
-            LaunchParameters::<Impl, OFFSET>,
-            SetLauncherExecutableFileAsync::<Impl, OFFSET>,
-            SetLauncherExecutableFileWithParamsAsync::<Impl, OFFSET>,
-            TitleId::<Impl, OFFSET>,
-            SetTitleIdAsync::<Impl, OFFSET>,
-            GameModeConfiguration::<Impl, OFFSET>,
+            LaunchableState::<Impl, IMPL_OFFSET>,
+            LauncherExecutable::<Impl, IMPL_OFFSET>,
+            LaunchParameters::<Impl, IMPL_OFFSET>,
+            SetLauncherExecutableFileAsync::<Impl, IMPL_OFFSET>,
+            SetLauncherExecutableFileWithParamsAsync::<Impl, IMPL_OFFSET>,
+            TitleId::<Impl, IMPL_OFFSET>,
+            SetTitleIdAsync::<Impl, IMPL_OFFSET>,
+            GameModeConfiguration::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameListEntry2 as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGameListStaticsImpl: Sized {
     fn FindAllAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>;
     fn FindAllAsyncPackageFamilyName(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>;
@@ -203,13 +212,13 @@ pub trait IGameListStaticsImpl: Sized {
     fn GameUpdated(&self, handler: &::core::option::Option<GameListChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveGameUpdated(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameListStatics {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListStatics";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGameListStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListStaticsImpl, const OFFSET: isize>() -> IGameListStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameListStaticsVtbl {
         unsafe extern "system" fn FindAllAsync<Impl: IGameListStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsync() {
@@ -278,35 +287,38 @@ impl IGameListStaticsVtbl {
             (*this).RemoveGameUpdated(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGameListStatics>,
             ::windows::core::GetTrustLevel,
-            FindAllAsync::<Impl, OFFSET>,
-            FindAllAsyncPackageFamilyName::<Impl, OFFSET>,
-            GameAdded::<Impl, OFFSET>,
-            RemoveGameAdded::<Impl, OFFSET>,
-            GameRemoved::<Impl, OFFSET>,
-            RemoveGameRemoved::<Impl, OFFSET>,
-            GameUpdated::<Impl, OFFSET>,
-            RemoveGameUpdated::<Impl, OFFSET>,
+            FindAllAsync::<Impl, IMPL_OFFSET>,
+            FindAllAsyncPackageFamilyName::<Impl, IMPL_OFFSET>,
+            GameAdded::<Impl, IMPL_OFFSET>,
+            RemoveGameAdded::<Impl, IMPL_OFFSET>,
+            GameRemoved::<Impl, IMPL_OFFSET>,
+            RemoveGameRemoved::<Impl, IMPL_OFFSET>,
+            GameUpdated::<Impl, IMPL_OFFSET>,
+            RemoveGameUpdated::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameListStatics as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameListStatics2Impl: Sized {
     fn MergeEntriesAsync(&self, left: &::core::option::Option<GameListEntry>, right: &::core::option::Option<GameListEntry>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>>;
     fn UnmergeEntryAsync(&self, mergedentry: &::core::option::Option<GameListEntry>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameListStatics2 {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListStatics2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IGameListStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListStatics2Impl, const OFFSET: isize>() -> IGameListStatics2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameListStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameListStatics2Vtbl {
         unsafe extern "system" fn MergeEntriesAsync<Impl: IGameListStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: ::windows::core::RawPtr, right: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MergeEntriesAsync(&*(&left as *const <GameListEntry as ::windows::core::Abi>::Abi as *const <GameListEntry as ::windows::core::DefaultType>::DefaultType), &*(&right as *const <GameListEntry as ::windows::core::Abi>::Abi as *const <GameListEntry as ::windows::core::DefaultType>::DefaultType)) {
@@ -329,10 +341,13 @@ impl IGameListStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameListStatics2>, ::windows::core::GetTrustLevel, MergeEntriesAsync::<Impl, OFFSET>, UnmergeEntryAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameListStatics2>, ::windows::core::GetTrustLevel, MergeEntriesAsync::<Impl, IMPL_OFFSET>, UnmergeEntryAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameListStatics2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGameModeConfigurationImpl: Sized {
     fn IsEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
@@ -353,13 +368,13 @@ pub trait IGameModeConfigurationImpl: Sized {
     fn SetAffinitizeToExclusiveCpus(&self, value: bool) -> ::windows::core::Result<()>;
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGameModeConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameModeConfigurationImpl, const OFFSET: isize>() -> IGameModeConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameModeConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameModeConfigurationVtbl {
         unsafe extern "system" fn IsEnabled<Impl: IGameModeConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
@@ -503,45 +518,48 @@ impl IGameModeConfigurationVtbl {
             }
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IGameModeConfiguration>,
             ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, OFFSET>,
-            SetIsEnabled::<Impl, OFFSET>,
-            RelatedProcessNames::<Impl, OFFSET>,
-            PercentGpuTimeAllocatedToGame::<Impl, OFFSET>,
-            SetPercentGpuTimeAllocatedToGame::<Impl, OFFSET>,
-            PercentGpuMemoryAllocatedToGame::<Impl, OFFSET>,
-            SetPercentGpuMemoryAllocatedToGame::<Impl, OFFSET>,
-            PercentGpuMemoryAllocatedToSystemCompositor::<Impl, OFFSET>,
-            SetPercentGpuMemoryAllocatedToSystemCompositor::<Impl, OFFSET>,
-            MaxCpuCount::<Impl, OFFSET>,
-            SetMaxCpuCount::<Impl, OFFSET>,
-            CpuExclusivityMaskLow::<Impl, OFFSET>,
-            SetCpuExclusivityMaskLow::<Impl, OFFSET>,
-            CpuExclusivityMaskHigh::<Impl, OFFSET>,
-            SetCpuExclusivityMaskHigh::<Impl, OFFSET>,
-            AffinitizeToExclusiveCpus::<Impl, OFFSET>,
-            SetAffinitizeToExclusiveCpus::<Impl, OFFSET>,
-            SaveAsync::<Impl, OFFSET>,
+            IsEnabled::<Impl, IMPL_OFFSET>,
+            SetIsEnabled::<Impl, IMPL_OFFSET>,
+            RelatedProcessNames::<Impl, IMPL_OFFSET>,
+            PercentGpuTimeAllocatedToGame::<Impl, IMPL_OFFSET>,
+            SetPercentGpuTimeAllocatedToGame::<Impl, IMPL_OFFSET>,
+            PercentGpuMemoryAllocatedToGame::<Impl, IMPL_OFFSET>,
+            SetPercentGpuMemoryAllocatedToGame::<Impl, IMPL_OFFSET>,
+            PercentGpuMemoryAllocatedToSystemCompositor::<Impl, IMPL_OFFSET>,
+            SetPercentGpuMemoryAllocatedToSystemCompositor::<Impl, IMPL_OFFSET>,
+            MaxCpuCount::<Impl, IMPL_OFFSET>,
+            SetMaxCpuCount::<Impl, IMPL_OFFSET>,
+            CpuExclusivityMaskLow::<Impl, IMPL_OFFSET>,
+            SetCpuExclusivityMaskLow::<Impl, IMPL_OFFSET>,
+            CpuExclusivityMaskHigh::<Impl, IMPL_OFFSET>,
+            SetCpuExclusivityMaskHigh::<Impl, IMPL_OFFSET>,
+            AffinitizeToExclusiveCpus::<Impl, IMPL_OFFSET>,
+            SetAffinitizeToExclusiveCpus::<Impl, IMPL_OFFSET>,
+            SaveAsync::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameModeConfiguration as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGameModeUserConfigurationImpl: Sized {
     fn GamingRelatedProcessNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn SaveAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl IGameModeUserConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameModeUserConfigurationImpl, const OFFSET: isize>() -> IGameModeUserConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameModeUserConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameModeUserConfigurationVtbl {
         unsafe extern "system" fn GamingRelatedProcessNames<Impl: IGameModeUserConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GamingRelatedProcessNames() {
@@ -564,7 +582,10 @@ impl IGameModeUserConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameModeUserConfiguration>, ::windows::core::GetTrustLevel, GamingRelatedProcessNames::<Impl, OFFSET>, SaveAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameModeUserConfiguration>, ::windows::core::GetTrustLevel, GamingRelatedProcessNames::<Impl, IMPL_OFFSET>, SaveAsync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameModeUserConfiguration as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -577,7 +598,7 @@ impl ::windows::core::RuntimeName for IGameModeUserConfigurationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGameModeUserConfigurationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameModeUserConfigurationStaticsImpl, const OFFSET: isize>() -> IGameModeUserConfigurationStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameModeUserConfigurationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameModeUserConfigurationStaticsVtbl {
         unsafe extern "system" fn GetDefault<Impl: IGameModeUserConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
@@ -589,6 +610,9 @@ impl IGameModeUserConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameModeUserConfigurationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameModeUserConfigurationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGameModeUserConfigurationStatics as ::windows::core::Interface>::IID
     }
 }

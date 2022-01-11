@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for INotePlacementChangedPreviewEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INotePlacementChangedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotePlacementChangedPreviewEventArgsImpl, const OFFSET: isize>() -> INotePlacementChangedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotePlacementChangedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotePlacementChangedPreviewEventArgsVtbl {
         unsafe extern "system" fn ViewId<Impl: INotePlacementChangedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewId() {
@@ -20,7 +20,10 @@ impl INotePlacementChangedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotePlacementChangedPreviewEventArgs>, ::windows::core::GetTrustLevel, ViewId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotePlacementChangedPreviewEventArgs>, ::windows::core::GetTrustLevel, ViewId::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotePlacementChangedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -34,7 +37,7 @@ impl ::windows::core::RuntimeName for INoteVisibilityChangedPreviewEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INoteVisibilityChangedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INoteVisibilityChangedPreviewEventArgsImpl, const OFFSET: isize>() -> INoteVisibilityChangedPreviewEventArgsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INoteVisibilityChangedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INoteVisibilityChangedPreviewEventArgsVtbl {
         unsafe extern "system" fn ViewId<Impl: INoteVisibilityChangedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewId() {
@@ -57,10 +60,13 @@ impl INoteVisibilityChangedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INoteVisibilityChangedPreviewEventArgs>, ::windows::core::GetTrustLevel, ViewId::<Impl, OFFSET>, IsVisible::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INoteVisibilityChangedPreviewEventArgs>, ::windows::core::GetTrustLevel, ViewId::<Impl, IMPL_OFFSET>, IsVisible::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INoteVisibilityChangedPreviewEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait INotesWindowManagerPreviewImpl: Sized {
     fn IsScreenLocked(&self) -> ::windows::core::Result<bool>;
     fn ShowNote(&self, noteviewid: i32) -> ::windows::core::Result<()>;
@@ -78,13 +84,13 @@ pub trait INotesWindowManagerPreviewImpl: Sized {
     fn NoteVisibilityChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveNoteVisibilityChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl INotesWindowManagerPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreviewImpl, const OFFSET: isize>() -> INotesWindowManagerPreviewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotesWindowManagerPreviewVtbl {
         unsafe extern "system" fn IsScreenLocked<Impl: INotesWindowManagerPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScreenLocked() {
@@ -195,44 +201,47 @@ impl INotesWindowManagerPreviewVtbl {
             (*this).RemoveNoteVisibilityChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            ::windows::core::QueryInterface::<Identity, OFFSET>,
-            ::windows::core::AddRef::<Identity, OFFSET>,
-            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
             ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreview>,
             ::windows::core::GetTrustLevel,
-            IsScreenLocked::<Impl, OFFSET>,
-            ShowNote::<Impl, OFFSET>,
-            ShowNoteRelativeTo::<Impl, OFFSET>,
-            ShowNoteWithPlacement::<Impl, OFFSET>,
-            HideNote::<Impl, OFFSET>,
-            GetNotePlacement::<Impl, OFFSET>,
-            TrySetNoteSize::<Impl, OFFSET>,
-            SetFocusToNextView::<Impl, OFFSET>,
-            SetNotesThumbnailAsync::<Impl, OFFSET>,
-            SystemLockStateChanged::<Impl, OFFSET>,
-            RemoveSystemLockStateChanged::<Impl, OFFSET>,
-            NotePlacementChanged::<Impl, OFFSET>,
-            RemoveNotePlacementChanged::<Impl, OFFSET>,
-            NoteVisibilityChanged::<Impl, OFFSET>,
-            RemoveNoteVisibilityChanged::<Impl, OFFSET>,
+            IsScreenLocked::<Impl, IMPL_OFFSET>,
+            ShowNote::<Impl, IMPL_OFFSET>,
+            ShowNoteRelativeTo::<Impl, IMPL_OFFSET>,
+            ShowNoteWithPlacement::<Impl, IMPL_OFFSET>,
+            HideNote::<Impl, IMPL_OFFSET>,
+            GetNotePlacement::<Impl, IMPL_OFFSET>,
+            TrySetNoteSize::<Impl, IMPL_OFFSET>,
+            SetFocusToNextView::<Impl, IMPL_OFFSET>,
+            SetNotesThumbnailAsync::<Impl, IMPL_OFFSET>,
+            SystemLockStateChanged::<Impl, IMPL_OFFSET>,
+            RemoveSystemLockStateChanged::<Impl, IMPL_OFFSET>,
+            NotePlacementChanged::<Impl, IMPL_OFFSET>,
+            RemoveNotePlacementChanged::<Impl, IMPL_OFFSET>,
+            NoteVisibilityChanged::<Impl, IMPL_OFFSET>,
+            RemoveNoteVisibilityChanged::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotesWindowManagerPreview as ::windows::core::Interface>::IID
+    }
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait INotesWindowManagerPreview2Impl: Sized {
     fn ShowNoteRelativeToWithOptions(&self, noteviewid: i32, anchornoteviewid: i32, options: &::core::option::Option<NotesWindowManagerPreviewShowNoteOptions>) -> ::windows::core::Result<()>;
     fn ShowNoteWithPlacementWithOptions(&self, noteviewid: i32, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, options: &::core::option::Option<NotesWindowManagerPreviewShowNoteOptions>) -> ::windows::core::Result<()>;
     fn SetFocusToPreviousView(&self) -> ::windows::core::Result<()>;
     fn SetThumbnailImageForTaskSwitcherAsync(&self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotesWindowManagerPreview2 {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview2";
 }
-#[cfg(feature = "implement_exclusive")]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl INotesWindowManagerPreview2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreview2Impl, const OFFSET: isize>() -> INotesWindowManagerPreview2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreview2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotesWindowManagerPreview2Vtbl {
         unsafe extern "system" fn ShowNoteRelativeToWithOptions<Impl: INotesWindowManagerPreview2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, noteviewid: i32, anchornoteviewid: i32, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowNoteRelativeToWithOptions(noteviewid, anchornoteviewid, &*(&options as *const <NotesWindowManagerPreviewShowNoteOptions as ::windows::core::Abi>::Abi as *const <NotesWindowManagerPreviewShowNoteOptions as ::windows::core::DefaultType>::DefaultType)).into()
@@ -256,7 +265,21 @@ impl INotesWindowManagerPreview2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreview2>, ::windows::core::GetTrustLevel, ShowNoteRelativeToWithOptions::<Impl, OFFSET>, ShowNoteWithPlacementWithOptions::<Impl, OFFSET>, SetFocusToPreviousView::<Impl, OFFSET>, SetThumbnailImageForTaskSwitcherAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreview2>,
+            ::windows::core::GetTrustLevel,
+            ShowNoteRelativeToWithOptions::<Impl, IMPL_OFFSET>,
+            ShowNoteWithPlacementWithOptions::<Impl, IMPL_OFFSET>,
+            SetFocusToPreviousView::<Impl, IMPL_OFFSET>,
+            SetThumbnailImageForTaskSwitcherAsync::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotesWindowManagerPreview2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -270,7 +293,7 @@ impl ::windows::core::RuntimeName for INotesWindowManagerPreviewShowNoteOptions 
 }
 #[cfg(feature = "implement_exclusive")]
 impl INotesWindowManagerPreviewShowNoteOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreviewShowNoteOptionsImpl, const OFFSET: isize>() -> INotesWindowManagerPreviewShowNoteOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreviewShowNoteOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotesWindowManagerPreviewShowNoteOptionsVtbl {
         unsafe extern "system" fn ShowWithFocus<Impl: INotesWindowManagerPreviewShowNoteOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowWithFocus() {
@@ -286,7 +309,10 @@ impl INotesWindowManagerPreviewShowNoteOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowWithFocus(value).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreviewShowNoteOptions>, ::windows::core::GetTrustLevel, ShowWithFocus::<Impl, OFFSET>, SetShowWithFocus::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreviewShowNoteOptions>, ::windows::core::GetTrustLevel, ShowWithFocus::<Impl, IMPL_OFFSET>, SetShowWithFocus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotesWindowManagerPreviewShowNoteOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -299,7 +325,7 @@ impl ::windows::core::RuntimeName for INotesWindowManagerPreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INotesWindowManagerPreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreviewStaticsImpl, const OFFSET: isize>() -> INotesWindowManagerPreviewStaticsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotesWindowManagerPreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INotesWindowManagerPreviewStaticsVtbl {
         unsafe extern "system" fn GetForCurrentApp<Impl: INotesWindowManagerPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentApp() {
@@ -311,6 +337,9 @@ impl INotesWindowManagerPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INotesWindowManagerPreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentApp::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INotesWindowManagerPreviewStatics as ::windows::core::Interface>::IID
     }
 }

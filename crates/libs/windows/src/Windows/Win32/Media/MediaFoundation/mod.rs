@@ -7012,12 +7012,12 @@ pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicem
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdd: Param0, riid: &::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdd: Param0, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DXVA2CreateVideoService(pdd: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn DXVA2CreateVideoService(pdd: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         DXVA2CreateVideoService(pdd.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
     }
@@ -11567,46 +11567,46 @@ pub struct IClusterDetectorVtbl(
 pub struct ICodecAPI(::windows::core::IUnknown);
 impl ICodecAPI {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn IsSupported(&self, api: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn IsSupported(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(api)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn IsModifiable(&self, api: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn IsModifiable(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(api)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParameterRange(&self, api: &::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetParameterRange(&self, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(valuemin), ::core::mem::transmute(valuemax), ::core::mem::transmute(steppingdelta)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParameterValues(&self, api: &::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetParameterValues(&self, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(values), ::core::mem::transmute(valuescount)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDefaultValue(&self, api: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetDefaultValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue(&self, api: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue(&self, api: &::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetValue(&self, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn RegisterForEvent(&self, api: &::windows::core::GUID, userdata: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterForEvent(&self, api: *const ::windows::core::GUID, userdata: isize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(userdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn UnregisterForEvent(&self, api: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn UnregisterForEvent(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(api)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -11615,7 +11615,7 @@ impl ICodecAPI {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValueWithNotify(&self, api: &::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetValueWithNotify(&self, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(api), ::core::mem::transmute(value), ::core::mem::transmute(changedparam), ::core::mem::transmute(changedparamcount)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -11684,22 +11684,22 @@ pub struct ICodecAPIVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, userdata: isize) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, userdata: isize) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: &::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__icodecapi0000: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11715,17 +11715,17 @@ pub struct ID3D12VideoDecodeCommandList(::windows::core::IUnknown);
 impl ID3D12VideoDecodeCommandList {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -11927,15 +11927,15 @@ pub struct ID3D12VideoDecodeCommandListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -11969,17 +11969,17 @@ pub struct ID3D12VideoDecodeCommandList1(::windows::core::IUnknown);
 impl ID3D12VideoDecodeCommandList1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -12206,15 +12206,15 @@ pub struct ID3D12VideoDecodeCommandList1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -12250,17 +12250,17 @@ pub struct ID3D12VideoDecodeCommandList2(::windows::core::IUnknown);
 impl ID3D12VideoDecodeCommandList2 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -12520,15 +12520,15 @@ pub struct ID3D12VideoDecodeCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -12568,17 +12568,17 @@ pub struct ID3D12VideoDecoder(::windows::core::IUnknown);
 impl ID3D12VideoDecoder {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -12716,15 +12716,15 @@ pub struct ID3D12VideoDecoderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
 );
@@ -12734,17 +12734,17 @@ pub struct ID3D12VideoDecoder1(::windows::core::IUnknown);
 impl ID3D12VideoDecoder1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -12906,18 +12906,18 @@ pub struct ID3D12VideoDecoder1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -12925,17 +12925,17 @@ pub struct ID3D12VideoDecoderHeap(::windows::core::IUnknown);
 impl ID3D12VideoDecoderHeap {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -13074,15 +13074,15 @@ pub struct ID3D12VideoDecoderHeapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
@@ -13093,17 +13093,17 @@ pub struct ID3D12VideoDecoderHeap1(::windows::core::IUnknown);
 impl ID3D12VideoDecoderHeap1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -13266,19 +13266,19 @@ pub struct ID3D12VideoDecoderHeap1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -13353,10 +13353,10 @@ pub struct ID3D12VideoDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: &::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: &::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: &::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -13464,14 +13464,14 @@ pub struct ID3D12VideoDevice1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: &::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: &::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: &::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -13627,22 +13627,22 @@ pub struct ID3D12VideoDevice2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: &::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: &::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: &::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::HRESULT,
 );
@@ -13830,27 +13830,27 @@ pub struct ID3D12VideoDevice3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: &::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: &::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: &::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: &::windows::core::GUID, ppvideoencoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const ::windows::core::GUID, ppvideoencoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: &::windows::core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -13858,17 +13858,17 @@ pub struct ID3D12VideoEncodeCommandList(::windows::core::IUnknown);
 impl ID3D12VideoEncodeCommandList {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -14080,15 +14080,15 @@ pub struct ID3D12VideoEncodeCommandListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -14126,17 +14126,17 @@ pub struct ID3D12VideoEncodeCommandList1(::windows::core::IUnknown);
 impl ID3D12VideoEncodeCommandList1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -14376,15 +14376,15 @@ pub struct ID3D12VideoEncodeCommandList1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -14424,17 +14424,17 @@ pub struct ID3D12VideoEncodeCommandList2(::windows::core::IUnknown);
 impl ID3D12VideoEncodeCommandList2 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -14704,15 +14704,15 @@ pub struct ID3D12VideoEncodeCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -14756,17 +14756,17 @@ pub struct ID3D12VideoEncoder(::windows::core::IUnknown);
 impl ID3D12VideoEncoder {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -14927,15 +14927,15 @@ pub struct ID3D12VideoEncoderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_FLAGS,
@@ -14952,17 +14952,17 @@ pub struct ID3D12VideoEncoderHeap(::windows::core::IUnknown);
 impl ID3D12VideoEncoderHeap {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -15122,15 +15122,15 @@ pub struct ID3D12VideoEncoderHeapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS,
@@ -15146,17 +15146,17 @@ pub struct ID3D12VideoExtensionCommand(::windows::core::IUnknown);
 impl ID3D12VideoExtensionCommand {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -15298,18 +15298,18 @@ pub struct ID3D12VideoExtensionCommandVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -15317,17 +15317,17 @@ pub struct ID3D12VideoMotionEstimator(::windows::core::IUnknown);
 impl ID3D12VideoMotionEstimator {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -15470,19 +15470,19 @@ pub struct ID3D12VideoMotionEstimatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -15490,17 +15490,17 @@ pub struct ID3D12VideoMotionVectorHeap(::windows::core::IUnknown);
 impl ID3D12VideoMotionVectorHeap {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -15643,19 +15643,19 @@ pub struct ID3D12VideoMotionVectorHeapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -15663,17 +15663,17 @@ pub struct ID3D12VideoProcessCommandList(::windows::core::IUnknown);
 impl ID3D12VideoProcessCommandList {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -15875,15 +15875,15 @@ pub struct ID3D12VideoProcessCommandListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -15917,17 +15917,17 @@ pub struct ID3D12VideoProcessCommandList1(::windows::core::IUnknown);
 impl ID3D12VideoProcessCommandList1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -16154,15 +16154,15 @@ pub struct ID3D12VideoProcessCommandList1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -16198,17 +16198,17 @@ pub struct ID3D12VideoProcessCommandList2(::windows::core::IUnknown);
 impl ID3D12VideoProcessCommandList2 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -16468,15 +16468,15 @@ pub struct ID3D12VideoProcessCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -16516,17 +16516,17 @@ pub struct ID3D12VideoProcessor(::windows::core::IUnknown);
 impl ID3D12VideoProcessor {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -16678,15 +16678,15 @@ pub struct ID3D12VideoProcessorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -16701,17 +16701,17 @@ pub struct ID3D12VideoProcessor1(::windows::core::IUnknown);
 impl ID3D12VideoProcessor1 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
@@ -16887,15 +16887,15 @@ pub struct ID3D12VideoProcessor1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -16903,7 +16903,7 @@ pub struct ID3D12VideoProcessor1Vtbl(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -16936,7 +16936,7 @@ impl IDXVAHD_Device {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVideoProcessorCustomRates(&self, pvpguid: &::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVideoProcessorCustomRates(&self, pvpguid: *const ::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvpguid), ::core::mem::transmute(count), ::core::mem::transmute(prates)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -16945,7 +16945,7 @@ impl IDXVAHD_Device {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(filter), ::core::mem::transmute(&mut result__)).from_abi::<DXVAHD_FILTER_RANGE_DATA>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn CreateVideoProcessor(&self, pvpguid: &::windows::core::GUID) -> ::windows::core::Result<IDXVAHD_VideoProcessor> {
+    pub unsafe fn CreateVideoProcessor(&self, pvpguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDXVAHD_VideoProcessor> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvpguid), ::core::mem::transmute(&mut result__)).from_abi::<IDXVAHD_VideoProcessor>(result__)
     }
@@ -17005,10 +17005,10 @@ pub struct IDXVAHD_DeviceVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pcaps: *mut DXVAHD_VPCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvpguid: &::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvpguid: *const ::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: DXVAHD_FILTER, prange: *mut DXVAHD_FILTER_RANGE_DATA) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvpguid: &::windows::core::GUID, ppvideoprocessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvpguid: *const ::windows::core::GUID, ppvideoprocessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -17335,7 +17335,7 @@ pub struct IDirect3DCryptoSession9Vtbl(
 pub struct IDirect3DDevice9Video(::windows::core::IUnknown);
 impl IDirect3DDevice9Video {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetContentProtectionCaps(&self, pcryptotype: &::windows::core::GUID, pdecodeprofile: &::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::Result<()> {
+    pub unsafe fn GetContentProtectionCaps(&self, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecodeprofile), ::core::mem::transmute(pcaps)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
@@ -17345,7 +17345,7 @@ impl IDirect3DDevice9Video {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateCryptoSession(&self, pcryptotype: &::windows::core::GUID, pdecodeprofile: &::windows::core::GUID, ppcryptosession: *mut ::core::option::Option<IDirect3DCryptoSession9>, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, ppcryptosession: *mut ::core::option::Option<IDirect3DCryptoSession9>, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecodeprofile), ::core::mem::transmute(ppcryptosession), ::core::mem::transmute(pcryptohandle)).ok()
     }
 }
@@ -17395,10 +17395,10 @@ pub struct IDirect3DDevice9VideoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: &::windows::core::GUID, pdecodeprofile: &::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channeltype: super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut ::windows::core::RawPtr, pchannelhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: &::windows::core::GUID, pdecodeprofile: &::windows::core::GUID, ppcryptosession: *mut ::windows::core::RawPtr, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, ppcryptosession: *mut ::windows::core::RawPtr, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -17438,7 +17438,7 @@ impl IDirect3DDeviceManager9 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hdevice: Param0, riid: &::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hdevice: Param0, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
     }
 }
@@ -17500,7 +17500,7 @@ pub struct IDirect3DDeviceManager9Vtbl(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, fsavestate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -17671,17 +17671,17 @@ impl IDirectXVideoDecoderService {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetDecoderRenderTargets(&self, guid: &::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDecoderRenderTargets(&self, guid: *const ::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pcount), ::core::mem::transmute(pformats)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetDecoderConfigurations(&self, guid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(preserved), ::core::mem::transmute(pcount), ::core::mem::transmute(ppconfigs)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn CreateVideoDecoder(&self, guid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, numrendertargets: u32) -> ::windows::core::Result<IDirectXVideoDecoder> {
+    pub unsafe fn CreateVideoDecoder(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, numrendertargets: u32) -> ::windows::core::Result<IDirectXVideoDecoder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pconfig), ::core::mem::transmute(ppdecoderrendertargets), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(&mut result__)).from_abi::<IDirectXVideoDecoder>(result__)
     }
@@ -17755,11 +17755,11 @@ pub struct IDirectXVideoDecoderServiceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::windows::core::RawPtr, numrendertargets: u32, ppdecode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::windows::core::RawPtr, numrendertargets: u32, ppdecode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -17937,35 +17937,35 @@ impl IDirectXVideoProcessorService {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorRenderTargets(&self, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVideoProcessorRenderTargets(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pcount), ::core::mem::transmute(pformats)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorSubStreamFormats(&self, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVideoProcessorSubStreamFormats(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(rendertargetformat), ::core::mem::transmute(pcount), ::core::mem::transmute(pformats)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorCaps(&self, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
+    pub unsafe fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
         let mut result__: DXVA2_VideoProcessorCaps = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(rendertargetformat), ::core::mem::transmute(&mut result__)).from_abi::<DXVA2_VideoProcessorCaps>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetProcAmpRange(&self, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
+    pub unsafe fn GetProcAmpRange(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__: DXVA2_ValueRange = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(rendertargetformat), ::core::mem::transmute(procampcap), ::core::mem::transmute(&mut result__)).from_abi::<DXVA2_ValueRange>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetFilterPropertyRange(&self, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
+    pub unsafe fn GetFilterPropertyRange(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__: DXVA2_ValueRange = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(rendertargetformat), ::core::mem::transmute(filtersetting), ::core::mem::transmute(&mut result__)).from_abi::<DXVA2_ValueRange>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn CreateVideoProcessor(&self, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32) -> ::windows::core::Result<IDirectXVideoProcessor> {
+    pub unsafe fn CreateVideoProcessor(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32) -> ::windows::core::Result<IDirectXVideoProcessor> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(rendertargetformat), ::core::mem::transmute(maxnumsubstreams), ::core::mem::transmute(&mut result__)).from_abi::<IDirectXVideoProcessor>(result__)
     }
@@ -18041,17 +18041,17 @@ pub struct IDirectXVideoProcessorServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbacks: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32, prange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32, prange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32, prange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32, prange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: &::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32, ppvidprocess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32, ppvidprocess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -19072,7 +19072,7 @@ impl IMFASFMutualExclusion {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetType(&self, guidtype: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetType(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidtype)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -19154,7 +19154,7 @@ pub struct IMFASFMutualExclusionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrecordcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordnumber: u32, pwstreamnumarray: *mut u16, pcstreams: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordnumber: u32, wstreamnumber: u16) -> ::windows::core::HRESULT,
@@ -19169,17 +19169,17 @@ pub struct IMFASFProfile(::windows::core::IUnknown);
 impl IMFASFProfile {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -19190,65 +19190,65 @@ impl IMFASFProfile {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -19256,32 +19256,32 @@ impl IMFASFProfile {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -19446,38 +19446,38 @@ pub struct IMFASFProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -19606,17 +19606,17 @@ pub struct IMFASFStreamConfig(::windows::core::IUnknown);
 impl IMFASFStreamConfig {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -19627,65 +19627,65 @@ impl IMFASFStreamConfig {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -19693,32 +19693,32 @@ impl IMFASFStreamConfig {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -19854,38 +19854,38 @@ pub struct IMFASFStreamConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -20120,17 +20120,17 @@ pub struct IMFActivate(::windows::core::IUnknown);
 impl IMFActivate {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -20141,65 +20141,65 @@ impl IMFActivate {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -20207,32 +20207,32 @@ impl IMFActivate {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -20337,45 +20337,45 @@ pub struct IMFActivateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -20618,17 +20618,17 @@ pub struct IMFAttributes(::windows::core::IUnknown);
 impl IMFAttributes {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -20639,65 +20639,65 @@ impl IMFAttributes {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -20705,32 +20705,32 @@ impl IMFAttributes {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -20802,38 +20802,38 @@ pub struct IMFAttributesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -20847,17 +20847,17 @@ pub struct IMFAudioMediaType(::windows::core::IUnknown);
 impl IMFAudioMediaType {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -20868,65 +20868,65 @@ impl IMFAudioMediaType {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -20934,32 +20934,32 @@ impl IMFAudioMediaType {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -21100,38 +21100,38 @@ pub struct IMFAudioMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -21152,7 +21152,7 @@ pub struct IMFAudioMediaTypeVtbl(
 pub struct IMFAudioPolicy(::windows::core::IUnknown);
 impl IMFAudioPolicy {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGroupingParam(&self, rguidclass: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGroupingParam(&self, rguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidclass)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -21229,7 +21229,7 @@ pub struct IMFAudioPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidclass: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidclass: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -21859,7 +21859,7 @@ pub struct IMFByteStreamProxyClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -22260,7 +22260,7 @@ pub struct IMFCaptureEngineVtbl(
 pub struct IMFCaptureEngineClassFactory(::windows::core::IUnknown);
 impl IMFCaptureEngineClassFactory {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn CreateInstance(&self, clsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateInstance(&self, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
@@ -22310,7 +22310,7 @@ pub struct IMFCaptureEngineClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -22576,7 +22576,7 @@ impl IMFCapturePhotoSink {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaType>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -22674,7 +22674,7 @@ pub struct IMFCapturePhotoSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, pmediatype: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, pdwsinkstreamindex: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -22693,7 +22693,7 @@ impl IMFCapturePreviewSink {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaType>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -22820,7 +22820,7 @@ pub struct IMFCapturePreviewSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, pmediatype: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, pdwsinkstreamindex: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -22848,7 +22848,7 @@ impl IMFCaptureRecordSink {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaType>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -22866,7 +22866,7 @@ impl IMFCaptureRecordSink {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetOutputByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(&self, pbytestream: Param0, guidcontainertype: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(&self, pbytestream: Param0, guidcontainertype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pbytestream.into_param().abi(), ::core::mem::transmute(guidcontainertype)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
@@ -22959,11 +22959,11 @@ pub struct IMFCaptureRecordSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, pmediatype: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, pdwsinkstreamindex: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, guidcontainertype: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, guidcontainertype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamsinkindex: u32, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -22981,7 +22981,7 @@ impl IMFCaptureSink {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaType>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -23046,7 +23046,7 @@ pub struct IMFCaptureSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, pmediatype: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, pdwsinkstreamindex: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23061,7 +23061,7 @@ impl IMFCaptureSink2 {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaType>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsinkstreamindex), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -23150,7 +23150,7 @@ pub struct IMFCaptureSink2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, pmediatype: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, pdwsinkstreamindex: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23171,7 +23171,7 @@ impl IMFCaptureSource {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(mfcaptureenginedevicetype), ::core::mem::transmute(&mut result__)).from_abi::<IMFActivate>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService(&self, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetService(&self, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -23276,7 +23276,7 @@ pub struct IMFCaptureSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcestreamindex: u32) -> ::windows::core::HRESULT,
@@ -24604,7 +24604,7 @@ pub struct IMFDRMNetHelperVtbl(
 pub struct IMFDXGIBuffer(::windows::core::IUnknown);
 impl IMFDXGIBuffer {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetResource(&self, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetResource(&self, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -24613,11 +24613,11 @@ impl IMFDXGIBuffer {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown(&self, guid: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetUnknown(&self, guid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: &::windows::core::GUID, punkdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, punkdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), punkdata.into_param().abi()).ok()
     }
 }
@@ -24667,10 +24667,10 @@ pub struct IMFDXGIBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusubresource: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, punkdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, punkdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -24683,12 +24683,12 @@ impl IMFDXGIDeviceManager {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hdevice: Param0, riid: &::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hdevice: Param0, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hdevice: Param0, riid: &::windows::core::GUID, ppunkdevice: *mut *mut ::core::ffi::c_void, fblock: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn LockDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hdevice: Param0, riid: *const ::windows::core::GUID, ppunkdevice: *mut *mut ::core::ffi::c_void, fblock: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppunkdevice), fblock.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
@@ -24760,9 +24760,9 @@ pub struct IMFDXGIDeviceManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppunkdevice: *mut *mut ::core::ffi::c_void, fblock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppunkdevice: *mut *mut ::core::ffi::c_void, fblock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -25557,7 +25557,7 @@ pub struct IMFFinalizableMediaSinkVtbl(
 pub struct IMFGetService(::windows::core::IUnknown);
 impl IMFGetService {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetService<T: ::windows::core::Interface>(&self, guidservice: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetService<T: ::windows::core::Interface>(&self, guidservice: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -25608,7 +25608,7 @@ pub struct IMFGetServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -26090,7 +26090,7 @@ pub struct IMFImageSharingEngineClassFactoryVtbl(
 pub struct IMFInputTrustAuthority(::windows::core::IUnknown);
 impl IMFInputTrustAuthority {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDecrypter(&self, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDecrypter(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -26162,7 +26162,7 @@ pub struct IMFInputTrustAuthorityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: MFPOLICYMANAGER_ACTION, ppcontentenableractivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: MFPOLICYMANAGER_ACTION, pppolicy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> ::windows::core::HRESULT,
@@ -26869,7 +26869,7 @@ pub struct IMFMediaEngineClassFactory4(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory4 {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateContentDecryptionModuleFactory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, keysystem: Param0, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateContentDecryptionModuleFactory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, keysystem: Param0, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), keysystem.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
@@ -26919,7 +26919,7 @@ pub struct IMFMediaEngineClassFactory4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -27396,7 +27396,7 @@ impl IMFMediaEngineEx {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmfattribute), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -27407,7 +27407,7 @@ impl IMFMediaEngineEx {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidmfattribute), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -27673,10 +27673,10 @@ pub struct IMFMediaEngineExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, forward: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcharacteristics: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmfattribute: &::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: &::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, penabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -28537,17 +28537,17 @@ pub struct IMFMediaEvent(::windows::core::IUnknown);
 impl IMFMediaEvent {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -28558,65 +28558,65 @@ impl IMFMediaEvent {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -28624,32 +28624,32 @@ impl IMFMediaEvent {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -28762,38 +28762,38 @@ pub struct IMFMediaEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -28826,7 +28826,7 @@ impl IMFMediaEventGenerator {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
 }
@@ -28879,7 +28879,7 @@ pub struct IMFMediaEventGeneratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -28906,11 +28906,11 @@ impl IMFMediaEventQueue {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEventParamVar(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEventParamVar(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn QueueEventParamUnk<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEventParamUnk<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), punk.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -28968,9 +28968,9 @@ pub struct IMFMediaEventQueueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -29656,7 +29656,7 @@ impl IMFMediaSession {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -29669,7 +29669,7 @@ impl IMFMediaSession {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Start(&self, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn Start(&self, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -29773,11 +29773,11 @@ pub struct IMFMediaSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsettopologyflags: u32, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -30166,12 +30166,7 @@ unsafe impl ::windows::core::Interface for IMFMediaSharingEngineClassFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSharingEngineClassFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaSharingEngineClassFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSink(::windows::core::IUnknown);
@@ -30347,7 +30342,7 @@ impl IMFMediaSource {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30362,7 +30357,7 @@ impl IMFMediaSource {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(&self, ppresentationdescriptor: Param0, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(&self, ppresentationdescriptor: Param0, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ppresentationdescriptor.into_param().abi(), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30447,11 +30442,11 @@ pub struct IMFMediaSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -30477,7 +30472,7 @@ impl IMFMediaSource2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30492,7 +30487,7 @@ impl IMFMediaSource2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(&self, ppresentationdescriptor: Param0, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(&self, ppresentationdescriptor: Param0, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ppresentationdescriptor.into_param().abi(), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30635,11 +30630,11 @@ pub struct IMFMediaSource2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -30669,7 +30664,7 @@ impl IMFMediaSourceEx {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30684,7 +30679,7 @@ impl IMFMediaSourceEx {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(&self, ppresentationdescriptor: Param0, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(&self, ppresentationdescriptor: Param0, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ppresentationdescriptor.into_param().abi(), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30803,11 +30798,11 @@ pub struct IMFMediaSourceExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -31182,7 +31177,7 @@ impl IMFMediaStream {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -31269,7 +31264,7 @@ pub struct IMFMediaStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreamdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -31295,7 +31290,7 @@ impl IMFMediaStream2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -31411,7 +31406,7 @@ pub struct IMFMediaStream2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreamdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -31563,17 +31558,17 @@ pub struct IMFMediaType(::windows::core::IUnknown);
 impl IMFMediaType {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -31584,65 +31579,65 @@ impl IMFMediaType {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -31650,32 +31645,32 @@ impl IMFMediaType {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -31791,38 +31786,38 @@ pub struct IMFMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -32893,11 +32888,11 @@ pub struct IMFNetSchemeHandlerConfigVtbl(
 pub struct IMFObjectReferenceStream(::windows::core::IUnknown);
 impl IMFObjectReferenceStream {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SaveReference<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, riid: &::windows::core::GUID, punk: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SaveReference<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, riid: *const ::windows::core::GUID, punk: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), punk.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn LoadReference(&self, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn LoadReference(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
 }
@@ -32947,8 +32942,8 @@ pub struct IMFObjectReferenceStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -32956,17 +32951,17 @@ pub struct IMFOutputPolicy(::windows::core::IUnknown);
 impl IMFOutputPolicy {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -32977,65 +32972,65 @@ impl IMFOutputPolicy {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -33043,32 +33038,32 @@ impl IMFOutputPolicy {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -33094,7 +33089,7 @@ impl IMFOutputPolicy {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), pdest.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GenerateRequiredSchemas<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, dwattributes: u32, guidoutputsubtype: Param1, rgguidprotectionschemassupported: &::windows::core::GUID, cprotectionschemassupported: u32) -> ::windows::core::Result<IMFCollection> {
+    pub unsafe fn GenerateRequiredSchemas<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, dwattributes: u32, guidoutputsubtype: Param1, rgguidprotectionschemassupported: *const ::windows::core::GUID, cprotectionschemassupported: u32) -> ::windows::core::Result<IMFCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), guidoutputsubtype.into_param().abi(), ::core::mem::transmute(rgguidprotectionschemassupported), ::core::mem::transmute(cprotectionschemassupported), ::core::mem::transmute(&mut result__)).from_abi::<IMFCollection>(result__)
     }
@@ -33175,45 +33170,45 @@ pub struct IMFOutputPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, guidoutputsubtype: ::windows::core::GUID, rgguidprotectionschemassupported: &::windows::core::GUID, cprotectionschemassupported: u32, pprequiredprotectionschemas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, guidoutputsubtype: ::windows::core::GUID, rgguidprotectionschemassupported: *const ::windows::core::GUID, cprotectionschemassupported: u32, pprequiredprotectionschemas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidoriginatorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminimumgrlversion: *mut u32) -> ::windows::core::HRESULT,
 );
@@ -33223,17 +33218,17 @@ pub struct IMFOutputSchema(::windows::core::IUnknown);
 impl IMFOutputSchema {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -33244,65 +33239,65 @@ impl IMFOutputSchema {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -33310,32 +33305,32 @@ impl IMFOutputSchema {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -33442,38 +33437,38 @@ pub struct IMFOutputSchemaVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -33665,7 +33660,7 @@ impl IMFPMPHost {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateObjectByCLSID<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, T: ::windows::core::Interface>(&self, clsid: &::windows::core::GUID, pstream: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateObjectByCLSID<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, T: ::windows::core::Interface>(&self, clsid: *const ::windows::core::GUID, pstream: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), pstream.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -33718,7 +33713,7 @@ pub struct IMFPMPHostVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, pstream: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, pstream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -33788,7 +33783,7 @@ pub struct IMFPMPHostAppVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -33804,7 +33799,7 @@ impl IMFPMPServer {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn CreateObjectByCLSID<T: ::windows::core::Interface>(&self, clsid: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateObjectByCLSID<T: ::windows::core::Interface>(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -33857,7 +33852,7 @@ pub struct IMFPMPServerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -33895,7 +33890,7 @@ impl IMFPMediaItem {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: &::windows::core::GUID, pvstartvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: &::windows::core::GUID, pvstopvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidstartpositiontype), ::core::mem::transmute(pvstartvalue), ::core::mem::transmute(pguidstoppositiontype), ::core::mem::transmute(pvstopvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
@@ -33916,7 +33911,7 @@ impl IMFPMediaItem {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetDuration(&self, guidpositiontype: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetDuration(&self, guidpositiontype: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidpositiontype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -33938,13 +33933,13 @@ impl IMFPMediaItem {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidmfattribute), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmfattribute), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -34018,7 +34013,7 @@ pub struct IMFPMediaItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwuserdata: usize) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *mut ::windows::core::GUID, pvstartvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *mut ::windows::core::GUID, pvstopvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstartpositiontype: &::windows::core::GUID, pvstartvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: &::windows::core::GUID, pvstopvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfhasvideo: *mut super::super::Foundation::BOOL, pfselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -34026,16 +34021,16 @@ pub struct IMFPMediaItemVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: &::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, fenabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: &::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmfattribute: &::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediasink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34064,18 +34059,18 @@ impl IMFPMediaPlayer {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetPosition(&self, guidpositiontype: &::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPosition(&self, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidpositiontype), ::core::mem::transmute(pvpositionvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetPosition(&self, guidpositiontype: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetPosition(&self, guidpositiontype: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidpositiontype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetDuration(&self, guidpositiontype: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetDuration(&self, guidpositiontype: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidpositiontype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -34267,11 +34262,11 @@ pub struct IMFPMediaPlayerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: &::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: &::windows::core::GUID, pvpositionvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: &::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flrate: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflrate: *mut f32) -> ::windows::core::HRESULT,
@@ -34388,11 +34383,11 @@ impl IMFPluginControl {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredClsid<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plugintype: u32, selector: Param1, clsid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPreferredClsid<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plugintype: u32, selector: Param1, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plugintype), selector.into_param().abi(), ::core::mem::transmute(clsid)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(plugintype), ::core::mem::transmute(clsid)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34402,7 +34397,7 @@ impl IMFPluginControl {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, plugintype: u32, clsid: &::windows::core::GUID, disabled: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDisabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, plugintype: u32, clsid: *const ::windows::core::GUID, disabled: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(plugintype), ::core::mem::transmute(clsid), disabled.into_param().abi()).ok()
     }
 }
@@ -34456,11 +34451,11 @@ pub struct IMFPluginControlVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, index: u32, selector: *mut super::super::Foundation::PWSTR, clsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, selector: super::super::Foundation::PWSTR, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, selector: super::super::Foundation::PWSTR, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, index: u32, clsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: &::windows::core::GUID, disabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: *const ::windows::core::GUID, disabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34480,11 +34475,11 @@ impl IMFPluginControl2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredClsid<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plugintype: u32, selector: Param1, clsid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPreferredClsid<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plugintype: u32, selector: Param1, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plugintype), selector.into_param().abi(), ::core::mem::transmute(clsid)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(plugintype), ::core::mem::transmute(clsid)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34494,7 +34489,7 @@ impl IMFPluginControl2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, plugintype: u32, clsid: &::windows::core::GUID, disabled: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDisabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, plugintype: u32, clsid: *const ::windows::core::GUID, disabled: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(plugintype), ::core::mem::transmute(clsid), disabled.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34572,11 +34567,11 @@ pub struct IMFPluginControl2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, index: u32, selector: *mut super::super::Foundation::PWSTR, clsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, selector: super::super::Foundation::PWSTR, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, selector: super::super::Foundation::PWSTR, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, index: u32, clsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: &::windows::core::GUID, disabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: *const ::windows::core::GUID, disabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, policy: MF_PLUGIN_CONTROL_POLICY) -> ::windows::core::HRESULT,
 );
@@ -34729,17 +34724,17 @@ pub struct IMFPresentationDescriptor(::windows::core::IUnknown);
 impl IMFPresentationDescriptor {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -34750,65 +34745,65 @@ impl IMFPresentationDescriptor {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34816,32 +34811,32 @@ impl IMFPresentationDescriptor {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34956,38 +34951,38 @@ pub struct IMFPresentationDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -35648,11 +35643,11 @@ pub struct IMFReadWriteClassFactory(::windows::core::IUnknown);
 impl IMFReadWriteClassFactory {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstanceFromURL<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, clsid: &::windows::core::GUID, pwszurl: Param1, pattributes: Param2, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateInstanceFromURL<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, clsid: *const ::windows::core::GUID, pwszurl: Param1, pattributes: Param2, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), pwszurl.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn CreateInstanceFromObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, clsid: &::windows::core::GUID, punkobject: Param1, pattributes: Param2, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateInstanceFromObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, clsid: *const ::windows::core::GUID, punkobject: Param1, pattributes: Param2, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), punkobject.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
@@ -35702,9 +35697,9 @@ pub struct IMFReadWriteClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, pwszurl: super::super::Foundation::PWSTR, pattributes: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, pwszurl: super::super::Foundation::PWSTR, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, punkobject: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, punkobject: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -36106,11 +36101,11 @@ pub struct IMFRemoteDesktopPluginVtbl(pub unsafe extern "system" fn(this: *mut :
 pub struct IMFRemoteProxy(::windows::core::IUnknown);
 impl IMFRemoteProxy {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetRemoteObject(&self, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRemoteObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetRemoteHost(&self, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRemoteHost(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
 }
@@ -36160,8 +36155,8 @@ pub struct IMFRemoteProxyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -36336,17 +36331,17 @@ pub struct IMFSample(::windows::core::IUnknown);
 impl IMFSample {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -36357,65 +36352,65 @@ impl IMFSample {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -36423,32 +36418,32 @@ impl IMFSample {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -36603,38 +36598,38 @@ pub struct IMFSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -36747,7 +36742,7 @@ impl IMFSampleGrabberSinkCallback {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ppresentationclock.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn OnProcessSample(&self, guidmajormediatype: &::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn OnProcessSample(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmajormediatype), ::core::mem::transmute(dwsampleflags), ::core::mem::transmute(llsampletime), ::core::mem::transmute(llsampleduration), ::core::mem::transmute(psamplebuffer), ::core::mem::transmute(dwsamplesize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -36827,7 +36822,7 @@ pub struct IMFSampleGrabberSinkCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64, flrate: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: &::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -36859,7 +36854,7 @@ impl IMFSampleGrabberSinkCallback2 {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ppresentationclock.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn OnProcessSample(&self, guidmajormediatype: &::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn OnProcessSample(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmajormediatype), ::core::mem::transmute(dwsampleflags), ::core::mem::transmute(llsampletime), ::core::mem::transmute(llsampleduration), ::core::mem::transmute(psamplebuffer), ::core::mem::transmute(dwsamplesize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -36867,7 +36862,7 @@ impl IMFSampleGrabberSinkCallback2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn OnProcessSampleEx<'a, Param6: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidmajormediatype: &::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: Param6) -> ::windows::core::Result<()> {
+    pub unsafe fn OnProcessSampleEx<'a, Param6: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmajormediatype), ::core::mem::transmute(dwsampleflags), ::core::mem::transmute(llsampletime), ::core::mem::transmute(llsampleduration), ::core::mem::transmute(psamplebuffer), ::core::mem::transmute(dwsamplesize), pattributes.into_param().abi()).ok()
     }
 }
@@ -36963,9 +36958,9 @@ pub struct IMFSampleGrabberSinkCallback2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64, flrate: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: &::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: &::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -37376,7 +37371,7 @@ pub struct IMFSeekInfo(::windows::core::IUnknown);
 impl IMFSeekInfo {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetNearestKeyFrames(&self, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNearestKeyFrames(&self, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition), ::core::mem::transmute(pvarpreviouskeyframe), ::core::mem::transmute(pvarnextkeyframe)).ok()
     }
 }
@@ -37426,7 +37421,7 @@ pub struct IMFSeekInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: &::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -38149,17 +38144,17 @@ pub struct IMFSensorStream(::windows::core::IUnknown);
 impl IMFSensorStream {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -38170,65 +38165,65 @@ impl IMFSensorStream {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -38236,32 +38231,32 @@ impl IMFSensorStream {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -38368,38 +38363,38 @@ pub struct IMFSensorStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -38434,7 +38429,7 @@ impl IMFSensorTransformFactory {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Media_Streaming'*"]
     #[cfg(feature = "Win32_Media_Streaming")]
-    pub unsafe fn CreateTransform<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidsensortransformid: &::windows::core::GUID, pattributes: Param1) -> ::windows::core::Result<super::Streaming::IMFDeviceTransform> {
+    pub unsafe fn CreateTransform<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidsensortransformid: *const ::windows::core::GUID, pattributes: Param1) -> ::windows::core::Result<super::Streaming::IMFDeviceTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidsensortransformid), pattributes.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Streaming::IMFDeviceTransform>(result__)
     }
@@ -38489,7 +38484,7 @@ pub struct IMFSensorTransformFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxtransformcount: u32, psensordevices: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transformindex: u32, pguidtransformid: *mut ::windows::core::GUID, ppattributes: *mut ::windows::core::RawPtr, ppstreaminformation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Media_Streaming")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidsensortransformid: &::windows::core::GUID, pattributes: ::windows::core::RawPtr, ppdevicemft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Streaming")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidsensortransformid: *const ::windows::core::GUID, pattributes: ::windows::core::RawPtr, ppdevicemft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Streaming"))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -38622,12 +38617,7 @@ unsafe impl ::windows::core::Interface for IMFSharingEngineClassFactory {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSharingEngineClassFactoryVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IMFSharingEngineClassFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFShutdown(::windows::core::IUnknown);
@@ -38870,7 +38860,7 @@ impl IMFSinkWriter {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -38934,7 +38924,7 @@ pub struct IMFSinkWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -39195,7 +39185,7 @@ impl IMFSinkWriterEx {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -39283,7 +39273,7 @@ pub struct IMFSinkWriterExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
@@ -39686,7 +39676,7 @@ impl IMFSourceReader {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetCurrentPosition(&self, guidtimeformat: &::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidtimeformat), ::core::mem::transmute(varposition)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -39698,12 +39688,12 @@ impl IMFSourceReader {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidattribute), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -39761,12 +39751,12 @@ pub struct IMFSourceReaderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwmediatypeindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: &::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: &::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -39964,7 +39954,7 @@ impl IMFSourceReaderEx {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetCurrentPosition(&self, guidtimeformat: &::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidtimeformat), ::core::mem::transmute(varposition)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -39976,12 +39966,12 @@ impl IMFSourceReaderEx {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(guidattribute), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
@@ -40076,12 +40066,12 @@ pub struct IMFSourceReaderExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwmediatypeindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: &::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: &::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: ::windows::core::RawPtr, pdwstreamflags: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ptransformoractivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -40322,17 +40312,17 @@ pub struct IMFSpatialAudioSample(::windows::core::IUnknown);
 impl IMFSpatialAudioSample {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -40343,65 +40333,65 @@ impl IMFSpatialAudioSample {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -40409,32 +40399,32 @@ impl IMFSpatialAudioSample {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -40623,38 +40613,38 @@ pub struct IMFSpatialAudioSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -40685,17 +40675,17 @@ pub struct IMFStreamDescriptor(::windows::core::IUnknown);
 impl IMFStreamDescriptor {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -40706,65 +40696,65 @@ impl IMFStreamDescriptor {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -40772,32 +40762,32 @@ impl IMFStreamDescriptor {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -40899,38 +40889,38 @@ pub struct IMFStreamDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -40960,7 +40950,7 @@ impl IMFStreamSink {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -41061,7 +41051,7 @@ pub struct IMFStreamSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwidentifier: *mut u32) -> ::windows::core::HRESULT,
@@ -42653,17 +42643,17 @@ pub struct IMFTopology(::windows::core::IUnknown);
 impl IMFTopology {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -42674,65 +42664,65 @@ impl IMFTopology {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -42740,32 +42730,32 @@ impl IMFTopology {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -42903,38 +42893,38 @@ pub struct IMFTopologyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -42958,17 +42948,17 @@ pub struct IMFTopologyNode(::windows::core::IUnknown);
 impl IMFTopologyNode {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -42979,65 +42969,65 @@ impl IMFTopologyNode {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -43045,32 +43035,32 @@ impl IMFTopologyNode {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -43233,38 +43223,38 @@ pub struct IMFTopologyNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -43345,7 +43335,7 @@ pub struct IMFTopologyNodeAttributeEditorVtbl(pub unsafe extern "system" fn(this
 pub struct IMFTopologyServiceLookup(::windows::core::IUnknown);
 impl IMFTopologyServiceLookup {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwindex), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobjects), ::core::mem::transmute(pnobjects)).ok()
     }
 }
@@ -43395,7 +43385,7 @@ pub struct IMFTopologyServiceLookupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -43854,7 +43844,7 @@ pub struct IMFTransformVtbl(
 pub struct IMFTrustedInput(::windows::core::IUnknown);
 impl IMFTrustedInput {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetInputTrustAuthority(&self, dwstreamid: u32, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetInputTrustAuthority(&self, dwstreamid: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -43905,7 +43895,7 @@ pub struct IMFTrustedInputVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, riid: &::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, riid: *const ::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -44291,17 +44281,17 @@ pub struct IMFVideoMediaType(::windows::core::IUnknown);
 impl IMFVideoMediaType {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -44312,65 +44302,65 @@ impl IMFVideoMediaType {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -44378,32 +44368,32 @@ impl IMFVideoMediaType {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -44548,38 +44538,38 @@ pub struct IMFVideoMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -45029,7 +45019,7 @@ impl IMFVideoProcessor {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVideoProcessorCaps(&self, lpvideoprocessormode: &::windows::core::GUID) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
+    pub unsafe fn GetVideoProcessorCaps(&self, lpvideoprocessormode: *const ::windows::core::GUID) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
         let mut result__: DXVA2_VideoProcessorCaps = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvideoprocessormode), ::core::mem::transmute(&mut result__)).from_abi::<DXVA2_VideoProcessorCaps>(result__)
     }
@@ -45039,7 +45029,7 @@ impl IMFVideoProcessor {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetVideoProcessorMode(&self, lpmode: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetVideoProcessorMode(&self, lpmode: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpmode)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -45127,10 +45117,10 @@ pub struct IMFVideoProcessorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpvideoprocessormode: &::windows::core::GUID, lpvideoprocessorcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpvideoprocessormode: *const ::windows::core::GUID, lpvideoprocessorcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmode: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmode: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmode: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pproprange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, values: *mut DXVA2_ProcAmpValues) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pvalues: *const DXVA2_ProcAmpValues) -> ::windows::core::HRESULT,
@@ -46001,17 +45991,17 @@ pub struct IMFVirtualCamera(::windows::core::IUnknown);
 impl IMFVirtualCamera {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetItem(&self, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetItemType(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__: MF_ATTRIBUTE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<MF_ATTRIBUTE_TYPE>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn CompareItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -46022,65 +46012,65 @@ impl IMFVirtualCamera {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ptheirs.into_param().abi(), ::core::mem::transmute(matchtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT32(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUINT64(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetDouble(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<f64> {
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetGUID(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetStringLength(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetString(&self, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue), ::core::mem::transmute(cchbufsize), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAllocatedString(&self, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlobSize(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbblobsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetAllocatedBlob(&self, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn GetUnknown<T: ::windows::core::Interface>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetItem(&self, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn DeleteItem(&self, guidkey: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -46088,32 +46078,32 @@ impl IMFVirtualCamera {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT32(&self, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUINT64(&self, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(unvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetDouble(&self, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetGUID(&self, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: &::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidkey: *const ::windows::core::GUID, wszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), wszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetBlob(&self, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: &::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUnknown<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidkey: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -46171,18 +46161,18 @@ impl IMFVirtualCamera {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaSource>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub unsafe fn SendCameraProperty(&self, propertyset: &::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: *mut ::core::ffi::c_void, propertypayloadlength: u32, data: *mut ::core::ffi::c_void, datalength: u32, datawritten: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SendCameraProperty(&self, propertyset: *const ::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: *mut ::core::ffi::c_void, propertypayloadlength: u32, data: *mut ::core::ffi::c_void, datalength: u32, datawritten: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyset), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyflags), ::core::mem::transmute(propertypayload), ::core::mem::transmute(propertypayloadlength), ::core::mem::transmute(data), ::core::mem::transmute(datalength), ::core::mem::transmute(datawritten)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSyncEvent<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, kseventset: &::windows::core::GUID, kseventid: u32, kseventflags: u32, eventhandle: Param3) -> ::windows::core::Result<IMFCameraSyncObject> {
+    pub unsafe fn CreateSyncEvent<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, kseventset: *const ::windows::core::GUID, kseventid: u32, kseventflags: u32, eventhandle: Param3) -> ::windows::core::Result<IMFCameraSyncObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(kseventset), ::core::mem::transmute(kseventid), ::core::mem::transmute(kseventflags), eventhandle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFCameraSyncObject>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSyncSemaphore<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, kseventset: &::windows::core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: Param3, semaphoreadjustment: i32) -> ::windows::core::Result<IMFCameraSyncObject> {
+    pub unsafe fn CreateSyncSemaphore<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, kseventset: *const ::windows::core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: Param3, semaphoreadjustment: i32) -> ::windows::core::Result<IMFCameraSyncObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(kseventset), ::core::mem::transmute(kseventid), ::core::mem::transmute(kseventflags), semaphorehandle.into_param().abi(), ::core::mem::transmute(semaphoreadjustment), ::core::mem::transmute(&mut result__)).from_abi::<IMFCameraSyncObject>(result__)
     }
@@ -46257,38 +46247,38 @@ pub struct IMFVirtualCameraVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pfvalue: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pwszvalue: super::super::Foundation::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *mut u8, cbbufsize: u32, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, guidvalue: &::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
@@ -46305,10 +46295,10 @@ pub struct IMFVirtualCameraVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyset: &::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: *mut ::core::ffi::c_void, propertypayloadlength: u32, data: *mut ::core::ffi::c_void, datalength: u32, datawritten: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kseventset: &::windows::core::GUID, kseventid: u32, kseventflags: u32, eventhandle: super::super::Foundation::HANDLE, camerasyncobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyset: *const ::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: *mut ::core::ffi::c_void, propertypayloadlength: u32, data: *mut ::core::ffi::c_void, datalength: u32, datawritten: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kseventset: *const ::windows::core::GUID, kseventid: u32, kseventflags: u32, eventhandle: super::super::Foundation::HANDLE, camerasyncobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kseventset: &::windows::core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: super::super::Foundation::HANDLE, semaphoreadjustment: i32, camerasyncobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kseventset: *const ::windows::core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: super::super::Foundation::HANDLE, semaphoreadjustment: i32, camerasyncobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -49332,12 +49322,12 @@ pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::G
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCalculateImageSize(guidsubtype: &::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
+pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCalculateImageSize(guidsubtype: &::windows::core::GUID, unwidth: u32, unheight: u32, pcbimagesize: *mut u32) -> ::windows::core::HRESULT;
+            fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32, pcbimagesize: *mut u32) -> ::windows::core::HRESULT;
         }
         let mut result__: u32 = ::core::mem::zeroed();
         MFCalculateImageSize(::core::mem::transmute(guidsubtype), ::core::mem::transmute(unwidth), ::core::mem::transmute(unheight), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -50132,12 +50122,12 @@ pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoParam<'a, IMFDXGIDeviceManager>, Param2: ::windows::core::IntoParam<'a, IMFContentProtectionDevice>>(guidmediaprotectionsystemid: &::windows::core::GUID, pd3dmanager: Param1, pcontentprotectiondevice: Param2) -> ::windows::core::Result<IMFContentDecryptorContext> {
+pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoParam<'a, IMFDXGIDeviceManager>, Param2: ::windows::core::IntoParam<'a, IMFContentProtectionDevice>>(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: Param1, pcontentprotectiondevice: Param2) -> ::windows::core::Result<IMFContentDecryptorContext> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: &::windows::core::GUID, pd3dmanager: ::windows::core::RawPtr, pcontentprotectiondevice: ::windows::core::RawPtr, ppcontentdecryptorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: ::windows::core::RawPtr, pcontentprotectiondevice: ::windows::core::RawPtr, ppcontentdecryptorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateContentDecryptorContext(::core::mem::transmute(guidmediaprotectionsystemid), pd3dmanager.into_param().abi(), pcontentprotectiondevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFContentDecryptorContext>(result__)
@@ -50147,12 +50137,12 @@ pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoP
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: &::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
+pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateContentProtectionDevice(protectionsystemid: &::windows::core::GUID, contentprotectiondevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID, contentprotectiondevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateContentProtectionDevice(::core::mem::transmute(protectionsystemid), ::core::mem::transmute(&mut result__)).from_abi::<IMFContentProtectionDevice>(result__)
@@ -50178,12 +50168,12 @@ pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredent
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(pdevice: Param0, riid: &::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(pdevice: Param0, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateD3D12SynchronizationObject(pdevice: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateD3D12SynchronizationObject(pdevice: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateD3D12SynchronizationObject(pdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
     }
@@ -50207,12 +50197,12 @@ pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: &::windows::core::GUID, punksurface: Param1, usubresourceindex: u32, fbottomupwhenlinear: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
+pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, usubresourceindex: u32, fbottomupwhenlinear: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateDXGISurfaceBuffer(riid: &::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateDXGISurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateDXGISurfaceBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), ::core::mem::transmute(usubresourceindex), fbottomupwhenlinear.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaBuffer>(result__)
@@ -50223,12 +50213,12 @@ pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: &::windows::core::GUID, punksurface: Param1, fbottomupwhenlinear: Param2) -> ::windows::core::Result<IMFMediaBuffer> {
+pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, fbottomupwhenlinear: Param2) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateDXSurfaceBuffer(riid: &::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateDXSurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateDXSurfaceBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), fbottomupwhenlinear.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaBuffer>(result__)
@@ -50498,12 +50488,12 @@ pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::core::IntoParam<
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<IMFMediaEvent> {
+pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<IMFMediaEvent> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateMediaEvent(met: u32, guidextendedtype: &::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateMediaEvent(::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaEvent>(result__)
@@ -50514,12 +50504,12 @@ pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: &::windows::core::G
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szactivatableclassid: Param0, pconfiguration: Param1, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szactivatableclassid: Param0, pconfiguration: Param1, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateMediaExtensionActivate(szactivatableclassid: super::super::Foundation::PWSTR, pconfiguration: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateMediaExtensionActivate(szactivatableclassid: super::super::Foundation::PWSTR, pconfiguration: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateMediaExtensionActivate(szactivatableclassid.into_param().abi(), pconfiguration.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -50663,12 +50653,12 @@ pub unsafe fn MFCreateMuxStreamSample<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateNetSchemePlugin(riid: &::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateNetSchemePlugin(riid: &::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateNetSchemePlugin(::core::mem::transmute(riid), ::core::mem::transmute(ppvhandler)).ok()
     }
@@ -50751,12 +50741,12 @@ pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<'a, Param0: ::windows
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreatePropertiesFromMediaType(pmediatype: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreatePropertiesFromMediaType(pmediatype: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreatePropertiesFromMediaType(pmediatype.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
@@ -50904,12 +50894,12 @@ pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(profiletype: &::windows::core::GUID, profileindex: u32, constraints: Param2) -> ::windows::core::Result<IMFSensorProfile> {
+pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: Param2) -> ::windows::core::Result<IMFSensorProfile> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateSensorProfile(profiletype: &::windows::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateSensorProfile(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateSensorProfile(::core::mem::transmute(profiletype), ::core::mem::transmute(profileindex), constraints.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFSensorProfile>(result__)
@@ -51133,12 +51123,12 @@ pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::core::IntoPara
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateStreamOnMFByteStreamEx(pbytestream: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateStreamOnMFByteStreamEx(pbytestream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateStreamOnMFByteStreamEx(pbytestream.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
@@ -51361,12 +51351,12 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: &::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
+pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: &::windows::core::GUID, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateVideoMediaTypeFromSubtype(::core::mem::transmute(pamsubtype), ::core::mem::transmute(&mut result__)).from_abi::<IMFVideoMediaType>(result__)
@@ -51376,12 +51366,12 @@ pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: &::windows::core::GU
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoMixer(powner: *mut ::core::ffi::c_void, riiddevice: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateVideoMixer(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateVideoMixer(powner.into_param().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
@@ -51390,12 +51380,12 @@ pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmixerowner: Param0, ppresenterowner: Param1, riidmixer: &::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: &::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmixerowner: Param0, ppresenterowner: Param1, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoMixerAndPresenter(pmixerowner: *mut ::core::ffi::c_void, ppresenterowner: *mut ::core::ffi::c_void, riidmixer: &::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: &::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateVideoMixerAndPresenter(pmixerowner: *mut ::core::ffi::c_void, ppresenterowner: *mut ::core::ffi::c_void, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateVideoMixerAndPresenter(pmixerowner.into_param().abi(), ppresenterowner.into_param().abi(), ::core::mem::transmute(riidmixer), ::core::mem::transmute(ppvvideomixer), ::core::mem::transmute(riidpresenter), ::core::mem::transmute(ppvvideopresenter)).ok()
     }
@@ -51404,12 +51394,12 @@ pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoPa
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoPresenter(powner: *mut ::core::ffi::c_void, riiddevice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateVideoPresenter(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateVideoPresenter(powner.into_param().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvideopresenter)).ok()
     }
@@ -51418,12 +51408,12 @@ pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoRenderer(riidrenderer: &::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoRenderer(riidrenderer: &::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateVideoRenderer(::core::mem::transmute(riidrenderer), ::core::mem::transmute(ppvideorenderer)).ok()
     }
@@ -51448,12 +51438,12 @@ pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::core::IntoPar
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoSampleAllocator(riid: &::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoSampleAllocator(riid: &::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateVideoSampleAllocator(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
     }
@@ -51462,12 +51452,12 @@ pub unsafe fn MFCreateVideoSampleAllocator(riid: &::windows::core::GUID, ppsampl
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: &::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVideoSampleAllocatorEx(riid: &::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFCreateVideoSampleAllocatorEx(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
     }
@@ -51492,12 +51482,12 @@ pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoPa
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: &::windows::core::GUID, categorycount: u32) -> ::windows::core::Result<IMFVirtualCamera> {
+pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: *const ::windows::core::GUID, categorycount: u32) -> ::windows::core::Result<IMFVirtualCamera> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: &::windows::core::GUID, categorycount: u32, virtualcamera: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: *const ::windows::core::GUID, categorycount: u32, virtualcamera: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateVirtualCamera(::core::mem::transmute(r#type), ::core::mem::transmute(lifetime), ::core::mem::transmute(access), friendlyname.into_param().abi(), sourceid.into_param().abi(), ::core::mem::transmute(categories), ::core::mem::transmute(categorycount), ::core::mem::transmute(&mut result__)).from_abi::<IMFVirtualCamera>(result__)
@@ -51522,12 +51512,12 @@ pub unsafe fn MFCreateWAVEMediaSink<'a, Param0: ::windows::core::IntoParam<'a, I
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: &::windows::core::GUID, punksurface: Param1) -> ::windows::core::Result<IMFMediaBuffer> {
+pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, punksurface: Param1) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateWICBitmapBuffer(riid: &::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFCreateWICBitmapBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFCreateWICBitmapBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaBuffer>(result__)
@@ -51811,12 +51801,12 @@ pub unsafe fn MFGetAttributesAsBlobSize<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: &::windows::core::GUID, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         MFGetContentProtectionSystemCLSID(::core::mem::transmute(guidprotectionsystemid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
@@ -51886,12 +51876,12 @@ pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> 
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFGetService(punkobject: *mut ::core::ffi::c_void, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn MFGetService(punkobject: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         MFGetService(punkobject.into_param().abi(), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -52227,12 +52217,12 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::Into
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: ::windows::core::RawPtr, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: ::windows::core::RawPtr, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp1vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
@@ -52242,12 +52232,12 @@ pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::Int
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: ::windows::core::RawPtr, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: ::windows::core::RawPtr, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp2vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
@@ -52257,12 +52247,12 @@ pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::Int
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromVideoInfoHeader(pmftype: ::windows::core::RawPtr, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromVideoInfoHeader(pmftype: ::windows::core::RawPtr, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromVideoInfoHeader(pmftype.into_param().abi(), ::core::mem::transmute(pvih), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
@@ -52272,12 +52262,12 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::In
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: ::windows::core::RawPtr, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: &::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: ::windows::core::RawPtr, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromVideoInfoHeader2(pmftype.into_param().abi(), ::core::mem::transmute(pvih2), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
@@ -52346,12 +52336,12 @@ pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IMFAsy
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFIsContentProtectionDeviceSupported(protectionsystemid: &::windows::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+            fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         MFIsContentProtectionDeviceSupported(::core::mem::transmute(protectionsystemid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -54393,12 +54383,12 @@ pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pclassfactory: Param0, guidcategory: &::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
+pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pclassfactory: Param0, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFTRegisterLocal(pclassfactory: ::windows::core::RawPtr, guidcategory: &::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
+            fn MFTRegisterLocal(pclassfactory: ::windows::core::RawPtr, guidcategory: *const ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
         }
         MFTRegisterLocal(pclassfactory.into_param().abi(), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(cinputtypes), ::core::mem::transmute(pinputtypes), ::core::mem::transmute(coutputtypes), ::core::mem::transmute(poutputtypes)).ok()
     }
@@ -54408,12 +54398,12 @@ pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(clisdmft: &::windows::core::GUID, guidcategory: &::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
+pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFTRegisterLocalByCLSID(clisdmft: &::windows::core::GUID, guidcategory: &::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
+            fn MFTRegisterLocalByCLSID(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
         }
         MFTRegisterLocalByCLSID(::core::mem::transmute(clisdmft), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(cinputtypes), ::core::mem::transmute(pinputtypes), ::core::mem::transmute(coutputtypes), ::core::mem::transmute(poutputtypes)).ok()
     }
@@ -54785,12 +54775,12 @@ pub const MFTranscodeContainerType_MPEG4: ::windows::core::GUID = ::windows::cor
 pub const MFTranscodeContainerType_WAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c3453c_0f26_4741_be63_87bdf8bb935b);
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(guidsubtype: &::windows::core::GUID, dwmftflags: u32, pcodecconfig: Param2) -> ::windows::core::Result<IMFCollection> {
+pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: Param2) -> ::windows::core::Result<IMFCollection> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: &::windows::core::GUID, dwmftflags: u32, pcodecconfig: ::windows::core::RawPtr, ppavailabletypes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: ::windows::core::RawPtr, ppavailabletypes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFTranscodeGetAudioOutputAvailableTypes(::core::mem::transmute(guidsubtype), ::core::mem::transmute(dwmftflags), pcodecconfig.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMFCollection>(result__)
@@ -55654,12 +55644,12 @@ pub const MFWaveFormatExConvertFlag_Normal: MFWaveFormatExConvertFlags = 0i32;
 pub const MFWaveFormatExConvertFlag_ForceExtensible: MFWaveFormatExConvertFlags = 1i32;
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFWrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(porig: Param0, majortype: &::windows::core::GUID, subtype: &::windows::core::GUID) -> ::windows::core::Result<IMFMediaType> {
+pub unsafe fn MFWrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(porig: Param0, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFWrapMediaType(porig: ::windows::core::RawPtr, majortype: &::windows::core::GUID, subtype: &::windows::core::GUID, ppwrap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn MFWrapMediaType(porig: ::windows::core::RawPtr, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID, ppwrap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         MFWrapMediaType(porig.into_param().abi(), ::core::mem::transmute(majortype), ::core::mem::transmute(subtype), ::core::mem::transmute(&mut result__)).from_abi::<IMFMediaType>(result__)
@@ -59622,7 +59612,7 @@ pub const OPM_VOS_OPM_INDIRECT_DISPLAY: OPM_VIDEO_OUTPUT_SEMANTICS = 2i32;
 pub type PDXVAHDSW_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PDXVAHDSW_CreateVideoProcessor = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: &::windows::core::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+pub type PDXVAHDSW_CreateVideoProcessor = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows::core::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyDevice = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
@@ -59640,7 +59630,7 @@ pub type PDXVAHDSW_GetVideoProcessStreamStatePrivate = ::core::option::Option<un
 pub type PDXVAHDSW_GetVideoProcessorCaps = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pcaps: *mut DXVAHD_VPCAPS) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PDXVAHDSW_GetVideoProcessorCustomRates = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: &::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::HRESULT>;
+pub type PDXVAHDSW_GetVideoProcessorCustomRates = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorDeviceCaps = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows::core::HRESULT>;
