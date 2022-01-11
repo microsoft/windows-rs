@@ -133,7 +133,7 @@ unsafe impl ::windows::core::Interface for DeleteSmsMessageOperation {
 impl ::windows::core::RuntimeName for DeleteSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessageOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl DeleteSmsMessageOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -148,7 +148,7 @@ impl DeleteSmsMessageOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::std::future::Future for DeleteSmsMessageOperation {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -364,7 +364,7 @@ unsafe impl ::windows::core::Interface for DeleteSmsMessagesOperation {
 impl ::windows::core::RuntimeName for DeleteSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessagesOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl DeleteSmsMessagesOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -379,7 +379,7 @@ impl DeleteSmsMessagesOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::std::future::Future for DeleteSmsMessagesOperation {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::Interface for GetSmsDeviceOperation {
 impl ::windows::core::RuntimeName for GetSmsDeviceOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsDeviceOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl GetSmsDeviceOperation {
     pub fn get(&self) -> ::windows::core::Result<SmsDevice> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -613,7 +613,7 @@ impl GetSmsDeviceOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::std::future::Future for GetSmsDeviceOperation {
     type Output = ::windows::core::Result<SmsDevice>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -832,7 +832,7 @@ unsafe impl ::windows::core::Interface for GetSmsMessageOperation {
 impl ::windows::core::RuntimeName for GetSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessageOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl GetSmsMessageOperation {
     pub fn get(&self) -> ::windows::core::Result<ISmsMessage> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -847,7 +847,7 @@ impl GetSmsMessageOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::std::future::Future for GetSmsMessageOperation {
     type Output = ::windows::core::Result<ISmsMessage>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1081,7 +1081,7 @@ unsafe impl ::windows::core::Interface for GetSmsMessagesOperation {
 impl ::windows::core::RuntimeName for GetSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessagesOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl GetSmsMessagesOperation {
     pub fn get(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -1096,7 +1096,7 @@ impl GetSmsMessagesOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::std::future::Future for GetSmsMessagesOperation {
     type Output = ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -2771,7 +2771,7 @@ unsafe impl ::windows::core::Interface for SendSmsMessageOperation {
 impl ::windows::core::RuntimeName for SendSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.SendSmsMessageOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl SendSmsMessageOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -2786,7 +2786,7 @@ impl SendSmsMessageOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "std"))]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::std::future::Future for SendSmsMessageOperation {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

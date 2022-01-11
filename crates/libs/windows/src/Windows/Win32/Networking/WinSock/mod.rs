@@ -1627,7 +1627,40 @@ pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HWSAEVENT = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HWSAEVENT(pub isize);
+impl HWSAEVENT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HWSAEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWSAEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWSAEVENT {}
+impl ::core::fmt::Debug for HWSAEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWSAEVENT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HWSAEVENT {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const IAS_ATTRIB_INT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -2005,7 +2038,7 @@ impl ::core::default::Default for INTERFACE_INFO_EX {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const INVALID_SOCKET: SOCKET = 4294967295u32 as _;
+pub const INVALID_SOCKET: SOCKET = SOCKET(4294967295u32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct IN_ADDR {
@@ -7231,7 +7264,40 @@ impl ::core::default::Default for SOCKADDR_STORAGE_XP {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type SOCKET = usize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SOCKET(pub usize);
+impl SOCKET {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for SOCKET {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for SOCKET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for SOCKET {}
+impl ::core::fmt::Debug for SOCKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOCKET").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOCKET {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

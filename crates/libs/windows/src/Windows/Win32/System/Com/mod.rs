@@ -1430,7 +1430,40 @@ pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = 4i32;
 pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = 8i32;
 #[doc = "*Required features: 'Win32_System_Com'*"]
 pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = 16i32;
-pub type CO_DEVICE_CATALOG_COOKIE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
+impl CO_DEVICE_CATALOG_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for CO_DEVICE_CATALOG_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CO_DEVICE_CATALOG_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CO_DEVICE_CATALOG_COOKIE {}
+impl ::core::fmt::Debug for CO_DEVICE_CATALOG_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CO_DEVICE_CATALOG_COOKIE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CO_DEVICE_CATALOG_COOKIE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Com'*"]
 pub type CO_MARSHALING_CONTEXT_ATTRIBUTES = i32;
 #[doc = "*Required features: 'Win32_System_Com'*"]
@@ -1471,7 +1504,40 @@ pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATT
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483632i32;
 #[doc = "*Required features: 'Win32_System_Com'*"]
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483631i32;
-pub type CO_MTA_USAGE_COOKIE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CO_MTA_USAGE_COOKIE(pub isize);
+impl CO_MTA_USAGE_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for CO_MTA_USAGE_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CO_MTA_USAGE_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CO_MTA_USAGE_COOKIE {}
+impl ::core::fmt::Debug for CO_MTA_USAGE_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CO_MTA_USAGE_COOKIE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CO_MTA_USAGE_COOKIE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com'*"]
 pub struct CSPLATFORM {

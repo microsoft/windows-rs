@@ -5354,7 +5354,40 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FindChangeNotificationHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FindChangeNotificationHandle(pub isize);
+impl FindChangeNotificationHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FindChangeNotificationHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FindChangeNotificationHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FindChangeNotificationHandle {}
+impl ::core::fmt::Debug for FindChangeNotificationHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindChangeNotificationHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FindChangeNotificationHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5385,8 +5418,74 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FindFileHandle = isize;
-pub type FindFileNameHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FindFileHandle(pub isize);
+impl FindFileHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FindFileHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FindFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FindFileHandle {}
+impl ::core::fmt::Debug for FindFileHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindFileHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FindFileHandle {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FindFileNameHandle(pub isize);
+impl FindFileNameHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FindFileNameHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FindFileNameHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FindFileNameHandle {}
+impl ::core::fmt::Debug for FindFileNameHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindFileNameHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FindFileNameHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5777,7 +5876,40 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FindStreamHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FindStreamHandle(pub isize);
+impl FindStreamHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FindStreamHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FindStreamHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FindStreamHandle {}
+impl ::core::fmt::Debug for FindStreamHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindStreamHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FindStreamHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5793,8 +5925,74 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FindVolumeHandle = isize;
-pub type FindVolumeMointPointHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FindVolumeHandle(pub isize);
+impl FindVolumeHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FindVolumeHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FindVolumeHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FindVolumeHandle {}
+impl ::core::fmt::Debug for FindVolumeHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindVolumeHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FindVolumeHandle {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FindVolumeMointPointHandle(pub isize);
+impl FindVolumeMointPointHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FindVolumeMointPointHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FindVolumeMointPointHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FindVolumeMointPointHandle {}
+impl ::core::fmt::Debug for FindVolumeMointPointHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindVolumeMointPointHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FindVolumeMointPointHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

@@ -1571,7 +1571,40 @@ pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const LPM_API_VERSION_1: u32 = 1u32;
-pub type LPM_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LPM_HANDLE(pub isize);
+impl LPM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for LPM_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPM_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPM_HANDLE {}
+impl ::core::fmt::Debug for LPM_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPM_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LPM_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct LPM_INIT_INFO {
@@ -2799,7 +2832,40 @@ impl ::core::default::Default for RESV_STYLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type RHANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RHANDLE(pub isize);
+impl RHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for RHANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for RHANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for RHANDLE {}
+impl ::core::fmt::Debug for RHANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RHANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RHANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_ADSPEC {

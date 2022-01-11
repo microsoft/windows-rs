@@ -5,30 +5,21 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
-}
-
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) -> TokenStream {
     if !gen.sys {
         if let Some(replacement) = replacements::gen(def) {
             return replacement;
         }
     }
 
-    let name = gen_ident(struct_name);
-
     if def.is_handle() {
-        let signature = if def.type_name() == TypeName::HANDLE {
-            quote! { *mut ::core::ffi::c_void }
-        } else {
-            let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
-            gen_sig(&signature, gen)
-        };
-
-        return quote! {
-            pub type #name = #signature;
-        };
+        return handles::gen(def, gen);
     }
+
+    gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
+}
+
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) -> TokenStream {
+    let name = gen_ident(struct_name);
 
     if def.fields().next().is_none() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {

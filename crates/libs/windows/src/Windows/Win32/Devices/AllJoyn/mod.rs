@@ -1015,7 +1015,40 @@ pub type alljoyn_about_announceflag = i32;
 pub const UNANNOUNCED: alljoyn_about_announceflag = 0i32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ANNOUNCED: alljoyn_about_announceflag = 1i32;
-pub type alljoyn_aboutdata = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_aboutdata(pub isize);
+impl alljoyn_aboutdata {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_aboutdata {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_aboutdata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_aboutdata {}
+impl ::core::fmt::Debug for alljoyn_aboutdata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_aboutdata").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_aboutdata {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1661,7 +1694,40 @@ pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_aboutdatalistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_aboutdatalistener(pub isize);
+impl alljoyn_aboutdatalistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_aboutdatalistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_aboutdatalistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_aboutdatalistener {}
+impl ::core::fmt::Debug for alljoyn_aboutdatalistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_aboutdatalistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_aboutdatalistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1934,7 +2000,40 @@ pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonpr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_aboutlistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_aboutlistener(pub isize);
+impl alljoyn_aboutlistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_aboutlistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_aboutlistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_aboutlistener {}
+impl ::core::fmt::Debug for alljoyn_aboutlistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_aboutlistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_aboutlistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2002,7 +2101,40 @@ pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_aboutobj = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_aboutobj(pub isize);
+impl alljoyn_aboutobj {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_aboutobj {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_aboutobj {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_aboutobj {}
+impl ::core::fmt::Debug for alljoyn_aboutobj {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_aboutobj").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_aboutobj {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobj_announce<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobj>, Param2: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(obj: Param0, sessionport: u16, aboutdata: Param2) -> QStatus {
@@ -2073,7 +2205,40 @@ pub unsafe fn alljoyn_aboutobj_unannounce<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_aboutobjectdescription = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_aboutobjectdescription(pub isize);
+impl alljoyn_aboutobjectdescription {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_aboutobjectdescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_aboutobjectdescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_aboutobjectdescription {}
+impl ::core::fmt::Debug for alljoyn_aboutobjectdescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_aboutobjectdescription").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_aboutobjectdescription {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0) {
@@ -2247,7 +2412,40 @@ pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_aboutproxy = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_aboutproxy(pub isize);
+impl alljoyn_aboutproxy {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_aboutproxy {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_aboutproxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_aboutproxy {}
+impl ::core::fmt::Debug for alljoyn_aboutproxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_aboutproxy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_aboutproxy {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2330,7 +2528,40 @@ pub const CLAIMABLE: alljoyn_applicationstate = 1i32;
 pub const CLAIMED: alljoyn_applicationstate = 2i32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const NEED_UPDATE: alljoyn_applicationstate = 3i32;
-pub type alljoyn_applicationstatelistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_applicationstatelistener(pub isize);
+impl alljoyn_applicationstatelistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_applicationstatelistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_applicationstatelistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_applicationstatelistener {}
+impl ::core::fmt::Debug for alljoyn_applicationstatelistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_applicationstatelistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub struct alljoyn_applicationstatelistener_callbacks {
@@ -2391,7 +2622,40 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::co
 }
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub type alljoyn_applicationstatelistener_state_ptr = ::core::option::Option<unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void)>;
-pub type alljoyn_authlistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_authlistener(pub isize);
+impl alljoyn_authlistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_authlistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_authlistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_authlistener {}
+impl ::core::fmt::Debug for alljoyn_authlistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_authlistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_authlistener {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_authenticationcomplete_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32)>;
@@ -2591,7 +2855,40 @@ pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_autopinger = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_autopinger(pub isize);
+impl alljoyn_autopinger {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_autopinger {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_autopinger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_autopinger {}
+impl ::core::fmt::Debug for alljoyn_autopinger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_autopinger").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_autopinger {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2729,7 +3026,40 @@ pub unsafe fn alljoyn_autopinger_setpinginterval<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_busattachment = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_busattachment(pub isize);
+impl alljoyn_busattachment {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_busattachment {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_busattachment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_busattachment {}
+impl ::core::fmt::Debug for alljoyn_busattachment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_busattachment").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_busattachment {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3925,7 +4255,40 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_buslistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_buslistener(pub isize);
+impl alljoyn_buslistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_buslistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_buslistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_buslistener {}
+impl ::core::fmt::Debug for alljoyn_buslistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_buslistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_buslistener {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub type alljoyn_buslistener_bus_disconnected_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
@@ -4029,7 +4392,40 @@ pub type alljoyn_buslistener_lost_advertised_name_ptr = ::core::option::Option<u
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_name_owner_changed_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR)>;
-pub type alljoyn_busobject = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_busobject(pub isize);
+impl alljoyn_busobject {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_busobject {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_busobject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_busobject {}
+impl ::core::fmt::Debug for alljoyn_busobject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_busobject").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_busobject {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_addinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
@@ -4486,7 +4882,40 @@ pub type alljoyn_claimcapabilityadditionalinfo_masks = i32;
 pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = 1i32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalinfo_masks = 2i32;
-pub type alljoyn_credentials = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_credentials(pub isize);
+impl alljoyn_credentials {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_credentials {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_credentials {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_credentials {}
+impl ::core::fmt::Debug for alljoyn_credentials {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_credentials").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_credentials {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) {
@@ -4779,7 +5208,40 @@ pub unsafe fn alljoyn_init() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_interfacedescription = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_interfacedescription(pub isize);
+impl alljoyn_interfacedescription {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_interfacedescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_interfacedescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_interfacedescription {}
+impl ::core::fmt::Debug for alljoyn_interfacedescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_interfacedescription").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_interfacedescription {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) {
@@ -5738,8 +6200,74 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a,
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option::Option<unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR>;
-pub type alljoyn_keystore = isize;
-pub type alljoyn_keystorelistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_keystore(pub isize);
+impl alljoyn_keystore {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_keystore {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_keystore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_keystore {}
+impl ::core::fmt::Debug for alljoyn_keystore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_keystore").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_keystore {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_keystorelistener(pub isize);
+impl alljoyn_keystorelistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_keystorelistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_keystorelistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_keystorelistener {}
+impl ::core::fmt::Debug for alljoyn_keystorelistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_keystorelistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_keystorelistener {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus>;
 #[repr(C)]
@@ -5915,7 +6443,40 @@ impl ::core::default::Default for alljoyn_manifestarray {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type alljoyn_message = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_message(pub isize);
+impl alljoyn_message {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_message {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_message {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_message {}
+impl ::core::fmt::Debug for alljoyn_message {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_message").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_message {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_message_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_message {
@@ -6382,7 +6943,40 @@ pub const ALLJOYN_MESSAGE_METHOD_RET: alljoyn_messagetype = 2i32;
 pub const ALLJOYN_MESSAGE_ERROR: alljoyn_messagetype = 3i32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = 4i32;
-pub type alljoyn_msgarg = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_msgarg(pub isize);
+impl alljoyn_msgarg {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_msgarg {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_msgarg {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_msgarg {}
+impl ::core::fmt::Debug for alljoyn_msgarg {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_msgarg").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_msgarg {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
@@ -7507,7 +8101,40 @@ pub unsafe fn alljoyn_msgarg_tostring<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_observer = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_observer(pub isize);
+impl alljoyn_observer {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_observer {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_observer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_observer {}
+impl ::core::fmt::Debug for alljoyn_observer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_observer").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_observer {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_observer_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer {
@@ -7625,7 +8252,40 @@ pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_observerlistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_observerlistener(pub isize);
+impl alljoyn_observerlistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_observerlistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_observerlistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_observerlistener {}
+impl ::core::fmt::Debug for alljoyn_observerlistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_observerlistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_observerlistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub struct alljoyn_observerlistener_callback {
@@ -7700,7 +8360,40 @@ pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_permissionconfigurationlistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_permissionconfigurationlistener(pub isize);
+impl alljoyn_permissionconfigurationlistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_permissionconfigurationlistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_permissionconfigurationlistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_permissionconfigurationlistener {}
+impl ::core::fmt::Debug for alljoyn_permissionconfigurationlistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_permissionconfigurationlistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
@@ -7770,7 +8463,40 @@ pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = ::core::opti
 pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
-pub type alljoyn_permissionconfigurator = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_permissionconfigurator(pub isize);
+impl alljoyn_permissionconfigurator {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_permissionconfigurator {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_permissionconfigurator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_permissionconfigurator {}
+impl ::core::fmt::Debug for alljoyn_permissionconfigurator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_permissionconfigurator").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurator {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
@@ -8233,7 +8959,40 @@ pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_pinglistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_pinglistener(pub isize);
+impl alljoyn_pinglistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_pinglistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_pinglistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_pinglistener {}
+impl ::core::fmt::Debug for alljoyn_pinglistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_pinglistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_pinglistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8302,7 +9061,40 @@ pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_proxybusobject = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_proxybusobject(pub isize);
+impl alljoyn_proxybusobject {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_proxybusobject {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_proxybusobject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_proxybusobject {}
+impl ::core::fmt::Debug for alljoyn_proxybusobject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_proxybusobject").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_proxybusobject {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_addchild<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, child: Param1) -> QStatus {
@@ -8782,7 +9574,40 @@ pub unsafe fn alljoyn_proxybusobject_parsexml<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_proxybusobject_ref = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_proxybusobject_ref(pub isize);
+impl alljoyn_proxybusobject_ref {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_proxybusobject_ref {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_proxybusobject_ref {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_proxybusobject_ref {}
+impl ::core::fmt::Debug for alljoyn_proxybusobject_ref {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_proxybusobject_ref").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_proxybusobject_ref {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_ref_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxy: Param0) -> alljoyn_proxybusobject_ref {
@@ -8984,7 +9809,40 @@ pub unsafe fn alljoyn_routershutdown() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_securityapplicationproxy = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_securityapplicationproxy(pub isize);
+impl alljoyn_securityapplicationproxy {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_securityapplicationproxy {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_securityapplicationproxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_securityapplicationproxy {}
+impl ::core::fmt::Debug for alljoyn_securityapplicationproxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_securityapplicationproxy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_securityapplicationproxy {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
@@ -9349,7 +10207,40 @@ pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_sessionlistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_sessionlistener(pub isize);
+impl alljoyn_sessionlistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_sessionlistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_sessionlistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_sessionlistener {}
+impl ::core::fmt::Debug for alljoyn_sessionlistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_sessionlistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_sessionlistener {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9441,7 +10332,40 @@ pub const ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: alljoyn_sessionlostreason = 3i3
 pub const ALLJOYN_SESSIONLOST_LINK_TIMEOUT: alljoyn_sessionlostreason = 4i32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = 5i32;
-pub type alljoyn_sessionopts = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_sessionopts(pub isize);
+impl alljoyn_sessionopts {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_sessionopts {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_sessionopts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_sessionopts {}
+impl ::core::fmt::Debug for alljoyn_sessionopts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_sessionopts").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_sessionopts {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_cmp<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>, Param1: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(one: Param0, other: Param1) -> i32 {
@@ -9610,7 +10534,40 @@ pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_sessionportlistener = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct alljoyn_sessionportlistener(pub isize);
+impl alljoyn_sessionportlistener {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for alljoyn_sessionportlistener {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_sessionportlistener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_sessionportlistener {}
+impl ::core::fmt::Debug for alljoyn_sessionportlistener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_sessionportlistener").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_sessionportlistener {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32>;

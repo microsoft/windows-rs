@@ -170,7 +170,40 @@ pub type HCS_NOTIFICATION_FLAGS = i32;
 pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = 0i32;
 #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
 pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = -2147483648i32;
-pub type HCS_OPERATION = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCS_OPERATION(pub isize);
+impl HCS_OPERATION {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCS_OPERATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCS_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCS_OPERATION {}
+impl ::core::fmt::Debug for HCS_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_OPERATION {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
 pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
@@ -209,7 +242,40 @@ pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = 13i32;
 pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = 14i32;
 #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
 pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = 15i32;
-pub type HCS_PROCESS = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCS_PROCESS(pub isize);
+impl HCS_PROCESS {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCS_PROCESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCS_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCS_PROCESS {}
+impl ::core::fmt::Debug for HCS_PROCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_PROCESS").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_PROCESS {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -252,7 +318,40 @@ impl ::core::default::Default for HCS_PROCESS_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type HCS_SYSTEM = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCS_SYSTEM(pub isize);
+impl HCS_SYSTEM {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCS_SYSTEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCS_SYSTEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCS_SYSTEM {}
+impl ::core::fmt::Debug for HCS_SYSTEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_SYSTEM").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_SYSTEM {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

@@ -172,27 +172,60 @@ pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HKEY = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HKEY(pub isize);
+impl HKEY {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HKEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HKEY {}
+impl ::core::fmt::Debug for HKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HKEY").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HKEY {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_CLASSES_ROOT: HKEY = -2147483648i32 as _;
+pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_CURRENT_CONFIG: HKEY = -2147483643i32 as _;
+pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_CURRENT_USER: HKEY = -2147483647i32 as _;
+pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = -2147483641i32 as _;
+pub const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = HKEY(-2147483641i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_DYN_DATA: HKEY = -2147483642i32 as _;
+pub const HKEY_DYN_DATA: HKEY = HKEY(-2147483642i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646i32 as _;
+pub const HKEY_LOCAL_MACHINE: HKEY = HKEY(-2147483646i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_PERFORMANCE_DATA: HKEY = -2147483644i32 as _;
+pub const HKEY_PERFORMANCE_DATA: HKEY = HKEY(-2147483644i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_PERFORMANCE_NLSTEXT: HKEY = -2147483552i32 as _;
+pub const HKEY_PERFORMANCE_NLSTEXT: HKEY = HKEY(-2147483552i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_PERFORMANCE_TEXT: HKEY = -2147483568i32 as _;
+pub const HKEY_PERFORMANCE_TEXT: HKEY = HKEY(-2147483568i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const HKEY_USERS: HKEY = -2147483645i32 as _;
+pub const HKEY_USERS: HKEY = HKEY(-2147483645i32 as _);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const IT_COMPACT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]

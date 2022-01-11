@@ -1044,7 +1044,40 @@ pub const AUTHZP_WPD_EVENT: u32 = 16u32;
 pub type AUTHZ_ACCESS_CHECK_FLAGS = u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = 1u32;
-pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
+impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_ACCESS_CHECK_RESULTS_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub struct AUTHZ_ACCESS_REPLY {
@@ -1122,7 +1155,40 @@ impl ::core::default::Default for AUTHZ_ACCESS_REQUEST {
 }
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-pub type AUTHZ_AUDIT_EVENT_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
+impl AUTHZ_AUDIT_EVENT_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_AUDIT_EVENT_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
@@ -1135,7 +1201,40 @@ pub const AuthzAuditEventInfoObjectType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = 3
 pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = 4i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = 5i32;
-pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
+impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_AUDIT_EVENT_TYPE_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
@@ -1262,7 +1361,40 @@ impl ::core::default::Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type AUTHZ_CLIENT_CONTEXT_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
+impl AUTHZ_CLIENT_CONTEXT_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_CLIENT_CONTEXT_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
@@ -1420,7 +1552,40 @@ pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = 1u32;
 pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = 4u32;
-pub type AUTHZ_RESOURCE_MANAGER_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
+impl AUTHZ_RESOURCE_MANAGER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_RESOURCE_MANAGER_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1715,7 +1880,40 @@ impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
+impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_SID_OPERATION = i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]

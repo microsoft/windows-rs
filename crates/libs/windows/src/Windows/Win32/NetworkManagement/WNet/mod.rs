@@ -862,7 +862,40 @@ pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = 0u32;
 pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = 2u32;
-pub type NetEnumHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NetEnumHandle(pub isize);
+impl NetEnumHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for NetEnumHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NetEnumHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NetEnumHandle {}
+impl ::core::fmt::Debug for NetEnumHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetEnumHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NetEnumHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_AddConnectNotify = ::core::option::Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32>;

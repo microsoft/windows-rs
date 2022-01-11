@@ -76,7 +76,6 @@ windows_gen = { path = "../gen",  version = "0.29.0", optional = true }
 [features]
 default = []
 deprecated = []
-std = []
 alloc = []
 implement = ["windows_macros"]
 implement_exclusive = []

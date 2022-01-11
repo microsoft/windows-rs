@@ -4409,7 +4409,40 @@ pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type DnsContextHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DnsContextHandle(pub isize);
+impl DnsContextHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for DnsContextHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for DnsContextHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for DnsContextHandle {}
+impl ::core::fmt::Debug for DnsContextHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnsContextHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DnsContextHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

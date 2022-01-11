@@ -3189,7 +3189,40 @@ pub const WHvNotificationPortTypeDoorbell: WHV_NOTIFICATION_PORT_TYPE = 4i32;
 pub type WHV_PARTITION_COUNTER_SET = i32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHvPartitionCounterSetMemory: WHV_PARTITION_COUNTER_SET = 0i32;
-pub type WHV_PARTITION_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WHV_PARTITION_HANDLE(pub isize);
+impl WHV_PARTITION_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for WHV_PARTITION_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WHV_PARTITION_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for WHV_PARTITION_HANDLE {}
+impl ::core::fmt::Debug for WHV_PARTITION_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_PARTITION_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WHV_PARTITION_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {

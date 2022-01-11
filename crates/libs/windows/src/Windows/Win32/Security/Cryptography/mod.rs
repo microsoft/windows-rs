@@ -299,31 +299,31 @@ pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG: u32 = 1073741824u
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPTBUFFER_VERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 369u32 as _;
+pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(369u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_3DES_112_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 401u32 as _;
+pub const BCRYPT_3DES_112_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(401u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_3DES_112_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 385u32 as _;
+pub const BCRYPT_3DES_112_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(385u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_3DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 321u32 as _;
+pub const BCRYPT_3DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(321u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_3DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 353u32 as _;
+pub const BCRYPT_3DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(353u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_3DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 337u32 as _;
+pub const BCRYPT_3DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(337u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 417u32 as _;
+pub const BCRYPT_AES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(417u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_CCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 465u32 as _;
+pub const BCRYPT_AES_CCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(465u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 449u32 as _;
+pub const BCRYPT_AES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(449u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_CMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 257u32 as _;
+pub const BCRYPT_AES_CMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(257u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 433u32 as _;
+pub const BCRYPT_AES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(433u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_GCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 481u32 as _;
+pub const BCRYPT_AES_GCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(481u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 273u32 as _;
+pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(273u32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -364,7 +364,40 @@ impl ::core::default::Default for BCRYPT_ALGORITHM_IDENTIFIER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type BCRYPT_ALG_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_ALG_HANDLE(pub isize);
+impl BCRYPT_ALG_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for BCRYPT_ALG_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BCRYPT_ALG_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BCRYPT_ALG_HANDLE {}
+impl ::core::fmt::Debug for BCRYPT_ALG_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_ALG_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_ALG_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
@@ -434,23 +467,23 @@ pub const BCRYPT_BUFFERS_LOCKED_FLAG: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_CAPI_AES_FLAG: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_CAPI_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 801u32 as _;
+pub const BCRYPT_CAPI_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(801u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_CHACHA20_POLY1305_ALG_HANDLE: BCRYPT_ALG_HANDLE = 929u32 as _;
+pub const BCRYPT_CHACHA20_POLY1305_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(929u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DESX_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 545u32 as _;
+pub const BCRYPT_DESX_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(545u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DESX_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 577u32 as _;
+pub const BCRYPT_DESX_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(577u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DESX_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 561u32 as _;
+pub const BCRYPT_DESX_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(561u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 497u32 as _;
+pub const BCRYPT_DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(497u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 529u32 as _;
+pub const BCRYPT_DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(529u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 513u32 as _;
+pub const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(513u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 641u32 as _;
+pub const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(641u32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct BCRYPT_DH_KEY_BLOB {
@@ -523,7 +556,7 @@ impl ::core::default::Default for BCRYPT_DH_PARAMETER_HEADER {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 721u32 as _;
+pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(721u32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct BCRYPT_DSA_KEY_BLOB {
@@ -792,13 +825,13 @@ pub const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 657u32 as _;
+pub const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(657u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDH_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 673u32 as _;
+pub const BCRYPT_ECDH_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(673u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDH_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 689u32 as _;
+pub const BCRYPT_ECDH_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(689u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDH_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = 705u32 as _;
+pub const BCRYPT_ECDH_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(705u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: u32 = 1447772997u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -816,13 +849,13 @@ pub const BCRYPT_ECDH_PUBLIC_P384_MAGIC: u32 = 860570437u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_ECDH_PUBLIC_P521_MAGIC: u32 = 894124869u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 241u32 as _;
+pub const BCRYPT_ECDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(241u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDSA_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 737u32 as _;
+pub const BCRYPT_ECDSA_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(737u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDSA_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 753u32 as _;
+pub const BCRYPT_ECDSA_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(753u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECDSA_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = 769u32 as _;
+pub const BCRYPT_ECDSA_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(769u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: u32 = 1447314245u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -854,21 +887,21 @@ pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_HASH_OPERATION_FINISH_HASH: BCRYPT_HASH_OPERATION_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 913u32 as _;
+pub const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(913u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 289u32 as _;
+pub const BCRYPT_HMAC_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(289u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = 305u32 as _;
+pub const BCRYPT_HMAC_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(305u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = 145u32 as _;
+pub const BCRYPT_HMAC_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(145u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = 161u32 as _;
+pub const BCRYPT_HMAC_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(161u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 177u32 as _;
+pub const BCRYPT_HMAC_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(177u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 193u32 as _;
+pub const BCRYPT_HMAC_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(193u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 209u32 as _;
+pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(209u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub type BCRYPT_INTERFACE = u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -990,7 +1023,40 @@ pub const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1u32;
 pub const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
-pub type BCRYPT_KEY_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_KEY_HANDLE(pub isize);
+impl BCRYPT_KEY_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for BCRYPT_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BCRYPT_KEY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BCRYPT_KEY_HANDLE {}
+impl ::core::fmt::Debug for BCRYPT_KEY_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_KEY_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_KEY_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
@@ -1030,11 +1096,11 @@ pub const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: u32 = 24u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_KEY_VALIDATION_REGENERATE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1u32 as _;
+pub const BCRYPT_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = 17u32 as _;
+pub const BCRYPT_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(17u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = 33u32 as _;
+pub const BCRYPT_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(33u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_MULTI_FLAG: u32 = 64u32;
 #[repr(C)]
@@ -1236,7 +1302,7 @@ pub const BCRYPT_RNG_OPERATION: BCRYPT_OPERATION = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 817u32 as _;
+pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(817u32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1367,13 +1433,13 @@ pub const CRYPT_KM: BCRYPT_QUERY_PROVIDER_MODE = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_MM: BCRYPT_QUERY_PROVIDER_MODE = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 593u32 as _;
+pub const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(593u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RC2_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 625u32 as _;
+pub const BCRYPT_RC2_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(625u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RC2_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 609u32 as _;
+pub const BCRYPT_RC2_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(609u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RC4_ALG_HANDLE: BCRYPT_ALG_HANDLE = 113u32 as _;
+pub const BCRYPT_RC4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(113u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub type BCRYPT_RESOLVE_PROVIDERS_FLAGS = u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1381,7 +1447,7 @@ pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = 129u32 as _;
+pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(129u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1u32;
 #[repr(C)]
@@ -1428,21 +1494,21 @@ pub const BCRYPT_RSAPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = 843141970u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RSAFULLPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = 859919186u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 225u32 as _;
+pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = 785u32 as _;
+pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(785u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = 49u32 as _;
+pub const BCRYPT_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(49u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 65u32 as _;
+pub const BCRYPT_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(65u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 81u32 as _;
+pub const BCRYPT_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(81u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 97u32 as _;
+pub const BCRYPT_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(97u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SP800108_CTR_HMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 833u32 as _;
+pub const BCRYPT_SP800108_CTR_HMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(833u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SP80056A_CONCAT_ALG_HANDLE: BCRYPT_ALG_HANDLE = 849u32 as _;
+pub const BCRYPT_SP80056A_CONCAT_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(849u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_SUPPORTED_PAD_OAEP: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1460,15 +1526,15 @@ pub const CRYPT_LOCAL: BCRYPT_TABLE = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_DOMAIN: BCRYPT_TABLE = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 865u32 as _;
+pub const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(865u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 881u32 as _;
+pub const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(881u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897u32 as _;
+pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -21712,8 +21778,74 @@ pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = 0i32;
 pub const DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = 1i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = 2i32;
-pub type HCERTCHAINENGINE = isize;
-pub type HCRYPTASYNC = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCERTCHAINENGINE(pub isize);
+impl HCERTCHAINENGINE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCERTCHAINENGINE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCERTCHAINENGINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCERTCHAINENGINE {}
+impl ::core::fmt::Debug for HCERTCHAINENGINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCERTCHAINENGINE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCERTCHAINENGINE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCRYPTASYNC(pub isize);
+impl HCRYPTASYNC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCRYPTASYNC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCRYPTASYNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCRYPTASYNC {}
+impl ::core::fmt::Debug for HCRYPTASYNC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCRYPTASYNC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCRYPTASYNC {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct HMAC_Info {

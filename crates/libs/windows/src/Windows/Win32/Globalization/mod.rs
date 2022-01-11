@@ -2483,9 +2483,108 @@ pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
-pub type HIMC = isize;
-pub type HIMCC = isize;
-pub type HSAVEDUILANGUAGES = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIMC(pub isize);
+impl HIMC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HIMC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HIMC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HIMC {}
+impl ::core::fmt::Debug for HIMC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIMC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIMC {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIMCC(pub isize);
+impl HIMCC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HIMCC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HIMCC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HIMCC {}
+impl ::core::fmt::Debug for HIMCC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIMCC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIMCC {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HSAVEDUILANGUAGES(pub isize);
+impl HSAVEDUILANGUAGES {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HSAVEDUILANGUAGES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSAVEDUILANGUAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSAVEDUILANGUAGES {}
+impl ::core::fmt::Debug for HSAVEDUILANGUAGES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSAVEDUILANGUAGES").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSAVEDUILANGUAGES {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(::windows::core::IUnknown);

@@ -876,11 +876,176 @@ pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = 32u32;
 pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = 64u32;
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = 4096u32;
-pub type HUIAEVENT = isize;
-pub type HUIANODE = isize;
-pub type HUIAPATTERNOBJECT = isize;
-pub type HUIATEXTRANGE = isize;
-pub type HWINEVENTHOOK = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HUIAEVENT(pub isize);
+impl HUIAEVENT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HUIAEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIAEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIAEVENT {}
+impl ::core::fmt::Debug for HUIAEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIAEVENT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIAEVENT {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HUIANODE(pub isize);
+impl HUIANODE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HUIANODE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIANODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIANODE {}
+impl ::core::fmt::Debug for HUIANODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIANODE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIANODE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HUIAPATTERNOBJECT(pub isize);
+impl HUIAPATTERNOBJECT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HUIAPATTERNOBJECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIAPATTERNOBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIAPATTERNOBJECT {}
+impl ::core::fmt::Debug for HUIAPATTERNOBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIAPATTERNOBJECT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIAPATTERNOBJECT {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HUIATEXTRANGE(pub isize);
+impl HUIATEXTRANGE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HUIATEXTRANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIATEXTRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIATEXTRANGE {}
+impl ::core::fmt::Debug for HUIATEXTRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIATEXTRANGE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIATEXTRANGE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HWINEVENTHOOK(pub isize);
+impl HWINEVENTHOOK {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HWINEVENTHOOK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWINEVENTHOOK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWINEVENTHOOK {}
+impl ::core::fmt::Debug for HWINEVENTHOOK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWINEVENTHOOK").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HWINEVENTHOOK {
+    type Abi = Self;
+}
 pub const HasKeyboardFocus_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
 pub const HeaderItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
 pub const Header_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);

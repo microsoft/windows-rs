@@ -2811,7 +2811,40 @@ impl ::core::default::Default for JET_LOGTIME_1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type JET_LS = usize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct JET_LS(pub usize);
+impl JET_LS {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for JET_LS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for JET_LS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for JET_LS {}
+impl ::core::fmt::Debug for JET_LS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JET_LS").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for JET_LS {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
@@ -3092,7 +3125,40 @@ impl ::core::default::Default for JET_OPERATIONCONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type JET_OSSNAPID = usize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct JET_OSSNAPID(pub usize);
+impl JET_OSSNAPID {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for JET_OSSNAPID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for JET_OSSNAPID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for JET_OSSNAPID {}
+impl ::core::fmt::Debug for JET_OSSNAPID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JET_OSSNAPID").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for JET_OSSNAPID {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_OnlineDefragAll: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]

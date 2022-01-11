@@ -227,8 +227,74 @@ pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::core::IntoParam<'a, HTOUC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HGESTUREINFO = isize;
-pub type HTOUCHINPUT = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HGESTUREINFO(pub isize);
+impl HGESTUREINFO {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HGESTUREINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HGESTUREINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HGESTUREINFO {}
+impl ::core::fmt::Debug for HGESTUREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HGESTUREINFO").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HGESTUREINFO {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTOUCHINPUT(pub isize);
+impl HTOUCHINPUT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HTOUCHINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HTOUCHINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HTOUCHINPUT {}
+impl ::core::fmt::Debug for HTOUCHINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTOUCHINPUT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HTOUCHINPUT {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
 #[repr(transparent)]
 pub struct IInertiaProcessor(::windows::core::IUnknown);

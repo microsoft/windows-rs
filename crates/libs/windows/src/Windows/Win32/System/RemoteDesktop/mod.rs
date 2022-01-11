@@ -539,7 +539,40 @@ pub const DOMAIN_LENGTH: u32 = 17u32;
 pub const FORCE_REJOIN: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
-pub type HwtsVirtualChannelHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HwtsVirtualChannelHandle(pub isize);
+impl HwtsVirtualChannelHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HwtsVirtualChannelHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HwtsVirtualChannelHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
+impl ::core::fmt::Debug for HwtsVirtualChannelHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HwtsVirtualChannelHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HwtsVirtualChannelHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 #[repr(transparent)]
 pub struct IADsTSUserEx(::windows::core::IUnknown);

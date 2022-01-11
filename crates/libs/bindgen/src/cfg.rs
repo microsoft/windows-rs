@@ -23,7 +23,6 @@ impl Cfg {
 
     pub fn and_async(&self) -> Self {
         let mut combo = self.clone();
-        combo.features.insert("std");
         combo.features.insert("Windows.Foundation");
         combo
     }

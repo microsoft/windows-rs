@@ -121,7 +121,40 @@ pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::core::GUID = ::windows::core::G
 pub const GXFPF_NEAREST: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
-pub type HKL = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HKL(pub isize);
+impl HKL {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HKL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HKL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HKL {}
+impl ::core::fmt::Debug for HKL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HKL").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HKL {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 #[repr(transparent)]
 pub struct IAccClientDocMgr(::windows::core::IUnknown);

@@ -2082,7 +2082,45 @@ pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type CreatedHDC = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CreatedHDC(pub isize);
+impl CreatedHDC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for CreatedHDC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CreatedHDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CreatedHDC {}
+impl ::core::fmt::Debug for CreatedHDC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreatedHDC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CreatedHDC {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HDC> for CreatedHDC {
+    fn into_param(self) -> ::windows::core::Param<'a, HDC> {
+        ::windows::core::Param::Owned(HDC(self.0))
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -10673,9 +10711,118 @@ pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = 2u32;
 pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_VERTICAL: HATCH_BRUSH_STYLE = 1u32;
-pub type HBITMAP = isize;
-pub type HBRUSH = isize;
-pub type HDC = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HBITMAP(pub isize);
+impl HBITMAP {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HBITMAP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HBITMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HBITMAP {}
+impl ::core::fmt::Debug for HBITMAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HBITMAP").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HBITMAP {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HBITMAP {
+    fn into_param(self) -> ::windows::core::Param<'a, HGDIOBJ> {
+        ::windows::core::Param::Owned(HGDIOBJ(self.0))
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HBRUSH(pub isize);
+impl HBRUSH {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HBRUSH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HBRUSH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HBRUSH {}
+impl ::core::fmt::Debug for HBRUSH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HBRUSH").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HBRUSH {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HBRUSH {
+    fn into_param(self) -> ::windows::core::Param<'a, HGDIOBJ> {
+        ::windows::core::Param::Owned(HGDIOBJ(self.0))
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDC(pub isize);
+impl HDC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDC {}
+impl ::core::fmt::Debug for HDC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDC {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type HDC_MAP_MODE = u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -10696,18 +10843,368 @@ pub const MM_TEXT: HDC_MAP_MODE = 1u32;
 pub const MM_TWIPS: HDC_MAP_MODE = 6u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HEBREW_CHARSET: u32 = 177u32;
-pub type HENHMETAFILE = isize;
-pub type HFONT = isize;
-pub type HGDIOBJ = isize;
-pub type HMETAFILE = isize;
-pub type HMONITOR = isize;
-pub type HPALETTE = isize;
-pub type HPEN = isize;
-pub type HRGN = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HENHMETAFILE(pub isize);
+impl HENHMETAFILE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HENHMETAFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HENHMETAFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HENHMETAFILE {}
+impl ::core::fmt::Debug for HENHMETAFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HENHMETAFILE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HENHMETAFILE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HFONT(pub isize);
+impl HFONT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HFONT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HFONT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HFONT {}
+impl ::core::fmt::Debug for HFONT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HFONT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HFONT {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HFONT {
+    fn into_param(self) -> ::windows::core::Param<'a, HGDIOBJ> {
+        ::windows::core::Param::Owned(HGDIOBJ(self.0))
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HGDIOBJ(pub isize);
+impl HGDIOBJ {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HGDIOBJ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HGDIOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HGDIOBJ {}
+impl ::core::fmt::Debug for HGDIOBJ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HGDIOBJ").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HGDIOBJ {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HMETAFILE(pub isize);
+impl HMETAFILE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HMETAFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HMETAFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HMETAFILE {}
+impl ::core::fmt::Debug for HMETAFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HMETAFILE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HMETAFILE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HMONITOR(pub isize);
+impl HMONITOR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HMONITOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HMONITOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HMONITOR {}
+impl ::core::fmt::Debug for HMONITOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HMONITOR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HMONITOR {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HPALETTE(pub isize);
+impl HPALETTE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HPALETTE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HPALETTE {}
+impl ::core::fmt::Debug for HPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HPALETTE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HPALETTE {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HPALETTE {
+    fn into_param(self) -> ::windows::core::Param<'a, HGDIOBJ> {
+        ::windows::core::Param::Owned(HGDIOBJ(self.0))
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HPEN(pub isize);
+impl HPEN {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HPEN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HPEN {}
+impl ::core::fmt::Debug for HPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HPEN").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HPEN {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HPEN {
+    fn into_param(self) -> ::windows::core::Param<'a, HGDIOBJ> {
+        ::windows::core::Param::Owned(HGDIOBJ(self.0))
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HRGN(pub isize);
+impl HRGN {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HRGN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HRGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HRGN {}
+impl ::core::fmt::Debug for HRGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HRGN").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HRGN {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HRGN {
+    fn into_param(self) -> ::windows::core::Param<'a, HGDIOBJ> {
+        ::windows::core::Param::Owned(HGDIOBJ(self.0))
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_API_MAX: u32 = 12u32;
-pub type HdcMetdataEnhFileHandle = isize;
-pub type HdcMetdataFileHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HdcMetdataEnhFileHandle(pub isize);
+impl HdcMetdataEnhFileHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HdcMetdataEnhFileHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
+impl ::core::fmt::Debug for HdcMetdataEnhFileHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcMetdataEnhFileHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HdcMetdataEnhFileHandle {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HdcMetdataFileHandle(pub isize);
+impl HdcMetdataFileHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HdcMetdataFileHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HdcMetdataFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HdcMetdataFileHandle {}
+impl ::core::fmt::Debug for HdcMetdataFileHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcMetdataFileHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HdcMetdataFileHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ICM_DONE_OUTSIDEDC: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]

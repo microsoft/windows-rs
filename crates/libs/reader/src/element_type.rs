@@ -232,6 +232,7 @@ impl ElementType {
         }
     }
 
+    #[must_use]
     pub fn underlying_type(&self) -> ElementType {
         match self {
             Self::TypeDef(def) => def.underlying_type(),
@@ -243,7 +244,7 @@ impl ElementType {
     pub fn has_replacement(&self) -> bool {
         match self {
             Self::HRESULT => true,
-            Self::TypeDef(def) => matches!(def.type_name(), TypeName::BOOL | TypeName::BSTR | TypeName::HANDLE | TypeName::NTSTATUS | TypeName::PSTR | TypeName::PWSTR),
+            Self::TypeDef(def) => def.is_handle(),
             _ => false,
         }
     }
